@@ -1,5 +1,5 @@
-| Name | ID |
-|:-|-:|
+|Name|ID|
+|:-:|:-:|
 |Default|0|
 |TransparentFX|1|
 |Ignore_Raycast|-1|
