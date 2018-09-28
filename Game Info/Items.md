@@ -1,5 +1,5 @@
-| Id | Display name | Short name | Description |
-|:-------------:|:-------------:|:-------------:|:-------------|
+|ID|Display name|Short name|Description|
+|:-:|:-:|:-:|:-|
 |1545779598|Assault Rifle|rifle.ak|High damage machine rifle.|
 |588596902|Handmade Shell|ammo.handmade.shell|Shoddy ammo with multiple projectiles.|
 |785728077|Pistol Bullet|ammo.pistol|Ammunition for a Pistol. Loses velocity when fired over long distances resulting in slightly decreased damage.|
