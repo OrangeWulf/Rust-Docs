@@ -45,6 +45,7 @@
 |assets/content/ui/overlay_helmet_slit.png|
 |assets/content/ui/overlay_poisoned.png|
 |assets/content/ui/overlay_scope_1.png|
+|assets/content/ui/overlay_scope_2.png|
 |assets/content/ui/tiledpatterns/circles.png|
 |assets/content/ui/tiledpatterns/stripe_reallythick.png|
 |assets/content/ui/tiledpatterns/stripe_slight.png|
@@ -77,6 +78,7 @@
 |assets/icons/build/wall.doorway.door.png|
 |assets/icons/build/wall.window.bars.png|
 |assets/icons/bullet.png|
+|assets/icons/cargo_ship_body.png|
 |assets/icons/cart.png|
 |assets/icons/change_code.png|
 |assets/icons/check.png|

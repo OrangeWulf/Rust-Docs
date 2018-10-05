@@ -20,14 +20,14 @@
 |Player_Server|-1|
 |Trigger|18|
 |Player_Model_Rendering|-1|
-|PhysicsProp|-1|
+|Physics_Projectile|-1|
 |Construction|21|
 |Construction_Socket|-1|
 |Terrain|23|
 |Transparent|24|
 |Clutter|25|
 |Debris|26|
-|Occluder|27|
+|Vehicle_Large|-1|
 |Prevent_Movement|-1|
 |Prevent_Building|-1|
 |Tree|30|

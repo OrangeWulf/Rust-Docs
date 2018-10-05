@@ -57,6 +57,7 @@
 |assets/content/ui/playerpreviewremovesegments.mat|
 |assets/content/ui/playerpreviewsegments.mat|
 |assets/content/ui/scope_1.mat|
+|assets/content/ui/scope_2.mat|
 |assets/content/ui/ui.maskclear.mat|
 |assets/content/ui/uibackgroundblur-ingamemenu.mat|
 |assets/content/ui/uibackgroundblur-notice.mat|

@@ -1,5 +1,6 @@
 |ID|Display name|Short name|Description|
 |:-:|:-:|:-:|:-|
+|174866732|8x Zoom Scope|weapon.mod.8x.scope|A large 8x zoom scope.|
 |1545779598|Assault Rifle|rifle.ak|High damage machine rifle.|
 |588596902|Handmade Shell|ammo.handmade.shell|Shoddy ammo with multiple projectiles.|
 |785728077|Pistol Bullet|ammo.pistol|Ammunition for a Pistol. Loses velocity when fired over long distances resulting in slightly decreased damage.|
@@ -130,7 +131,10 @@
 |479143914|Gears|gears|A selection of gears. Some functional, some not.|
 |999690781|Geiger Counter|geiger.counter|A geiger counter used by scientists|
 |-1819763926|Wind Turbine|generator.wind.scrap|Converts kinetic energy harvested from the wind into electricity.|
-|1366282552|Leather Gloves|burlap.gloves|Gloves made out of leather, offers a small amount of protection to the upper body.|
+|1366282552|Burlap Gloves|burlap.gloves|Basic burlap gloves, offering protection from the elements|
+|-1507486003|Leather Gloves|leather.gloves|Gloves made out of leather, offers a small amount of protection to the upper body.|
+|-699558439|Roadsign Gloves|roadsign.gloves|Gloves made out of metal offers a good amount of protection to the upper body.|
+|-1108136649|Tactical Gloves|tactical.gloves|Military issue tactical gloves provide protection as well as weapon stabilization leading to higher accuracy when used.|
 |-690276911|Glowing Eyes|gloweyes|glowing eyes|
 |-1899491405|Glue|glue|A strong adhesive.|
 |-746030907|Granola Bar|granolabar|Granola Bar found as loot. Eating it provides a small boost to health, hunger, and thirst.|
@@ -183,6 +187,7 @@
 |37122747|Green Keycard|keycard_green|A low level clearance card granting access to basic areas.|
 |-1880870149|Red Keycard|keycard_red|A keycard with advanced clearance, grants access to top level areas|
 |1814288539|Bone Knife|knife.bone|Melee weapon crafted from bone fragments. Best in class at harvesting flesh.|
+|-778367295|L96 Rifle|rifle.l96|A military issue high powered rifle. Extremely long range and accuracy.|
 |-316250604|Wooden Ladder|ladder.wooden.wall|A ladder will help you climb walls in any base.|
 |-1663759755|Land Mine|trap.landmine|An old military Landmine. If you stand on one, you can ask a friend to disarm it before it explodes.|
 |1658229558|Lantern|lantern|A Lantern. Place it where you need light, requires low grade fuel to work.|
