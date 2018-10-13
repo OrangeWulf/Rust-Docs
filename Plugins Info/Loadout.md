@@ -10,9 +10,7 @@ Restrictions are able to decreace amount of items on saving loadout. Set it to 0
 * **Command** - */loadout*
 
 ### Demostration:
-```
 You can see video-demonstration [here]().
-```
 
 ### Configuration:
 ```
