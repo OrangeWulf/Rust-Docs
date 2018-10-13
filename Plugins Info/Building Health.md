@@ -1,9 +1,10 @@
 Building Health - 5$
 =================================================
 Allows you to change the maximum health of buildings. 
-> **Example:** *Stone foundation 500hp ---> 1500hp*
 
 You can change only all structure values (not by tier, but by type).
+
+* **Example** - *Stone foundation 500hp ---> 1500hp*
 
 ### Demostration:
 ![](https://i.imgur.com/LDnjsqk.png)

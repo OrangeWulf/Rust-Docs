@@ -6,7 +6,7 @@ Group as default "default". Group with higher priority will be used as main load
 
 Restrictions are able to decreace amount of items on saving loadout. Set it to 0 to disable item spawning. They works only for group where they are. 
 
-* **Permission to use** - *loadout.use*
+* **Permission** - *loadout.use*
 * **Command** - */loadout*
 
 ### Demostration:

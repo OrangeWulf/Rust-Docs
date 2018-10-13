@@ -1,7 +1,8 @@
 CleanerPlus - 10$
 =================================================
 Cleans map by timer or on spawning
-> **Example:** *Delete junkpiles on respawn, delete campfires every 3600 seconds*
+
+* **Example:** - *Delete junkpiles on respawn, delete campfires every 3600 seconds*
 
 ### Demostration:
 ```

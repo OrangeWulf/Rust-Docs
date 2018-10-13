@@ -1,6 +1,6 @@
 Plugin name - 0$
 =================================================
-Desctiption
+Description
 
 * **Permission to use** - *plugin.use*
 * **Command** - */command*
