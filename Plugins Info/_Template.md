@@ -4,6 +4,7 @@ Description
 
 * **Permission to use** - *plugin.use*
 * **Command** - */command*
+* **Example** - *example*
 
 ### Demostration:
 ```
