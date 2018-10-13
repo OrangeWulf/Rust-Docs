@@ -1,8 +1,10 @@
 Loadout - 15$
 =================================================
 Allows players to set loadouts that will gived them on respawn. 
+
 Group as default "default". Group with higher priority will be used as main loadout. 
-Restrictions able to decreace amount of items on saving loadout. Set it to 0 to disable item spawning. They works only for group where they are. 
+
+Restrictions are able to decreace amount of items on saving loadout. Set it to 0 to disable item spawning. They works only for group where they are. 
 
 * **Permission to use** - *loadout.use*
 * **Command** - */loadout*
