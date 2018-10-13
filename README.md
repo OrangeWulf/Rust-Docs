@@ -1,9 +1,8 @@
-# This is repository of Rust documentation
+# This is repository of Rust Documentation
 
-[Rust](https://rust.facepunch.com/) is a survival video game developed and published by [Facepunch Studios](https://facepunch.com/) in February 2018
-
-# Plugin for sales or demonstrations
-* **Github** - https://github.com/JVCVkrSzVqsfEcwJqk7N/Rust-Selling
+* [Rust](https://rust.facepunch.com/) is a survival video game developed and published by [Facepunch Studios](https://facepunch.com/) in February 2018
+* **Game Info** - Information about game (Ex: item lists, prefab lists)
+* **Plugins Info** - Information and documentation about my plugins
 
 # Official contacts
 * **Discord** - *Orange#0900*
