@@ -6,6 +6,6 @@
 * Github - https://github.com/JVCVkrSzVqsfEcwJqk7N/Rust-Selling
 
 # Official contacts
-* Discord - Orange#0900
-* Umod - https://umod.org/user/Orange
-* Chaoscode - https://www.chaoscode.io/members/orange.2765/
+* **Discord** - *Orange#0900*
+* **Umod** - *https://umod.org/user/Orange*
+* **Chaoscode** - *https://www.chaoscode.io/members/orange.2765/*
