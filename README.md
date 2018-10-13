@@ -3,7 +3,7 @@
 [Rust](https://rust.facepunch.com/) is a survival video game developed and published by [Facepunch Studios](https://facepunch.com/) in February 2018
 
 # Plugin for sales or demonstrations
-* Github - https://github.com/JVCVkrSzVqsfEcwJqk7N/Rust-Selling
+* **Github** - https://github.com/JVCVkrSzVqsfEcwJqk7N/Rust-Selling
 
 # Official contacts
 * **Discord** - *Orange#0900*
