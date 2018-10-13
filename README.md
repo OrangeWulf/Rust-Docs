@@ -4,6 +4,9 @@ Rust is a survival video game developed and published by Facepunch Studios in Fe
 
 https://rust.facepunch.com/
 
+# Plugin for sales or demonstrations
+* Github - https://github.com/JVCVkrSzVqsfEcwJqk7N/Rust-Selling
+
 # Official contacts
 * Discord - Orange#0900
 * Umod - https://umod.org/user/Orange
