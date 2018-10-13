@@ -6,8 +6,10 @@ Allows you to change the maximum health of buildings.
 You can change only all structure values (not by tier, but by type).
 
 ### Demostration:
+```
 ![](https://i.imgur.com/LDnjsqk.png)
 You can see video-demonstration [here](https://www.youtube.com/watch?v=DvtjzHc7XV8).
+```
 
 ### Configuration:
 ```
