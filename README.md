@@ -4,7 +4,8 @@
 * **Game Info** - Information about game (Ex: item lists, prefab lists)
 * **Plugins Info** - Information and documentation about my plugins
 
-# Official contacts
+# Official info
+* **Timezone** - UTC +2:00
 * **Discord** - *Orange#0900*
 * **Umod** - *https://umod.org/user/Orange*
 * **Chaoscode** - *https://www.chaoscode.io/members/orange.2765/*
