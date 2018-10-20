@@ -27,6 +27,7 @@
 |-2139580305|Auto Turret|autoturret|This automated sentry turret will engage and neutralize any moving targets it has line of sight to. You must load it with standard 5.56 ammunition. Note : The turret will search for targets in a 180 degree arc facing *you* when you place it.|
 |-262590403|Salvaged Axe|axe.salvaged|A high-yield resource gathering axe. Slower than the Hatchet.|
 |-2072273936|Bandage|bandage|Heal yourself or others with this bandage. Left-click heals you, right-click heals a target.|
+|-1215166612|A Barrel Costume|barrelcostume|A stupid barrel costume, so you can hide like a pro..p|
 |-1950721390|Concrete Barricade|barricade.concrete|A barricade made out of Stones.|
 |1655650836|Metal Barricade|barricade.metal|A tough metal barricade with barbed wire, made from Metal Fragments. The barbed wire causes damage and will also slow player movement.|
 |-559599960|Sandbag Barricade|barricade.sandbags|A protective barricade made out of Sand Bags.|
@@ -54,6 +55,7 @@
 |1525520776|Building Plan|building.planner|A building plan. You can use this to craft buildings - right click when equipped for more options.|
 |602741290|Burlap Shirt|burlap.shirt|A Shirt made out of burlap.|
 |-761829530|Burlap Shoes|burlap.shoes|Shoes made out of burlap.|
+|-194509282|Butcher Knife|knife.butcher|A sharp butcher knife. Extremely good at harvesting flesh from both dead or alive bodies.|
 |1783512007|Cactus Flesh|cactusflesh|Flesh of a Cactus, contains water.|
 |-1316706473|Camera|tool.camera|A camera. Take screenshots with primary fire, zoom in and out with secondary fire, and lock focus with third fire.|
 |1946219319|Camp Fire|campfire|A small camp fire. Provides warmth and light, and you can cook with it.|
@@ -63,6 +65,7 @@
 |-1557377697|Empty Tuna Can|can.tuna.empty|An empty Can of Tuna. Can be smelted into Metal Fragments.|
 |1789825282|Candy Cane Club|candycaneclub|Smash some faces with this large piece of candy|
 |1121925526|Candy Cane|candycane|A very old candy cane from 2014|
+|1242522330|Cursed Cauldron|cursedcauldron|A spooky cast iron cauldron with a green goo.|
 |634478325|CCTV Camera|cctv.camera|A somewhat broken CCTV camera, Unusable in its current form.|
 |1142993169|Ceiling Light|ceilinglight|A small ceiling mounted light source.|
 |1104520648|Chainsaw|chainsaw|A Chainsaw. Very effective at cutting trees in addition to soft fleshy objects. Requires Low Grade Fuel to run.|
@@ -76,6 +79,7 @@
 |2009734114|Christmas Door Wreath|xmasdoorwreath|Get into the christmas spirit with this holiday door wreath.|
 |-858312878|Cloth|cloth|Cloth from an animal or a Hemp Bush. Used in many clothing items, weapons, and more.|
 |204391461|Coal :(|coal|Crappy Holidays!|
+|573676040|Coffin|coffin.storage|An old wooden coffin, can store up to 42 items|
 |884424049|Compound Bow|bow.compound|A very powerful bow. Can only be fully drawn while stationary. Keep still for bonus damage and speed.|
 |1367190888|Corn|corn|An ear of corn. Eating it provides a small boost to health, hunger, and thirst.|
 |-778875547|Corn Clone|clone.corn|A Clipping of a Corn Plant.|
@@ -120,6 +124,7 @@
 |952603248|Weapon flashlight|weapon.mod.flashlight|Attaches to a weapon. Provides user with a beam of light. Pressing F (default) to toggle light.|
 |936496778|Floor grill|floor.grill|A floor grill must be placed in floor frames. Perfect for placing above a large furnace.|
 |1948067030|Ladder Hatch|floor.ladder.hatch|A hatch that opens and changes into a ladder.|
+|-1973785141|Fogger-3000|fogmachine|A Fog machine which runs on low grade fuel. Can be set to fill an area with a dense fog or triggered by motion.|
 |1413014235|Fridge|fridge|A fridge you can store food into!|
 |-1000573653|Frog Boots|boots.frog|Thank you for playing the game through its early access run. Enjoy these boots made from radiation resistant frog rubber.|
 |-946369541|Low Grade Fuel|lowgradefuel|Low Grade Fuel, used to power light sources.|
@@ -138,12 +143,18 @@
 |-690276911|Glowing Eyes|gloweyes|glowing eyes|
 |-1899491405|Glue|glue|A strong adhesive.|
 |-746030907|Granola Bar|granolabar|Granola Bar found as loot. Eating it provides a small boost to health, hunger, and thirst.|
+|809199956|Gravestone|gravestone|A Gravestone marking the remains of an unknown soul|
+|699075597|Wooden Cross|woodcross|A wooden cross marking the remains of an unknown soul|
+|-1679267738|Graveyard Fence|wall.graveyard.fence|A Spooky Fence|
 |1840822026|Beancan Grenade|grenade.beancan|Unreliable explosive device.|
 |143803535|F1 Grenade|grenade.f1|Reliable explosive device.|
 |-2124352573|Acoustic Guitar|fun.guitar|A type of instrument. Play with primary and secondary fire. Change your view angle to alter the pitch.|
 |-265876753|Gun Powder|gunpowder|Made from Sulfur and Charcoal, a key ingredient of anything that goes bang!|
 |1070894649|m-hairstyle-1|male_hairstyle_01|Male Hairstyle 01|
 |649305917|f-hairstyle-2|female_hairstyle_02|Female Hairstyle 02|
+|-295117143|Halloween Loot Bag|halloween.lootbag|A Trick Or Treet loot bag. Usually contains mostly bad candy|
+|273951840|WIP|scarecrow.suit|WIP|
+|809942731|Scarecrow Wrap|scarecrowhead|A creepy burlap scarecrow hat|
 |3222790|Hide Halterneck|attire.hide.helterneck|A Halterneck made from the hide of an animal.|
 |200773292|Hammer|hammer|A Hammer, used to upgrade building materials. Right-click for the options. You can also pick up deployed objects while the hammer is equipped.|
 |-1506397857|Salvaged Hammer|hammer.salvaged|A Hammer made from a bunch of other crap.|
@@ -191,6 +202,7 @@
 |-316250604|Wooden Ladder|ladder.wooden.wall|A ladder will help you climb walls in any base.|
 |-1663759755|Land Mine|trap.landmine|An old military Landmine. If you stand on one, you can ask a friend to disarm it before it explodes.|
 |1658229558|Lantern|lantern|A Lantern. Place it where you need light, requires low grade fuel to work.|
+|-489848205|Large Candle Set|largecandles|Large Candles|
 |254522515|Large Medkit|largemedkit|A large medkit.|
 |-132516482|Weapon Lasersight|weapon.mod.lasersight|Attaches to a weapon. Provides user with a guiding laser and reduces recoil.|
 |1381010055|Leather|leather|Leather from an animal. Used in many clothing items, weapons, and more.|
@@ -262,6 +274,7 @@
 |-75944661|Eoka Pistol|pistol.eoka|A very cheap, very ineffective, and very unreliable pistol that fires shells.|
 |649912614|Revolver|pistol.revolver|A standard eight shot revolver.|
 |818877484|Semi-Automatic Pistol|pistol.semiauto|A semi-automatic pistol, fires rapidly and with good accuracy.|
+|1090916276|Pitchfork|pitchfork|A 3 pronged pitchfork. Extremely easy to hit targets with.|
 |1581210395|Large Planter Box|planter.large|A large planter with enough room to plant 9 seeds.Seeds placed in a planter grow faster as they would normally in the wild. When explosed to a light source they'll grow at a further additional rate.Regularly watering your plants in the planter with fresh water will significantly increase their yield.When a plant has reached maturity you can take clipping which copy the genetics of the plant to make clones.|
 |1903654061|Small Planter Box|planter.small|A small planter with enough room to plant 3 seeds.Seeds placed in a planter grow faster as they would normally in the wild. When explosed to a light source they'll grow at a further additional rate.Regularly watering your plants in the planter with fresh water will significantly increase their yield.When a plant has reached maturity you can take clipping which copy the genetics of the plant to make clones.|
 |980333378|Hide Poncho|attire.hide.poncho|A Poncho made from the hide of an animal.|
@@ -311,6 +324,7 @@
 |-1199897169|Metal horizontal embrasure|shutter.metal.embrasure.a|Static shutter that form a metal horizontal embrasure over your window frame.|
 |-1199897172|Metal Vertical embrasure|shutter.metal.embrasure.b|Static shutter that form a metal vertical embrasure over your window frame.|
 |-1023374709|Wood Shutters|shutter.wood.a|Wood shutters that you can open and close.|
+|-1368584029|Sickle|sickle|A very sharp curved cutting weapon. While its traditional role was to cut grass, this tool is also extremely versatile at cutting throats, perhaps trees, too.|
 |23352662|Large Banner Hanging|sign.hanging.banner.large|A large banner hanging on a wall.|
 |1205607945|Two Sided Hanging Sign|sign.hanging|A double sided hanging sign, to attach to buildings.|
 |-1647846966|Two Sided Ornate Hanging Sign|sign.hanging.ornate|A double sided hanging sign, to attach to buildings.|
@@ -336,6 +350,7 @@
 |-1754948969|Sleeping Bag|sleepingbag|A sleeping bag. Placing this will give you a location to respawn.|
 |-1293296287|Small Oil Refinery|small.oil.refinery|A small refinery which can produce Low Grade Fuel from Crude Oil.|
 |-369760990|Small Stash|stash.small|A hidden, burried stash to keep your items safe. After placing, return to the stash and aim at the ground where you hid it and it will reveal itself.|
+|-2058362263|Small Candle Set|smallcandles|Small Candles|
 |-1878764039|Small Trout|fish.troutsmall|A Small Trout. Good for a few meals.|
 |-1039528932|Small Water Bottle|smallwaterbottle|A Small Water Bottle. Left click to drink, right click to fill from water sources, or to pour out.|
 |1796682209|Custom SMG|smg.2|A rapid-firing Machine Gun. Sacrifices accuracy and distance for speed.|
@@ -346,8 +361,10 @@
 |-41440462|Spas-12 Shotgun|shotgun.spas12|A semi automatic military issue shotgun|
 |1602646136|Stone Spear|spear.stone|A stone-tipped wooden Spear. Slightly longer range.|
 |1540934679|Wooden Spear|spear.wooden|Primitive weapon, perfect for hunting your foes. Can be upgraded to Stone Spear.|
+|882559853|Spider Webs|spiderweb|Giant Cobwebs which can be hung against both a ceiling and a wall.|
 |-92759291|Wooden Floor Spikes|spikes.floor|A set of spikes that will slow down and hurt anyone that walks over them.|
 |-1100422738|Spinning wheel|spinner.wheel|An interactive spinning wheel.|
+|1885488976|Spooky Speaker|spookyspeaker|Frighten your guests with creepy and spooky halloween sounds!|
 |-1021495308|Metal Spring|metalspring|A metal spring. Used to provide motion or resistance in objects.|
 |642482233|Sticks|sticks|Some long, some short.|
 |-465682601|SUPER Stocking|stocking.large|A SUPER Stocking. Hang it by a fire and you might just get an awesome gift!|
@@ -355,6 +372,7 @@
 |171931394|Stone Pickaxe|stone.pickaxe|Primitive tool used for harvesting Stone, Metal ore and Sulfur ore.|
 |-1583967946|Stone Hatchet|stonehatchet|Primitive tool used for harvesting wood from trees and logs.|
 |-2099697608|Stones|stones|Harvested from rocks using tools, basic building material.|
+|2104517339|Strobe Light|strobelight|A flashing light, 3 speeds. Causes siezures.|
 |-1581843485|Sulfur|sulfur|Sulfur is commonly used in gunpowder, medicine, and matches. Matches release sulfur dioxide when they burn, giving them their smell. Sulfur is an essential component to living cells. Many proteins contain sulfur. It is also used as a pesticide on organic farms.|
 |-1157596551|Sulfur Ore|sulfur.ore|A rock containing sulfur. The sulfur can be extracted using a furnace.|
 |1397052267|Supply Signal|supply.signal|Purple signal smoke. Use to mark a location for an airdrop.|

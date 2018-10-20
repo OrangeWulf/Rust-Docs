@@ -1109,6 +1109,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.fuelstorage.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.furnace.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.generic.prefab|
+|assets/bundled/prefabs/ui/lootpanels/lootpanel.genericlarge.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.lantern.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.largefurnace.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.largewoodbox.prefab|
@@ -1639,6 +1640,10 @@
 |assets/content/props/electrical_boxes/electrical_box_d_open.prefab|
 |assets/content/props/electrical_boxes/electrical_box_e.prefab|
 |assets/content/props/electrical_boxes/electrical_box_f.prefab|
+|assets/content/props/fog machine/effects/cascade_smoke.prefab|
+|assets/content/props/fog machine/effects/emission.prefab|
+|assets/content/props/fog machine/fogmachine.item.prefab|
+|assets/content/props/fog machine/fogmachine.prefab|
 |assets/content/props/forklift/forklift_a.prefab|
 |assets/content/props/fuel_tank/fuel_tank_a_600.prefab|
 |assets/content/props/fuel_tank/fuel_tank_a_900.prefab|
@@ -1930,6 +1935,10 @@
 |assets/content/props/small_junk/vodka_bottle.prefab|
 |assets/content/props/small_junk/water_bottle.prefab|
 |assets/content/props/small_junk/wooden_tray.prefab|
+|assets/content/props/spraypaintcan/spraycan.v.prefab|
+|assets/content/props/spraypaintcan/spraycan.w.prefab|
+|assets/content/props/strobe light/strobelight.item.prefab|
+|assets/content/props/strobe light/strobelight.prefab|
 |assets/content/props/supermarket_cash_register/supermarket_cash_register.prefab|
 |assets/content/props/supermarket_counter/supermarket_counter_a.prefab|
 |assets/content/props/supermarket_counter/supermarket_counter_a_corner.prefab|
@@ -2168,6 +2177,7 @@
 |assets/content/structures/harbor/grounds/harbor_2_grounds_b.prefab|
 |assets/content/structures/harbor/grounds/harbor_2_grounds_c.prefab|
 |assets/content/structures/harbor/tugboat/tugboat_a.prefab|
+|assets/content/structures/harbor/tugboat/tugboat_a_interior.prefab|
 |assets/content/structures/harbor/tugboat/tugboat_a_snow.prefab|
 |assets/content/structures/house_ruins/rowhouse_ruin_1st_6x12.prefab|
 |assets/content/structures/house_ruins/rowhouse_ruin_2st_6x12.prefab|
@@ -3132,6 +3142,7 @@
 |assets/prefabs/clothes/diving.wetsuit/diving.wetsuit.viewmodel.prefab|
 |assets/prefabs/clothes/frogboots/frogboots.prefab|
 |assets/prefabs/clothes/frogboots/frogboots_worldmodel.prefab|
+|assets/prefabs/clothes/fun/barrel/barrel.wearable.prefab|
 |assets/prefabs/clothes/gloves.burlap/gloves.burlap.prefab|
 |assets/prefabs/clothes/gloves.burlap/gloves.burlap_viewmodel.prefab|
 |assets/prefabs/clothes/gloves.burlap/gloves.burlap_wordmodel.prefab|
@@ -3334,6 +3345,7 @@
 |assets/prefabs/deployable/furnace.large/furnace.large.prefab|
 |assets/prefabs/deployable/furnace/effects/furnace-deploy.prefab|
 |assets/prefabs/deployable/furnace/furnace.prefab|
+|assets/prefabs/deployable/hot air balloon/hotairballoon.prefab|
 |assets/prefabs/deployable/jack o lantern/jackolantern.angry.prefab|
 |assets/prefabs/deployable/jack o lantern/jackolantern.angry.worldmodel.prefab|
 |assets/prefabs/deployable/jack o lantern/jackolantern.happy.prefab|
@@ -3555,9 +3567,18 @@
 |assets/prefabs/misc/divesite/divesite_b.prefab|
 |assets/prefabs/misc/divesite/divesite_c.prefab|
 |assets/prefabs/misc/doorcloser/doorcloser.prefab|
+|assets/prefabs/misc/halloween/candles/largecandleset.prefab|
+|assets/prefabs/misc/halloween/candles/smallcandleset.prefab|
+|assets/prefabs/misc/halloween/coffin/coffinstorage.prefab|
 |assets/prefabs/misc/halloween/cursed_cauldron/cursed_cauldron.prefab|
+|assets/prefabs/misc/halloween/cursed_cauldron/cursedcauldron.deployed.prefab|
+|assets/prefabs/misc/halloween/deployablegravestone/gravestone.stone.deployed.prefab|
+|assets/prefabs/misc/halloween/deployablegravestone/gravestone.wood.deployed.prefab|
+|assets/prefabs/misc/halloween/graveyard_fence/graveyardfence.prefab|
 |assets/prefabs/misc/halloween/scarecrow/scarecrow.deployed.prefab|
 |assets/prefabs/misc/halloween/skull_fire_pit/skull_fire_pit.prefab|
+|assets/prefabs/misc/halloween/spiderweb/spiderweba.prefab|
+|assets/prefabs/misc/halloween/spookyspeaker/spookyspeaker.prefab|
 |assets/prefabs/misc/item drop/item_drop.prefab|
 |assets/prefabs/misc/item drop/item_drop_backpack.prefab|
 |assets/prefabs/misc/junkpile/effects/despawn.prefab|
@@ -3684,6 +3705,7 @@
 |assets/prefabs/npc/patrol helicopter/rocket_heli_napalm.prefab|
 |assets/prefabs/npc/patrol helicopter/servergibs_patrolhelicopter.prefab|
 |assets/prefabs/npc/rabbit/rabbit_skin.prefab|
+|assets/prefabs/npc/scarecrow/scarecrow.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_astar_full_any.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_full_any.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_full_lr300.prefab|
@@ -4074,6 +4096,44 @@
 |assets/prefabs/weapons/hacksaw/hacksaw.viewmodel.prefab|
 |assets/prefabs/weapons/hacksaw/hacksaw.weapon.prefab|
 |assets/prefabs/weapons/hacksaw/hacksaw.worldmodel.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/butcherknife.entity.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/butcherknife.projectile.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/butcherknife.viewmodel.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/butcherknife.worldmodel.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/attack-1.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/attack-2.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/deploy.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/hit.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/holster.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/strike-soft.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/strike.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/throw.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/2hand_deploy.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/attack.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/deploy.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/holster.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/strike_stone-muted.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/strike_stone-soft.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/strike_stone.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/throw.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/pitchfork.entity.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/pitchfork.projectile.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/pitchfork.viewmodel.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/pitchfork.worldmodel.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/attack_shake.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/deploy.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/strike-muted.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/strike-soft.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/strike.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/swing.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/throw.prefab|
+|assets/prefabs/weapons/halloween/sickle/sickle.entity.prefab|
+|assets/prefabs/weapons/halloween/sickle/sickle.projectile.prefab|
+|assets/prefabs/weapons/halloween/sickle/sickle.viewmodel.prefab|
+|assets/prefabs/weapons/halloween/sickle/sickle.worldmodel.prefab|
 |assets/prefabs/weapons/hammer/effects/attack.prefab|
 |assets/prefabs/weapons/hammer/effects/deploy.prefab|
 |assets/prefabs/weapons/hammer/effects/holster.prefab|

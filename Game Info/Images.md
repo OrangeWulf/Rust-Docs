@@ -23,6 +23,7 @@
 |assets/content/ui/developer/developmentskin/devtab-bright.png|
 |assets/content/ui/developer/developmentskin/devtab-normal.png|
 |assets/content/ui/facepunch-darkbg.png|
+|assets/content/ui/hypnotized.png|
 |assets/content/ui/ingame/compass/alpha_mask.png|
 |assets/content/ui/ingame/compass/compass_strip.png|
 |assets/content/ui/ingame/compass/compass_strip_hd.png|
