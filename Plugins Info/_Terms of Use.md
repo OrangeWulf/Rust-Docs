@@ -15,6 +15,10 @@ The materials contained in this web site are protected by applicable copyright a
 
 **2.3.** If plugin doesn't have **private** modifier, creater allowed to make everything he want with it (*Ex: sell*).
 
+**2.4.** Every plugin can be updated with new features.
+
+**2.5.** Plugin can be updated with paid and private freatures.
+
 ### 3. Payout and refunds
 **3.1.** Buyer must pay all fees and taxes related to payment.
 
