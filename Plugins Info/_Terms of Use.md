@@ -1,4 +1,4 @@
-Terms of Use
+Terms of Use (Last change 21.10.18)
 =============================
 
 ### 1. Global Terms
