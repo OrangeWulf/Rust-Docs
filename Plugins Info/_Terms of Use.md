@@ -15,12 +15,16 @@ The materials contained in this web site are protected by applicable copyright a
 
 **2.3.** If plugin doesn't have **private** modifier, creater allowed to make everything he want with it (*Ex: sell*).
 
-### 3. Payout
+### 3. Payout and refunds
 **3.1.** Buyer must pay all fees and taxes related to payment.
 
 **3.2.** If buyer wasn't payed full price i can pause plugin transmission before full payment.
 
 **3.3.** In case of breaking any of terms, money receiving request will be rejected.
+
+**3.4.** After any kind plugin is completed and is sent to you, you will not be able to get a refund.
+
+**3.5.** Refund is available only if i stopped plugin development and you didn't get plugin.
 
 ### 4. Plugin sharing
 **4.1.** Buyer must keep plugins protected from unauthorized access.
