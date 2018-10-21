@@ -39,7 +39,7 @@ The materials contained in this web site are protected by applicable copyright a
 In any other ways you will break term 1.2
 
 ### 5. Accessibility
-**5.1.** If plugin must be private (*all information about plugin, including plugin will be not shated somewhere*) you must announce it in order message. In other ways it will be a standart plugin.
+**5.1.** If plugin must be private (*all information about plugin, including plugin will be not shared somewhere*) you must announce it in order message. In other ways it will be a standart plugin.
 
 **5.2.** Plugin privacy can increace plugin price.
 
