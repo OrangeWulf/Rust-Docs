@@ -8,6 +8,8 @@ The materials contained in this web site are protected by applicable copyright a
 
 **1.2.** Breaking any of term will follow stopping all works,orders and updates that assigned to you.
 
+**1.3.** Before payout plugin can be demonstrated on video or local server.
+
 ### 2. Plugins
 **2.1.** All plugins that were bought from me will be updated and fixed as soon as it's possible.
 
