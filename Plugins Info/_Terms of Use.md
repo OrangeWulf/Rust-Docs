@@ -7,6 +7,7 @@ Terms of Use
 
 ### 2. Plugins
 **2.1.** All plugins that were bought from me will be updated and fixed as soon as it's possible.
+**2.2.** On order process you must provide all information about plugin. Information that
 
 ### 3. Payout
 **3.1.** Buyer must pay all fees and taxes related to payment.
