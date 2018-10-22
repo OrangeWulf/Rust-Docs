@@ -12,7 +12,7 @@ Loadout saves all item params on saving.
 * **Command** - */loadout*
 
 ### Demostration:
-You can see video-demonstration [here]().
+You can see video-demonstration [here](https://www.youtube.com/watch?v=-1pBCCptsSQ).
 
 ### Configuration:
 ```
