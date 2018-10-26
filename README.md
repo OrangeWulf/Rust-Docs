@@ -2,7 +2,6 @@
 
 * [Rust](https://rust.facepunch.com/) is a survival video game developed and published by [Facepunch Studios](https://facepunch.com/) in February 2018
 * **Game Info** - Information about game (Ex: item lists, prefab lists)
-* **Plugins Info** - Information and documentation about my plugins
 
 # Official info
 * **Timezone** - UTC +2:00
