@@ -136,8 +136,8 @@
 |479143914|Gears|gears|A selection of gears. Some functional, some not.|
 |999690781|Geiger Counter|geiger.counter|A geiger counter used by scientists|
 |-1819763926|Wind Turbine|generator.wind.scrap|Converts kinetic energy harvested from the wind into electricity.|
-|1366282552|Burlap Gloves|burlap.gloves|Basic burlap gloves, offering protection from the elements|
-|-1507486003|Leather Gloves|leather.gloves|Gloves made out of leather, offers a small amount of protection to the upper body.|
+|21402876|Burlap Gloves|burlap.gloves.new|Basic burlap gloves, offering protection from the elements|
+|1366282552|Leather Gloves|burlap.gloves|Gloves made out of leather, offers a small amount of protection to the upper body.|
 |-699558439|Roadsign Gloves|roadsign.gloves|Gloves made out of metal offers a good amount of protection to the upper body.|
 |-1108136649|Tactical Gloves|tactical.gloves|Military issue tactical gloves provide protection as well as weapon stabilization leading to higher accuracy when used.|
 |-690276911|Glowing Eyes|gloweyes|glowing eyes|
@@ -150,6 +150,7 @@
 |143803535|F1 Grenade|grenade.f1|Reliable explosive device.|
 |-2124352573|Acoustic Guitar|fun.guitar|A type of instrument. Play with primary and secondary fire. Change your view angle to alter the pitch.|
 |-265876753|Gun Powder|gunpowder|Made from Sulfur and Charcoal, a key ingredient of anything that goes bang!|
+|-1759188988|Hab Repair|habrepair|Hab repair|
 |1070894649|m-hairstyle-1|male_hairstyle_01|Male Hairstyle 01|
 |649305917|f-hairstyle-2|female_hairstyle_02|Female Hairstyle 02|
 |-295117143|Halloween Loot Bag|halloween.lootbag|A Trick Or Treet loot bag. Usually contains mostly bad candy|
@@ -302,6 +303,8 @@
 |-277057363|Salt Water|water.salt|Water with a high salt content. Consuming will damage your health.|
 |-1978999529|Salvaged Cleaver|salvaged.cleaver|A powerful 2-handed melee weapon with high damage.|
 |1326180354|Salvaged Sword|salvaged.sword|A powerful melee weapon made from a filed-down wrench. Great durability, good damage.|
+|-384243979|SAM Ammo|ammo.rocket.sam|Ammunition for a Sam Site, This missile contains a rudimentary guidance system to help it navigate through strong winds.|
+|-1009359066|SAM Site|samsite|A surface to air rocket site.|
 |-575483084|Santa Hat|santahat|A santa hat. Ho Ho ho.|
 |177226991|Scarecrow|scarecrow|Get into the halloween spirit with this decorate deployable item.|
 |-253079493|Scientist Suit|hazmatsuit_scientist|A hazmat suit made from radiation resistant rubber.|
@@ -415,7 +418,7 @@
 |-1100168350|Large Water Catcher|water.catcher.large|Collects drinkable water from the air via rain and dew.|
 |-132247350|Small Water Catcher|water.catcher.small|Collects drinkable water from the air via rain and dew.|
 |-1863559151|Water Barrel|water.barrel|A storage container for water.|
-|-119235651|Water Jug|waterjug|A large jerry can for water.|
+|-119235651|Water Jug|waterjug|Why the yellow water jug? This years Charitable Rust is in support of charity: water. Join us on Nov. 17th to help those in need. http://www.rustafied.com|
 |2114754781|Water Purifier|water.purifier|A Water Purifier. Place overtop of a campfire. Will provide clean, drinkable water from salty, or stagnant water.|
 |-1379835144|Festive Window Garland|xmas.window.garland|A Festive decoration to spruce up your windows during the holdiays!|
 |-151838493|Wood|wood|Wood. Collected from trees and used in many crafting recipes. It's also needed to cook in camp-fires.|

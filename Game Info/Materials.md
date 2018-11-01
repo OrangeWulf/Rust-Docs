@@ -65,7 +65,4 @@
 |assets/icons/fogofwar.mat|
 |assets/icons/greyout.mat|
 |assets/icons/iconmaterial.mat|
-|assets/prefabs/plants/corn/corn.skin.3.mature.prefab|
-|assets/prefabs/plants/hemp/hemp.skin.3.mature.prefab|
-|assets/prefabs/plants/pumpkin/pumpkin.skin.3.mature.prefab|
 

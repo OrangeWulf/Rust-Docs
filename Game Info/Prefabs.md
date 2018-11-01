@@ -1022,6 +1022,7 @@
 |assets/bundled/prefabs/radtown/dmloot/dm construction tools.prefab|
 |assets/bundled/prefabs/radtown/dmloot/dm food.prefab|
 |assets/bundled/prefabs/radtown/dmloot/dm medical.prefab|
+|assets/bundled/prefabs/radtown/dmloot/dm res.prefab|
 |assets/bundled/prefabs/radtown/dmloot/dm tier1 lootbox.prefab|
 |assets/bundled/prefabs/radtown/dmloot/dm tier2 lootbox.prefab|
 |assets/bundled/prefabs/radtown/dmloot/dm tier3 lootbox.prefab|
@@ -1601,6 +1602,8 @@
 |assets/content/props/bollard/bollard_b.prefab|
 |assets/content/props/bollard/bollard_c.prefab|
 |assets/content/props/bollard/bollard_c_rope.prefab|
+|assets/content/props/bulk_frame/bulk_frame_300.prefab|
+|assets/content/props/bulk_frame/bulk_frame_600.prefab|
 |assets/content/props/candles/candlegroup1.prefab|
 |assets/content/props/candles/candlegroup2.prefab|
 |assets/content/props/candles/candlelarge.prefab|
@@ -1626,6 +1629,8 @@
 |assets/content/props/concrete_debris/concrete_debris_a_tinted.prefab|
 |assets/content/props/concrete_debris/concrete_debris_b.prefab|
 |assets/content/props/concrete_debris/concrete_debris_c.prefab|
+|assets/content/props/covered_props/covered_bradley.prefab|
+|assets/content/props/covered_props/covered_ch47.prefab|
 |assets/content/props/covers/cover_a.prefab|
 |assets/content/props/covers/cover_b.prefab|
 |assets/content/props/covers/cover_c.prefab|
@@ -2046,6 +2051,8 @@
 |assets/content/structures/cargo_ship/cargo_ship_deck_railings.prefab|
 |assets/content/structures/cargo_ship/cargo_ship_fin.prefab|
 |assets/content/structures/cargo_ship/cargo_ship_hull.prefab|
+|assets/content/structures/cargo_ship/cargo_ship_hull_interior.prefab|
+|assets/content/structures/cargo_ship/cargo_ship_hull_interior_b.prefab|
 |assets/content/structures/cargo_ship/cargo_ship_interior_a.prefab|
 |assets/content/structures/cargo_ship/cargo_ship_interior_b.prefab|
 |assets/content/structures/cargo_ship/cargo_ship_lifeboat_arm.prefab|
@@ -3346,6 +3353,7 @@
 |assets/prefabs/deployable/furnace/effects/furnace-deploy.prefab|
 |assets/prefabs/deployable/furnace/furnace.prefab|
 |assets/prefabs/deployable/hot air balloon/hotairballoon.prefab|
+|assets/prefabs/deployable/hot air balloon/subents/hab_storage.prefab|
 |assets/prefabs/deployable/jack o lantern/jackolantern.angry.prefab|
 |assets/prefabs/deployable/jack o lantern/jackolantern.angry.worldmodel.prefab|
 |assets/prefabs/deployable/jack o lantern/jackolantern.happy.prefab|
@@ -3705,6 +3713,13 @@
 |assets/prefabs/npc/patrol helicopter/rocket_heli_napalm.prefab|
 |assets/prefabs/npc/patrol helicopter/servergibs_patrolhelicopter.prefab|
 |assets/prefabs/npc/rabbit/rabbit_skin.prefab|
+|assets/prefabs/npc/sam_site_turret/effects/rocket_sam_explosion.prefab|
+|assets/prefabs/npc/sam_site_turret/effects/tube_launch.prefab|
+|assets/prefabs/npc/sam_site_turret/rocket.sam.worldmodel.prefab|
+|assets/prefabs/npc/sam_site_turret/rocket_sam.prefab|
+|assets/prefabs/npc/sam_site_turret/sam_ammo.prefab|
+|assets/prefabs/npc/sam_site_turret/sam_site_turret_deployed.prefab|
+|assets/prefabs/npc/sam_site_turret/sam_static.prefab|
 |assets/prefabs/npc/scarecrow/scarecrow.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_astar_full_any.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_full_any.prefab|
@@ -3732,12 +3747,14 @@
 |assets/prefabs/plants/corn/corn.skin.0.seed.prefab|
 |assets/prefabs/plants/corn/corn.skin.1.seedling.prefab|
 |assets/prefabs/plants/corn/corn.skin.2.sapling.prefab|
+|assets/prefabs/plants/corn/corn.skin.3.mature.prefab|
 |assets/prefabs/plants/corn/corn.skin.4.fruiting.prefab|
 |assets/prefabs/plants/corn/corn.skin.5.dying.prefab|
 |assets/prefabs/plants/hemp/hemp.entity.prefab|
 |assets/prefabs/plants/hemp/hemp.skin.0.seed.prefab|
 |assets/prefabs/plants/hemp/hemp.skin.1.seedling.prefab|
 |assets/prefabs/plants/hemp/hemp.skin.2.sapling.prefab|
+|assets/prefabs/plants/hemp/hemp.skin.3.mature.prefab|
 |assets/prefabs/plants/hemp/hemp.skin.4.fruiting.prefab|
 |assets/prefabs/plants/hemp/hemp.skin.5.dying.prefab|
 |assets/prefabs/plants/plantharvest.effect.prefab|
@@ -3746,6 +3763,7 @@
 |assets/prefabs/plants/pumpkin/pumpkin.skin.0.seed.prefab|
 |assets/prefabs/plants/pumpkin/pumpkin.skin.1.seedling.prefab|
 |assets/prefabs/plants/pumpkin/pumpkin.skin.2.sapling.prefab|
+|assets/prefabs/plants/pumpkin/pumpkin.skin.3.mature.prefab|
 |assets/prefabs/plants/pumpkin/pumpkin.skin.4.fruiting.prefab|
 |assets/prefabs/plants/pumpkin/pumpkin.skin.5.dying.prefab|
 |assets/prefabs/plants/pumpkin/pumpkin.wearable.prefab|

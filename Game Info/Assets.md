@@ -234,6 +234,7 @@
 |assets/prefabs/deployable/chair/chair.deployed.skinnable.asset|
 |assets/prefabs/deployable/fridge/fridge.deployed.skinnable.asset|
 |assets/prefabs/deployable/furnace/furnace.skinnable.asset|
+|assets/prefabs/deployable/hot air balloon/hab.population.asset|
 |assets/prefabs/deployable/jack o lantern/jackolantern.angry.sitem.asset|
 |assets/prefabs/deployable/jack o lantern/jackolantern.happy.sitem.asset|
 |assets/prefabs/deployable/large wood storage/box.wooden.large.skinnable.asset|
