@@ -111,6 +111,7 @@
 |assets/icons/eat.png|
 |assets/icons/electric.png|
 |assets/icons/embrella.png|
+|assets/icons/enter.png|
 |assets/icons/examine.png|
 |assets/icons/exit.png|
 |assets/icons/explosion.png|

@@ -17,6 +17,7 @@
 |-1685290200|12 Gauge Buckshot|ammo.shotgun|Ammunition for a Shotgun.|
 |-1036635990|12 Gauge Incendiary Shell|ammo.shotgun.fire|Incendiary Shotgun Ammunition|
 |-727717969|12 Gauge Slug|ammo.shotgun.slug|Single large projectile for a Shotgun.|
+|1171735914|AND Switch|electric.andswitch|A logic gate that allows eletrical passthrough if BOTH inputs receives power, passthrough amount is the greater of either power source|
 |-1432674913|Anti-Radiation Pills|antiradpills|Taking these pills will lower your radiation level. WARNING: May cause extreme dehydration.|
 |1548091822|Apple|apple|An Apple. Eating it provides a small boost to health, hunger, and thirst.|
 |352130972|Rotten Apple|apple.spoiled|A rotten apple. Eating it currently provides a tiny boost to health, hunger, and thirst.|
@@ -56,7 +57,9 @@
 |602741290|Burlap Shirt|burlap.shirt|A Shirt made out of burlap.|
 |-761829530|Burlap Shoes|burlap.shoes|Shoes made out of burlap.|
 |-194509282|Butcher Knife|knife.butcher|A sharp butcher knife. Extremely good at harvesting flesh from both dead or alive bodies.|
+|1835946060|Cable Tunnel|electric.cabletunnel|Allows you to pass a cable through a wall. Each input will forward the amount it receives to the corresponding output on the other side.|
 |1783512007|Cactus Flesh|cactusflesh|Flesh of a Cactus, contains water.|
+|1973165031|Birthday Cake|cakefiveyear|A very special and happy birthday to rust!|
 |-1316706473|Camera|tool.camera|A camera. Take screenshots with primary fire, zoom in and out with secondary fire, and lock focus with third fire.|
 |1946219319|Camp Fire|campfire|A small camp fire. Provides warmth and light, and you can cook with it.|
 |-700591459|Can of Beans|can.beans|Beans found as loot. Eating it provides a small boost to health, hunger, and thirst.|
@@ -84,6 +87,7 @@
 |1367190888|Corn|corn|An ear of corn. Eating it provides a small boost to health, hunger, and thirst.|
 |-778875547|Corn Clone|clone.corn|A Clipping of a Corn Plant.|
 |998894949|Corn Seed|seed.corn|Corn seeds can be found when picking wild Corn plants. These seeds can be planted in the ground and grown to collect additional food.Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more Corn and faster groth.|
+|-216999575|Counter|electric.counter|A basic cathode ray tube screen combined with an incremental counter. Can display power received, or can count upwards and allow passthrough when a target is reached.|
 |1965232394|Crossbow|crossbow|A very accurate ranged weapon.|
 |-321733511|Crude Oil|crude.oil|Raw Oil out of the ground, must be refined in a refinery to be used.|
 |-97956382|Tool Cupboard|cupboard.tool|Placing and authorising with the cupboard will make it so only you can build in a 50 meter radius of it. If you want your friends to build, they'll need to auth too. You should protect this.|
@@ -99,9 +103,14 @@
 |1729120840|Wooden Door|door.hinged.wood|A Cheap door to secure your base. Its vulnerability to fire and weak explosive resistance makes the door a temporary solution to securing your base. Due to its flaws you should look at upgrading to a higher tier door such as Sheet Metal.The Wooden Door can take two kinds of locks the basic Key Lock and the Code Lock. To pick up the door, remove any locks and open, hold down the E (USE) key and select 'Pickup'.|
 |-1112793865|Door Key|door.key|A key to a door, created from a Lock. Keep this item safe, if lost you'll be unable to open the door again!|
 |1409529282|Door Closer|door.closer|Auotmatically closes your doors when left open.|
+|-502177121|Door Controller|electric.doorcontroller|A Door Controller. Will manipulate the state of the closest door when it recieves power|
 |674734128|Festive Doorway Garland|xmas.door.garland|A Festive decoration to spruce up your  doorway during the holdiays!|
 |-1519126340|Drop Box|dropbox|This item can be deployed on walls so that players can input items from the exterior of the building for safe keeping. You can only access the submitted contents of the Drop Box from the rear.|
 |1401987718|Duct Tape|ducttape|A versatile adhesive tape reinforced with cloth.|
+|-690968985|Blocker|electric.blocker|This object prevents passthrough while power is received through its second input.|
+|-1448252298|Electrical Branch|electrical.branch|This object allows you to branch power off from a main line by a set amount.|
+|-458565393|Root Combiner|electrical.combiner|This object combines two root electrical sources into a single signal. Helpful for stringing together low energy batteries or solar panels to produce higher power output.|
+|-746647361|Memory Cell|electrical.memorycell|A 1 bit storage component. SET input will set the value to 1 CLEAR input sets the value to 0. Output will provide connected power if value is 1, Inverted output will provide connected power if value is 0. This is also known as a D-Type Flip Flop|
 |-1878475007|Satchel Charge|explosive.satchel|Small explosive package constructed of beancan grenades. Useful for destroying wood and sheet metal doors.|
 |1248356124|Timed Explosive Charge|explosive.timed|C4, useful for breaking into bases.|
 |-592016202|Explosives|explosives|A component used for crafting C4 and Rockets.|
@@ -135,7 +144,8 @@
 |-335089230|High External Wooden Gate|gates.external.high.wood|A high wooden gate, allowing access in and out of your compound.|
 |479143914|Gears|gears|A selection of gears. Some functional, some not.|
 |999690781|Geiger Counter|geiger.counter|A geiger counter used by scientists|
-|-1819763926|Wind Turbine|generator.wind.scrap|Converts kinetic energy harvested from the wind into electricity.|
+|-295829489|Small Generator|electric.generator.small|A Mailbox that accepts notes. Only you can access the mail due to a one way slit.|
+|-1819763926|Wind Turbine|generator.wind.scrap|Converts kinetic energy harvested from the wind into electricity. Amount generated will vary depending on wind speed. Higher altutides will yield stronger winds.|
 |21402876|Burlap Gloves|burlap.gloves.new|Basic burlap gloves, offering protection from the elements|
 |1366282552|Leather Gloves|burlap.gloves|Gloves made out of leather, offers a small amount of protection to the upper body.|
 |-699558439|Roadsign Gloves|roadsign.gloves|Gloves made out of metal offers a good amount of protection to the upper body.|
@@ -165,10 +175,12 @@
 |1877339384|Burlap Headwrap|burlap.headwrap|A Headwrap made out of burlap.|
 |1714496074|Candle Hat|hat.candle|A hat with a candle on top. You can turn the candle on in your inventory.|
 |-1022661119|Baseball Cap|hat.cap|A baseball cap.|
+|968019378|Clatter Helmet|clatter.helmet|A special item for those who own Clatter.|
 |-803263829|Coffee Can Helmet|coffeecan.helmet|A Coffee Can Helmet. It provides a level of regional protection from inflicted damage.|
 |-1903165497|Bone Helmet|deer.skull.mask|A helmet made of bone.|
 |1181207482|Heavy Plate Helmet|heavy.plate.helmet|Offers superior protection at the cost of reduced vision and movement speed.|
 |-1539025626|Miners Hat|hat.miner|A leather cap with a flashlight attached. It uses Low Grade Fuel and can be activated from the inventory.|
+|-575744869|Party Hat|partyhat|A very stupid looking party hat|
 |-324675402|Reindeer Antlers|attire.reindeer.headband|A festive reindeer antlers headband and nose.|
 |671063303|Riot Helmet|riot.helmet|A makeshift riot Helmet. Great at deflecting melee attacks.|
 |-1478212975|Wolf Headdress|hat.wolf|A headdress made out of the scraped out head of a wolf.|
@@ -203,8 +215,10 @@
 |-316250604|Wooden Ladder|ladder.wooden.wall|A ladder will help you climb walls in any base.|
 |-1663759755|Land Mine|trap.landmine|An old military Landmine. If you stand on one, you can ask a friend to disarm it before it explodes.|
 |1658229558|Lantern|lantern|A Lantern. Place it where you need light, requires low grade fuel to work.|
+|553270375|Large Rechargable Battery|electric.battery.rechargable.large|A Large Rechargable Battery|
 |-489848205|Large Candle Set|largecandles|Large Candles|
 |254522515|Large Medkit|largemedkit|A large medkit.|
+|-798293154|Laser Detector|electric.laserdetector|A gate which allows power to flow while a player is in the beam|
 |-132516482|Weapon Lasersight|weapon.mod.lasersight|Attaches to a weapon. Provides user with a guiding laser and reduces recoil.|
 |1381010055|Leather|leather|Leather from an animal. Used in many clothing items, weapons, and more.|
 |1159991980|Code Lock|lock.code|An electronic lock. Locked and unlocked with four-digit code.|
@@ -213,6 +227,7 @@
 |-1469578201|Longsword|longsword|A powerful 2-handed melee weapon with good range and high damage.|
 |-1812555177|LR-300 Assault Rifle|rifle.lr300|Stalk your enemies with this high powered light assault rifle.|
 |-2069578888|M249|lmg.m249|High damage, high rate of fire, belt fed light machinegun.|
+|28201841|M39 Rifle|rifle.m39|Military grade semi auto rifle|
 |-852563019|M92 Pistol|pistol.m92|A semi-automatic Pistol. Fires rapidly and with good accuracy. Military Grade|
 |-1966748496|Mace|mace|A powerful 2-handed melee weapon, It's unique design makes it easier to hit your target when compared to other more traditional weapons.|
 |-1137865085|Machete|machete|A brutal weapon with good range.|
@@ -263,6 +278,7 @@
 |1953903201|Nailgun|pistol.nailgun|A construction tool turned deadly|
 |-2097376851|Nailgun Nails|ammo.nailgun.nails|Standard nailgun ammunition|
 |1414245162|Note|note|A scrap of paper for leaving notes.|
+|-1286302544|OR Switch|electric.orswitch|A logic gate that allows eletrical passthrough if EITHER input receives power, passthrough amount is the greater of either power source|
 |1992974553|Burlap Trousers|burlap.trousers|Trousers made out of burlap.|
 |237239288|Pants|pants|Pants.|
 |-1778159885|Heavy Plate Pants|heavy.plate.pants|Offers superior protection at the cost of reduced movement speed.|
@@ -283,6 +299,7 @@
 |-1622660759|Large Present|xmas.present.large|A Large Present, the best there is. Unwrap it now!|
 |756517185|Medium Present|xmas.present.medium|A medium present, might be good! Collect 5 to upgrade to a larger present.|
 |-722241321|Small Present|xmas.present.small|A small stocking stuffer present, Collect 10 to upgrade to a larger present.|
+|-2049214035|Pressure Pad|electric.pressurepad|A gate which allows power to flow while a player is standing on it|
 |-1673693549|Empty Propane Tank|propanetank|Strong metal object.|
 |-567909622|Pumpkin|pumpkin|An edible vegetable that can also be worn as a hat. Eating it provides a small boost to health, hunger, and thirst.|
 |1898094925|Pumpkin Plant Clone|clone.pumpkin|A Clipping of a pumpkin plant.|
@@ -346,11 +363,13 @@
 |-1819233322|Wooden Sign|sign.wooden.medium|A 2-meter by 1-meter wooden sign that you can write on.|
 |-1138208076|Small Wooden Sign|sign.wooden.small|A 1-meter by 0.5-meter wooden sign that you can write on.|
 |-1850571427|Silencer|weapon.mod.silencer|Significantly reduces the sound of gunfire, and completely removes any visible muzzle flash.|
+|-282113991|Simple Light|electric.simplelight|A simple debugging light|
 |-855748505|Simple Handmade Sight|weapon.mod.simplesight|A poorly made sight, slightly better than iron sights.|
 |553887414|Skull Fire Pit|skull_fire_pit|Enjoy burning your enemies remnants to ashes with this Halloween exclusive! Provides warmth and light, and you can cook with it.|
 |996293980|Human Skull|skull.human|A human skull.|
 |2048317869|Wolf Skull|skull.wolf|A wolf skull.|
 |-1754948969|Sleeping Bag|sleepingbag|A sleeping bag. Placing this will give you a location to respawn.|
+|-692338819|Small Rechargable Battery|electric.battery.rechargable.small|A Small rechargable battery|
 |-1293296287|Small Oil Refinery|small.oil.refinery|A small refinery which can produce Low Grade Fuel from Crude Oil.|
 |-369760990|Small Stash|stash.small|A hidden, burried stash to keep your items safe. After placing, return to the stash and aim at the ground where you hid it and it will reveal itself.|
 |-2058362263|Small Candle Set|smallcandles|Small Candles|
@@ -361,12 +380,14 @@
 |1263920163|Smoke Grenade|grenade.smoke|Produces a large cloud of opaque greyish white smoke.|
 |-363689972|Snowball|snowball|A snowball, throw it!|
 |1629293099|Snowman|snowman|Get into the holiday spirit with this decorative snowman|
+|2090395347|Large Solar Panel|electric.solarpanel.large|A solar panel which converts sunlight into energy. The amount of energy generated is dependent on the sun's intensity and angle to the panel.|
 |-41440462|Spas-12 Shotgun|shotgun.spas12|A semi automatic military issue shotgun|
 |1602646136|Stone Spear|spear.stone|A stone-tipped wooden Spear. Slightly longer range.|
 |1540934679|Wooden Spear|spear.wooden|Primitive weapon, perfect for hunting your foes. Can be upgraded to Stone Spear.|
 |882559853|Spider Webs|spiderweb|Giant Cobwebs which can be hung against both a ceiling and a wall.|
 |-92759291|Wooden Floor Spikes|spikes.floor|A set of spikes that will slow down and hurt anyone that walks over them.|
 |-1100422738|Spinning wheel|spinner.wheel|An interactive spinning wheel.|
+|-563624462|Splitter|electric.splitter|Splits an electrical signal into 3 multiple signals. the amount passed through is equal to the input amount divided by the number of used output slots.|
 |1885488976|Spooky Speaker|spookyspeaker|Frighten your guests with creepy and spooky halloween sounds!|
 |-1021495308|Metal Spring|metalspring|A metal spring. Used to provide motion or resistance in objects.|
 |642482233|Sticks|sticks|Some long, some short.|
@@ -381,12 +402,14 @@
 |1397052267|Supply Signal|supply.signal|Purple signal smoke. Use to mark a location for an airdrop.|
 |1975934948|Survey Charge|surveycharge|Use this on the terrain to see which resources are available for mining.|
 |559147458|Survival Fish Trap|fishtrap.small|Traps fish, place on the shore and load with bait. The more bait loaded the bigger the chance of catching Trout.|
+|1951603367|Switch|electric.switch|A simple electric switch.|
 |1079279582|Medical Syringe|syringe.medical|Heal yourself or others with this syringe. Left-click heals you, right-click heals a target.|
 |593465182|Table|table|Every home needs a table. A decorative item which provides comfort when in close proximity.|
 |1523195708|Targeting Computer|targeting.computer|A computer loaded with software that can analyze a video and produce rotational deltas to individual objects contained in the feed.|
 |2019042823|Tarp|tarp|A waterproof tarp.|
 |73681876|Tech Trash|techparts|A collection of random tech parts.|
 |-1758372725|Thompson|smg.thompson|A medium damage machine gun.|
+|665332906|Timer|electric.timer|A Timer switch, will pass power through for duration.|
 |795236088|Torch|torch|A Torch. Lights your way at night and can be used as a weapon.|
 |-1667224349|Decorative Baubels|xmas.decoration.baubels|Decorative Baubels you can hang on your Christmas tree|
 |-209869746|Decorative Plastic Candy Canes|xmas.decoration.candycanes|Decorative Plastic Candy Canes you can hang on your Christmas tree|
@@ -421,6 +444,7 @@
 |-119235651|Water Jug|waterjug|Why the yellow water jug? This years Charitable Rust is in support of charity: water. Join us on Nov. 17th to help those in need. http://www.rustafied.com|
 |2114754781|Water Purifier|water.purifier|A Water Purifier. Place overtop of a campfire. Will provide clean, drinkable water from salty, or stagnant water.|
 |-1379835144|Festive Window Garland|xmas.window.garland|A Festive decoration to spruce up your windows during the holdiays!|
+|-144417939|Wire Tool|wiretool|A tool used to make connections between electrical objects. Aim at an object and click on an input/output handle. you can then click on another object's input/output handle to form a connection. holding right mouse will clear or cancel a connection.|
 |-151838493|Wood|wood|Wood. Collected from trees and used in many crafting recipes. It's also needed to cook in camp-fires.|
 |418081930|Wood Chestplate|wood.armor.jacket|A shoddy piece of body armor made from Wood and rope.|
 |832133926|Wood Armor Pants|wood.armor.pants|A shoddy piece of leg armor made from Wood and rope.|
@@ -429,4 +453,5 @@
 |-1607980696|Work Bench Level 3|workbench3|This allows you to craft items requiring workbench level 3|
 |1058261682|Christmas Lights|xmas.lightstring|A string of colored lights to decorate your home|
 |794443127|Christmas Tree|xmas.tree|Get into the holiday spirit with this decorative Christmas tree|
+|1293102274|XOR Switch|electric.xorswitch|An exclusive-or logic gate that allows eletrical passthrough if ONLY ONE input receives power, passthrough amount is whichever single input is active. if BOTH inputs recieve power, passthrough will be zero.|
 

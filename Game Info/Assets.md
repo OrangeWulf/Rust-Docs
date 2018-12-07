@@ -157,6 +157,7 @@
 |assets/prefabs/clothes/hat.cap/grey/hat.cap.grey.itemskin.asset|
 |assets/prefabs/clothes/hat.cap/hat.cap.skinnable.asset|
 |assets/prefabs/clothes/hat.cap/red/hat.cap.red.itemskin.asset|
+|assets/prefabs/clothes/hat.clatterhelmet/hat.clatter.sitem.asset|
 |assets/prefabs/clothes/hat.coffeecan/hat.coffeecan.skinnable.asset|
 |assets/prefabs/clothes/hat.deerskullmask/hat.deerskullmask.skinnable.asset|
 |assets/prefabs/clothes/hat.miner/hat.miner.skinnable.asset|
@@ -317,6 +318,7 @@
 |assets/rust.ai/htn/definitions/players/scientist_full_mp5.asset|
 |assets/rust.ai/htn/definitions/players/scientist_full_pistol.asset|
 |assets/rust.ai/htn/definitions/players/scientist_full_shotgun.asset|
+|assets/rust.ai/htn/definitions/players/scientist_junkpile_pistol.asset|
 |assets/rust.ai/htn/definitions/players/scientist_turret_any.asset|
 |assets/rust.ai/htn/definitions/players/scientist_turret_lr300.asset|
 |assets/skins.asset|

@@ -458,6 +458,7 @@
 |assets/bundled/prefabs/fx/gestures/eat_chewy_meat.prefab|
 |assets/bundled/prefabs/fx/gestures/eat_chips.prefab|
 |assets/bundled/prefabs/fx/gestures/eat_generic.prefab|
+|assets/bundled/prefabs/fx/gestures/eat_soft.prefab|
 |assets/bundled/prefabs/fx/gestures/lick.prefab|
 |assets/bundled/prefabs/fx/gestures/take_pills.prefab|
 |assets/bundled/prefabs/fx/headshot.prefab|
@@ -893,8 +894,11 @@
 |assets/bundled/prefabs/system/steam.prefab|
 |assets/bundled/prefabs/system/steam_client.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.dialog.assigntofriend.prefab|
+|assets/bundled/prefabs/ui/dialogs/ui.dialog.branchconfig.prefab|
+|assets/bundled/prefabs/ui/dialogs/ui.dialog.counterconfig.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.dialog.sign.update.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.dialog.sleepingbag.rename.prefab|
+|assets/bundled/prefabs/ui/dialogs/ui.dialog.timerconfig.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.autoturret.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.bbq.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.bigwheel.prefab|
@@ -2613,6 +2617,7 @@
 |assets/content/vehicles/boats/effects/small-boat-push-water.prefab|
 |assets/content/vehicles/boats/effects/splash.prefab|
 |assets/content/vehicles/boats/effects/splashloop.prefab|
+|assets/content/vehicles/boats/rowboat/metalrowboat.prefab|
 |assets/content/vehicles/boats/rowboat/oldwoodenrowboat.prefab|
 |assets/content/vehicles/makeshift canoe/makeshiftcanoe.prefab|
 |assets/content/vehicles/makeshift canoe/oar.prefab|
@@ -2928,6 +2933,8 @@
 |assets/prefabs/clothes/hat.candle/candlehat_worldmodel.prefab|
 |assets/prefabs/clothes/hat.cap/hat.cap.prefab|
 |assets/prefabs/clothes/hat.cap/hatcap_worldmodel.prefab|
+|assets/prefabs/clothes/hat.clatterhelmet/hat.clatterhelmet.prefab|
+|assets/prefabs/clothes/hat.clatterhelmet/hat.clatterhelmet_worldmodel.prefab|
 |assets/prefabs/clothes/hat.coffeecan/coffeecanhelmet_worldmodel.prefab|
 |assets/prefabs/clothes/hat.coffeecan/hat.coffeecan.prefab|
 |assets/prefabs/clothes/hat.deerskullmask/hat.deerskullmask.prefab|
@@ -2936,6 +2943,8 @@
 |assets/prefabs/clothes/hat.heavyplate/heavyplatehelmet_wm.prefab|
 |assets/prefabs/clothes/hat.miner/hat.miner.prefab|
 |assets/prefabs/clothes/hat.miner/hatminer_worldmodel.prefab|
+|assets/prefabs/clothes/hat.partyhat/party_hat.prefab|
+|assets/prefabs/clothes/hat.partyhat/party_hat_worldmodel.prefab|
 |assets/prefabs/clothes/hat.riot/hat.riot.prefab|
 |assets/prefabs/clothes/hat.riot/hatriot_worldmodel.prefab|
 |assets/prefabs/clothes/hat.woodarmor/hat.woodarmor.prefab|
@@ -2997,6 +3006,8 @@
 |assets/prefabs/clothes/skin/skin_head.prefab|
 |assets/prefabs/clothes/skin/skin_legs.prefab|
 |assets/prefabs/clothes/skin/skin_torso.prefab|
+|assets/prefabs/clothes/skin/underwear/skin_legs.prefab|
+|assets/prefabs/clothes/skin/underwear/skin_torso.prefab|
 |assets/prefabs/clothes/skirt.hide/skirt.hide.prefab|
 |assets/prefabs/clothes/suit.hazmat/hazmat_suit.prefab|
 |assets/prefabs/clothes/suit.hazmat/scientist/scientistsuitpeacekeeper.prefab|
@@ -3008,8 +3019,6 @@
 |assets/prefabs/clothes/tshirt.long/tshirtlongsleeve_basic_worldmodel.prefab|
 |assets/prefabs/clothes/tshirt/tshirt.prefab|
 |assets/prefabs/clothes/tshirt/tshirt_basic_worldmodel.prefab|
-|assets/prefabs/clothes/underwear/underwear_bra.prefab|
-|assets/prefabs/clothes/underwear/underwear_pants.prefab|
 |assets/prefabs/clothes/vest.metal/metal plate torso_worldmodel.prefab|
 |assets/prefabs/clothes/vest.metal/vest.metal.prefab|
 |assets/prefabs/clothes/vest.roadsign/roadsignjacket_worldmodel.prefab|
@@ -3171,6 +3180,7 @@
 |assets/prefabs/locks/keypad/effects/lock.code.unlock.prefab|
 |assets/prefabs/locks/keypad/effects/lock.code.updated.prefab|
 |assets/prefabs/locks/keypad/lock.code.worldmodel.prefab|
+|assets/prefabs/misc/balloons/balloons.worldmodel.prefab|
 |assets/prefabs/misc/blueprintbase/effects/blueprint_read.prefab|
 |assets/prefabs/misc/burlap sack/burlap sack.prefab|
 |assets/prefabs/misc/burlap sack/effects/phys-impact-hard.prefab|
@@ -3360,6 +3370,15 @@
 |assets/prefabs/tools/surveycharge/effects/deploy.prefab|
 |assets/prefabs/tools/surveycharge/survey_charge.viewmodel.prefab|
 |assets/prefabs/tools/surveycharge/survey_charge.worldmodel.prefab|
+|assets/prefabs/tools/wire/clientioline.prefab|
+|assets/prefabs/tools/wire/effects/plugeffect.prefab|
+|assets/prefabs/tools/wire/ioslothandles/ioslothandle.prefab|
+|assets/prefabs/tools/wire/ioslothandles/ioslothandle_inuse.prefab|
+|assets/prefabs/tools/wire/ioslothandles/ioslothandle_pending.prefab|
+|assets/prefabs/tools/wire/ioslothandles/ioslothandle_selected.prefab|
+|assets/prefabs/tools/wire/ioslothandles/ioslothandle_selected_inuse.prefab|
+|assets/prefabs/tools/wire/wire.viewmodel.prefab|
+|assets/prefabs/tools/wire/wire.worldmodel.prefab|
 |assets/prefabs/weapon mods/8x scope/8xscope.worldmodel.prefab|
 |assets/prefabs/weapon mods/flashlight/flashlight.worldmodel.prefab|
 |assets/prefabs/weapon mods/flashlight/pistol_flashlight.worldmodel.prefab|
@@ -3466,6 +3485,9 @@
 |assets/prefabs/weapons/bow/effects/draw_arrow.prefab|
 |assets/prefabs/weapons/bow/effects/draw_cancel.prefab|
 |assets/prefabs/weapons/bow/effects/fire.prefab|
+|assets/prefabs/weapons/cake/cake.projectile.prefab|
+|assets/prefabs/weapons/cake/cake.viewmodel.prefab|
+|assets/prefabs/weapons/cake/cake.worldmodel.prefab|
 |assets/prefabs/weapons/chainsaw/chainsaw.viewmodel.prefab|
 |assets/prefabs/weapons/chainsaw/chainsaw.worldmodel.prefab|
 |assets/prefabs/weapons/chainsaw/effects/chainlink_hit_blood.prefab|
@@ -3663,6 +3685,9 @@
 |assets/prefabs/weapons/m249/effects/w_eject_rifle_shell.prefab|
 |assets/prefabs/weapons/m249/m249.viewmodel.prefab|
 |assets/prefabs/weapons/m249/m249_worldmodel.prefab|
+|assets/prefabs/weapons/m39 emr/effects/attack.prefab|
+|assets/prefabs/weapons/m39 emr/m39.viewmodel.prefab|
+|assets/prefabs/weapons/m39 emr/m39.worldmodel.prefab|
 |assets/prefabs/weapons/m92/effects/attack.prefab|
 |assets/prefabs/weapons/m92/effects/attack_muzzlebrake.prefab|
 |assets/prefabs/weapons/m92/effects/attack_shake.prefab|

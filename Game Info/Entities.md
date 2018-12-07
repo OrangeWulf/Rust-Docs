@@ -132,6 +132,7 @@
 |assets/bundled/prefabs/fireball_small.prefab|
 |assets/bundled/prefabs/fireball_small_arrow.prefab|
 |assets/bundled/prefabs/fireball_small_shotgun.prefab|
+|assets/bundled/prefabs/hapis/npcvendingmachine_building_hapis.prefab|
 |assets/bundled/prefabs/hapis/npcvendingmachine_weapons_hapis.prefab|
 |assets/bundled/prefabs/napalm.prefab|
 |assets/bundled/prefabs/oilfireballsmall.prefab|
@@ -209,6 +210,7 @@
 |assets/content/props/strobe light/strobelight.prefab|
 |assets/content/structures/interactive_garage_door/sliding_blast_door.prefab|
 |assets/content/structures/lift_shaft/cave_lift.prefab|
+|assets/content/structures/lift_shaft/cave_lift_trigger.prefab|
 |assets/content/structures/lifts/lift_cabin_15.prefab|
 |assets/content/structures/lifts/lift_cabin_15_no_roof.prefab|
 |assets/content/structures/lifts/lift_cabin_18_no_roof.prefab|
@@ -218,6 +220,7 @@
 |assets/content/structures/lifts/lift_cabin_30.prefab|
 |assets/content/structures/rocket_crane/rocket_crane_lift.prefab|
 |assets/content/structures/rocket_crane/rocket_crane_lift_nd.prefab|
+|assets/content/structures/rocket_crane/rocket_crane_lift_trigger.prefab|
 |assets/content/vehicles/boats/cargoship/cargoshiptest.prefab|
 |assets/content/vehicles/boats/rhib/rhib.prefab|
 |assets/content/vehicles/boats/rhib/subents/fuel_storage.prefab|
@@ -318,6 +321,26 @@
 |assets/prefabs/deployable/oil refinery/refinery_small_deployed.prefab|
 |assets/prefabs/deployable/planters/planter.large.deployed.prefab|
 |assets/prefabs/deployable/planters/planter.small.deployed.prefab|
+|assets/prefabs/deployable/playerioents/batteries/large/large.rechargable.battery.deployed.prefab|
+|assets/prefabs/deployable/playerioents/batteries/smallrechargablebattery.deployed.prefab|
+|assets/prefabs/deployable/playerioents/counter/counter.prefab|
+|assets/prefabs/deployable/playerioents/detectors/laserdetector/laserdetector.prefab|
+|assets/prefabs/deployable/playerioents/detectors/pressurepad/pressurepad.deployed.prefab|
+|assets/prefabs/deployable/playerioents/doormanipulators/doorcontroller.deployed.prefab|
+|assets/prefabs/deployable/playerioents/gates/andswitch/andswitch.entity.prefab|
+|assets/prefabs/deployable/playerioents/gates/blocker/electrical.blocker.deployed.prefab|
+|assets/prefabs/deployable/playerioents/gates/branch/electrical.branch.deployed.prefab|
+|assets/prefabs/deployable/playerioents/gates/combiner/electrical.combiner.deployed.prefab|
+|assets/prefabs/deployable/playerioents/gates/dflipflop/electrical.memorycell.deployed.prefab|
+|assets/prefabs/deployable/playerioents/gates/orswitch/orswitch.entity.prefab|
+|assets/prefabs/deployable/playerioents/gates/xorswitch/xorswitch.entity.prefab|
+|assets/prefabs/deployable/playerioents/generators/generator.small.prefab|
+|assets/prefabs/deployable/playerioents/generators/solar_panels_roof/solarpanel.large.deployed.prefab|
+|assets/prefabs/deployable/playerioents/lights/simplelight.prefab|
+|assets/prefabs/deployable/playerioents/simpleswitch/switch.prefab|
+|assets/prefabs/deployable/playerioents/splitter/splitter.prefab|
+|assets/prefabs/deployable/playerioents/timers/timer.prefab|
+|assets/prefabs/deployable/playerioents/tunnel/cabletunnel.prefab|
 |assets/prefabs/deployable/quarry/engineswitch.prefab|
 |assets/prefabs/deployable/quarry/fuelstorage.prefab|
 |assets/prefabs/deployable/quarry/hopperoutput.prefab|
@@ -373,6 +396,7 @@
 |assets/prefabs/deployable/waterpurifier/waterpurifier.deployed.prefab|
 |assets/prefabs/deployable/waterpurifier/waterstorage.prefab|
 |assets/prefabs/deployable/windmill/generator.wind.scrap.prefab|
+|assets/prefabs/deployable/windmill/windmillsmall/electric.windmill.small.prefab|
 |assets/prefabs/deployable/woodenbox/woodbox_deployed.prefab|
 |assets/prefabs/food/bota bag/bota_bag.entity.prefab|
 |assets/prefabs/food/small water bottle/smallwaterbottle.entity.prefab|
@@ -474,6 +498,7 @@
 |assets/prefabs/npc/scientist/htn/scientist_full_mp5.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_full_pistol.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_full_shotgun.prefab|
+|assets/prefabs/npc/scientist/htn/scientist_junkpile_pistol.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_turret_any.prefab|
 |assets/prefabs/npc/scientist/htn/scientist_turret_lr300.prefab|
 |assets/prefabs/npc/scientist/scientist.prefab|
@@ -519,6 +544,7 @@
 |assets/prefabs/tools/surveycharge/survey_charge.prefab|
 |assets/prefabs/tools/surveycharge/survey_crater.prefab|
 |assets/prefabs/tools/surveycharge/survey_crater_oil.prefab|
+|assets/prefabs/tools/wire/wiretool.entity.prefab|
 |assets/prefabs/vehicle/seats/copilotseat.prefab|
 |assets/prefabs/vehicle/seats/driverseat.prefab|
 |assets/prefabs/vehicle/seats/gunnertest.prefab|
@@ -554,6 +580,7 @@
 |assets/prefabs/weapons/bone club/bone_club.entity.prefab|
 |assets/prefabs/weapons/bone knife/knife_bone.entity.prefab|
 |assets/prefabs/weapons/bow/bow_hunting.entity.prefab|
+|assets/prefabs/weapons/cake/cake.entity.prefab|
 |assets/prefabs/weapons/chainsaw/chainsaw.entity.prefab|
 |assets/prefabs/weapons/cleaver big/salvaged_cleaver.entity.prefab|
 |assets/prefabs/weapons/compound bow/compound_bow.entity.prefab|
@@ -573,6 +600,7 @@
 |assets/prefabs/weapons/l96/l96.entity.prefab|
 |assets/prefabs/weapons/lr300/lr300.entity.prefab|
 |assets/prefabs/weapons/m249/m249.entity.prefab|
+|assets/prefabs/weapons/m39 emr/m39.entity.prefab|
 |assets/prefabs/weapons/m92/m92.entity.prefab|
 |assets/prefabs/weapons/mace/mace.entity.prefab|
 |assets/prefabs/weapons/machete/machete.weapon.prefab|
