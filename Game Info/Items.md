@@ -109,7 +109,7 @@
 |1401987718|Duct Tape|ducttape|A versatile adhesive tape reinforced with cloth.|
 |-690968985|Blocker|electric.blocker|This object prevents passthrough while power is received through its second input.|
 |-1448252298|Electrical Branch|electrical.branch|This object allows you to branch power off from a main line by a set amount.|
-|-458565393|Root Combiner|electrical.combiner|This object combines two root electrical sources into a single signal. Helpful for stringing together low energy batteries or solar panels to produce higher power output.|
+|-458565393|Root Combiner|electrical.combiner|This object combines two root electrical sources into a single signal. Helpful for stringing together low energy batteries or solar panels to produce higher power output. Can be wired in series, can not be used with any non energy producing electrical components.|
 |-746647361|Memory Cell|electrical.memorycell|A 1 bit storage component. SET input will set the value to 1 CLEAR input sets the value to 0. Output will provide connected power if value is 1, Inverted output will provide connected power if value is 0. This is also known as a D-Type Flip Flop|
 |-1878475007|Satchel Charge|explosive.satchel|Small explosive package constructed of beancan grenades. Useful for destroying wood and sheet metal doors.|
 |1248356124|Timed Explosive Charge|explosive.timed|C4, useful for breaking into bases.|
@@ -146,6 +146,8 @@
 |999690781|Geiger Counter|geiger.counter|A geiger counter used by scientists|
 |-295829489|Small Generator|electric.generator.small|A Mailbox that accepts notes. Only you can access the mail due to a one way slit.|
 |-1819763926|Wind Turbine|generator.wind.scrap|Converts kinetic energy harvested from the wind into electricity. Amount generated will vary depending on wind speed. Higher altutides will yield stronger winds.|
+|-695124222|Giant Candy Decor|giantcandycanedecor|Get into the holiday spirit with this decorative inflated giant candy cane|
+|282103175|Giant Lollipop Decor|giantlollipops|Get into the holiday spirit with these decorative giant lollipops|
 |21402876|Burlap Gloves|burlap.gloves.new|Basic burlap gloves, offering protection from the elements|
 |1366282552|Leather Gloves|burlap.gloves|Gloves made out of leather, offers a small amount of protection to the upper body.|
 |-699558439|Roadsign Gloves|roadsign.gloves|Gloves made out of metal offers a good amount of protection to the upper body.|
@@ -215,7 +217,7 @@
 |-316250604|Wooden Ladder|ladder.wooden.wall|A ladder will help you climb walls in any base.|
 |-1663759755|Land Mine|trap.landmine|An old military Landmine. If you stand on one, you can ask a friend to disarm it before it explodes.|
 |1658229558|Lantern|lantern|A Lantern. Place it where you need light, requires low grade fuel to work.|
-|553270375|Large Rechargable Battery|electric.battery.rechargable.large|A Large Rechargable Battery|
+|553270375|Large Rechargable Battery|electric.battery.rechargable.large|A Large Rechargable Battery. Must have a minimum charge of 5 seconds to discharge. Can be wired in series. Charging rate is dependant on power in, with a maximum of 80% efficiency.|
 |-489848205|Large Candle Set|largecandles|Large Candles|
 |254522515|Large Medkit|largemedkit|A large medkit.|
 |-798293154|Laser Detector|electric.laserdetector|A gate which allows power to flow while a player is in the beam|
@@ -369,7 +371,7 @@
 |996293980|Human Skull|skull.human|A human skull.|
 |2048317869|Wolf Skull|skull.wolf|A wolf skull.|
 |-1754948969|Sleeping Bag|sleepingbag|A sleeping bag. Placing this will give you a location to respawn.|
-|-692338819|Small Rechargable Battery|electric.battery.rechargable.small|A Small rechargable battery|
+|-692338819|Small Rechargable Battery|electric.battery.rechargable.small|A small rechargable battery. Must have a minimum charge of 5 seconds to discharge. Can be wired in series. Charging rate is dependant on power in, with a maximum of 80% efficiency.|
 |-1293296287|Small Oil Refinery|small.oil.refinery|A small refinery which can produce Low Grade Fuel from Crude Oil.|
 |-369760990|Small Stash|stash.small|A hidden, burried stash to keep your items safe. After placing, return to the stash and aim at the ground where you hid it and it will reveal itself.|
 |-2058362263|Small Candle Set|smallcandles|Small Candles|
@@ -379,6 +381,7 @@
 |1230323789|SMG Body|smgbody|The firing mechanism of a submachinegun. Used in construction of a weapon that can fire pistol ammo fully automatic.|
 |1263920163|Smoke Grenade|grenade.smoke|Produces a large cloud of opaque greyish white smoke.|
 |-363689972|Snowball|snowball|A snowball, throw it!|
+|1358643074|Snow Machine|snowmachine|A machine which will blanket the surrounding terrain in snow.|
 |1629293099|Snowman|snowman|Get into the holiday spirit with this decorative snowman|
 |2090395347|Large Solar Panel|electric.solarpanel.large|A solar panel which converts sunlight into energy. The amount of energy generated is dependent on the sun's intensity and angle to the panel.|
 |-41440462|Spas-12 Shotgun|shotgun.spas12|A semi automatic military issue shotgun|
@@ -441,7 +444,7 @@
 |-1100168350|Large Water Catcher|water.catcher.large|Collects drinkable water from the air via rain and dew.|
 |-132247350|Small Water Catcher|water.catcher.small|Collects drinkable water from the air via rain and dew.|
 |-1863559151|Water Barrel|water.barrel|A storage container for water.|
-|-119235651|Water Jug|waterjug|Why the yellow water jug? This years Charitable Rust is in support of charity: water. Join us on Nov. 17th to help those in need. http://www.rustafied.com|
+|-119235651|Water Jug|waterjug|A large jerry can for water.|
 |2114754781|Water Purifier|water.purifier|A Water Purifier. Place overtop of a campfire. Will provide clean, drinkable water from salty, or stagnant water.|
 |-1379835144|Festive Window Garland|xmas.window.garland|A Festive decoration to spruce up your windows during the holdiays!|
 |-144417939|Wire Tool|wiretool|A tool used to make connections between electrical objects. Aim at an object and click on an input/output handle. you can then click on another object's input/output handle to form a connection. holding right mouse will clear or cancel a connection.|

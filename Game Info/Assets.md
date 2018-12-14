@@ -268,6 +268,8 @@
 |assets/prefabs/misc/halloween/skull_fire_pit/skull_fire_pit.sitem.asset|
 |assets/prefabs/misc/halloween/spookyspeaker/spookyspeaker.sitem.asset|
 |assets/prefabs/misc/xmas/christmas_lights/lightstring.sitem.asset|
+|assets/prefabs/misc/xmas/giant_candy_cane/giantcandies.sitem.asset|
+|assets/prefabs/misc/xmas/snow_machine/snowmachine.sitem.asset|
 |assets/prefabs/misc/xmas/snowman/snowman.sitem.asset|
 |assets/prefabs/misc/xmas/windowgarland/windowgardland.sitem.asset|
 |assets/prefabs/misc/xmas/wreath/wreath.sitem.asset|

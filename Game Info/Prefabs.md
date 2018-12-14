@@ -941,6 +941,7 @@
 |assets/bundled/prefabs/world/event_cargoheli.prefab|
 |assets/bundled/prefabs/world/event_cargoship.prefab|
 |assets/bundled/prefabs/world/event_helicopter.prefab|
+|assets/bundled/prefabs/world/event_xmas.prefab|
 |assets/bundled/prefabs/world/lod.prefab|
 |assets/bundled/prefabs/world/rain.prefab|
 |assets/bundled/prefabs/world/snow.prefab|
@@ -1266,6 +1267,7 @@
 |assets/content/nature/rocks/rock_small_b_cave.prefab|
 |assets/content/nature/rocks/rock_small_c.prefab|
 |assets/content/nature/rocks/rock_small_c_cave.prefab|
+|assets/content/nature/snow_areas/snow_area.prefab|
 |assets/content/nature/snow_mounds/snow_mound_a.prefab|
 |assets/content/nature/snow_mounds/snow_mound_b.prefab|
 |assets/content/nature/snow_mounds/snow_mound_c.prefab|
@@ -1802,6 +1804,7 @@
 |assets/content/sound/templates/footstep.sound-template.prefab|
 |assets/content/sound/templates/gunshot.prefab|
 |assets/content/sound/templates/large-local-ambience.prefab|
+|assets/content/sound/templates/large-sound-fast-falloff.prefab|
 |assets/content/sound/templates/large-sound.prefab|
 |assets/content/sound/templates/medium-large-sound.prefab|
 |assets/content/sound/templates/medium-local-ambience.prefab|
@@ -3212,6 +3215,13 @@
 |assets/prefabs/misc/xmas/presents/present.large.worldmodel.prefab|
 |assets/prefabs/misc/xmas/presents/present.medium.worldmodel.prefab|
 |assets/prefabs/misc/xmas/presents/present.small.worldmodel.prefab|
+|assets/prefabs/misc/xmas/sleigh/santa_prop.prefab|
+|assets/prefabs/misc/xmas/snow_machine/snowmachine.item.prefab|
+|assets/prefabs/misc/xmas/snowball/effects/attack.prefab|
+|assets/prefabs/misc/xmas/snowball/effects/deploy.prefab|
+|assets/prefabs/misc/xmas/snowball/effects/strike.prefab|
+|assets/prefabs/misc/xmas/snowball/effects/strike_screenshake.prefab|
+|assets/prefabs/misc/xmas/snowball/effects/throw.prefab|
 |assets/prefabs/misc/xmas/snowball/snowball.projectile.prefab|
 |assets/prefabs/misc/xmas/snowball/snowball.viewmodel.prefab|
 |assets/prefabs/misc/xmas/snowball/snowball.worldmodel.prefab|
@@ -3488,6 +3498,11 @@
 |assets/prefabs/weapons/cake/cake.projectile.prefab|
 |assets/prefabs/weapons/cake/cake.viewmodel.prefab|
 |assets/prefabs/weapons/cake/cake.worldmodel.prefab|
+|assets/prefabs/weapons/cake/effects/attack.prefab|
+|assets/prefabs/weapons/cake/effects/deploy.prefab|
+|assets/prefabs/weapons/cake/effects/strike.prefab|
+|assets/prefabs/weapons/cake/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/cake/effects/throw.prefab|
 |assets/prefabs/weapons/chainsaw/chainsaw.viewmodel.prefab|
 |assets/prefabs/weapons/chainsaw/chainsaw.worldmodel.prefab|
 |assets/prefabs/weapons/chainsaw/effects/chainlink_hit_blood.prefab|
@@ -3686,6 +3701,21 @@
 |assets/prefabs/weapons/m249/m249.viewmodel.prefab|
 |assets/prefabs/weapons/m249/m249_worldmodel.prefab|
 |assets/prefabs/weapons/m39 emr/effects/attack.prefab|
+|assets/prefabs/weapons/m39 emr/effects/attack_muzzlebrake.prefab|
+|assets/prefabs/weapons/m39 emr/effects/attack_shake.prefab|
+|assets/prefabs/weapons/m39 emr/effects/attack_shake_ads.prefab|
+|assets/prefabs/weapons/m39 emr/effects/attack_silenced.prefab|
+|assets/prefabs/weapons/m39 emr/effects/bolt_back.prefab|
+|assets/prefabs/weapons/m39 emr/effects/bolt_forward.prefab|
+|assets/prefabs/weapons/m39 emr/effects/clip_in.prefab|
+|assets/prefabs/weapons/m39 emr/effects/clip_out.prefab|
+|assets/prefabs/weapons/m39 emr/effects/clip_slap.prefab|
+|assets/prefabs/weapons/m39 emr/effects/deploy.prefab|
+|assets/prefabs/weapons/m39 emr/effects/deploy_grab_forearm.prefab|
+|assets/prefabs/weapons/m39 emr/effects/dryfire.prefab|
+|assets/prefabs/weapons/m39 emr/effects/eject_rifle_shell.prefab|
+|assets/prefabs/weapons/m39 emr/effects/w_drop_magazine.prefab|
+|assets/prefabs/weapons/m39 emr/effects/w_eject_rifle_shell.prefab|
 |assets/prefabs/weapons/m39 emr/m39.viewmodel.prefab|
 |assets/prefabs/weapons/m39 emr/m39.worldmodel.prefab|
 |assets/prefabs/weapons/m92/effects/attack.prefab|

@@ -453,8 +453,13 @@
 |assets/prefabs/misc/xmas/candy cane club/candy_cane.entity.prefab|
 |assets/prefabs/misc/xmas/christmas_lights/xmas.lightstring.deployed.prefab|
 |assets/prefabs/misc/xmas/doorgarland/doorgarland.deployed.prefab|
+|assets/prefabs/misc/xmas/giant_candy_cane/giantcandycane.deployed.prefab|
 |assets/prefabs/misc/xmas/giftbox/giftbox_loot.prefab|
+|assets/prefabs/misc/xmas/lollipop_bundle/giantlollipops.deployed.prefab|
 |assets/prefabs/misc/xmas/pookie/pookie_deployed.prefab|
+|assets/prefabs/misc/xmas/sleigh/presentdrop.prefab|
+|assets/prefabs/misc/xmas/sleigh/santasleigh.prefab|
+|assets/prefabs/misc/xmas/snow_machine/models/snowmachine.prefab|
 |assets/prefabs/misc/xmas/snowball/snowball.entity.prefab|
 |assets/prefabs/misc/xmas/snowman/snowman.deployed.prefab|
 |assets/prefabs/misc/xmas/stockings/stocking_large_deployed.prefab|
