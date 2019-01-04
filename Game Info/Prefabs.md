@@ -858,6 +858,7 @@
 |assets/bundled/prefabs/fx/well/pump_down.prefab|
 |assets/bundled/prefabs/fx/well/pump_up.prefab|
 |assets/bundled/prefabs/hapis/desk_greencard_hapis.prefab|
+|assets/bundled/prefabs/hapis/hapis_rock_formation_a.prefab|
 |assets/bundled/prefabs/hapis/military_tunnel_hapis.prefab|
 |assets/bundled/prefabs/hapis/old_cave.prefab|
 |assets/bundled/prefabs/hapis/puzzle/hapis_puzzle_blue_1.prefab|
@@ -941,7 +942,6 @@
 |assets/bundled/prefabs/world/event_cargoheli.prefab|
 |assets/bundled/prefabs/world/event_cargoship.prefab|
 |assets/bundled/prefabs/world/event_helicopter.prefab|
-|assets/bundled/prefabs/world/event_xmas.prefab|
 |assets/bundled/prefabs/world/lod.prefab|
 |assets/bundled/prefabs/world/rain.prefab|
 |assets/bundled/prefabs/world/snow.prefab|
@@ -2624,6 +2624,7 @@
 |assets/content/vehicles/boats/rowboat/oldwoodenrowboat.prefab|
 |assets/content/vehicles/makeshift canoe/makeshiftcanoe.prefab|
 |assets/content/vehicles/makeshift canoe/oar.prefab|
+|assets/content/vehicles/minicopter/minicopter.prefab|
 |assets/content/vehicles/sedan_a/sedan.entity.prefab|
 |assets/content/vehicles/sedan_a/sedan_a_black.prefab|
 |assets/content/vehicles/sedan_a/sedan_a_blue.prefab|
@@ -3219,6 +3220,7 @@
 |assets/prefabs/misc/xmas/snow_machine/snowmachine.item.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/attack.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/deploy.prefab|
+|assets/prefabs/misc/xmas/snowball/effects/impact.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/strike.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/strike_screenshake.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/throw.prefab|
