@@ -88,6 +88,7 @@
 |assets/icons/circle_closed.png|
 |assets/icons/circle_closed_toedge.png|
 |assets/icons/circle_gradient.png|
+|assets/icons/circle_gradient_white.png|
 |assets/icons/circle_open.png|
 |assets/icons/clear.png|
 |assets/icons/clear_list.png|

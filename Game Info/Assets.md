@@ -1,6 +1,5 @@
 |Name|
 |:-|
-|assets/content/properties/spawnpopulation/beachside-deadtrees.asset|
 |assets/content/properties/spawnpopulation/beachside-palms.asset|
 |assets/content/properties/spawnpopulation/beachside-trees.asset|
 |assets/content/properties/spawnpopulation/collectable-food-mushroom.asset|
@@ -53,6 +52,7 @@
 |assets/content/ui/ingame/notices/xp-gain-notice.asset|
 |assets/content/vehicles/boats/rhib/rhib.population.asset|
 |assets/content/vehicles/boats/rowboat/rowboat.population.asset|
+|assets/content/vehicles/minicopter/minicopter.population.asset|
 |assets/content/workshop/items/book.accident.sitem.asset|
 |assets/content/workshop/items/crates/bag.high.sitem.asset|
 |assets/content/workshop/items/crates/bag.low.sitem.asset|
@@ -263,6 +263,9 @@
 |assets/prefabs/deployable/waterpurifier/waterpurifier.deployed.skinnable.asset|
 |assets/prefabs/deployable/woodenbox/woodbox_deployed.skinnable.asset|
 |assets/prefabs/instruments/guitar/guitar.weapon.skinnable.asset|
+|assets/prefabs/misc/chinesenewyear/chineselantern/chineselantern.sitem.asset|
+|assets/prefabs/misc/chinesenewyear/dragondoorknocker/dragondoorknocker.sitem.asset|
+|assets/prefabs/misc/chinesenewyear/dragonmask/dragonmask.sitem.asset|
 |assets/prefabs/misc/halloween/cursed_cauldron/cauldron.sitem.asset|
 |assets/prefabs/misc/halloween/scarecrow/scarecrow.sitem.asset|
 |assets/prefabs/misc/halloween/skull_fire_pit/skull_fire_pit.sitem.asset|

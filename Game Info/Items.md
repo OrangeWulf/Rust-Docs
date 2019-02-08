@@ -25,6 +25,7 @@
 |14241751|Fire Arrow|arrow.fire|A fuel soaked arrow, ignite it by aiming into a fire source.|
 |-1023065463|High Velocity Arrow|arrow.hv|Lighter, faster arrow that deals less damage.|
 |-1234735557|Wooden Arrow|arrow.wooden|An arrow for a Hunting Bow and Crossbow.|
+|2100007442|Audio Alarm|electric.audioalarm|A speaker which will emit a loud warning alarm when powered|
 |-2139580305|Auto Turret|autoturret|This automated sentry turret will engage and neutralize any moving targets it has line of sight to. You must load it with standard 5.56 ammunition. Note : The turret will search for targets in a 180 degree arc facing *you* when you place it.|
 |-262590403|Salvaged Axe|axe.salvaged|A high-yield resource gathering axe. Slower than the Hatchet.|
 |-2072273936|Bandage|bandage|Heal yourself or others with this bandage. Left-click heals you, right-click heals a target.|
@@ -78,6 +79,7 @@
 |-1848736516|Cooked Chicken|chicken.cooked|Cooked chicken. Eating it will restore some health, hunger, and thirst.|
 |-1440987069|Raw Chicken Breast|chicken.raw|Raw chicken breast. Eating it will damage your health, try cooking it first.|
 |-751151717|Spoiled Chicken|chicken.spoiled|Spoiled Chicken. Eating it will damage your health.|
+|-1916473915|Chinese Lantern|chineselantern|A decorative Paper lantern|
 |363467698|Chocolate Bar|chocholate|Chocolate Bar found as loot. Eating it provides a small boost to health, hunger, and thirst.|
 |2009734114|Christmas Door Wreath|xmasdoorwreath|Get into the christmas spirit with this holiday door wreath.|
 |-858312878|Cloth|cloth|Cloth from an animal or a Hemp Bush. Used in many clothing items, weapons, and more.|
@@ -91,6 +93,7 @@
 |1965232394|Crossbow|crossbow|A very accurate ranged weapon.|
 |-321733511|Crude Oil|crude.oil|Raw Oil out of the ground, must be refined in a refinery to be used.|
 |-97956382|Tool Cupboard|cupboard.tool|Placing and authorising with the cupboard will make it so only you can build in a 50 meter radius of it. If you want your friends to build, they'll need to auth too. You should protect this.|
+|596469572|RF Transmitter|rf.detonator|A hand held RF signal broadcaster. Left click to broadcast. Configurable with right mouse.|
 |296519935|Diving Fins|diving.fins|Diving Fins which greatly increase underwater movement|
 |-113413047|Diving Mask|diving.mask|A Diving Mask. Provides clear vision under water.|
 |-2022172587|Diving Tank|diving.tank|An oxygen tank that enables breathing under water for a period of time. Can be refilled at a workbench.|
@@ -105,12 +108,16 @@
 |1409529282|Door Closer|door.closer|Auotmatically closes your doors when left open.|
 |-502177121|Door Controller|electric.doorcontroller|A Door Controller. Will manipulate the state of the closest door when it recieves power|
 |674734128|Festive Doorway Garland|xmas.door.garland|A Festive decoration to spruce up your  doorway during the holdiays!|
+|-854270928|Dragon Door Knocker|dragondoorknocker|A heavy brass door knocker|
 |-1519126340|Drop Box|dropbox|This item can be deployed on walls so that players can input items from the exterior of the building for safe keeping. You can only access the submitted contents of the Drop Box from the rear.|
 |1401987718|Duct Tape|ducttape|A versatile adhesive tape reinforced with cloth.|
+|-939424778|Flasher Light|electric.flasherlight|A flashing blue light|
+|762289806|Siren Light|electric.sirenlight|A spinning siren light|
 |-690968985|Blocker|electric.blocker|This object prevents passthrough while power is received through its second input.|
 |-1448252298|Electrical Branch|electrical.branch|This object allows you to branch power off from a main line by a set amount.|
 |-458565393|Root Combiner|electrical.combiner|This object combines two root electrical sources into a single signal. Helpful for stringing together low energy batteries or solar panels to produce higher power output. Can be wired in series, can not be used with any non energy producing electrical components.|
 |-746647361|Memory Cell|electrical.memorycell|A 1 bit storage component. SET input will set the value to 1 CLEAR input sets the value to 0. Output will provide connected power if value is 1, Inverted output will provide connected power if value is 0. This is also known as a D-Type Flip Flop|
+|492357192|RAND Switch|electric.random.switch|This switch will allow passthrough based on a random number. Each time the SET input receives power it will roll true or false to allow passthrough|
 |-1878475007|Satchel Charge|explosive.satchel|Small explosive package constructed of beancan grenades. Useful for destroying wood and sheet metal doors.|
 |1248356124|Timed Explosive Charge|explosive.timed|C4, useful for breaking into bases.|
 |-592016202|Explosives|explosives|A component used for crafting C4 and Rockets.|
@@ -180,6 +187,7 @@
 |968019378|Clatter Helmet|clatter.helmet|A special item for those who own Clatter.|
 |-803263829|Coffee Can Helmet|coffeecan.helmet|A Coffee Can Helmet. It provides a level of regional protection from inflicted damage.|
 |-1903165497|Bone Helmet|deer.skull.mask|A helmet made of bone.|
+|-22883916|Dragon Mask|hat.dragonmask|A special dragon mask to celebrate Chinese New Year|
 |1181207482|Heavy Plate Helmet|heavy.plate.helmet|Offers superior protection at the cost of reduced vision and movement speed.|
 |-1539025626|Miners Hat|hat.miner|A leather cap with a flashlight attached. It uses Low Grade Fuel and can be activated from the inventory.|
 |-575744869|Party Hat|partyhat|A very stupid looking party hat|
@@ -189,6 +197,7 @@
 |-2094954543|Wood Armor Helmet|wood.armor.helmet|A shoddy helmet made from Wood and Cloth.|
 |-1252059217|Hatchet|hatchet|A Hatchet, useful for chopping trees and dismembering corpses.|
 |1266491000|Hazmat Suit|hazmatsuit|A hazmat suit made from radiation resistant rubber.|
+|-1507239837|HBHF Sensor|electric.hbhfsensor|A Hearbeat, Breathing, Humidity and Footstep sensor. Passthrough is equal to the number of humans detected in a 20m radius w/ LOS. Configurable w/ hammer|
 |-886280491|Hemp Clone|clone.hemp|A clipping of a hemp plant.|
 |-237809779|Hemp Seed|seed.hemp|Hemp seeds can be found when picking wild Hemp. These seeds can be planted in the ground and grown to collect additional cloth.Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more cloth and faster groth.|
 |794356786|Hide Boots|attire.hide.boots|Boots made from the hide of an animal.|
@@ -270,6 +279,7 @@
 |317398316|High Quality Metal|metal.refined|High quality metal suitable for armor and weapons construction.|
 |1882709339|Metal Blade|metalblade|A Metal Blade for making melee weapons.|
 |95950017|Metal Pipe|metalpipe|Metal Pipe.|
+|1426574435|MC repair|minihelicopter.repair|MC repair dummy|
 |-1130709577|Pump Jack|mining.pumpjack|Extracts oil from the ground. Use a Survey Charge to determine the amount of oil available for extraction in any given area.|
 |1052926200|Mining Quarry|mining.quarry|Extracts minerals from the ground. Use a Survey Charge to determine the amount of minerals available for extraction in any given area.|
 |-542577259|Minnows|fish.minnows|A Small group of edible fish.|
@@ -311,6 +321,9 @@
 |803222026|Repair Bench|box.repair.bench|You can repair your items here for a fraction of their construction cost. You may also use this to apply new skins to existing items.|
 |-1861522751|Research Table|research.table|You can use this table to learn how to permanently craft items you have found in exchange for scrap.|
 |-544317637|Research Paper|researchpaper|Use this item in a Research Bench to create blueprints of items.|
+|-1044468317|RF Broadcaster|electric.rf.broadcaster|An RF Broadcaster|
+|-566907190|RF Pager|rf_pager|An RF Pager. An audible tone will be produced when a signal is picked up on the listening frequency. Can be set to silent mode.|
+|888415708|RF Receiver|electric.rf.receiver|An RF Receiver|
 |176787552|Rifle Body|riflebody|The firing mechanism of a rifle. Used in construction of a weapon that can fire 5.56 ammo fully automatic.|
 |-2002277461|Road Sign Jacket|roadsign.jacket|A shoddy piece of body armor made from Metal Fragments and Leather.|
 |1199391518|Road Signs|roadsigns|Some road signs made of metal.|

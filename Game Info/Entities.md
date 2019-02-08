@@ -14,11 +14,6 @@
 |assets/bundled/prefabs/autospawn/collectable/stone/stone-collectable.prefab|
 |assets/bundled/prefabs/autospawn/collectable/stone/sulfur-collectable.prefab|
 |assets/bundled/prefabs/autospawn/collectable/wood/wood-collectable.prefab|
-|assets/bundled/prefabs/autospawn/resource/beachside-deadtrees/deadtree-1.prefab|
-|assets/bundled/prefabs/autospawn/resource/beachside-deadtrees/deadtree-2.prefab|
-|assets/bundled/prefabs/autospawn/resource/beachside-deadtrees/field-bare-1.prefab|
-|assets/bundled/prefabs/autospawn/resource/beachside-deadtrees/field-bare-2.prefab|
-|assets/bundled/prefabs/autospawn/resource/beachside-deadtrees/field-bare-3.prefab|
 |assets/bundled/prefabs/autospawn/resource/driftwood/driftwood_1.prefab|
 |assets/bundled/prefabs/autospawn/resource/driftwood/driftwood_2.prefab|
 |assets/bundled/prefabs/autospawn/resource/driftwood/driftwood_3.prefab|
@@ -66,11 +61,16 @@
 |assets/bundled/prefabs/autospawn/resource/v2_arid_cactus/cactus-5.prefab|
 |assets/bundled/prefabs/autospawn/resource/v2_arid_cactus/cactus-6.prefab|
 |assets/bundled/prefabs/autospawn/resource/v2_arid_cactus/cactus-7.prefab|
-|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm-1.prefab|
-|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm-2.prefab|
-|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm-4.prefab|
-|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm-6.prefab|
-|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm-7.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_med_a_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_med_b_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_short_a_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_short_b_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_short_c_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_small_a_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_small_b_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_small_c_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_tall_a_entity.prefab|
+|assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_tall_b_entity.prefab|
 |assets/bundled/prefabs/autospawn/resource/v2_temp_beachforest_small/birch_small_temp.prefab|
 |assets/bundled/prefabs/autospawn/resource/v2_temp_beachforest_small/birch_tiny_temp.prefab|
 |assets/bundled/prefabs/autospawn/resource/v2_temp_beachforest_small/douglas_fir_d.prefab|
@@ -228,6 +228,8 @@
 |assets/content/vehicles/boats/rowboat/rowboat.prefab|
 |assets/content/vehicles/boats/rowboat/subents/fuel_storage.prefab|
 |assets/content/vehicles/boats/rowboat/subents/rowboat_storage.prefab|
+|assets/content/vehicles/minicopter/minicopter.entity.prefab|
+|assets/content/vehicles/minicopter/subents/fuel_storage.prefab|
 |assets/content/vehicles/sedan_a/sedantest.entity.prefab|
 |assets/prefabs/ammo/arrow/arrow.prefab|
 |assets/prefabs/ammo/rocket/rocket_basic.prefab|
@@ -321,9 +323,11 @@
 |assets/prefabs/deployable/oil refinery/refinery_small_deployed.prefab|
 |assets/prefabs/deployable/planters/planter.large.deployed.prefab|
 |assets/prefabs/deployable/planters/planter.small.deployed.prefab|
+|assets/prefabs/deployable/playerioents/alarms/audioalarm.prefab|
 |assets/prefabs/deployable/playerioents/batteries/large/large.rechargable.battery.deployed.prefab|
 |assets/prefabs/deployable/playerioents/batteries/smallrechargablebattery.deployed.prefab|
 |assets/prefabs/deployable/playerioents/counter/counter.prefab|
+|assets/prefabs/deployable/playerioents/detectors/hbhfsensor/hbhfsensor.deployed.prefab|
 |assets/prefabs/deployable/playerioents/detectors/laserdetector/laserdetector.prefab|
 |assets/prefabs/deployable/playerioents/detectors/pressurepad/pressurepad.deployed.prefab|
 |assets/prefabs/deployable/playerioents/doormanipulators/doorcontroller.deployed.prefab|
@@ -333,10 +337,15 @@
 |assets/prefabs/deployable/playerioents/gates/combiner/electrical.combiner.deployed.prefab|
 |assets/prefabs/deployable/playerioents/gates/dflipflop/electrical.memorycell.deployed.prefab|
 |assets/prefabs/deployable/playerioents/gates/orswitch/orswitch.entity.prefab|
+|assets/prefabs/deployable/playerioents/gates/randswitch/electrical.random.switch.deployed.prefab|
+|assets/prefabs/deployable/playerioents/gates/rfbroadcaster/rfbroadcaster.prefab|
+|assets/prefabs/deployable/playerioents/gates/rfreceiver/rfreceiver.prefab|
 |assets/prefabs/deployable/playerioents/gates/xorswitch/xorswitch.entity.prefab|
 |assets/prefabs/deployable/playerioents/generators/generator.small.prefab|
 |assets/prefabs/deployable/playerioents/generators/solar_panels_roof/solarpanel.large.deployed.prefab|
+|assets/prefabs/deployable/playerioents/lights/flasherlight/electric.flasherlight.deployed.prefab|
 |assets/prefabs/deployable/playerioents/lights/simplelight.prefab|
+|assets/prefabs/deployable/playerioents/lights/sirenlight/electric.sirenlight.deployed.prefab|
 |assets/prefabs/deployable/playerioents/simpleswitch/switch.prefab|
 |assets/prefabs/deployable/playerioents/splitter/splitter.prefab|
 |assets/prefabs/deployable/playerioents/timers/timer.prefab|
@@ -419,6 +428,10 @@
 |assets/prefabs/misc/burlap sack/generic_world.prefab|
 |assets/prefabs/misc/casino/bigwheel/big_wheel.prefab|
 |assets/prefabs/misc/casino/bigwheel/bigwheelbettingterminal.prefab|
+|assets/prefabs/misc/chinesenewyear/chinese_door_decoration/chinese_door_decoration.prefab|
+|assets/prefabs/misc/chinesenewyear/chinese_door_frame_decoration/chinese_door_frame_decoration.prefab|
+|assets/prefabs/misc/chinesenewyear/chineselantern/chineselantern.deployed.prefab|
+|assets/prefabs/misc/chinesenewyear/dragondoorknocker/dragondoorknocker.deployed.prefab|
 |assets/prefabs/misc/divesite/divesite_a.prefab|
 |assets/prefabs/misc/divesite/divesite_b.prefab|
 |assets/prefabs/misc/divesite/divesite_c.prefab|
@@ -522,6 +535,7 @@
 |assets/prefabs/tools/c4/explosive.timed.entity.prefab|
 |assets/prefabs/tools/camera/tool_camera.prefab|
 |assets/prefabs/tools/deploy (obsolete)/generic_deploy.prefab|
+|assets/prefabs/tools/detonator/detonator.entity.prefab|
 |assets/prefabs/tools/fishing rod/bobber/bobber.prefab|
 |assets/prefabs/tools/fishing rod/fishing_rod.entity.prefab|
 |assets/prefabs/tools/flareold/flare.deployed.prefab|
@@ -540,6 +554,7 @@
 |assets/prefabs/tools/map/genericradiusmarker.prefab|
 |assets/prefabs/tools/map/map.prefab|
 |assets/prefabs/tools/medical syringe/syringe_medical.entity.prefab|
+|assets/prefabs/tools/pager/pager.entity.prefab|
 |assets/prefabs/tools/planner/planner.prefab|
 |assets/prefabs/tools/smoke grenade/grenade.smoke.deployed.prefab|
 |assets/prefabs/tools/smoke grenade/smoke_grenade.weapon.prefab|
@@ -553,6 +568,8 @@
 |assets/prefabs/vehicle/seats/copilotseat.prefab|
 |assets/prefabs/vehicle/seats/driverseat.prefab|
 |assets/prefabs/vehicle/seats/gunnertest.prefab|
+|assets/prefabs/vehicle/seats/minihelipassenger.prefab|
+|assets/prefabs/vehicle/seats/miniheliseat.prefab|
 |assets/prefabs/vehicle/seats/passenger.prefab|
 |assets/prefabs/vehicle/seats/passengerchair.prefab|
 |assets/prefabs/vehicle/seats/pilotseat.prefab|
