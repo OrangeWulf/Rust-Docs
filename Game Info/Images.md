@@ -1,5 +1,9 @@
 |Name|
 |:-|
+|assets/bundled/prefabs/fx/lightning/fx-lightning.png|
+|assets/bundled/prefabs/fx/lightning/fx-lightning2.png|
+|assets/bundled/prefabs/fx/lightning/fx-lightning3.png|
+|assets/bundled/prefabs/fx/lightning/fx-lightning4.png|
 |assets/content/image effects/lens dirt/lensdirt1.png|
 |assets/content/image effects/lens dirt/lensdirt10.png|
 |assets/content/image effects/lens dirt/lensdirt11.png|

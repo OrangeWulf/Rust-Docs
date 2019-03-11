@@ -1,10 +1,6 @@
 |Name|
 |:-|
 |assets/bundled/prefabs/autospawn/this folder - read me!.txt|
-|assets/content/ui/fonts/droidsansmono.ttf|
-|assets/content/ui/fonts/permanentmarker.ttf|
-|assets/content/ui/fonts/robotocondensed-bold.ttf|
-|assets/content/ui/fonts/robotocondensed-regular.ttf|
 |assets/localization/af/engine.json|
 |assets/localization/af/phrases.json|
 |assets/localization/ar/engine.json|

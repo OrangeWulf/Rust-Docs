@@ -133,6 +133,9 @@
 |assets/bundled/prefabs/fireball_small_arrow.prefab|
 |assets/bundled/prefabs/fireball_small_shotgun.prefab|
 |assets/bundled/prefabs/hapis/npcvendingmachine_building_hapis.prefab|
+|assets/bundled/prefabs/hapis/npcvendingmachine_buyres_hapis.prefab|
+|assets/bundled/prefabs/hapis/npcvendingmachine_food_hapis.prefab|
+|assets/bundled/prefabs/hapis/npcvendingmachine_hapis_hapis.prefab|
 |assets/bundled/prefabs/hapis/npcvendingmachine_weapons_hapis.prefab|
 |assets/bundled/prefabs/napalm.prefab|
 |assets/bundled/prefabs/oilfireballsmall.prefab|
@@ -413,6 +416,8 @@
 |assets/prefabs/instruments/guitar/guitar.weapon.prefab|
 |assets/prefabs/io/electric/generators/generator.static.prefab|
 |assets/prefabs/io/electric/lights/simplelight.prefab|
+|assets/prefabs/io/electric/lights/sirenlightorange.prefab|
+|assets/prefabs/io/electric/other/alarmsound.prefab|
 |assets/prefabs/io/electric/switches/andswitch.prefab|
 |assets/prefabs/io/electric/switches/cardreader.prefab|
 |assets/prefabs/io/electric/switches/doormanipulator.prefab|
@@ -487,8 +492,10 @@
 |assets/prefabs/npc/bandit/shopkeepers/bandit_shopkeeper.prefab|
 |assets/prefabs/npc/bear/bear_full.prefab|
 |assets/prefabs/npc/cargo plane/cargo_plane.prefab|
+|assets/prefabs/npc/ch47/alarmsytstem.prefab|
 |assets/prefabs/npc/ch47/ch47.entity.prefab|
 |assets/prefabs/npc/ch47/ch47scientists.entity.prefab|
+|assets/prefabs/npc/ch47/reinforcementslistener.prefab|
 |assets/prefabs/npc/ch47/servergibs_ch47.prefab|
 |assets/prefabs/npc/flame turret/flameturret.deployed.prefab|
 |assets/prefabs/npc/flame turret/flameturret_fireball.prefab|
@@ -663,6 +670,9 @@
 |assets/rust.ai/agents/chicken/chicken.prefab|
 |assets/rust.ai/agents/horse/horse.corpse.prefab|
 |assets/rust.ai/agents/horse/horse.prefab|
+|assets/rust.ai/agents/npcplayer/humannpc/heavyscientist/heavyscientist.prefab|
+|assets/rust.ai/agents/npcplayer/humannpc/humannpc.prefab|
+|assets/rust.ai/agents/npcplayer/humannpc/scientist/scientistnpc.prefab|
 |assets/rust.ai/agents/npcplayer/npcplayertest.prefab|
 |assets/rust.ai/agents/stag/stag.corpse.prefab|
 |assets/rust.ai/agents/stag/stag.prefab|

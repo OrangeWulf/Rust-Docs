@@ -197,7 +197,7 @@
 |-2094954543|Wood Armor Helmet|wood.armor.helmet|A shoddy helmet made from Wood and Cloth.|
 |-1252059217|Hatchet|hatchet|A Hatchet, useful for chopping trees and dismembering corpses.|
 |1266491000|Hazmat Suit|hazmatsuit|A hazmat suit made from radiation resistant rubber.|
-|-1507239837|HBHF Sensor|electric.hbhfsensor|A Hearbeat, Breathing, Humidity and Footstep sensor. Passthrough is equal to the number of humans detected in a 20m radius w/ LOS. Configurable w/ hammer|
+|-1507239837|HBHF Sensor|electric.hbhfsensor|A Heartbeat, Breathing, Humidity and Footstep sensor. Passthrough is equal to the number of humans detected in a 20m radius w/ LOS. Configurable w/ hammer|
 |-886280491|Hemp Clone|clone.hemp|A clipping of a hemp plant.|
 |-237809779|Hemp Seed|seed.hemp|Hemp seeds can be found when picking wild Hemp. These seeds can be planted in the ground and grown to collect additional cloth.Planting these seeds in a planter, and then watering them with large quantities of water yields significantly more cloth and faster groth.|
 |794356786|Hide Boots|attire.hide.boots|Boots made from the hide of an animal.|
@@ -340,6 +340,7 @@
 |-575483084|Santa Hat|santahat|A santa hat. Ho Ho ho.|
 |177226991|Scarecrow|scarecrow|Get into the halloween spirit with this decorate deployable item.|
 |-253079493|Scientist Suit|hazmatsuit_scientist|A hazmat suit made from radiation resistant rubber.|
+|-1772746857|Heavy Scientist Suit|scientistsuit_heavy|A heavy hazmat suit made from radiation resistant rubber.|
 |-1958316066|Scientist Suit|hazmatsuit_scientist_peacekeeper|A hazmat suit made from radiation resistant rubber.|
 |567235583|4x Zoom Scope|weapon.mod.small.scope|A small 4x zoom scope.|
 |-932201673|Scrap|scrap|A pile of random unidentified junk. This can be used in a research bench to create components.|
