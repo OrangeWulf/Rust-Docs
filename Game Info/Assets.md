@@ -1605,6 +1605,14 @@
 |assets/prefabs/weapons/flamethrower/sounds/flamethrower-pilot-loop.asset|
 |assets/prefabs/weapons/flamethrower/sounds/flamethrower-toggle_flame.asset|
 |assets/prefabs/weapons/flamethrower/sounds/flamethrower-valve_open.asset|
+|assets/prefabs/weapons/grenade launcher/sound/grenade-launcher-attack.asset|
+|assets/prefabs/weapons/grenade launcher/sound/grenade-launcher-deploy.asset|
+|assets/prefabs/weapons/grenade launcher/sound/grenade-launcher-explosion.asset|
+|assets/prefabs/weapons/grenade launcher/sound/grenade-launcher-reload-end.asset|
+|assets/prefabs/weapons/grenade launcher/sound/grenade-launcher-reload-single-insert.asset|
+|assets/prefabs/weapons/grenade launcher/sound/grenade-launcher-reload-single-spin.asset|
+|assets/prefabs/weapons/grenade launcher/sound/grenade-launcher-reload-single-start.asset|
+|assets/prefabs/weapons/grenade launcher/sound/grenade-launcher-reload-start.asset|
 |assets/prefabs/weapons/hammer/hammer.skinnable.asset|
 |assets/prefabs/weapons/hammer/sound/hammer-attack-3p.asset|
 |assets/prefabs/weapons/hammer/sound/hammer-attack.asset|
@@ -1619,6 +1627,8 @@
 |assets/prefabs/weapons/hatchet/sound/hatchet-strike-muted.asset|
 |assets/prefabs/weapons/hatchet/sound/hatchet-strike-soft.asset|
 |assets/prefabs/weapons/hatchet/sound/hatchet-strike.asset|
+|assets/prefabs/weapons/knife/knife.combat.skinnable.asset|
+|assets/prefabs/weapons/knife/sound/combat.knife.deploy.asset|
 |assets/prefabs/weapons/l96/sound/l96-attack.asset|
 |assets/prefabs/weapons/l96/sound/l96-bolt-action.asset|
 |assets/prefabs/weapons/l96/sound/l96-bolt-finish.asset|
@@ -1645,6 +1655,7 @@
 |assets/prefabs/weapons/lr300/sound/lr300-grab-mag.asset|
 |assets/prefabs/weapons/lr300/sound/lr300-insert-mag.asset|
 |assets/prefabs/weapons/lr300/sound/lr300-remove-mag.asset|
+|assets/prefabs/weapons/m249/m249.skinnable.asset|
 |assets/prefabs/weapons/m249/sound/m249-ammobox_insert.asset|
 |assets/prefabs/weapons/m249/sound/m249-ammobox_remove.asset|
 |assets/prefabs/weapons/m249/sound/m249-attack-silenced.asset|
@@ -1657,6 +1668,7 @@
 |assets/prefabs/weapons/m249/sound/m249-place_bullets.asset|
 |assets/prefabs/weapons/m249/sound/m249-topcover_close.asset|
 |assets/prefabs/weapons/m249/sound/m249-topcover_open.asset|
+|assets/prefabs/weapons/m39 emr/m39.skinnable.asset|
 |assets/prefabs/weapons/m39 emr/sound/m39-attack-silenced.asset|
 |assets/prefabs/weapons/m39 emr/sound/m39-attack.asset|
 |assets/prefabs/weapons/m39 emr/sound/m39-bolt-action.asset|

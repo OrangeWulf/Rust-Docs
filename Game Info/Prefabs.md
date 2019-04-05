@@ -1556,6 +1556,8 @@
 |assets/content/props/light_fixtures/v2/plight.siren.red.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.siren.red.on.prefab|
 |assets/content/props/light_fixtures/v2/plight.spotlight.on.cool.prefab|
+|assets/content/props/light_fixtures/v2/plight.streetlight.detached.on.prefab|
+|assets/content/props/light_fixtures/v2/plight.streetlight.on.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/airfield lighting.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/cargoship exhaust.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/cargoship interior lighting.prefab|
@@ -1563,6 +1565,8 @@
 |assets/content/props/light_fixtures/v2/radtown work prefabs/compound lighting.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/lighthousefx-ph.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/militarytunnel lighting v2.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig exhaust flame v2.1.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig exhaust flame v2.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig exhaust flame.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig lighting.prefab|
@@ -1872,6 +1876,7 @@
 |assets/content/sound/ambience/baseambienceemitter.prefab|
 |assets/content/sound/ambience/lifeambienceemitter.prefab|
 |assets/content/sound/ambience/rainambienceemitter.prefab|
+|assets/content/sound/oilrig/oilriglargeaudio.prefab|
 |assets/content/sound/oilrig/oilrigsmallaudio.prefab|
 |assets/content/sound/templates/ambience.sound-template.prefab|
 |assets/content/sound/templates/bullet-flyby.prefab|
@@ -2746,6 +2751,10 @@
 |assets/content/weapons/_gestures/effects/drink.prefab|
 |assets/content/weapons/_gestures/effects/eat_1hand_celery.prefab|
 |assets/content/weapons/_gestures/effects/eat_2hand_chewymeat.prefab|
+|assets/prefabs/ammo/40mmgrenade/40mm_buckshot.item.prefab|
+|assets/prefabs/ammo/40mmgrenade/40mm_grenade_he.item.prefab|
+|assets/prefabs/ammo/40mmgrenade/40mm_grenade_smoke.item.prefab|
+|assets/prefabs/ammo/40mmgrenade/effects/40mm_he_explosion.prefab|
 |assets/prefabs/ammo/arrow/arrow_hv.item.prefab|
 |assets/prefabs/ammo/arrow/arrow_hv.prefab|
 |assets/prefabs/ammo/arrow/arrow_hv.worldmodel.prefab|
@@ -4070,6 +4079,7 @@
 |assets/prefabs/tools/rf units/rfreceiver.prefab|
 |assets/prefabs/tools/smoke grenade/effects/ignite.prefab|
 |assets/prefabs/tools/smoke grenade/effects/smokegrenade.prefab|
+|assets/prefabs/tools/smoke grenade/effects/smokegrenade_small.prefab|
 |assets/prefabs/tools/smoke grenade/smoke_grenade.item.prefab|
 |assets/prefabs/tools/supply signal/model/m18_smokegrenade.prefab|
 |assets/prefabs/tools/supply signal/supply_signal.item.prefab|
@@ -4119,9 +4129,13 @@
 |assets/prefabs/weapon mods/scope/scope.prefab|
 |assets/prefabs/weapon mods/silencers/effects/silencedshot_default.prefab|
 |assets/prefabs/weapon mods/silencers/effects/silencer_attach.fx.prefab|
+|assets/prefabs/weapon mods/silencers/oilfiltersilencer_v.prefab|
+|assets/prefabs/weapon mods/silencers/oilfiltersilencer_w.prefab|
 |assets/prefabs/weapon mods/silencers/silencer.item.prefab|
 |assets/prefabs/weapon mods/silencers/silencer.vm.attachment.prefab|
 |assets/prefabs/weapon mods/silencers/silencer.worldmodel.prefab|
+|assets/prefabs/weapon mods/silencers/sodacansilencer_v.prefab|
+|assets/prefabs/weapon mods/silencers/sodacansilencer_w.prefab|
 |assets/prefabs/weapon mods/smallscope/scope.small.item.prefab|
 |assets/prefabs/weapon mods/smallscope/smallscope.worldmodel.prefab|
 |assets/prefabs/weapons/ak47u/ak47u.item.prefab|
@@ -4321,6 +4335,9 @@
 |assets/prefabs/weapons/flamethrower/effects/flame_explosion_dist 1.prefab|
 |assets/prefabs/weapons/flamethrower/effects/flame_explosion_dist.prefab|
 |assets/prefabs/weapons/flamethrower/effects/flametest.prefab|
+|assets/prefabs/weapons/flamethrower/effects/flamethrowerflamefx-v2-1stperson.prefab|
+|assets/prefabs/weapons/flamethrower/effects/flamethrowerflamefx-v2-1stperson2.prefab|
+|assets/prefabs/weapons/flamethrower/effects/flamethrowerflamefx-v2.prefab|
 |assets/prefabs/weapons/flamethrower/effects/gas_release.prefab|
 |assets/prefabs/weapons/flamethrower/effects/gascan_in.prefab|
 |assets/prefabs/weapons/flamethrower/effects/gascan_out.prefab|
@@ -4329,6 +4346,18 @@
 |assets/prefabs/weapons/flamethrower/flamethrower.item.prefab|
 |assets/prefabs/weapons/flamethrower/flamethrower.viewmodel.prefab|
 |assets/prefabs/weapons/flamethrower/flamethrower.worldmodel.prefab|
+|assets/prefabs/weapons/grenade launcher/effects/attack.prefab|
+|assets/prefabs/weapons/grenade launcher/effects/deploy.prefab|
+|assets/prefabs/weapons/grenade launcher/effects/reload_end.prefab|
+|assets/prefabs/weapons/grenade launcher/effects/reload_single_insert.prefab|
+|assets/prefabs/weapons/grenade launcher/effects/reload_single_spin.prefab|
+|assets/prefabs/weapons/grenade launcher/effects/reload_single_start.prefab|
+|assets/prefabs/weapons/grenade launcher/effects/reload_start.prefab|
+|assets/prefabs/weapons/grenade launcher/glammo.prefab|
+|assets/prefabs/weapons/grenade launcher/glammo_low.prefab|
+|assets/prefabs/weapons/grenade launcher/grenadelauncher.viewmodel.prefab|
+|assets/prefabs/weapons/grenade launcher/grenadelauncher.worldmodel.prefab|
+|assets/prefabs/weapons/grenade launcher/mgl.item.prefab|
 |assets/prefabs/weapons/hacksaw/effects/attack-1.prefab|
 |assets/prefabs/weapons/hacksaw/effects/attack-2.prefab|
 |assets/prefabs/weapons/hacksaw/effects/hit.prefab|
@@ -4395,6 +4424,21 @@
 |assets/prefabs/weapons/hatchet/hatchet.projectile.prefab|
 |assets/prefabs/weapons/hatchet/hatchet.viewmodel.prefab|
 |assets/prefabs/weapons/hatchet/hatchet.worldmodel.prefab|
+|assets/prefabs/weapons/knife/effects/attack-1.prefab|
+|assets/prefabs/weapons/knife/effects/attack-2.prefab|
+|assets/prefabs/weapons/knife/effects/deploy.prefab|
+|assets/prefabs/weapons/knife/effects/hit.prefab|
+|assets/prefabs/weapons/knife/effects/holster.prefab|
+|assets/prefabs/weapons/knife/effects/strike-soft.prefab|
+|assets/prefabs/weapons/knife/effects/strike.prefab|
+|assets/prefabs/weapons/knife/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/knife/effects/throw.prefab|
+|assets/prefabs/weapons/knife/knife.combat.item.prefab|
+|assets/prefabs/weapons/knife/knife.combat.projectile.prefab|
+|assets/prefabs/weapons/knife/knife.combat.viewmodel.prefab|
+|assets/prefabs/weapons/knife/knife.combat.worldmodel.prefab|
+|assets/prefabs/weapons/knife/knife_v.prefab|
+|assets/prefabs/weapons/knife/knife_w.prefab|
 |assets/prefabs/weapons/l96/effects/attack.prefab|
 |assets/prefabs/weapons/l96/effects/attack_shake.prefab|
 |assets/prefabs/weapons/l96/effects/dryfire.prefab|

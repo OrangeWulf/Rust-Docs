@@ -4980,8 +4980,14 @@
 |assets/prefabs/weapon mods/reddotsight/model/reddotsight_viewmodel.fbx|
 |assets/prefabs/weapon mods/reddotsight/model/reddotsight_worldmodel.fbx|
 |assets/prefabs/weapon mods/scope/scope.fbx|
+|assets/prefabs/weapon mods/silencers/model/oilfiltersilencer_col.fbx|
+|assets/prefabs/weapon mods/silencers/model/oilfiltersilencer_v.fbx|
+|assets/prefabs/weapon mods/silencers/model/oilfiltersilencer_w.fbx|
 |assets/prefabs/weapon mods/silencers/model/silencer_viewmodel.fbx|
 |assets/prefabs/weapon mods/silencers/model/silencer_worldmodel.fbx|
+|assets/prefabs/weapon mods/silencers/model/sodacansilencer_col.fbx|
+|assets/prefabs/weapon mods/silencers/model/sodacansilencer_v.fbx|
+|assets/prefabs/weapon mods/silencers/model/sodacansilencer_w.fbx|
 |assets/prefabs/weapon mods/smallscope/model/reddot_viewmodel.fbx|
 |assets/prefabs/weapon mods/smallscope/model/reddot_worldmodel.fbx|
 |assets/prefabs/weapon mods/smallscope/model/reddot_worldmodel_with_rails.fbx|
@@ -5210,6 +5216,16 @@
 |assets/prefabs/weapons/flamethrower/model/w_flamethrower.fbx|
 |assets/prefabs/weapons/flamethrower/model/w_flamethrower@reload.fbx|
 |assets/prefabs/weapons/flamethrower/model/w_flamethrower_rigged.fbx|
+|assets/prefabs/weapons/grenade launcher/anim/gl.idle.fbx|
+|assets/prefabs/weapons/grenade launcher/anim/gl.reload.fbx|
+|assets/prefabs/weapons/grenade launcher/anim/gl@attack.fbx|
+|assets/prefabs/weapons/grenade launcher/anim/gl@attack_aim.fbx|
+|assets/prefabs/weapons/grenade launcher/anim/gl@deploy.fbx|
+|assets/prefabs/weapons/grenade launcher/model/glammo.fbx|
+|assets/prefabs/weapons/grenade launcher/model/glammo_low.fbx|
+|assets/prefabs/weapons/grenade launcher/model/v_grenadelauncher.fbx|
+|assets/prefabs/weapons/grenade launcher/model/v_grenadelauncher_anims.fbx|
+|assets/prefabs/weapons/grenade launcher/model/w_grenadelauncher.fbx|
 |assets/prefabs/weapons/hacksaw/model/v_hacksaw.fbx|
 |assets/prefabs/weapons/hacksaw/model/v_hacksaw@attack-1.fbx|
 |assets/prefabs/weapons/hacksaw/model/v_hacksaw@attack-1_hit.fbx|
@@ -5229,6 +5245,12 @@
 |assets/prefabs/weapons/hammer/model/w_hammer.fbx|
 |assets/prefabs/weapons/hatchet/model/v_hatchet.fbx|
 |assets/prefabs/weapons/hatchet/model/w_hatchet.fbx|
+|assets/prefabs/weapons/knife/models/knife_col.fbx|
+|assets/prefabs/weapons/knife/models/knife_v.fbx|
+|assets/prefabs/weapons/knife/models/knife_w.fbx|
+|assets/prefabs/weapons/knife/models/v_knife@admire.fbx|
+|assets/prefabs/weapons/knife/models/v_knife@deploy.fbx|
+|assets/prefabs/weapons/knife/models/v_knife@throw.fbx|
 |assets/prefabs/weapons/l96/models/v_l96.fbx|
 |assets/prefabs/weapons/l96/models/v_l96_anims.fbx|
 |assets/prefabs/weapons/l96/models/v_l96_cycle.fbx|

@@ -1,6 +1,9 @@
 |ID|Display name|Short name|Description|
 |:-:|:-:|:-:|:-|
-|174866732|8x Zoom Scope|weapon.mod.8x.scope|A large 8x zoom scope.|
+|1055319033|40mm Shotgun Round|ammo.grenadelauncher.buckshot|Ammunition for a 40mm Grenade Launcher.|
+|349762871|40mm HE Grenade|ammo.grenadelauncher.he|Ammunition for a 40mm Grenade Launcher.|
+|915408809|40mm Smoke Grenade|ammo.grenadelauncher.smoke|Ammunition for a 40mm Grenade Launcher.|
+|174866732|16x Zoom Scope|weapon.mod.8x.scope|A large 16x zoom scope.|
 |1545779598|Assault Rifle|rifle.ak|High damage machine rifle.|
 |588596902|Handmade Shell|ammo.handmade.shell|Shoddy ammo with multiple projectiles.|
 |785728077|Pistol Bullet|ammo.pistol|Ammunition for a Pistol. Loses velocity when fired over long distances resulting in slightly decreased damage.|
@@ -48,7 +51,7 @@
 |-996920608|Blueprint|blueprintbase|Blueprint|
 |1588298435|Bolt Action Rifle|rifle.bolt|A High powered, highly accurate, long range rifle.|
 |1711033574|Bone Club|bone.club|A blunt weapon made from a femur. All around basic gathering tool.|
-|1719978075|Bone Fragments|bone.fragments|Extracted from animal carcass.  Used as a raw material to make a bone blade, a bone awl, bone meal, or used to make glue.|
+|1719978075|Bone Fragments|bone.fragments|Extracted from animal carcass.  Used as a raw material to make a bone weapons and armour.|
 |613961768|Bota Bag|botabag|A canteen used to carry Water. Left click to drink, right click to fill from water sources, or to pour out.|
 |1443579727|Hunting Bow|bow.hunting|Hunting Bow, useful for short to medium range combat and hunting.|
 |833533164|Large Wood Box|box.wooden.large|Keep your things in this wooden storage box. Stores up to 30 items.|
@@ -73,7 +76,7 @@
 |634478325|CCTV Camera|cctv.camera|A somewhat broken CCTV camera, Unusable in its current form.|
 |1142993169|Ceiling Light|ceilinglight|A small ceiling mounted light source.|
 |1104520648|Chainsaw|chainsaw|A Chainsaw. Very effective at cutting trees in addition to soft fleshy objects. Requires Low Grade Fuel to run.|
-|1534542921|Chair|chair|Every home needs a chair. A decorative item which provides comfort when in close proximity.|
+|1534542921|Chair|chair|Every home needs a chair. A decorative item which provides comfort while seated.|
 |-1938052175|Charcoal|charcoal|Byproduct from campfires and furnaces used for crafting gunpowder.|
 |1973684065|Burnt Chicken|chicken.burned|Burned chicken. Eating it will damage your health.|
 |-1848736516|Cooked Chicken|chicken.cooked|Cooked chicken. Eating it will restore some health, hunger, and thirst.|
@@ -221,6 +224,7 @@
 |-484206264|Blue Keycard|keycard_blue|A keycard with medium level clearance.|
 |37122747|Green Keycard|keycard_green|A low level clearance card granting access to basic areas.|
 |-1880870149|Red Keycard|keycard_red|A keycard with advanced clearance, grants access to top level areas|
+|2040726127|Combat Knife|knife.combat|Melee weapon crafted from bone fragments. Best in class at harvesting flesh.|
 |1814288539|Bone Knife|knife.bone|Melee weapon crafted from bone fragments. Best in class at harvesting flesh.|
 |-778367295|L96 Rifle|rifle.l96|A military issue high powered rifle. Extremely long range and accuracy.|
 |-316250604|Wooden Ladder|ladder.wooden.wall|A ladder will help you climb walls in any base.|
@@ -230,8 +234,8 @@
 |-489848205|Large Candle Set|largecandles|Large Candles|
 |254522515|Large Medkit|largemedkit|A large medkit.|
 |-798293154|Laser Detector|electric.laserdetector|A gate which allows power to flow while a player is in the beam|
-|-132516482|Weapon Lasersight|weapon.mod.lasersight|Attaches to a weapon. Provides user with a guiding laser and reduces recoil.|
-|1381010055|Leather|leather|Leather from an animal. Used in many clothing items, weapons, and more.|
+|-132516482|Weapon Lasersight|weapon.mod.lasersight|Attaches to a weapon. Provides user with a guiding laser and reduces weapon sway.|
+|1381010055|Leather|leather|Leather from an animal. Used in many clothing items and more.|
 |1159991980|Code Lock|lock.code|An electronic lock. Locked and unlocked with four-digit code.|
 |-850982208|Key Lock|lock.key|Place on a door to avoid any unwelcome guests. To craft your key first place the lock on a door and hold E while looking at the Key lock and select 'Create Key', a key will now be added to your crafting queue.If the key is lost, you cannot make another, so don't forget to make extras and put them in a safe place!|
 |-110921842|Locker|locker|A locker for keeping your clothes and armor safe!|
@@ -279,6 +283,7 @@
 |317398316|High Quality Metal|metal.refined|High quality metal suitable for armor and weapons construction.|
 |1882709339|Metal Blade|metalblade|A Metal Blade for making melee weapons.|
 |95950017|Metal Pipe|metalpipe|Metal Pipe.|
+|-1123473824|Multiple Grenade Launcher|multiplegrenadelauncher|A 40MM six barrel, semi automatic grenade launcher|
 |1426574435|MC repair|minihelicopter.repair|MC repair dummy|
 |-1130709577|Pump Jack|mining.pumpjack|Extracts oil from the ground. Use a Survey Charge to determine the amount of oil available for extraction in any given area.|
 |1052926200|Mining Quarry|mining.quarry|Extracts minerals from the ground. Use a Survey Charge to determine the amount of minerals available for extraction in any given area.|
@@ -286,7 +291,7 @@
 |1318558775|MP5A4|smg.mp5|A medium damage machine gun.|
 |-1962971928|Mushroom|mushroom|A Mushroom found on the ground. Eating it provides a small boost to health, hunger, and thirst.|
 |-1405508498|Muzzle Boost|weapon.mod.muzzleboost|Increases weapon fire rate by channeling gasses back into the weapon cycling it faster, at the cost of bullet velocity and accuracy.|
-|1478091698|Muzzle Brake|weapon.mod.muzzlebrake|Lowers recoil felt by the operator but can make bullet path more unpredictable.|
+|1478091698|Muzzle Brake|weapon.mod.muzzlebrake|Lowers recoil felt by the operator but can make bullet path more unpredictable and dealing slightly less damage to your foes.|
 |1953903201|Nailgun|pistol.nailgun|A construction tool turned deadly|
 |-2097376851|Nailgun Nails|ammo.nailgun.nails|Standard nailgun ammunition|
 |1414245162|Note|note|A scrap of paper for leaving notes.|
@@ -295,7 +300,7 @@
 |237239288|Pants|pants|Pants.|
 |-1778159885|Heavy Plate Pants|heavy.plate.pants|Offers superior protection at the cost of reduced movement speed.|
 |1722154847|Hide Pants|attire.hide.pants|Trousers made from the hide of an animal.|
-|1850456855|Road Sign Kilt|roadsign.kilt|A shoddy piece of leg armor made from Metal Fragments and Leather.|
+|1850456855|Road Sign Kilt|roadsign.kilt|A shoddy piece of leg armor made from roadsigns.|
 |-1695367501|Shorts|pants.shorts|Trousers without the bottom of the legs.|
 |-1779183908|Paper|paper|Paper, a ingredient for Building plan and Note.|
 |-1302129395|Pickaxe|pickaxe|A Pickaxe, useful for gathering ore from rocks.|
@@ -325,7 +330,7 @@
 |-566907190|RF Pager|rf_pager|An RF Pager. An audible tone will be produced when a signal is picked up on the listening frequency. Can be set to silent mode.|
 |888415708|RF Receiver|electric.rf.receiver|An RF Receiver|
 |176787552|Rifle Body|riflebody|The firing mechanism of a rifle. Used in construction of a weapon that can fire 5.56 ammo fully automatic.|
-|-2002277461|Road Sign Jacket|roadsign.jacket|A shoddy piece of body armor made from Metal Fragments and Leather.|
+|-2002277461|Road Sign Jacket|roadsign.jacket|A shoddy piece of body armor made from roadsigns.|
 |1199391518|Road Signs|roadsigns|Some road signs made of metal.|
 |963906841|Rock|rock|A Rock. The most basic melee weapon and gathering tool.|
 |442886268|Rocket Launcher|rocket.launcher|Shoots rockets slightly farther than North Korea.|
@@ -336,13 +341,13 @@
 |-1978999529|Salvaged Cleaver|salvaged.cleaver|A powerful 2-handed melee weapon with high damage.|
 |1326180354|Salvaged Sword|salvaged.sword|A powerful melee weapon made from a filed-down wrench. Great durability, good damage.|
 |-384243979|SAM Ammo|ammo.rocket.sam|Ammunition for a Sam Site, This missile contains a rudimentary guidance system to help it navigate through strong winds.|
-|-1009359066|SAM Site|samsite|A surface to air rocket site.|
+|-1009359066|SAM Site|samsite|A surface to air rocket site. Requires 10 electricity to function.|
 |-575483084|Santa Hat|santahat|A santa hat. Ho Ho ho.|
 |177226991|Scarecrow|scarecrow|Get into the halloween spirit with this decorate deployable item.|
 |-253079493|Scientist Suit|hazmatsuit_scientist|A hazmat suit made from radiation resistant rubber.|
 |-1772746857|Heavy Scientist Suit|scientistsuit_heavy|A heavy hazmat suit made from radiation resistant rubber.|
 |-1958316066|Scientist Suit|hazmatsuit_scientist_peacekeeper|A hazmat suit made from radiation resistant rubber.|
-|567235583|4x Zoom Scope|weapon.mod.small.scope|A small 4x zoom scope.|
+|567235583|8x Zoom Scope|weapon.mod.small.scope|A small 8x zoom scope.|
 |-932201673|Scrap|scrap|A pile of random unidentified junk. This can be used in a research bench to create components.|
 |2087678962|Search Light|searchlight|A Large, wide beam, aimable light source.|
 |-904863145|Semi-Automatic Rifle|rifle.semiauto|A Semi Automatic Rifle.|
@@ -353,7 +358,7 @@
 |-2025184684|Shirt|shirt.collared|A smart casual shirt|
 |1608640313|Tank Top|shirt.tanktop|A tshirt without sleeves|
 |-1549739227|Boots|shoes.boots|Work boots.|
-|-765183617|Double Barrel Shotgun|shotgun.double|A Shotgun. Fires a two rounds with a wide spread before needing a reload.|
+|-765183617|Double Barrel Shotgun|shotgun.double|A Shotgun with two barrels allowing two shots to be fired in quick successionbefore needing to reload.|
 |795371088|Pump Shotgun|shotgun.pump|A Shotgun. Fires six rounds.|
 |-1367281941|Waterpipe Shotgun|shotgun.waterpipe|A Shotgun. Fires a single round before reloading.|
 |352499047|Shotgun Trap|guntrap|A shotgun trap triggered by movement, place near doorways and load with handmade shells.|

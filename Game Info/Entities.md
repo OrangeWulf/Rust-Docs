@@ -234,6 +234,8 @@
 |assets/content/vehicles/minicopter/minicopter.entity.prefab|
 |assets/content/vehicles/minicopter/subents/fuel_storage.prefab|
 |assets/content/vehicles/sedan_a/sedantest.entity.prefab|
+|assets/prefabs/ammo/40mmgrenade/40mm_grenade_he.prefab|
+|assets/prefabs/ammo/40mmgrenade/40mm_grenade_smoke.prefab|
 |assets/prefabs/ammo/arrow/arrow.prefab|
 |assets/prefabs/ammo/rocket/rocket_basic.prefab|
 |assets/prefabs/ammo/rocket/rocket_fire.prefab|
@@ -283,6 +285,7 @@
 |assets/prefabs/building/wall.window.reinforcedglass/wall.window.glass.reinforced.prefab|
 |assets/prefabs/building/wall.window.shutter/shutter.wood.a.prefab|
 |assets/prefabs/building/watchtower.wood/watchtower.wood.prefab|
+|assets/prefabs/debris/debris.wall.prefab|
 |assets/prefabs/deployable/barricades/barricade.concrete.prefab|
 |assets/prefabs/deployable/barricades/barricade.metal.prefab|
 |assets/prefabs/deployable/barricades/barricade.sandbags.prefab|
@@ -418,6 +421,7 @@
 |assets/prefabs/io/electric/lights/simplelight.prefab|
 |assets/prefabs/io/electric/lights/sirenlightorange.prefab|
 |assets/prefabs/io/electric/other/alarmsound.prefab|
+|assets/prefabs/io/electric/other/rfbroadcaster.static.prefab|
 |assets/prefabs/io/electric/switches/andswitch.prefab|
 |assets/prefabs/io/electric/switches/cardreader.prefab|
 |assets/prefabs/io/electric/switches/doormanipulator.prefab|
@@ -620,12 +624,14 @@
 |assets/prefabs/weapons/f1 grenade/grenade.f1.entity.prefab|
 |assets/prefabs/weapons/flamethrower/flamethrower.entity.prefab|
 |assets/prefabs/weapons/flamethrower/flamethrower_fireball.prefab|
+|assets/prefabs/weapons/grenade launcher/mgl.entity.prefab|
 |assets/prefabs/weapons/hacksaw/hacksaw.weapon.prefab|
 |assets/prefabs/weapons/halloween/butcher knife/butcherknife.entity.prefab|
 |assets/prefabs/weapons/halloween/pitchfork/pitchfork.entity.prefab|
 |assets/prefabs/weapons/halloween/sickle/sickle.entity.prefab|
 |assets/prefabs/weapons/hammer/hammer.entity.prefab|
 |assets/prefabs/weapons/hatchet/hatchet.entity.prefab|
+|assets/prefabs/weapons/knife/knife.combat.entity.prefab|
 |assets/prefabs/weapons/l96/l96.entity.prefab|
 |assets/prefabs/weapons/lr300/lr300.entity.prefab|
 |assets/prefabs/weapons/m249/m249.entity.prefab|
