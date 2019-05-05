@@ -1016,6 +1016,7 @@
 |assets/content/effects/blood/example prefabs/ps_styleblood_swipe_01.prefab|
 |assets/content/effects/blood/example prefabs/ps_styleblood_swipe_02.prefab|
 |assets/content/effects/candle.prefab|
+|assets/content/effects/electrical/fx-fusebox-sparks.prefab|
 |assets/content/effects/liquid/pfx_oil_stream.prefab|
 |assets/content/effects/materials/fog/fog_wall.prefab|
 |assets/content/effects/materials/fog/height_fog.prefab|
@@ -1424,10 +1425,15 @@
 |assets/content/props/bulk_frame/bulk_frame_300.prefab|
 |assets/content/props/bulk_frame/bulk_frame_600.prefab|
 |assets/content/props/candles/candlegroup1.prefab|
+|assets/content/props/candles/candlegroup1_lit.prefab|
 |assets/content/props/candles/candlegroup2.prefab|
+|assets/content/props/candles/candlegroup2_lit.prefab|
 |assets/content/props/candles/candlelarge.prefab|
+|assets/content/props/candles/candlelarge_lit.prefab|
 |assets/content/props/candles/candlemedium.prefab|
+|assets/content/props/candles/candlemedium_lit.prefab|
 |assets/content/props/candles/candlesmall.prefab|
+|assets/content/props/candles/candlesmall_lit.prefab|
 |assets/content/props/card_reader/card_reader.prefab|
 |assets/content/props/cardboard_boxes/cardboard_box_a.prefab|
 |assets/content/props/cardboard_boxes/cardboard_box_b.prefab|
@@ -1437,7 +1443,6 @@
 |assets/content/props/casino_props/chipstack3.prefab|
 |assets/content/props/chair/chair.prefab|
 |assets/content/props/clone_vat/clone_vat_a.prefab|
-|assets/content/props/clone_vat/clone_vat_fx.prefab|
 |assets/content/props/clothes line/jumper.prefab|
 |assets/content/props/clothes line/towel.prefab|
 |assets/content/props/clothes line/trousers.prefab|
@@ -1533,6 +1538,7 @@
 |assets/content/props/light_fixtures/sirenlight_upright.prefab|
 |assets/content/props/light_fixtures/spotlight.off.prefab|
 |assets/content/props/light_fixtures/spotlight.on.prefab|
+|assets/content/props/light_fixtures/v2/lantern light glow.prefab|
 |assets/content/props/light_fixtures/v2/plight.flare.prefab|
 |assets/content/props/light_fixtures/v2/plight.fluorescent.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.fluorescent.on.cold.prefab|
@@ -1547,20 +1553,29 @@
 |assets/content/props/light_fixtures/v2/plight.industrial.ceiling.lamp.on.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.cool.prefab|
+|assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.green.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.red.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.warm.prefab|
+|assets/content/props/light_fixtures/v2/plight.industrial.wall2.lamp.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall2.lamp.on.cold.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall2.lamp.on.warm.prefab|
+|assets/content/props/light_fixtures/v2/plight.lantern.pillar.prefab|
+|assets/content/props/light_fixtures/v2/plight.lantern.prefab|
 |assets/content/props/light_fixtures/v2/plight.siren.orange.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.siren.orange.spinning.prefab|
 |assets/content/props/light_fixtures/v2/plight.siren.red.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.siren.red.on.prefab|
+|assets/content/props/light_fixtures/v2/plight.siren.red.spinning.prefab|
 |assets/content/props/light_fixtures/v2/plight.spotlight.on.cool.prefab|
+|assets/content/props/light_fixtures/v2/plight.spotlight.on.warm.prefab|
 |assets/content/props/light_fixtures/v2/plight.streetlight.detached.on.prefab|
 |assets/content/props/light_fixtures/v2/plight.streetlight.on.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/airfield lighting.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/bandit lighting.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/bandit swamp fog fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/cargoship exhaust.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/cargoship interior lighting.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/cave large sewers lighting.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/clone_vat_fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/compound lighting.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/lighthousefx-ph.prefab|
@@ -1986,6 +2001,7 @@
 |assets/content/structures/dirt_accum/dirt_accum_single_corner_outer_900.prefab|
 |assets/content/structures/dredge/dredge_body.prefab|
 |assets/content/structures/dredge/dredge_bridges.prefab|
+|assets/content/structures/dredge/dredge_glass.prefab|
 |assets/content/structures/dredge/dredge_metal_structure.prefab|
 |assets/content/structures/dredge/dredge_props.prefab|
 |assets/content/structures/fence_chainlink/fencetriplets.prefab|
@@ -3689,7 +3705,63 @@
 |assets/prefabs/misc/chinesenewyear/dragonmask/hat.dragonmask.item.prefab|
 |assets/prefabs/misc/chinesenewyear/dragonmask/hat.dragonmask.prefab|
 |assets/prefabs/misc/chinesenewyear/dragonmask/hat.dragonmask.world.prefab|
+|assets/prefabs/misc/chippy arcade/arcademachine.prefab|
 |assets/prefabs/misc/doorcloser/doorcloser.item.prefab|
+|assets/prefabs/misc/easter/bunny ears/hat.bunnyears.item.prefab|
+|assets/prefabs/misc/easter/bunny ears/hat.bunnyears.prefab|
+|assets/prefabs/misc/easter/bunny ears/hat.bunnyears.world.prefab|
+|assets/prefabs/misc/easter/bunny onesie/bunny.onsie.item.prefab|
+|assets/prefabs/misc/easter/bunny onesie/suit.easteronesie.prefab|
+|assets/prefabs/misc/easter/bunny onesie/suit.easteronesie.viewmodel.prefab|
+|assets/prefabs/misc/easter/bunny onesie/suit.easteronesie.world.prefab|
+|assets/prefabs/misc/easter/chocolate egg/chocolateegg_blue.prefab|
+|assets/prefabs/misc/easter/chocolate egg/chocolateegg_gold.prefab|
+|assets/prefabs/misc/easter/chocolate egg/chocolateegg_green.prefab|
+|assets/prefabs/misc/easter/chocolate egg/chocolateegg_pink.prefab|
+|assets/prefabs/misc/easter/chocolate egg/chocolateegggibs.prefab|
+|assets/prefabs/misc/easter/door_wreath/easter_door_wreath.item.prefab|
+|assets/prefabs/misc/easter/easter basket/basket.viewmodel.prefab|
+|assets/prefabs/misc/easter/easter basket/easter_basket.item.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/add_egg.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/aim.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/aim_cancel.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/deploy.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/eggexplosion.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/grab_egg_start.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/place.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/place_grab_egg.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/raise.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/settle.prefab|
+|assets/prefabs/misc/easter/easter basket/effects/throw.prefab|
+|assets/prefabs/misc/easter/easter basket/v_basket.prefab|
+|assets/prefabs/misc/easter/easter basket/w_basket.prefab|
+|assets/prefabs/misc/easter/event_easter.prefab|
+|assets/prefabs/misc/easter/faberge_egg_a/faberge_egg_a.worldmodel.prefab|
+|assets/prefabs/misc/easter/faberge_egg_a/models/faberge_egg_a_shell.prefab|
+|assets/prefabs/misc/easter/faberge_egg_a/rustige_egg_a.item.prefab|
+|assets/prefabs/misc/easter/faberge_egg_a/spotlight.prefab|
+|assets/prefabs/misc/easter/faberge_egg_b/faberge_egg_b.worldmodel.prefab|
+|assets/prefabs/misc/easter/faberge_egg_b/rustige_egg_b.item.prefab|
+|assets/prefabs/misc/easter/painted eggs/bronzeegg.item.prefab|
+|assets/prefabs/misc/easter/painted eggs/bronzeegg.worldmodel.prefab|
+|assets/prefabs/misc/easter/painted eggs/effects/bronze_open.prefab|
+|assets/prefabs/misc/easter/painted eggs/effects/egg_upgrade.prefab|
+|assets/prefabs/misc/easter/painted eggs/effects/eggpickup.prefab|
+|assets/prefabs/misc/easter/painted eggs/effects/gold_open.prefab|
+|assets/prefabs/misc/easter/painted eggs/effects/silver_open.prefab|
+|assets/prefabs/misc/easter/painted eggs/egg 1.prefab|
+|assets/prefabs/misc/easter/painted eggs/egg 2.prefab|
+|assets/prefabs/misc/easter/painted eggs/egg 3.prefab|
+|assets/prefabs/misc/easter/painted eggs/goldegg.item.prefab|
+|assets/prefabs/misc/easter/painted eggs/goldegg.worldmodel.prefab|
+|assets/prefabs/misc/easter/painted eggs/paintedegg1.prefab|
+|assets/prefabs/misc/easter/painted eggs/paintedegg2.prefab|
+|assets/prefabs/misc/easter/painted eggs/paintedegg3.prefab|
+|assets/prefabs/misc/easter/painted eggs/paintedeggs.item.prefab|
+|assets/prefabs/misc/easter/painted eggs/paintedeggs.worldmodel.prefab|
+|assets/prefabs/misc/easter/painted eggs/silveregg.item.prefab|
+|assets/prefabs/misc/easter/painted eggs/silveregg.worldmodel.prefab|
+|assets/prefabs/misc/easter/ui/bunnyentry.prefab|
 |assets/prefabs/misc/halloween/candles.prefab|
 |assets/prefabs/misc/halloween/candles/largecandles.item.prefab|
 |assets/prefabs/misc/halloween/candles/smallcandles.item.prefab|
@@ -4058,10 +4130,10 @@
 |assets/prefabs/tools/map/map.worldmodel.prefab|
 |assets/prefabs/tools/map/ui/ui.map.cargoship.prefab|
 |assets/prefabs/tools/map/ui/ui.map.ch47marker.prefab|
-|assets/prefabs/tools/map/ui/ui.map.coordinatetext.prefab|
 |assets/prefabs/tools/map/ui/ui.map.explosion.prefab|
 |assets/prefabs/tools/map/ui/ui.map.genericradial.prefab|
 |assets/prefabs/tools/map/ui/ui.map.hackablecrate.prefab|
+|assets/prefabs/tools/map/ui/ui.map.teamposition.prefab|
 |assets/prefabs/tools/medical syringe/effects/inject_friend.prefab|
 |assets/prefabs/tools/medical syringe/effects/inject_self.prefab|
 |assets/prefabs/tools/medical syringe/effects/pop_button_cap.prefab|

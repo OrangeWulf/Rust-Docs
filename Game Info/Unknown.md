@@ -2240,6 +2240,7 @@
 |assets/content/structures/dredge/models/dredge_body.fbx|
 |assets/content/structures/dredge/models/dredge_body_col.fbx|
 |assets/content/structures/dredge/models/dredge_bridges.fbx|
+|assets/content/structures/dredge/models/dredge_glass.fbx|
 |assets/content/structures/dredge/models/dredge_props.fbx|
 |assets/content/structures/fence_chainlink/meshes/chainlink_fence_corner.fbx|
 |assets/content/structures/fence_chainlink/meshes/chainlink_fence_corner_filler.fbx|
@@ -4589,6 +4590,36 @@
 |assets/prefabs/misc/chinesenewyear/dragondoorknocker/models/door_knocker.fbx|
 |assets/prefabs/misc/chinesenewyear/dragonmask/dragonmask.fbx|
 |assets/prefabs/misc/chinesenewyear/dragonmask/dragonmask_wm.fbx|
+|assets/prefabs/misc/chippy arcade/model/arcademachine.fbx|
+|assets/prefabs/misc/chippy arcade/model/arcademachine_col.fbx|
+|assets/prefabs/misc/easter/bunny ears/bunnyears.fbx|
+|assets/prefabs/misc/easter/bunny ears/bunnyears_wm.fbx|
+|assets/prefabs/misc/easter/bunny onesie/bunnyonesie.fbx|
+|assets/prefabs/misc/easter/bunny onesie/bunnyonesie_vm.fbx|
+|assets/prefabs/misc/easter/bunny onesie/bunnyonesie_wm.fbx|
+|assets/prefabs/misc/easter/chocolate egg/models/chocolateegg.fbx|
+|assets/prefabs/misc/easter/chocolate egg/models/chocolateegggibs.fbx|
+|assets/prefabs/misc/easter/door_wreath/models/easter_door_wreath.fbx|
+|assets/prefabs/misc/easter/door_wreath/models/easter_door_wreath_col.fbx|
+|assets/prefabs/misc/easter/door_wreath/models/easter_door_wreath_gibs.fbx|
+|assets/prefabs/misc/easter/easter basket/anims/idle_basket_anims.fbx|
+|assets/prefabs/misc/easter/easter basket/model/basket_col.fbx|
+|assets/prefabs/misc/easter/easter basket/model/v_basket.fbx|
+|assets/prefabs/misc/easter/easter basket/model/v_basket_anims.fbx|
+|assets/prefabs/misc/easter/easter basket/model/w_basket.fbx|
+|assets/prefabs/misc/easter/faberge_egg_a/models/faberge_egg_a.fbx|
+|assets/prefabs/misc/easter/faberge_egg_a/models/faberge_egg_a_inside.fbx|
+|assets/prefabs/misc/easter/faberge_egg_a/models/faberge_egg_a_shell.fbx|
+|assets/prefabs/misc/easter/faberge_egg_b/models/faberge_egg_b.fbx|
+|assets/prefabs/misc/easter/faberge_egg_b/models/faberge_egg_b_inside.fbx|
+|assets/prefabs/misc/easter/faberge_egg_b/models/faberge_egg_b_shell.fbx|
+|assets/prefabs/misc/easter/painted eggs/models/eggs1_gibs.fbx|
+|assets/prefabs/misc/easter/painted eggs/models/eggs2_gibs.fbx|
+|assets/prefabs/misc/easter/painted eggs/models/eggs3_gibs.fbx|
+|assets/prefabs/misc/easter/painted eggs/models/eggs_col.fbx|
+|assets/prefabs/misc/easter/painted eggs/models/paintedegg1.fbx|
+|assets/prefabs/misc/easter/painted eggs/models/paintedegg2.fbx|
+|assets/prefabs/misc/easter/painted eggs/models/paintedegg3.fbx|
 |assets/prefabs/misc/halloween/coffin/models/coffin.fbx|
 |assets/prefabs/misc/halloween/coffin/models/coffin_col.fbx|
 |assets/prefabs/misc/halloween/coffin/models/coffin_gibs.fbx|
@@ -4824,6 +4855,9 @@
 |assets/prefabs/plants/pumpkin/pumpkin_seed_a.fbx|
 |assets/prefabs/plants/pumpkin/pumpkin_seedling.fbx|
 |assets/prefabs/plants/pumpkin/pumpkin_standalone.fbx|
+|assets/prefabs/plants/underwater vines/models/w_underwatervines.fbx|
+|assets/prefabs/plants/underwater vines/models/w_underwatervines_static_closed.fbx|
+|assets/prefabs/plants/underwater vines/models/w_underwatervines_static_open.fbx|
 |assets/prefabs/resource/animal fat/model/animalfat.fbx|
 |assets/prefabs/resource/bone fragments/model/bonefragments.fbx|
 |assets/prefabs/resource/cctv camera/model/cctv.fbx|
@@ -5085,6 +5119,7 @@
 |assets/prefabs/weapons/bow/arrow heads/models/metal_arrowhead.fbx|
 |assets/prefabs/weapons/bow/arrow heads/models/poison_arrowhead.fbx|
 |assets/prefabs/weapons/bow/arrow heads/models/stone_arrowhead.fbx|
+|assets/prefabs/weapons/bow/model/bow_gibs.fbx|
 |assets/prefabs/weapons/bow/model/v_bow.fbx|
 |assets/prefabs/weapons/bow/model/v_bow_anims.fbx|
 |assets/prefabs/weapons/bow/model/w_bow.fbx|
@@ -5221,6 +5256,9 @@
 |assets/prefabs/weapons/grenade launcher/anim/gl@attack.fbx|
 |assets/prefabs/weapons/grenade launcher/anim/gl@attack_aim.fbx|
 |assets/prefabs/weapons/grenade launcher/anim/gl@deploy.fbx|
+|assets/prefabs/weapons/grenade launcher/anim/gl@idle_relaxed.fbx|
+|assets/prefabs/weapons/grenade launcher/anim/gl@idle_relaxed_moving.fbx|
+|assets/prefabs/weapons/grenade launcher/anim/gl@idle_relaxed_running.fbx|
 |assets/prefabs/weapons/grenade launcher/model/glammo.fbx|
 |assets/prefabs/weapons/grenade launcher/model/glammo_low.fbx|
 |assets/prefabs/weapons/grenade launcher/model/v_grenadelauncher.fbx|

@@ -230,6 +230,7 @@
 |assets/icons/square.png|
 |assets/icons/square_gradient.png|
 |assets/icons/stab.png|
+|assets/icons/star.png|
 |assets/icons/steam_inventory.png|
 |assets/icons/stopwatch.png|
 |assets/icons/store.png|
@@ -238,6 +239,7 @@
 |assets/icons/target.png|
 |assets/icons/tools.png|
 |assets/icons/traps.png|
+|assets/icons/triangle.png|
 |assets/icons/twitter.png|
 |assets/icons/unlock.png|
 |assets/icons/upgrade.png|

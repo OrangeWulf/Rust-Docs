@@ -56,8 +56,10 @@
 |1443579727|Hunting Bow|bow.hunting|Hunting Bow, useful for short to medium range combat and hunting.|
 |833533164|Large Wood Box|box.wooden.large|Keep your things in this wooden storage box. Stores up to 30 items.|
 |-180129657|Wood Storage Box|box.wooden|Keep your things in this wooden storage box. Stores up to 12 items.|
+|844440409|Bronze Egg|easter.bronzeegg|A Bronze Egg. Open for a surprise or collect 10 to ugprade to a silver egg.|
 |1424075905|Water Bucket|bucket.water|A bucket for transporting water or other liquids.|
 |1525520776|Building Plan|building.planner|A building plan. You can use this to craft buildings - right click when equipped for more options.|
+|-1266045928|Bunny Onesie|attire.bunny.onesie|A Bunny Onesie. Grants additional Egg Vision allowing you to detect more eggs during an Easter egg hunt.|
 |602741290|Burlap Shirt|burlap.shirt|A Shirt made out of burlap.|
 |-761829530|Burlap Shoes|burlap.shoes|Shoes made out of burlap.|
 |-194509282|Butcher Knife|knife.butcher|A sharp butcher knife. Extremely good at harvesting flesh from both dead or alive bodies.|
@@ -114,6 +116,8 @@
 |-854270928|Dragon Door Knocker|dragondoorknocker|A heavy brass door knocker|
 |-1519126340|Drop Box|dropbox|This item can be deployed on walls so that players can input items from the exterior of the building for safe keeping. You can only access the submitted contents of the Drop Box from the rear.|
 |1401987718|Duct Tape|ducttape|A versatile adhesive tape reinforced with cloth.|
+|1856217390|Egg Basket|easterbasket|An easter egg basket. Equip to pick up eggs during an easter egg hunt with left click. Use right click to throw|
+|-979302481|Easter Door Wreath|easterdoorwreath|A beautiful, hand crafted Easter themed door wreath.|
 |-939424778|Flasher Light|electric.flasherlight|A flashing blue light|
 |762289806|Siren Light|electric.sirenlight|A spinning siren light|
 |-690968985|Blocker|electric.blocker|This object prevents passthrough while power is received through its second input.|
@@ -164,6 +168,7 @@
 |-1108136649|Tactical Gloves|tactical.gloves|Military issue tactical gloves provide protection as well as weapon stabilization leading to higher accuracy when used.|
 |-690276911|Glowing Eyes|gloweyes|glowing eyes|
 |-1899491405|Glue|glue|A strong adhesive.|
+|-1002156085|Gold Egg|easter.goldegg|A Gold Egg. Containing the best easter loot.|
 |-746030907|Granola Bar|granolabar|Granola Bar found as loot. Eating it provides a small boost to health, hunger, and thirst.|
 |809199956|Gravestone|gravestone|A Gravestone marking the remains of an unknown soul|
 |699075597|Wooden Cross|woodcross|A wooden cross marking the remains of an unknown soul|
@@ -184,6 +189,7 @@
 |1675639563|Beenie Hat|hat.beenie|A wooly hat.|
 |-23994173|Boonie Hat|hat.boonie|A boonie hat.|
 |850280505|Bucket Helmet|bucket.helmet|A Bucket Helmet. It provides a level of regional protection from inflicted damage.|
+|-1004426654|Bunny Ears|attire.bunnyears|Bunny Ears. Grants additional Egg Vision allowing you to detect more eggs during an Easter egg hunt.|
 |1877339384|Burlap Headwrap|burlap.headwrap|A Headwrap made out of burlap.|
 |1714496074|Candle Hat|hat.candle|A hat with a candle on top. You can turn the candle on in your inventory.|
 |-1022661119|Baseball Cap|hat.cap|A baseball cap.|
@@ -224,7 +230,7 @@
 |-484206264|Blue Keycard|keycard_blue|A keycard with medium level clearance.|
 |37122747|Green Keycard|keycard_green|A low level clearance card granting access to basic areas.|
 |-1880870149|Red Keycard|keycard_red|A keycard with advanced clearance, grants access to top level areas|
-|2040726127|Combat Knife|knife.combat|Melee weapon crafted from bone fragments. Best in class at harvesting flesh.|
+|2040726127|Combat Knife|knife.combat|Combat knife designed for close combat engagements, can attack while sprinting. Best in class at harvesting flesh.|
 |1814288539|Bone Knife|knife.bone|Melee weapon crafted from bone fragments. Best in class at harvesting flesh.|
 |-778367295|L96 Rifle|rifle.l96|A military issue high powered rifle. Extremely long range and accuracy.|
 |-316250604|Wooden Ladder|ladder.wooden.wall|A ladder will help you climb walls in any base.|
@@ -296,6 +302,7 @@
 |-2097376851|Nailgun Nails|ammo.nailgun.nails|Standard nailgun ammunition|
 |1414245162|Note|note|A scrap of paper for leaving notes.|
 |-1286302544|OR Switch|electric.orswitch|A logic gate that allows eletrical passthrough if EITHER input receives power, passthrough amount is the greater of either power source|
+|-126305173|Painted Egg|easter.paintedeggs|Some simple painted eggs. Collect 10 to upgrade to a bronze egg|
 |1992974553|Burlap Trousers|burlap.trousers|Trousers made out of burlap.|
 |237239288|Pants|pants|Pants.|
 |-1778159885|Heavy Plate Pants|heavy.plate.pants|Offers superior protection at the cost of reduced movement speed.|
@@ -337,11 +344,13 @@
 |1414245522|Rope|rope|A Length of Rope.|
 |-1104881824|Rug Bear Skin|rug.bear|A decorative rug that can be placed on walls, floors, and ceilings. Provides comfort when in close proximity.|
 |-1985799200|Rug|rug|A decorative rug that can be placed on walls, floors, and ceilings. Provides comfort when in close proximity.|
+|-173268129|Rustigé Egg - Red|rustige_egg_a|An exquisite hand crafted gold and diamond egg. When opened, a very special melody can be heard as you observe an intricate representation of your favorite monument.|
+|-173268132|Rustigé Egg - Blue|rustige_egg_b|An beautiful hand crafted white gold and sapphire encrusted egg, with a miniature monument contained inside.|
 |-277057363|Salt Water|water.salt|Water with a high salt content. Consuming will damage your health.|
 |-1978999529|Salvaged Cleaver|salvaged.cleaver|A powerful 2-handed melee weapon with high damage.|
 |1326180354|Salvaged Sword|salvaged.sword|A powerful melee weapon made from a filed-down wrench. Great durability, good damage.|
 |-384243979|SAM Ammo|ammo.rocket.sam|Ammunition for a Sam Site, This missile contains a rudimentary guidance system to help it navigate through strong winds.|
-|-1009359066|SAM Site|samsite|A surface to air rocket site. Requires 10 electricity to function.|
+|-1009359066|SAM Site|samsite|A surface to air rocket site. Requires 25 electricity to function.|
 |-575483084|Santa Hat|santahat|A santa hat. Ho Ho ho.|
 |177226991|Scarecrow|scarecrow|Get into the halloween spirit with this decorate deployable item.|
 |-253079493|Scientist Suit|hazmatsuit_scientist|A hazmat suit made from radiation resistant rubber.|
@@ -384,6 +393,7 @@
 |-1819233322|Wooden Sign|sign.wooden.medium|A 2-meter by 1-meter wooden sign that you can write on.|
 |-1138208076|Small Wooden Sign|sign.wooden.small|A 1-meter by 0.5-meter wooden sign that you can write on.|
 |-1850571427|Silencer|weapon.mod.silencer|Significantly reduces the sound of gunfire, and completely removes any visible muzzle flash.|
+|1757265204|Silver Egg|easter.silveregg|A Silver Egg. Contains medium level loot, Collect 10 to upgrade to a gold Egg|
 |-282113991|Simple Light|electric.simplelight|A simple debugging light|
 |-855748505|Simple Handmade Sight|weapon.mod.simplesight|A poorly made sight, slightly better than iron sights.|
 |553887414|Skull Fire Pit|skull_fire_pit|Enjoy burning your enemies remnants to ashes with this Halloween exclusive! Provides warmth and light, and you can cook with it.|

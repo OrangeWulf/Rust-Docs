@@ -445,6 +445,13 @@
 |assets/prefabs/misc/divesite/divesite_b.prefab|
 |assets/prefabs/misc/divesite/divesite_c.prefab|
 |assets/prefabs/misc/doorcloser/doorcloser.prefab|
+|assets/prefabs/misc/easter/door_wreath/easter_door_wreath_deployed.prefab|
+|assets/prefabs/misc/easter/easter basket/easter_basket.entity.prefab|
+|assets/prefabs/misc/easter/easter basket/eastereggprojectile.prefab|
+|assets/prefabs/misc/easter/egghunt.prefab|
+|assets/prefabs/misc/easter/faberge_egg_a/rustigeegg_a.deployed.prefab|
+|assets/prefabs/misc/easter/faberge_egg_b/rustigeegg_b.deployed.prefab|
+|assets/prefabs/misc/easter/painted eggs/collectableegg.prefab|
 |assets/prefabs/misc/halloween/candles/largecandleset.prefab|
 |assets/prefabs/misc/halloween/candles/smallcandleset.prefab|
 |assets/prefabs/misc/halloween/coffin/coffinstorage.prefab|

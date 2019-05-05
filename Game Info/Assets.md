@@ -1343,6 +1343,27 @@
 |assets/prefabs/misc/chinesenewyear/dragondoorknocker/dragondoorknocker.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/dragondoorknocker/sound/knock.asset|
 |assets/prefabs/misc/chinesenewyear/dragonmask/dragonmask.sitem.asset|
+|assets/prefabs/misc/easter/door_wreath/easterwreath.sitem.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-add-egg.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-aim-cancel.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-aim.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-deploy.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-grab-egg-start.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-place-grab-egg.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-place.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-raise.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-settle.asset|
+|assets/prefabs/misc/easter/easter basket/sound/easter-basket-throw.asset|
+|assets/prefabs/misc/easter/easter basket/sound/egg-impact.asset|
+|assets/prefabs/misc/easter/faberge_egg_a/rustige_egg_a.sitem.asset|
+|assets/prefabs/misc/easter/faberge_egg_b/rustige_egg_b.sitem.asset|
+|assets/prefabs/misc/easter/sound/bronzeegg_open.asset|
+|assets/prefabs/misc/easter/sound/egg_pickup.asset|
+|assets/prefabs/misc/easter/sound/egg_upgrade.asset|
+|assets/prefabs/misc/easter/sound/goldegg_open.asset|
+|assets/prefabs/misc/easter/sound/music-box-classic-loop.asset|
+|assets/prefabs/misc/easter/sound/music-box-dust-loop.asset|
+|assets/prefabs/misc/easter/sound/silveregg_open.asset|
 |assets/prefabs/misc/halloween/cursed_cauldron/cauldron.sitem.asset|
 |assets/prefabs/misc/halloween/cursed_cauldron/sound/cauldron_bubbles.asset|
 |assets/prefabs/misc/halloween/scarecrow/scarecrow.sitem.asset|
@@ -1534,6 +1555,7 @@
 |assets/prefabs/weapons/bone knife/sound/bone-knife-deploy.asset|
 |assets/prefabs/weapons/bone knife/sound/bone-knife-strike-soft.asset|
 |assets/prefabs/weapons/bone knife/sound/bone-knife-strike.asset|
+|assets/prefabs/weapons/bow/bow.hunting.skinnable.asset|
 |assets/prefabs/weapons/bow/sound/bow-attack.asset|
 |assets/prefabs/weapons/bow/sound/bow-deploy-3p.asset|
 |assets/prefabs/weapons/bow/sound/bow-deploy.asset|
