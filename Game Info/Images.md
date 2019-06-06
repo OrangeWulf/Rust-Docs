@@ -4,6 +4,14 @@
 |assets/bundled/prefabs/fx/lightning/fx-lightning2.png|
 |assets/bundled/prefabs/fx/lightning/fx-lightning3.png|
 |assets/bundled/prefabs/fx/lightning/fx-lightning4.png|
+|assets/content/effects/muzzleflashes/muzzle_flash-cross.tga|
+|assets/content/effects/muzzleflashes/muzzle_flash-front-3x3.tga|
+|assets/content/effects/muzzleflashes/muzzle_flash-ring.tga|
+|assets/content/effects/muzzleflashes/muzzle_flash-side-1x2.tga|
+|assets/content/effects/muzzleflashes/muzzle_flash-side-1x4.tga|
+|assets/content/effects/muzzleflashes/muzzle_flash-t.tga|
+|assets/content/effects/muzzleflashes/muzzle_flash-v.tga|
+|assets/content/effects/muzzleflashes/muzzle_smoketrail.psd|
 |assets/content/image effects/lens dirt/lensdirt1.png|
 |assets/content/image effects/lens dirt/lensdirt10.png|
 |assets/content/image effects/lens dirt/lensdirt11.png|
@@ -27,20 +35,20 @@
 |assets/content/ui/developer/developmentskin/devtab-bright.png|
 |assets/content/ui/developer/developmentskin/devtab-normal.png|
 |assets/content/ui/facepunch-darkbg.png|
+|assets/content/ui/gameui/compass/alpha_mask.png|
+|assets/content/ui/gameui/compass/compass_strip.png|
+|assets/content/ui/gameui/compass/compass_strip_hd.png|
+|assets/content/ui/gameui/map/fogofwarbrush.png|
+|assets/content/ui/gameui/ui.crosshair.circle.png|
+|assets/content/ui/gameui/underlays/ui.damage.directional.normal.tga|
 |assets/content/ui/hypnotized.png|
-|assets/content/ui/ingame/compass/alpha_mask.png|
-|assets/content/ui/ingame/compass/compass_strip.png|
-|assets/content/ui/ingame/compass/compass_strip_hd.png|
-|assets/content/ui/ingame/ui.crosshair.circle.png|
-|assets/content/ui/ingame/underlays/ui.damage.directional.normal.tga|
-|assets/content/ui/main menu/rustlogo-blurred.png|
-|assets/content/ui/main menu/rustlogo-normal-transparent.png|
-|assets/content/ui/map/fogofwarbrush.png|
-|assets/content/ui/menu/ui.loading.logo.tga|
-|assets/content/ui/menu/ui.logo.big.png|
-|assets/content/ui/menu/ui.menu.logo.png|
-|assets/content/ui/menu/ui.menu.news.missingbackground.jpg|
-|assets/content/ui/menu/ui.menu.rateus.background.png|
+|assets/content/ui/menuui/rustlogo-blurred.png|
+|assets/content/ui/menuui/rustlogo-normal-transparent.png|
+|assets/content/ui/menuui/ui.loading.logo.tga|
+|assets/content/ui/menuui/ui.logo.big.png|
+|assets/content/ui/menuui/ui.menu.logo.png|
+|assets/content/ui/menuui/ui.menu.news.missingbackground.jpg|
+|assets/content/ui/menuui/ui.menu.rateus.background.png|
 |assets/content/ui/overlay_binocular.png|
 |assets/content/ui/overlay_bleeding.png|
 |assets/content/ui/overlay_bleeding_height.tga|
@@ -106,10 +114,13 @@
 |assets/icons/cooking.png|
 |assets/icons/crate.png|
 |assets/icons/cup_water.png|
+|assets/icons/cursor-hand.png|
 |assets/icons/deauthorize.png|
 |assets/icons/demolish.png|
 |assets/icons/demolish_cancel.png|
 |assets/icons/demolish_immediate.png|
+|assets/icons/discord 1.png|
+|assets/icons/discord.png|
 |assets/icons/download.png|
 |assets/icons/drop.png|
 |assets/icons/drowning.png|
@@ -122,6 +133,7 @@
 |assets/icons/explosion.png|
 |assets/icons/explosion_sprite.png|
 |assets/icons/extinguish.png|
+|assets/icons/facebook-box.png|
 |assets/icons/facebook.png|
 |assets/icons/facepunch.png|
 |assets/icons/fall.png|
@@ -231,6 +243,7 @@
 |assets/icons/square_gradient.png|
 |assets/icons/stab.png|
 |assets/icons/star.png|
+|assets/icons/steam.png|
 |assets/icons/steam_inventory.png|
 |assets/icons/stopwatch.png|
 |assets/icons/store.png|
@@ -238,8 +251,11 @@
 |assets/icons/subtract.png|
 |assets/icons/target.png|
 |assets/icons/tools.png|
+|assets/icons/translate.png|
 |assets/icons/traps.png|
 |assets/icons/triangle.png|
+|assets/icons/tweeter.png|
+|assets/icons/twitter 1.png|
 |assets/icons/twitter.png|
 |assets/icons/unlock.png|
 |assets/icons/upgrade.png|
@@ -249,6 +265,7 @@
 |assets/icons/warning.png|
 |assets/icons/warning_2.png|
 |assets/icons/weapon.png|
+|assets/icons/web.png|
 |assets/icons/wet.png|
 |assets/icons/workshop.png|
 |assets/icons/xp.png|

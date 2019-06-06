@@ -169,7 +169,7 @@
 |-690276911|Glowing Eyes|gloweyes|glowing eyes|
 |-1899491405|Glue|glue|A strong adhesive.|
 |-1002156085|Gold Egg|easter.goldegg|A Gold Egg. Containing the best easter loot.|
-|-746030907|Granola Bar|granolabar|Granola Bar found as loot. Eating it provides a small boost to health, hunger, and thirst.|
+|-746030907|Granola Bar|granolabar|Granola Bar found as loot. Eating it provides a small boost to health, hunger.|
 |809199956|Gravestone|gravestone|A Gravestone marking the remains of an unknown soul|
 |699075597|Wooden Cross|woodcross|A wooden cross marking the remains of an unknown soul|
 |-1679267738|Graveyard Fence|wall.graveyard.fence|A Spooky Fence|

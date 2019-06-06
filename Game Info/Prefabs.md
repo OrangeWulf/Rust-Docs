@@ -868,9 +868,11 @@
 |assets/bundled/prefabs/hapis/puzzle/hapis_puzzle_blue_1.prefab|
 |assets/bundled/prefabs/hapis/puzzle/hapis_puzzle_green_1.prefab|
 |assets/bundled/prefabs/hapis/puzzle/hapis_puzzle_green_2.prefab|
+|assets/bundled/prefabs/modding/invisible_collider.prefab|
 |assets/bundled/prefabs/modding/ladder_trigger.prefab|
 |assets/bundled/prefabs/modding/prevent_building_cube.prefab|
 |assets/bundled/prefabs/modding/prevent_building_sphere.prefab|
+|assets/bundled/prefabs/modding/prevent_movment_volume.prefab|
 |assets/bundled/prefabs/modding/spawn_point.prefab|
 |assets/bundled/prefabs/modding/terrain_trigger.prefab|
 |assets/bundled/prefabs/modding/water_trigger.prefab|
@@ -909,6 +911,8 @@
 |assets/bundled/prefabs/ui/dialogs/ui.sellorderadmindisplay.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.vendingadminmenu.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.vendingoverlay.prefab|
+|assets/bundled/prefabs/ui/engineui.prefab|
+|assets/bundled/prefabs/ui/gameui.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.autoturret.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.bbq.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.bigwheel.prefab|
@@ -942,6 +946,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.vendingmachine.storage.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.watercatcher.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.workbench.prefab|
+|assets/bundled/prefabs/ui/menuui.prefab|
 |assets/bundled/prefabs/world/ai.prefab|
 |assets/bundled/prefabs/world/ambience.prefab|
 |assets/bundled/prefabs/world/batching.prefab|
@@ -1022,9 +1027,44 @@
 |assets/content/effects/materials/fog/height_fog.prefab|
 |assets/content/effects/mountainfume/mountainfog.prefab|
 |assets/content/effects/mountainfume/mountainfumes.prefab|
-|assets/content/effects/muzzleflashes/prefabs/ejection_pistolshells.prefab|
-|assets/content/effects/muzzleflashes/prefabs/muzzle_flash.prefab|
-|assets/content/effects/muzzleflashes/prefabs/muzzle_smoketrail.prefab|
+|assets/content/effects/muzzleflashes/muzzleflash_lightex.prefab|
+|assets/content/effects/muzzleflashes/muzzleflash_lightex_large.prefab|
+|assets/content/effects/muzzleflashes/muzzleflash_lightex_tiny.prefab|
+|assets/content/effects/muzzleflashes/other/eoka_attack.prefab|
+|assets/content/effects/muzzleflashes/other/eoka_flint_spark.prefab|
+|assets/content/effects/muzzleflashes/other/muzzle_smoketrail.prefab|
+|assets/content/effects/muzzleflashes/pistol/muzzle_flash_nailgun.prefab|
+|assets/content/effects/muzzleflashes/pistol/muzzle_flash_pistol.prefab|
+|assets/content/effects/muzzleflashes/pistol/muzzle_flash_pistol_braked.prefab|
+|assets/content/effects/muzzleflashes/pistol/muzzle_flash_pistol_large.prefab|
+|assets/content/effects/muzzleflashes/pistol/muzzle_flash_pistol_silenced.prefab|
+|assets/content/effects/muzzleflashes/pistol/shell_eject_pistol.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_big.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_braked.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_braked_l96.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_braked_lr300.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_braked_semi.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_l96.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_quad.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_quad_m39.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_silenced.prefab|
+|assets/content/effects/muzzleflashes/rifle/muzzle_flash_rifle_silenced_highpowered.prefab|
+|assets/content/effects/muzzleflashes/rifle/shell_eject_rifle.prefab|
+|assets/content/effects/muzzleflashes/rifle/shell_eject_rifle_bolt.prefab|
+|assets/content/effects/muzzleflashes/rifle/shell_eject_rifle_m249.prefab|
+|assets/content/effects/muzzleflashes/rifle/shell_eject_rifle_m39.prefab|
+|assets/content/effects/muzzleflashes/shotgun/muzzle_flash_shotgun_braked.prefab|
+|assets/content/effects/muzzleflashes/shotgun/muzzle_flash_shotgun_narrow.prefab|
+|assets/content/effects/muzzleflashes/shotgun/muzzle_flash_shotgun_silenced.prefab|
+|assets/content/effects/muzzleflashes/shotgun/muzzle_flash_shotgun_wide.prefab|
+|assets/content/effects/muzzleflashes/shotgun/shell_eject_shotgun.prefab|
+|assets/content/effects/muzzleflashes/smg/muzzle_flash_smg.prefab|
+|assets/content/effects/muzzleflashes/smg/muzzle_flash_smg_boosted.prefab|
+|assets/content/effects/muzzleflashes/smg/muzzle_flash_smg_braked.prefab|
+|assets/content/effects/muzzleflashes/smg/muzzle_flash_smg_silenced.prefab|
+|assets/content/effects/muzzleflashes/smg/muzzle_flash_smg_twin.prefab|
+|assets/content/effects/muzzleflashes/smg/shell_eject_smg.prefab|
 |assets/content/effects/objects/decal_box.prefab|
 |assets/content/effects/snow/weather - snow volume.prefab|
 |assets/content/effects/snow/weather - snow.prefab|
@@ -1860,6 +1900,7 @@
 |assets/content/props/trash_bag_piles/trash_bag_pile_300x300.prefab|
 |assets/content/props/water_drums/water_drum_a.prefab|
 |assets/content/props/water_drums/water_drum_a_junk.prefab|
+|assets/content/props/water_drums/water_drum_toxic.prefab|
 |assets/content/props/water_junk_piles/water_junk_pile_a.prefab|
 |assets/content/props/water_junk_piles/water_junk_pile_a_no_planks.prefab|
 |assets/content/props/water_junk_piles/water_junk_pile_b.prefab|
@@ -2053,6 +2094,8 @@
 |assets/content/structures/garage_doors/garage_door_large_d.prefab|
 |assets/content/structures/garage_doors/garage_door_large_e.prefab|
 |assets/content/structures/garage_doors/garage_door_powerplant.prefab|
+|assets/content/structures/gas_station/exterior/models/gas_station_extension.prefab|
+|assets/content/structures/gas_station/exterior/models/gas_station_exterior.prefab|
 |assets/content/structures/hangar/hangar_airfield.prefab|
 |assets/content/structures/hangar/hangar_airfield_doors_a.prefab|
 |assets/content/structures/hangar/hangar_airfield_doors_b.prefab|
@@ -2089,6 +2132,8 @@
 |assets/content/structures/harbor/tugboat/tugboat_a.prefab|
 |assets/content/structures/harbor/tugboat/tugboat_a_interior.prefab|
 |assets/content/structures/harbor/tugboat/tugboat_a_snow.prefab|
+|assets/content/structures/house_ruins/models/rowhouse_ruin_2st_6x12.prefab|
+|assets/content/structures/house_ruins/models/rowhouse_ruin_3st_15x12.prefab|
 |assets/content/structures/house_ruins/rowhouse_ruin_1st_6x12.prefab|
 |assets/content/structures/house_ruins/rowhouse_ruin_2st_6x12.prefab|
 |assets/content/structures/house_ruins/rowhouse_ruin_2st_9x12.prefab|
@@ -2338,6 +2383,14 @@
 |assets/content/structures/power_substation/substation_g.prefab|
 |assets/content/structures/radiation/radiationsphere.prefab|
 |assets/content/structures/remnant_container/remnant_container_6x4.prefab|
+|assets/content/structures/residential_buildings/models/outbuilding_1st_15x9.prefab|
+|assets/content/structures/residential_buildings/models/outbuilding_1st_27x9.prefab|
+|assets/content/structures/residential_buildings/models/outbuilding_1st_6x9.prefab|
+|assets/content/structures/residential_buildings/models/outbuilding_2st_21x9.prefab|
+|assets/content/structures/residential_buildings/models/rowhouse_2st_6x12.prefab|
+|assets/content/structures/residential_buildings/models/rowhouse_2st_9x12-2.prefab|
+|assets/content/structures/residential_buildings/models/rowhouse_3st_9x9.prefab|
+|assets/content/structures/residential_buildings/models/rowhouse_4st_9x12.prefab|
 |assets/content/structures/roads/carpark_a.prefab|
 |assets/content/structures/roads/loading_bay_lane_a.prefab|
 |assets/content/structures/roads/pavement_3x3_isle_end.prefab|
@@ -2663,68 +2716,113 @@
 |assets/content/structures/wooden_walkway/wooden_walkway_stairs_100.prefab|
 |assets/content/textures/decals/chillzone.prefab|
 |assets/content/textures/decals/decal_rust_mills_shipping.prefab|
+|assets/content/ui/button.dull.prefab|
+|assets/content/ui/button.green.prefab|
+|assets/content/ui/button.sidebar.prefab|
+|assets/content/ui/engineui/engineui.loadingscreen.prefab|
+|assets/content/ui/engineui/engineui.netgraph.prefab|
+|assets/content/ui/engineui/netgraph/netgraphrow.prefab|
 |assets/content/ui/filedialog/drivesscrollrectelement.prefab|
 |assets/content/ui/filedialog/filedialog.prefab|
 |assets/content/ui/filedialog/filesscrollrectelement.prefab|
 |assets/content/ui/filedialog/uifileselector.prefab|
-|assets/content/ui/ingame/achievements/achievmentitem.prefab|
-|assets/content/ui/ingame/craftingqueue.icon.prefab|
-|assets/content/ui/ingame/pieoption.prefab|
-|assets/content/ui/ingame/teamdisplay/teammember.prefab|
-|assets/content/ui/ingame/tooltip.prefab|
-|assets/content/ui/ingame/tooltip_alwaysontop.prefab|
-|assets/content/ui/ingame/ui.blueprint.button.prefab|
-|assets/content/ui/ingame/ui.blueprint.category.button.prefab|
-|assets/content/ui/ingame/ui.blueprint.craft.row.prefab|
-|assets/content/ui/ingame/ui.chat.item.prefab|
-|assets/content/ui/ingame/ui.deathscreen.respawn.prefab|
-|assets/content/ui/ingame/ui.deathscreen.respawn.sleepingbag.prefab|
-|assets/content/ui/ingame/ui.icon.skin.prefab|
-|assets/content/ui/ingame/ui.infopanel.armor.prefab|
-|assets/content/ui/ingame/ui.infopanel.consumable.prefab|
-|assets/content/ui/ingame/ui.infopanel.explosive.prefab|
-|assets/content/ui/ingame/ui.infopanel.gunmodification.prefab|
-|assets/content/ui/ingame/ui.infopanel.meleeweapon.prefab|
-|assets/content/ui/ingame/ui.infopanel.projectileweapon.prefab|
-|assets/content/ui/ingame/ui.infopanel.seed.prefab|
-|assets/content/ui/ingame/ui.ingame.wounded.prefab|
-|assets/content/ui/ingame/ui.item.dropped.prefab|
-|assets/content/ui/ingame/ui.item.icon.prefab|
-|assets/content/ui/ingame/ui.item.option.prefab|
-|assets/content/ui/ingame/ui.item.pickup.prefab|
-|assets/content/ui/ingame/ui.iteminfoslider.prefab|
-|assets/content/ui/ingame/ui.map.monumentmarker.prefab|
-|assets/content/ui/ingame/ui.map.shopmarker.prefab|
-|assets/content/ui/ingame/ui.protection.panel.prefab|
-|assets/content/ui/ingame/ui.quickcraft.prefab|
-|assets/content/ui/ingame/ui.sellorder.prefab|
-|assets/content/ui/ingame/ui.virtualitemicon.prefab|
-|assets/content/ui/ingame/ui.vital.prefab|
-|assets/content/ui/ingame/ui.vital.warning.prefab|
-|assets/content/ui/ingame/underlays/ui.damage.directional.prefab|
-|assets/content/ui/ingame/workshopitembutton.prefab|
-|assets/content/ui/ingame/workshopitemrow.prefab|
-|assets/content/ui/ingame/xpparticle.prefab|
-|assets/content/ui/ingame/xpupdateparticle.prefab|
-|assets/content/ui/menu/steaminventory/ui.steaminventory.category.prefab|
-|assets/content/ui/menu/steaminventory/ui.steaminventory.craftbutton.prefab|
-|assets/content/ui/menu/steaminventory/ui.steaminventory.item.prefab|
-|assets/content/ui/menu/ui.menu.friend.prefab|
-|assets/content/ui/menu/ui.menu.headerbutton.prefab|
-|assets/content/ui/menu/ui.menu.history.button.prefab|
-|assets/content/ui/menu/ui.options.keybind.prefab|
-|assets/content/ui/menu/ui.serverbrowser.category.prefab|
-|assets/content/ui/menu/ui.serverbrowser.list.prefab|
-|assets/content/ui/menu/ui.tweaks.dropdown.prefab|
-|assets/content/ui/menu/ui.tweaks.multiselect.prefab|
-|assets/content/ui/menu/ui.tweaks.slider.prefab|
-|assets/content/ui/menu/ui.tweaks.toggle.prefab|
-|assets/content/ui/menu/ui.tweaks.togglelayer.prefab|
+|assets/content/ui/gameui/achievements/achievmentitem.prefab|
+|assets/content/ui/gameui/craftingqueue.icon.prefab|
+|assets/content/ui/gameui/gameui.crafting.prefab|
+|assets/content/ui/gameui/gameui.deathscreen.prefab|
+|assets/content/ui/gameui/gameui.hud.achievements.prefab|
+|assets/content/ui/gameui/gameui.hud.beltbar.prefab|
+|assets/content/ui/gameui/gameui.hud.binocularoverlay.prefab|
+|assets/content/ui/gameui/gameui.hud.chat.prefab|
+|assets/content/ui/gameui/gameui.hud.compassstrip.prefab|
+|assets/content/ui/gameui/gameui.hud.crosshair.prefab|
+|assets/content/ui/gameui/gameui.hud.fullblack.prefab|
+|assets/content/ui/gameui/gameui.hud.gametip.prefab|
+|assets/content/ui/gameui/gameui.hud.goggleoverlay.prefab|
+|assets/content/ui/gameui/gameui.hud.helmetslitoverlay.prefab|
+|assets/content/ui/gameui/gameui.hud.hostilewarning.prefab|
+|assets/content/ui/gameui/gameui.hud.localvoicechat.prefab|
+|assets/content/ui/gameui/gameui.hud.map.prefab|
+|assets/content/ui/gameui/gameui.hud.playernames.prefab|
+|assets/content/ui/gameui/gameui.hud.powerbar.prefab|
+|assets/content/ui/gameui/gameui.hud.prefab|
+|assets/content/ui/gameui/gameui.hud.scopeoverlay.prefab|
+|assets/content/ui/gameui/gameui.hud.teamdock.prefab|
+|assets/content/ui/gameui/gameui.hud.vitals.main.prefab|
+|assets/content/ui/gameui/gameui.hud.vitals.prefab|
+|assets/content/ui/gameui/gameui.hud.wounded.prefab|
+|assets/content/ui/gameui/gameui.inventory.prefab|
+|assets/content/ui/gameui/gameui.overlay.prefab|
+|assets/content/ui/gameui/gameui.piemenu.prefab|
+|assets/content/ui/gameui/gameui.progressbar.prefab|
+|assets/content/ui/gameui/gameui.sleepingscreen.prefab|
+|assets/content/ui/gameui/paint/paintbox.prefab|
+|assets/content/ui/gameui/pieoption.prefab|
+|assets/content/ui/gameui/teamdisplay/teammember.prefab|
+|assets/content/ui/gameui/tooltip.prefab|
+|assets/content/ui/gameui/tooltip_alwaysontop.prefab|
+|assets/content/ui/gameui/ui.blueprint.button.prefab|
+|assets/content/ui/gameui/ui.blueprint.category.button.prefab|
+|assets/content/ui/gameui/ui.blueprint.craft.row.prefab|
+|assets/content/ui/gameui/ui.chat.item.prefab|
+|assets/content/ui/gameui/ui.deathscreen.respawn.prefab|
+|assets/content/ui/gameui/ui.deathscreen.respawn.sleepingbag.prefab|
+|assets/content/ui/gameui/ui.icon.skin.prefab|
+|assets/content/ui/gameui/ui.infopanel.armor.prefab|
+|assets/content/ui/gameui/ui.infopanel.consumable.prefab|
+|assets/content/ui/gameui/ui.infopanel.explosive.prefab|
+|assets/content/ui/gameui/ui.infopanel.gunmodification.prefab|
+|assets/content/ui/gameui/ui.infopanel.meleeweapon.prefab|
+|assets/content/ui/gameui/ui.infopanel.projectileweapon.prefab|
+|assets/content/ui/gameui/ui.infopanel.seed.prefab|
+|assets/content/ui/gameui/ui.item.dropped.prefab|
+|assets/content/ui/gameui/ui.item.icon.prefab|
+|assets/content/ui/gameui/ui.item.option.prefab|
+|assets/content/ui/gameui/ui.item.pickup.prefab|
+|assets/content/ui/gameui/ui.iteminfoslider.prefab|
+|assets/content/ui/gameui/ui.map.monumentmarker.prefab|
+|assets/content/ui/gameui/ui.map.shopmarker.prefab|
+|assets/content/ui/gameui/ui.protection.panel.prefab|
+|assets/content/ui/gameui/ui.quickcraft.prefab|
+|assets/content/ui/gameui/ui.sellorder.prefab|
+|assets/content/ui/gameui/ui.virtualitemicon.prefab|
+|assets/content/ui/gameui/ui.vital.prefab|
+|assets/content/ui/gameui/ui.vital.warning.prefab|
+|assets/content/ui/gameui/underlays/ui.damage.directional.prefab|
+|assets/content/ui/gameui/workshopitembutton.prefab|
+|assets/content/ui/gameui/workshopitemrow.prefab|
+|assets/content/ui/gameui/xpparticle.prefab|
+|assets/content/ui/gameui/xpupdateparticle.prefab|
+|assets/content/ui/menuui/menuui.connection.prefab|
+|assets/content/ui/menuui/menuui.inventory.craftingmodal.prefab|
+|assets/content/ui/menuui/menuui.inventory.prefab|
+|assets/content/ui/menuui/menuui.itemstore.prefab|
+|assets/content/ui/menuui/menuui.modal.serverinfo.prefab|
+|assets/content/ui/menuui/menuui.news.prefab|
+|assets/content/ui/menuui/menuui.options.prefab|
+|assets/content/ui/menuui/menuui.quit.prefab|
+|assets/content/ui/menuui/menuui.serverlist.prefab|
+|assets/content/ui/menuui/menuui.workshop.prefab|
+|assets/content/ui/menuui/sidebar background.prefab|
+|assets/content/ui/menuui/steaminventory/ui.steaminventory.category.prefab|
+|assets/content/ui/menuui/steaminventory/ui.steaminventory.craftbutton.prefab|
+|assets/content/ui/menuui/steaminventory/ui.steaminventory.item.prefab|
+|assets/content/ui/menuui/ui.menu.headerbutton.prefab|
+|assets/content/ui/menuui/ui.menu.history.button.prefab|
+|assets/content/ui/menuui/ui.menu.updatedcontent.prefab|
+|assets/content/ui/menuui/ui.options.keybind.prefab|
+|assets/content/ui/menuui/ui.serverbrowser.button.prefab|
+|assets/content/ui/menuui/ui.serverbrowser.category.prefab|
+|assets/content/ui/menuui/ui.serverbrowser.list.prefab|
+|assets/content/ui/menuui/ui.tweaks.dropdown.prefab|
+|assets/content/ui/menuui/ui.tweaks.multiselect.prefab|
+|assets/content/ui/menuui/ui.tweaks.slider.prefab|
+|assets/content/ui/menuui/ui.tweaks.toggle.prefab|
+|assets/content/ui/menuui/ui.tweaks.togglelayer.prefab|
 |assets/content/ui/misc/dialogbackground.prefab|
 |assets/content/ui/misc/steamuserbutton.prefab|
-|assets/content/ui/netgraph/netgraphrow.prefab|
-|assets/content/ui/paint/paintbox.prefab|
 |assets/content/ui/popups/genericpopup.prefab|
+|assets/content/ui/title.prefab|
 |assets/content/unimplemented/fishing_rod/fishing_rod.worldmodel.prefab|
 |assets/content/unimplemented/fishing_rod/vm_fishing_rod/catch_empty.prefab|
 |assets/content/unimplemented/fishing_rod/vm_fishing_rod/catch_fish.prefab|
@@ -3403,6 +3501,8 @@
 |assets/prefabs/deployable/mailbox/effects/mailbox-deploy.prefab|
 |assets/prefabs/deployable/mailbox/mailbox.item.prefab|
 |assets/prefabs/deployable/mailbox/maildrop.prefab|
+|assets/prefabs/deployable/makeshift batteries/batterycelltier1.prefab|
+|assets/prefabs/deployable/makeshift batteries/batterycelltier2.prefab|
 |assets/prefabs/deployable/oil jack/mining.pumpjack.item.prefab|
 |assets/prefabs/deployable/oil refinery/effects/oil-refinery-deploy.prefab|
 |assets/prefabs/deployable/oil refinery/refinery_large_deployed.prefab|
@@ -4512,7 +4612,9 @@
 |assets/prefabs/weapons/knife/knife_v.prefab|
 |assets/prefabs/weapons/knife/knife_w.prefab|
 |assets/prefabs/weapons/l96/effects/attack.prefab|
+|assets/prefabs/weapons/l96/effects/attack_muzzlebrake.prefab|
 |assets/prefabs/weapons/l96/effects/attack_shake.prefab|
+|assets/prefabs/weapons/l96/effects/attack_silenced.prefab|
 |assets/prefabs/weapons/l96/effects/dryfire.prefab|
 |assets/prefabs/weapons/l96/effects/eject_rifle_shell.prefab|
 |assets/prefabs/weapons/l96/effects/l96_bolt_action.prefab|
@@ -4524,7 +4626,6 @@
 |assets/prefabs/weapons/l96/effects/l96_reload_finish.prefab|
 |assets/prefabs/weapons/l96/effects/l96_reload_start.prefab|
 |assets/prefabs/weapons/l96/effects/l96_remove_mag.prefab|
-|assets/prefabs/weapons/l96/effects/pfx_bolt_open_smoke.prefab|
 |assets/prefabs/weapons/l96/l96.item.prefab|
 |assets/prefabs/weapons/l96/l96.viewmodel.prefab|
 |assets/prefabs/weapons/l96/l96.worldmodel.prefab|
@@ -4634,6 +4735,8 @@
 |assets/prefabs/weapons/machete/machete.projectile.prefab|
 |assets/prefabs/weapons/machete/machete.viewmodel.prefab|
 |assets/prefabs/weapons/machete/machete.worldmodel.prefab|
+|assets/prefabs/weapons/military flamethrower/militaryflamethrower.viewmodel.prefab|
+|assets/prefabs/weapons/military flamethrower/militaryflamethrower.worldmodel.prefab|
 |assets/prefabs/weapons/mortar/mortar.prefab|
 |assets/prefabs/weapons/mp5/effects/attack.prefab|
 |assets/prefabs/weapons/mp5/effects/attack_muzzlebrake.prefab|
@@ -5096,4 +5199,233 @@
 |assets/rust.ai/agents/wolf/footsteps/wolf-footstep-wood.prefab|
 |assets/rust.ai/agents/wolf/wolf.ragdoll.prefab|
 |assets/rust.ai/agents/zombie/zombie.ragdoll.prefab|
+|assets/gameanalytics/plugins/prefabs/gameanalytics.prefab|
+|assets/plugins/facepunch.unity/fpapi/resources/facepunch.performance.prefab|
+|assets/rust.ai/agents/horse/footsteps/horse-footstep-water-deep.prefab|
+|assets/rust.ai/agents/horse/footsteps/horse-footstep-water-deep-slosh.prefab|
+|assets/rust.ai/cover/coverpointcubeblocker.prefab|
+|assets/rust.ai/cover/coverpointvolume.prefab|
+|assets/rust.ai/cover/launch_site_factory_roof_coverpoints.prefab|
+|assets/rust.ai/cover/manualcoverpoint.prefab|
+|assets/rust.ai/cover/military_tunnel_coverpoints.prefab|
+|assets/rust.ai/cover/military_tunnel_coverpoints2.prefab|
+|assets/rust.ai/cover/oilrig_coverpoints.prefab|
+|assets/rust.ai/cover/oilrig_patrolpoints.prefab|
+|assets/rust.ai/cover/oilrig_scientist_spawner.prefab|
+|assets/rust.ai/nextai/effects/dusttrail.prefab|
+|assets/scenes/prefabs/launch site/layer_damian.prefab|
+|assets/scenes/prefabs/oilrig/oilrigai.prefab|
+|assets/scenes/prefabs/oilrig/oilrigai2.prefab|
+|assets/scenes/release/hapisislandterrain/waterfall/waterfall.prefab|
+|assets/scenes/test/material_zoo/neutral_dungeon_lighting.prefab|
+|assets/scripts/ui/main menu/itemstore/itemstore.cartitem.prefab|
+|assets/scripts/ui/main menu/itemstore/itemstore.item.prefab|
+|assets/standard assets/prefabs/sky dome reflection probe.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/explosion_v1.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/fire_v1.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/fire_v2.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/fire_v3.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/fire_v4.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/flamethrower_v1.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/flamethrower_v2.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/flamethrower_v3.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/oil_rig_fire_v1.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/oil_rig_fire_v2.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/oil_rig_fire_v3.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/smoke_dense.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/smoke_light.prefab|
+|assets/standard assets/third party/camelotvfx_ fire&smoke/prefabs/smoke_medium.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/bubbles_v1.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/bubbles_v2.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/bubbles_v3.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/foam_v1.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/foam_v2.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/foam_v3.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/mist_v1.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/mist_v2.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/mist_v3.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/splash_v1.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/splash_v2.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/splash_v3.prefab|
+|assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/waterfall_v1.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/air_explosion_01_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/air_explosion_02_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/air_explosion_03_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/explosion_01_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/explosion_02_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/explosion_03_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/fire_01_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/fire_02_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/flamethrower_01_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/flamethrower_02_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/smoke_01_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/smoke_02_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/smoke_03_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/smoke_04_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/smoke_05_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/1024/smoke_06_1024.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/air_explosion_01.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/air_explosion_02.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/air_explosion_03.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/explosion_01.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/explosion_02.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/explosion_03.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/fire_01.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/fire_02.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/flamethrower_01.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/flamethrower_02.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/smoke_01.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/smoke_02.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/smoke_03.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/smoke_04.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/smoke_05.prefab|
+|assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/smoke_06.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/6 wires/pole 6 wires 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/6 wires/pole 6 wires 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/6 wires/pole 6 wires 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/6 wires/pole 6 wires 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/6 wires/pole 6 wires 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/6 wires/pole 6 wires 6.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/6 wires/pole 6 wires 7.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/double x/pole double x 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/double x/pole double x 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/double x/pole double x 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/double x/pole double x 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/double x/pole double x 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/double x/pole double x 6.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/double x/pole double x 7.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/metal cross/pole metal cross 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/metal cross/pole metal cross 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/metal cross/pole metal cross 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/metal cross/pole metal cross 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/metal cross/pole metal cross 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/metal cross/pole metal cross 6.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/metal cross/pole metal cross 7.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard transformer/pole standard transformer 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard transformer/pole standard transformer 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard transformer/pole standard transformer 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard transformer/pole standard transformer 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard transformer/pole standard transformer 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard transformer/pole standard transformer 6.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard transformer/pole standard transformer 7.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard wide/pole standard wide 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard wide/pole standard wide 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard wide/pole standard wide 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard wide/pole standard wide 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard wide/pole standard wide 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard wide/pole standard wide 6.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard wide/pole standard wide 7.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard/pole standard 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard/pole standard 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard/pole standard 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard/pole standard 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard/pole standard 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard/pole standard 6.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/standard/pole standard 7.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/support/pole support 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/support/pole support 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/support/pole support 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/support/pole support 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/support/pole support 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/support/pole support 6.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/support/pole support 7.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/trackside/pole trackside 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/trackside/pole trackside 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/trackside/pole trackside 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/trackside/pole trackside 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/trackside/pole trackside 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/trackside/pole trackside 6.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/trackside/pole trackside 7.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/wide transformer/pole wide transformer 1.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/wide transformer/pole wide transformer 2.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/wide transformer/pole wide transformer 3.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/wide transformer/pole wide transformer 4.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/wide transformer/pole wide transformer 5.prefab|
+|assets/standard assets/third party/megawire/poles/prefabs/wide transformer/pole wide transformer 6.prefab|
+|assets/standard assets/third party/megawire/poles/unity poles/unity pole 1.prefab|
+|assets/standard assets/third party/megawire/poles/unity poles/unity pole 2.prefab|
+|assets/standard assets/third party/megawire/poles/unity poles/unity pole 3.prefab|
+|assets/standard assets/third party/megawire/poles/unity poles/unity pole 4.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/clouds heavy.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/clouds light.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/clouds medium.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/clouds stormy.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/rain heavy.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/rain light.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/rain medium.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/rain mobile heavy.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/rain mobile light.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/rain mobile medium.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/snow heavy.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/snow light .prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/snow medium happy.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/snow medium.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/snow mobile heavy.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/snow mobile light.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/snow mobile medium.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/tornado clouds.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/tornado.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/wind heavy.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/wind light.prefab|
+|assets/standard assets/third party/storm effects/2 - particles/prefabs/wind medium.prefab|
+|assets/standard assets/third party/time of day/prefabs/sky dome.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion1.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion10.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion11.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion12.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion13.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion2.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_1.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_10.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_11.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_12.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_13.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_2.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_3.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_4.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_5.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_6.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_7.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_8.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion3d_9.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion4.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion5.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion6.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion7.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion8.prefab|
+|assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion9.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion1.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion10.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion11.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion12.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion13.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion2.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_1.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_10.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_11.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_12.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_13.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_2.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_3.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_4.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_5.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_6.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_7.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_8.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion3d_9.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion4.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion5.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion6.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion7.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion8.prefab|
+|assets/third party/kriptofx/explosions/prefabs/pc/explosion9.prefab|
+|assets/third party/volumetriclightbeam/resources/dustparticles.prefab|
+|assets/workshop/materialtab.prefab|
+|assets/workshop/row.color.prefab|
+|assets/workshop/row.float.prefab|
+|assets/workshop/row.texture.prefab|
+|Assets/bundled/Prefabs/static/hobobarrel_static_AlwaysOn.prefab|
+|Assets/Prefabs/Misc/Halloween/Cursed_Cauldron/cursed_cauldron.prefab|
 
