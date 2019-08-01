@@ -85,6 +85,7 @@
 |-1440987069|Raw Chicken Breast|chicken.raw|Raw chicken breast. Eating it will damage your health, try cooking it first.|
 |-751151717|Spoiled Chicken|chicken.spoiled|Spoiled Chicken. Eating it will damage your health.|
 |-1916473915|Chinese Lantern|chineselantern|A decorative Paper lantern|
+|359723196|Chippy Arcade Game|arcade.machine.chippy|An Arcade Machine|
 |363467698|Chocolate Bar|chocholate|Chocolate Bar found as loot. Eating it provides a small boost to health, hunger, and thirst.|
 |2009734114|Christmas Door Wreath|xmasdoorwreath|Get into the christmas spirit with this holiday door wreath.|
 |-858312878|Cloth|cloth|Cloth from an animal or a Hemp Bush. Used in many clothing items, weapons, and more.|
@@ -99,6 +100,7 @@
 |-321733511|Crude Oil|crude.oil|Raw Oil out of the ground, must be refined in a refinery to be used.|
 |-97956382|Tool Cupboard|cupboard.tool|Placing and authorising with the cupboard will make it so only you can build in a 50 meter radius of it. If you want your friends to build, they'll need to auth too. You should protect this.|
 |596469572|RF Transmitter|rf.detonator|A hand held RF signal broadcaster. Left click to broadcast. Configurable with right mouse.|
+|1568388703|Diesel Fuel|diesel_barrel|Appropriate fuel for the excavator|
 |296519935|Diving Fins|diving.fins|Diving Fins which greatly increase underwater movement|
 |-113413047|Diving Mask|diving.mask|A Diving Mask. Provides clear vision under water.|
 |-2022172587|Diving Tank|diving.tank|An oxygen tank that enables breathing under water for a period of time. Can be refilled at a workbench.|
@@ -212,6 +214,7 @@
 |794356786|Hide Boots|attire.hide.boots|Boots made from the hide of an animal.|
 |-1773144852|Hide Skirt|attire.hide.skirt|A Skirt made from the hide of an animal.|
 |196700171|Hide Vest|attire.hide.vest|A Vest made from the hide of an animal.|
+|1160881421|Hitch & Trough|hitchtroughcombo|A Hitching post and Trough. Dismounting your horses here will keep them healthy and fed as long as it is kept stocked with food.|
 |442289265|Holosight|weapon.mod.holosight|Uses laser projection to create a holographic sight which is always pointing at the target regardless of view angle.|
 |1751045826|Hoodie|hoodie|A hoodie.|
 |-1982036270|High Quality Metal Ore|hq.metal.ore|A rock containing High Quality Metal. Can be smelted in a furnace.|
@@ -367,7 +370,7 @@
 |-2025184684|Shirt|shirt.collared|A smart casual shirt|
 |1608640313|Tank Top|shirt.tanktop|A tshirt without sleeves|
 |-1549739227|Boots|shoes.boots|Work boots.|
-|-765183617|Double Barrel Shotgun|shotgun.double|A Shotgun with two barrels allowing two shots to be fired in quick successionbefore needing to reload.|
+|-765183617|Double Barrel Shotgun|shotgun.double|A Shotgun with two barrels allowing two shots to be fired in quick succession before needing to reload.|
 |795371088|Pump Shotgun|shotgun.pump|A Shotgun. Fires six rounds.|
 |-1367281941|Waterpipe Shotgun|shotgun.waterpipe|A Shotgun. Fires a single round before reloading.|
 |352499047|Shotgun Trap|guntrap|A shotgun trap triggered by movement, place near doorways and load with handmade shells.|

@@ -635,6 +635,17 @@
 |assets/content/sound/sounddefinitions/gestures/drink_generic.asset|
 |assets/content/sound/sounddefinitions/gestures/eat_generic.asset|
 |assets/content/sound/sounddefinitions/gestures/eat_soft.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-chicken.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-cold.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-danger.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-hat-tip.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-hurry.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-point.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-shrug.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-thumbs-up.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-unarmed.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-victory.asset|
+|assets/content/sound/sounddefinitions/gestures/gesture-anim-wave.asset|
 |assets/content/sound/sounddefinitions/gestures/lick.asset|
 |assets/content/sound/sounddefinitions/gestures/pills.asset|
 |assets/content/sound/sounddefinitions/gestures/vomit.asset|
@@ -818,6 +829,27 @@
 |assets/content/sound/ui/ui-pickup-wood-med.asset|
 |assets/content/sound/ui/ui-pickup-wood.asset|
 |assets/content/structures/awnings/models/sound/tarp_flap.asset|
+|assets/content/structures/excavator/prefabs/sound/diesel_engine_on_loop.asset|
+|assets/content/structures/excavator/prefabs/sound/diesel_engine_shutdown.asset|
+|assets/content/structures/excavator/prefabs/sound/diesel_engine_startup.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-button-select-material.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-button-start-engine.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-conveyor-loop.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-digging-buckets-loop.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-engine-loop.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-engine-start.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-engine-stop.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-exhaust-loop.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-huge-groan.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-metal-clunk.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-metal-rattles-b.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-rock-fall-hopper-loop.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-wheel-motor-loop.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-wheel-motor-start.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-wheel-motor-stop.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator_yaw_movement_loop.asset|
+|assets/content/structures/excavator/prefabs/sound/rock_debris_loop.asset|
+|assets/content/structures/excavator/prefabs/sound/rock_debris_loop_quiet.asset|
 |assets/content/ui/gameui/achievements/item-complete.asset|
 |assets/content/ui/gameui/achievements/list-complete.asset|
 |assets/content/ui/gameui/achievements/popup.asset|
@@ -1344,6 +1376,8 @@
 |assets/prefabs/misc/chinesenewyear/dragondoorknocker/dragondoorknocker.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/dragondoorknocker/sound/knock.asset|
 |assets/prefabs/misc/chinesenewyear/dragonmask/dragonmask.sitem.asset|
+|assets/prefabs/misc/chippy arcade/chippyarcade.sitem.asset|
+|assets/prefabs/misc/chippy arcade/chippygame/sound/chiptune.asset|
 |assets/prefabs/misc/easter/door_wreath/easterwreath.sitem.asset|
 |assets/prefabs/misc/easter/easter basket/sound/easter-basket-add-egg.asset|
 |assets/prefabs/misc/easter/easter basket/sound/easter-basket-aim-cancel.asset|
@@ -3440,6 +3474,44 @@
 |assets/content/sound/music/themes/dust/music-dust-top-drums-007.asset|
 |assets/content/sound/music/themes/dust/music-dust-top-drums-008.asset|
 |assets/content/sound/music/themes/dust/music-dust-top-drums-009.asset|
+|assets/content/sound/music/themes/excavator/music-excavator.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-ambience-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-ambience-02.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-ambience-03.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-ambience-break-ramp-up.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-ambience-intro.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-ambience-intro-ramp.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-ambience-outtro.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-bassline-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-bassline-02.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-bassline-03.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-bassline-04.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-bassline-break-deep.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-bassline-intro-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-bassline-intro-02.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-bassline-ramp-pause.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-drums-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-drums-02.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-drums-03.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-drums-04.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-drums-single.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-drums-single-metal.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-guitar-a-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-guitar-a-02.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-guitar-b.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-guitar-b-intro.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-horns.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-piano-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-piano-arp-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-piano-arp-02.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-piano-outtro.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-piano-single-high.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-piano-single-low.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-piano-soft-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-piano-soft-02.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-tension-01.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-tension-02.asset|
+|assets/content/sound/music/themes/excavator/music-excavator-tension-03.asset|
 |assets/content/sound/music/themes/fissure/music-fissure.asset|
 |assets/content/sound/music/themes/fissure/music-fissure-ambience-001.asset|
 |assets/content/sound/music/themes/fissure/music-fissure-ambience-002.asset|
@@ -3670,9 +3742,14 @@
 |assets/content/sound/soundclasses/weapon-ranged-attack.sound-class.asset|
 |assets/content/sound/sounddefinitions/steam/pressurized-steam.ambience-def.asset|
 |assets/content/sound/sounddefinitions/steam/pressurized-steam.ambience-list.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-metal-rattles-b.ambience-def.asset|
+|assets/content/structures/excavator/prefabs/sound/excavator-metal-rattles-b.ambience-list.asset|
 |assets/content/ui/fonts/droidsansmono sdf.asset|
-|assets/content/ui/fonts/nonenglish/notoemoji-regular sdf.asset|
 |assets/content/ui/fonts/nonenglish/notosansarabic-bold sdf.asset|
+|assets/content/ui/fonts/nonenglish/notosanscjksc-bold chinese common 2 sdf.asset|
+|assets/content/ui/fonts/nonenglish/notosanscjksc-bold chinese rare sdf.asset|
+|assets/content/ui/fonts/nonenglish/notosanscjksc-bold japanese sdf.asset|
+|assets/content/ui/fonts/nonenglish/notosanscjksc-bold korean sdf.asset|
 |assets/content/ui/fonts/nonenglish/notosanscjksc-bold sdf.asset|
 |assets/content/ui/fonts/nonenglish/notosanshebrew-bold sdf.asset|
 |assets/content/ui/fonts/robotocondensed-bold sdf.asset|
@@ -3868,7 +3945,6 @@
 |assets/resources/apexaistorage/npcplayer.move.asset|
 |assets/resources/apexaistorage/npcplayer.think.asset|
 |assets/resources/apexaistorage/zombie.action.asset|
-|assets/resources/gameanalytics/settings.asset|
 |assets/rust.ai/agents/bear/bear.footstep.asset|
 |assets/rust.ai/agents/bear/model/bear.protection.asset|
 |assets/rust.ai/agents/bear/model/bear.skeleton.asset|
@@ -3881,100 +3957,24 @@
 |assets/rust.ai/agents/npcplayer/humannpc/testloadout.asset|
 |assets/rust.ai/agents/stag/stag.footsteps.asset|
 |assets/rust.ai/agents/wolf/wolf.footsteps.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/appaloosa.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/bay.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/black.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/bucksin.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/chestnut.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/dapplegrey.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/piebald.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/pinto.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/redroan.asset|
+|assets/rust.ai/nextai/ridablehorse/breeds/white.asset|
+|assets/scenes/prefabs/bandid_town/bandit_town.asset|
+|assets/scenes/prefabs/cave/cave_large_sewers_hard.asset|
+|assets/scenes/prefabs/swamps/swamp_c.asset|
+|assets/scenes/release/savasisland.asset|
 |assets/standard assets/third party/postprocessing/postprocessresources.asset|
 |assets/textmesh pro/resources/style sheets/default style sheet.asset|
 |assets/textmesh pro/resources/tmp settings.asset|
 |assets/third party/apex/editor/data/aigeneralsettings.asset|
 |assets/third party/apex/editor/data/apexsettings.asset|
 |assets/third party/volumetriclightbeam/resources/config.asset|
-|Assets/Prefabs/Building/door.hinged/door.hinged.metal.skinnable.asset|
-|Assets/Prefabs/Building/door.hinged/door.hinged.toptier.skinnable.asset|
-|Assets/Prefabs/Building/door.hinged/door.hinged.wood.skinnable.asset|
-|Assets/Prefabs/Building/wall.frame.garagedoor/wall.frame.garagedoor.skinnable.asset|
-|Assets/Prefabs/Clothes/gloves.leather/gloves.leather.skinnable.asset|
-|Assets/Prefabs/Clothes/halterneck.hide/halterneck.hide.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.beenie/hat.beenie.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.boonie/hat.boonie.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.bucket/hat.bucket.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.burlap.wrap/hat.burlap.wrap.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.cap/hat.cap.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.coffeecan/hat.coffeecan.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.deerskullmask/hat.deerskullmask.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.miner/hat.miner.skinnable.asset|
-|Assets/Prefabs/Clothes/hat.riot/hat.riot.skinnable.asset|
-|Assets/Prefabs/Clothes/hoodie/hoodie.skinnable.asset|
-|Assets/Prefabs/Clothes/jacket.snow/jacket.snow.skinnable.asset|
-|Assets/Prefabs/Clothes/jacket.vagabond/jacket.vagabond.skinnable.asset|
-|Assets/Prefabs/Clothes/mask.balaclava/mask.balaclava.skinnable.asset|
-|Assets/Prefabs/Clothes/mask.bandana/mask.bandana.skinnable.asset|
-|Assets/Prefabs/Clothes/mask.metal/mask.metal.skinnable.asset|
-|Assets/Prefabs/Clothes/pants/pants.generic.skinnable.asset|
-|Assets/Prefabs/Clothes/pants.burlap/pants.burlap.skinnable.asset|
-|Assets/Prefabs/Clothes/pants.hide/pants.hide.skinnable.asset|
-|Assets/Prefabs/Clothes/pants.roadsign/pants.roadsign.skinnable.asset|
-|Assets/Prefabs/Clothes/pants.shorts/pants.shorts.skinnable.asset|
-|Assets/Prefabs/Clothes/poncho.hide/poncho.hide.skinnable.asset|
-|Assets/Prefabs/Clothes/shirt.burlap/shirt.burlap.skinnable.asset|
-|Assets/Prefabs/Clothes/shirt.collared/shirt.collared.skinnable.asset|
-|Assets/Prefabs/Clothes/shirt.hide/shirt.hide.skinnable.asset|
-|Assets/Prefabs/Clothes/shirt.tanktop/shirt.tanktop.skinnable.asset|
-|Assets/Prefabs/Clothes/shoes.boots/shoes.boots.skinnable.asset|
-|Assets/Prefabs/Clothes/shoes.burlap/shoes.burlap.skinnable.asset|
-|Assets/Prefabs/Clothes/shoes.hide/shoes.hide.skinnable.asset|
-|Assets/Prefabs/Clothes/Skirt.Hide/skirt.hide.skinnable.asset|
-|Assets/Prefabs/Clothes/tshirt/tshirt.skinnable.asset|
-|Assets/Prefabs/Clothes/tshirt.long/tshirt.long.skinnable.asset|
-|Assets/Prefabs/Clothes/vest.metal/vest.metal.skinnable.asset|
-|Assets/Prefabs/Clothes/vest.roadsign/vest.roadsign.skinnable.asset|
-|Assets/Prefabs/Deployable/Barricades/barricade.concrete.skinnable.asset|
-|Assets/Prefabs/Deployable/Barricades/barricade.sandbags.skinnable.asset|
-|Assets/Prefabs/Deployable/Chair/chair.deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/Fridge/fridge.deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/Furnace/furnace.skinnable.asset|
-|Assets/Prefabs/Deployable/Large Wood Storage/box.wooden.large.skinnable.asset|
-|Assets/Prefabs/Deployable/Locker/locker.deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/Reactive Target/reactivetarget_deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/Rug/rug.bear.deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/Rug/rug.deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/Sleeping Bag/sleepingbag_leather_deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/spinner_wheel/spinner.wheel.skinnable.asset|
-|Assets/Prefabs/Deployable/Table/table.deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/VendingMachine/VendingMachine.Skinnable.asset|
-|Assets/Prefabs/Deployable/WaterPurifier/waterpurifier.deployed.skinnable.asset|
-|Assets/Prefabs/Deployable/WoodenBox/woodbox_deployed.skinnable.asset|
-|Assets/Prefabs/Instruments/Guitar/guitar.weapon.skinnable.asset|
-|Assets/Prefabs/Weapons/ak47u/ak47u.skinnable.asset|
-|Assets/Prefabs/Weapons/Bolt Rifle/bolt_rifle.skinnable.asset|
-|Assets/Prefabs/Weapons/Bone Club/bone_club.skinnable.asset|
-|Assets/Prefabs/Weapons/Bone Knife/knife_bone.skinnable.asset|
-|Assets/Prefabs/Weapons/Bow/bow.hunting.skinnable.asset|
-|Assets/Prefabs/Weapons/Crossbow/crossbow.skinnable.asset|
-|Assets/Prefabs/Weapons/DoubleShotgun/double_shotgun.skinnable.asset|
-|Assets/Prefabs/Weapons/Eoka Pistol/eoka.skinnable.asset|
-|Assets/Prefabs/Weapons/F1 Grenade/grenade.f1.skinnable.asset|
-|Assets/Prefabs/Weapons/Hammer/hammer.skinnable.asset|
-|Assets/Prefabs/Weapons/Hatchet/hatchet.skinnable.asset|
-|Assets/Prefabs/Weapons/Knife/knife.combat.skinnable.asset|
-|Assets/Prefabs/Weapons/lr300/lr300.skinnable.asset|
-|Assets/Prefabs/Weapons/M39 EMR/m39.skinnable.asset|
-|Assets/Prefabs/Weapons/m249/m249.skinnable.asset|
-|Assets/Prefabs/Weapons/mp5/mp5.skinnable.asset|
-|Assets/Prefabs/Weapons/Pickaxe/pickaxe.skinnable.asset|
-|Assets/Prefabs/Weapons/Pipe Shotgun/shotgun_waterpipe.skinnable.asset|
-|Assets/Prefabs/Weapons/python/python.skinnable.asset|
-|Assets/Prefabs/Weapons/Revolver/pistol_revolver.skinnable.asset|
-|Assets/Prefabs/Weapons/Rock/rock.skinnable.asset|
-|Assets/Prefabs/Weapons/RocketLauncher/rocket_launcher.skinnable.asset|
-|Assets/Prefabs/Weapons/Salvaged_Hammer/hammer_salvaged.skinnable.asset|
-|Assets/Prefabs/Weapons/Salvaged_IcePick/icepick_salvaged.skinnable.asset|
-|Assets/Prefabs/Weapons/SatchelCharge/explosive.satchel.skinnable.asset|
-|Assets/Prefabs/Weapons/Sawnoff_Shotgun/shotgun_pump.skinnable.asset|
-|Assets/Prefabs/Weapons/Semi Auto Pistol/pistol_semiauto.skinnable.asset|
-|Assets/Prefabs/Weapons/Semi Auto Rifle/semi_auto_rifle.skinnable.asset|
-|Assets/Prefabs/Weapons/SMG/smg.skinnable.asset|
-|Assets/Prefabs/Weapons/Stone Hatchet/stonehatchet.skinnable.asset|
-|Assets/Prefabs/Weapons/Stone pickaxe/stone_pickaxe.skinnable.asset|
-|Assets/Prefabs/Weapons/Sword/salvaged_sword.skinnable.asset|
-|Assets/Prefabs/Weapons/Sword Big/longsword.skinnable.asset|
-|Assets/Prefabs/Weapons/Thompson/thompson.skinnable.asset|
 

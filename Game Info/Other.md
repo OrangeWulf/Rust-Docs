@@ -650,33 +650,11 @@
 |assets/content/building/parts/thatched/wall.window.internal.gibs.fbx|
 |assets/content/building/parts/thatched/wall.window.occlusion.fbx|
 |assets/content/building/parts/thatched/wall.window.shadowproxy.fbx|
-|assets/content/developer/calibration/calibrationscene/model/calibrationscalergb.fbx|
-|assets/content/developer/calibration/calibrationscene/model/samplepot.fbx|
-|assets/content/developer/calibration/rust_ assets/shader canvas/shader_canvas.fbx|
-|assets/content/developer/calibration/rust_ assets/terrain base/terrain_base.fbx|
 |assets/content/developer/cubes_growing.fbx|
-|assets/content/effects/auroras/meshes/aurora_glow.obj|
-|assets/content/effects/auroras/meshes/auroras.obj|
-|assets/content/effects/auroras/meshes/footprintleft.obj|
-|assets/content/effects/auroras/meshes/footprintright.obj|
-|assets/content/effects/blood/sm_curvedplane.fbx|
-|assets/content/effects/blood/sm_curvedplane_square.fbx|
-|assets/content/effects/blood/sm_gibchunk_01.fbx|
-|assets/content/effects/blood/sm_gibchunk_02.fbx|
-|assets/content/effects/blood/sm_gibchunk_skull.fbx|
 |assets/content/effects/impact/meshes/decal_quad.obj|
 |assets/content/effects/impact/meshes/quad.obj|
 |assets/content/effects/impact/meshes/quad1.obj|
-|assets/content/effects/impact/meshes/quad2.obj|
-|assets/content/effects/impact/meshes/quad3.obj|
-|assets/content/effects/impact/meshes/quad4.obj|
-|assets/content/effects/impact/meshes/scale_plane.obj|
-|assets/content/effects/impact/meshes/scale_plane2.obj|
-|assets/content/effects/impact/meshes/scale_plane3.obj|
-|assets/content/effects/impact/meshes/scale_plane_blood.obj|
-|assets/content/effects/impact/meshes/scale_plane_dust.obj|
 |assets/content/effects/materials/liquid/vertical_plane.fbx|
-|assets/content/effects/materials/liquid/wheel_splash.fbx|
 |assets/content/effects/muzzleflashes/quadbent.fbx|
 |assets/content/effects/objects/concrete_shard_a.fbx|
 |assets/content/effects/objects/concrete_shard_b.fbx|
@@ -841,6 +819,7 @@
 |assets/content/nature/driftwood/meshes/driftwood_clutter4.fbx|
 |assets/content/nature/driftwood/meshes/driftwood_clutter5.fbx|
 |assets/content/nature/dunes/dune_lod0.obj|
+|assets/content/nature/dunes/dunes.fbx|
 |assets/content/nature/glow_worms/models/glow_worms_dense_bent.fbx|
 |assets/content/nature/glow_worms/models/glow_worms_dense_cavity.fbx|
 |assets/content/nature/glow_worms/models/glow_worms_dense_flat.fbx|
@@ -1255,6 +1234,7 @@
 |assets/content/player/animations/gestures/gesture.wounded.fbx|
 |assets/content/player/animations/gestures/howl.fbx|
 |assets/content/player/animations/gestures/idle_gesture_anims.fbx|
+|assets/content/player/animations/gestures/idle_gesture_hat_tip.fbx|
 |assets/content/player/animations/gestures/pickup_item.fbx|
 |assets/content/player/animations/gestures/rustplayer@sleeping.fbx|
 |assets/content/player/animations/hold types/bow/bow.attack.fbx|
@@ -1363,6 +1343,7 @@
 |assets/content/player/animations/unarmed/rustplayer@crouchwalk_sw.fbx|
 |assets/content/player/animations/unarmed/rustplayer@crouchwalk_w.fbx|
 |assets/content/player/animations/unarmed/rustplayer@downed.fbx|
+|assets/content/player/animations/unarmed/rustplayer@idle_arcade.fbx|
 |assets/content/player/animations/unarmed/rustplayer@idle_crouch.fbx|
 |assets/content/player/animations/unarmed/rustplayer@idle_stand.fbx|
 |assets/content/player/animations/unarmed/rustplayer@idle_stand_heli_reardoor.fbx|
@@ -1415,9 +1396,6 @@
 |assets/content/player/clothing/armour/bonearmor_pants.fbx|
 |assets/content/player/clothing/armour/metal plate torso.fbx|
 |assets/content/player/clothing/armour/metal_improvised_helmet_01.fbx|
-|assets/content/player/clothing/armour/roadsignarmor_jacket.fbx|
-|assets/content/player/clothing/armour/roadsignarmor_pants.fbx|
-|assets/content/player/clothing/armour/roadsignarmor_pants_worldmodel.fbx|
 |assets/content/player/clothing/armour/woodarmor_jacket.fbx|
 |assets/content/player/clothing/armour/woodarmor_jacket_worldmodel.fbx|
 |assets/content/player/clothing/armour/woodarmor_pants.fbx|
@@ -1521,6 +1499,10 @@
 |assets/content/props/covers/models/scientist_cover_b_col.fbx|
 |assets/content/props/covers/models/scientist_cover_c.fbx|
 |assets/content/props/covers/models/scientist_cover_c_col.fbx|
+|assets/content/props/crane_control_panel/models/excontrolpanel.fbx|
+|assets/content/props/crane_control_panel/models/excontrolpanel_col.fbx|
+|assets/content/props/diesel_engine/models/diesel_engine.fbx|
+|assets/content/props/diesel_engine/models/diesel_engine_col.fbx|
 |assets/content/props/electrical_boxes/models/and_box.fbx|
 |assets/content/props/electrical_boxes/models/door_controller_box.fbx|
 |assets/content/props/electrical_boxes/models/electrical_box_a.fbx|
@@ -2271,10 +2253,99 @@
 |assets/content/structures/dredge/models/dredge_bridges.fbx|
 |assets/content/structures/dredge/models/dredge_glass.fbx|
 |assets/content/structures/dredge/models/dredge_props.fbx|
+|assets/content/structures/excavator/models/bucket_excavator.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm_belt.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm_cables.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm_end.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm_end_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm_railings.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm_top.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_arm_top_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_back.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_back_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_back_col_b.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_back_railings.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_bottom.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_bottom_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_bottom_railings.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_bucket.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_bucket_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_bucket_railings.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_cables.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_control.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_control_col_a.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_control_col_b.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_core.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_core_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_core_railings.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_head.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_head_col_a.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_head_col_b.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_head_railings.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_head_top.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_head_top_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_leg.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_leg_col.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_railings.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_tracks.fbx|
+|assets/content/structures/excavator/models/bucket_excavator_tracks_col.fbx|
+|assets/content/structures/excavator/models/conveyor_bridge.fbx|
+|assets/content/structures/excavator/models/conveyor_bridge_belt.fbx|
+|assets/content/structures/excavator/models/conveyor_bridge_col.fbx|
+|assets/content/structures/excavator/models/conveyor_bridge_railings.fbx|
+|assets/content/structures/excavator/models/conveyor_unit.fbx|
+|assets/content/structures/excavator/models/conveyor_unit_belt.fbx|
+|assets/content/structures/excavator/models/conveyor_unit_buildings.fbx|
+|assets/content/structures/excavator/models/conveyor_unit_buildings_col.fbx|
+|assets/content/structures/excavator/models/conveyor_unit_col.fbx|
+|assets/content/structures/excavator/models/conveyor_unit_head.fbx|
+|assets/content/structures/excavator/models/conveyor_unit_head_col.fbx|
+|assets/content/structures/excavator/models/conveyor_unit_head_railings.fbx|
+|assets/content/structures/excavator/models/conveyor_unit_railings.fbx|
+|assets/content/structures/excavator/models/large_cable_roll.fbx|
+|assets/content/structures/excavator/models/large_cable_roll_col.fbx|
+|assets/content/structures/excavator/models/large_cable_roll_nobase.fbx|
+|assets/content/structures/excavator/models/large_cable_roll_nobase_col.fbx|
+|assets/content/structures/excavator/models/stairs_100.fbx|
+|assets/content/structures/excavator/models/stairs_100_col.fbx|
+|assets/content/structures/excavator/models/stairs_150.fbx|
+|assets/content/structures/excavator/models/stairs_150_col.fbx|
+|assets/content/structures/excavator/models/stairs_200.fbx|
+|assets/content/structures/excavator/models/stairs_200_col.fbx|
+|assets/content/structures/excavator/models/stairs_250.fbx|
+|assets/content/structures/excavator/models/stairs_250_col.fbx|
+|assets/content/structures/excavator/models/stairs_300.fbx|
+|assets/content/structures/excavator/models/stairs_300_col.fbx|
+|assets/content/structures/excavator/models/stairs_350.fbx|
+|assets/content/structures/excavator/models/stairs_350_col.fbx|
+|assets/content/structures/excavator/models/stairs_400.fbx|
+|assets/content/structures/excavator/models/stairs_400_col.fbx|
+|assets/content/structures/excavator/models/stairs_450.fbx|
+|assets/content/structures/excavator/models/stairs_450_col.fbx|
+|assets/content/structures/excavator/models/stairs_75.fbx|
+|assets/content/structures/excavator/models/stairs_75_col.fbx|
+|assets/content/structures/excavator/models/terrain_belts.fbx|
+|assets/content/structures/excavator/models/terrain_belts_col.fbx|
+|assets/content/structures/excavator/models/terrain_belts_splitter.fbx|
+|assets/content/structures/excavator/models/terrain_belts_splitter_col.fbx|
+|assets/content/structures/excavator/models/terrain_output_bucket.fbx|
+|assets/content/structures/excavator/models/terrain_output_bucket_col.fbx|
+|assets/content/structures/excavator/models/triggers/bucket_excavator_arm_trigger.fbx|
+|assets/content/structures/excavator/models/triggers/bucket_excavator_head_exclusion_zone_trigger.fbx|
+|assets/content/structures/excavator/models/triggers/bucket_excavator_head_trigger.fbx|
+|assets/content/structures/excavator/models/triggers/bucket_excavator_merged_trigger.fbx|
+|assets/content/structures/excavator_cabins/models/excavator_cabin_a.fbx|
+|assets/content/structures/excavator_cabins/models/excavator_cabin_b.fbx|
 |assets/content/structures/fence_chainlink/meshes/chainlink_fence_corner.fbx|
 |assets/content/structures/fence_chainlink/meshes/chainlink_fence_corner_filler.fbx|
 |assets/content/structures/fence_chainlink/meshes/chainlink_fence_door.fbx|
 |assets/content/structures/fence_chainlink/meshes/chainlink_fence_main.fbx|
+|assets/content/structures/fences_walls/models/chainlink_fence_1x3.fbx|
+|assets/content/structures/fences_walls/models/chainlink_fence_1x3_col_a.fbx|
+|assets/content/structures/fences_walls/models/chainlink_fence_1x3_col_b.fbx|
 |assets/content/structures/fences_walls/models/chainlink_fence_3x3.fbx|
 |assets/content/structures/fences_walls/models/chainlink_fence_3x3_col_a.fbx|
 |assets/content/structures/fences_walls/models/chainlink_fence_3x3_col_b.fbx|
@@ -3760,9 +3831,6 @@
 |assets/content/ui/gameui/ui.ingame.death.show.anim|
 |assets/content/ui/gameui/ui.inventory.close.anim|
 |assets/content/ui/gameui/ui.inventory.controller|
-|assets/content/ui/gameui/ui.inventory.lootpanel.close.anim|
-|assets/content/ui/gameui/ui.inventory.lootpanel.controller|
-|assets/content/ui/gameui/ui.inventory.lootpanel.open.anim|
 |assets/content/ui/gameui/ui.inventory.opencraft.anim|
 |assets/content/ui/gameui/ui.inventory.openinv.anim|
 |assets/content/ui/gameui/ui.inventory.selecteditem.close.anim|
@@ -3773,22 +3841,6 @@
 |assets/content/ui/gameui/ui.item.pickup.anim.anim|
 |assets/content/ui/gameui/ui.item.pickup.controller|
 |assets/content/ui/ui.playerpreview.rendertexture|
-|assets/content/unimplemented/fishing_rod/v_fishing_rod.fbx|
-|assets/content/unimplemented/fishing_rod/v_fishing_rod_deploy.fbx|
-|assets/content/unimplemented/fishing_rod/v_fishing_rod_holster.fbx|
-|assets/content/unimplemented/fishing_rod/v_fishing_rod_idle.fbx|
-|assets/content/unimplemented/fishing_rod/v_fishing_rod_testanim.fbx|
-|assets/content/unimplemented/fishing_rod/v_fishing_rod_throw_lure_catch.fbx|
-|assets/content/unimplemented/fishing_rod/v_fishing_rod_throw_lure_fail.fbx|
-|assets/content/unimplemented/fishing_rod/w_fishing_rod.fbx|
-|assets/content/unimplemented/flashlight/v_flashlight.fbx|
-|assets/content/unimplemented/flashlight/v_flashlight@attack.fbx|
-|assets/content/unimplemented/flashlight/v_flashlight@attack_hit.fbx|
-|assets/content/unimplemented/flashlight/v_flashlight@deploy.fbx|
-|assets/content/unimplemented/flashlight/v_flashlight@holster.fbx|
-|assets/content/unimplemented/flashlight/v_flashlight@idle.fbx|
-|assets/content/unimplemented/flashlight/v_flashlight_noarms.fbx|
-|assets/content/unimplemented/flashlight/w_flashlight.fbx|
 |assets/content/vehicles/boats/boat_engine/models/boat_engine.fbx|
 |assets/content/vehicles/boats/boat_engine/models/engine_block.fbx|
 |assets/content/vehicles/boats/boat_engine/models/engine_block_col.fbx|
@@ -3805,6 +3857,16 @@
 |assets/content/vehicles/boats/rowboat/model/rowboat_gibs.fbx|
 |assets/content/vehicles/boats/rowboat/model/rowboatconcave_col.fbx|
 |assets/content/vehicles/boats/rowboat/model/rowboatconvex_col.fbx|
+|assets/content/vehicles/digger_vehicle/models/digger_vehicle_a.fbx|
+|assets/content/vehicles/digger_vehicle/models/digger_vehicle_a_col.fbx|
+|assets/content/vehicles/dump_truck/models/dump_truck_a.fbx|
+|assets/content/vehicles/dump_truck/models/dump_truck_a_col.fbx|
+|assets/content/vehicles/dump_truck/models/dump_truck_b.fbx|
+|assets/content/vehicles/dump_truck/models/dump_truck_b_col.fbx|
+|assets/content/vehicles/dump_truck/models/dump_truck_gravel_mound.fbx|
+|assets/content/vehicles/dump_truck/models/dump_truck_gravel_mound_col.fbx|
+|assets/content/vehicles/dump_truck/models/dump_truck_wheel.fbx|
+|assets/content/vehicles/dump_truck/models/dump_truck_wheel_col.fbx|
 |assets/content/vehicles/makeshift canoe/makeshiftcanoe.fbx|
 |assets/content/vehicles/makeshift canoe/oar.fbx|
 |assets/content/vehicles/minicopter/model/minicopter.fbx|
@@ -4337,6 +4399,15 @@
 |assets/prefabs/deployable/furnace/model/furnace_v3.fbx|
 |assets/prefabs/deployable/furnace/model/furnace_v3.gibs.fbx|
 |assets/prefabs/deployable/furnace/model/furnace_v3_col.fbx|
+|assets/prefabs/deployable/hitch & trough/models/hitchingpost.fbx|
+|assets/prefabs/deployable/hitch & trough/models/hitchingpost_col.fbx|
+|assets/prefabs/deployable/hitch & trough/models/hitchingpost_gibs.fbx|
+|assets/prefabs/deployable/hitch & trough/models/hitchtroughcombined.fbx|
+|assets/prefabs/deployable/hitch & trough/models/hitchtroughcombined_col.fbx|
+|assets/prefabs/deployable/hitch & trough/models/hitchtroughcombined_gibs.fbx|
+|assets/prefabs/deployable/hitch & trough/models/trough.fbx|
+|assets/prefabs/deployable/hitch & trough/models/trough_col.fbx|
+|assets/prefabs/deployable/hitch & trough/models/trough_gibs.fbx|
 |assets/prefabs/deployable/hot air balloon/models/basket.fbx|
 |assets/prefabs/deployable/hot air balloon/models/basket_button.fbx|
 |assets/prefabs/deployable/hot air balloon/models/basket_button_col.fbx|
@@ -4688,6 +4759,7 @@
 |assets/prefabs/misc/chinesenewyear/dragonmask/dragonmask_wm.fbx|
 |assets/prefabs/misc/chippy arcade/model/arcademachine.fbx|
 |assets/prefabs/misc/chippy arcade/model/arcademachine_col.fbx|
+|assets/prefabs/misc/chippy arcade/model/arcademachine_gibs.fbx|
 |assets/prefabs/misc/easter/bunny ears/bunnyears.fbx|
 |assets/prefabs/misc/easter/bunny ears/bunnyears_wm.fbx|
 |assets/prefabs/misc/easter/bunny onesie/bunnyonesie.fbx|
@@ -5939,6 +6011,7 @@
 |assets/rust.ai/agents/chicken/model/chicken@testanim.fbx|
 |assets/rust.ai/agents/chicken/model/chicken@walk.fbx|
 |assets/rust.ai/agents/chicken/model/chicken@walk_eating.fbx|
+|assets/rust.ai/agents/horse/model/headcollar/headcollar.fbx|
 |assets/rust.ai/agents/horse/model/horse.fbx|
 |assets/rust.ai/agents/horse/model/horse@attack-1.fbx|
 |assets/rust.ai/agents/horse/model/horse@eat.fbx|
@@ -5954,6 +6027,7 @@
 |assets/rust.ai/agents/horse/model/horse@turnpose_rear.fbx|
 |assets/rust.ai/agents/horse/model/horse@walk.fbx|
 |assets/rust.ai/agents/horse/model/horse@walk_slow.fbx|
+|assets/rust.ai/agents/horse/model/horseupdated.fbx|
 |assets/rust.ai/agents/horse/model/saddle/saddle.fbx|
 |assets/rust.ai/agents/stag/model/stag.fbx|
 |assets/rust.ai/agents/stag/model/stag@attack-1.fbx|
@@ -6215,7 +6289,6 @@
 |assets/standard assets/third party/megawire/unity powerlines/powerlinepole1.fbx|
 |assets/standard assets/third party/megawire/unity powerlines/powerlinepole2.fbx|
 |assets/standard assets/third party/megawire/unity powerlines/powerlinepole3.fbx|
-|assets/standard assets/third party/megawire/unity powerlines/unitytelephone.fbx|
 |assets/standard assets/third party/time of day/assets/meshes/billboard.fbx|
 |assets/standard assets/third party/time of day/assets/meshes/clouds.fbx|
 |assets/standard assets/third party/time of day/assets/meshes/moon.fbx|
@@ -6227,8 +6300,25 @@
 |assets/third party/kriptofx/explosions/models/sm_base.fbx|
 |assets/third party/kriptofx/explosions/models/stone1.fbx|
 |assets/third party/kriptofx/explosions/models/stone2.fbx|
+|assets/unimplemented/fishing_rod/v_fishing_rod.fbx|
+|assets/unimplemented/fishing_rod/v_fishing_rod_deploy.fbx|
+|assets/unimplemented/fishing_rod/v_fishing_rod_holster.fbx|
+|assets/unimplemented/fishing_rod/v_fishing_rod_idle.fbx|
+|assets/unimplemented/fishing_rod/v_fishing_rod_testanim.fbx|
+|assets/unimplemented/fishing_rod/v_fishing_rod_throw_lure_catch.fbx|
+|assets/unimplemented/fishing_rod/v_fishing_rod_throw_lure_fail.fbx|
+|assets/unimplemented/fishing_rod/w_fishing_rod.fbx|
+|assets/unimplemented/flashlight/v_flashlight.fbx|
+|assets/unimplemented/flashlight/v_flashlight@attack.fbx|
+|assets/unimplemented/flashlight/v_flashlight@attack_hit.fbx|
+|assets/unimplemented/flashlight/v_flashlight@deploy.fbx|
+|assets/unimplemented/flashlight/v_flashlight@holster.fbx|
+|assets/unimplemented/flashlight/v_flashlight@idle.fbx|
+|assets/unimplemented/flashlight/v_flashlight_noarms.fbx|
+|assets/unimplemented/flashlight/w_flashlight.fbx|
 |maps/maps.bundle|
 |shared/content.bundle|
+|shared/monuments.bundle|
 |_hold_ammobox|
 |_hold_barrel|
 |_hold_bolt|
@@ -6345,6 +6435,10 @@
 |angle (1)|
 |angle (2)|
 |angle (3)|
+|arcademachine|
+|arcademachine_lod0|
+|arcademachine_lod1|
+|arcademachine_lod2|
 |arm|
 |arrow_bone|
 |arrow_mesh|
@@ -6357,6 +6451,9 @@
 |art|
 |assets/editor/rustcolours.colors|
 |assets/resources/debugskin.guiskin|
+|assets/scenes/release/hapisislandterrain/legacyterrain_splat0.tif|
+|assets/scenes/release/hapisislandterrain/legacyterrain_splat1.tif|
+|assets/scenes/release/hapisislandterrain/legacyterrain_splat2.tif|
 |assigntofriend|
 |attack|
 |attackairloop|
@@ -6379,12 +6476,21 @@
 |barrel_shotgun_lod0|
 |barrel_shotgun_lod1|
 |barrel_shotgun_lod2|
+|barricade.concrete|
 |barricade.concrete/sockets/free|
 |barricade.metal/sockets/free|
+|barricade.sandbags|
 |barricade.sandbags/sockets/free|
 |barricade.stone/sockets/free|
 |barricade.wood/sockets/free|
 |barricade.woodwire/sockets/free|
+|barricade_concrete|
+|barricade_concrete_lod0|
+|barricade_concrete_lod1|
+|barricade_sandbags|
+|barricade_sandbags_lod0|
+|barricade_sandbags_lod1|
+|barricade_sandbags_lod2|
 |base|
 |bbq.deployed|
 |BBQ.Deployed/sockets/free|
@@ -6410,6 +6516,7 @@
 |bed_lod0|
 |bed_lod1|
 |bed_lod2|
+|beginhosting|
 |beginrotate|
 |big_wheel|
 |bigwheelbettingterminal|
@@ -6494,6 +6601,7 @@
 |breastcensor_lod1|
 |breastcensor_lod2|
 |broad checks|
+|broadcastentitymessage|
 |broadcastsignalfromclient|
 |brow|
 |bucket|
@@ -6709,6 +6817,8 @@
 |chinese_door_decoration/sockets/dressing-male|
 |chinese_door_frame_decoration/sockets/dressing-male|
 |ChineseLantern.deployed/sockets (1)/free|
+|chippyarcademachine|
+|ChippyArcadeMachine/sockets (1)/free|
 |christmas_lights|
 |christmas_lights_lod0|
 |christmas_lights_lod1|
@@ -6727,8 +6837,10 @@
 |client_receiveplayers|
 |client_receivesellorders|
 |client_receiveteaminfo|
+|client_receivetrees|
 |client_startsink|
 |client_startvendingsounds|
+|client_treedestroyed|
 |clienteffects|
 |clientkeepconnectionalive|
 |clientknock|
@@ -6790,6 +6902,11 @@
 |cooksound|
 |corn.entity/sockets/planter_slots|
 |corn.entity/sockets/terrain|
+|cornplant_fruit|
+|cornplant_fruit (1)|
+|cornplant_fruit (2)|
+|cornplant_fruit (3)|
+|cornplant_fruit (4)|
 |counter|
 |Counter/sockets/floor|
 |Counter/sockets/wall|
@@ -6809,6 +6926,7 @@
 |crossbow_string|
 |crossbow_trigger|
 |crude_oil.worldmodel|
+|cube|
 |cupboard.tool.deployed|
 |cupboard.tool.deployed/sockets/free|
 |cursed_cauldron|
@@ -6818,7 +6936,6 @@
 |cursed_cauldron_lod2|
 |cursedcauldron.deployed|
 |cursedcauldron.deployed/sockets/free|
-|curve1|
 |curve10|
 |curve11|
 |curve2|
@@ -6851,7 +6968,10 @@
 |deploy|
 |deploy (1)|
 |deploy_volume|
+|deploy_volume (1)|
 |deployvolume|
+|destroyentity|
+|destroymessagefromhost|
 |destroyui|
 |directionaldamage|
 |dirt|
@@ -6871,7 +6991,9 @@
 |dismounteyes|
 |dismountpoints|
 |dismountpos|
+|dismountpositions|
 |displacement|
+|displacement (1)|
 |dodemolish|
 |dodeploy|
 |dodrink|
@@ -6984,6 +7106,7 @@
 |emission|
 |emissionoverride|
 |enabled|
+|endhosting|
 |engine|
 |engine_col|
 |enginedestroyed|
@@ -7237,6 +7360,7 @@
 |furnace_v3_lod3|
 |gameobject|
 |gameobject (1)|
+|gameobject (2)|
 |garage_door_door|
 |gas_can|
 |gate|
@@ -7279,7 +7403,11 @@
 |genitalcensor_lod1|
 |genitalcensor_lod2|
 |georeticle|
+|getdistancetravelled|
+|getentitymessage|
 |getperformancereport|
+|getsnapshotfromclient|
+|getsnapshotfromserver|
 |giant_candy_cane|
 |giant_candy_cane_lod0|
 |giant_candy_cane_lod1|
@@ -7325,6 +7453,7 @@
 |grip_mag_lod0|
 |groundeffect|
 |groundeffects|
+|groundwatchhack|
 |group1|
 |group3|
 |group4|
@@ -7354,6 +7483,7 @@
 |handle_lod1|
 |handle_lod2|
 |handle_r|
+|handpos|
 |hatch|
 |hatch_l|
 |hatch_r|
@@ -7365,9 +7495,13 @@
 |head|
 |head_ctrl|
 |head_end|
-|head_rotate|
 |head2|
 |head2_end|
+|headcollar|
+|headcollar_lod0|
+|headcollar_lod1|
+|headcollar_lod2|
+|headcollar_lod3|
 |headlights|
 |heatsource|
 |heavy|
@@ -7382,6 +7516,12 @@
 |hinge_hatch|
 |hinge_l|
 |hinge_r|
+|hitchtrough.deployed|
+|HitchTrough.deployed/sockets (1)/free|
+|hitchtroughcombined|
+|hitchtroughcombined_lod0|
+|hitchtroughcombined_lod1|
+|hitchtroughcombined_lod2|
 |hiteffect|
 |hitnotify|
 |hitnumbers|
@@ -7401,11 +7541,13 @@
 |hook_1|
 |hook_2|
 |horse|
-|horse_mesh_lod0|
-|horse_mesh_lod1|
-|horse_mesh_lod2|
-|horse_mesh_lod3|
+|horse_lod0|
+|horse_lod1|
+|horse_lod2|
+|horse_lod3|
 |horse_rootbone|
+|horsespotleft|
+|horsespotright|
 |hotspot|
 |idleloop|
 |idlerotate|
@@ -7498,6 +7640,7 @@
 |inside 4 (7)|
 |inside 4 (8)|
 |inside 4 (9)|
+|inside 5|
 |insidebuildingblock|
 |insphere|
 |insphere (1)|
@@ -7522,7 +7665,6 @@
 |jaw_connection|
 |jaw_ctrl|
 |jaw_end|
-|jaw_rotate|
 |jerrycan_cap01|
 |jerrycan_cap02|
 |jerrycan_child|
@@ -7637,6 +7779,8 @@
 |joint9|
 |joint90|
 |joint92|
+|joystick_p1|
+|joystick_p2|
 |keycard.viewmodel|
 |keypad|
 |keypad_lod0|
@@ -7827,6 +7971,7 @@
 |leftbulb|
 |leftfloatingwheel-back|
 |leftfloatingwheel-front|
+|leftropehitch|
 |leftwheel-1|
 |leftwheel-2|
 |leftwheel-3|
@@ -7970,6 +8115,7 @@
 |mp5_lod2|
 |mp5_mesh|
 |ms_holosight_lod0|
+|musicloop|
 |muzzle|
 |muzzle_flash_l|
 |muzzle_flash_r|
@@ -7994,7 +8140,9 @@
 |neck1|
 |neck2|
 |neck3|
+|networktrigger|
 |nightlights|
+|nohost|
 |not inside (12)|
 |notinentity|
 |notinside|
@@ -8014,6 +8162,7 @@
 |notinsphere 1|
 |notinsphere 1 (1)|
 |notinsphere 1 (2)|
+|notinsphere 2|
 |notinsphere-middle|
 |notinsphere-middle-sides|
 |notinsphere-sides|
@@ -8065,7 +8214,6 @@
 |npcvendingmachine_weapons_hapis|
 |NPCVendingMachine_Weapons_hapis/sockets/doorway|
 |NPCVendingMachine_Weapons_hapis/sockets/free|
-|nurbscircle1|
 |object001|
 |object002|
 |object003|
@@ -8383,6 +8531,7 @@
 |repairbench_deployed|
 |repairbench_deployed/sockets/free|
 |repairitem|
+|requestaddscore|
 |requestclear|
 |research_table|
 |research_table_lod0|
@@ -8476,6 +8625,7 @@
 |rightbulb|
 |rightfloatingwheel-back|
 |rightfloatingwheel-front|
+|rightropehitch|
 |rightwheel-1|
 |rightwheel-2|
 |rightwheel-3|
@@ -8615,9 +8765,11 @@
 |rpc_reset|
 |rpc_rotate|
 |rpc_rotatevm|
+|rpc_setresourcetarget|
 |rpc_spin|
 |rpc_startclimb|
 |rpc_startpickup|
+|rpc_stopmining|
 |rpc_stringholdstatus|
 |rpc_submit|
 |rpc_switch|
@@ -8673,6 +8825,7 @@
 |rt_joint2 5|
 |rt_joint2 6|
 |rt_joint2 7|
+|rtdraw|
 |rug|
 |rug.bear.deployed|
 |rug.bear.deployed/sockets/free|
@@ -8756,6 +8909,7 @@
 |scrap_searchlight_barrel_lod0|
 |scrap_searchlight_barrel_lod1|
 |scrap_searchlight_barrel_lod2|
+|screen|
 |searchlight.deployed|
 |searchlight.deployed/sockets/free|
 |security_door|
@@ -8804,6 +8958,7 @@
 |server_peacekeeper|
 |server_release|
 |server_requestdata|
+|server_requesttrees|
 |server_setattacking|
 |server_setenginestatus|
 |server_settarget|
@@ -8824,6 +8979,7 @@
 |sethostilelength|
 |setincludeauth|
 |setincludeothers|
+|setinheritedvelocity|
 |setmotiondetection|
 |setplugged|
 |setpressed|
@@ -9005,8 +9161,6 @@
 |spine4|
 |spine4_fatend|
 |spine4_fatjiggle|
-|spineend_rotate|
-|spinemid_rotate|
 |spinloop|
 |spinner.wheel.deployed|
 |spinner.wheel.deployed/sockets/free|
@@ -9081,7 +9235,6 @@
 |tail_3|
 |tail_4|
 |tail_ctrl|
-|tail_ctrl_1|
 |tail_ctrl_2|
 |tail_ctrl_3|
 |tail_eff|
@@ -9150,7 +9303,6 @@
 |tongue_1|
 |tongue_2|
 |tongue_end|
-|tongue_rotate|
 |tool_cupboard|
 |tool_cupboard_lod0|
 |tool_cupboard_lod1|
@@ -9209,6 +9361,7 @@
 |unlockedblueprint|
 |unlocksign|
 |unlockwithcode|
+|updateclienttickrate|
 |updateditemcontainer|
 |updatehackprogress|
 |updateitem|
@@ -9217,6 +9370,7 @@
 |updatesign|
 |updatesteaminventory|
 |uppermodifier|
+|usablearea|
 |usearea|
 |useother|
 |useself|
@@ -9273,6 +9427,7 @@
 |vendingmachine_lod2|
 |vendingmachine_lod3|
 |vm_screen|
+|vm_screen (1)|
 |vm_screen_lod0|
 |vm_screen_lod1|
 |vm_screen_lod2|
@@ -9552,19 +9707,4 @@
 |XORSwitch.entity/sockets (1)/free|
 |zero friction|
 |zero friction absolute|
-|assets/prefabs/clothes/collider/collider_feet.prefab/collider|
-|assets/prefabs/clothes/collider/collider_hands.prefab/collider|
-|assets/prefabs/clothes/collider/collider_head.prefab/collider|
-|assets/prefabs/clothes/collider/collider_legs.prefab/collider|
-|assets/prefabs/clothes/collider/collider_torso.prefab/collider|
-|assets/prefabs/npc/bear/bear_full.prefab/bear_lod3|
-|assets/prefabs/npc/rabbit/rabbit_skin.prefab/rabbit_mesh_lod3|
-|assets/rust.ai/agents/bear/bear.prefab/bear_lod3|
-|assets/rust.ai/agents/boar/boar.prefab/boar_mesh_lod3|
-|assets/rust.ai/agents/chicken/chicken.prefab/chicken_mesh_lod3|
-|assets/rust.ai/agents/chicken/chicken.ragdoll.prefab/chicken_mesh_lod3|
-|assets/rust.ai/agents/horse/horse.prefab/horse_mesh_lod3|
-|assets/rust.ai/agents/stag/stag.prefab/stag_mesh_lod3|
-|assets/rust.ai/agents/wolf/wolf.prefab/wolf_lod3|
-|assets/rust.ai/nextai/testridablehorse.prefab/horse_mesh_lod3|
 
