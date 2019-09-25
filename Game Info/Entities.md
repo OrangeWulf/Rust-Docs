@@ -1,5 +1,5 @@
 |Short name|Full name|
-|:-:|:-:|:-|
+|:-:|:-|
 |corn-collectable|assets/bundled/prefabs/autospawn/collectable/corn/corn-collectable.prefab|
 |hemp-collectable|assets/bundled/prefabs/autospawn/collectable/hemp/hemp-collectable.prefab|
 |mushroom-cluster-5|assets/bundled/prefabs/autospawn/collectable/mushrooms/mushroom-cluster-5.prefab|
