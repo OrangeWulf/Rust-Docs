@@ -1,4 +1,6 @@
 # This is repository of Rust Documentation
 
-* [Rust](https://rust.facepunch.com/) is a survival video game developed and published by [Facepunch Studios](https://facepunch.com/) in February 2018
-* **Game Info** - Information about game (Ex: item lists, prefab lists)
+* **Items** - All items with ID's and shortnames
+* **Entities** - All entities and their shortnames (NPC's, Helicopters, etc)
+
+P.S. For other questions contact me on uMod -> https://umod.org/user/Orange
