@@ -1,1 +1,0 @@
-Go to https://github.com/OrangeWulf/Rust-Docs
