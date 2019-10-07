@@ -1,3 +1,5 @@
+# Entities
+
 |Short name|Full name|
 |:-:|:-|
 |corn-collectable|assets/bundled/prefabs/autospawn/collectable/corn/corn-collectable.prefab|
@@ -132,7 +134,7 @@
 |fireball_small|assets/bundled/prefabs/fireball_small.prefab|
 |fireball_small_arrow|assets/bundled/prefabs/fireball_small_arrow.prefab|
 |fireball_small_shotgun|assets/bundled/prefabs/fireball_small_shotgun.prefab|
-|npcvendingmachine_weapons_hapis|assets/bundled/prefabs/hapis/npcvendingmachine_weapons_hapis.prefab|
+|npcvendingmachine_building_hapis|assets/bundled/prefabs/hapis/npcvendingmachine_building_hapis.prefab|
 |npcvendingmachine_weapons_hapis|assets/bundled/prefabs/hapis/npcvendingmachine_weapons_hapis.prefab|
 |npcvendingmachine_weapons_hapis|assets/bundled/prefabs/hapis/npcvendingmachine_weapons_hapis.prefab|
 |npcvendingmachine_hapis_hapis|assets/bundled/prefabs/hapis/npcvendingmachine_hapis_hapis.prefab|
@@ -367,6 +369,7 @@
 |electric.sirenlight.deployed|assets/prefabs/deployable/playerioents/lights/sirenlight/electric.sirenlight.deployed.prefab|
 |switch|assets/prefabs/deployable/playerioents/simpleswitch/switch.prefab|
 |splitter|assets/prefabs/deployable/playerioents/splitter/splitter.prefab|
+|teslacoil.deployed|assets/prefabs/deployable/playerioents/teslacoil/teslacoil.deployed.prefab|
 |timer|assets/prefabs/deployable/playerioents/timers/timer.prefab|
 |cabletunnel|assets/prefabs/deployable/playerioents/tunnel/cabletunnel.prefab|
 |engineswitch|assets/prefabs/deployable/quarry/engineswitch.prefab|
@@ -564,7 +567,6 @@
 |pumpkin.entity|assets/prefabs/plants/pumpkin/pumpkin.entity.prefab|
 |player|assets/prefabs/player/player.prefab|
 |player_corpse|assets/prefabs/player/player_corpse.prefab|
-|||
 |binocular.entity|assets/prefabs/tools/binoculars/binocular.entity.prefab|
 |explosive.timed.deployed|assets/prefabs/tools/c4/explosive.timed.deployed.prefab|
 |explosive.timed.entity|assets/prefabs/tools/c4/explosive.timed.entity.prefab|
