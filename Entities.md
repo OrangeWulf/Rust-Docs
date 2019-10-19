@@ -1,6 +1,5 @@
 # Entities
-
-|Short name|Full name|
+ |Short name|Full name|
 |:-:|:-|
 |corn-collectable|assets/bundled/prefabs/autospawn/collectable/corn/corn-collectable.prefab|
 |hemp-collectable|assets/bundled/prefabs/autospawn/collectable/hemp/hemp-collectable.prefab|
@@ -469,6 +468,8 @@
 |rustigeegg_a.deployed|assets/prefabs/misc/easter/faberge_egg_a/rustigeegg_a.deployed.prefab|
 |rustigeegg_b.deployed|assets/prefabs/misc/easter/faberge_egg_b/rustigeegg_b.deployed.prefab|
 |collectableegg|assets/prefabs/misc/easter/painted eggs/collectableegg.prefab|
+|candyprojectile|assets/prefabs/misc/halloween/candies/candyprojectile.prefab|
+|collectablecandy|assets/prefabs/misc/halloween/candies/collectablecandy.prefab|
 |largecandleset|assets/prefabs/misc/halloween/candles/largecandleset.prefab|
 |smallcandleset|assets/prefabs/misc/halloween/candles/smallcandleset.prefab|
 |coffinstorage|assets/prefabs/misc/halloween/coffin/coffinstorage.prefab|
@@ -476,7 +477,11 @@
 |gravestone.stone.deployed|assets/prefabs/misc/halloween/deployablegravestone/gravestone.stone.deployed.prefab|
 |gravestone.wood.deployed|assets/prefabs/misc/halloween/deployablegravestone/gravestone.wood.deployed.prefab|
 |graveyardfence|assets/prefabs/misc/halloween/graveyard_fence/graveyardfence.prefab|
+|halloweenhunt|assets/prefabs/misc/halloween/halloweenhunt.prefab|
+|pumpkin_basket.entity|assets/prefabs/misc/halloween/pumpkin_bucket/pumpkin_basket.entity.prefab|
 |scarecrow.deployed|assets/prefabs/misc/halloween/scarecrow/scarecrow.deployed.prefab|
+|skull_door_knocker.deployed|assets/prefabs/misc/halloween/skull_door_knocker/skull_door_knocker.deployed.prefab|
+|dragondoorknocker.deployed|assets/prefabs/misc/chinesenewyear/dragondoorknocker/dragondoorknocker.deployed.prefab|
 |skull_fire_pit|assets/prefabs/misc/halloween/skull_fire_pit/skull_fire_pit.prefab|
 |spiderweba|assets/prefabs/misc/halloween/spiderweb/spiderweba.prefab|
 |spookyspeaker|assets/prefabs/misc/halloween/spookyspeaker/spookyspeaker.prefab|

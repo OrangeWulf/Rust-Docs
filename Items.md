@@ -1,5 +1,5 @@
 # Items
-|Image|Display name|Short name|ID|Category|
+ |Image|Display name|Short name|ID|Category|
 |:-:|:-:|:-:|:-:|:-:|
 |![ref](https://rustlabs.com/img/items180/ammo.grenadelauncher.buckshot.png)|40mm Shotgun Round|ammo.grenadelauncher.buckshot|1055319033|Ammunition|
 |![ref](https://rustlabs.com/img/items180/ammo.grenadelauncher.he.png)|40mm HE Grenade|ammo.grenadelauncher.he|349762871|Ammunition|
@@ -97,6 +97,7 @@
 |![ref](https://rustlabs.com/img/items180/clone.corn.png)|Corn Clone|clone.corn|-778875547|Food|
 |![ref](https://rustlabs.com/img/items180/seed.corn.png)|Corn Seed|seed.corn|998894949|Food|
 |![ref](https://rustlabs.com/img/items180/electric.counter.png)|Counter|electric.counter|-216999575|Electrical|
+|![ref](https://rustlabs.com/img/items180/cratecostume.png)|Crate Costume|cratecostume|1189981699|Attire|
 |![ref](https://rustlabs.com/img/items180/crossbow.png)|Crossbow|crossbow|1965232394|Weapon|
 |![ref](https://rustlabs.com/img/items180/crude.oil.png)|Crude Oil|crude.oil|-321733511|Resources|
 |![ref](https://rustlabs.com/img/items180/cupboard.tool.png)|Tool Cupboard|cupboard.tool|-97956382|Construction|
@@ -183,9 +184,10 @@
 |![ref](https://rustlabs.com/img/items180/habrepair.png)|Hab Repair|habrepair|-1759188988|Misc|
 |![ref](https://rustlabs.com/img/items180/male_hairstyle_01.png)|m-hairstyle-1|male_hairstyle_01|1070894649|Attire|
 |![ref](https://rustlabs.com/img/items180/female_hairstyle_02.png)|f-hairstyle-2|female_hairstyle_02|649305917|Attire|
-|![ref](https://rustlabs.com/img/items180/halloween.lootbag.png)|Halloween Loot Bag|halloween.lootbag|-295117143|Misc|
-|![ref](https://rustlabs.com/img/items180/scarecrow.suit.png)|WIP|scarecrow.suit|273951840|Attire|
+|![ref](https://rustlabs.com/img/items180/halloween.mummysuit.png)|Mummy Suit|halloween.mummysuit|277730763|Attire|
+|![ref](https://rustlabs.com/img/items180/scarecrow.suit.png)|Scarecrow Suit|scarecrow.suit|273951840|Attire|
 |![ref](https://rustlabs.com/img/items180/scarecrowhead.png)|Scarecrow Wrap|scarecrowhead|809942731|Attire|
+|![ref](https://rustlabs.com/img/items180/halloween.candy.png)|Halloween Candy|halloween.candy|-888153050|Misc|
 |![ref](https://rustlabs.com/img/items180/attire.hide.helterneck.png)|Hide Halterneck|attire.hide.helterneck|3222790|Attire|
 |![ref](https://rustlabs.com/img/items180/hammer.png)|Hammer|hammer|200773292|Tool|
 |![ref](https://rustlabs.com/img/items180/hammer.salvaged.png)|Salvaged Hammer|hammer.salvaged|-1506397857|Tool|
@@ -255,6 +257,9 @@
 |![ref](https://rustlabs.com/img/items180/lock.key.png)|Key Lock|lock.key|-850982208|Construction|
 |![ref](https://rustlabs.com/img/items180/locker.png)|Locker|locker|-110921842|Items|
 |![ref](https://rustlabs.com/img/items180/longsword.png)|Longsword|longsword|-1469578201|Weapon|
+|![ref](https://rustlabs.com/img/items180/halloween.lootbag.large.png)|Large Loot Bag|halloween.lootbag.large|479292118|Misc|
+|![ref](https://rustlabs.com/img/items180/halloween.lootbag.medium.png)|Medium Loot Bag|halloween.lootbag.medium|1899610628|Misc|
+|![ref](https://rustlabs.com/img/items180/halloween.lootbag.small.png)|Small Loot Bag|halloween.lootbag.small|1319617282|Misc|
 |![ref](https://rustlabs.com/img/items180/rifle.lr300.png)|LR-300 Assault Rifle|rifle.lr300|-1812555177|Weapon|
 |![ref](https://rustlabs.com/img/items180/lmg.m249.png)|M249|lmg.m249|-2069578888|Weapon|
 |![ref](https://rustlabs.com/img/items180/rifle.m39.png)|M39 Rifle|rifle.m39|28201841|Weapon|
@@ -335,6 +340,7 @@
 |![ref](https://rustlabs.com/img/items180/electric.pressurepad.png)|Pressure Pad|electric.pressurepad|-2049214035|Electrical|
 |![ref](https://rustlabs.com/img/items180/propanetank.png)|Empty Propane Tank|propanetank|-1673693549|Component|
 |![ref](https://rustlabs.com/img/items180/pumpkin.png)|Pumpkin|pumpkin|-567909622|Food|
+|![ref](https://rustlabs.com/img/items180/pumpkinbasket.png)|Pumpkin Bucket|pumpkinbasket|1346158228|Misc|
 |![ref](https://rustlabs.com/img/items180/clone.pumpkin.png)|Pumpkin Plant Clone|clone.pumpkin|1898094925|Food|
 |![ref](https://rustlabs.com/img/items180/seed.pumpkin.png)|Pumpkin Seed|seed.pumpkin|-1511285251|Food|
 |![ref](https://rustlabs.com/img/items180/pistol.python.png)|Python Revolver|pistol.python|1373971859|Weapon|
@@ -406,6 +412,7 @@
 |![ref](https://rustlabs.com/img/items180/easter.silveregg.png)|Silver Egg|easter.silveregg|1757265204|Misc|
 |![ref](https://rustlabs.com/img/items180/electric.simplelight.png)|Simple Light|electric.simplelight|-282113991|Electrical|
 |![ref](https://rustlabs.com/img/items180/weapon.mod.simplesight.png)|Simple Handmade Sight|weapon.mod.simplesight|-855748505|Weapon|
+|![ref](https://rustlabs.com/img/items180/skulldoorknocker.png)|Skull Door Knocker|skulldoorknocker|-216116642|Items|
 |![ref](https://rustlabs.com/img/items180/skull_fire_pit.png)|Skull Fire Pit|skull_fire_pit|553887414|Items|
 |![ref](https://rustlabs.com/img/items180/skull.human.png)|Human Skull|skull.human|996293980|Resources|
 |![ref](https://rustlabs.com/img/items180/skull.wolf.png)|Wolf Skull|skull.wolf|2048317869|Resources|
@@ -443,6 +450,7 @@
 |![ref](https://rustlabs.com/img/items180/sulfur.png)|Sulfur|sulfur|-1581843485|Resources|
 |![ref](https://rustlabs.com/img/items180/sulfur.ore.png)|Sulfur Ore|sulfur.ore|-1157596551|Resources|
 |![ref](https://rustlabs.com/img/items180/supply.signal.png)|Supply Signal|supply.signal|1397052267|Tool|
+|![ref](https://rustlabs.com/img/items180/halloween.surgeonsuit.png)|Surgeon Scrubs|halloween.surgeonsuit|-1785231475|Attire|
 |![ref](https://rustlabs.com/img/items180/surveycharge.png)|Survey Charge|surveycharge|1975934948|Tool|
 |![ref](https://rustlabs.com/img/items180/fishtrap.small.png)|Survival Fish Trap|fishtrap.small|559147458|Items|
 |![ref](https://rustlabs.com/img/items180/electric.switch.png)|Switch|electric.switch|1951603367|Electrical|
