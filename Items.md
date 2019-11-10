@@ -1,5 +1,6 @@
 # Items
- |Image|Display name|Short name|ID|Category|
+
+|Image|Display name|Short name|ID|Category|
 |:-:|:-:|:-:|:-:|:-:|
 |![ref](https://rustlabs.com/img/items180/ammo.grenadelauncher.buckshot.png)|40mm Shotgun Round|ammo.grenadelauncher.buckshot|1055319033|Ammunition|
 |![ref](https://rustlabs.com/img/items180/ammo.grenadelauncher.he.png)|40mm HE Grenade|ammo.grenadelauncher.he|349762871|Ammunition|
@@ -297,6 +298,7 @@
 |![ref](https://rustlabs.com/img/items180/wolfmeat.cooked.png)|Cooked Wolf Meat|wolfmeat.cooked|813023040|Food|
 |![ref](https://rustlabs.com/img/items180/wolfmeat.raw.png)|Raw Wolf Meat|wolfmeat.raw|-395377963|Food|
 |![ref](https://rustlabs.com/img/items180/wolfmeat.spoiled.png)|Spoiled Wolf Meat|wolfmeat.spoiled|-1167031859|Food|
+|![ref](https://rustlabs.com/img/items180/electric.battery.rechargable.medium.png)|Medium Rechargable Battery|electric.battery.rechargable.medium|2023888403|Electrical|
 |![ref](https://rustlabs.com/img/items180/metal.fragments.png)|Metal Fragments|metal.fragments|69511070|Resources|
 |![ref](https://rustlabs.com/img/items180/metal.ore.png)|Metal Ore|metal.ore|-4031221|Resources|
 |![ref](https://rustlabs.com/img/items180/metal.plate.torso.png)|Metal Chest Plate|metal.plate.torso|1110385766|Attire|

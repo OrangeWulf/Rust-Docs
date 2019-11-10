@@ -1,5 +1,6 @@
 # Entities
- |Short name|Full name|
+
+|Short name|Full name|
 |:-:|:-|
 |corn-collectable|assets/bundled/prefabs/autospawn/collectable/corn/corn-collectable.prefab|
 |hemp-collectable|assets/bundled/prefabs/autospawn/collectable/hemp/hemp-collectable.prefab|
@@ -210,6 +211,7 @@
 |resourcedepositmanager|assets/bundled/prefabs/system/server/resourcedepositmanager.prefab|
 |tree_manager|assets/bundled/prefabs/system/tree_manager.prefab|
 |tree_marking|assets/content/nature/treesprefabs/trees/effects/tree_marking.prefab|
+|tree_marking_nospherecast|assets/content/nature/treesprefabs/trees/effects/tree_marking_nospherecast.prefab|
 |fogmachine|assets/content/props/fog machine/fogmachine.prefab|
 |excavator lighting static|assets/content/props/light_fixtures/v2/radtown work prefabs/excavator lighting static.prefab|
 |excavator_lights|assets/content/structures/excavator/prefabs/excavator_lights.prefab|
@@ -344,6 +346,7 @@
 |planter.small.deployed|assets/prefabs/deployable/planters/planter.small.deployed.prefab|
 |audioalarm|assets/prefabs/deployable/playerioents/alarms/audioalarm.prefab|
 |large.rechargable.battery.deployed|assets/prefabs/deployable/playerioents/batteries/large/large.rechargable.battery.deployed.prefab|
+|medium.rechargable.battery.deployed|assets/prefabs/deployable/playerioents/batteries/medium/medium.rechargable.battery.deployed.prefab|
 |smallrechargablebattery.deployed|assets/prefabs/deployable/playerioents/batteries/smallrechargablebattery.deployed.prefab|
 |counter|assets/prefabs/deployable/playerioents/counter/counter.prefab|
 |hbhfsensor.deployed|assets/prefabs/deployable/playerioents/detectors/hbhfsensor/hbhfsensor.deployed.prefab|
