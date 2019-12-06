@@ -2,6 +2,11 @@
 
 |Short name|Full name|
 |:-:|:-|
+|net_env|assets/bundled/prefabs/system/net_env.prefab|
+|community|assets/bundled/prefabs/system/server/community.prefab|
+|relationship_manager|assets/bundled/prefabs/system/server/relationship_manager.prefab|
+|resourcedepositmanager|assets/bundled/prefabs/system/server/resourcedepositmanager.prefab|
+|tree_manager|assets/bundled/prefabs/system/tree_manager.prefab|
 |corn-collectable|assets/bundled/prefabs/autospawn/collectable/corn/corn-collectable.prefab|
 |hemp-collectable|assets/bundled/prefabs/autospawn/collectable/hemp/hemp-collectable.prefab|
 |mushroom-cluster-5|assets/bundled/prefabs/autospawn/collectable/mushrooms/mushroom-cluster-5.prefab|
@@ -192,9 +197,11 @@
 |door.hinged.vent|assets/bundled/prefabs/static/door.hinged.vent.prefab|
 |door.hinged.wood.static|assets/bundled/prefabs/static/door.hinged.wood.static.prefab|
 |door_test_static|assets/bundled/prefabs/static/door_test_static.prefab|
+|drumkit.deployed.static|assets/bundled/prefabs/static/drumkit.deployed.static.prefab|
 |furnace_static|assets/bundled/prefabs/static/furnace_static.prefab|
 |hobobarrel_static|assets/bundled/prefabs/static/hobobarrel_static.prefab|
 |miningquarry_static|assets/bundled/prefabs/static/miningquarry_static.prefab|
+|piano.deployed.static|assets/bundled/prefabs/static/piano.deployed.static.prefab|
 |pumpjack-static|assets/bundled/prefabs/static/pumpjack-static.prefab|
 |recycler_static|assets/bundled/prefabs/static/recycler_static.prefab|
 |repairbench_static|assets/bundled/prefabs/static/repairbench_static.prefab|
@@ -205,11 +212,7 @@
 |water_catcher_small.static|assets/bundled/prefabs/static/water_catcher_small.static.prefab|
 |workbench1.static|assets/bundled/prefabs/static/workbench1.static.prefab|
 |workbench2.static|assets/bundled/prefabs/static/workbench2.static.prefab|
-|net_env|assets/bundled/prefabs/system/net_env.prefab|
-|community|assets/bundled/prefabs/system/server/community.prefab|
-|relationship_manager|assets/bundled/prefabs/system/server/relationship_manager.prefab|
-|resourcedepositmanager|assets/bundled/prefabs/system/server/resourcedepositmanager.prefab|
-|tree_manager|assets/bundled/prefabs/system/tree_manager.prefab|
+|xylophone.deployed.static|assets/bundled/prefabs/static/xylophone.deployed.static.prefab|
 |tree_marking|assets/content/nature/treesprefabs/trees/effects/tree_marking.prefab|
 |tree_marking_nospherecast|assets/content/nature/treesprefabs/trees/effects/tree_marking_nospherecast.prefab|
 |fogmachine|assets/content/props/fog machine/fogmachine.prefab|
@@ -434,7 +437,17 @@
 |bota_bag.entity|assets/prefabs/food/bota bag/bota_bag.entity.prefab|
 |smallwaterbottle.entity|assets/prefabs/food/small water bottle/smallwaterbottle.entity.prefab|
 |waterjug.entity|assets/prefabs/food/water jug/waterjug.entity.prefab|
+|bass.weapon|assets/prefabs/instruments/bass/bass.weapon.prefab|
+|cowbell.weapon|assets/prefabs/instruments/cowbell/cowbell.weapon.prefab|
+|drumkit.deployed|assets/prefabs/instruments/drumkit/drumkit.deployed.prefab|
+|flute.weapon|assets/prefabs/instruments/flute/flute.weapon.prefab|
 |guitar.weapon|assets/prefabs/instruments/guitar/guitar.weapon.prefab|
+|jerrycanguitar.weapon|assets/prefabs/instruments/jerrycanguitar/jerrycanguitar.weapon.prefab|
+|piano.deployed|assets/prefabs/instruments/piano/piano.deployed.prefab|
+|tambourine.weapon|assets/prefabs/instruments/tambourine/tambourine.weapon.prefab|
+|trumpet.weapon|assets/prefabs/instruments/trumpet/trumpet.weapon.prefab|
+|tuba.weapon|assets/prefabs/instruments/tuba/tuba.weapon.prefab|
+|xylophone.deployed|assets/prefabs/instruments/xylophone/xylophone.deployed.prefab|
 |generator.static|assets/prefabs/io/electric/generators/generator.static.prefab|
 |simplelight|assets/prefabs/io/electric/lights/simplelight.prefab|
 |sirenlightorange|assets/prefabs/io/electric/lights/sirenlightorange.prefab|
@@ -701,6 +714,7 @@
 |longsword.entity|assets/prefabs/weapons/sword big/longsword.entity.prefab|
 |salvaged_sword.entity|assets/prefabs/weapons/sword/salvaged_sword.entity.prefab|
 |thompson.entity|assets/prefabs/weapons/thompson/thompson.entity.prefab|
+|toolgun.entity|assets/prefabs/weapons/toolgun/toolgun.entity.prefab|
 |torch.entity|assets/prefabs/weapons/torch/torch.entity.prefab|
 |waterball|assets/prefabs/weapons/waterbucket/waterball.prefab|
 |waterbucket.entity|assets/prefabs/weapons/waterbucket/waterbucket.entity.prefab|
