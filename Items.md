@@ -173,6 +173,19 @@
 |![ref](https://rustlabs.com/img/items180/chair.png)|Chair|chair|1534542921|Items|
 |![ref](https://rustlabs.com/img/items180/dropbox.png)|Drop Box|dropbox|-1519126340|Items|
 |![ref](https://rustlabs.com/img/items180/fireplace.stone.png)|Stone Fireplace|fireplace.stone|-1535621066|Items|
+|![ref](https://rustlabs.com/img/items180/firework.boomer.blue.png)|Blue Boomer|firework.boomer.blue|1744298439|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.boomer.champagne.png)|Champagne Boomer|firework.boomer.champagne|1324203999|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.boomer.green.png)|Green Boomer|firework.boomer.green|-656349006|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.boomer.orange.png)|Orange Boomer|firework.boomer.orange|-7270019|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.boomer.red.png)|Red Boomer|firework.boomer.red|-1553999294|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.boomer.violet.png)|Violet Boomer|firework.boomer.violet|-280223496|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.romancandle.blue.png)|Blue Roman Candle|firework.romancandle.blue|-515830359|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.romancandle.green.png)|Green Roman Candle|firework.romancandle.green|-1306288356|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.romancandle.red.png)|Red Roman Candle|firework.romancandle.red|-1486461488|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.romancandle.violet.png)|Violet Roman Candle|firework.romancandle.violet|-99886070|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.volcano.png)|White Volcano Firework|firework.volcano|261913429|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.volcano.red.png)|Red Volcano Firework|firework.volcano.red|-454370658|Fun|
+|![ref](https://rustlabs.com/img/items180/firework.volcano.violet.png)|Violet Volcano Firework|firework.volcano.violet|-1538109120|Fun|
 |![ref](https://rustlabs.com/img/items180/spikes.floor.png)|Wooden Floor Spikes|spikes.floor|-92759291|Traps|
 |![ref](https://rustlabs.com/img/items180/fridge.png)|Fridge|fridge|1413014235|Items|
 |![ref](https://rustlabs.com/img/items180/furnace.large.png)|Large Furnace|furnace.large|-1992717673|Items|
@@ -213,6 +226,7 @@
 |![ref](https://rustlabs.com/img/items180/electric.fuelgenerator.small.png)|Small Generator|electric.fuelgenerator.small|1849887541|Electrical|
 |![ref](https://rustlabs.com/img/items180/electric.generator.small.png)|Test Generator|electric.generator.small|-295829489|Electrical|
 |![ref](https://rustlabs.com/img/items180/electric.solarpanel.large.png)|Large Solar Panel|electric.solarpanel.large|2090395347|Electrical|
+|![ref](https://rustlabs.com/img/items180/electric.igniter.png)|Igniter|electric.igniter|-44876289|Electrical|
 |![ref](https://rustlabs.com/img/items180/electric.flasherlight.png)|Flasher Light|electric.flasherlight|-939424778|Electrical|
 |![ref](https://rustlabs.com/img/items180/electric.simplelight.png)|Simple Light|electric.simplelight|-282113991|Electrical|
 |![ref](https://rustlabs.com/img/items180/electric.sirenlight.png)|Siren Light|electric.sirenlight|762289806|Electrical|
@@ -323,6 +337,9 @@
 |![ref](https://rustlabs.com/img/items180/chineselantern.png)|Chinese Lantern|chineselantern|-1916473915|Items|
 |![ref](https://rustlabs.com/img/items180/dragondoorknocker.png)|Dragon Door Knocker|dragondoorknocker|-854270928|Items|
 |![ref](https://rustlabs.com/img/items180/hat.dragonmask.png)|Dragon Mask|hat.dragonmask|-22883916|Attire|
+|![ref](https://rustlabs.com/img/items180/newyeargong.png)|New Year Gong|newyeargong|-961457160|Fun|
+|![ref](https://rustlabs.com/img/items180/hat.ratmask.png)|Rat Mask|hat.ratmask|271048478|Attire|
+|![ref](https://rustlabs.com/img/items180/lunar.firecrackers.png)|Firecracker String|lunar.firecrackers|-1961560162|Fun|
 |![ref](https://rustlabs.com/img/items180/arcade.machine.chippy.png)|Chippy Arcade Game|arcade.machine.chippy|359723196|Items|
 |![ref](https://rustlabs.com/img/items180/door.closer.png)|Door Closer|door.closer|1409529282|Construction|
 |![ref](https://rustlabs.com/img/items180/attire.bunnyears.png)|Bunny Ears|attire.bunnyears|-1004426654|Attire|
@@ -362,6 +379,7 @@
 |![ref](https://rustlabs.com/img/items180/giantcandycanedecor.png)|Giant Candy Decor|giantcandycanedecor|-695124222|Misc|
 |![ref](https://rustlabs.com/img/items180/giantlollipops.png)|Giant Lollipop Decor|giantlollipops|282103175|Misc|
 |![ref](https://rustlabs.com/img/items180/pookie.bear.png)|Pookie Bear|pookie.bear|-1651220691|Items|
+|![ref](https://rustlabs.com/img/items180/xmas.lightstring.advanced.png)|Deluxe Christmas Lights|xmas.lightstring.advanced|-151387974|Electrical|
 |![ref](https://rustlabs.com/img/items180/coal.png)|Coal :(|coal|204391461|Resources|
 |![ref](https://rustlabs.com/img/items180/xmas.present.large.png)|Large Present|xmas.present.large|-1622660759|Misc|
 |![ref](https://rustlabs.com/img/items180/xmas.present.medium.png)|Medium Present|xmas.present.medium|756517185|Misc|
@@ -372,8 +390,11 @@
 |![ref](https://rustlabs.com/img/items180/stocking.large.png)|SUPER Stocking|stocking.large|-465682601|Items|
 |![ref](https://rustlabs.com/img/items180/stocking.small.png)|Small Stocking|stocking.small|1668858301|Items|
 |![ref](https://rustlabs.com/img/items180/attire.reindeer.headband.png)|Reindeer Antlers|attire.reindeer.headband|-324675402|Attire|
+|![ref](https://rustlabs.com/img/items180/santabeard.png)|Santa Beard|santabeard|2126889441|Attire|
 |![ref](https://rustlabs.com/img/items180/santahat.png)|Santa Hat|santahat|-575483084|Attire|
 |![ref](https://rustlabs.com/img/items180/xmas.window.garland.png)|Festive Window Garland|xmas.window.garland|-1379835144|Items|
+|![ref](https://rustlabs.com/img/items180/wrappedgift.png)|Wrapped Gift|wrappedgift|204970153|Fun|
+|![ref](https://rustlabs.com/img/items180/wrappingpaper.png)|Wrapping Paper|wrappingpaper|1094293920|Fun|
 |![ref](https://rustlabs.com/img/items180/xmasdoorwreath.png)|Christmas Door Wreath|xmasdoorwreath|2009734114|Items|
 |![ref](https://rustlabs.com/img/items180/xmas.decoration.baubels.png)|Decorative Baubels|xmas.decoration.baubels|-1667224349|Misc|
 |![ref](https://rustlabs.com/img/items180/xmas.decoration.candycanes.png)|Decorative Plastic Candy Canes|xmas.decoration.candycanes|-209869746|Misc|
@@ -510,7 +531,7 @@
 |![ref](https://rustlabs.com/img/items180/longsword.png)|Longsword|longsword|-1469578201|Weapon|
 |![ref](https://rustlabs.com/img/items180/salvaged.sword.png)|Salvaged Sword|salvaged.sword|1326180354|Weapon|
 |![ref](https://rustlabs.com/img/items180/smg.thompson.png)|Thompson|smg.thompson|-1758372725|Weapon|
-|![ref](https://rustlabs.com/img/items180/toolgun.png)|Garry's Mod Toolgun|toolgun|1803831286|Tool|
+|![ref](https://rustlabs.com/img/items180/toolgun.png)|Garry's Mod Tool Gun|toolgun|1803831286|Tool|
 |![ref](https://rustlabs.com/img/items180/torch.png)|Torch|torch|795236088|Tool|
 |![ref](https://rustlabs.com/img/items180/bucket.water.png)|Water Bucket|bucket.water|1424075905|Tool|
 |![ref](https://rustlabs.com/img/items180/spear.wooden.png)|Wooden Spear|spear.wooden|1540934679|Weapon|
