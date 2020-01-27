@@ -325,6 +325,19 @@
 |door_barricade_dbl_b_large|assets/prefabs/deployable/door barricades/door_barricade_dbl_b_large.prefab|
 |dropbox.deployed|assets/prefabs/deployable/dropbox/dropbox.deployed.prefab|
 |fireplace.deployed|assets/prefabs/deployable/fireplace/fireplace.deployed.prefab|
+|mortarblue|assets/prefabs/deployable/fireworks/mortarblue.prefab|
+|mortarchampagne|assets/prefabs/deployable/fireworks/mortarchampagne.prefab|
+|mortargreen|assets/prefabs/deployable/fireworks/mortargreen.prefab|
+|mortarorange|assets/prefabs/deployable/fireworks/mortarorange.prefab|
+|mortarred|assets/prefabs/deployable/fireworks/mortarred.prefab|
+|mortarviolet|assets/prefabs/deployable/fireworks/mortarviolet.prefab|
+|romancandle-blue|assets/prefabs/deployable/fireworks/romancandle-blue.prefab|
+|romancandle-green|assets/prefabs/deployable/fireworks/romancandle-green.prefab|
+|romancandle-violet|assets/prefabs/deployable/fireworks/romancandle-violet.prefab|
+|romancandle|assets/prefabs/deployable/fireworks/romancandle.prefab|
+|volcanofirework-red|assets/prefabs/deployable/fireworks/volcanofirework-red.prefab|
+|volcanofirework-violet|assets/prefabs/deployable/fireworks/volcanofirework-violet.prefab|
+|volcanofirework|assets/prefabs/deployable/fireworks/volcanofirework.prefab|
 |spikes.floor|assets/prefabs/deployable/floor spikes/spikes.floor.prefab|
 |fridge.deployed|assets/prefabs/deployable/fridge/fridge.deployed.prefab|
 |furnace.large|assets/prefabs/deployable/furnace.large/furnace.large.prefab|
@@ -369,6 +382,7 @@
 |small_fuel_generator.deployed|assets/prefabs/deployable/playerioents/generators/fuel generator/small_fuel_generator.deployed.prefab|
 |generator.small|assets/prefabs/deployable/playerioents/generators/generator.small.prefab|
 |solarpanel.large.deployed|assets/prefabs/deployable/playerioents/generators/solar_panels_roof/solarpanel.large.deployed.prefab|
+|igniter.deployed|assets/prefabs/deployable/playerioents/igniter/igniter.deployed.prefab|
 |electric.flasherlight.deployed|assets/prefabs/deployable/playerioents/lights/flasherlight/electric.flasherlight.deployed.prefab|
 |simplelight|assets/prefabs/deployable/playerioents/lights/simplelight.prefab|
 |electric.sirenlight.deployed|assets/prefabs/deployable/playerioents/lights/sirenlight/electric.sirenlight.deployed.prefab|
@@ -472,6 +486,9 @@
 |chinese_door_frame_decoration|assets/prefabs/misc/chinesenewyear/chinese_door_frame_decoration/chinese_door_frame_decoration.prefab|
 |chineselantern.deployed|assets/prefabs/misc/chinesenewyear/chineselantern/chineselantern.deployed.prefab|
 |dragondoorknocker.deployed|assets/prefabs/misc/chinesenewyear/dragondoorknocker/dragondoorknocker.deployed.prefab|
+|newyeargong.deployed|assets/prefabs/misc/chinesenewyear/newyeargong/newyeargong.deployed.prefab|
+|firecrackers.deployed|assets/prefabs/misc/chinesenewyear/throwablefirecrackers/firecrackers.deployed.prefab|
+|firecrackers.entity|assets/prefabs/misc/chinesenewyear/throwablefirecrackers/firecrackers.entity.prefab|
 |chippyarcademachine|assets/prefabs/misc/chippy arcade/chippyarcademachine.prefab|
 |divesite_a|assets/prefabs/misc/divesite/divesite_a.prefab|
 |divesite_b|assets/prefabs/misc/divesite/divesite_b.prefab|
@@ -526,6 +543,8 @@
 |giftbox_loot|assets/prefabs/misc/xmas/giftbox/giftbox_loot.prefab|
 |giantlollipops.deployed|assets/prefabs/misc/xmas/lollipop_bundle/giantlollipops.deployed.prefab|
 |pookie_deployed|assets/prefabs/misc/xmas/pookie/pookie_deployed.prefab|
+|poweredlightsdeployer|assets/prefabs/misc/xmas/poweredlights/poweredlightsdeployer.prefab|
+|xmas.advanced.lights.deployed|assets/prefabs/misc/xmas/poweredlights/xmas.advanced.lights.deployed.prefab|
 |presentdrop|assets/prefabs/misc/xmas/sleigh/presentdrop.prefab|
 |santasleigh|assets/prefabs/misc/xmas/sleigh/santasleigh.prefab|
 |snowmachine|assets/prefabs/misc/xmas/snow_machine/models/snowmachine.prefab|
