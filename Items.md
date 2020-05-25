@@ -1,543 +1,534 @@
-# Items
-
-|Image|Display name|Short name|ID|Category|
-|:-:|:-:|:-:|:-:|:-:|
-|![ref](https://rustlabs.com/img/items180/hat.wolf.png)|Wolf Headdress|hat.wolf|-1478212975|Attire|
-|![ref](https://rustlabs.com/img/items180/fogmachine.png)|Fogger-3000|fogmachine|-1973785141|Misc|
-|![ref](https://rustlabs.com/img/items180/strobelight.png)|Strobe Light|strobelight|2104517339|Misc|
-|![ref](https://rustlabs.com/img/items180/minihelicopter.repair.png)|MC repair|minihelicopter.repair|1426574435|Misc|
-|![ref](https://rustlabs.com/img/items180/scraptransportheli.repair.png)|ScrapTransportHeliRepair|scraptransportheli.repair|-1884328185|Misc|
-|![ref](https://rustlabs.com/img/items180/ammo.grenadelauncher.buckshot.png)|40mm Shotgun Round|ammo.grenadelauncher.buckshot|1055319033|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.grenadelauncher.he.png)|40mm HE Grenade|ammo.grenadelauncher.he|349762871|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.grenadelauncher.smoke.png)|40mm Smoke Grenade|ammo.grenadelauncher.smoke|915408809|Ammunition|
-|![ref](https://rustlabs.com/img/items180/arrow.hv.png)|High Velocity Arrow|arrow.hv|-1023065463|Ammunition|
-|![ref](https://rustlabs.com/img/items180/arrow.wooden.png)|Wooden Arrow|arrow.wooden|-1234735557|Ammunition|
-|![ref](https://rustlabs.com/img/items180/arrow.bone.png)|Bone Arrow|arrow.bone|215754713|Ammunition|
-|![ref](https://rustlabs.com/img/items180/arrow.fire.png)|Fire Arrow|arrow.fire|14241751|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.handmade.shell.png)|Handmade Shell|ammo.handmade.shell|588596902|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.nailgun.nails.png)|Nailgun Nails|ammo.nailgun.nails|-2097376851|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.pistol.png)|Pistol Bullet|ammo.pistol|785728077|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.pistol.fire.png)|Incendiary Pistol Bullet|ammo.pistol.fire|51984655|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.pistol.hv.png)|HV Pistol Ammo|ammo.pistol.hv|-1691396643|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.rifle.png)|5.56 Rifle Ammo|ammo.rifle|-1211166256|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.rifle.explosive.png)|Explosive 5.56 Rifle Ammo|ammo.rifle.explosive|-1321651331|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.rifle.incendiary.png)|Incendiary 5.56 Rifle Ammo|ammo.rifle.incendiary|605467368|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.rifle.hv.png)|HV 5.56 Rifle Ammo|ammo.rifle.hv|1712070256|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.rocket.basic.png)|Rocket|ammo.rocket.basic|-742865266|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.rocket.fire.png)|Incendiary Rocket|ammo.rocket.fire|1638322904|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.rocket.hv.png)|High Velocity Rocket|ammo.rocket.hv|-1841918730|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.rocket.smoke.png)|Smoke Rocket WIP!!!!|ammo.rocket.smoke|-17123659|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.shotgun.png)|12 Gauge Buckshot|ammo.shotgun|-1685290200|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.shotgun.fire.png)|12 Gauge Incendiary Shell|ammo.shotgun.fire|-1036635990|Ammunition|
-|![ref](https://rustlabs.com/img/items180/ammo.shotgun.slug.png)|12 Gauge Slug|ammo.shotgun.slug|-727717969|Ammunition|
-|![ref](https://rustlabs.com/img/items180/door.double.hinged.metal.png)|Sheet Metal Double Door|door.double.hinged.metal|1390353317|Construction|
-|![ref](https://rustlabs.com/img/items180/door.double.hinged.toptier.png)|Armored Double Door|door.double.hinged.toptier|1221063409|Construction|
-|![ref](https://rustlabs.com/img/items180/door.double.hinged.wood.png)|Wood Double Door|door.double.hinged.wood|-1336109173|Construction|
-|![ref](https://rustlabs.com/img/items180/door.hinged.metal.png)|Sheet Metal Door|door.hinged.metal|-2067472972|Construction|
-|![ref](https://rustlabs.com/img/items180/door.hinged.toptier.png)|Armored Door|door.hinged.toptier|1353298668|Construction|
-|![ref](https://rustlabs.com/img/items180/door.hinged.wood.png)|Wooden Door|door.hinged.wood|1729120840|Construction|
-|![ref](https://rustlabs.com/img/items180/floor.grill.png)|Floor grill|floor.grill|936496778|Construction|
-|![ref](https://rustlabs.com/img/items180/floor.ladder.hatch.png)|Ladder Hatch|floor.ladder.hatch|1948067030|Construction|
-|![ref](https://rustlabs.com/img/items180/gates.external.high.stone.png)|High External Stone Gate|gates.external.high.stone|-691113464|Construction|
-|![ref](https://rustlabs.com/img/items180/gates.external.high.wood.png)|High External Wooden Gate|gates.external.high.wood|-335089230|Construction|
-|![ref](https://rustlabs.com/img/items180/ladder.wooden.wall.png)|Wooden Ladder|ladder.wooden.wall|-316250604|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.external.high.stone.png)|High External Stone Wall|wall.external.high.stone|-967648160|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.external.high.png)|High External Wooden Wall|wall.external.high|99588025|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.frame.cell.gate.png)|Prison Cell Gate|wall.frame.cell.gate|-956706906|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.frame.cell.png)|Prison Cell Wall|wall.frame.cell|-1429456799|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.frame.fence.gate.png)|Chainlink Fence Gate|wall.frame.fence.gate|1451568081|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.frame.fence.png)|Chainlink Fence|wall.frame.fence|-1117626326|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.frame.garagedoor.png)|Garage Door|wall.frame.garagedoor|-148794216|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.frame.netting.png)|Netting|wall.frame.netting|1516985844|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.frame.shopfront.png)|Shop Front|wall.frame.shopfront|-796583652|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.frame.shopfront.metal.png)|Metal Shop Front|wall.frame.shopfront.metal|-148229307|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.window.bars.metal.png)|Metal Window Bars|wall.window.bars.metal|-819720157|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.window.bars.toptier.png)|Reinforced Window Bars|wall.window.bars.toptier|671706427|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.window.bars.wood.png)|Wooden Window Bars|wall.window.bars.wood|-1183726687|Construction|
-|![ref](https://rustlabs.com/img/items180/shutter.metal.embrasure.a.png)|Metal horizontal embrasure|shutter.metal.embrasure.a|-1199897169|Construction|
-|![ref](https://rustlabs.com/img/items180/shutter.metal.embrasure.b.png)|Metal Vertical embrasure|shutter.metal.embrasure.b|-1199897172|Construction|
-|![ref](https://rustlabs.com/img/items180/wall.window.glass.reinforced.png)|Reinforced Glass Window|wall.window.glass.reinforced|-1614955425|Construction|
-|![ref](https://rustlabs.com/img/items180/shutter.wood.a.png)|Wood Shutters|shutter.wood.a|-1023374709|Construction|
-|![ref](https://rustlabs.com/img/items180/watchtower.wood.png)|Watch Tower|watchtower.wood|-463122489|Construction|
-|![ref](https://rustlabs.com/img/items180/diving.fins.png)|Diving Fins|diving.fins|296519935|Attire|
-|![ref](https://rustlabs.com/img/items180/diving.mask.png)|Diving Mask|diving.mask|-113413047|Attire|
-|![ref](https://rustlabs.com/img/items180/diving.tank.png)|Diving Tank|diving.tank|-2022172587|Attire|
-|![ref](https://rustlabs.com/img/items180/diving.wetsuit.png)|Wetsuit|diving.wetsuit|-1101924344|Attire|
-|![ref](https://rustlabs.com/img/items180/boots.frog.png)|Frog Boots|boots.frog|-1000573653|Attire|
-|![ref](https://rustlabs.com/img/items180/barrelcostume.png)|A Barrel Costume|barrelcostume|-1215166612|Attire|
-|![ref](https://rustlabs.com/img/items180/cratecostume.png)|Crate Costume|cratecostume|1189981699|Attire|
-|![ref](https://rustlabs.com/img/items180/burlap.gloves.new.png)|Burlap Gloves|burlap.gloves.new|21402876|Attire|
-|![ref](https://rustlabs.com/img/items180/burlap.gloves.png)|Leather Gloves|burlap.gloves|1366282552|Attire|
-|![ref](https://rustlabs.com/img/items180/roadsign.gloves.png)|Roadsign Gloves|roadsign.gloves|-699558439|Attire|
-|![ref](https://rustlabs.com/img/items180/tactical.gloves.png)|Tactical Gloves|tactical.gloves|-1108136649|Attire|
-|![ref](https://rustlabs.com/img/items180/femalearmpithair.style01.png)|f-armpit01|femalearmpithair.style01|274502203|Attire|
-|![ref](https://rustlabs.com/img/items180/malearmpithair.style01.png)|m-armpit01|malearmpithair.style01|181590376|Attire|
-|![ref](https://rustlabs.com/img/items180/femaleeyebrow.style01.png)|f-eyebrow01|femaleeyebrow.style01|-1065444793|Attire|
-|![ref](https://rustlabs.com/img/items180/maleeyebrow.style01.png)|m-eyebrow01|maleeyebrow.style01|-874975042|Attire|
-|![ref](https://rustlabs.com/img/items180/facialhair.style01.png)|m-facialhair01|facialhair.style01|798638114|Attire|
-|![ref](https://rustlabs.com/img/items180/male.facialhair.style02.png)|m-facialhair02|male.facialhair.style02|-163828118|Attire|
-|![ref](https://rustlabs.com/img/items180/male.facialhair.style03.png)|m-facialhair03|male.facialhair.style03|-163828117|Attire|
-|![ref](https://rustlabs.com/img/items180/male.facialhair.style04.png)|m-facialhair04|male.facialhair.style04|-163828112|Attire|
-|![ref](https://rustlabs.com/img/items180/female_hairstyle_01.png)|f-hairstyle-1|female_hairstyle_01|649305914|Attire|
-|![ref](https://rustlabs.com/img/items180/male_hairstyle_01.png)|m-hairstyle-1|male_hairstyle_01|1070894649|Attire|
-|![ref](https://rustlabs.com/img/items180/female_hairstyle_02.png)|f-hairstyle-2|female_hairstyle_02|649305917|Attire|
-|![ref](https://rustlabs.com/img/items180/male_hairstyle_02.png)|m-hairstyle-2|male_hairstyle_02|1070894648|Attire|
-|![ref](https://rustlabs.com/img/items180/female_hairstyle_03.png)|f-hairstyle-3|female_hairstyle_03|649305916|Attire|
-|![ref](https://rustlabs.com/img/items180/male_hairstyle_03.png)|m-hairstyle-3|male_hairstyle_03|1070894647|Attire|
-|![ref](https://rustlabs.com/img/items180/male_hairstyle_04.png)|m-hairstyle-4|male_hairstyle_04|1070894646|Attire|
-|![ref](https://rustlabs.com/img/items180/female_hairstyle_05.png)|f-hairstyle-5|female_hairstyle_05|649305918|Attire|
-|![ref](https://rustlabs.com/img/items180/male_hairstyle_05.png)|m-hairstyle-5|male_hairstyle_05|1070894645|Attire|
-|![ref](https://rustlabs.com/img/items180/femalepubichair.style01.png)|f-pubic01|femalepubichair.style01|16333305|Attire|
-|![ref](https://rustlabs.com/img/items180/malepubichair.style01.png)|m-pubic01|malepubichair.style01|-1190096326|Attire|
-|![ref](https://rustlabs.com/img/items180/halloween.mummysuit.png)|Mummy Suit|halloween.mummysuit|277730763|Attire|
-|![ref](https://rustlabs.com/img/items180/scarecrow.suit.png)|Scarecrow Suit|scarecrow.suit|273951840|Attire|
-|![ref](https://rustlabs.com/img/items180/scarecrowhead.png)|Scarecrow Wrap|scarecrowhead|809942731|Attire|
-|![ref](https://rustlabs.com/img/items180/attire.hide.helterneck.png)|Hide Halterneck|attire.hide.helterneck|3222790|Attire|
-|![ref](https://rustlabs.com/img/items180/hat.beenie.png)|Beenie Hat|hat.beenie|1675639563|Attire|
-|![ref](https://rustlabs.com/img/items180/hat.boonie.png)|Boonie Hat|hat.boonie|-23994173|Attire|
-|![ref](https://rustlabs.com/img/items180/bucket.helmet.png)|Bucket Helmet|bucket.helmet|850280505|Attire|
-|![ref](https://rustlabs.com/img/items180/burlap.headwrap.png)|Burlap Headwrap|burlap.headwrap|1877339384|Attire|
-|![ref](https://rustlabs.com/img/items180/hat.candle.png)|Candle Hat|hat.candle|1714496074|Attire|
-|![ref](https://rustlabs.com/img/items180/hat.cap.png)|Baseball Cap|hat.cap|-1022661119|Attire|
-|![ref](https://rustlabs.com/img/items180/clatter.helmet.png)|Clatter Helmet|clatter.helmet|968019378|Attire|
-|![ref](https://rustlabs.com/img/items180/coffeecan.helmet.png)|Coffee Can Helmet|coffeecan.helmet|-803263829|Attire|
-|![ref](https://rustlabs.com/img/items180/deer.skull.mask.png)|Bone Helmet|deer.skull.mask|-1903165497|Attire|
-|![ref](https://rustlabs.com/img/items180/heavy.plate.helmet.png)|Heavy Plate Helmet|heavy.plate.helmet|1181207482|Attire|
-|![ref](https://rustlabs.com/img/items180/hat.miner.png)|Miners Hat|hat.miner|-1539025626|Attire|
-|![ref](https://rustlabs.com/img/items180/partyhat.png)|Party Hat|partyhat|-575744869|Attire|
-|![ref](https://rustlabs.com/img/items180/riot.helmet.png)|Riot Helmet|riot.helmet|671063303|Attire|
-|![ref](https://rustlabs.com/img/items180/wood.armor.helmet.png)|Wood Armor Helmet|wood.armor.helmet|-2094954543|Attire|
-|![ref](https://rustlabs.com/img/items180/hoodie.png)|Hoodie|hoodie|1751045826|Attire|
-|![ref](https://rustlabs.com/img/items180/bone.armor.suit.png)|Bone Armor|bone.armor.suit|1746956556|Attire|
-|![ref](https://rustlabs.com/img/items180/heavy.plate.jacket.png)|Heavy Plate Jacket|heavy.plate.jacket|-1102429027|Attire|
-|![ref](https://rustlabs.com/img/items180/jacket.snow.png)|Snow Jacket|jacket.snow|-48090175|Attire|
-|![ref](https://rustlabs.com/img/items180/jacket.png)|Jacket|jacket|-1163532624|Attire|
-|![ref](https://rustlabs.com/img/items180/wood.armor.jacket.png)|Wood Chestplate|wood.armor.jacket|418081930|Attire|
-|![ref](https://rustlabs.com/img/items180/mask.balaclava.png)|Improvised Balaclava|mask.balaclava|-2012470695|Attire|
-|![ref](https://rustlabs.com/img/items180/mask.bandana.png)|Bandana Mask|mask.bandana|-702051347|Attire|
-|![ref](https://rustlabs.com/img/items180/metal.facemask.png)|Metal Facemask|metal.facemask|-194953424|Attire|
-|![ref](https://rustlabs.com/img/items180/burlap.trousers.png)|Burlap Trousers|burlap.trousers|1992974553|Attire|
-|![ref](https://rustlabs.com/img/items180/heavy.plate.pants.png)|Heavy Plate Pants|heavy.plate.pants|-1778159885|Attire|
-|![ref](https://rustlabs.com/img/items180/attire.hide.pants.png)|Hide Pants|attire.hide.pants|1722154847|Attire|
-|![ref](https://rustlabs.com/img/items180/roadsign.kilt.png)|Road Sign Kilt|roadsign.kilt|1850456855|Attire|
-|![ref](https://rustlabs.com/img/items180/pants.shorts.png)|Shorts|pants.shorts|-1695367501|Attire|
-|![ref](https://rustlabs.com/img/items180/wood.armor.pants.png)|Wood Armor Pants|wood.armor.pants|832133926|Attire|
-|![ref](https://rustlabs.com/img/items180/pants.png)|Pants|pants|237239288|Attire|
-|![ref](https://rustlabs.com/img/items180/attire.hide.poncho.png)|Hide Poncho|attire.hide.poncho|980333378|Attire|
-|![ref](https://rustlabs.com/img/items180/burlap.shirt.png)|Burlap Shirt|burlap.shirt|602741290|Attire|
-|![ref](https://rustlabs.com/img/items180/shirt.collared.png)|Shirt|shirt.collared|-2025184684|Attire|
-|![ref](https://rustlabs.com/img/items180/attire.hide.vest.png)|Hide Vest|attire.hide.vest|196700171|Attire|
-|![ref](https://rustlabs.com/img/items180/shirt.tanktop.png)|Tank Top|shirt.tanktop|1608640313|Attire|
-|![ref](https://rustlabs.com/img/items180/shoes.boots.png)|Boots|shoes.boots|-1549739227|Attire|
-|![ref](https://rustlabs.com/img/items180/burlap.shoes.png)|Burlap Shoes|burlap.shoes|-761829530|Attire|
-|![ref](https://rustlabs.com/img/items180/attire.hide.boots.png)|Hide Boots|attire.hide.boots|794356786|Attire|
-|![ref](https://rustlabs.com/img/items180/attire.hide.skirt.png)|Hide Skirt|attire.hide.skirt|-1773144852|Attire|
-|![ref](https://rustlabs.com/img/items180/hazmatsuit.png)|Hazmat Suit|hazmatsuit|1266491000|Attire|
-|![ref](https://rustlabs.com/img/items180/hazmatsuit_scientist.png)|Scientist Suit|hazmatsuit_scientist|-253079493|Attire|
-|![ref](https://rustlabs.com/img/items180/hazmatsuit_scientist_peacekeeper.png)|Scientist Suit|hazmatsuit_scientist_peacekeeper|-1958316066|Attire|
-|![ref](https://rustlabs.com/img/items180/scientistsuit_heavy.png)|Heavy Scientist Suit|scientistsuit_heavy|-1772746857|Attire|
-|![ref](https://rustlabs.com/img/items180/tshirt.long.png)|Longsleeve T-Shirt|tshirt.long|935692442|Attire|
-|![ref](https://rustlabs.com/img/items180/tshirt.png)|T-Shirt|tshirt|223891266|Attire|
-|![ref](https://rustlabs.com/img/items180/metal.plate.torso.png)|Metal Chest Plate|metal.plate.torso|1110385766|Attire|
-|![ref](https://rustlabs.com/img/items180/roadsign.jacket.png)|Road Sign Jacket|roadsign.jacket|-2002277461|Attire|
-|![ref](https://rustlabs.com/img/items180/bleach.png)|Bleach|bleach|1553078977|Component|
-|![ref](https://rustlabs.com/img/items180/ducttape.png)|Duct Tape|ducttape|1401987718|Component|
-|![ref](https://rustlabs.com/img/items180/fuse.png)|Electric Fuse|fuse|-629028935|Component|
-|![ref](https://rustlabs.com/img/items180/gears.png)|Gears|gears|479143914|Component|
-|![ref](https://rustlabs.com/img/items180/glue.png)|Glue|glue|-1899491405|Component|
-|![ref](https://rustlabs.com/img/items180/metalblade.png)|Metal Blade|metalblade|1882709339|Component|
-|![ref](https://rustlabs.com/img/items180/metalpipe.png)|Metal Pipe|metalpipe|95950017|Component|
-|![ref](https://rustlabs.com/img/items180/propanetank.png)|Empty Propane Tank|propanetank|-1673693549|Component|
-|![ref](https://rustlabs.com/img/items180/roadsigns.png)|Road Signs|roadsigns|1199391518|Component|
-|![ref](https://rustlabs.com/img/items180/rope.png)|Rope|rope|1414245522|Component|
-|![ref](https://rustlabs.com/img/items180/sewingkit.png)|Sewing Kit|sewingkit|1234880403|Component|
-|![ref](https://rustlabs.com/img/items180/sheetmetal.png)|Sheet Metal|sheetmetal|-1994909036|Component|
-|![ref](https://rustlabs.com/img/items180/metalspring.png)|Metal Spring|metalspring|-1021495308|Component|
-|![ref](https://rustlabs.com/img/items180/sticks.png)|Sticks|sticks|642482233|Component|
-|![ref](https://rustlabs.com/img/items180/tarp.png)|Tarp|tarp|2019042823|Component|
-|![ref](https://rustlabs.com/img/items180/techparts.png)|Tech Trash|techparts|73681876|Component|
-|![ref](https://rustlabs.com/img/items180/riflebody.png)|Rifle Body|riflebody|176787552|Component|
-|![ref](https://rustlabs.com/img/items180/semibody.png)|Semi Automatic Body|semibody|573926264|Component|
-|![ref](https://rustlabs.com/img/items180/smgbody.png)|SMG Body|smgbody|1230323789|Component|
-|![ref](https://rustlabs.com/img/items180/barricade.concrete.png)|Concrete Barricade|barricade.concrete|-1950721390|Construction|
-|![ref](https://rustlabs.com/img/items180/barricade.metal.png)|Metal Barricade|barricade.metal|1655650836|Construction|
-|![ref](https://rustlabs.com/img/items180/barricade.sandbags.png)|Sandbag Barricade|barricade.sandbags|-559599960|Construction|
-|![ref](https://rustlabs.com/img/items180/barricade.stone.png)|Stone Barricade|barricade.stone|15388698|Construction|
-|![ref](https://rustlabs.com/img/items180/barricade.wood.png)|Wooden Barricade|barricade.wood|866889860|Construction|
-|![ref](https://rustlabs.com/img/items180/barricade.woodwire.png)|Barbed Wooden Barricade|barricade.woodwire|1382263453|Construction|
-|![ref](https://rustlabs.com/img/items180/bbq.png)|Barbeque|bbq|1099314009|Items|
-|![ref](https://rustlabs.com/img/items180/trap.bear.png)|Snap Trap|trap.bear|-582782051|Traps|
-|![ref](https://rustlabs.com/img/items180/bed.png)|Bed|bed|-1273339005|Items|
-|![ref](https://rustlabs.com/img/items180/campfire.png)|Camp Fire|campfire|1946219319|Items|
-|![ref](https://rustlabs.com/img/items180/ceilinglight.png)|Ceiling Light|ceilinglight|1142993169|Electrical|
-|![ref](https://rustlabs.com/img/items180/chair.png)|Chair|chair|1534542921|Items|
-|![ref](https://rustlabs.com/img/items180/dropbox.png)|Drop Box|dropbox|-1519126340|Items|
-|![ref](https://rustlabs.com/img/items180/fireplace.stone.png)|Stone Fireplace|fireplace.stone|-1535621066|Items|
-|![ref](https://rustlabs.com/img/items180/firework.boomer.blue.png)|Blue Boomer|firework.boomer.blue|1744298439|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.boomer.champagne.png)|Champagne Boomer|firework.boomer.champagne|1324203999|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.boomer.green.png)|Green Boomer|firework.boomer.green|-656349006|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.boomer.orange.png)|Orange Boomer|firework.boomer.orange|-7270019|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.boomer.red.png)|Red Boomer|firework.boomer.red|-1553999294|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.boomer.violet.png)|Violet Boomer|firework.boomer.violet|-280223496|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.romancandle.blue.png)|Blue Roman Candle|firework.romancandle.blue|-515830359|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.romancandle.green.png)|Green Roman Candle|firework.romancandle.green|-1306288356|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.romancandle.red.png)|Red Roman Candle|firework.romancandle.red|-1486461488|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.romancandle.violet.png)|Violet Roman Candle|firework.romancandle.violet|-99886070|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.volcano.png)|White Volcano Firework|firework.volcano|261913429|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.volcano.red.png)|Red Volcano Firework|firework.volcano.red|-454370658|Fun|
-|![ref](https://rustlabs.com/img/items180/firework.volcano.violet.png)|Violet Volcano Firework|firework.volcano.violet|-1538109120|Fun|
-|![ref](https://rustlabs.com/img/items180/spikes.floor.png)|Wooden Floor Spikes|spikes.floor|-92759291|Traps|
-|![ref](https://rustlabs.com/img/items180/fridge.png)|Fridge|fridge|1413014235|Items|
-|![ref](https://rustlabs.com/img/items180/furnace.large.png)|Large Furnace|furnace.large|-1992717673|Items|
-|![ref](https://rustlabs.com/img/items180/furnace.png)|Furnace|furnace|-1999722522|Items|
-|![ref](https://rustlabs.com/img/items180/hitchtroughcombo.png)|Hitch & Trough|hitchtroughcombo|1160881421|Items|
-|![ref](https://rustlabs.com/img/items180/habrepair.png)|Hab Repair|habrepair|-1759188988|Misc|
-|![ref](https://rustlabs.com/img/items180/jackolantern.angry.png)|Jack O Lantern Angry|jackolantern.angry|1242482355|Items|
-|![ref](https://rustlabs.com/img/items180/jackolantern.happy.png)|Jack O Lantern Happy|jackolantern.happy|-1824943010|Items|
-|![ref](https://rustlabs.com/img/items180/trap.landmine.png)|Land Mine|trap.landmine|-1663759755|Traps|
-|![ref](https://rustlabs.com/img/items180/lantern.png)|Lantern|lantern|1658229558|Items|
-|![ref](https://rustlabs.com/img/items180/box.wooden.large.png)|Large Wood Box|box.wooden.large|833533164|Items|
-|![ref](https://rustlabs.com/img/items180/water.barrel.png)|Water Barrel|water.barrel|-1863559151|Items|
-|![ref](https://rustlabs.com/img/items180/locker.png)|Locker|locker|-110921842|Items|
-|![ref](https://rustlabs.com/img/items180/mailbox.png)|Mail Box|mailbox|-586784898|Items|
-|![ref](https://rustlabs.com/img/items180/mining.pumpjack.png)|Pump Jack|mining.pumpjack|-1130709577|Construction|
-|![ref](https://rustlabs.com/img/items180/small.oil.refinery.png)|Small Oil Refinery|small.oil.refinery|-1293296287|Items|
-|![ref](https://rustlabs.com/img/items180/planter.large.png)|Large Planter Box|planter.large|1581210395|Items|
-|![ref](https://rustlabs.com/img/items180/planter.small.png)|Small Planter Box|planter.small|1903654061|Items|
-|![ref](https://rustlabs.com/img/items180/electric.audioalarm.png)|Audio Alarm|electric.audioalarm|2100007442|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.battery.rechargable.large.png)|Large Rechargable Battery|electric.battery.rechargable.large|553270375|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.battery.rechargable.medium.png)|Medium Rechargable Battery|electric.battery.rechargable.medium|2023888403|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.battery.rechargable.small.png)|Small Rechargable Battery|electric.battery.rechargable.small|-692338819|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.counter.png)|Counter|electric.counter|-216999575|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.hbhfsensor.png)|HBHF Sensor|electric.hbhfsensor|-1507239837|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.laserdetector.png)|Laser Detector|electric.laserdetector|-798293154|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.pressurepad.png)|Pressure Pad|electric.pressurepad|-2049214035|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.doorcontroller.png)|Door Controller|electric.doorcontroller|-502177121|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.andswitch.png)|AND Switch|electric.andswitch|1171735914|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.blocker.png)|Blocker|electric.blocker|-690968985|Electrical|
-|![ref](https://rustlabs.com/img/items180/electrical.branch.png)|Electrical Branch|electrical.branch|-1448252298|Electrical|
-|![ref](https://rustlabs.com/img/items180/electrical.combiner.png)|Root Combiner|electrical.combiner|-458565393|Electrical|
-|![ref](https://rustlabs.com/img/items180/electrical.memorycell.png)|Memory Cell|electrical.memorycell|-746647361|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.orswitch.png)|OR Switch|electric.orswitch|-1286302544|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.random.switch.png)|RAND Switch|electric.random.switch|492357192|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.rf.broadcaster.png)|RF Broadcaster|electric.rf.broadcaster|-1044468317|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.rf.receiver.png)|RF Receiver|electric.rf.receiver|888415708|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.xorswitch.png)|XOR Switch|electric.xorswitch|1293102274|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.fuelgenerator.small.png)|Small Generator|electric.fuelgenerator.small|1849887541|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.generator.small.png)|Test Generator|electric.generator.small|-295829489|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.solarpanel.large.png)|Large Solar Panel|electric.solarpanel.large|2090395347|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.igniter.png)|Igniter|electric.igniter|-44876289|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.flasherlight.png)|Flasher Light|electric.flasherlight|-939424778|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.simplelight.png)|Simple Light|electric.simplelight|-282113991|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.sirenlight.png)|Siren Light|electric.sirenlight|762289806|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.switch.png)|Switch|electric.switch|1951603367|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.splitter.png)|Splitter|electric.splitter|-563624462|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.teslacoil.png)|Tesla Coil|electric.teslacoil|1371909803|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.timer.png)|Timer|electric.timer|665332906|Electrical|
-|![ref](https://rustlabs.com/img/items180/electric.cabletunnel.png)|Cable Tunnel|electric.cabletunnel|1835946060|Electrical|
-|![ref](https://rustlabs.com/img/items180/mining.quarry.png)|Mining Quarry|mining.quarry|1052926200|Construction|
-|![ref](https://rustlabs.com/img/items180/target.reactive.png)|Reactive Target|target.reactive|-1736356576|Items|
-|![ref](https://rustlabs.com/img/items180/box.repair.bench.png)|Repair Bench|box.repair.bench|803222026|Items|
-|![ref](https://rustlabs.com/img/items180/research.table.png)|Research Table|research.table|-1861522751|Items|
-|![ref](https://rustlabs.com/img/items180/rug.bear.png)|Rug Bear Skin|rug.bear|-1104881824|Items|
-|![ref](https://rustlabs.com/img/items180/rug.png)|Rug|rug|-1985799200|Items|
-|![ref](https://rustlabs.com/img/items180/searchlight.png)|Search Light|searchlight|2087678962|Items|
-|![ref](https://rustlabs.com/img/items180/shelves.png)|Salvaged Shelves|shelves|1950721418|Items|
-|![ref](https://rustlabs.com/img/items180/sign.hanging.banner.large.png)|Large Banner Hanging|sign.hanging.banner.large|23352662|Items|
-|![ref](https://rustlabs.com/img/items180/sign.hanging.png)|Two Sided Hanging Sign|sign.hanging|1205607945|Items|
-|![ref](https://rustlabs.com/img/items180/sign.hanging.ornate.png)|Two Sided Ornate Hanging Sign|sign.hanging.ornate|-1647846966|Items|
-|![ref](https://rustlabs.com/img/items180/sign.pictureframe.landscape.png)|Landscape Picture Frame|sign.pictureframe.landscape|-845557339|Items|
-|![ref](https://rustlabs.com/img/items180/sign.pictureframe.portrait.png)|Portrait Picture Frame|sign.pictureframe.portrait|-1370759135|Items|
-|![ref](https://rustlabs.com/img/items180/sign.pictureframe.tall.png)|Tall Picture Frame|sign.pictureframe.tall|121049755|Items|
-|![ref](https://rustlabs.com/img/items180/sign.pictureframe.xl.png)|XL Picture Frame|sign.pictureframe.xl|-996185386|Items|
-|![ref](https://rustlabs.com/img/items180/sign.pictureframe.xxl.png)|XXL Picture Frame|sign.pictureframe.xxl|98508942|Items|
-|![ref](https://rustlabs.com/img/items180/sign.pole.banner.large.png)|Large Banner on pole|sign.pole.banner.large|2070189026|Items|
-|![ref](https://rustlabs.com/img/items180/sign.post.double.png)|Double Sign Post|sign.post.double|1521286012|Items|
-|![ref](https://rustlabs.com/img/items180/sign.post.single.png)|Single Sign Post|sign.post.single|1542290441|Items|
-|![ref](https://rustlabs.com/img/items180/sign.post.town.png)|One Sided Town Sign Post|sign.post.town|-1832422579|Items|
-|![ref](https://rustlabs.com/img/items180/sign.post.town.roof.png)|Two Sided Town Sign Post|sign.post.town.roof|826309791|Items|
-|![ref](https://rustlabs.com/img/items180/sign.wooden.huge.png)|Huge Wooden Sign|sign.wooden.huge|-143132326|Items|
-|![ref](https://rustlabs.com/img/items180/sign.wooden.large.png)|Large Wooden Sign|sign.wooden.large|1153652756|Items|
-|![ref](https://rustlabs.com/img/items180/sign.wooden.medium.png)|Wooden Sign|sign.wooden.medium|-1819233322|Items|
-|![ref](https://rustlabs.com/img/items180/sign.wooden.small.png)|Small Wooden Sign|sign.wooden.small|-1138208076|Items|
-|![ref](https://rustlabs.com/img/items180/guntrap.png)|Shotgun Trap|guntrap|352499047|Traps|
-|![ref](https://rustlabs.com/img/items180/sleepingbag.png)|Sleeping Bag|sleepingbag|-1754948969|Items|
-|![ref](https://rustlabs.com/img/items180/stash.small.png)|Small Stash|stash.small|-369760990|Items|
-|![ref](https://rustlabs.com/img/items180/spinner.wheel.png)|Spinning wheel|spinner.wheel|-1100422738|Items|
-|![ref](https://rustlabs.com/img/items180/fishtrap.small.png)|Survival Fish Trap|fishtrap.small|559147458|Items|
-|![ref](https://rustlabs.com/img/items180/table.png)|Table|table|593465182|Items|
-|![ref](https://rustlabs.com/img/items180/workbench1.png)|Work Bench Level 1|workbench1|1524187186|Items|
-|![ref](https://rustlabs.com/img/items180/workbench2.png)|Work Bench Level 2|workbench2|-41896755|Items|
-|![ref](https://rustlabs.com/img/items180/workbench3.png)|Work Bench Level 3|workbench3|-1607980696|Items|
-|![ref](https://rustlabs.com/img/items180/cupboard.tool.png)|Tool Cupboard|cupboard.tool|-97956382|Construction|
-|![ref](https://rustlabs.com/img/items180/tunalight.png)|Tuna Can Lamp|tunalight|-1478445584|Items|
-|![ref](https://rustlabs.com/img/items180/vending.machine.png)|Vending Machine|vending.machine|198438816|Items|
-|![ref](https://rustlabs.com/img/items180/water.catcher.large.png)|Large Water Catcher|water.catcher.large|-1100168350|Construction|
-|![ref](https://rustlabs.com/img/items180/water.catcher.small.png)|Small Water Catcher|water.catcher.small|-132247350|Construction|
-|![ref](https://rustlabs.com/img/items180/water.purifier.png)|Water Purifier|water.purifier|2114754781|Items|
-|![ref](https://rustlabs.com/img/items180/generator.wind.scrap.png)|Wind Turbine|generator.wind.scrap|-1819763926|Electrical|
-|![ref](https://rustlabs.com/img/items180/box.wooden.png)|Wood Storage Box|box.wooden|-180129657|Items|
-|![ref](https://rustlabs.com/img/items180/apple.png)|Apple|apple|1548091822|Food|
-|![ref](https://rustlabs.com/img/items180/apple.spoiled.png)|Rotten Apple|apple.spoiled|352130972|Food|
-|![ref](https://rustlabs.com/img/items180/black.raspberries.png)|Black Raspberries|black.raspberries|1931713481|Food|
-|![ref](https://rustlabs.com/img/items180/blueberries.png)|Blueberries|blueberries|-586342290|Food|
-|![ref](https://rustlabs.com/img/items180/botabag.png)|Bota Bag|botabag|613961768|Items|
-|![ref](https://rustlabs.com/img/items180/cactusflesh.png)|Cactus Flesh|cactusflesh|1783512007|Food|
-|![ref](https://rustlabs.com/img/items180/can.beans.png)|Can of Beans|can.beans|-700591459|Food|
-|![ref](https://rustlabs.com/img/items180/can.tuna.png)|Can of Tuna|can.tuna|-1941646328|Food|
-|![ref](https://rustlabs.com/img/items180/chocholate.png)|Chocolate Bar|chocholate|363467698|Food|
-|![ref](https://rustlabs.com/img/items180/fish.cooked.png)|Cooked Fish|fish.cooked|1668129151|Food|
-|![ref](https://rustlabs.com/img/items180/fish.raw.png)|Raw Fish|fish.raw|989925924|Food|
-|![ref](https://rustlabs.com/img/items180/fish.minnows.png)|Minnows|fish.minnows|-542577259|Food|
-|![ref](https://rustlabs.com/img/items180/fish.troutsmall.png)|Small Trout|fish.troutsmall|-1878764039|Food|
-|![ref](https://rustlabs.com/img/items180/granolabar.png)|Granola Bar|granolabar|-746030907|Food|
-|![ref](https://rustlabs.com/img/items180/chicken.burned.png)|Burnt Chicken|chicken.burned|1973684065|Food|
-|![ref](https://rustlabs.com/img/items180/chicken.cooked.png)|Cooked Chicken|chicken.cooked|-1848736516|Food|
-|![ref](https://rustlabs.com/img/items180/chicken.raw.png)|Raw Chicken Breast|chicken.raw|-1440987069|Food|
-|![ref](https://rustlabs.com/img/items180/chicken.spoiled.png)|Spoiled Chicken|chicken.spoiled|-751151717|Food|
-|![ref](https://rustlabs.com/img/items180/deermeat.burned.png)|Burnt Deer Meat|deermeat.burned|-78533081|Food|
-|![ref](https://rustlabs.com/img/items180/deermeat.cooked.png)|Cooked Deer Meat|deermeat.cooked|-1509851560|Food|
-|![ref](https://rustlabs.com/img/items180/deermeat.raw.png)|Raw Deer Meat|deermeat.raw|1422530437|Food|
-|![ref](https://rustlabs.com/img/items180/horsemeat.burned.png)|Burnt Horse Meat|horsemeat.burned|1917703890|Food|
-|![ref](https://rustlabs.com/img/items180/horsemeat.cooked.png)|Cooked Horse Meat|horsemeat.cooked|-1162759543|Food|
-|![ref](https://rustlabs.com/img/items180/horsemeat.raw.png)|Raw Horse Meat|horsemeat.raw|-1130350864|Food|
-|![ref](https://rustlabs.com/img/items180/humanmeat.burned.png)|Burnt Human Meat|humanmeat.burned|-682687162|Food|
-|![ref](https://rustlabs.com/img/items180/humanmeat.cooked.png)|Cooked Human Meat|humanmeat.cooked|1536610005|Food|
-|![ref](https://rustlabs.com/img/items180/humanmeat.raw.png)|Raw Human Meat|humanmeat.raw|-1709878924|Food|
-|![ref](https://rustlabs.com/img/items180/humanmeat.spoiled.png)|Spoiled Human Meat|humanmeat.spoiled|1272768630|Food|
-|![ref](https://rustlabs.com/img/items180/bearmeat.burned.png)|Burnt Bear Meat|bearmeat.burned|-989755543|Food|
-|![ref](https://rustlabs.com/img/items180/bearmeat.cooked.png)|Cooked Bear Meat|bearmeat.cooked|1873897110|Food|
-|![ref](https://rustlabs.com/img/items180/bearmeat.png)|Raw Bear Meat|bearmeat|-1520560807|Food|
-|![ref](https://rustlabs.com/img/items180/wolfmeat.burned.png)|Burnt Wolf Meat|wolfmeat.burned|1827479659|Food|
-|![ref](https://rustlabs.com/img/items180/wolfmeat.cooked.png)|Cooked Wolf Meat|wolfmeat.cooked|813023040|Food|
-|![ref](https://rustlabs.com/img/items180/wolfmeat.raw.png)|Raw Wolf Meat|wolfmeat.raw|-395377963|Food|
-|![ref](https://rustlabs.com/img/items180/wolfmeat.spoiled.png)|Spoiled Wolf Meat|wolfmeat.spoiled|-1167031859|Food|
-|![ref](https://rustlabs.com/img/items180/meat.pork.burned.png)|Burnt Pork|meat.pork.burned|1391703481|Food|
-|![ref](https://rustlabs.com/img/items180/meat.pork.cooked.png)|Cooked Pork|meat.pork.cooked|-242084766|Food|
-|![ref](https://rustlabs.com/img/items180/meat.boar.png)|Raw Pork|meat.boar|621915341|Food|
-|![ref](https://rustlabs.com/img/items180/mushroom.png)|Mushroom|mushroom|-1962971928|Food|
-|![ref](https://rustlabs.com/img/items180/jar.pickle.png)|Pickles|jar.pickle|286193827|Food|
-|![ref](https://rustlabs.com/img/items180/smallwaterbottle.png)|Small Water Bottle|smallwaterbottle|-1039528932|Food|
-|![ref](https://rustlabs.com/img/items180/waterjug.png)|Water Jug|waterjug|-119235651|Food|
-|![ref](https://rustlabs.com/img/items180/fun.bass.png)|Shovel Bass|fun.bass|-2107018088|Fun|
-|![ref](https://rustlabs.com/img/items180/fun.cowbell.png)|Cowbell|fun.cowbell|-1049881973|Fun|
-|![ref](https://rustlabs.com/img/items180/drumkit.png)|Junkyard Drum Kit|drumkit|-1330640246|Fun|
-|![ref](https://rustlabs.com/img/items180/fun.flute.png)|Pan Flute|fun.flute|-2040817543|Fun|
-|![ref](https://rustlabs.com/img/items180/fun.guitar.png)|Acoustic Guitar|fun.guitar|-2124352573|Fun|
-|![ref](https://rustlabs.com/img/items180/fun.jerrycanguitar.png)|Jerry Can Guitar|fun.jerrycanguitar|-979951147|Fun|
-|![ref](https://rustlabs.com/img/items180/piano.png)|Wheelbarrow Piano|piano|1272430949|Fun|
-|![ref](https://rustlabs.com/img/items180/fun.tambourine.png)|Canbourine|fun.tambourine|-1379036069|Fun|
-|![ref](https://rustlabs.com/img/items180/fun.trumpet.png)|Plumber's Trumpet|fun.trumpet|273172220|Fun|
-|![ref](https://rustlabs.com/img/items180/fun.tuba.png)|Sousaphone|fun.tuba|1784406797|Fun|
-|![ref](https://rustlabs.com/img/items180/xylophone.png)|Xlyobone|xylophone|-211235948|Fun|
-|![ref](https://rustlabs.com/img/items180/door.key.png)|Door Key|door.key|-1112793865|Misc|
-|![ref](https://rustlabs.com/img/items180/lock.key.png)|Key Lock|lock.key|-850982208|Construction|
-|![ref](https://rustlabs.com/img/items180/lock.code.png)|Code Lock|lock.code|1159991980|Construction|
-|![ref](https://rustlabs.com/img/items180/blueprintbase.png)|Blueprint|blueprintbase|-996920608|Misc|
-|![ref](https://rustlabs.com/img/items180/chineselantern.png)|Chinese Lantern|chineselantern|-1916473915|Items|
-|![ref](https://rustlabs.com/img/items180/dragondoorknocker.png)|Dragon Door Knocker|dragondoorknocker|-854270928|Items|
-|![ref](https://rustlabs.com/img/items180/hat.dragonmask.png)|Dragon Mask|hat.dragonmask|-22883916|Attire|
-|![ref](https://rustlabs.com/img/items180/newyeargong.png)|New Year Gong|newyeargong|-961457160|Fun|
-|![ref](https://rustlabs.com/img/items180/hat.ratmask.png)|Rat Mask|hat.ratmask|271048478|Attire|
-|![ref](https://rustlabs.com/img/items180/lunar.firecrackers.png)|Firecracker String|lunar.firecrackers|-1961560162|Fun|
-|![ref](https://rustlabs.com/img/items180/arcade.machine.chippy.png)|Chippy Arcade Game|arcade.machine.chippy|359723196|Items|
-|![ref](https://rustlabs.com/img/items180/door.closer.png)|Door Closer|door.closer|1409529282|Construction|
-|![ref](https://rustlabs.com/img/items180/attire.bunnyears.png)|Bunny Ears|attire.bunnyears|-1004426654|Attire|
-|![ref](https://rustlabs.com/img/items180/attire.bunny.onesie.png)|Bunny Onesie|attire.bunny.onesie|-1266045928|Attire|
-|![ref](https://rustlabs.com/img/items180/easterdoorwreath.png)|Easter Door Wreath|easterdoorwreath|-979302481|Items|
-|![ref](https://rustlabs.com/img/items180/easterbasket.png)|Egg Basket|easterbasket|1856217390|Misc|
-|![ref](https://rustlabs.com/img/items180/rustige_egg_a.png)|Rustigé Egg - Red|rustige_egg_a|-173268129|Misc|
-|![ref](https://rustlabs.com/img/items180/rustige_egg_b.png)|Rustigé Egg - Blue|rustige_egg_b|-173268132|Misc|
-|![ref](https://rustlabs.com/img/items180/easter.bronzeegg.png)|Bronze Egg|easter.bronzeegg|844440409|Misc|
-|![ref](https://rustlabs.com/img/items180/easter.goldegg.png)|Gold Egg|easter.goldegg|-1002156085|Misc|
-|![ref](https://rustlabs.com/img/items180/easter.paintedeggs.png)|Painted Egg|easter.paintedeggs|-126305173|Misc|
-|![ref](https://rustlabs.com/img/items180/easter.silveregg.png)|Silver Egg|easter.silveregg|1757265204|Misc|
-|![ref](https://rustlabs.com/img/items180/halloween.candy.png)|Halloween Candy|halloween.candy|-888153050|Misc|
-|![ref](https://rustlabs.com/img/items180/largecandles.png)|Large Candle Set|largecandles|-489848205|Misc|
-|![ref](https://rustlabs.com/img/items180/smallcandles.png)|Small Candle Set|smallcandles|-2058362263|Misc|
-|![ref](https://rustlabs.com/img/items180/coffin.storage.png)|Coffin|coffin.storage|573676040|Misc|
-|![ref](https://rustlabs.com/img/items180/cursedcauldron.png)|Cursed Cauldron|cursedcauldron|1242522330|Misc|
-|![ref](https://rustlabs.com/img/items180/gravestone.png)|Gravestone|gravestone|809199956|Misc|
-|![ref](https://rustlabs.com/img/items180/woodcross.png)|Wooden Cross|woodcross|699075597|Misc|
-|![ref](https://rustlabs.com/img/items180/wall.graveyard.fence.png)|Graveyard Fence|wall.graveyard.fence|-1679267738|Misc|
-|![ref](https://rustlabs.com/img/items180/halloween.lootbag.large.png)|Large Loot Bag|halloween.lootbag.large|479292118|Misc|
-|![ref](https://rustlabs.com/img/items180/halloween.lootbag.medium.png)|Medium Loot Bag|halloween.lootbag.medium|1899610628|Misc|
-|![ref](https://rustlabs.com/img/items180/halloween.lootbag.small.png)|Small Loot Bag|halloween.lootbag.small|1319617282|Misc|
-|![ref](https://rustlabs.com/img/items180/pumpkinbasket.png)|Pumpkin Bucket|pumpkinbasket|1346158228|Misc|
-|![ref](https://rustlabs.com/img/items180/scarecrow.png)|Scarecrow|scarecrow|177226991|Items|
-|![ref](https://rustlabs.com/img/items180/skulldoorknocker.png)|Skull Door Knocker|skulldoorknocker|-216116642|Items|
-|![ref](https://rustlabs.com/img/items180/skull_fire_pit.png)|Skull Fire Pit|skull_fire_pit|553887414|Items|
-|![ref](https://rustlabs.com/img/items180/spiderweb.png)|Spider Webs|spiderweb|882559853|Misc|
-|![ref](https://rustlabs.com/img/items180/spookyspeaker.png)|Spooky Speaker|spookyspeaker|1885488976|Misc|
-|![ref](https://rustlabs.com/img/items180/halloween.surgeonsuit.png)|Surgeon Scrubs|halloween.surgeonsuit|-1785231475|Attire|
-|![ref](https://rustlabs.com/img/items180/note.png)|Note|note|1414245162|Misc|
-|![ref](https://rustlabs.com/img/items180/skull.human.png)|Human Skull|skull.human|996293980|Resources|
-|![ref](https://rustlabs.com/img/items180/candycaneclub.png)|Candy Cane Club|candycaneclub|1789825282|Weapon|
-|![ref](https://rustlabs.com/img/items180/xmas.lightstring.png)|Christmas Lights|xmas.lightstring|1058261682|Items|
-|![ref](https://rustlabs.com/img/items180/xmas.door.garland.png)|Festive Doorway Garland|xmas.door.garland|674734128|Items|
-|![ref](https://rustlabs.com/img/items180/candycane.png)|Candy Cane|candycane|1121925526|Food|
-|![ref](https://rustlabs.com/img/items180/giantcandycanedecor.png)|Giant Candy Decor|giantcandycanedecor|-695124222|Misc|
-|![ref](https://rustlabs.com/img/items180/giantlollipops.png)|Giant Lollipop Decor|giantlollipops|282103175|Misc|
-|![ref](https://rustlabs.com/img/items180/pookie.bear.png)|Pookie Bear|pookie.bear|-1651220691|Items|
-|![ref](https://rustlabs.com/img/items180/xmas.lightstring.advanced.png)|Deluxe Christmas Lights|xmas.lightstring.advanced|-151387974|Electrical|
-|![ref](https://rustlabs.com/img/items180/coal.png)|Coal :(|coal|204391461|Resources|
-|![ref](https://rustlabs.com/img/items180/xmas.present.large.png)|Large Present|xmas.present.large|-1622660759|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.present.medium.png)|Medium Present|xmas.present.medium|756517185|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.present.small.png)|Small Present|xmas.present.small|-722241321|Misc|
-|![ref](https://rustlabs.com/img/items180/snowmachine.png)|Snow Machine|snowmachine|1358643074|Misc|
-|![ref](https://rustlabs.com/img/items180/snowball.png)|Snowball|snowball|-363689972|Weapon|
-|![ref](https://rustlabs.com/img/items180/snowman.png)|Snowman|snowman|1629293099|Items|
-|![ref](https://rustlabs.com/img/items180/stocking.large.png)|SUPER Stocking|stocking.large|-465682601|Items|
-|![ref](https://rustlabs.com/img/items180/stocking.small.png)|Small Stocking|stocking.small|1668858301|Items|
-|![ref](https://rustlabs.com/img/items180/attire.reindeer.headband.png)|Reindeer Antlers|attire.reindeer.headband|-324675402|Attire|
-|![ref](https://rustlabs.com/img/items180/santabeard.png)|Santa Beard|santabeard|2126889441|Attire|
-|![ref](https://rustlabs.com/img/items180/santahat.png)|Santa Hat|santahat|-575483084|Attire|
-|![ref](https://rustlabs.com/img/items180/xmas.window.garland.png)|Festive Window Garland|xmas.window.garland|-1379835144|Items|
-|![ref](https://rustlabs.com/img/items180/wrappedgift.png)|Wrapped Gift|wrappedgift|204970153|Fun|
-|![ref](https://rustlabs.com/img/items180/wrappingpaper.png)|Wrapping Paper|wrappingpaper|1094293920|Fun|
-|![ref](https://rustlabs.com/img/items180/xmasdoorwreath.png)|Christmas Door Wreath|xmasdoorwreath|2009734114|Items|
-|![ref](https://rustlabs.com/img/items180/xmas.decoration.baubels.png)|Decorative Baubels|xmas.decoration.baubels|-1667224349|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.decoration.candycanes.png)|Decorative Plastic Candy Canes|xmas.decoration.candycanes|-209869746|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.decoration.gingerbreadmen.png)|Decorative Gingerbread Men|xmas.decoration.gingerbreadmen|1686524871|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.decoration.lights.png)|Tree Lights|xmas.decoration.lights|1723747470|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.decoration.pinecone.png)|Decorative Pinecones|xmas.decoration.pinecone|-129230242|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.decoration.star.png)|Star Tree Topper|xmas.decoration.star|-1331212963|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.decoration.tinsel.png)|Decorative Tinsel|xmas.decoration.tinsel|2106561762|Misc|
-|![ref](https://rustlabs.com/img/items180/xmas.tree.png)|Christmas Tree|xmas.tree|794443127|Items|
-|![ref](https://rustlabs.com/img/items180/autoturret.png)|Auto Turret|autoturret|-2139580305|Electrical|
-|![ref](https://rustlabs.com/img/items180/flameturret.png)|Flame Turret|flameturret|528668503|Traps|
-|![ref](https://rustlabs.com/img/items180/gloweyes.png)|Glowing Eyes|gloweyes|-690276911|Attire|
-|![ref](https://rustlabs.com/img/items180/ammo.rocket.sam.png)|SAM Ammo|ammo.rocket.sam|-384243979|Ammunition|
-|![ref](https://rustlabs.com/img/items180/samsite.png)|SAM Site|samsite|-1009359066|Traps|
-|![ref](https://rustlabs.com/img/items180/corn.png)|Corn|corn|1367190888|Food|
-|![ref](https://rustlabs.com/img/items180/clone.corn.png)|Corn Clone|clone.corn|-778875547|Food|
-|![ref](https://rustlabs.com/img/items180/seed.corn.png)|Corn Seed|seed.corn|998894949|Food|
-|![ref](https://rustlabs.com/img/items180/clone.hemp.png)|Hemp Clone|clone.hemp|-886280491|Food|
-|![ref](https://rustlabs.com/img/items180/seed.hemp.png)|Hemp Seed|seed.hemp|-237809779|Food|
-|![ref](https://rustlabs.com/img/items180/pumpkin.png)|Pumpkin|pumpkin|-567909622|Food|
-|![ref](https://rustlabs.com/img/items180/clone.pumpkin.png)|Pumpkin Plant Clone|clone.pumpkin|1898094925|Food|
-|![ref](https://rustlabs.com/img/items180/seed.pumpkin.png)|Pumpkin Seed|seed.pumpkin|-1511285251|Food|
-|![ref](https://rustlabs.com/img/items180/fat.animal.png)|Animal Fat|fat.animal|-1018587433|Resources|
-|![ref](https://rustlabs.com/img/items180/battery.small.png)|Battery - Small|battery.small|609049394|Resources|
-|![ref](https://rustlabs.com/img/items180/blood.png)|Blood|blood|1776460938|Medical|
-|![ref](https://rustlabs.com/img/items180/bone.fragments.png)|Bone Fragments|bone.fragments|1719978075|Resources|
-|![ref](https://rustlabs.com/img/items180/cctv.camera.png)|CCTV Camera|cctv.camera|634478325|Resources|
-|![ref](https://rustlabs.com/img/items180/charcoal.png)|Charcoal|charcoal|-1938052175|Resources|
-|![ref](https://rustlabs.com/img/items180/cloth.png)|Cloth|cloth|-858312878|Resources|
-|![ref](https://rustlabs.com/img/items180/crude.oil.png)|Crude Oil|crude.oil|-321733511|Resources|
-|![ref](https://rustlabs.com/img/items180/diesel_barrel.png)|Diesel Fuel|diesel_barrel|1568388703|Resources|
-|![ref](https://rustlabs.com/img/items180/can.beans.empty.png)|Empty Can Of Beans|can.beans.empty|1655979682|Resources|
-|![ref](https://rustlabs.com/img/items180/can.tuna.empty.png)|Empty Tuna Can|can.tuna.empty|-1557377697|Resources|
-|![ref](https://rustlabs.com/img/items180/explosives.png)|Explosives|explosives|-592016202|Resources|
-|![ref](https://rustlabs.com/img/items180/gunpowder.png)|Gun Powder|gunpowder|-265876753|Resources|
-|![ref](https://rustlabs.com/img/items180/hq.metal.ore.png)|High Quality Metal Ore|hq.metal.ore|-1982036270|Resources|
-|![ref](https://rustlabs.com/img/items180/metal.refined.png)|High Quality Metal|metal.refined|317398316|Resources|
-|![ref](https://rustlabs.com/img/items180/leather.png)|Leather|leather|1381010055|Resources|
-|![ref](https://rustlabs.com/img/items180/lowgradefuel.png)|Low Grade Fuel|lowgradefuel|-946369541|Resources|
-|![ref](https://rustlabs.com/img/items180/metal.fragments.png)|Metal Fragments|metal.fragments|69511070|Resources|
-|![ref](https://rustlabs.com/img/items180/metal.ore.png)|Metal Ore|metal.ore|-4031221|Resources|
-|![ref](https://rustlabs.com/img/items180/paper.png)|Paper|paper|-1779183908|Resources|
-|![ref](https://rustlabs.com/img/items180/researchpaper.png)|Research Paper|researchpaper|-544317637|Resources|
-|![ref](https://rustlabs.com/img/items180/water.salt.png)|Salt Water|water.salt|-277057363|Resources|
-|![ref](https://rustlabs.com/img/items180/scrap.png)|Scrap|scrap|-932201673|Resources|
-|![ref](https://rustlabs.com/img/items180/stones.png)|Stones|stones|-2099697608|Resources|
-|![ref](https://rustlabs.com/img/items180/sulfur.ore.png)|Sulfur Ore|sulfur.ore|-1157596551|Resources|
-|![ref](https://rustlabs.com/img/items180/sulfur.png)|Sulfur|sulfur|-1581843485|Resources|
-|![ref](https://rustlabs.com/img/items180/targeting.computer.png)|Targeting Computer|targeting.computer|1523195708|Resources|
-|![ref](https://rustlabs.com/img/items180/water.png)|Water|water|-1779180711|Resources|
-|![ref](https://rustlabs.com/img/items180/skull.wolf.png)|Wolf Skull|skull.wolf|2048317869|Resources|
-|![ref](https://rustlabs.com/img/items180/wood.png)|Wood|wood|-151838493|Resources|
-|![ref](https://rustlabs.com/img/items180/antiradpills.png)|Anti-Radiation Pills|antiradpills|-1432674913|Medical|
-|![ref](https://rustlabs.com/img/items180/tool.binoculars.png)|Binoculars|tool.binoculars|-1262185308|Tool|
-|![ref](https://rustlabs.com/img/items180/explosive.timed.png)|Timed Explosive Charge|explosive.timed|1248356124|Tool|
-|![ref](https://rustlabs.com/img/items180/tool.camera.png)|Camera|tool.camera|-1316706473|Tool|
-|![ref](https://rustlabs.com/img/items180/rf.detonator.png)|RF Transmitter|rf.detonator|596469572|Tool|
-|![ref](https://rustlabs.com/img/items180/fishingrod.handmade.png)|Handmade Fishing Rod|fishingrod.handmade|1569882109|Weapon|
-|![ref](https://rustlabs.com/img/items180/flare.png)|Flare|flare|304481038|Tool|
-|![ref](https://rustlabs.com/img/items180/flashlight.held.png)|Flashlight|flashlight.held|-196667575|Tool|
-|![ref](https://rustlabs.com/img/items180/geiger.counter.png)|Geiger Counter|geiger.counter|999690781|Tool|
-|![ref](https://rustlabs.com/img/items180/jackhammer.png)|Jackhammer|jackhammer|1488979457|Tool|
-|![ref](https://rustlabs.com/img/items180/keycard_blue.png)|Blue Keycard|keycard_blue|-484206264|Misc|
-|![ref](https://rustlabs.com/img/items180/keycard_green.png)|Green Keycard|keycard_green|37122747|Misc|
-|![ref](https://rustlabs.com/img/items180/keycard_red.png)|Red Keycard|keycard_red|-1880870149|Misc|
-|![ref](https://rustlabs.com/img/items180/largemedkit.png)|Large Medkit|largemedkit|254522515|Medical|
-|![ref](https://rustlabs.com/img/items180/map.png)|Paper Map|map|696029452|Items|
-|![ref](https://rustlabs.com/img/items180/syringe.medical.png)|Medical Syringe|syringe.medical|1079279582|Medical|
-|![ref](https://rustlabs.com/img/items180/rf_pager.png)|RF Pager|rf_pager|-566907190|Electrical|
-|![ref](https://rustlabs.com/img/items180/building.planner.png)|Building Plan|building.planner|1525520776|Construction|
-|![ref](https://rustlabs.com/img/items180/grenade.smoke.png)|Smoke Grenade|grenade.smoke|1263920163|Tool|
-|![ref](https://rustlabs.com/img/items180/supply.signal.png)|Supply Signal|supply.signal|1397052267|Tool|
-|![ref](https://rustlabs.com/img/items180/surveycharge.png)|Survey Charge|surveycharge|1975934948|Tool|
-|![ref](https://rustlabs.com/img/items180/wiretool.png)|Wire Tool|wiretool|-144417939|Electrical|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.8x.scope.png)|16x Zoom Scope|weapon.mod.8x.scope|174866732|Weapon|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.flashlight.png)|Weapon flashlight|weapon.mod.flashlight|952603248|Weapon|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.holosight.png)|Holosight|weapon.mod.holosight|442289265|Weapon|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.lasersight.png)|Weapon Lasersight|weapon.mod.lasersight|-132516482|Weapon|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.muzzleboost.png)|Muzzle Boost|weapon.mod.muzzleboost|-1405508498|Weapon|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.muzzlebrake.png)|Muzzle Brake|weapon.mod.muzzlebrake|1478091698|Weapon|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.simplesight.png)|Simple Handmade Sight|weapon.mod.simplesight|-855748505|Weapon|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.silencer.png)|Silencer|weapon.mod.silencer|-1850571427|Weapon|
-|![ref](https://rustlabs.com/img/items180/weapon.mod.small.scope.png)|8x Zoom Scope|weapon.mod.small.scope|567235583|Weapon|
-|![ref](https://rustlabs.com/img/items180/rifle.ak.png)|Assault Rifle|rifle.ak|1545779598|Weapon|
-|![ref](https://rustlabs.com/img/items180/bandage.png)|Bandage|bandage|-2072273936|Medical|
-|![ref](https://rustlabs.com/img/items180/grenade.beancan.png)|Beancan Grenade|grenade.beancan|1840822026|Weapon|
-|![ref](https://rustlabs.com/img/items180/rifle.bolt.png)|Bolt Action Rifle|rifle.bolt|1588298435|Weapon|
-|![ref](https://rustlabs.com/img/items180/bone.club.png)|Bone Club|bone.club|1711033574|Weapon|
-|![ref](https://rustlabs.com/img/items180/knife.bone.png)|Bone Knife|knife.bone|1814288539|Weapon|
-|![ref](https://rustlabs.com/img/items180/bow.hunting.png)|Hunting Bow|bow.hunting|1443579727|Weapon|
-|![ref](https://rustlabs.com/img/items180/cakefiveyear.png)|Birthday Cake|cakefiveyear|1973165031|Tool|
-|![ref](https://rustlabs.com/img/items180/chainsaw.png)|Chainsaw|chainsaw|1104520648|Tool|
-|![ref](https://rustlabs.com/img/items180/salvaged.cleaver.png)|Salvaged Cleaver|salvaged.cleaver|-1978999529|Weapon|
-|![ref](https://rustlabs.com/img/items180/bow.compound.png)|Compound Bow|bow.compound|884424049|Weapon|
-|![ref](https://rustlabs.com/img/items180/crossbow.png)|Crossbow|crossbow|1965232394|Weapon|
-|![ref](https://rustlabs.com/img/items180/shotgun.double.png)|Double Barrel Shotgun|shotgun.double|-765183617|Weapon|
-|![ref](https://rustlabs.com/img/items180/pistol.eoka.png)|Eoka Pistol|pistol.eoka|-75944661|Weapon|
-|![ref](https://rustlabs.com/img/items180/grenade.f1.png)|F1 Grenade|grenade.f1|143803535|Weapon|
-|![ref](https://rustlabs.com/img/items180/flamethrower.png)|Flame Thrower|flamethrower|-1215753368|Weapon|
-|![ref](https://rustlabs.com/img/items180/multiplegrenadelauncher.png)|Multiple Grenade Launcher|multiplegrenadelauncher|-1123473824|Weapon|
-|![ref](https://rustlabs.com/img/items180/knife.butcher.png)|Butcher Knife|knife.butcher|-194509282|Weapon|
-|![ref](https://rustlabs.com/img/items180/pitchfork.png)|Pitchfork|pitchfork|1090916276|Weapon|
-|![ref](https://rustlabs.com/img/items180/sickle.png)|Sickle|sickle|-1368584029|Misc|
-|![ref](https://rustlabs.com/img/items180/hammer.png)|Hammer|hammer|200773292|Tool|
-|![ref](https://rustlabs.com/img/items180/hatchet.png)|Hatchet|hatchet|-1252059217|Tool|
-|![ref](https://rustlabs.com/img/items180/knife.combat.png)|Combat Knife|knife.combat|2040726127|Weapon|
-|![ref](https://rustlabs.com/img/items180/rifle.l96.png)|L96 Rifle|rifle.l96|-778367295|Weapon|
-|![ref](https://rustlabs.com/img/items180/rifle.lr300.png)|LR-300 Assault Rifle|rifle.lr300|-1812555177|Weapon|
-|![ref](https://rustlabs.com/img/items180/lmg.m249.png)|M249|lmg.m249|-2069578888|Weapon|
-|![ref](https://rustlabs.com/img/items180/rifle.m39.png)|M39 Rifle|rifle.m39|28201841|Weapon|
-|![ref](https://rustlabs.com/img/items180/pistol.m92.png)|M92 Pistol|pistol.m92|-852563019|Weapon|
-|![ref](https://rustlabs.com/img/items180/mace.png)|Mace|mace|-1966748496|Weapon|
-|![ref](https://rustlabs.com/img/items180/machete.png)|Machete|machete|-1137865085|Weapon|
-|![ref](https://rustlabs.com/img/items180/smg.mp5.png)|MP5A4|smg.mp5|1318558775|Weapon|
-|![ref](https://rustlabs.com/img/items180/pistol.nailgun.png)|Nailgun|pistol.nailgun|1953903201|Weapon|
-|![ref](https://rustlabs.com/img/items180/pickaxe.png)|Pickaxe|pickaxe|-1302129395|Tool|
-|![ref](https://rustlabs.com/img/items180/shotgun.waterpipe.png)|Waterpipe Shotgun|shotgun.waterpipe|-1367281941|Weapon|
-|![ref](https://rustlabs.com/img/items180/pistol.python.png)|Python Revolver|pistol.python|1373971859|Weapon|
-|![ref](https://rustlabs.com/img/items180/pistol.revolver.png)|Revolver|pistol.revolver|649912614|Weapon|
-|![ref](https://rustlabs.com/img/items180/rock.png)|Rock|rock|963906841|Tool|
-|![ref](https://rustlabs.com/img/items180/rocket.launcher.png)|Rocket Launcher|rocket.launcher|442886268|Weapon|
-|![ref](https://rustlabs.com/img/items180/axe.salvaged.png)|Salvaged Axe|axe.salvaged|-262590403|Tool|
-|![ref](https://rustlabs.com/img/items180/hammer.salvaged.png)|Salvaged Hammer|hammer.salvaged|-1506397857|Tool|
-|![ref](https://rustlabs.com/img/items180/icepick.salvaged.png)|Salvaged Icepick|icepick.salvaged|-1780802565|Tool|
-|![ref](https://rustlabs.com/img/items180/explosive.satchel.png)|Satchel Charge|explosive.satchel|-1878475007|Tool|
-|![ref](https://rustlabs.com/img/items180/shotgun.pump.png)|Pump Shotgun|shotgun.pump|795371088|Weapon|
-|![ref](https://rustlabs.com/img/items180/pistol.semiauto.png)|Semi-Automatic Pistol|pistol.semiauto|818877484|Weapon|
-|![ref](https://rustlabs.com/img/items180/rifle.semiauto.png)|Semi-Automatic Rifle|rifle.semiauto|-904863145|Weapon|
-|![ref](https://rustlabs.com/img/items180/smg.2.png)|Custom SMG|smg.2|1796682209|Weapon|
-|![ref](https://rustlabs.com/img/items180/shotgun.spas12.png)|Spas-12 Shotgun|shotgun.spas12|-41440462|Weapon|
-|![ref](https://rustlabs.com/img/items180/stonehatchet.png)|Stone Hatchet|stonehatchet|-1583967946|Tool|
-|![ref](https://rustlabs.com/img/items180/stone.pickaxe.png)|Stone Pickaxe|stone.pickaxe|171931394|Tool|
-|![ref](https://rustlabs.com/img/items180/spear.stone.png)|Stone Spear|spear.stone|1602646136|Weapon|
-|![ref](https://rustlabs.com/img/items180/longsword.png)|Longsword|longsword|-1469578201|Weapon|
-|![ref](https://rustlabs.com/img/items180/salvaged.sword.png)|Salvaged Sword|salvaged.sword|1326180354|Weapon|
-|![ref](https://rustlabs.com/img/items180/smg.thompson.png)|Thompson|smg.thompson|-1758372725|Weapon|
-|![ref](https://rustlabs.com/img/items180/toolgun.png)|Garry's Mod Tool Gun|toolgun|1803831286|Tool|
-|![ref](https://rustlabs.com/img/items180/torch.png)|Torch|torch|795236088|Tool|
-|![ref](https://rustlabs.com/img/items180/bucket.water.png)|Water Bucket|bucket.water|1424075905|Tool|
-|![ref](https://rustlabs.com/img/items180/spear.wooden.png)|Wooden Spear|spear.wooden|1540934679|Weapon|
-|![ref](https://rustlabs.com/img/items180/horse.armor.roadsign.png)|Roadsign Horse Armor|horse.armor.roadsign|60528587|Attire|
-|![ref](https://rustlabs.com/img/items180/horse.armor.wood.png)|Wooden Horse Armor|horse.armor.wood|1659447559|Attire|
-|![ref](https://rustlabs.com/img/items180/horse.saddlebag.png)|Saddle bag|horse.saddlebag|1400460850|Attire|
-|![ref](https://rustlabs.com/img/items180/horse.shoes.advanced.png)|High Quality Horse Shoes|horse.shoes.advanced|1989785143|Attire|
-|![ref](https://rustlabs.com/img/items180/horse.shoes.basic.png)|Basic Horse Shoes|horse.shoes.basic|-1211268013|Attire|
+|Image|Name|Shortname|Components|Held entity|Model|Id|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-|
+|![](https://rustlabs.com/img/items180/ammo.grenadelauncher.buckshot.png)|40mm Shotgun Round|ammo.grenadelauncher.buckshot|ItemModProjectile<br>ItemBlueprint<br>||1055319033| |
+|![](https://rustlabs.com/img/items180/ammo.grenadelauncher.he.png)|40mm HE Grenade|ammo.grenadelauncher.he|ItemModProjectile<br>ItemBlueprint<br>||349762871| |
+|![](https://rustlabs.com/img/items180/ammo.grenadelauncher.smoke.png)|40mm Smoke Grenade|ammo.grenadelauncher.smoke|ItemModProjectile<br>ItemBlueprint<br>||915408809| |
+|![](https://rustlabs.com/img/items180/ammo.handmade.shell.png)|Handmade Shell|ammo.handmade.shell|ItemModProjectile<br>ItemBlueprint<br>||588596902| |
+|![](https://rustlabs.com/img/items180/ammo.nailgun.nails.png)|Nailgun Nails|ammo.nailgun.nails|ItemModProjectile<br>ItemBlueprint<br>||-2097376851|assets/prefabs/ammo/nails/nail.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/ammo.pistol.png)|Pistol Bullet|ammo.pistol|ItemModProjectile<br>ItemBlueprint<br>||785728077| |
+|![](https://rustlabs.com/img/items180/ammo.pistol.fire.png)|Incendiary Pistol Bullet|ammo.pistol.fire|ItemModProjectileSpawn<br>ItemBlueprint<br>ItemModProjectile<br>||51984655| |
+|![](https://rustlabs.com/img/items180/ammo.pistol.hv.png)|HV Pistol Ammo|ammo.pistol.hv|ItemModProjectile<br>ItemBlueprint<br>||-1691396643| |
+|![](https://rustlabs.com/img/items180/ammo.rifle.png)|5.56 Rifle Ammo|ammo.rifle|ItemModProjectile<br>ItemBlueprint<br>||-1211166256| |
+|![](https://rustlabs.com/img/items180/ammo.rifle.explosive.png)|Explosive 5.56 Rifle Ammo|ammo.rifle.explosive|ItemModProjectileSpawn<br>ItemModProjectileRadialDamage<br>ItemBlueprint<br>ItemModProjectile<br>ItemModProjectileMod<br>||-1321651331| |
+|![](https://rustlabs.com/img/items180/ammo.rifle.hv.png)|HV 5.56 Rifle Ammo|ammo.rifle.hv|ItemModProjectile<br>ItemBlueprint<br>||1712070256| |
+|![](https://rustlabs.com/img/items180/ammo.rifle.incendiary.png)|Incendiary 5.56 Rifle Ammo|ammo.rifle.incendiary|ItemModProjectileSpawn<br>ItemBlueprint<br>ItemModProjectile<br>||605467368| |
+|![](https://rustlabs.com/img/items180/ammo.rocket.basic.png)|Rocket|ammo.rocket.basic|ItemModProjectile<br>ItemBlueprint<br>||-742865266|assets/prefabs/ammo/rocket/rocket.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/ammo.rocket.fire.png)|Incendiary Rocket|ammo.rocket.fire|ItemModProjectile<br>ItemBlueprint<br>||1638322904|assets/prefabs/ammo/rocket/rocket.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/ammo.rocket.hv.png)|High Velocity Rocket|ammo.rocket.hv|ItemModProjectile<br>ItemBlueprint<br>||-1841918730|assets/prefabs/ammo/rocket/rocket.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/ammo.rocket.sam.png)|SAM Ammo|ammo.rocket.sam|ItemBlueprint<br>||-384243979|assets/prefabs/npc/sam_site_turret/rocket.sam.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/ammo.rocket.smoke.png)|Smoke Rocket WIP!!!!|ammo.rocket.smoke|ItemModProjectile<br>ItemBlueprint<br>||-17123659|assets/prefabs/ammo/rocket/rocket.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/ammo.shotgun.png)|12 Gauge Buckshot|ammo.shotgun|ItemModProjectile<br>ItemBlueprint<br>||-1685290200| |
+|![](https://rustlabs.com/img/items180/ammo.shotgun.fire.png)|12 Gauge Incendiary Shell|ammo.shotgun.fire|ItemModProjectileSpawn<br>ItemBlueprint<br>ItemModProjectile<br>||-1036635990| |
+|![](https://rustlabs.com/img/items180/ammo.shotgun.slug.png)|12 Gauge Slug|ammo.shotgun.slug|ItemModProjectile<br>ItemBlueprint<br>||-727717969| |
+|![](https://rustlabs.com/img/items180/antiradpills.png)|Anti-Radiation Pills|antiradpills|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemMod<br>||-1432674913| |
+|![](https://rustlabs.com/img/items180/apple.png)|Apple|apple|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1548091822| |
+|![](https://rustlabs.com/img/items180/apple.spoiled.png)|Rotten Apple|apple.spoiled|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||352130972| |
+|![](https://rustlabs.com/img/items180/arcade.machine.chippy.png)|Chippy Arcade Game|arcade.machine.chippy|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|359723196| |
+|![](https://rustlabs.com/img/items180/arrow.bone.png)|Bone Arrow|arrow.bone|ItemModProjectile<br>ItemBlueprint<br>||215754713|assets/prefabs/ammo/arrow/bone/arrow_bone.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/arrow.fire.png)|Fire Arrow|arrow.fire|ItemModProjectileSpawn<br>ItemModProjectileRadialDamage<br>ItemBlueprint<br>ItemModProjectile<br>ItemModProjectileMod<br>||14241751|assets/prefabs/ammo/arrow/fire/arrow_fire.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/arrow.hv.png)|High Velocity Arrow|arrow.hv|ItemModProjectile<br>ItemBlueprint<br>||-1023065463|assets/prefabs/ammo/arrow/arrow_hv.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/arrow.wooden.png)|Wooden Arrow|arrow.wooden|ItemModProjectile<br>ItemBlueprint<br>||-1234735557|assets/prefabs/ammo/arrow/arrow_wooden.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/attire.bunny.onesie.png)|Bunny Onesie|attire.bunny.onesie|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1266045928| |
+|![](https://rustlabs.com/img/items180/attire.bunnyears.png)|Bunny Ears|attire.bunnyears|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1004426654| |
+|![](https://rustlabs.com/img/items180/attire.hide.boots.png)|Hide Boots|attire.hide.boots|ItemModWearable<br>ItemBlueprint<br>ItemFootstepSounds<br>ItemMod<br>||794356786|assets/prefabs/clothes/shoes.hide/shoeshide_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/attire.hide.helterneck.png)|Hide Halterneck|attire.hide.helterneck|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||3222790| |
+|![](https://rustlabs.com/img/items180/attire.hide.pants.png)|Hide Pants|attire.hide.pants|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1722154847| |
+|![](https://rustlabs.com/img/items180/attire.hide.poncho.png)|Hide Poncho|attire.hide.poncho|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||980333378| |
+|![](https://rustlabs.com/img/items180/attire.hide.skirt.png)|Hide Skirt|attire.hide.skirt|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1773144852| |
+|![](https://rustlabs.com/img/items180/attire.hide.vest.png)|Hide Vest|attire.hide.vest|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||196700171| |
+|![](https://rustlabs.com/img/items180/attire.reindeer.headband.png)|Reindeer Antlers|attire.reindeer.headband|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-324675402| |
+|![](https://rustlabs.com/img/items180/autoturret.png)|Auto Turret|autoturret|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-2139580305| |
+|![](https://rustlabs.com/img/items180/axe.salvaged.png)|Salvaged Axe|axe.salvaged|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|axe_salvaged.entity|-262590403|assets/prefabs/weapons/salvaged_axe/axe_salvaged.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bandage.png)|Bandage|bandage|ItemModEntity<br>ItemBlueprint<br>ItemModConsumable<br>ItemMod<br>------------<br>MedicalTool (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|bandage.entity|-2072273936|assets/prefabs/weapons/bandage/bandage.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/barrelcostume.png)|A Barrel Costume|barrelcostume|ItemModWearable<br>ItemMod<br>||-1215166612| |
+|![](https://rustlabs.com/img/items180/barricade.concrete.png)|Concrete Barricade|barricade.concrete|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1950721390| |
+|![](https://rustlabs.com/img/items180/barricade.metal.png)|Metal Barricade|barricade.metal|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1655650836| |
+|![](https://rustlabs.com/img/items180/barricade.sandbags.png)|Sandbag Barricade|barricade.sandbags|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-559599960| |
+|![](https://rustlabs.com/img/items180/barricade.stone.png)|Stone Barricade|barricade.stone|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|15388698| |
+|![](https://rustlabs.com/img/items180/barricade.wood.png)|Wooden Barricade|barricade.wood|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|866889860| |
+|![](https://rustlabs.com/img/items180/barricade.woodwire.png)|Barbed Wooden Barricade|barricade.woodwire|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1382263453| |
+|![](https://rustlabs.com/img/items180/battery.small.png)|Battery - Small|battery.small|||609049394| |
+|![](https://rustlabs.com/img/items180/bbq.png)|Barbeque|bbq|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1099314009| |
+|![](https://rustlabs.com/img/items180/bearmeat.png)|Raw Bear Meat|bearmeat|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCookable<br>ItemModCompostable<br>ItemMod<br>||-1520560807|assets/prefabs/food/meat/bearmeat.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bearmeat.burned.png)|Burnt Bear Meat|bearmeat.burned|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-989755543|assets/prefabs/food/meat/bearmeat.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bearmeat.cooked.png)|Cooked Bear Meat|bearmeat.cooked|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCookable<br>ItemModCompostable<br>ItemMod<br>||1873897110|assets/prefabs/food/meat/bearmeat.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bed.png)|Bed|bed|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1273339005| |
+|![](https://rustlabs.com/img/items180/black.raspberries.png)|Black Raspberries|black.raspberries|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1931713481| |
+|![](https://rustlabs.com/img/items180/bleach.png)|Bleach|bleach|||1553078977|assets/prefabs/componentitems/bleach/bleach.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/blood.png)|Blood|blood|||1776460938| |
+|![](https://rustlabs.com/img/items180/blueberries.png)|Blueberries|blueberries|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-586342290| |
+|![](https://rustlabs.com/img/items180/blueprintbase.png)|Blueprint|blueprintbase|ItemModMenuOption<br>ItemModStudyBlueprint<br>ItemMod<br>||-996920608| |
+|![](https://rustlabs.com/img/items180/bone.armor.suit.png)|Bone Armor|bone.armor.suit|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1746956556|assets/prefabs/clothes/jacket.bonearmor/bonearmour_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bone.club.png)|Bone Club|bone.club|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|bone_club.entity|1711033574|assets/prefabs/weapons/bone club/boneclub.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bone.fragments.png)|Bone Fragments|bone.fragments|||1719978075|assets/prefabs/resource/bone fragments/bone_fragments.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/boots.frog.png)|Frog Boots|boots.frog|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1000573653|assets/prefabs/clothes/frogboots/frogboots_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/botabag.png)|Bota Bag|botabag|ItemModContainer<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>BaseLiquidVessel (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|bota_bag.entity|613961768|assets/prefabs/food/bota bag/bota_bag.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bow.compound.png)|Compound Bow|bow.compound|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>CompoundBowWeapon (held)<br>BowWeapon (held)<br>BaseProjectile (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|compound_bow.entity|884424049|assets/prefabs/weapons/compound bow/compoundbow.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bow.hunting.png)|Hunting Bow|bow.hunting|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>BowWeapon (held)<br>BaseProjectile (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|bow_hunting.entity|1443579727|assets/prefabs/weapons/bow/bow.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/box.repair.bench.png)|Repair Bench|box.repair.bench|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|803222026| |
+|![](https://rustlabs.com/img/items180/box.wooden.png)|Wood Storage Box|box.wooden|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-180129657| |
+|![](https://rustlabs.com/img/items180/box.wooden.large.png)|Large Wood Box|box.wooden.large|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|833533164| |
+|![](https://rustlabs.com/img/items180/bucket.helmet.png)|Bucket Helmet|bucket.helmet|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||850280505|assets/prefabs/clothes/hat.bucket/metal_improvised_helmet_02_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/bucket.water.png)|Water Bucket|bucket.water|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemModMenuOption<br>ItemModConsumeContents<br>ItemMod<br>------------<br>BaseLiquidVessel (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|waterbucket.entity|1424075905|assets/prefabs/weapons/waterbucket/waterbucket.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/building.planner.png)|Building Plan|building.planner|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1525520776|assets/prefabs/tools/planner/building_planner.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/burlap.gloves.png)|Leather Gloves|burlap.gloves|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1366282552|assets/prefabs/clothes/gloves.leather/leather_gloves_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/burlap.gloves.new.png)|Burlap Gloves|burlap.gloves.new|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||21402876|assets/prefabs/clothes/gloves.burlap/gloves.burlap_wordmodel.prefab|
+|![](https://rustlabs.com/img/items180/burlap.headwrap.png)|Burlap Headwrap|burlap.headwrap|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1877339384|assets/prefabs/clothes/hat.burlap.wrap/burlapheadwraps_01_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/burlap.shirt.png)|Burlap Shirt|burlap.shirt|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||602741290|assets/prefabs/clothes/shirt.burlap/shirtburlap_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/burlap.shoes.png)|Burlap Shoes|burlap.shoes|ItemModWearable<br>ItemBlueprint<br>ItemFootstepSounds<br>ItemMod<br>||-761829530|assets/prefabs/clothes/shoes.burlap/shoes.burlap.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/burlap.trousers.png)|Burlap Trousers|burlap.trousers|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1992974553|assets/prefabs/clothes/pants.burlap/burlap_pants_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/cactusflesh.png)|Cactus Flesh|cactusflesh|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1783512007| |
+|![](https://rustlabs.com/img/items180/cakefiveyear.png)|Birthday Cake|cakefiveyear|ItemModEntity<br>ItemModProjectile<br>ItemModConsumable<br>ItemModConsume<br>ItemModMenuOption<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|cake.entity|1973165031|assets/prefabs/weapons/cake/cake.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/campfire.png)|Camp Fire|campfire|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1946219319| |
+|![](https://rustlabs.com/img/items180/can.beans.png)|Can of Beans|can.beans|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemMod<br>||-700591459| |
+|![](https://rustlabs.com/img/items180/can.beans.empty.png)|Empty Can Of Beans|can.beans.empty|ItemModCookable<br>ItemBlueprint<br>ItemMod<br>||1655979682| |
+|![](https://rustlabs.com/img/items180/can.tuna.png)|Can of Tuna|can.tuna|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemMod<br>||-1941646328| |
+|![](https://rustlabs.com/img/items180/can.tuna.empty.png)|Empty Tuna Can|can.tuna.empty|ItemModCookable<br>ItemBlueprint<br>ItemMod<br>||-1557377697| |
+|![](https://rustlabs.com/img/items180/candycane.png)|Candy Cane|candycane|||1121925526|assets/prefabs/misc/xmas/food/candycane.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/candycaneclub.png)|Candy Cane Club|candycaneclub|ItemModEntity<br>ItemModProjectile<br>ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|candy_cane.entity|1789825282|assets/prefabs/misc/xmas/candy cane club/candy_cane.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/cctv.camera.png)|CCTV Camera|cctv.camera|ItemBlueprint<br>ItemModEntity<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|634478325|assets/prefabs/resource/cctv camera/cctv_camera.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/ceilinglight.png)|Ceiling Light|ceilinglight|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1142993169|assets/prefabs/deployable/ceiling light/ceilinglight.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/chainsaw.png)|Chainsaw|chainsaw|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Chainsaw (held)<br>Model (held)<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|chainsaw.entity|1104520648|assets/prefabs/weapons/chainsaw/chainsaw.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/chair.png)|Chair|chair|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1534542921|assets/prefabs/deployable/chair/chair.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/charcoal.png)|Charcoal|charcoal|||-1938052175|assets/prefabs/resource/charcoal/charcoal.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/chicken.burned.png)|Burnt Chicken|chicken.burned|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1973684065|assets/prefabs/food/meat/chicken_burned.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/chicken.cooked.png)|Cooked Chicken|chicken.cooked|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1848736516|assets/prefabs/food/meat/chicken_cooked.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/chicken.raw.png)|Raw Chicken Breast|chicken.raw|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1440987069|assets/prefabs/food/meat/chicken_raw.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/chicken.spoiled.png)|Spoiled Chicken|chicken.spoiled|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-751151717|assets/prefabs/food/meat/chicken_spoiled.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/chineselantern.png)|Chinese Lantern|chineselantern|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1916473915| |
+|![](https://rustlabs.com/img/items180/chocholate.png)|Chocolate Bar|chocholate|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||363467698| |
+|![](https://rustlabs.com/img/items180/clatter.helmet.png)|Clatter Helmet|clatter.helmet|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||968019378|assets/prefabs/clothes/hat.clatterhelmet/hat.clatterhelmet_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/clone.corn.png)|Corn Clone|clone.corn|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-778875547| |
+|![](https://rustlabs.com/img/items180/clone.hemp.png)|Hemp Clone|clone.hemp|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-886280491| |
+|![](https://rustlabs.com/img/items180/clone.potato.png)|Potato Clone|clone.potato|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1512054436| |
+|![](https://rustlabs.com/img/items180/clone.pumpkin.png)|Pumpkin Plant Clone|clone.pumpkin|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1898094925| |
+|![](https://rustlabs.com/img/items180/cloth.png)|Cloth|cloth|ItemModXPWhenUsed<br>ItemMod<br>||-858312878|assets/prefabs/resource/cloth/cloth.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/coal.png)|Coal :(|coal|ItemBlueprint<br>||204391461| |
+|![](https://rustlabs.com/img/items180/coffeecan.helmet.png)|Coffee Can Helmet|coffeecan.helmet|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-803263829|assets/prefabs/clothes/hat.coffeecan/coffeecanhelmet_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/coffin.storage.png)|Coffin|coffin.storage|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|573676040| |
+|![](https://rustlabs.com/img/items180/composter.png)|Composter|composter|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1488398114| |
+|![](https://rustlabs.com/img/items180/computerstation.png)|Computer Station|computerstation|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1588628467| |
+|![](https://rustlabs.com/img/items180/corn.png)|Corn|corn|ItemModConsumable<br>ItemModMenuOption<br>ItemModConsume<br>ItemModCompostable<br>ItemMod<br>||1367190888| |
+|![](https://rustlabs.com/img/items180/cratecostume.png)|Crate Costume|cratecostume|ItemModWearable<br>ItemMod<br>||1189981699| |
+|![](https://rustlabs.com/img/items180/crossbow.png)|Crossbow|crossbow|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>CrossbowWeapon (held)<br>Model (held)<br>BaseProjectile (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|crossbow.entity|1965232394|assets/prefabs/weapons/crossbow/crossbow.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/crude.oil.png)|Crude Oil|crude.oil|ItemModCookable<br>ItemMod<br>||-321733511|assets/prefabs/resource/crude oil/crude_oil.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/cupboard.tool.png)|Tool Cupboard|cupboard.tool|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-97956382| |
+|![](https://rustlabs.com/img/items180/cursedcauldron.png)|Cursed Cauldron|cursedcauldron|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1242522330| |
+|![](https://rustlabs.com/img/items180/deer.skull.mask.png)|Bone Helmet|deer.skull.mask|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1903165497|assets/prefabs/clothes/hat.deerskullmask/hat.deerskullmask_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/deermeat.burned.png)|Burnt Deer Meat|deermeat.burned|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-78533081|assets/prefabs/food/meat/deer/meat.deer.burned.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/deermeat.cooked.png)|Cooked Deer Meat|deermeat.cooked|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1509851560|assets/prefabs/food/meat/deer/meat.deer.cooked.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/deermeat.raw.png)|Raw Deer Meat|deermeat.raw|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1422530437|assets/prefabs/food/meat/deer/meet.deer.raw.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/diesel_barrel.png)|Diesel Fuel|diesel_barrel|||1568388703| |
+|![](https://rustlabs.com/img/items180/diving.fins.png)|Diving Fins|diving.fins|ItemModWearable<br>ItemMod<br>||296519935|assets/prefabs/clothes/diving.fins/divingfins_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/diving.mask.png)|Diving Mask|diving.mask|ItemModWearable<br>ItemMod<br>||-113413047|assets/prefabs/clothes/diving.mask/divingmask_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/diving.tank.png)|Diving Tank|diving.tank|ItemModWearable<br>ItemModRepair<br>ItemMod<br>||-2022172587|assets/prefabs/clothes/diving.tank/divingtank_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/diving.wetsuit.png)|Wetsuit|diving.wetsuit|ItemModWearable<br>ItemMod<br>||-1101924344| |
+|![](https://rustlabs.com/img/items180/door.closer.png)|Door Closer|door.closer|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|1409529282| |
+|![](https://rustlabs.com/img/items180/door.double.hinged.metal.png)|Sheet Metal Double Door|door.double.hinged.metal|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1390353317| |
+|![](https://rustlabs.com/img/items180/door.double.hinged.toptier.png)|Armored Double Door|door.double.hinged.toptier|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1221063409| |
+|![](https://rustlabs.com/img/items180/door.double.hinged.wood.png)|Wood Double Door|door.double.hinged.wood|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1336109173| |
+|![](https://rustlabs.com/img/items180/door.hinged.metal.png)|Sheet Metal Door|door.hinged.metal|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-2067472972| |
+|![](https://rustlabs.com/img/items180/door.hinged.toptier.png)|Armored Door|door.hinged.toptier|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1353298668| |
+|![](https://rustlabs.com/img/items180/door.hinged.wood.png)|Wooden Door|door.hinged.wood|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1729120840| |
+|![](https://rustlabs.com/img/items180/door.key.png)|Door Key|door.key|ItemBlueprint<br>ItemModBurnable<br>ItemMod<br>||-1112793865| |
+|![](https://rustlabs.com/img/items180/dragondoorknocker.png)|Dragon Door Knocker|dragondoorknocker|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|-854270928| |
+|![](https://rustlabs.com/img/items180/dropbox.png)|Drop Box|dropbox|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1519126340| |
+|![](https://rustlabs.com/img/items180/drumkit.png)|Junkyard Drum Kit|drumkit|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1330640246| |
+|![](https://rustlabs.com/img/items180/ducttape.png)|Duct Tape|ducttape|ItemBlueprint<br>||1401987718|assets/prefabs/componentitems/ducttape/ducttape.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/easter.bronzeegg.png)|Bronze Egg|easter.bronzeegg|ItemModUpgrade<br>ItemModCrackOpen<br>ItemMod<br>ItemModUnwrap<br>||844440409|assets/prefabs/misc/easter/painted eggs/bronzeegg.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/easter.goldegg.png)|Gold Egg|easter.goldegg|ItemModCrackOpen<br>ItemModUnwrap<br>ItemMod<br>||-1002156085|assets/prefabs/misc/easter/painted eggs/goldegg.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/easter.paintedeggs.png)|Painted Egg|easter.paintedeggs|ItemModUpgrade<br>ItemMod<br>||-126305173|assets/prefabs/misc/easter/painted eggs/paintedeggs.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/easter.silveregg.png)|Silver Egg|easter.silveregg|ItemModUpgrade<br>ItemModCrackOpen<br>ItemMod<br>ItemModUnwrap<br>||1757265204|assets/prefabs/misc/easter/painted eggs/silveregg.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/easterbasket.png)|Egg Basket|easterbasket|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>EasterBasket (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|easter_basket.entity|1856217390| |
+|![](https://rustlabs.com/img/items180/easterdoorwreath.png)|Easter Door Wreath|easterdoorwreath|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|-979302481| |
+|![](https://rustlabs.com/img/items180/electric.andswitch.png)|AND Switch|electric.andswitch|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1171735914| |
+|![](https://rustlabs.com/img/items180/electric.audioalarm.png)|Audio Alarm|electric.audioalarm|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|2100007442| |
+|![](https://rustlabs.com/img/items180/electric.battery.rechargable.large.png)|Large Rechargable Battery|electric.battery.rechargable.large|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|553270375| |
+|![](https://rustlabs.com/img/items180/electric.battery.rechargable.medium.png)|Medium Rechargable Battery|electric.battery.rechargable.medium|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|2023888403| |
+|![](https://rustlabs.com/img/items180/electric.battery.rechargable.small.png)|Small Rechargable Battery|electric.battery.rechargable.small|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-692338819| |
+|![](https://rustlabs.com/img/items180/electric.blocker.png)|Blocker|electric.blocker|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-690968985| |
+|![](https://rustlabs.com/img/items180/electric.cabletunnel.png)|Cable Tunnel|electric.cabletunnel|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1835946060| |
+|![](https://rustlabs.com/img/items180/electric.counter.png)|Counter|electric.counter|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-216999575| |
+|![](https://rustlabs.com/img/items180/electric.doorcontroller.png)|Door Controller|electric.doorcontroller|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-502177121| |
+|![](https://rustlabs.com/img/items180/electric.flasherlight.png)|Flasher Light|electric.flasherlight|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-939424778| |
+|![](https://rustlabs.com/img/items180/electric.fuelgenerator.small.png)|Small Generator|electric.fuelgenerator.small|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1849887541| |
+|![](https://rustlabs.com/img/items180/electric.generator.small.png)|Test Generator|electric.generator.small|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-295829489| |
+|![](https://rustlabs.com/img/items180/electric.hbhfsensor.png)|HBHF Sensor|electric.hbhfsensor|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1507239837| |
+|![](https://rustlabs.com/img/items180/electric.igniter.png)|Igniter|electric.igniter|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-44876289| |
+|![](https://rustlabs.com/img/items180/electric.laserdetector.png)|Laser Detector|electric.laserdetector|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-798293154| |
+|![](https://rustlabs.com/img/items180/electric.orswitch.png)|OR Switch|electric.orswitch|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1286302544| |
+|![](https://rustlabs.com/img/items180/electric.pressurepad.png)|Pressure Pad|electric.pressurepad|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-2049214035| |
+|![](https://rustlabs.com/img/items180/electric.random.switch.png)|RAND Switch|electric.random.switch|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|492357192| |
+|![](https://rustlabs.com/img/items180/electric.rf.broadcaster.png)|RF Broadcaster|electric.rf.broadcaster|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1044468317| |
+|![](https://rustlabs.com/img/items180/electric.rf.receiver.png)|RF Receiver|electric.rf.receiver|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|888415708| |
+|![](https://rustlabs.com/img/items180/electric.simplelight.png)|Simple Light|electric.simplelight|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-282113991| |
+|![](https://rustlabs.com/img/items180/electric.sirenlight.png)|Siren Light|electric.sirenlight|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|762289806| |
+|![](https://rustlabs.com/img/items180/electric.solarpanel.large.png)|Large Solar Panel|electric.solarpanel.large|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|2090395347| |
+|![](https://rustlabs.com/img/items180/electric.splitter.png)|Splitter|electric.splitter|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-563624462| |
+|![](https://rustlabs.com/img/items180/electric.sprinkler.png)|Sprinkler|electric.sprinkler|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-781014061| |
+|![](https://rustlabs.com/img/items180/electric.switch.png)|Switch|electric.switch|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1951603367| |
+|![](https://rustlabs.com/img/items180/electric.teslacoil.png)|Tesla Coil|electric.teslacoil|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1371909803| |
+|![](https://rustlabs.com/img/items180/electric.timer.png)|Timer|electric.timer|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|665332906| |
+|![](https://rustlabs.com/img/items180/electric.xorswitch.png)|XOR Switch|electric.xorswitch|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1293102274| |
+|![](https://rustlabs.com/img/items180/electrical.branch.png)|Electrical Branch|electrical.branch|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1448252298| |
+|![](https://rustlabs.com/img/items180/electrical.combiner.png)|Root Combiner|electrical.combiner|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-458565393| |
+|![](https://rustlabs.com/img/items180/electrical.memorycell.png)|Memory Cell|electrical.memorycell|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-746647361| |
+|![](https://rustlabs.com/img/items180/explosive.satchel.png)|Satchel Charge|explosive.satchel|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|explosive.satchel.entity|-1878475007|assets/prefabs/weapons/satchelcharge/satchel_charge.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/explosive.timed.png)|Timed Explosive Charge|explosive.timed|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|explosive.timed.entity|1248356124|assets/prefabs/tools/c4/explosive.timed.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/explosives.png)|Explosives|explosives|ItemBlueprint<br>||-592016202|assets/prefabs/resource/explosives/explosives.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fat.animal.png)|Animal Fat|fat.animal|||-1018587433|assets/prefabs/resource/animal fat/fat.animal.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fertilizer.png)|Fertilizer|fertilizer|||-930193596| |
+|![](https://rustlabs.com/img/items180/fireplace.stone.png)|Stone Fireplace|fireplace.stone|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1535621066| |
+|![](https://rustlabs.com/img/items180/firework.boomer.blue.png)|Blue Boomer|firework.boomer.blue|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1744298439| |
+|![](https://rustlabs.com/img/items180/firework.boomer.champagne.png)|Champagne Boomer|firework.boomer.champagne|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1324203999| |
+|![](https://rustlabs.com/img/items180/firework.boomer.green.png)|Green Boomer|firework.boomer.green|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-656349006| |
+|![](https://rustlabs.com/img/items180/firework.boomer.orange.png)|Orange Boomer|firework.boomer.orange|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-7270019| |
+|![](https://rustlabs.com/img/items180/firework.boomer.red.png)|Red Boomer|firework.boomer.red|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1553999294| |
+|![](https://rustlabs.com/img/items180/firework.boomer.violet.png)|Violet Boomer|firework.boomer.violet|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-280223496| |
+|![](https://rustlabs.com/img/items180/firework.romancandle.blue.png)|Blue Roman Candle|firework.romancandle.blue|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-515830359| |
+|![](https://rustlabs.com/img/items180/firework.romancandle.green.png)|Green Roman Candle|firework.romancandle.green|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1306288356| |
+|![](https://rustlabs.com/img/items180/firework.romancandle.red.png)|Red Roman Candle|firework.romancandle.red|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1486461488| |
+|![](https://rustlabs.com/img/items180/firework.romancandle.violet.png)|Violet Roman Candle|firework.romancandle.violet|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-99886070| |
+|![](https://rustlabs.com/img/items180/firework.volcano.png)|White Volcano Firework|firework.volcano|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|261913429| |
+|![](https://rustlabs.com/img/items180/firework.volcano.red.png)|Red Volcano Firework|firework.volcano.red|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-454370658| |
+|![](https://rustlabs.com/img/items180/firework.volcano.violet.png)|Violet Volcano Firework|firework.volcano.violet|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1538109120| |
+|![](https://rustlabs.com/img/items180/fish.cooked.png)|Cooked Fish|fish.cooked|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1668129151|assets/prefabs/food/meat/chicken_cooked.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fish.minnows.png)|Minnows|fish.minnows|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-542577259| |
+|![](https://rustlabs.com/img/items180/fish.raw.png)|Raw Fish|fish.raw|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||989925924| |
+|![](https://rustlabs.com/img/items180/fish.troutsmall.png)|Small Trout|fish.troutsmall|ItemModSwap<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1878764039| |
+|![](https://rustlabs.com/img/items180/fishingrod.handmade.png)|Handmade Fishing Rod|fishingrod.handmade|ItemModEntity<br>ItemMod<br>------------<br>BaseFishingRod (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|fishing_rod.entity|1569882109|assets/prefabs/weapons/wooden spear/wooden_spear.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fishtrap.small.png)|Survival Fish Trap|fishtrap.small|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|559147458| |
+|![](https://rustlabs.com/img/items180/flamethrower.png)|Flame Thrower|flamethrower|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>FlameThrower (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|flamethrower.entity|-1215753368|assets/prefabs/weapons/flamethrower/flamethrower.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/flameturret.png)|Flame Turret|flameturret|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|528668503| |
+|![](https://rustlabs.com/img/items180/flare.png)|Flare|flare|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>GrenadeWeapon (held)<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|flare.weapon|304481038|assets/prefabs/tools/flareold/flare.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/flashlight.held.png)|Flashlight|flashlight.held|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|flashlight.entity|-196667575|assets/prefabs/tools/flashlight/flashlight.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/floor.grill.png)|Floor grill|floor.grill|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|936496778| |
+|![](https://rustlabs.com/img/items180/floor.ladder.hatch.png)|Ladder Hatch|floor.ladder.hatch|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1948067030| |
+|![](https://rustlabs.com/img/items180/fluid.splitter.png)|Fluid Splitter|fluid.splitter|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1166712463| |
+|![](https://rustlabs.com/img/items180/fluid.switch.png)|Fluid Switch & Pump|fluid.switch|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|443432036| |
+|![](https://rustlabs.com/img/items180/fogmachine.png)|Fogger-3000|fogmachine|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemModContainer<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1973785141| |
+|![](https://rustlabs.com/img/items180/fridge.png)|Fridge|fridge|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1413014235| |
+|![](https://rustlabs.com/img/items180/fun.bass.png)|Shovel Bass|fun.bass|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>InstrumentToolGuitar (held)<br>InstrumentKeyController (held)<br>InstrumentTool (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|bass.weapon|-2107018088|assets/prefabs/instruments/bass/bass.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fun.cowbell.png)|Cowbell|fun.cowbell|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>InstrumentTool (held)<br>InstrumentKeyController (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|cowbell.weapon|-1049881973|assets/prefabs/instruments/cowbell/cowbell.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fun.flute.png)|Pan Flute|fun.flute|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>InstrumentTool (held)<br>InstrumentKeyController (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|flute.weapon|-2040817543|assets/prefabs/instruments/flute/flute.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fun.guitar.png)|Acoustic Guitar|fun.guitar|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>InstrumentToolGuitar (held)<br>InstrumentKeyController (held)<br>InstrumentTool (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|guitar.weapon|-2124352573|assets/prefabs/instruments/guitar/guitar.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fun.jerrycanguitar.png)|Jerry Can Guitar|fun.jerrycanguitar|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>InstrumentToolGuitar (held)<br>InstrumentKeyController (held)<br>InstrumentTool (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|jerrycanguitar.weapon|-979951147|assets/prefabs/instruments/jerrycanguitar/jerrycanguitar.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fun.tambourine.png)|Canbourine|fun.tambourine|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>InstrumentTool (held)<br>InstrumentKeyController (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|tambourine.weapon|-1379036069|assets/prefabs/instruments/tambourine/tambourine.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fun.trumpet.png)|Plumber's Trumpet|fun.trumpet|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>InstrumentTool (held)<br>InstrumentKeyController (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|trumpet.weapon|273172220|assets/prefabs/instruments/trumpet/trumpet.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/fun.tuba.png)|Sousaphone|fun.tuba|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>InstrumentTool (held)<br>InstrumentKeyController (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|tuba.weapon|1784406797|assets/prefabs/instruments/tuba/tuba.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/furnace.png)|Furnace|furnace|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1999722522| |
+|![](https://rustlabs.com/img/items180/furnace.large.png)|Large Furnace|furnace.large|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1992717673| |
+|![](https://rustlabs.com/img/items180/fuse.png)|Electric Fuse|fuse|ItemBlueprint<br>||-629028935| |
+|![](https://rustlabs.com/img/items180/gates.external.high.stone.png)|High External Stone Gate|gates.external.high.stone|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-691113464| |
+|![](https://rustlabs.com/img/items180/gates.external.high.wood.png)|High External Wooden Gate|gates.external.high.wood|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-335089230| |
+|![](https://rustlabs.com/img/items180/gears.png)|Gears|gears|ItemBlueprint<br>||479143914|assets/prefabs/componentitems/gears/gears.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/geiger.counter.png)|Geiger Counter|geiger.counter|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>GeigerCounter (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|geiger_counter.entity|999690781|assets/prefabs/tools/flashlight/flashlight.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/generator.wind.scrap.png)|Wind Turbine|generator.wind.scrap|ItemModEntity<br>ItemModDeployable<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1819763926| |
+|![](https://rustlabs.com/img/items180/giantcandycanedecor.png)|Giant Candy Decor|giantcandycanedecor|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-695124222| |
+|![](https://rustlabs.com/img/items180/giantlollipops.png)|Giant Lollipop Decor|giantlollipops|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|282103175| |
+|![](https://rustlabs.com/img/items180/gloweyes.png)|Glowing Eyes|gloweyes|ItemModWearable<br>ItemMod<br>||-690276911| |
+|![](https://rustlabs.com/img/items180/glue.png)|Glue|glue|||-1899491405| |
+|![](https://rustlabs.com/img/items180/granolabar.png)|Granola Bar|granolabar|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-746030907| |
+|![](https://rustlabs.com/img/items180/gravestone.png)|Gravestone|gravestone|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|809199956| |
+|![](https://rustlabs.com/img/items180/grenade.beancan.png)|Beancan Grenade|grenade.beancan|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>GrenadeWeapon (held)<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|grenade.beancan.entity|1840822026|assets/prefabs/weapons/beancan grenade/beancan.grenade.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/grenade.f1.png)|F1 Grenade|grenade.f1|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>GrenadeWeapon (held)<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|grenade.f1.entity|143803535|assets/prefabs/weapons/f1 grenade/grenade.f1.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/grenade.smoke.png)|Smoke Grenade|grenade.smoke|ItemModEntity<br>ItemMod<br>------------<br>GrenadeWeapon (held)<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|smoke_grenade.weapon|1263920163|assets/prefabs/tools/supply signal/supplysignal.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/gunpowder.png)|Gun Powder|gunpowder|ItemBlueprint<br>||-265876753|assets/prefabs/resource/gunpowder/gunpowder.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/guntrap.png)|Shotgun Trap|guntrap|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|352499047| |
+|![](https://rustlabs.com/img/items180/habrepair.png)|Hab Repair|habrepair|ItemBlueprint<br>||-1759188988| |
+|![](https://rustlabs.com/img/items180/halloween.candy.png)|Halloween Candy|halloween.candy|ItemModUpgrade<br>ItemModConsumable<br>ItemModConsume<br>ItemModMenuOption<br>ItemMod<br>||-888153050| |
+|![](https://rustlabs.com/img/items180/halloween.lootbag.large.png)|Large Loot Bag|halloween.lootbag.large|ItemModOpenLootBag<br>ItemModUnwrap<br>ItemMod<br>||479292118| |
+|![](https://rustlabs.com/img/items180/halloween.lootbag.medium.png)|Medium Loot Bag|halloween.lootbag.medium|ItemModUpgrade<br>ItemModOpenLootBag<br>ItemMod<br>ItemModUnwrap<br>||1899610628| |
+|![](https://rustlabs.com/img/items180/halloween.lootbag.small.png)|Small Loot Bag|halloween.lootbag.small|ItemModUpgrade<br>ItemModOpenLootBag<br>ItemMod<br>ItemModUnwrap<br>||1319617282| |
+|![](https://rustlabs.com/img/items180/halloween.mummysuit.png)|Mummy Suit|halloween.mummysuit|ItemModWearable<br>ItemMod<br>||277730763| |
+|![](https://rustlabs.com/img/items180/halloween.surgeonsuit.png)|Surgeon Scrubs|halloween.surgeonsuit|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1785231475| |
+|![](https://rustlabs.com/img/items180/hammer.png)|Hammer|hammer|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>Hammer (held)<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|hammer.entity|200773292|assets/prefabs/weapons/hammer/hammer.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hammer.salvaged.png)|Salvaged Hammer|hammer.salvaged|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|hammer_salvaged.entity|-1506397857|assets/prefabs/weapons/salvaged_hammer/hammer_salvaged.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hat.beenie.png)|Beenie Hat|hat.beenie|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1675639563|assets/prefabs/clothes/hat.beenie/player_urban_hat_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hat.boonie.png)|Boonie Hat|hat.boonie|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-23994173|assets/prefabs/clothes/hat.boonie/hatboonie_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hat.candle.png)|Candle Hat|hat.candle|ItemModWearable<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>||1714496074|assets/prefabs/clothes/hat.candle/candlehat_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hat.cap.png)|Baseball Cap|hat.cap|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1022661119|assets/prefabs/clothes/hat.cap/hatcap_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hat.dragonmask.png)|Dragon Mask|hat.dragonmask|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-22883916|assets/prefabs/misc/chinesenewyear/dragonmask/hat.dragonmask.world.prefab|
+|![](https://rustlabs.com/img/items180/hat.miner.png)|Miners Hat|hat.miner|ItemModWearable<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>||-1539025626|assets/prefabs/clothes/hat.miner/hatminer_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hat.ratmask.png)|Rat Mask|hat.ratmask|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||271048478|assets/prefabs/misc/chinesenewyear/ratmask/hat.ratmask.world.prefab|
+|![](https://rustlabs.com/img/items180/hat.wolf.png)|Wolf Headdress|hat.wolf|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1478212975| |
+|![](https://rustlabs.com/img/items180/hatchet.png)|Hatchet|hatchet|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|hatchet.entity|-1252059217|assets/prefabs/weapons/hatchet/hatchet.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hazmatsuit.png)|Hazmat Suit|hazmatsuit|ItemModWearable<br>ItemBlueprint<br>ItemFootstepSounds<br>ItemMod<br>||1266491000| |
+|![](https://rustlabs.com/img/items180/hazmatsuit_scientist.png)|Scientist Suit|hazmatsuit_scientist|ItemModWearable<br>ItemBlueprint<br>ItemFootstepSounds<br>ItemMod<br>||-253079493| |
+|![](https://rustlabs.com/img/items180/hazmatsuit_scientist_peacekeeper.png)|Scientist Suit|hazmatsuit_scientist_peacekeeper|ItemModWearable<br>ItemBlueprint<br>ItemFootstepSounds<br>ItemMod<br>||-1958316066| |
+|![](https://rustlabs.com/img/items180/heavy.plate.helmet.png)|Heavy Plate Helmet|heavy.plate.helmet|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1181207482|assets/prefabs/clothes/hat.heavyplate/heavyplatehelmet_wm.prefab|
+|![](https://rustlabs.com/img/items180/heavy.plate.jacket.png)|Heavy Plate Jacket|heavy.plate.jacket|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1102429027|assets/prefabs/clothes/jacket.heavyplate/heavyplatejacket_wm.prefab|
+|![](https://rustlabs.com/img/items180/heavy.plate.pants.png)|Heavy Plate Pants|heavy.plate.pants|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1778159885|assets/prefabs/clothes/pants.heavyplate/heavyplatepants_wm.prefab|
+|![](https://rustlabs.com/img/items180/hitchtroughcombo.png)|Hitch & Trough|hitchtroughcombo|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1160881421| |
+|![](https://rustlabs.com/img/items180/hoodie.png)|Hoodie|hoodie|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1751045826|assets/prefabs/clothes/hoodie/player_urban_torso_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/horse.armor.roadsign.png)|Roadsign Horse Armor|horse.armor.roadsign|ItemBlueprint<br>ItemModAnimalEquipment<br>ItemMod<br>||60528587|assets/rust.ai/agents/horse/model/armour/roadsign/horseroadsignarmour_wm.prefab|
+|![](https://rustlabs.com/img/items180/horse.armor.wood.png)|Wooden Horse Armor|horse.armor.wood|ItemBlueprint<br>ItemModAnimalEquipment<br>ItemMod<br>||1659447559|assets/rust.ai/agents/horse/model/armour/wood/horsewoodarmour_wm.prefab|
+|![](https://rustlabs.com/img/items180/horse.saddlebag.png)|Saddle bag|horse.saddlebag|ItemBlueprint<br>ItemModAnimalEquipment<br>ItemMod<br>||1400460850| |
+|![](https://rustlabs.com/img/items180/horse.shoes.advanced.png)|High Quality Horse Shoes|horse.shoes.advanced|ItemBlueprint<br>ItemModAnimalEquipment<br>ItemMod<br>||1989785143| |
+|![](https://rustlabs.com/img/items180/horse.shoes.basic.png)|Basic Horse Shoes|horse.shoes.basic|ItemBlueprint<br>ItemModAnimalEquipment<br>ItemMod<br>||-1211268013| |
+|![](https://rustlabs.com/img/items180/horsedung.png)|Horse Dung|horsedung|ItemModCompostable<br>||-1579932985|assets/prefabs/resource/horsedung/horsedung.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/horsemeat.burned.png)|Burnt Horse Meat|horsemeat.burned|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1917703890|assets/prefabs/food/meat/deer/meat.deer.burned.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/horsemeat.cooked.png)|Cooked Horse Meat|horsemeat.cooked|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1162759543|assets/prefabs/food/meat/deer/meat.deer.cooked.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/horsemeat.raw.png)|Raw Horse Meat|horsemeat.raw|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1130350864|assets/prefabs/food/meat/deer/meet.deer.raw.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hosetool.png)|Hose Tool|hosetool|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>WireTool (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|hosetool.entity|363163265|assets/prefabs/tools/hose/hose.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/hq.metal.ore.png)|High Quality Metal Ore|hq.metal.ore|ItemModCookable<br>ItemMod<br>||-1982036270|assets/prefabs/resource/hq metal ore/hq_metal_ore.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/humanmeat.burned.png)|Burnt Human Meat|humanmeat.burned|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-682687162|assets/prefabs/food/meat/human meat/humanmeat.burned.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/humanmeat.cooked.png)|Cooked Human Meat|humanmeat.cooked|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1536610005|assets/prefabs/food/meat/human meat/humanmeat.cooked.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/humanmeat.raw.png)|Raw Human Meat|humanmeat.raw|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1709878924|assets/prefabs/food/meat/human meat/humanmeat.raw.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/humanmeat.spoiled.png)|Spoiled Human Meat|humanmeat.spoiled|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1272768630|assets/prefabs/food/meat/human meat/humanmeat.spoiled.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/icepick.salvaged.png)|Salvaged Icepick|icepick.salvaged|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|icepick_salvaged.entity|-1780802565|assets/prefabs/weapons/salvaged_icepick/icepick_salvaged.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/jacket.png)|Jacket|jacket|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1163532624|assets/prefabs/clothes/jacket.vagabond/jacket_mid_torso_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/jacket.snow.png)|Snow Jacket|jacket.snow|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-48090175|assets/prefabs/clothes/jacket.snow/jacket_snow_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/jackhammer.png)|Jackhammer|jackhammer|ItemModEntity<br>ItemBlueprint<br>ItemModRepair<br>ItemMod<br>------------<br>Jackhammer (held)<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|jackhammer.entity|1488979457|assets/prefabs/tools/jackhammer/jackhammer.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/jackolantern.angry.png)|Jack O Lantern Angry|jackolantern.angry|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1242482355|assets/prefabs/deployable/jack o lantern/jackolantern.angry.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/jackolantern.happy.png)|Jack O Lantern Happy|jackolantern.happy|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1824943010|assets/prefabs/deployable/jack o lantern/jackolantern.happy.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/jar.pickle.png)|Pickles|jar.pickle|ItemModConsumeChance<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemModConsume<br>ItemMod<br>||286193827| |
+|![](https://rustlabs.com/img/items180/keycard_blue.png)|Blue Keycard|keycard_blue|ItemModEntity<br>ItemModKeycard<br>ItemMod<br>------------<br>Keycard (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|keycard.entity|-484206264|assets/prefabs/tools/keycard/keycard_blue.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/keycard_green.png)|Green Keycard|keycard_green|ItemModEntity<br>ItemModKeycard<br>ItemMod<br>------------<br>Keycard (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|keycard.entity|37122747|assets/prefabs/tools/keycard/keycard_green.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/keycard_red.png)|Red Keycard|keycard_red|ItemModEntity<br>ItemModKeycard<br>ItemMod<br>------------<br>Keycard (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|keycard.entity|-1880870149|assets/prefabs/tools/keycard/keycard_red.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/knife.bone.png)|Bone Knife|knife.bone|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|knife_bone.entity|1814288539|assets/prefabs/weapons/bone knife/boneknife.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/knife.butcher.png)|Butcher Knife|knife.butcher|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|butcherknife.entity|-194509282|assets/prefabs/weapons/halloween/butcher knife/butcherknife.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/knife.combat.png)|Combat Knife|knife.combat|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|knife.combat.entity|2040726127|assets/prefabs/weapons/knife/knife.combat.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/ladder.wooden.wall.png)|Wooden Ladder|ladder.wooden.wall|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-316250604| |
+|![](https://rustlabs.com/img/items180/lantern.png)|Lantern|lantern|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemModContainer<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1658229558|assets/prefabs/deployable/lantern/lantern.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/largecandles.png)|Large Candle Set|largecandles|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-489848205| |
+|![](https://rustlabs.com/img/items180/largemedkit.png)|Large Medkit|largemedkit|ItemModConsume<br>ItemModConsumable<br>ItemBlueprint<br>ItemModMenuOption<br>ItemMod<br>||254522515| |
+|![](https://rustlabs.com/img/items180/leather.png)|Leather|leather|ItemModXPWhenUsed<br>ItemMod<br>||1381010055|assets/prefabs/resource/leather/leather.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/lmg.m249.png)|M249|lmg.m249|ItemModEntity<br>ItemModContainer<br>ItemBlueprint<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|m249.entity|-2069578888|assets/prefabs/weapons/m249/m249_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/lock.code.png)|Code Lock|lock.code|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|1159991980|assets/prefabs/locks/keypad/lock.code.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/lock.key.png)|Key Lock|lock.key|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|-850982208| |
+|![](https://rustlabs.com/img/items180/locker.png)|Locker|locker|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-110921842| |
+|![](https://rustlabs.com/img/items180/longsword.png)|Longsword|longsword|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|longsword.entity|-1469578201|assets/prefabs/weapons/sword big/longsword.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/lowgradefuel.png)|Low Grade Fuel|lowgradefuel|ItemBlueprint<br>ItemModBurnable<br>ItemMod<br>||-946369541|assets/prefabs/resource/low grade fuel/fuel.lowgrade.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/lunar.firecrackers.png)|Firecracker String|lunar.firecrackers|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>GrenadeWeapon (held)<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|firecrackers.entity|-1961560162|assets/prefabs/tools/flareold/flare.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/mace.png)|Mace|mace|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|mace.entity|-1966748496|assets/prefabs/weapons/mace/mace.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/machete.png)|Machete|machete|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|machete.weapon|-1137865085|assets/prefabs/weapons/machete/machete.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/mailbox.png)|Mail Box|mailbox|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-586784898| |
+|![](https://rustlabs.com/img/items180/map.png)|Paper Map|map|ItemBlueprint<br>ItemModEntity<br>ItemModContainerRestriction<br>ItemMod<br>------------<br>MapEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|map|696029452|assets/prefabs/tools/map/map.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/mask.balaclava.png)|Improvised Balaclava|mask.balaclava|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-2012470695|assets/prefabs/clothes/mask.balaclava/maskbalaclava_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/mask.bandana.png)|Bandana Mask|mask.bandana|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-702051347|assets/prefabs/clothes/mask.bandana/maskbandana_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/meat.boar.png)|Raw Pork|meat.boar|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCookable<br>ItemModCompostable<br>ItemMod<br>||621915341|assets/prefabs/food/meat/pork/meat.pork.raw.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/meat.pork.burned.png)|Burnt Pork|meat.pork.burned|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCookable<br>ItemModCompostable<br>ItemMod<br>||1391703481|assets/prefabs/food/meat/bearmeat.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/meat.pork.cooked.png)|Cooked Pork|meat.pork.cooked|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCookable<br>ItemModCompostable<br>ItemMod<br>||-242084766|assets/prefabs/food/meat/bearmeat.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/metal.facemask.png)|Metal Facemask|metal.facemask|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-194953424|assets/prefabs/clothes/mask.metal/mask.metal.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/metal.fragments.png)|Metal Fragments|metal.fragments|ItemModXPWhenUsed<br>ItemMod<br>||69511070|assets/prefabs/resource/metal fragments/metal_fragments.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/metal.ore.png)|Metal Ore|metal.ore|ItemModCookable<br>ItemMod<br>||-4031221|assets/prefabs/resource/metal ore/metal_ore.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/metal.plate.torso.png)|Metal Chest Plate|metal.plate.torso|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1110385766|assets/prefabs/clothes/vest.metal/metal plate torso_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/metal.refined.png)|High Quality Metal|metal.refined|ItemModXPWhenUsed<br>ItemMod<br>||317398316|assets/prefabs/resource/hq metal/metal_refined.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/metalblade.png)|Metal Blade|metalblade|ItemBlueprint<br>||1882709339|assets/prefabs/componentitems/metalblade/metalblade.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/metalpipe.png)|Metal Pipe|metalpipe|ItemBlueprint<br>||95950017|assets/prefabs/componentitems/metalpipe/metalpipe.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/metalspring.png)|Metal Spring|metalspring|ItemBlueprint<br>||-1021495308|assets/prefabs/componentitems/spring/spring.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/minihelicopter.repair.png)|MC repair|minihelicopter.repair|ItemBlueprint<br>||1426574435| |
+|![](https://rustlabs.com/img/items180/mining.pumpjack.png)|Pump Jack|mining.pumpjack|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1130709577| |
+|![](https://rustlabs.com/img/items180/mining.quarry.png)|Mining Quarry|mining.quarry|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1052926200| |
+|![](https://rustlabs.com/img/items180/multiplegrenadelauncher.png)|Multiple Grenade Launcher|multiplegrenadelauncher|ItemModEntity<br>ItemModContainer<br>ItemBlueprint<br>ItemMod<br>------------<br>BaseLauncher (held)<br>Model (held)<br>BaseProjectile (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|mgl.entity|-1123473824|assets/prefabs/weapons/grenade launcher/grenadelauncher.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/mushroom.png)|Mushroom|mushroom|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1962971928| |
+|![](https://rustlabs.com/img/items180/newyeargong.png)|New Year Gong|newyeargong|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-961457160| |
+|![](https://rustlabs.com/img/items180/note.png)|Note|note|ItemBlueprint<br>||1414245162| |
+|![](https://rustlabs.com/img/items180/pants.png)|Pants|pants|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||237239288|assets/prefabs/clothes/pants/player_urban_legs_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pants.shorts.png)|Shorts|pants.shorts|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1695367501|assets/prefabs/clothes/pants.shorts/pantsshorts_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/paper.png)|Paper|paper|ItemBlueprint<br>||-1779183908|assets/prefabs/resource/paper/paper.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/partyhat.png)|Party Hat|partyhat|ItemModWearable<br>ItemMod<br>||-575744869|assets/prefabs/clothes/hat.partyhat/party_hat_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/piano.png)|Wheelbarrow Piano|piano|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1272430949| |
+|![](https://rustlabs.com/img/items180/pickaxe.png)|Pickaxe|pickaxe|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|pickaxe.entity|-1302129395|assets/prefabs/weapons/pickaxe/pickaxe.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pistol.eoka.png)|Eoka Pistol|pistol.eoka|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>FlintStrikeWeapon (held)<br>Model (held)<br>BaseProjectile (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|pistol_eoka.entity|-75944661|assets/prefabs/weapons/eoka pistol/eoka_pistol.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pistol.m92.png)|M92 Pistol|pistol.m92|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|m92.entity|-852563019|assets/prefabs/weapons/m92/m92.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pistol.nailgun.png)|Nailgun|pistol.nailgun|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|nailgun.entity|1953903201|assets/prefabs/weapons/nailgun/nailgun.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pistol.python.png)|Python Revolver|pistol.python|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|python.entity|1373971859|assets/prefabs/weapons/python/python.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pistol.revolver.png)|Revolver|pistol.revolver|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|pistol_revolver.entity|649912614|assets/prefabs/weapons/revolver/pistol_revolver.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pistol.semiauto.png)|Semi-Automatic Pistol|pistol.semiauto|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|pistol_semiauto.entity|818877484|assets/prefabs/weapons/semi auto pistol/pistol_semiauto.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pitchfork.png)|Pitchfork|pitchfork|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|pitchfork.entity|1090916276|assets/prefabs/weapons/halloween/pitchfork/pitchfork.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/planter.large.png)|Large Planter Box|planter.large|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1581210395| |
+|![](https://rustlabs.com/img/items180/planter.small.png)|Small Planter Box|planter.small|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1903654061| |
+|![](https://rustlabs.com/img/items180/plantfiber.png)|Plant Fiber|plantfiber|ItemModCompostable<br>||-804769727| |
+|![](https://rustlabs.com/img/items180/pookie.bear.png)|Pookie Bear|pookie.bear|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|-1651220691|assets/prefabs/misc/xmas/pookie/pookie.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/potato.png)|Potato|potato|ItemModConsumable<br>ItemModMenuOption<br>ItemModConsume<br>ItemModCompostable<br>ItemMod<br>||-2086926071| |
+|![](https://rustlabs.com/img/items180/propanetank.png)|Empty Propane Tank|propanetank|ItemBlueprint<br>||-1673693549|assets/prefabs/componentitems/propanetank/propanetank.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pumpkin.png)|Pumpkin|pumpkin|ItemModWearable<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModConsume<br>ItemModCompostable<br>ItemMod<br>||-567909622|assets/prefabs/plants/pumpkin/pumpkin.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/pumpkinbasket.png)|Pumpkin Bucket|pumpkinbasket|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>EasterBasket (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|pumpkin_basket.entity|1346158228| |
+|![](https://rustlabs.com/img/items180/research.table.png)|Research Table|research.table|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1861522751| |
+|![](https://rustlabs.com/img/items180/researchpaper.png)|Research Paper|researchpaper|||-544317637| |
+|![](https://rustlabs.com/img/items180/rf.detonator.png)|RF Transmitter|rf.detonator|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Detonator (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|detonator.entity|596469572|assets/prefabs/tools/detonator/detonator.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rf_pager.png)|RF Pager|rf_pager|ItemModRFListener<br>ItemBlueprint<br>ItemMod<br>||-566907190| |
+|![](https://rustlabs.com/img/items180/rifle.ak.png)|Assault Rifle|rifle.ak|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|ak47u.entity|1545779598|assets/prefabs/weapons/ak47u/ak47u.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rifle.bolt.png)|Bolt Action Rifle|rifle.bolt|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|bolt_rifle.entity|1588298435|assets/prefabs/weapons/bolt rifle/bolt_rifle.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rifle.l96.png)|L96 Rifle|rifle.l96|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|l96.entity|-778367295|assets/prefabs/weapons/l96/l96.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rifle.lr300.png)|LR-300 Assault Rifle|rifle.lr300|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|lr300.entity|-1812555177|assets/prefabs/weapons/lr300/lr300.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rifle.m39.png)|M39 Rifle|rifle.m39|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|m39.entity|28201841|assets/prefabs/weapons/m39 emr/m39.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rifle.semiauto.png)|Semi-Automatic Rifle|rifle.semiauto|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|semi_auto_rifle.entity|-904863145|assets/prefabs/weapons/semi auto rifle/semi_auto_rifle.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/riflebody.png)|Rifle Body|riflebody|ItemBlueprint<br>||176787552|assets/prefabs/componentitems/weaponparts/riflebody/riflebody.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/riot.helmet.png)|Riot Helmet|riot.helmet|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||671063303|assets/prefabs/clothes/hat.riot/hatriot_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/roadsign.gloves.png)|Roadsign Gloves|roadsign.gloves|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-699558439|assets/prefabs/clothes/gloves.burlap/gloves.burlap_wordmodel.prefab|
+|![](https://rustlabs.com/img/items180/roadsign.jacket.png)|Road Sign Jacket|roadsign.jacket|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-2002277461|assets/prefabs/clothes/vest.roadsign/roadsignjacket_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/roadsign.kilt.png)|Road Sign Kilt|roadsign.kilt|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1850456855|assets/prefabs/clothes/pants.roadsign/roadsignpants_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/roadsigns.png)|Road Signs|roadsigns|ItemBlueprint<br>||1199391518|assets/prefabs/componentitems/roadsigns/roadsigns.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rock.png)|Rock|rock|ItemModEntity<br>ItemModProjectile<br>ItemBlueprint<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|rock.entity|963906841|assets/prefabs/weapons/rock/rock.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rocket.launcher.png)|Rocket Launcher|rocket.launcher|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>BaseLauncher (held)<br>Model (held)<br>BaseProjectile (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|rocket_launcher.entity|442886268|assets/prefabs/weapons/rocketlauncher/rocketlauncher.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rope.png)|Rope|rope|ItemBlueprint<br>||1414245522|assets/prefabs/componentitems/rope/rope.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rug.png)|Rug|rug|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1985799200|assets/prefabs/deployable/rug/rug.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rug.bear.png)|Rug Bear Skin|rug.bear|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1104881824|assets/prefabs/deployable/rug/rug.bear.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/rustige_egg_a.png)|Rustigé Egg - Red|rustige_egg_a|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-173268129| |
+|![](https://rustlabs.com/img/items180/rustige_egg_b.png)|Rustigé Egg - Blue|rustige_egg_b|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-173268132| |
+|![](https://rustlabs.com/img/items180/salvaged.cleaver.png)|Salvaged Cleaver|salvaged.cleaver|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|salvaged_cleaver.entity|-1978999529|assets/prefabs/weapons/cleaver big/2handed_cleaver.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/salvaged.sword.png)|Salvaged Sword|salvaged.sword|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|salvaged_sword.entity|1326180354|assets/prefabs/weapons/sword/sword.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/samsite.png)|SAM Site|samsite|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1009359066| |
+|![](https://rustlabs.com/img/items180/santabeard.png)|Santa Beard|santabeard|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||2126889441|assets/prefabs/misc/burlap sack/burlap sack.prefab|
+|![](https://rustlabs.com/img/items180/santahat.png)|Santa Hat|santahat|ItemModWearable<br>ItemMod<br>||-575483084|assets/prefabs/misc/xmas/wearable/santahat/santahat_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/scarecrow.png)|Scarecrow|scarecrow|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|177226991| |
+|![](https://rustlabs.com/img/items180/scarecrow.suit.png)|Scarecrow Suit|scarecrow.suit|ItemModWearable<br>ItemMod<br>||273951840| |
+|![](https://rustlabs.com/img/items180/scarecrowhead.png)|Scarecrow Wrap|scarecrowhead|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||809942731|assets/prefabs/clothes/hat.burlap.wrap/burlapheadwraps_01_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/scientistsuit_heavy.png)|Heavy Scientist Suit|scientistsuit_heavy|ItemModWearable<br>ItemBlueprint<br>ItemFootstepSounds<br>ItemMod<br>||-1772746857| |
+|![](https://rustlabs.com/img/items180/scrap.png)|Scrap|scrap|||-932201673|assets/prefabs/resource/scrap/scrap.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/scraptransportheli.repair.png)|ScrapTransportHeliRepair|scraptransportheli.repair|ItemBlueprint<br>||-1884328185| |
+|![](https://rustlabs.com/img/items180/searchlight.png)|Search Light|searchlight|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|2087678962| |
+|![](https://rustlabs.com/img/items180/seed.corn.png)|Corn Seed|seed.corn|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|998894949| |
+|![](https://rustlabs.com/img/items180/seed.hemp.png)|Hemp Seed|seed.hemp|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-237809779| |
+|![](https://rustlabs.com/img/items180/seed.potato.png)|Potato Seed|seed.potato|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-2084071424| |
+|![](https://rustlabs.com/img/items180/seed.pumpkin.png)|Pumpkin Seed|seed.pumpkin|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1511285251| |
+|![](https://rustlabs.com/img/items180/semibody.png)|Semi Automatic Body|semibody|ItemBlueprint<br>||573926264|assets/prefabs/componentitems/weaponparts/semibody/semibody.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/sewingkit.png)|Sewing Kit|sewingkit|ItemBlueprint<br>||1234880403|assets/prefabs/componentitems/sewingkit/sewingkit.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/sheetmetal.png)|Sheet Metal|sheetmetal|ItemBlueprint<br>||-1994909036|assets/prefabs/componentitems/sheetmetal/sheetmetal.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/shelves.png)|Salvaged Shelves|shelves|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1950721418| |
+|![](https://rustlabs.com/img/items180/shirt.collared.png)|Shirt|shirt.collared|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-2025184684|assets/prefabs/clothes/shirt.collared/shirtcollared_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/shirt.tanktop.png)|Tank Top|shirt.tanktop|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||1608640313|assets/prefabs/clothes/shirt.tanktop/shirttanktop_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/shoes.boots.png)|Boots|shoes.boots|ItemModWearable<br>ItemBlueprint<br>ItemFootstepSounds<br>ItemMod<br>||-1549739227|assets/prefabs/clothes/shoes.boots/shoes.boots.world.prefab|
+|![](https://rustlabs.com/img/items180/shotgun.double.png)|Double Barrel Shotgun|shotgun.double|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|double_shotgun.entity|-765183617|assets/prefabs/weapons/doubleshotgun/double_shotgun.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/shotgun.pump.png)|Pump Shotgun|shotgun.pump|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|shotgun_pump.entity|795371088|assets/prefabs/weapons/sawnoff_shotgun/shotgun_pump.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/shotgun.spas12.png)|Spas-12 Shotgun|shotgun.spas12|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|spas12.entity|-41440462|assets/prefabs/weapons/spas12/spas12.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/shotgun.waterpipe.png)|Waterpipe Shotgun|shotgun.waterpipe|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|shotgun_waterpipe.entity|-1367281941|assets/prefabs/weapons/pipe shotgun/shotgun_waterpipe.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/shutter.metal.embrasure.a.png)|Metal horizontal embrasure|shutter.metal.embrasure.a|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1199897169| |
+|![](https://rustlabs.com/img/items180/shutter.metal.embrasure.b.png)|Metal Vertical embrasure|shutter.metal.embrasure.b|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1199897172| |
+|![](https://rustlabs.com/img/items180/shutter.wood.a.png)|Wood Shutters|shutter.wood.a|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1023374709| |
+|![](https://rustlabs.com/img/items180/sickle.png)|Sickle|sickle|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|sickle.entity|-1368584029|assets/prefabs/weapons/halloween/sickle/sickle.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/sign.hanging.png)|Two Sided Hanging Sign|sign.hanging|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1205607945| |
+|![](https://rustlabs.com/img/items180/sign.hanging.banner.large.png)|Large Banner Hanging|sign.hanging.banner.large|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|23352662| |
+|![](https://rustlabs.com/img/items180/sign.hanging.ornate.png)|Two Sided Ornate Hanging Sign|sign.hanging.ornate|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1647846966| |
+|![](https://rustlabs.com/img/items180/sign.pictureframe.landscape.png)|Landscape Picture Frame|sign.pictureframe.landscape|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-845557339| |
+|![](https://rustlabs.com/img/items180/sign.pictureframe.portrait.png)|Portrait Picture Frame|sign.pictureframe.portrait|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1370759135| |
+|![](https://rustlabs.com/img/items180/sign.pictureframe.tall.png)|Tall Picture Frame|sign.pictureframe.tall|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|121049755| |
+|![](https://rustlabs.com/img/items180/sign.pictureframe.xl.png)|XL Picture Frame|sign.pictureframe.xl|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-996185386| |
+|![](https://rustlabs.com/img/items180/sign.pictureframe.xxl.png)|XXL Picture Frame|sign.pictureframe.xxl|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|98508942| |
+|![](https://rustlabs.com/img/items180/sign.pole.banner.large.png)|Large Banner on pole|sign.pole.banner.large|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|2070189026| |
+|![](https://rustlabs.com/img/items180/sign.post.double.png)|Double Sign Post|sign.post.double|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1521286012| |
+|![](https://rustlabs.com/img/items180/sign.post.single.png)|Single Sign Post|sign.post.single|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1542290441| |
+|![](https://rustlabs.com/img/items180/sign.post.town.png)|One Sided Town Sign Post|sign.post.town|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1832422579| |
+|![](https://rustlabs.com/img/items180/sign.post.town.roof.png)|Two Sided Town Sign Post|sign.post.town.roof|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|826309791| |
+|![](https://rustlabs.com/img/items180/sign.wooden.huge.png)|Huge Wooden Sign|sign.wooden.huge|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-143132326| |
+|![](https://rustlabs.com/img/items180/sign.wooden.large.png)|Large Wooden Sign|sign.wooden.large|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1153652756| |
+|![](https://rustlabs.com/img/items180/sign.wooden.medium.png)|Medium Wooden Sign|sign.wooden.medium|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1819233322| |
+|![](https://rustlabs.com/img/items180/sign.wooden.small.png)|Small Wooden Sign|sign.wooden.small|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1138208076| |
+|![](https://rustlabs.com/img/items180/skull.human.png)|Human Skull|skull.human|ItemModSwap<br>ItemModMenuOption<br>ItemMod<br>||996293980|assets/prefabs/misc/skull/skull.prefab|
+|![](https://rustlabs.com/img/items180/skull.wolf.png)|Wolf Skull|skull.wolf|ItemModSwap<br>ItemModMenuOption<br>ItemMod<br>||2048317869|assets/prefabs/resource/wolf skull/skull_wolf.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/skull_fire_pit.png)|Skull Fire Pit|skull_fire_pit|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|553887414| |
+|![](https://rustlabs.com/img/items180/skulldoorknocker.png)|Skull Door Knocker|skulldoorknocker|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|-216116642| |
+|![](https://rustlabs.com/img/items180/sleepingbag.png)|Sleeping Bag|sleepingbag|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1754948969| |
+|![](https://rustlabs.com/img/items180/small.oil.refinery.png)|Small Oil Refinery|small.oil.refinery|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1293296287| |
+|![](https://rustlabs.com/img/items180/smallcandles.png)|Small Candle Set|smallcandles|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-2058362263| |
+|![](https://rustlabs.com/img/items180/smallwaterbottle.png)|Small Water Bottle|smallwaterbottle|ItemModContainer<br>ItemModEntity<br>ItemMod<br>------------<br>BaseLiquidVessel (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|smallwaterbottle.entity|-1039528932|assets/prefabs/food/small water bottle/water_bottle.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/smg.2.png)|Custom SMG|smg.2|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|smg.entity|1796682209|assets/prefabs/weapons/smg/smg.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/smg.mp5.png)|MP5A4|smg.mp5|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|mp5.entity|1318558775|assets/prefabs/weapons/mp5/mp5.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/smg.thompson.png)|Thompson|smg.thompson|ItemModEntity<br>ItemBlueprint<br>ItemModContainer<br>ItemMod<br>------------<br>BaseProjectile (held)<br>Model (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|thompson.entity|-1758372725|assets/prefabs/weapons/thompson/thompson.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/smgbody.png)|SMG Body|smgbody|ItemBlueprint<br>||1230323789|assets/prefabs/componentitems/weaponparts/smgbody/smgbody.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/snowball.png)|Snowball|snowball|ItemModEntity<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|snowball.entity|-363689972|assets/prefabs/misc/xmas/snowball/snowball.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/snowmachine.png)|Snow Machine|snowmachine|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemModContainer<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1358643074| |
+|![](https://rustlabs.com/img/items180/snowman.png)|Snowman|snowman|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1629293099| |
+|![](https://rustlabs.com/img/items180/spear.stone.png)|Stone Spear|spear.stone|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|spear_stone.entity|1602646136|assets/prefabs/weapons/stone spear/stone_spear.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/spear.wooden.png)|Wooden Spear|spear.wooden|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|spear_wooden.entity|1540934679|assets/prefabs/weapons/wooden spear/wooden_spear.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/spiderweb.png)|Spider Webs|spiderweb|ItemModDeployable<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|882559853| |
+|![](https://rustlabs.com/img/items180/spikes.floor.png)|Wooden Floor Spikes|spikes.floor|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-92759291| |
+|![](https://rustlabs.com/img/items180/spinner.wheel.png)|Spinning wheel|spinner.wheel|ItemModEntity<br>ItemBlueprint<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1100422738| |
+|![](https://rustlabs.com/img/items180/spookyspeaker.png)|Spooky Speaker|spookyspeaker|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1885488976| |
+|![](https://rustlabs.com/img/items180/stash.small.png)|Small Stash|stash.small|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-369760990| |
+|![](https://rustlabs.com/img/items180/sticks.png)|Sticks|sticks|ItemBlueprint<br>||642482233| |
+|![](https://rustlabs.com/img/items180/stocking.large.png)|SUPER Stocking|stocking.large|ItemModEntity<br>ItemModDeployable<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-465682601|assets/prefabs/misc/xmas/stockings/stocking.large.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/stocking.small.png)|Small Stocking|stocking.small|ItemModEntity<br>ItemModDeployable<br>ItemModUpgrade<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1668858301|assets/prefabs/misc/xmas/stockings/stocking.small.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/stone.pickaxe.png)|Stone Pickaxe|stone.pickaxe|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|stone_pickaxe.entity|171931394|assets/prefabs/weapons/stone pickaxe/stone_pickaxe.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/stonehatchet.png)|Stone Hatchet|stonehatchet|ItemModEntity<br>ItemBlueprint<br>ItemModProjectile<br>ItemMod<br>------------<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|stonehatchet.entity|-1583967946|assets/prefabs/weapons/stone hatchet/hatchet_stone.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/stones.png)|Stones|stones|ItemModXPWhenUsed<br>ItemMod<br>||-2099697608|assets/prefabs/resource/stone/stone.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/strobelight.png)|Strobe Light|strobelight|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|2104517339| |
+|![](https://rustlabs.com/img/items180/sulfur.png)|Sulfur|sulfur|ItemModXPWhenUsed<br>ItemMod<br>||-1581843485|assets/prefabs/resource/sulfur/sulphur.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/sulfur.ore.png)|Sulfur Ore|sulfur.ore|ItemModCookable<br>ItemMod<br>||-1157596551|assets/prefabs/resource/sulfur ore/sulfur_ore.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/supply.signal.png)|Supply Signal|supply.signal|ItemModEntity<br>ItemMod<br>------------<br>GrenadeWeapon (held)<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|supplysignal.weapon|1397052267|assets/prefabs/tools/supply signal/supplysignal.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/surveycharge.png)|Survey Charge|surveycharge|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>ThrownWeapon (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|survey_charge|1975934948|assets/prefabs/tools/surveycharge/survey_charge.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/syringe.medical.png)|Medical Syringe|syringe.medical|ItemModEntity<br>ItemBlueprint<br>ItemModConsumable<br>ItemMod<br>------------<br>MedicalTool (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|syringe_medical.entity|1079279582|assets/prefabs/tools/medical syringe/syringe_medical.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/table.png)|Table|table|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|593465182| |
+|![](https://rustlabs.com/img/items180/tactical.gloves.png)|Tactical Gloves|tactical.gloves|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-1108136649|assets/prefabs/clothes/gloves.tactical/gloves.tactical.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/target.reactive.png)|Reactive Target|target.reactive|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1736356576| |
+|![](https://rustlabs.com/img/items180/targeting.computer.png)|Targeting Computer|targeting.computer|ItemBlueprint<br>||1523195708|assets/prefabs/resource/targeting computer/targeting_computer.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/tarp.png)|Tarp|tarp|ItemBlueprint<br>||2019042823|assets/prefabs/componentitems/tarp/tarp.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/techparts.png)|Tech Trash|techparts|ItemBlueprint<br>||73681876|assets/prefabs/componentitems/techparts/techparts.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/tool.binoculars.png)|Binoculars|tool.binoculars|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Binocular (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|binocular.entity|-1262185308| |
+|![](https://rustlabs.com/img/items180/tool.camera.png)|Camera|tool.camera|ItemModEntity<br>ItemMod<br>------------<br>CameraTool (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|tool_camera|-1316706473|assets/prefabs/tools/camera/camera.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/toolgun.png)|Garry's Mod Tool Gun|toolgun|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Toolgun (held)<br>Model (held)<br>Hammer (held)<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|toolgun.entity|1803831286| |
+|![](https://rustlabs.com/img/items180/torch.png)|Torch|torch|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>TorchWeapon (held)<br>BaseMelee (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|torch.entity|795236088|assets/prefabs/weapons/torch/torch.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/trap.bear.png)|Snap Trap|trap.bear|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-582782051| |
+|![](https://rustlabs.com/img/items180/trap.landmine.png)|Land Mine|trap.landmine|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1663759755| |
+|![](https://rustlabs.com/img/items180/tshirt.png)|T-Shirt|tshirt|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||223891266|assets/prefabs/clothes/tshirt/tshirt_basic_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/tshirt.long.png)|Longsleeve T-Shirt|tshirt.long|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||935692442|assets/prefabs/clothes/tshirt.long/tshirtlongsleeve_basic_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/tunalight.png)|Tuna Can Lamp|tunalight|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemModContainer<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1478445584| |
+|![](https://rustlabs.com/img/items180/vending.machine.png)|Vending Machine|vending.machine|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|198438816| |
+|![](https://rustlabs.com/img/items180/wall.external.high.png)|High External Wooden Wall|wall.external.high|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|99588025| |
+|![](https://rustlabs.com/img/items180/wall.external.high.stone.png)|High External Stone Wall|wall.external.high.stone|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-967648160| |
+|![](https://rustlabs.com/img/items180/wall.frame.cell.png)|Prison Cell Wall|wall.frame.cell|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1429456799| |
+|![](https://rustlabs.com/img/items180/wall.frame.cell.gate.png)|Prison Cell Gate|wall.frame.cell.gate|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-956706906| |
+|![](https://rustlabs.com/img/items180/wall.frame.fence.png)|Chainlink Fence|wall.frame.fence|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1117626326| |
+|![](https://rustlabs.com/img/items180/wall.frame.fence.gate.png)|Chainlink Fence Gate|wall.frame.fence.gate|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1451568081| |
+|![](https://rustlabs.com/img/items180/wall.frame.garagedoor.png)|Garage Door|wall.frame.garagedoor|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-148794216| |
+|![](https://rustlabs.com/img/items180/wall.frame.netting.png)|Netting|wall.frame.netting|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1516985844| |
+|![](https://rustlabs.com/img/items180/wall.frame.shopfront.png)|Shop Front|wall.frame.shopfront|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-796583652| |
+|![](https://rustlabs.com/img/items180/wall.frame.shopfront.metal.png)|Metal Shop Front|wall.frame.shopfront.metal|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-148229307| |
+|![](https://rustlabs.com/img/items180/wall.graveyard.fence.png)|Graveyard Fence|wall.graveyard.fence|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1679267738| |
+|![](https://rustlabs.com/img/items180/wall.window.bars.metal.png)|Metal Window Bars|wall.window.bars.metal|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-819720157| |
+|![](https://rustlabs.com/img/items180/wall.window.bars.toptier.png)|Reinforced Window Bars|wall.window.bars.toptier|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|671706427| |
+|![](https://rustlabs.com/img/items180/wall.window.bars.wood.png)|Wooden Window Bars|wall.window.bars.wood|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1183726687| |
+|![](https://rustlabs.com/img/items180/wall.window.glass.reinforced.png)|Reinforced Glass Window|wall.window.glass.reinforced|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1614955425| |
+|![](https://rustlabs.com/img/items180/watchtower.wood.png)|Watch Tower|watchtower.wood|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-463122489| |
+|![](https://rustlabs.com/img/items180/water.png)|Water|water|ItemModConsumable<br>ItemModConsume<br>ItemMod<br>||-1779180711| |
+|![](https://rustlabs.com/img/items180/water.barrel.png)|Water Barrel|water.barrel|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1863559151| |
+|![](https://rustlabs.com/img/items180/water.catcher.large.png)|Large Water Catcher|water.catcher.large|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1100168350| |
+|![](https://rustlabs.com/img/items180/water.catcher.small.png)|Small Water Catcher|water.catcher.small|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-132247350| |
+|![](https://rustlabs.com/img/items180/water.purifier.png)|Water Purifier|water.purifier|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|2114754781| |
+|![](https://rustlabs.com/img/items180/water.salt.png)|Salt Water|water.salt|ItemModConsumable<br>ItemModConsume<br>ItemMod<br>||-277057363| |
+|![](https://rustlabs.com/img/items180/waterjug.png)|Water Jug|waterjug|ItemModContainer<br>ItemModConsumeContents<br>ItemModMenuOption<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>BaseLiquidVessel (held)<br>AttackEntity (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|waterjug.entity|-119235651|assets/prefabs/food/water jug/waterjug.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.8x.scope.png)|16x Zoom Scope|weapon.mod.8x.scope|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|8xscope.entity|174866732|assets/prefabs/weapon mods/8x scope/8xscope.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.flashlight.png)|Weapon flashlight|weapon.mod.flashlight|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|flashlight.entity|952603248|assets/prefabs/weapon mods/flashlight/flashlight.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.holosight.png)|Holosight|weapon.mod.holosight|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|holosight.entity|442289265|assets/prefabs/weapon mods/holosight/holosight.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.lasersight.png)|Weapon Lasersight|weapon.mod.lasersight|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|lasersight.entity|-132516482|assets/prefabs/weapon mods/lasersight/lasersight.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.muzzleboost.png)|Muzzle Boost|weapon.mod.muzzleboost|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|muzzleboost.entity|-1405508498|assets/prefabs/weapon mods/muzzleboost/muzzleboost.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.muzzlebrake.png)|Muzzle Brake|weapon.mod.muzzlebrake|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|muzzlebrake.entity|1478091698|assets/prefabs/weapon mods/muzzlebrake/muzzlebrake.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.silencer.png)|Silencer|weapon.mod.silencer|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|silencer.entity|-1850571427|assets/prefabs/weapon mods/silencers/silencer.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.simplesight.png)|Simple Handmade Sight|weapon.mod.simplesight|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|simplesight.entity|-855748505|assets/prefabs/weapon mods/reddotsight/simplesight.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/weapon.mod.small.scope.png)|8x Zoom Scope|weapon.mod.small.scope|ItemBlueprint<br>ItemModEntity<br>ItemModSound<br>ItemMod<br>------------<br>ProjectileWeaponMod (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|smallscope.entity|567235583|assets/prefabs/weapon mods/smallscope/smallscope.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wiretool.png)|Wire Tool|wiretool|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>WireTool (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|wiretool.entity|-144417939|assets/prefabs/tools/wire/wire.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wolfmeat.burned.png)|Burnt Wolf Meat|wolfmeat.burned|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||1827479659|assets/prefabs/food/meat/meat.wolf.burned.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wolfmeat.cooked.png)|Cooked Wolf Meat|wolfmeat.cooked|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||813023040|assets/prefabs/food/meat/meat.wolf.cooked.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wolfmeat.raw.png)|Raw Wolf Meat|wolfmeat.raw|ItemModConsume<br>ItemModConsumable<br>ItemModCookable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-395377963|assets/prefabs/food/meat/meat.wolf.raw.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wolfmeat.spoiled.png)|Spoiled Wolf Meat|wolfmeat.spoiled|ItemModConsume<br>ItemModConsumable<br>ItemModMenuOption<br>ItemModCompostable<br>ItemMod<br>||-1167031859|assets/prefabs/food/meat/meat.wolf.spoiled.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wood.png)|Wood|wood|ItemModBurnable<br>ItemModXPWhenUsed<br>ItemMod<br>||-151838493|assets/prefabs/resource/wood/wood.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wood.armor.helmet.png)|Wood Armor Helmet|wood.armor.helmet|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||-2094954543|assets/prefabs/clothes/hat.woodarmor/hatwoodarmor_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wood.armor.jacket.png)|Wood Chestplate|wood.armor.jacket|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||418081930|assets/prefabs/clothes/jacket.woodarmor/woodarmor_jacket_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wood.armor.pants.png)|Wood Armor Pants|wood.armor.pants|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||832133926|assets/prefabs/clothes/pants.woodarmor/roadsignarmor_pants_worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/woodcross.png)|Wooden Cross|woodcross|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|699075597| |
+|![](https://rustlabs.com/img/items180/workbench1.png)|Work Bench Level 1|workbench1|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1524187186| |
+|![](https://rustlabs.com/img/items180/workbench2.png)|Work Bench Level 2|workbench2|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-41896755| |
+|![](https://rustlabs.com/img/items180/workbench3.png)|Work Bench Level 3|workbench3|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1607980696| |
+|![](https://rustlabs.com/img/items180/wrappedgift.png)|Wrapped Gift|wrappedgift|ItemModContainer<br>ItemModOpenWrapped<br>ItemMod<br>||204970153|assets/prefabs/misc/xmas/wrappingpaper/playerwrappedgift.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/wrappingpaper.png)|Wrapping Paper|wrappingpaper|ItemModContainer<br>ItemModWrap<br>ItemMod<br>||1094293920| |
+|![](https://rustlabs.com/img/items180/xmas.decoration.baubels.png)|Decorative Baubels|xmas.decoration.baubels|ItemBlueprint<br>ItemModXMasTreeDecoration<br>ItemMod<br>||-1667224349|assets/prefabs/misc/xmas/xmasdecorations/xmas_baubles.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.decoration.candycanes.png)|Decorative Plastic Candy Canes|xmas.decoration.candycanes|ItemBlueprint<br>ItemModXMasTreeDecoration<br>ItemMod<br>||-209869746|assets/prefabs/misc/xmas/xmasdecorations/candycanes.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.decoration.gingerbreadmen.png)|Decorative Gingerbread Men|xmas.decoration.gingerbreadmen|ItemBlueprint<br>ItemModXMasTreeDecoration<br>ItemMod<br>||1686524871|assets/prefabs/misc/xmas/xmasdecorations/gingermen.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.decoration.lights.png)|Tree Lights|xmas.decoration.lights|ItemBlueprint<br>ItemModXMasTreeDecoration<br>ItemMod<br>||1723747470| |
+|![](https://rustlabs.com/img/items180/xmas.decoration.pinecone.png)|Decorative Pinecones|xmas.decoration.pinecone|ItemBlueprint<br>ItemModXMasTreeDecoration<br>ItemMod<br>||-129230242|assets/prefabs/misc/xmas/xmasdecorations/pinecones.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.decoration.star.png)|Star Tree Topper|xmas.decoration.star|ItemBlueprint<br>ItemModXMasTreeDecoration<br>ItemMod<br>||-1331212963|assets/prefabs/misc/xmas/xmasdecorations/polestar.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.decoration.tinsel.png)|Decorative Tinsel|xmas.decoration.tinsel|ItemBlueprint<br>ItemModXMasTreeDecoration<br>ItemMod<br>||2106561762|assets/prefabs/misc/xmas/xmasdecorations/tinsel.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.door.garland.png)|Festive Doorway Garland|xmas.door.garland|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|674734128| |
+|![](https://rustlabs.com/img/items180/xmas.lightstring.png)|Christmas Lights|xmas.lightstring|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>Rust.PropRenderer<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|1058261682| |
+|![](https://rustlabs.com/img/items180/xmas.lightstring.advanced.png)|Deluxe Christmas Lights|xmas.lightstring.advanced|ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>PoweredLightsDeployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|poweredlightsdeployer|-151387974| |
+|![](https://rustlabs.com/img/items180/xmas.present.large.png)|Large Present|xmas.present.large|ItemModUnwrap<br>ItemMod<br>||-1622660759|assets/prefabs/misc/xmas/presents/present.large.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.present.medium.png)|Medium Present|xmas.present.medium|ItemModUpgrade<br>ItemModUnwrap<br>ItemMod<br>||756517185|assets/prefabs/misc/xmas/presents/present.medium.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.present.small.png)|Small Present|xmas.present.small|ItemModUpgrade<br>ItemModUnwrap<br>ItemMod<br>||-722241321|assets/prefabs/misc/xmas/presents/present.small.worldmodel.prefab|
+|![](https://rustlabs.com/img/items180/xmas.tree.png)|Christmas Tree|xmas.tree|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|794443127| |
+|![](https://rustlabs.com/img/items180/xmas.window.garland.png)|Festive Window Garland|xmas.window.garland|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-1379835144| |
+|![](https://rustlabs.com/img/items180/xmasdoorwreath.png)|Christmas Door Wreath|xmasdoorwreath|ItemModDeployable<br>ItemModEntity<br>ItemBlueprint<br>ItemMod<br>------------<br>Deployer (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|generic_deploy|2009734114| |
+|![](https://rustlabs.com/img/items180/xylophone.png)|Xylobone|xylophone|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner|-211235948| |
 
