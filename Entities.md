@@ -1,5 +1,6 @@
 |Shortname|Components|Childs|Full Name|Prefab ID|
 |:-:|:-:|:-:|:-|:-|
+|_base_car_chassis.entity|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/content/vehicles/modularcar/_base_car_chassis.entity.prefab|3561890772|
 |1module_cockpit|VehicleModuleSeating<br>ModularCarCentralLockingSwitch<br>BaseVehicleModule<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>VehicleModuleButtonComponent<br>||assets/content/vehicles/modularcar/module_entities/1module_cockpit.prefab|3119250179|
 |1module_cockpit_armored|ModularCarCentralLockingSwitch<br>VehicleModuleSeating<br>VehicleModuleButtonComponent<br>BaseVehicleModule<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/content/vehicles/modularcar/module_entities/1module_cockpit_armored.prefab|2424796981|
 |1module_cockpit_with_engine|ModularCarCentralLockingSwitch<br>VehicleModuleEngine<br>VehicleModuleButtonComponent<br>VehicleModuleStorage<br>VehicleModuleSeating<br>BaseVehicleModule<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|modular_car_i4_engine_storage<br>|assets/content/vehicles/modularcar/module_entities/1module_cockpit_with_engine.prefab|3414464968|
@@ -115,7 +116,6 @@
 |bradley_crate|LockedByEntCrate<br>BoxCollider (UE)<br>LootContainer<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/npc/m2bradley/bradley_crate.prefab|1737870479|
 |bradleyapc|BradleyAPC<br>Rigidbody (UE)<br>Model<br>TreadEffects<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/npc/m2bradley/bradleyapc.prefab|1456850188|
 |butcherknife.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/halloween/butcher knife/butcherknife.entity.prefab|1362182970|
-|butcherknife.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/halloween/butcher knife/butcherknife.entity.prefab|1362182970|
 |button|PressButton<br>GroundWatch<br>DestroyOnGroundMissing<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/deployable/playerioents/button/button.prefab|52925389|
 |cabletunnel|BoxCollider (UE)<br>CableTunnel<br>GroundWatch<br>DestroyOnGroundMissing<br>Collider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/deployable/playerioents/tunnel/cabletunnel.prefab|3855268767|
 |cactus-1|Spawnable<br>ResourceEntity<br>ResourceDispenser<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/bundled/prefabs/autospawn/resource/v2_arid_cactus/cactus-1.prefab|396387266|
@@ -133,7 +133,6 @@
 |car_chassis_2module.entity|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/content/vehicles/modularcar/car_chassis_2module.entity.prefab|3386615946|
 |car_chassis_3module.entity|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/content/vehicles/modularcar/car_chassis_3module.entity.prefab|4140947108|
 |car_chassis_4module.entity|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/content/vehicles/modularcar/car_chassis_4module.entity.prefab|1682477379|
-|cardreader|CardReader<br>BoxCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/io/electric/switches/cardreader.prefab|1841596500|
 |cardreader|CardReader<br>BoxCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/io/electric/switches/cardreader.prefab|1841596500|
 |cargo_plane|CargoPlane<br>SavePause<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/npc/cargo plane/cargo_plane.prefab|2383782438|
 |cargomarker|MapMarkerCH47<br>MapMarker<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/map/cargomarker.prefab|843218194|
@@ -296,15 +295,6 @@
 |explosive.satchel.entity|ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/satchelcharge/explosive.satchel.entity.prefab|2671523489|
 |explosive.timed.deployed|BoxCollider (UE)<br>TimedExplosive<br>Rigidbody (UE)<br>EntityCollisionMessage<br>Collider (UE)<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/tools/c4/explosive.timed.deployed.prefab|3898309212|
 |explosive.timed.entity|ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/c4/explosive.timed.entity.prefab|1915331115|
-|explosive.timed.entity|ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/c4/explosive.timed.entity.prefab|1915331115|
-|explosive.timed.entity|ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/c4/explosive.timed.entity.prefab|1915331115|
-|explosive.timed.entity|ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/c4/explosive.timed.entity.prefab|1915331115|
-|fireball|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball.prefab|3369311876|
-|fireball|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball.prefab|3369311876|
-|fireball|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball.prefab|3369311876|
-|fireball|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball.prefab|3369311876|
-|fireball|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball.prefab|3369311876|
-|fireball|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball.prefab|3369311876|
 |fireball|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball.prefab|3369311876|
 |fireball_small|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball_small.prefab|2086405370|
 |fireball_small_arrow|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/bundled/prefabs/fireball_small_arrow.prefab|1081379866|
@@ -319,16 +309,6 @@
 |flameturret_fireball|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/npc/flame turret/flameturret_fireball.prefab|2781905939|
 |flare.deployed|Rigidbody (UE)<br>CapsuleCollider (UE)<br>TimedExplosive<br>EntityCollisionMessage<br>Collider (UE)<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/tools/flareold/flare.deployed.prefab|1693887801|
 |flare.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flareold/flare.weapon.prefab|2661658442|
-|flare.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flareold/flare.weapon.prefab|2661658442|
-|flare.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flareold/flare.weapon.prefab|2661658442|
-|flare.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flareold/flare.weapon.prefab|2661658442|
-|flare.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flareold/flare.weapon.prefab|2661658442|
-|flare.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flareold/flare.weapon.prefab|2661658442|
-|flare.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flareold/flare.weapon.prefab|2661658442|
-|flare.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flareold/flare.weapon.prefab|2661658442|
-|flashlight.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/flashlight/flashlight.entity.prefab|3357772531|
-|flashlight.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/flashlight/flashlight.entity.prefab|3357772531|
-|flashlight.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/flashlight/flashlight.entity.prefab|3357772531|
 |flashlight.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/flashlight/flashlight.entity.prefab|72718095|
 |flashlight.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/flashlight/flashlight.entity.prefab|3357772531|
 |flashlight.vm.attachment|ProjectileWeaponMod<br>Model<br>HideIfScoped<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/flashlight/flashlight.vm.attachment.prefab|1529000711|
@@ -368,27 +348,6 @@
 |generator.wind.scrap|SimpleBuildingBlock<br>BoxCollider (UE)<br>StabilityEntity<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/windmill/generator.wind.scrap.prefab|3038465934|
 |generic_deploy|Deployer<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/deploy (obsolete)/generic_deploy.prefab|2686008770|
 |generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
-|generic_world|DroppedItem<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/misc/burlap sack/generic_world.prefab|3255145925|
 |genericradiusmarker|MapMarkerGenericRadius<br>MapMarker<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/map/genericradiusmarker.prefab|2849728229|
 |giantcandycane.deployed|DecorDeployable<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/xmas/giant_candy_cane/giantcandycane.deployed.prefab|591428215|
 |giantlollipops.deployed|DecorDeployable<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/xmas/lollipop_bundle/giantlollipops.deployed.prefab|2711960434|
@@ -425,8 +384,6 @@
 |hitchtrough.deployed|HitchTrough<br>Model<br>DestroyOnGroundMissing<br>GroundWatch<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/deployable/hitch & trough/hitchtrough.deployed.prefab|3238272924|
 |hobobarrel_static|BaseOven<br>EntityFlag_Toggle<br>MeshCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>||assets/bundled/prefabs/static/hobobarrel_static.prefab|754638672|
 |holosight.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/holosight/holosight.entity.prefab|1518608834|
-|holosight.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/holosight/holosight.entity.prefab|1518608834|
-|holosight.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/holosight/holosight.entity.prefab|1518608834|
 |holosight.vm.attachment|ProjectileWeaponMod<br>Model<br>IronSightOverride<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/holosight/holosight.vm.attachment.prefab|1968563077|
 |hopperoutput|ResourceExtractorFuelStorage<br>CapsuleCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/quarry/hopperoutput.prefab|875142383|
 |horse|Horse<br>Apex.AI.Components.UtilityAIComponent<br>AI.NavMeshAgent (UE)<br>Spawnable<br>Rust.Ai.AiManagedAgent<br>CapsuleCollider (UE)<br>BaseAnimalNPC<br>BaseNpc<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Apex.ExtendedMonoBehaviour<br>Collider (UE)<br>||assets/rust.ai/agents/horse/horse.prefab|3880446623|
@@ -443,23 +400,6 @@
 |instant_camera.entity|InstantCameraTool<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/instantcamera/instant_camera.entity.prefab|509717370|
 |item_drop|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop.prefab|545786656|
 |item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
-|item_drop_backpack|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|
 |jackhammer.entity|Jackhammer<br>BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/jackhammer/jackhammer.entity.prefab|3537156861|
 |jackolantern.angry|BaseOven<br>GroundWatch<br>DestroyOnGroundMissing<br>EntityFlag_Toggle<br>SphereCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>||assets/prefabs/deployable/jack o lantern/jackolantern.angry.prefab|1889323056|
 |jackolantern.happy|BaseOven<br>GroundWatch<br>DestroyOnGroundMissing<br>EntityFlag_Toggle<br>SphereCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>||assets/prefabs/deployable/jack o lantern/jackolantern.happy.prefab|630866573|
@@ -474,22 +414,6 @@
 |junkpile_water_a|Spawnable<br>JunkPileWater<br>JunkPile<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/junkpile_water/junkpile_water_a.prefab|303596648|
 |junkpile_water_b|Spawnable<br>JunkPileWater<br>JunkPile<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/junkpile_water/junkpile_water_b.prefab|292159419|
 |junkpile_water_c|Spawnable<br>JunkPileWater<br>JunkPile<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/junkpile_water/junkpile_water_c.prefab|1744083475|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
-|keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
 |keycard.entity|Keycard<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/keycard/keycard.entity.prefab|3773357817|
 |keycard_blue_pickup.entity|ItemPickup<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>DroppedItem<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/tools/keycard/keycard_blue_pickup.entity.prefab|675407027|
 |keycard_green_pickup.entity|ItemPickup<br>PhysicsEffects<br>EntityCollisionMessage<br>Rigidbody (UE)<br>DroppedItem<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/prefabs/tools/keycard/keycard_green_pickup.entity.prefab|1317896088|
@@ -524,12 +448,9 @@
 |loot-barrel-2|Spawnable<br>LootContainer<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/bundled/prefabs/autospawn/resource/loot/loot-barrel-2.prefab|555882409|
 |lr300.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/lr300/lr300.entity.prefab|844375121|
 |m249.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/m249/m249.entity.prefab|1440914039|
-|m249.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/m249/m249.entity.prefab|1440914039|
 |m39.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/m39 emr/m39.entity.prefab|1517089664|
 |m92.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/m92/m92.entity.prefab|2293870814|
-|m92.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/m92/m92.entity.prefab|2293870814|
 |mace.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/mace/mace.entity.prefab|2927698044|
-|machete.weapon|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/machete/machete.weapon.prefab|2942508801|
 |machete.weapon|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/machete/machete.weapon.prefab|2942508801|
 |mailbox.deployed|Mailbox<br>GroundWatch<br>DestroyOnGroundMissing<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/deployable/mailbox/mailbox.deployed.prefab|2697131904|
 |maincannonshell|TimedExplosive<br>ServerProjectile<br>CapsuleCollider (UE)<br>EntityCollisionMessage<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>||assets/prefabs/npc/m2bradley/maincannonshell.prefab|3032863244|
@@ -615,11 +536,6 @@
 |orswitch.entity|ORSwitch<br>GroundWatch<br>DestroyOnGroundMissing<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/deployable/playerioents/gates/orswitch/orswitch.entity.prefab|1354328722|
 |paddlingpool.deployed|PaddlingPool<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>MeshCollider (UE)<br>LiquidContainer<br>ContainerIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/summer_dlc/paddling_pool/paddlingpool.deployed.prefab|1462241537|
 |pager.entity|PagerEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/pager/pager.entity.prefab|2918467232|
-|pager.entity|PagerEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/pager/pager.entity.prefab|2918467232|
-|pager.entity|PagerEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/pager/pager.entity.prefab|2918467232|
-|pager.entity|PagerEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/pager/pager.entity.prefab|2918467232|
-|pager.entity|PagerEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/pager/pager.entity.prefab|2918467232|
-|pager.entity|PagerEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/pager/pager.entity.prefab|2918467232|
 |palm_tree_med_a_entity|Spawnable<br>TreeEntity<br>ResourceDispenser<br>MeshCollider (UE)<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>||assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_med_a_entity.prefab|4067962589|
 |palm_tree_med_b_entity|Spawnable<br>TreeEntity<br>ResourceDispenser<br>MeshCollider (UE)<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>||assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_med_b_entity.prefab|2037484919|
 |palm_tree_short_a_entity|Spawnable<br>TreeEntity<br>ResourceDispenser<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/bundled/prefabs/autospawn/resource/v2_arid_forest/palm_tree_short_a_entity.prefab|3038021483|
@@ -635,20 +551,11 @@
 |passengerchair|BaseVehicleSeat<br>MeshCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/passengerchair.prefab|1954020959|
 |patrolhelicopter|BaseHelicopter<br>PatrolHelicopterAI<br>AIHelicopterAnimation<br>Rigidbody (UE)<br>Model<br>MusicChangeIntensity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab|3029415845|
 |photo.entity|PhotoEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/photo/photo.entity.prefab|34183897|
-|photo.entity|PhotoEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/photo/photo.entity.prefab|34183897|
-|photo.entity|PhotoEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/photo/photo.entity.prefab|34183897|
-|photo.entity|PhotoEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/photo/photo.entity.prefab|34183897|
-|photo.entity|PhotoEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/photo/photo.entity.prefab|34183897|
-|photo.entity|PhotoEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/photo/photo.entity.prefab|34183897|
 |photoframe.landscape|PhotoFrame<br>DestroyOnGroundMissing<br>GroundWatch<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/summer_dlc/photoframe/photoframe.landscape.prefab|329573570|
 |photoframe.large|PhotoFrame<br>DestroyOnGroundMissing<br>GroundWatch<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/summer_dlc/photoframe/photoframe.large.prefab|3931119293|
 |photoframe.portrait|PhotoFrame<br>DestroyOnGroundMissing<br>GroundWatch<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/summer_dlc/photoframe/photoframe.portrait.prefab|1814168131|
 |piano.deployed|StaticInstrument<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>InstrumentKeyController<br>InstrumentIKController<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/instruments/piano/piano.deployed.prefab|3691382632|
 |piano.deployed.static|StaticInstrument<br>Model<br>InstrumentKeyController<br>InstrumentIKController<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/bundled/prefabs/static/piano.deployed.static.prefab|3858860623|
-|pickaxe.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/pickaxe/pickaxe.entity.prefab|1587077350|
-|pickaxe.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/pickaxe/pickaxe.entity.prefab|1587077350|
-|pickaxe.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/pickaxe/pickaxe.entity.prefab|1587077350|
-|pickaxe.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/pickaxe/pickaxe.entity.prefab|1587077350|
 |pickaxe.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/pickaxe/pickaxe.entity.prefab|1587077350|
 |pilotseat|BaseVehicleSeat<br>MeshCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/pilotseat.prefab|952100854|
 |pine_a|Spawnable<br>TreeEntity<br>ResourceDispenser<br>CapsuleCollider (UE)<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>||assets/bundled/prefabs/autospawn/resource/v2_temp_forest/pine_a.prefab|4246795770|
@@ -665,7 +572,6 @@
 |pistol_revolver.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/revolver/pistol_revolver.entity.prefab|2477536592|
 |pistol_semiauto.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/semi auto pistol/pistol_semiauto.entity.prefab|563371667|
 |pitchfork.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/halloween/pitchfork/pitchfork.entity.prefab|1009417331|
-|planner|Planner<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/planner/planner.prefab|1435750071|
 |planner|Planner<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/planner/planner.prefab|1435750071|
 |planter.large.deployed|PlanterBox<br>MeshCollider (UE)<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/planters/planter.large.deployed.prefab|1162882237|
 |planter.small.deployed|PlanterBox<br>MeshCollider (UE)<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/planters/planter.small.deployed.prefab|467313155|
@@ -734,26 +640,6 @@
 |rustigeegg_c.deployed|RustigeEgg<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>Model<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/easter/faberge_egg_c/rustigeegg_c.deployed.prefab|2259790452|
 |rustigeegg_d.deployed|RustigeEgg<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>Model<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/misc/easter/faberge_egg_d/rustigeegg_d.deployed.prefab|3394396962|
 |saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
-|saddletest|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/saddletest.prefab|750623658|
 |salvaged_cleaver.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/cleaver big/salvaged_cleaver.entity.prefab|3340056040|
 |salvaged_sword.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/sword/salvaged_sword.entity.prefab|1663991785|
 |sam_ammo|TimedExplosive<br>ServerProjectile<br>CapsuleCollider (UE)<br>EntityCollisionMessage<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>||assets/prefabs/npc/sam_site_turret/sam_ammo.prefab|3414321847|
@@ -795,7 +681,6 @@
 |shutter.metal.embrasure.b|MeshCollider (UE)<br>StabilityEntity<br>ColliderInfo<br>Collider (UE)<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/building/wall.window.embrasure/shutter.metal.embrasure.b.prefab|2780652337|
 |shutter.wood.a|Door<br>Model<br>AI.NavMeshModifierVolume (UE)<br>AnimatedBuildingBlock<br>StabilityEntity<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/building/wall.window.shutter/shutter.wood.a.prefab|2527588322|
 |sickle.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/halloween/sickle/sickle.entity.prefab|124547093|
-|sickle.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/halloween/sickle/sickle.entity.prefab|124547093|
 |sign.hanging|Signage<br>DestroyOnGroundMissing<br>GroundWatch<br>MeshCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/signs/sign.hanging.prefab|550204242|
 |sign.hanging.banner.large|Signage<br>DestroyOnGroundMissing<br>GroundWatch<br>MeshCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/signs/sign.hanging.banner.large.prefab|637495597|
 |sign.hanging.ornate|Signage<br>DestroyOnGroundMissing<br>GroundWatch<br>MeshCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/signs/sign.hanging.ornate.prefab|1283107100|
@@ -813,8 +698,6 @@
 |sign.post.town|Signage<br>DestroyOnGroundMissing<br>GroundWatch<br>MeshCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/signs/sign.post.town.prefab|120534793|
 |sign.post.town.roof|Signage<br>DestroyOnGroundMissing<br>GroundWatch<br>MeshCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/signs/sign.post.town.roof.prefab|4057957010|
 |sign.small.wood|Signage<br>MeshCollider (UE)<br>DestroyOnGroundMissing<br>GroundWatch<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/signs/sign.small.wood.prefab|1447270506|
-|silencer.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/silencers/silencer.entity.prefab|2395313048|
-|silencer.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/silencers/silencer.entity.prefab|2395313048|
 |silencer.entity|ProjectileWeaponMod<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapon mods/silencers/silencer.entity.prefab|2395313048|
 |simplelight|SimpleLight<br>GroundWatch<br>DestroyOnGroundMissing<br>BoxCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/playerioents/lights/simplelight.prefab|1797934483|
 |simplelight|SimpleLight<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/io/electric/lights/simplelight.prefab|1523703314|
@@ -839,7 +722,6 @@
 |smallwaterbottle.entity|BaseLiquidVessel<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/food/small water bottle/smallwaterbottle.entity.prefab|139849256|
 |smartalarm|SmartAlarm<br>GroundWatch<br>DestroyOnGroundMissing<br>BoxCollider (UE)<br>AppIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/playerioents/app/smartalarm/smartalarm.prefab|3788087038|
 |smartswitch|SmartSwitch<br>GroundWatch<br>DestroyOnGroundMissing<br>AppIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/deployable/playerioents/app/smartswitch/smartswitch.prefab|457838080|
-|smg.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/smg/smg.entity.prefab|3759841439|
 |smg.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/smg/smg.entity.prefab|3759841439|
 |smoke_grenade.weapon|GrenadeWeapon<br>ThrownWeapon<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/smoke grenade/smoke_grenade.weapon.prefab|3642747736|
 |snowball.entity|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/xmas/snowball/snowball.entity.prefab|591451995|
@@ -888,17 +770,9 @@
 |swamp_tree_f|Spawnable<br>TreeEntity<br>ResourceDispenser<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>||assets/bundled/prefabs/autospawn/resource/swamp-trees/swamp_tree_f.prefab|2640179016|
 |switch|ElectricSwitch<br>GroundWatch<br>DestroyOnGroundMissing<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/deployable/playerioents/simpleswitch/switch.prefab|2374429146|
 |syringe_medical.entity|MedicalTool<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/medical syringe/syringe_medical.entity.prefab|283937635|
-|syringe_medical.entity|MedicalTool<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/medical syringe/syringe_medical.entity.prefab|283937635|
-|syringe_medical.entity|MedicalTool<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/medical syringe/syringe_medical.entity.prefab|283937635|
-|syringe_medical.entity|MedicalTool<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/medical syringe/syringe_medical.entity.prefab|283937635|
-|syringe_medical.entity|MedicalTool<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/tools/medical syringe/syringe_medical.entity.prefab|283937635|
 |table.deployed|DecorDeployable<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>MeshCollider (UE)<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/table/table.deployed.prefab|2662124780|
 |tambourine.weapon|InstrumentTool<br>InstrumentKeyController<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/instruments/tambourine/tambourine.weapon.prefab|1754256281|
 |teslacoil.deployed|TeslaCoil<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/playerioents/teslacoil/teslacoil.deployed.prefab|60725884|
-|testridablehorse|RidableHorse<br>CapsuleCollider (UE)<br>Rigidbody (UE)<br>Spawnable<br>BaseRidableAnimal<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|saddletest<br>saddletest<br>saddletest<br>saddletest<br>saddletest<br>|assets/rust.ai/nextai/testridablehorse.prefab|2421623959|
-|testridablehorse|RidableHorse<br>CapsuleCollider (UE)<br>Rigidbody (UE)<br>Spawnable<br>BaseRidableAnimal<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|saddletest<br>saddletest<br>saddletest<br>saddletest<br>saddletest<br>|assets/rust.ai/nextai/testridablehorse.prefab|2421623959|
-|testridablehorse|RidableHorse<br>CapsuleCollider (UE)<br>Rigidbody (UE)<br>Spawnable<br>BaseRidableAnimal<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|saddletest<br>saddletest<br>saddletest<br>saddletest<br>saddletest<br>|assets/rust.ai/nextai/testridablehorse.prefab|2421623959|
-|testridablehorse|RidableHorse<br>CapsuleCollider (UE)<br>Rigidbody (UE)<br>Spawnable<br>BaseRidableAnimal<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|saddletest<br>saddletest<br>saddletest<br>saddletest<br>saddletest<br>|assets/rust.ai/nextai/testridablehorse.prefab|2421623959|
 |testridablehorse|RidableHorse<br>CapsuleCollider (UE)<br>Rigidbody (UE)<br>Spawnable<br>BaseRidableAnimal<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|saddletest<br>|assets/rust.ai/nextai/testridablehorse.prefab|2421623959|
 |testseat|BaseMountable<br>MeshCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/vehicle/seats/testseat.prefab|3179168237|
 |thompson.entity|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/thompson/thompson.entity.prefab|3243900999|
@@ -950,8 +824,6 @@
 |waterball|WaterBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/weapons/waterbucket/waterball.prefab|556797242|
 |waterbarrel|LiquidContainer<br>GroundWatch<br>DestroyOnGroundMissing<br>MeshCollider (UE)<br>ContainerIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/deployable/liquidbarrel/waterbarrel.prefab|3746060889|
 |waterbucket.entity|BaseLiquidVessel<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/waterbucket/waterbucket.entity.prefab|1182699531|
-|waterbucket.entity|BaseLiquidVessel<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/waterbucket/waterbucket.entity.prefab|1182699531|
-|waterbucket.entity|BaseLiquidVessel<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/weapons/waterbucket/waterbucket.entity.prefab|1182699531|
 |watergun.entity|Model<br>LiquidWeapon<br>LiquidWeaponEffects<br>BaseLiquidVessel<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/watergun/watergun.entity.prefab|37937194|
 |waterjug.entity|BaseLiquidVessel<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/food/water jug/waterjug.entity.prefab|366999130|
 |waterpistol.entity|LiquidWeapon<br>Model<br>LiquidWeaponEffects<br>BaseLiquidVessel<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/prefabs/misc/summer_dlc/waterpistol/waterpistol.entity.prefab|1502994528|
@@ -981,9 +853,5 @@
 |xylophone.deployed.static|StaticInstrument<br>Model<br>InstrumentKeyController<br>InstrumentIKController<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/bundled/prefabs/static/xylophone.deployed.static.prefab|3224878175|
 |yellow_berry.entity|GrowableEntity<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>||assets/prefabs/plants/berrry/yellow/yellow_berry.entity.prefab|2747504285|
 |zombie|Zombie<br>Apex.AI.Components.UtilityAIComponent<br>AI.NavMeshAgent (UE)<br>Spawnable<br>Rust.Ai.AiManagedAgent<br>CapsuleCollider (UE)<br>BaseAnimalNPC<br>BaseNpc<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Apex.ExtendedMonoBehaviour<br>Collider (UE)<br>||assets/rust.ai/agents/zombie/zombie.prefab|2805320019|
-|zombie.corpse|BaseCorpse<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/rust.ai/agents/zombie/zombie.corpse.prefab|81333250|
-|zombie.corpse|BaseCorpse<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/rust.ai/agents/zombie/zombie.corpse.prefab|81333250|
-|zombie.corpse|BaseCorpse<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/rust.ai/agents/zombie/zombie.corpse.prefab|81333250|
-|zombie.corpse|BaseCorpse<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/rust.ai/agents/zombie/zombie.corpse.prefab|81333250|
 |zombie.corpse|BaseCorpse<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>||assets/rust.ai/agents/zombie/zombie.corpse.prefab|81333250|
 
