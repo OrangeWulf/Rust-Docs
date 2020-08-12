@@ -1,7 +1,9 @@
 # Effects
 
 |Full name|
-|:-|
+|:-:|
+|assets/bundled/prefabs/autospawn/clutter/v2_misc_wavesounds/wave-sound-emitter.prefab|
+|assets/bundled/prefabs/autospawn/decor/riversound/river-sound-emitter.prefab|
 |assets/bundled/prefabs/fx/animals/flies/flies_large.prefab|
 |assets/bundled/prefabs/fx/animals/flies/flies_looping.prefab|
 |assets/bundled/prefabs/fx/animals/flies/flies_medium.prefab|
@@ -17,6 +19,8 @@
 |assets/bundled/prefabs/fx/build/repair.prefab|
 |assets/bundled/prefabs/fx/build/repair_failed.prefab|
 |assets/bundled/prefabs/fx/build/repair_full.prefab|
+|assets/bundled/prefabs/fx/build/repair_full_metal.prefab|
+|assets/bundled/prefabs/fx/build/repair_metal.prefab|
 |assets/bundled/prefabs/fx/building/fort_metal_gib.prefab|
 |assets/bundled/prefabs/fx/building/metal_sheet_gib.prefab|
 |assets/bundled/prefabs/fx/building/stone_gib.prefab|
@@ -139,6 +143,7 @@
 |assets/bundled/prefabs/fx/gestures/cameratakescreenshot.prefab|
 |assets/bundled/prefabs/fx/gestures/cut_meat.prefab|
 |assets/bundled/prefabs/fx/gestures/drink_generic.prefab|
+|assets/bundled/prefabs/fx/gestures/drink_tea.prefab|
 |assets/bundled/prefabs/fx/gestures/drink_vomit.prefab|
 |assets/bundled/prefabs/fx/gestures/eat_candybar.prefab|
 |assets/bundled/prefabs/fx/gestures/eat_celery.prefab|
@@ -544,8 +549,31 @@
 |assets/bundled/prefabs/fx/weapons/survey_charge/survey_charge_stick.prefab|
 |assets/bundled/prefabs/fx/well/pump_down.prefab|
 |assets/bundled/prefabs/fx/well/pump_up.prefab|
+|assets/bundled/prefabs/system/sound_manager.prefab|
 |assets/content/effects/candle.prefab|
+|assets/content/effects/cars/pfx_car_collision.prefab|
+|assets/content/effects/cars/pfx_car_damage_light.prefab|
+|assets/content/effects/cars/pfx_car_damage_medium.prefab|
+|assets/content/effects/cars/pfx_car_damage_severe.prefab|
+|assets/content/effects/cars/pfx_car_destroyed.prefab|
+|assets/content/effects/cars/pfx_car_exhaust.prefab|
+|assets/content/effects/cars/pfx_wheel_spin_asphalt.prefab|
+|assets/content/effects/cars/pfx_wheel_spin_dirt.prefab|
+|assets/content/effects/cars/pfx_wheel_spin_sand.prefab|
+|assets/content/effects/cars/pfx_wheel_spin_snow.prefab|
+|assets/content/effects/cars/pfx_wheel_trail_dirt.prefab|
+|assets/content/effects/cars/pfx_wheel_trail_sand.prefab|
+|assets/content/effects/cars/pfx_wheel_trail_snow.prefab|
+|assets/content/effects/cars/pfx_wheel_trail_water.prefab|
+|assets/content/effects/crossbreed/pfx crossbreed blue.prefab|
+|assets/content/effects/crossbreed/pfx crossbreed plain.prefab|
+|assets/content/effects/crossbreed/pfx crossbreed yellow.prefab|
 |assets/content/effects/electrical/fx-fusebox-sparks.prefab|
+|assets/content/effects/explosions/explosion/prefebs/explosion_3.prefab|
+|assets/content/effects/explosions/explosion/prefebs/explosion_6.prefab|
+|assets/content/effects/explosions/explosion/prefebs/explosion_7.prefab|
+|assets/content/effects/explosions/explosion/prefebs/explosion_8.prefab|
+|assets/content/effects/explosions/tests/fire/pfx_campfire.prefab|
 |assets/content/effects/fireworks/pfx fireworks boomer blue v2.prefab|
 |assets/content/effects/fireworks/pfx fireworks boomer golden xl v2.prefab|
 |assets/content/effects/fireworks/pfx fireworks boomer green v2.prefab|
@@ -560,6 +588,7 @@
 |assets/content/effects/fireworks/pfx roman candle projectile green.prefab|
 |assets/content/effects/fireworks/pfx roman candle projectile red.prefab|
 |assets/content/effects/fireworks/pfx roman candle projectile violet.prefab|
+|assets/content/effects/liquid/pfx_sprinkler.prefab|
 |assets/content/effects/materials/fog/fog_wall.prefab|
 |assets/content/effects/materials/fog/height_fog.prefab|
 |assets/content/effects/mountainfume/mountainfog.prefab|
@@ -625,6 +654,49 @@
 |assets/content/props/light_fixtures/v2/radtown work prefabs/lighthousefx-ph.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/small oil rig fx.prefab|
+|assets/content/sound/ambience/baseambienceemitter.prefab|
+|assets/content/sound/ambience/lifeambienceemitter.prefab|
+|assets/content/sound/ambience/rainambienceemitter.prefab|
+|assets/content/sound/ambience/rain-surface-ambience-settings.prefab|
+|assets/content/sound/oilrig/oilriglargeaudio.prefab|
+|assets/content/sound/oilrig/oilrigsmallaudio.prefab|
+|assets/content/sound/templates/ambience.sound-template.prefab|
+|assets/content/sound/templates/bullet-flyby.prefab|
+|assets/content/sound/templates/dangerous-npc-footstep.prefab|
+|assets/content/sound/templates/dangerous-vehicle-engine.prefab|
+|assets/content/sound/templates/default.prefab|
+|assets/content/sound/templates/default-important.prefab|
+|assets/content/sound/templates/event.prefab|
+|assets/content/sound/templates/event-distance.prefab|
+|assets/content/sound/templates/event-small.prefab|
+|assets/content/sound/templates/explosion.prefab|
+|assets/content/sound/templates/explosion-debris.prefab|
+|assets/content/sound/templates/footstep-hard.sound-template.prefab|
+|assets/content/sound/templates/footstep-light.sound-template.prefab|
+|assets/content/sound/templates/footstep-med.sound-template.prefab|
+|assets/content/sound/templates/gunshot.prefab|
+|assets/content/sound/templates/instrument-longrange.prefab|
+|assets/content/sound/templates/instrument-shortrange.prefab|
+|assets/content/sound/templates/large-local-ambience.prefab|
+|assets/content/sound/templates/large-sound.prefab|
+|assets/content/sound/templates/large-sound-fast-falloff.prefab|
+|assets/content/sound/templates/medium-large-sound.prefab|
+|assets/content/sound/templates/medium-large-sound-distance.prefab|
+|assets/content/sound/templates/medium-local-ambience.prefab|
+|assets/content/sound/templates/medium-sound.prefab|
+|assets/content/sound/templates/projectile-flight.prefab|
+|assets/content/sound/templates/projectile-flight-large.prefab|
+|assets/content/sound/templates/projectile-flight-powered.prefab|
+|assets/content/sound/templates/really-tiny-sound.prefab|
+|assets/content/sound/templates/small_explosion.prefab|
+|assets/content/sound/templates/small-local-ambience.prefab|
+|assets/content/sound/templates/small-sound.prefab|
+|assets/content/sound/templates/small-spread-sound.prefab|
+|assets/content/sound/templates/surface-ambience.prefab|
+|assets/content/sound/templates/tiny-local-ambience.prefab|
+|assets/content/sound/templates/tiny-sound.prefab|
+|assets/content/sound/templates/ui-sound.prefab|
+|assets/content/sound/templates/ultra-tiny-sound.prefab|
 |assets/content/structures/excavator/prefabs/effects/enginerumble.prefab|
 |assets/content/structures/excavator/prefabs/effects/rockvibration.prefab|
 |assets/content/vehicles/boats/effects/small-boat-push-land.prefab|
@@ -632,6 +704,9 @@
 |assets/content/vehicles/boats/effects/splash.prefab|
 |assets/content/vehicles/boats/effects/splashloop.prefab|
 |assets/content/vehicles/minicopter/debris_effect.prefab|
+|assets/content/vehicles/modularcar/carcollisioneffect.prefab|
+|assets/content/vehicles/modularcar/effects/wheel-impact.prefab|
+|assets/content/vehicles/modularcar/sound/modular-car-engine-test-nice-setup.prefab|
 |assets/content/vehicles/scrap heli carrier/effects/debris_effect.prefab|
 |assets/content/vehicles/scrap heli carrier/effects/wheel-impact.prefab|
 |assets/content/weapons/_gestures/effects/drink.prefab|
@@ -698,15 +773,16 @@
 |assets/prefabs/building/wall.window.bars/effects/window-bars-wood-deploy.prefab|
 |assets/prefabs/building/wall.window.embrasure/effects/window-embrasure-deploy.prefab|
 |assets/prefabs/building/wall.window.reinforcedglass/effects/reinforced-glass-window-deploy.prefab|
-|assets/prefabs/building/wall.window.shutter/effects/shutter-wood-deploy.prefab|
 |assets/prefabs/building/wall.window.shutter/effects/shutters-wood-close-end.prefab|
 |assets/prefabs/building/wall.window.shutter/effects/shutters-wood-close-start.prefab|
 |assets/prefabs/building/wall.window.shutter/effects/shutters-wood-open-end.prefab|
 |assets/prefabs/building/wall.window.shutter/effects/shutters-wood-open-start.prefab|
+|assets/prefabs/building/wall.window.shutter/effects/shutter-wood-deploy.prefab|
 |assets/prefabs/clothes/diving.tank/effects/exhale_bubbles.prefab|
 |assets/prefabs/clothes/diving.tank/effects/scuba_exhale.prefab|
 |assets/prefabs/clothes/diving.tank/effects/scuba_inhale.prefab|
 |assets/prefabs/clothes/diving.tank/effects/tank_refill.prefab|
+|assets/prefabs/clothes/night.vision.goggles/sound/battery_change.prefab|
 |assets/prefabs/deployable/barricades/effects/barricade-concrete-deploy.prefab|
 |assets/prefabs/deployable/barricades/effects/barricade-metal-deploy.prefab|
 |assets/prefabs/deployable/barricades/effects/barricade-sandbags-deploy.prefab|
@@ -732,7 +808,11 @@
 |assets/prefabs/deployable/liquidbarrel/effects/splashloop.prefab|
 |assets/prefabs/deployable/liquidbarrel/effects/taploop.prefab|
 |assets/prefabs/deployable/locker/effects/locker-deploy.prefab|
+|assets/prefabs/deployable/locker/sound/equip_zipper.prefab|
 |assets/prefabs/deployable/mailbox/effects/mailbox-deploy.prefab|
+|assets/prefabs/deployable/mixingtable/effects/mixingtable.enabled.vfx.prefab|
+|assets/prefabs/deployable/mixingtable/effects/mixing-table-deploy.prefab|
+|assets/prefabs/deployable/modular car lift/effects/modular-car-lift-deploy.prefab|
 |assets/prefabs/deployable/oil refinery/effects/oil-refinery-deploy.prefab|
 |assets/prefabs/deployable/planters/effects/planter-deploy.prefab|
 |assets/prefabs/deployable/playerioents/detectors/hbhfsensor/effects/detect_down.prefab|
@@ -765,8 +845,8 @@
 |assets/prefabs/deployable/sleeping bag/effects/sleeping-bag-deploy.prefab|
 |assets/prefabs/deployable/small stash/effects/small-stash-deploy.prefab|
 |assets/prefabs/deployable/spinner_wheel/effects/spinner-wheel-deploy.prefab|
-|assets/prefabs/deployable/survivalfishtrap/effects/fish-trap-deploy.prefab|
 |assets/prefabs/deployable/survivalfishtrap/effects/fish_caught.prefab|
+|assets/prefabs/deployable/survivalfishtrap/effects/fish-trap-deploy.prefab|
 |assets/prefabs/deployable/table/effects/table-deploy.prefab|
 |assets/prefabs/deployable/tier 1 workbench/effects/experiment-start.prefab|
 |assets/prefabs/deployable/tier 1 workbench/effects/workbench-tier-1-deploy.prefab|
@@ -797,32 +877,33 @@
 |assets/prefabs/food/bota bag/effects/bota-bag-fill-container.prefab|
 |assets/prefabs/food/bota bag/effects/bota-bag-fill-world.prefab|
 |assets/prefabs/food/bota bag/effects/bota-bag-remove-cap.prefab|
-|assets/prefabs/food/bota bag/effects/bota-bag-slosh-fast.prefab|
 |assets/prefabs/food/bota bag/effects/bota-bag-slosh.prefab|
+|assets/prefabs/food/bota bag/effects/bota-bag-slosh-fast.prefab|
 |assets/prefabs/food/small water bottle/effects/water-bottle-deploy.prefab|
 |assets/prefabs/food/small water bottle/effects/water-bottle-fill-container.prefab|
 |assets/prefabs/food/small water bottle/effects/water-bottle-fill-world.prefab|
 |assets/prefabs/food/small water bottle/effects/water-bottle-remove-cap.prefab|
-|assets/prefabs/food/small water bottle/effects/water-bottle-slosh-fast.prefab|
 |assets/prefabs/food/small water bottle/effects/water-bottle-slosh.prefab|
+|assets/prefabs/food/small water bottle/effects/water-bottle-slosh-fast.prefab|
+|assets/prefabs/food/water jug/effects/waterjug_splash.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-deploy.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-fill-container.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-fill-world.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-open-cap.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-throw-water.prefab|
-|assets/prefabs/food/water jug/effects/waterjug_splash.prefab|
 |assets/prefabs/instruments/bass/effects/guitardeploy.prefab|
 |assets/prefabs/instruments/drumkit/effects/drumkit-deploy.prefab|
 |assets/prefabs/instruments/guitar/effects/guitardeploy.prefab|
 |assets/prefabs/instruments/jerrycanguitar/effects/guitardeploy.prefab|
 |assets/prefabs/instruments/piano/effects/piano-deploy.prefab|
 |assets/prefabs/instruments/xylophone/effects/xylophone-deploy.prefab|
-|assets/prefabs/locks/keypad/effects/lock-code-deploy.prefab|
+|assets/prefabs/io/electric/other/alarmsound.prefab|
 |assets/prefabs/locks/keypad/effects/lock.code.denied.prefab|
 |assets/prefabs/locks/keypad/effects/lock.code.lock.prefab|
 |assets/prefabs/locks/keypad/effects/lock.code.shock.prefab|
 |assets/prefabs/locks/keypad/effects/lock.code.unlock.prefab|
 |assets/prefabs/locks/keypad/effects/lock.code.updated.prefab|
+|assets/prefabs/locks/keypad/effects/lock-code-deploy.prefab|
 |assets/prefabs/misc/blueprintbase/effects/blueprint_read.prefab|
 |assets/prefabs/misc/burlap sack/effects/phys-impact-hard.prefab|
 |assets/prefabs/misc/burlap sack/effects/phys-impact-med.prefab|
@@ -868,6 +949,36 @@
 |assets/prefabs/misc/orebonus/effects/bonus_hit.prefab|
 |assets/prefabs/misc/orebonus/effects/hotspot_death.prefab|
 |assets/prefabs/misc/orebonus/effects/ore_finish.prefab|
+|assets/prefabs/misc/orebonus/sound/bonussound.prefab|
+|assets/prefabs/misc/summer_dlc/abovegroundpool/effects/above-ground-pool-deploy.prefab|
+|assets/prefabs/misc/summer_dlc/beach_chair/effects/beach-chair-deploy.prefab|
+|assets/prefabs/misc/summer_dlc/beach_chair/effects/beach-parasol-deploy.prefab|
+|assets/prefabs/misc/summer_dlc/beach_towel/effects/beach-towel-deploy.prefab|
+|assets/prefabs/misc/summer_dlc/boogie_board/effects/boogie-board-deploy.prefab|
+|assets/prefabs/misc/summer_dlc/boogie_board/effects/boogie-board-paddle.prefab|
+|assets/prefabs/misc/summer_dlc/boogie_board/effects/boogie-board-paddle-feet.prefab|
+|assets/prefabs/misc/summer_dlc/boogie_board/effects/pfx_boogieboard_base.prefab|
+|assets/prefabs/misc/summer_dlc/boogie_board/effects/pfx_boogieboard_death.prefab|
+|assets/prefabs/misc/summer_dlc/inner_tube/effects/inner-tube-deploy.prefab|
+|assets/prefabs/misc/summer_dlc/inner_tube/effects/pfx_innertube_base.prefab|
+|assets/prefabs/misc/summer_dlc/inner_tube/effects/pfx_innertube_death.prefab|
+|assets/prefabs/misc/summer_dlc/inner_tube/effects/pfx_water_stroke_backward.prefab|
+|assets/prefabs/misc/summer_dlc/inner_tube/effects/pfx_water_stroke_forward.prefab|
+|assets/prefabs/misc/summer_dlc/inner_tube/effects/pfx_water_stroke_kick.prefab|
+|assets/prefabs/misc/summer_dlc/paddling_pool/effects/destroyed_splash.prefab|
+|assets/prefabs/misc/summer_dlc/paddling_pool/effects/paddling-pool-deploy.prefab|
+|assets/prefabs/misc/summer_dlc/paddling_pool/effects/pfx_paddlingpool_death.prefab|
+|assets/prefabs/misc/summer_dlc/watergun/effects/pfx_watergun_spray.prefab|
+|assets/prefabs/misc/summer_dlc/watergun/effects/pfx_watergun_spray_final.prefab|
+|assets/prefabs/misc/summer_dlc/watergun/effects/pfx_watergun_spray_final_max.prefab|
+|assets/prefabs/misc/summer_dlc/watergun/effects/pfx_watergun_spray_final_min.prefab|
+|assets/prefabs/misc/summer_dlc/watergun/effects/pfx_watergun_spray_ideal.prefab|
+|assets/prefabs/misc/summer_dlc/watergun/effects/watergun-fill-container.prefab|
+|assets/prefabs/misc/summer_dlc/watergun/effects/watergun-fill-world.prefab|
+|assets/prefabs/misc/summer_dlc/watergun/effects/watergun-impact.prefab|
+|assets/prefabs/misc/summer_dlc/waterpistol/effects/pfx_waterpistol_spray.prefab|
+|assets/prefabs/misc/summer_dlc/waterpistol/effects/waterpistol-fill-container.prefab|
+|assets/prefabs/misc/summer_dlc/waterpistol/effects/waterpistol-fill-world.prefab|
 |assets/prefabs/misc/xmas/candy cane club/effects/attack-1.prefab|
 |assets/prefabs/misc/xmas/candy cane club/effects/attack-2.prefab|
 |assets/prefabs/misc/xmas/candy cane club/effects/deploy.prefab|
@@ -885,12 +996,15 @@
 |assets/prefabs/npc/autoturret/effects/autoturret-deploy.prefab|
 |assets/prefabs/npc/autoturret/effects/offline.prefab|
 |assets/prefabs/npc/autoturret/effects/online.prefab|
+|assets/prefabs/npc/autoturret/effects/reload.prefab|
 |assets/prefabs/npc/autoturret/effects/targetacquired.prefab|
 |assets/prefabs/npc/autoturret/effects/targetlost.prefab|
+|assets/prefabs/npc/bear/sound/breathe.prefab|
+|assets/prefabs/npc/bear/sound/death.prefab|
 |assets/prefabs/npc/ch47/effects/crashfire.prefab|
+|assets/prefabs/npc/ch47/effects/metaldebris.prefab|
 |assets/prefabs/npc/ch47/effects/metaldebris-2.prefab|
 |assets/prefabs/npc/ch47/effects/metaldebris-3.prefab|
-|assets/prefabs/npc/ch47/effects/metaldebris.prefab|
 |assets/prefabs/npc/ch47/effects/watergroundeffect.prefab|
 |assets/prefabs/npc/flame turret/effects/flameturret-deploy.prefab|
 |assets/prefabs/npc/m2bradley/effects/bradley_explosion.prefab|
@@ -900,6 +1014,8 @@
 |assets/prefabs/npc/m2bradley/effects/sidegun_muzzleflash.prefab|
 |assets/prefabs/npc/m2bradley/effects/tread_dirt.prefab|
 |assets/prefabs/npc/m2bradley/effects/tread_smoke.prefab|
+|assets/prefabs/npc/murderer/sound/breathing.prefab|
+|assets/prefabs/npc/murderer/sound/death.prefab|
 |assets/prefabs/npc/patrol helicopter/damage_effect_debris.prefab|
 |assets/prefabs/npc/patrol helicopter/effects/gun_fire.prefab|
 |assets/prefabs/npc/patrol helicopter/effects/gun_fire_small.prefab|
@@ -912,9 +1028,18 @@
 |assets/prefabs/npc/sam_site_turret/effects/rocket_sam_explosion.prefab|
 |assets/prefabs/npc/sam_site_turret/effects/sam_damage.prefab|
 |assets/prefabs/npc/sam_site_turret/effects/tube_launch.prefab|
+|assets/prefabs/npc/scientist/sound/aggro.prefab|
+|assets/prefabs/npc/scientist/sound/chatter.prefab|
+|assets/prefabs/npc/scientist/sound/death.prefab|
+|assets/prefabs/npc/scientist/sound/fleeexplosive.prefab|
+|assets/prefabs/npc/scientist/sound/reload.prefab|
+|assets/prefabs/npc/scientist/sound/responddeath.prefab|
+|assets/prefabs/npc/scientist/sound/respondok.prefab|
+|assets/prefabs/npc/scientist/sound/takecover.prefab|
 |assets/prefabs/plants/plantharvest.effect.prefab|
 |assets/prefabs/plants/plantseed.effect.prefab|
 |assets/prefabs/tools/binoculars/effects/deploy.prefab|
+|assets/prefabs/tools/binoculars/sound/fovchange.prefab|
 |assets/prefabs/tools/c4/effects/c4_explosion.prefab|
 |assets/prefabs/tools/c4/effects/c4_stick.prefab|
 |assets/prefabs/tools/c4/effects/deploy.prefab|
@@ -930,6 +1055,7 @@
 |assets/prefabs/tools/flashlight/effects/attack_hit.prefab|
 |assets/prefabs/tools/flashlight/effects/deploy.prefab|
 |assets/prefabs/tools/flashlight/effects/turn_on.prefab|
+|assets/prefabs/tools/hose/effects/waterplugeffect.prefab|
 |assets/prefabs/tools/jackhammer/effects/deploy.prefab|
 |assets/prefabs/tools/jackhammer/effects/strike_screenshake.prefab|
 |assets/prefabs/tools/keycard/effects/attack.prefab|
@@ -972,15 +1098,15 @@
 |assets/prefabs/weapons/ak47u/effects/w_drop_magazine.prefab|
 |assets/prefabs/weapons/ak47u/effects/w_eject_rifle_shell.prefab|
 |assets/prefabs/weapons/arms/effects/drop_item.prefab|
-|assets/prefabs/weapons/arms/effects/hook-1.prefab|
-|assets/prefabs/weapons/arms/effects/hook-2.prefab|
 |assets/prefabs/weapons/arms/effects/hook_hit-1.prefab|
 |assets/prefabs/weapons/arms/effects/hook_hit-2.prefab|
+|assets/prefabs/weapons/arms/effects/hook-1.prefab|
+|assets/prefabs/weapons/arms/effects/hook-2.prefab|
+|assets/prefabs/weapons/arms/effects/jab_hit-1.prefab|
+|assets/prefabs/weapons/arms/effects/jab_hit-2.prefab|
 |assets/prefabs/weapons/arms/effects/jab-1.prefab|
 |assets/prefabs/weapons/arms/effects/jab-2.prefab|
 |assets/prefabs/weapons/arms/effects/jab-3.prefab|
-|assets/prefabs/weapons/arms/effects/jab_hit-1.prefab|
-|assets/prefabs/weapons/arms/effects/jab_hit-2.prefab|
 |assets/prefabs/weapons/arms/effects/pickup_item.prefab|
 |assets/prefabs/weapons/arms/effects/shove.prefab|
 |assets/prefabs/weapons/arms/effects/uppercut.prefab|
@@ -1017,9 +1143,9 @@
 |assets/prefabs/weapons/bone knife/effects/deploy.prefab|
 |assets/prefabs/weapons/bone knife/effects/hit.prefab|
 |assets/prefabs/weapons/bone knife/effects/holster.prefab|
-|assets/prefabs/weapons/bone knife/effects/strike-soft.prefab|
 |assets/prefabs/weapons/bone knife/effects/strike.prefab|
 |assets/prefabs/weapons/bone knife/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/bone knife/effects/strike-soft.prefab|
 |assets/prefabs/weapons/bone knife/effects/throw.prefab|
 |assets/prefabs/weapons/bow/effects/attack.prefab|
 |assets/prefabs/weapons/bow/effects/deploy.prefab|
@@ -1042,8 +1168,8 @@
 |assets/prefabs/weapons/cleaver big/effects/attack-2.prefab|
 |assets/prefabs/weapons/cleaver big/effects/attack-3.prefab|
 |assets/prefabs/weapons/cleaver big/effects/deploy.prefab|
-|assets/prefabs/weapons/cleaver big/effects/hit-soft.prefab|
 |assets/prefabs/weapons/cleaver big/effects/hit.prefab|
+|assets/prefabs/weapons/cleaver big/effects/hit-soft.prefab|
 |assets/prefabs/weapons/cleaver big/effects/throw.prefab|
 |assets/prefabs/weapons/compound bow/effects/attack.prefab|
 |assets/prefabs/weapons/compound bow/effects/deploy.prefab|
@@ -1092,9 +1218,9 @@
 |assets/prefabs/weapons/flamethrower/effects/flame_explosion_dist 1.prefab|
 |assets/prefabs/weapons/flamethrower/effects/flame_explosion_dist.prefab|
 |assets/prefabs/weapons/flamethrower/effects/flametest.prefab|
+|assets/prefabs/weapons/flamethrower/effects/flamethrowerflamefx-v2.prefab|
 |assets/prefabs/weapons/flamethrower/effects/flamethrowerflamefx-v2-1stperson.prefab|
 |assets/prefabs/weapons/flamethrower/effects/flamethrowerflamefx-v2-1stperson2.prefab|
-|assets/prefabs/weapons/flamethrower/effects/flamethrowerflamefx-v2.prefab|
 |assets/prefabs/weapons/flamethrower/effects/gas_release.prefab|
 |assets/prefabs/weapons/flamethrower/effects/gascan_in.prefab|
 |assets/prefabs/weapons/flamethrower/effects/gascan_out.prefab|
@@ -1115,9 +1241,9 @@
 |assets/prefabs/weapons/halloween/butcher knife/effects/deploy.prefab|
 |assets/prefabs/weapons/halloween/butcher knife/effects/hit.prefab|
 |assets/prefabs/weapons/halloween/butcher knife/effects/holster.prefab|
-|assets/prefabs/weapons/halloween/butcher knife/effects/strike-soft.prefab|
 |assets/prefabs/weapons/halloween/butcher knife/effects/strike.prefab|
 |assets/prefabs/weapons/halloween/butcher knife/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/halloween/butcher knife/effects/strike-soft.prefab|
 |assets/prefabs/weapons/halloween/butcher knife/effects/throw.prefab|
 |assets/prefabs/weapons/halloween/pitchfork/effects/2hand_deploy.prefab|
 |assets/prefabs/weapons/halloween/pitchfork/effects/attack.prefab|
@@ -1125,16 +1251,16 @@
 |assets/prefabs/weapons/halloween/pitchfork/effects/holster.prefab|
 |assets/prefabs/weapons/halloween/pitchfork/effects/pull_out.prefab|
 |assets/prefabs/weapons/halloween/pitchfork/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/halloween/pitchfork/effects/strike_stone.prefab|
 |assets/prefabs/weapons/halloween/pitchfork/effects/strike_stone-muted.prefab|
 |assets/prefabs/weapons/halloween/pitchfork/effects/strike_stone-soft.prefab|
-|assets/prefabs/weapons/halloween/pitchfork/effects/strike_stone.prefab|
 |assets/prefabs/weapons/halloween/pitchfork/effects/throw.prefab|
 |assets/prefabs/weapons/halloween/sickle/effects/attack_shake.prefab|
 |assets/prefabs/weapons/halloween/sickle/effects/deploy.prefab|
-|assets/prefabs/weapons/halloween/sickle/effects/strike-muted.prefab|
-|assets/prefabs/weapons/halloween/sickle/effects/strike-soft.prefab|
 |assets/prefabs/weapons/halloween/sickle/effects/strike.prefab|
 |assets/prefabs/weapons/halloween/sickle/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/strike-muted.prefab|
+|assets/prefabs/weapons/halloween/sickle/effects/strike-soft.prefab|
 |assets/prefabs/weapons/halloween/sickle/effects/swing.prefab|
 |assets/prefabs/weapons/halloween/sickle/effects/throw.prefab|
 |assets/prefabs/weapons/hammer/effects/attack.prefab|
@@ -1145,10 +1271,10 @@
 |assets/prefabs/weapons/hammer/effects/throw.prefab|
 |assets/prefabs/weapons/hatchet/effects/attack_shake.prefab|
 |assets/prefabs/weapons/hatchet/effects/deploy.prefab|
-|assets/prefabs/weapons/hatchet/effects/strike-muted.prefab|
-|assets/prefabs/weapons/hatchet/effects/strike-soft.prefab|
 |assets/prefabs/weapons/hatchet/effects/strike.prefab|
 |assets/prefabs/weapons/hatchet/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/hatchet/effects/strike-muted.prefab|
+|assets/prefabs/weapons/hatchet/effects/strike-soft.prefab|
 |assets/prefabs/weapons/hatchet/effects/swing.prefab|
 |assets/prefabs/weapons/hatchet/effects/throw.prefab|
 |assets/prefabs/weapons/knife/effects/attack-1.prefab|
@@ -1156,9 +1282,9 @@
 |assets/prefabs/weapons/knife/effects/deploy.prefab|
 |assets/prefabs/weapons/knife/effects/hit.prefab|
 |assets/prefabs/weapons/knife/effects/holster.prefab|
-|assets/prefabs/weapons/knife/effects/strike-soft.prefab|
 |assets/prefabs/weapons/knife/effects/strike.prefab|
 |assets/prefabs/weapons/knife/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/knife/effects/strike-soft.prefab|
 |assets/prefabs/weapons/knife/effects/throw.prefab|
 |assets/prefabs/weapons/l96/effects/attack.prefab|
 |assets/prefabs/weapons/l96/effects/attack_muzzlebrake.prefab|
@@ -1256,9 +1382,9 @@
 |assets/prefabs/weapons/machete/effects/attack-2.prefab|
 |assets/prefabs/weapons/machete/effects/attack-3.prefab|
 |assets/prefabs/weapons/machete/effects/deploy.prefab|
+|assets/prefabs/weapons/machete/effects/hit.prefab|
 |assets/prefabs/weapons/machete/effects/hit-muted.prefab|
 |assets/prefabs/weapons/machete/effects/hit-soft.prefab|
-|assets/prefabs/weapons/machete/effects/hit.prefab|
 |assets/prefabs/weapons/machete/effects/swing_thirdperson.prefab|
 |assets/prefabs/weapons/machete/effects/throw.prefab|
 |assets/prefabs/weapons/mp5/effects/attack.prefab|
@@ -1286,10 +1412,10 @@
 |assets/prefabs/weapons/nailgun/effects/deploy.prefab|
 |assets/prefabs/weapons/pickaxe/effects/attack.prefab|
 |assets/prefabs/weapons/pickaxe/effects/deploy.prefab|
-|assets/prefabs/weapons/pickaxe/effects/strike-muted.prefab|
-|assets/prefabs/weapons/pickaxe/effects/strike-soft.prefab|
 |assets/prefabs/weapons/pickaxe/effects/strike.prefab|
 |assets/prefabs/weapons/pickaxe/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/pickaxe/effects/strike-muted.prefab|
+|assets/prefabs/weapons/pickaxe/effects/strike-soft.prefab|
 |assets/prefabs/weapons/pickaxe/effects/throw.prefab|
 |assets/prefabs/weapons/pipe shotgun/effects/attack.prefab|
 |assets/prefabs/weapons/pipe shotgun/effects/attack_shake.prefab|
@@ -1352,10 +1478,10 @@
 |assets/prefabs/weapons/salvaged_axe/effects/attack2.prefab|
 |assets/prefabs/weapons/salvaged_axe/effects/deploy.prefab|
 |assets/prefabs/weapons/salvaged_axe/effects/holster.prefab|
-|assets/prefabs/weapons/salvaged_axe/effects/strike-muted.prefab|
-|assets/prefabs/weapons/salvaged_axe/effects/strike-soft.prefab|
 |assets/prefabs/weapons/salvaged_axe/effects/strike.prefab|
 |assets/prefabs/weapons/salvaged_axe/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/salvaged_axe/effects/strike-muted.prefab|
+|assets/prefabs/weapons/salvaged_axe/effects/strike-soft.prefab|
 |assets/prefabs/weapons/salvaged_axe/effects/tap.prefab|
 |assets/prefabs/weapons/salvaged_axe/effects/throw.prefab|
 |assets/prefabs/weapons/salvaged_hammer/effects/attack1.prefab|
@@ -1368,10 +1494,10 @@
 |assets/prefabs/weapons/salvaged_icepick/effects/attack.prefab|
 |assets/prefabs/weapons/salvaged_icepick/effects/deploy.prefab|
 |assets/prefabs/weapons/salvaged_icepick/effects/holster.prefab|
-|assets/prefabs/weapons/salvaged_icepick/effects/strike-muted.prefab|
-|assets/prefabs/weapons/salvaged_icepick/effects/strike-soft.prefab|
 |assets/prefabs/weapons/salvaged_icepick/effects/strike.prefab|
 |assets/prefabs/weapons/salvaged_icepick/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/salvaged_icepick/effects/strike-muted.prefab|
+|assets/prefabs/weapons/salvaged_icepick/effects/strike-soft.prefab|
 |assets/prefabs/weapons/salvaged_icepick/effects/tap.prefab|
 |assets/prefabs/weapons/salvaged_icepick/effects/throw.prefab|
 |assets/prefabs/weapons/satchelcharge/effects/deploy.prefab|
@@ -1451,18 +1577,18 @@
 |assets/prefabs/weapons/spas12/effects/w_eject_shotgun_shell.prefab|
 |assets/prefabs/weapons/stone hatchet/effects/attack_shake.prefab|
 |assets/prefabs/weapons/stone hatchet/effects/deploy.prefab|
-|assets/prefabs/weapons/stone hatchet/effects/strike-muted.prefab|
-|assets/prefabs/weapons/stone hatchet/effects/strike-soft.prefab|
 |assets/prefabs/weapons/stone hatchet/effects/strike.prefab|
 |assets/prefabs/weapons/stone hatchet/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/stone hatchet/effects/strike-muted.prefab|
+|assets/prefabs/weapons/stone hatchet/effects/strike-soft.prefab|
 |assets/prefabs/weapons/stone hatchet/effects/swing.prefab|
 |assets/prefabs/weapons/stone hatchet/effects/throw.prefab|
 |assets/prefabs/weapons/stone pickaxe/effects/attack.prefab|
 |assets/prefabs/weapons/stone pickaxe/effects/deploy.prefab|
-|assets/prefabs/weapons/stone pickaxe/effects/strike-muted.prefab|
-|assets/prefabs/weapons/stone pickaxe/effects/strike-soft.prefab|
 |assets/prefabs/weapons/stone pickaxe/effects/strike.prefab|
 |assets/prefabs/weapons/stone pickaxe/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/stone pickaxe/effects/strike-muted.prefab|
+|assets/prefabs/weapons/stone pickaxe/effects/strike-soft.prefab|
 |assets/prefabs/weapons/stone pickaxe/effects/swing.prefab|
 |assets/prefabs/weapons/stone pickaxe/effects/throw.prefab|
 |assets/prefabs/weapons/stone spear/effects/2hand_deploy.prefab|
@@ -1471,25 +1597,25 @@
 |assets/prefabs/weapons/stone spear/effects/holster.prefab|
 |assets/prefabs/weapons/stone spear/effects/pull_out.prefab|
 |assets/prefabs/weapons/stone spear/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/stone spear/effects/strike_stone.prefab|
 |assets/prefabs/weapons/stone spear/effects/strike_stone-muted.prefab|
 |assets/prefabs/weapons/stone spear/effects/strike_stone-soft.prefab|
-|assets/prefabs/weapons/stone spear/effects/strike_stone.prefab|
 |assets/prefabs/weapons/stone spear/effects/throw.prefab|
 |assets/prefabs/weapons/sword big/effects/attack-1.prefab|
 |assets/prefabs/weapons/sword big/effects/attack-2.prefab|
 |assets/prefabs/weapons/sword big/effects/attack-3.prefab|
 |assets/prefabs/weapons/sword big/effects/deploy.prefab|
+|assets/prefabs/weapons/sword big/effects/hit.prefab|
 |assets/prefabs/weapons/sword big/effects/hit-muted.prefab|
 |assets/prefabs/weapons/sword big/effects/hit-soft.prefab|
-|assets/prefabs/weapons/sword big/effects/hit.prefab|
 |assets/prefabs/weapons/sword big/effects/throw.prefab|
 |assets/prefabs/weapons/sword/effects/attack-1.prefab|
 |assets/prefabs/weapons/sword/effects/attack-2.prefab|
 |assets/prefabs/weapons/sword/effects/attack-3.prefab|
 |assets/prefabs/weapons/sword/effects/deploy.prefab|
+|assets/prefabs/weapons/sword/effects/hit.prefab|
 |assets/prefabs/weapons/sword/effects/hit-muted.prefab|
 |assets/prefabs/weapons/sword/effects/hit-soft.prefab|
-|assets/prefabs/weapons/sword/effects/hit.prefab|
 |assets/prefabs/weapons/sword/effects/throw.prefab|
 |assets/prefabs/weapons/thompson/effects/attack.prefab|
 |assets/prefabs/weapons/thompson/effects/attack_muzzlebrake.prefab|
@@ -1535,10 +1661,12 @@
 |assets/prefabs/weapons/wooden spear/effects/holster.prefab|
 |assets/prefabs/weapons/wooden spear/effects/pull_out.prefab|
 |assets/prefabs/weapons/wooden spear/effects/strike_screenshake.prefab|
+|assets/prefabs/weapons/wooden spear/effects/strike_wood.prefab|
 |assets/prefabs/weapons/wooden spear/effects/strike_wood-muted.prefab|
 |assets/prefabs/weapons/wooden spear/effects/strike_wood-soft.prefab|
-|assets/prefabs/weapons/wooden spear/effects/strike_wood.prefab|
 |assets/prefabs/weapons/wooden spear/effects/throw.prefab|
+|assets/rust.ai/agents/bear/sound/breathe.prefab|
+|assets/rust.ai/agents/bear/sound/death.prefab|
 |assets/rust.ai/nextai/effects/dusttrail.prefab|
 |assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/splash_v3.prefab|
 |assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/smoke_04.prefab|
