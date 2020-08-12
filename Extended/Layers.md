@@ -1,7 +1,7 @@
 # Layers
 
-|Name|ID|
-|:-|:-|
+|Name|Id|
+|:-:|:-:|
 |Default|0|
 |TransparentFX|1|
 |Ignore_Raycast|2|
@@ -15,9 +15,9 @@
 |Invisible|10|
 |AI|11|
 |Player_Movement|12|
-|Vehicle_Movement|13|
+|Vehicle_Detailed|13|
 |Game_Trace|14|
-|Reflections|15|
+|Vehicle_World|15|
 |World|16|
 |Player_Server|17|
 |Trigger|18|
