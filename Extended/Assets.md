@@ -1,5 +1,5 @@
 # Assets
-Orange!
+
 |Full name|
 |:-:|
 |assets/bundled/prefabs/autospawn/resource/swamp-trees/swamp_tree_a.asset|
