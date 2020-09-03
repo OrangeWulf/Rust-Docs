@@ -539,6 +539,9 @@
 |assets/bundled/prefabs/fx/survey_explosion.prefab|
 |assets/bundled/prefabs/fx/takedamage_generic.prefab|
 |assets/bundled/prefabs/fx/takedamage_hit.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modarmored.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modcockpit.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modcockpitengine.prefab|
 |assets/bundled/prefabs/fx/water/groundsplash.prefab|
 |assets/bundled/prefabs/fx/water/midair_splash.prefab|
 |assets/bundled/prefabs/fx/water/playerjumpinwater.prefab|
@@ -703,6 +706,9 @@
 |assets/content/vehicles/boats/effects/small-boat-push-water.prefab|
 |assets/content/vehicles/boats/effects/splash.prefab|
 |assets/content/vehicles/boats/effects/splashloop.prefab|
+|assets/content/vehicles/boats/kayak/effects/kayak-paddle.prefab|
+|assets/content/vehicles/boats/kayak/effects/kayak-push-land.prefab|
+|assets/content/vehicles/boats/kayak/effects/kayak-push-water.prefab|
 |assets/content/vehicles/minicopter/debris_effect.prefab|
 |assets/content/vehicles/modularcar/carcollisioneffect.prefab|
 |assets/content/vehicles/modularcar/effects/wheel-impact.prefab|
@@ -865,6 +871,7 @@
 |assets/prefabs/effects/foliage/pfx_leaves_dead.prefab|
 |assets/prefabs/effects/foliage/pfx_leaves_reddish.prefab|
 |assets/prefabs/effects/foliage/pfx_leaves_yellowish.prefab|
+|assets/prefabs/effects/gibprefab.prefab|
 |assets/prefabs/effects/local camera particles/camfx_dust.prefab|
 |assets/prefabs/effects/local camera particles/camfx_rain.prefab|
 |assets/prefabs/effects/local camera particles/camfx_sand.prefab|
@@ -1037,6 +1044,7 @@
 |assets/prefabs/npc/scientist/sound/respondok.prefab|
 |assets/prefabs/npc/scientist/sound/takecover.prefab|
 |assets/prefabs/plants/plantharvest.effect.prefab|
+|assets/prefabs/plants/plant-remove-dying.effect.prefab|
 |assets/prefabs/plants/plantseed.effect.prefab|
 |assets/prefabs/tools/binoculars/effects/deploy.prefab|
 |assets/prefabs/tools/binoculars/sound/fovchange.prefab|
@@ -1410,6 +1418,9 @@
 |assets/prefabs/weapons/nailgun/effects/clip_in.prefab|
 |assets/prefabs/weapons/nailgun/effects/clip_out.prefab|
 |assets/prefabs/weapons/nailgun/effects/deploy.prefab|
+|assets/prefabs/weapons/paddle/effects/paddle-hit.prefab|
+|assets/prefabs/weapons/paddle/effects/paddle-hit-soft.prefab|
+|assets/prefabs/weapons/paddle/effects/throw.prefab|
 |assets/prefabs/weapons/pickaxe/effects/attack.prefab|
 |assets/prefabs/weapons/pickaxe/effects/deploy.prefab|
 |assets/prefabs/weapons/pickaxe/effects/strike.prefab|
