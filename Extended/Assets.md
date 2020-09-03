@@ -787,8 +787,11 @@
 |assets/content/properties/lootspawn/generated/items/electrical/modularcarlift.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/powered.water.purifier.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/rf_pager.asset|
+|assets/content/properties/lootspawn/generated/items/electrical/searchlight.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/smart.alarm.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/smart.switch.asset|
+|assets/content/properties/lootspawn/generated/items/electrical/storage.monitor.asset|
+|assets/content/properties/lootspawn/generated/items/electrical/target.reactive.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/waterpump.asset|
 |assets/content/properties/lootspawn/generated/items/food/apple.asset|
 |assets/content/properties/lootspawn/generated/items/food/bearmeat.asset|
@@ -926,6 +929,7 @@
 |assets/content/properties/lootspawn/generated/items/items/guntrap.asset|
 |assets/content/properties/lootspawn/generated/items/items/jackolantern.angry.asset|
 |assets/content/properties/lootspawn/generated/items/items/jackolantern.happy.asset|
+|assets/content/properties/lootspawn/generated/items/items/kayak.asset|
 |assets/content/properties/lootspawn/generated/items/items/lantern.asset|
 |assets/content/properties/lootspawn/generated/items/items/locker.asset|
 |assets/content/properties/lootspawn/generated/items/items/mailbox.asset|
@@ -1078,6 +1082,7 @@
 |assets/content/properties/lootspawn/generated/items/weapon/mace.asset|
 |assets/content/properties/lootspawn/generated/items/weapon/machete.asset|
 |assets/content/properties/lootspawn/generated/items/weapon/multiplegrenadelauncher.asset|
+|assets/content/properties/lootspawn/generated/items/weapon/paddle.asset|
 |assets/content/properties/lootspawn/generated/items/weapon/pistol.eoka.asset|
 |assets/content/properties/lootspawn/generated/items/weapon/pistol.m92.asset|
 |assets/content/properties/lootspawn/generated/items/weapon/pistol.nailgun.asset|
@@ -3111,6 +3116,12 @@
 |assets/content/sound/ui/ui-pickup-wood.asset|
 |assets/content/sound/ui/ui-pickup-wood-light.asset|
 |assets/content/sound/ui/ui-pickup-wood-med.asset|
+|assets/content/sound/worldmusic/air-wolf-music-loop.ambience-def.asset|
+|assets/content/sound/worldmusic/air-wolf-music-loop.ambience-list.asset|
+|assets/content/sound/worldmusic/air-wolf-music-loop.asset|
+|assets/content/sound/worldmusic/boat-shop-music-loop.ambience-def.asset|
+|assets/content/sound/worldmusic/boat-shop-music-loop.ambience-list.asset|
+|assets/content/sound/worldmusic/boat-shop-music-loop.asset|
 |assets/content/structures/awnings/models/sound/tarp_flap.asset|
 |assets/content/structures/excavator/prefabs/sound/diesel_engine_on_loop.asset|
 |assets/content/structures/excavator/prefabs/sound/diesel_engine_shutdown.asset|
@@ -3135,6 +3146,8 @@
 |assets/content/structures/excavator/prefabs/sound/excavator-wheel-motor-stop.asset|
 |assets/content/structures/excavator/prefabs/sound/rock_debris_loop.asset|
 |assets/content/structures/excavator/prefabs/sound/rock_debris_loop_quiet.asset|
+|assets/content/ui/fonts/bootstrap robotocondensed-bold sdf.asset|
+|assets/content/ui/fonts/bootstrap robotocondensed-regular sdf.asset|
 |assets/content/ui/fonts/droidsansmono sdf.asset|
 |assets/content/ui/fonts/nonenglish/notosansarabic-bold sdf.asset|
 |assets/content/ui/fonts/nonenglish/notosanscjksc-bold chinese common 2 sdf.asset|
@@ -3168,6 +3181,13 @@
 |assets/content/vehicles/boats/cargoship/sound/horn.asset|
 |assets/content/vehicles/boats/cargoship/sound/radiation_alarm.asset|
 |assets/content/vehicles/boats/cargoship/sound/rear_ambience.asset|
+|assets/content/vehicles/boats/kayak/sound/kayak-dismount.asset|
+|assets/content/vehicles/boats/kayak/sound/kayak-impact.asset|
+|assets/content/vehicles/boats/kayak/sound/kayak-mount.asset|
+|assets/content/vehicles/boats/kayak/sound/kayak-push-land.asset|
+|assets/content/vehicles/boats/kayak/sound/kayak-push-water.asset|
+|assets/content/vehicles/boats/kayak/sound/kayak-water-loop-idle.asset|
+|assets/content/vehicles/boats/kayak/sound/kayak-water-loop-movement.asset|
 |assets/content/vehicles/boats/rhib/rhib.population.asset|
 |assets/content/vehicles/boats/rhib/sound/rhib-engine-high.asset|
 |assets/content/vehicles/boats/rhib/sound/rhib-engine-idle.asset|
@@ -3950,6 +3970,7 @@
 |assets/prefabs/deployable/vendingmachine/npcsellorders/attire_bandit.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/bandit_farming.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/bandit_produceexchange.asset|
+|assets/prefabs/deployable/vendingmachine/npcsellorders/boatvendor.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/building.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/building_bandit.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/buyresources.asset|
@@ -4317,6 +4338,7 @@
 |assets/prefabs/npc/autoturret/sound/targetlost.asset|
 |assets/prefabs/npc/autoturret/sound/turn-loop.asset|
 |assets/prefabs/npc/bandit/airwolfhelivendor.asset|
+|assets/prefabs/npc/bandit/boatvendor.asset|
 |assets/prefabs/npc/bandit/pickleconversation.asset|
 |assets/prefabs/npc/bandit/vehiclevendoroccupiedconversation.asset|
 |assets/prefabs/npc/bear/sound/attack.asset|
@@ -4391,6 +4413,7 @@
 |assets/prefabs/plants/hemp/textures/hemp.skin.4.fruiting_lod2.asset|
 |assets/prefabs/plants/hemp/textures/hemp.skin.5.dying_lod2.asset|
 |assets/prefabs/plants/plantharvest.sound.asset|
+|assets/prefabs/plants/plant-remove-dying.sound.asset|
 |assets/prefabs/plants/plantseed.sound.asset|
 |assets/prefabs/plants/potato/potato.plantproperty.asset|
 |assets/prefabs/plants/pumpkin/pumpkin.plantproperty.asset|
@@ -4681,6 +4704,16 @@
 |assets/prefabs/weapons/nailgun/sound/nailgun-clip-out.asset|
 |assets/prefabs/weapons/nailgun/sound/nailgun-deploy.asset|
 |assets/prefabs/weapons/nailgun/sound/nailgun-deploy-3p.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-attack-settle.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-attack-start.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-attack-whoosh.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-deploy.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-light-movement.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-strike.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-strike-soft.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-throw-cancel.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-throw-start.asset|
+|assets/prefabs/weapons/paddle/sound/paddle-water-movement.asset|
 |assets/prefabs/weapons/pickaxe/pickaxe.skinnable.asset|
 |assets/prefabs/weapons/pickaxe/sound/pickaxe-attack.asset|
 |assets/prefabs/weapons/pickaxe/sound/pickaxe-attack-3p.asset|
@@ -5065,6 +5098,7 @@
 |assets/rust.ai/nextai/ridablehorse/items/wood.horse.rider.protection.asset|
 |assets/rust.ai/nextai/sound/horse-eat.asset|
 |assets/scenes/prefabs/cave/cave_large_sewers_hard.asset|
+|assets/scenes/release/savasisland.asset|
 |assets/scenes/test/billbtestmap/billbtestmap terrain.asset|
 |assets/skins.asset|
 |assets/standard assets/third party/postprocessing/postprocessresources.asset|
