@@ -242,6 +242,9 @@
 |assets/bundled/prefabs/autospawn/monument/cave/cave_small_easy.prefab|
 |assets/bundled/prefabs/autospawn/monument/cave/cave_small_hard.prefab|
 |assets/bundled/prefabs/autospawn/monument/cave/cave_small_medium.prefab|
+|assets/bundled/prefabs/autospawn/monument/harbor/fishing_village_a.prefab|
+|assets/bundled/prefabs/autospawn/monument/harbor/fishing_village_b.prefab|
+|assets/bundled/prefabs/autospawn/monument/harbor/fishing_village_c.prefab|
 |assets/bundled/prefabs/autospawn/monument/harbor/harbor_1.prefab|
 |assets/bundled/prefabs/autospawn/monument/harbor/harbor_2.prefab|
 |assets/bundled/prefabs/autospawn/monument/ice_lakes/ice_lake_1.prefab|
@@ -996,6 +999,9 @@
 |assets/bundled/prefabs/fx/survey_explosion.prefab|
 |assets/bundled/prefabs/fx/takedamage_generic.prefab|
 |assets/bundled/prefabs/fx/takedamage_hit.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modarmored.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modcockpit.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modcockpitengine.prefab|
 |assets/bundled/prefabs/fx/water/groundsplash.prefab|
 |assets/bundled/prefabs/fx/water/midair_splash.prefab|
 |assets/bundled/prefabs/fx/water/playerjumpinwater.prefab|
@@ -1717,6 +1723,20 @@
 |assets/content/props/barrels/fuel_barrel_yellow.prefab|
 |assets/content/props/big_button/big_button.prefab|
 |assets/content/props/black bin/blackbin.prefab|
+|assets/content/props/boat town props/anchor.prefab|
+|assets/content/props/boat town props/boatshop emblem.prefab|
+|assets/content/props/boat town props/boattownbarrel.prefab|
+|assets/content/props/boat town props/float1.prefab|
+|assets/content/props/boat town props/float2.prefab|
+|assets/content/props/boat town props/float3.prefab|
+|assets/content/props/boat town props/float4.prefab|
+|assets/content/props/boat town props/float5.prefab|
+|assets/content/props/boat town props/metalrowboat_static.prefab|
+|assets/content/props/boat town props/oar.prefab|
+|assets/content/props/boat town props/ring1.prefab|
+|assets/content/props/boat town props/ring2.prefab|
+|assets/content/props/boat town props/rowboat_shop_static.prefab|
+|assets/content/props/boat town props/rowboat_static.prefab|
 |assets/content/props/bollard/bollard_a.prefab|
 |assets/content/props/bollard/bollard_a_rope.prefab|
 |assets/content/props/bollard/bollard_b.prefab|
@@ -1775,6 +1795,14 @@
 |assets/content/props/electrical_boxes/electrical_box_d_open.prefab|
 |assets/content/props/electrical_boxes/electrical_box_e.prefab|
 |assets/content/props/electrical_boxes/electrical_box_f.prefab|
+|assets/content/props/fishing_nets/fishing_net_crate_a.prefab|
+|assets/content/props/fishing_nets/fishing_net_crate_b.prefab|
+|assets/content/props/fishing_nets/fishing_net_fence.prefab|
+|assets/content/props/fishing_nets/fishing_net_floor_a.prefab|
+|assets/content/props/fishing_nets/fishing_net_floor_b.prefab|
+|assets/content/props/fishing_nets/fishing_net_hanging_a.prefab|
+|assets/content/props/fishing_nets/fishing_net_hanging_b.prefab|
+|assets/content/props/fishing_nets/fishing_net_hanging_c.prefab|
 |assets/content/props/fog machine/effects/cascade_smoke.prefab|
 |assets/content/props/fog machine/effects/emission.prefab|
 |assets/content/props/fog machine/fogmachine.item.prefab|
@@ -1844,6 +1872,7 @@
 |assets/content/props/light_fixtures/spotlight.off.prefab|
 |assets/content/props/light_fixtures/spotlight.on.prefab|
 |assets/content/props/light_fixtures/v2/lantern light glow.prefab|
+|assets/content/props/light_fixtures/v2/largecandleset_static.prefab|
 |assets/content/props/light_fixtures/v2/plight.backup.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.backup.red.prefab|
 |assets/content/props/light_fixtures/v2/plight.flare.prefab|
@@ -1887,6 +1916,9 @@
 |assets/content/props/light_fixtures/v2/radtown work prefabs/compound lighting.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/excavator lighting static.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/excavator_lights.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/fishing_village_a_lighting.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/fishing_village_b_lighting.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/fishing_village_c_lighting.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/giant excavator dig fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/giant excavator fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/giant excavator lighting.prefab|
@@ -1900,6 +1932,7 @@
 |assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig lighting.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/small oil rig fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/small oil rig lighting.prefab|
+|assets/content/props/light_fixtures/v2/smallcandleset_static.prefab|
 |assets/content/props/light_fixtures/walllight.prefab|
 |assets/content/props/light_fixtures/walllight_on.prefab|
 |assets/content/props/lightpost/lightpost_a.prefab|
@@ -2041,6 +2074,7 @@
 |assets/content/props/powerline_poles/pipe_pole_a.prefab|
 |assets/content/props/powerline_poles/powerline_pole_a.prefab|
 |assets/content/props/powerline_poles/powerline_pole_b.prefab|
+|assets/content/props/powerline_poles/powerline_pole_c.prefab|
 |assets/content/props/powerline_poles/powerline_pole_electric_box.prefab|
 |assets/content/props/powerline_poles/powerline_pole_light.prefab|
 |assets/content/props/powerline_poles/powerline_pole_snapped_cables.prefab|
@@ -2069,6 +2103,7 @@
 |assets/content/props/rubble_piles/rubble_pile_6x6_junkyard.prefab|
 |assets/content/props/rubble_piles/rubble_pile_9x9.prefab|
 |assets/content/props/scrap_heli_wreck/scrap_heli_wreck.prefab|
+|assets/content/props/sentry_scientists/sentry.bandit.static.prefab|
 |assets/content/props/sentry_scientists/sentry.scientist.static.prefab|
 |assets/content/props/sentry_scientists/sentry_scientists.prefab|
 |assets/content/props/shelves/shelves_300x150.prefab|
@@ -2162,11 +2197,22 @@
 |assets/content/props/spraypaintcan/spraycan.w.prefab|
 |assets/content/props/strobe light/strobelight.item.prefab|
 |assets/content/props/strobe light/strobelight.prefab|
+|assets/content/props/studio/backdrop_black.prefab|
+|assets/content/props/studio/backdrop_blue.prefab|
+|assets/content/props/studio/backdrop_green.prefab|
+|assets/content/props/studio/backdrop_grey.prefab|
+|assets/content/props/studio/backdrop_white.prefab|
 |assets/content/props/supermarket_cash_register/supermarket_cash_register.prefab|
 |assets/content/props/supermarket_counter/supermarket_counter_a.prefab|
 |assets/content/props/supermarket_counter/supermarket_counter_a_corner.prefab|
 |assets/content/props/supermarket_magazine_stand/supermarket_magazine_stand_a.prefab|
 |assets/content/props/supermarket_shelves/supermarket_shelves_a.prefab|
+|assets/content/props/surfboard/surfboard_a.prefab|
+|assets/content/props/surfboard/surfboard_b.prefab|
+|assets/content/props/surfboard/surfboard_c.prefab|
+|assets/content/props/surfboard/surfboard_d.prefab|
+|assets/content/props/surfboard/surfboard_e.prefab|
+|assets/content/props/surfboard/surfboard_sign.prefab|
 |assets/content/props/tires/tire_a.prefab|
 |assets/content/props/tires/tire_stack_a.prefab|
 |assets/content/props/tires/tire_stack_b.prefab|
@@ -3069,6 +3115,10 @@
 |assets/content/structures/wiring/wiring_straight_600.prefab|
 |assets/content/structures/wiring/wiring_straight_75.prefab|
 |assets/content/structures/wiring/wiring_wall_insert_25.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_a.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_b.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_c.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_d.prefab|
 |assets/content/structures/wooden_cabins/cabin_doorway_a.prefab|
 |assets/content/structures/wooden_cabins/cabin_floor_a.prefab|
 |assets/content/structures/wooden_cabins/cabin_foundation.prefab|
@@ -3087,6 +3137,9 @@
 |assets/content/structures/wooden_cabins/wooden_cabin_d.prefab|
 |assets/content/structures/wooden_cabins/wooden_cabin_e.prefab|
 |assets/content/structures/wooden_cabins/wooden_cabin_f.prefab|
+|assets/content/structures/wooden_walkway/water_spikes_300.prefab|
+|assets/content/structures/wooden_walkway/water_spikes_600.prefab|
+|assets/content/structures/wooden_walkway/water_spikes_900.prefab|
 |assets/content/structures/wooden_walkway/wooden_ledge_150_a.prefab|
 |assets/content/structures/wooden_walkway/wooden_ledge_300_a.prefab|
 |assets/content/structures/wooden_walkway/wooden_ledge_corner_a.prefab|
@@ -3098,8 +3151,37 @@
 |assets/content/structures/wooden_walkway/wooden_walkway_2400_s.prefab|
 |assets/content/structures/wooden_walkway/wooden_walkway_300.prefab|
 |assets/content/structures/wooden_walkway/wooden_walkway_900.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_barrier_300.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_barrier_900.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_crane.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_fishing_nets_a.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_300.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_600.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_900.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_150_a.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_1800_b.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_1800x600_b.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_300_a.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_300_b.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_600_a.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_600_b.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_900_a.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_900_b.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_900x600_b.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_corner_600x600.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_corner_a.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_corner_b.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_edge_corner_c.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_junction.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_junctiont.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_large_stairs.prefab|
 |assets/content/structures/wooden_walkway/wooden_walkway_pillar_light.prefab|
 |assets/content/structures/wooden_walkway/wooden_walkway_stairs_100.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_surface_300x300.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_surface_300x600.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_surface_300x900.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_surface_600x600.prefab|
+|assets/content/structures/wooden_walkway/wooden_walkway_surface_900x900.prefab|
 |assets/content/textures/decals/chillzone.prefab|
 |assets/content/textures/decals/decal_rust_mills_shipping.prefab|
 |assets/content/ui/button.dull.prefab|
@@ -3267,6 +3349,13 @@
 |assets/content/vehicles/boats/effects/small-boat-push-water.prefab|
 |assets/content/vehicles/boats/effects/splash.prefab|
 |assets/content/vehicles/boats/effects/splashloop.prefab|
+|assets/content/vehicles/boats/kayak/effects/kayak-paddle.prefab|
+|assets/content/vehicles/boats/kayak/effects/kayak-push-land.prefab|
+|assets/content/vehicles/boats/kayak/effects/kayak-push-water.prefab|
+|assets/content/vehicles/boats/kayak/kayak.item.prefab|
+|assets/content/vehicles/boats/kayak/kayak.prefab|
+|assets/content/vehicles/boats/kayak/makeshift canoe/makeshiftcanoe.prefab|
+|assets/content/vehicles/boats/kayak/makeshift canoe/oar.prefab|
 |assets/content/vehicles/boats/rhib/rhib.prefab|
 |assets/content/vehicles/boats/rhib/subents/fuel_storage.prefab|
 |assets/content/vehicles/boats/rhib/subents/rhib_storage.prefab|
@@ -3279,8 +3368,6 @@
 |assets/content/vehicles/dump_truck/dump_truck_a.prefab|
 |assets/content/vehicles/dump_truck/dump_truck_b.prefab|
 |assets/content/vehicles/dump_truck/dump_truck_gravel_mound.prefab|
-|assets/content/vehicles/makeshift canoe/makeshiftcanoe.prefab|
-|assets/content/vehicles/makeshift canoe/oar.prefab|
 |assets/content/vehicles/minicopter/debris_effect.prefab|
 |assets/content/vehicles/minicopter/minicopter.entity.prefab|
 |assets/content/vehicles/minicopter/minicopter.repair.item.prefab|
@@ -4304,6 +4391,7 @@
 |assets/prefabs/deployable/chinooklockedcrate/chinooklockedcrate.prefab|
 |assets/prefabs/deployable/chinooklockedcrate/chinooklockedcratecodelocked.prefab|
 |assets/prefabs/deployable/chinooklockedcrate/codelockedhackablecrate.prefab|
+|assets/prefabs/deployable/chinooklockedcrate/codelockedhackablecrate_oilrig.prefab|
 |assets/prefabs/deployable/chinooklockedcrate/effects/landing.prefab|
 |assets/prefabs/deployable/chinooklockedcrate/hackingdevice.prefab|
 |assets/prefabs/deployable/composter/composter.item.prefab|
@@ -4451,6 +4539,9 @@
 |assets/prefabs/deployable/playerioents/app/smartalarm/smartalarm.prefab|
 |assets/prefabs/deployable/playerioents/app/smartswitch/smartswitch.item.prefab|
 |assets/prefabs/deployable/playerioents/app/smartswitch/smartswitch.prefab|
+|assets/prefabs/deployable/playerioents/app/storagemonitor/storagemonitor.deployed.prefab|
+|assets/prefabs/deployable/playerioents/app/storagemonitor/storagemonitor.item.prefab|
+|assets/prefabs/deployable/playerioents/app/storagemonitor/storagemonitor.prefab|
 |assets/prefabs/deployable/playerioents/batteries/large/large.rechargable.battery.deployed.prefab|
 |assets/prefabs/deployable/playerioents/batteries/large/large.rechargable.battery.item.prefab|
 |assets/prefabs/deployable/playerioents/batteries/medium/medium.rechargable.battery.deployed.prefab|
@@ -4548,6 +4639,7 @@
 |assets/prefabs/deployable/reactive target/reactivetarget.item.prefab|
 |assets/prefabs/deployable/reactive target/reactivetarget.prefab|
 |assets/prefabs/deployable/reactive target/reactivetarget_deployed.prefab|
+|assets/prefabs/deployable/reactive target/reactivetargetmechanism.prefab|
 |assets/prefabs/deployable/recycler/effects/start.prefab|
 |assets/prefabs/deployable/recycler/effects/stop.prefab|
 |assets/prefabs/deployable/repair bench/effects/repair-bench-deploy.prefab|
@@ -4630,6 +4722,7 @@
 |assets/prefabs/deployable/spinner_wheel/effects/spinner-wheel-deploy.prefab|
 |assets/prefabs/deployable/spinner_wheel/spinner.wheel.deployed.prefab|
 |assets/prefabs/deployable/spinner_wheel/spinner.wheel.item.prefab|
+|assets/prefabs/deployable/storage monitor/storagemonitor.prefab|
 |assets/prefabs/deployable/survivalfishtrap/effects/fish_caught.prefab|
 |assets/prefabs/deployable/survivalfishtrap/effects/fish-trap-deploy.prefab|
 |assets/prefabs/deployable/survivalfishtrap/survivalfishtrap.deployed.prefab|
@@ -4707,6 +4800,7 @@
 |assets/prefabs/effects/foliage/pfx_leaves_dead.prefab|
 |assets/prefabs/effects/foliage/pfx_leaves_reddish.prefab|
 |assets/prefabs/effects/foliage/pfx_leaves_yellowish.prefab|
+|assets/prefabs/effects/gibprefab.prefab|
 |assets/prefabs/effects/local camera particles/camfx_dust.prefab|
 |assets/prefabs/effects/local camera particles/camfx_rain.prefab|
 |assets/prefabs/effects/local camera particles/camfx_sand.prefab|
@@ -4717,6 +4811,7 @@
 |assets/prefabs/engine/game setup.prefab|
 |assets/prefabs/engine/main camera.prefab|
 |assets/prefabs/engine/ocean.prefab|
+|assets/prefabs/engine/screenshot camera.prefab|
 |assets/prefabs/engine/sky dome.prefab|
 |assets/prefabs/engine/testlevel terrain.prefab|
 |assets/prefabs/engine/water system.prefab|
@@ -5132,7 +5227,6 @@
 |assets/prefabs/misc/orebonus/effects/bonus_hit.prefab|
 |assets/prefabs/misc/orebonus/effects/hotspot_death.prefab|
 |assets/prefabs/misc/orebonus/effects/ore_finish.prefab|
-|assets/prefabs/misc/orebonus/ore_flare.prefab|
 |assets/prefabs/misc/orebonus/ore_flare_coverage.prefab|
 |assets/prefabs/misc/orebonus/orebonus_generic.prefab|
 |assets/prefabs/misc/orebonus/sound/bonussound.prefab|
@@ -5428,9 +5522,11 @@
 |assets/prefabs/npc/autoturret/silencedmuzzleshot.prefab|
 |assets/prefabs/npc/bandit/airwolfspawner.prefab|
 |assets/prefabs/npc/bandit/bandit_town_npc_spawner.prefab|
+|assets/prefabs/npc/bandit/boatspawner.prefab|
 |assets/prefabs/npc/bandit/guard/bandit_guard.prefab|
 |assets/prefabs/npc/bandit/shopkeepers/bandit_conversationalist.prefab|
 |assets/prefabs/npc/bandit/shopkeepers/bandit_shopkeeper.prefab|
+|assets/prefabs/npc/bandit/shopkeepers/boat_shopkeeper.prefab|
 |assets/prefabs/npc/bear/bear_full.prefab|
 |assets/prefabs/npc/bear/sound/breathe.prefab|
 |assets/prefabs/npc/bear/sound/death.prefab|
@@ -5598,6 +5694,7 @@
 |assets/prefabs/plants/hemp/hemp_clone.item.prefab|
 |assets/prefabs/plants/hemp/hemp_seed.item.prefab|
 |assets/prefabs/plants/plantharvest.effect.prefab|
+|assets/prefabs/plants/plant-remove-dying.effect.prefab|
 |assets/prefabs/plants/plantseed.effect.prefab|
 |assets/prefabs/plants/potato/potato.entity.prefab|
 |assets/prefabs/plants/potato/potato.item.prefab|
@@ -5871,6 +5968,7 @@
 |assets/prefabs/vehicle/seats/copilotseat.prefab|
 |assets/prefabs/vehicle/seats/driverseat.prefab|
 |assets/prefabs/vehicle/seats/gunnertest.prefab|
+|assets/prefabs/vehicle/seats/kayakseat.prefab|
 |assets/prefabs/vehicle/seats/minihelipassenger.prefab|
 |assets/prefabs/vehicle/seats/miniheliseat.prefab|
 |assets/prefabs/vehicle/seats/modularcardriverseat.prefab|
@@ -6452,7 +6550,14 @@
 |assets/prefabs/weapons/nailgun/nailgun.viewmodel.prefab|
 |assets/prefabs/weapons/nailgun/nailgun.worldmodel.prefab|
 |assets/prefabs/weapons/nailgun/nails.worldmodel.prefab|
+|assets/prefabs/weapons/paddle/effects/paddle-hit.prefab|
+|assets/prefabs/weapons/paddle/effects/paddle-hit-soft.prefab|
+|assets/prefabs/weapons/paddle/effects/throw.prefab|
+|assets/prefabs/weapons/paddle/paddle.entity.prefab|
+|assets/prefabs/weapons/paddle/paddle.item.prefab|
+|assets/prefabs/weapons/paddle/paddle.projectile.prefab|
 |assets/prefabs/weapons/paddle/paddle.viewmodel.prefab|
+|assets/prefabs/weapons/paddle/paddle.worldmodel.prefab|
 |assets/prefabs/weapons/pickaxe/effects/attack.prefab|
 |assets/prefabs/weapons/pickaxe/effects/deploy.prefab|
 |assets/prefabs/weapons/pickaxe/effects/strike.prefab|
