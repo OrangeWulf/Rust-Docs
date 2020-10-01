@@ -614,6 +614,7 @@
 |assets/content/properties/lootspawn/generated/items/attire/hat.miner.asset|
 |assets/content/properties/lootspawn/generated/items/attire/hat.wolf.asset|
 |assets/content/properties/lootspawn/generated/items/attire/hazmatsuit.asset|
+|assets/content/properties/lootspawn/generated/items/attire/hazmatsuit.spacesuit.asset|
 |assets/content/properties/lootspawn/generated/items/attire/hazmatsuit_scientist.asset|
 |assets/content/properties/lootspawn/generated/items/attire/heavy.plate.helmet.asset|
 |assets/content/properties/lootspawn/generated/items/attire/heavy.plate.jacket.asset|
@@ -779,6 +780,7 @@
 |assets/content/properties/lootspawn/generated/items/electrical/electrical.branch.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/electrical.combiner.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/electrical.memorycell.asset|
+|assets/content/properties/lootspawn/generated/items/electrical/elevator.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/fluid.combiner.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/fluid.splitter.asset|
 |assets/content/properties/lootspawn/generated/items/electrical/fluid.switch.asset|
@@ -1459,6 +1461,7 @@
 |assets/content/properties/steamcategories/limited-halloween2019.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2019-cheap.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2019-legacy.steam.asset|
+|assets/content/properties/steamcategories/limited-spacesuit.steam.asset|
 |assets/content/properties/steamcategories/nocrate.steam.asset|
 |assets/content/properties/steamcategories/resource.steam.asset|
 |assets/content/properties/steamcategories/retired.steam.asset|
@@ -3693,6 +3696,8 @@
 |assets/prefabs/clothes/skin/underwear/swimwear/trunks.asset|
 |assets/prefabs/clothes/skin/underwear/testreplacement/testunderwearreplacement.asset|
 |assets/prefabs/clothes/skirt.hide/skirt.hide.skinnable.asset|
+|assets/prefabs/clothes/suit.hazmat/hazmat.skinnable.asset|
+|assets/prefabs/clothes/suit.hazmat/spacesuit/hazmat.spacesuit.skin.asset|
 |assets/prefabs/clothes/tshirt.long/black/tshirt.long.black.itemskin.asset|
 |assets/prefabs/clothes/tshirt.long/grey/tshirt.long.grey.itemskin.asset|
 |assets/prefabs/clothes/tshirt.long/orange/tshirt.long.orange.itemskin.asset|
@@ -3751,6 +3756,13 @@
 |assets/prefabs/deployable/dropbox/sound/dropbox-deploy.asset|
 |assets/prefabs/deployable/dropbox/sound/dropbox-open.asset|
 |assets/prefabs/deployable/dropbox/sound/submit.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-button.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-deploy.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-motor-loop.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-movement-loop.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-movement-squeak.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-movement-start.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-movement-stop.asset|
 |assets/prefabs/deployable/fireworks/boomerpack.sitem.asset|
 |assets/prefabs/deployable/fireworks/smallfireworks.sitem.asset|
 |assets/prefabs/deployable/floor spikes/sound/floor-spikes-deploy.asset|
@@ -3902,6 +3914,7 @@
 |assets/prefabs/deployable/search light/sound/search-light-open.asset|
 |assets/prefabs/deployable/search light/sound/search-light-turn-off.asset|
 |assets/prefabs/deployable/search light/sound/search-light-turn-on.asset|
+|assets/prefabs/deployable/secretlab chair/dlc.secretlabchair.asset|
 |assets/prefabs/deployable/shelves/sound/shelves-deploy.asset|
 |assets/prefabs/deployable/signs/sign.hanging.banner.large.sitem.asset|
 |assets/prefabs/deployable/signs/sign.hanging.ornate.sitem.asset|
