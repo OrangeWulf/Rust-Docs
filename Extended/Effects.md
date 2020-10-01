@@ -124,6 +124,7 @@
 |assets/bundled/prefabs/fx/dig_effect.prefab|
 |assets/bundled/prefabs/fx/displacement/player/grass/player_displacement.prefab|
 |assets/bundled/prefabs/fx/door/barricade_spawn.prefab|
+|assets/bundled/prefabs/fx/elevator_arrive.prefab|
 |assets/bundled/prefabs/fx/entities/loot_barrel/gib.prefab|
 |assets/bundled/prefabs/fx/entities/loot_barrel/impact.prefab|
 |assets/bundled/prefabs/fx/entities/pumpkin/gib.prefab|
@@ -698,6 +699,7 @@
 |assets/content/sound/templates/surface-ambience.prefab|
 |assets/content/sound/templates/tiny-local-ambience.prefab|
 |assets/content/sound/templates/tiny-sound.prefab|
+|assets/content/sound/templates/tiny-spread-sound.prefab|
 |assets/content/sound/templates/ui-sound.prefab|
 |assets/content/sound/templates/ultra-tiny-sound.prefab|
 |assets/content/structures/excavator/prefabs/effects/enginerumble.prefab|
@@ -804,6 +806,8 @@
 |assets/prefabs/deployable/chinooklockedcrate/effects/landing.prefab|
 |assets/prefabs/deployable/dropbox/effects/dropbox-deploy.prefab|
 |assets/prefabs/deployable/dropbox/effects/submit_items.prefab|
+|assets/prefabs/deployable/elevator/effects/elevator-button-pressed.prefab|
+|assets/prefabs/deployable/elevator/effects/elevator-deploy.prefab|
 |assets/prefabs/deployable/floor spikes/effects/floor-spikes-deploy.prefab|
 |assets/prefabs/deployable/fridge/effects/fridge-deploy.prefab|
 |assets/prefabs/deployable/furnace.large/effects/furnace-large-deploy.prefab|
