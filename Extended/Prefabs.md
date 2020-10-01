@@ -584,6 +584,7 @@
 |assets/bundled/prefabs/fx/dig_effect.prefab|
 |assets/bundled/prefabs/fx/displacement/player/grass/player_displacement.prefab|
 |assets/bundled/prefabs/fx/door/barricade_spawn.prefab|
+|assets/bundled/prefabs/fx/elevator_arrive.prefab|
 |assets/bundled/prefabs/fx/entities/loot_barrel/gib.prefab|
 |assets/bundled/prefabs/fx/entities/loot_barrel/impact.prefab|
 |assets/bundled/prefabs/fx/entities/pumpkin/gib.prefab|
@@ -2315,6 +2316,7 @@
 |assets/content/sound/templates/surface-ambience.prefab|
 |assets/content/sound/templates/tiny-local-ambience.prefab|
 |assets/content/sound/templates/tiny-sound.prefab|
+|assets/content/sound/templates/tiny-spread-sound.prefab|
 |assets/content/sound/templates/ui-sound.prefab|
 |assets/content/sound/templates/ultra-tiny-sound.prefab|
 |assets/content/structures/abandonded lighthouse/a_lighthouse.prefab|
@@ -4255,6 +4257,10 @@
 |assets/prefabs/clothes/suit.hazmat/scientist/scientistsuitpeacekeeper.item.prefab|
 |assets/prefabs/clothes/suit.hazmat/scientist/scientistsuitpeacekeeper.prefab|
 |assets/prefabs/clothes/suit.hazmat/scientist/scientistsuitwearable.prefab|
+|assets/prefabs/clothes/suit.hazmat/spacesuit/hazmat_suit.spacesuit.item.prefab|
+|assets/prefabs/clothes/suit.hazmat/spacesuit/hazmat_suit_spacesuit.prefab|
+|assets/prefabs/clothes/suit.hazmat/spacesuit/spacesuit_viewmodel.prefab|
+|assets/prefabs/clothes/suit.hazmat/spacesuit/spacesuit_worldmodel.prefab|
 |assets/prefabs/clothes/suit.hazmat/suit.hazmat.viewmodel.prefab|
 |assets/prefabs/clothes/suit.hazmat/suit.scientist.viewmodel.prefab|
 |assets/prefabs/clothes/suit.heavyscientist/scientistsuitheavy.item.prefab|
@@ -4417,6 +4423,14 @@
 |assets/prefabs/deployable/dropbox/effects/dropbox-deploy.prefab|
 |assets/prefabs/deployable/dropbox/effects/submit_items.prefab|
 |assets/prefabs/deployable/dropbox/v2/dropboxv2.prefab|
+|assets/prefabs/deployable/elevator/effects/elevator-button-pressed.prefab|
+|assets/prefabs/deployable/elevator/effects/elevator-deploy.prefab|
+|assets/prefabs/deployable/elevator/elevator.item.prefab|
+|assets/prefabs/deployable/elevator/elevator.prefab|
+|assets/prefabs/deployable/elevator/elevator_lift.prefab|
+|assets/prefabs/deployable/elevator/elevator_shaft_section.prefab|
+|assets/prefabs/deployable/elevator/elevator_shaft_top.prefab|
+|assets/prefabs/deployable/elevator/elevatorioentity.prefab|
 |assets/prefabs/deployable/fireplace/fireplace.deployed.prefab|
 |assets/prefabs/deployable/fireplace/fireplace.item.prefab|
 |assets/prefabs/deployable/fireworks/boomer.blue.item.prefab|
@@ -4663,6 +4677,8 @@
 |assets/prefabs/deployable/search light/effects/search-light-deploy.prefab|
 |assets/prefabs/deployable/search light/searchlight.deployed.prefab|
 |assets/prefabs/deployable/search light/searchlight.item.prefab|
+|assets/prefabs/deployable/secretlab chair/secretlabchair.deployed.prefab|
+|assets/prefabs/deployable/secretlab chair/secretlabchair.item.prefab|
 |assets/prefabs/deployable/shelves/effects/shelves-deploy.prefab|
 |assets/prefabs/deployable/shelves/models/shelves.prefab|
 |assets/prefabs/deployable/shelves/shelves.item.prefab|
