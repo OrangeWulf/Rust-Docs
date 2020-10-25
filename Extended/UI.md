@@ -21,6 +21,13 @@
 |X|DIGITS + 1 * TEXT SIZE * 0.25f|
 |Y|X * 2|
 
+
+# Sizes in offset
+|Name|X|Y|
+|:-|:-:|:-:|
+|Animator|192|30|
+|Health|192|26|
+
 # Fonts
 
 |Name|
