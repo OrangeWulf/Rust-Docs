@@ -1,3 +1,26 @@
+# Colors
+
+|Name | RGBA (%) | RGBA | HEX |
+|:-|:-:|:-:|:-:|
+| Rust Red   | 0.8 0.28 0.2 1   | 205 70 50 255 | cd4632 |
+| Rust Green | 0.55 0.78 0.24 1 | 140 200 60 255 | 8cc83c |
+
+# Layers
+
+|Name|Order|
+|:-|:-:|
+|Overlay|1|
+|Hud.Menu|2|
+|Hud|3|
+|Under|4|
+
+# Text offset size formula
+
+|Coordinate|Formula|
+|:-|:-:|
+|X|DIGITS + 1 * TEXT SIZE * 0.25f|
+|Y|X * 2|
+
 # Fonts
 
 |Name|
