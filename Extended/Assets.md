@@ -604,6 +604,7 @@
 |assets/content/properties/lootspawn/generated/items/attire/femalearmpithair.style01.asset|
 |assets/content/properties/lootspawn/generated/items/attire/femaleeyebrow.style01.asset|
 |assets/content/properties/lootspawn/generated/items/attire/femalepubichair.style01.asset|
+|assets/content/properties/lootspawn/generated/items/attire/ghostsheet.asset|
 |assets/content/properties/lootspawn/generated/items/attire/halloween.mummysuit.asset|
 |assets/content/properties/lootspawn/generated/items/attire/halloween.surgeonsuit.asset|
 |assets/content/properties/lootspawn/generated/items/attire/hat.beenie.asset|
@@ -1136,6 +1137,7 @@
 |assets/content/properties/lootspawn/halloween/corn.asset|
 |assets/content/properties/lootspawn/halloween/cratecostume.asset|
 |assets/content/properties/lootspawn/halloween/fence.asset|
+|assets/content/properties/lootspawn/halloween/ghostcostume.asset|
 |assets/content/properties/lootspawn/halloween/gravestone.asset|
 |assets/content/properties/lootspawn/halloween/gravestonewood.asset|
 |assets/content/properties/lootspawn/halloween/halloween.food.asset|
@@ -1206,6 +1208,7 @@
 |assets/content/properties/playerinventory/editorinventory.asset|
 |assets/content/properties/playerinventory/electrician.asset|
 |assets/content/properties/playerinventory/garry.asset|
+|assets/content/properties/playerinventory/halloween2020.asset|
 |assets/content/properties/playerinventory/instruments.asset|
 |assets/content/properties/playerinventory/melee weapons.asset|
 |assets/content/properties/playerinventory/modular cars.asset|
@@ -1461,6 +1464,11 @@
 |assets/content/properties/steamcategories/limited-halloween2019.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2019-cheap.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2019-legacy.steam.asset|
+|assets/content/properties/steamcategories/limited-halloween2020-299.steam.asset|
+|assets/content/properties/steamcategories/limited-halloween2020-399.steam.asset|
+|assets/content/properties/steamcategories/limited-halloween2020-499.steam.asset|
+|assets/content/properties/steamcategories/limited-halloween2020-599.steam.asset|
+|assets/content/properties/steamcategories/limited-halloween2020-899.steam.asset|
 |assets/content/properties/steamcategories/limited-spacesuit.steam.asset|
 |assets/content/properties/steamcategories/nocrate.steam.asset|
 |assets/content/properties/steamcategories/resource.steam.asset|
@@ -1468,6 +1476,13 @@
 |assets/content/properties/steamcategories/weapon-normal.steam.asset|
 |assets/content/properties/steamcategories/weapon-rare.steam.asset|
 |assets/content/properties/steamcategories/workshop-default.steam.asset|
+|assets/content/properties/weather/clear.asset|
+|assets/content/properties/weather/dust.asset|
+|assets/content/properties/weather/fog.asset|
+|assets/content/properties/weather/overcast.asset|
+|assets/content/properties/weather/rainheavy.asset|
+|assets/content/properties/weather/rainmild.asset|
+|assets/content/properties/weather/storm.asset|
 |assets/content/props/fog machine/fogmachine.sitem.asset|
 |assets/content/props/fog machine/sound/fogblast.asset|
 |assets/content/props/strobe light/sound/fast.asset|
@@ -1627,8 +1642,21 @@
 |assets/content/sound/ambience/rain/ambience-rain-light.asset|
 |assets/content/sound/ambience/rain/ambience-rain-med.ambience-def.asset|
 |assets/content/sound/ambience/rain/ambience-rain-med.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-metal.ambience-def.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-metal.ambience-list.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-metal.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-vehicle.ambience-def.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-vehicle.ambience-list.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-vehicle.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-wood.ambience-def.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-wood.ambience-list.asset|
+|assets/content/sound/ambience/rain/ambience-rain-on-wood.asset|
 |assets/content/sound/ambience/rain/ambience-rain-strong.ambience-def.asset|
 |assets/content/sound/ambience/rain/ambience-rain-strong.asset|
+|assets/content/sound/ambience/rain/ambience-snow-fall.ambience-def.asset|
+|assets/content/sound/ambience/rain/ambience-snow-fall.asset|
+|assets/content/sound/ambience/rain/ambience-snow-fall-heavy.ambience-def.asset|
+|assets/content/sound/ambience/rain/ambience-snow-fall-heavy.asset|
 |assets/content/sound/ambience/river/ambience-river.ambience-def.asset|
 |assets/content/sound/ambience/river/ambience-river-base.ambience-list.asset|
 |assets/content/sound/ambience/river/river-loop.asset|
@@ -1638,6 +1666,9 @@
 |assets/content/sound/ambience/shore/ambience-shore-calm.asset|
 |assets/content/sound/ambience/shore/ambience-shore-windy.ambience-def.asset|
 |assets/content/sound/ambience/shore/ambience-shore-windy.asset|
+|assets/content/sound/ambience/thunder/thunder-light.asset|
+|assets/content/sound/ambience/thunder/thunder-med.asset|
+|assets/content/sound/ambience/thunder/thunder-strong.asset|
 |assets/content/sound/ambience/tree/ambience-tree-base.ambience-list.asset|
 |assets/content/sound/ambience/tree/ambience-tree-dead-base.ambience-list.asset|
 |assets/content/sound/ambience/tree/ambience-tree-palm-base.ambience-list.asset|
@@ -1648,6 +1679,12 @@
 |assets/content/sound/ambience/waves/ambience-waves-a.ambience-def.asset|
 |assets/content/sound/ambience/waves/ambience-waves-a.asset|
 |assets/content/sound/ambience/waves/ambience-waves-base.ambience-list.asset|
+|assets/content/sound/ambience/wind/ambience-sting-wind-gust-dry.ambience-def.asset|
+|assets/content/sound/ambience/wind/ambience-sting-wind-gust-dry.asset|
+|assets/content/sound/ambience/wind/ambience-sting-wind-gust-rainy.ambience-def.asset|
+|assets/content/sound/ambience/wind/ambience-sting-wind-gust-rainy.asset|
+|assets/content/sound/ambience/wind/ambience-sting-wind-gust-snowy.ambience-def.asset|
+|assets/content/sound/ambience/wind/ambience-sting-wind-gust-snowy.asset|
 |assets/content/sound/audioclips/break/rock-break.asset|
 |assets/content/sound/footsteps/barefoot/footstep-barefoot-cloth-jump-land.asset|
 |assets/content/sound/footsteps/barefoot/footstep-barefoot-cloth-jump-start.asset|
@@ -3539,6 +3576,10 @@
 |assets/content/workshop/skin/unknown/rorschach skull/skin.balaclava.rorschachskull.itemskin.asset|
 |assets/content/workshop/skin/unknown/rorschach skull/skull.meta.asset|
 |assets/manifest.asset|
+|assets/plugins/ezsoftbone/tests/presets/sbmat_default_hard.asset|
+|assets/plugins/ezsoftbone/tests/presets/sbmat_default_normal.asset|
+|assets/plugins/ezsoftbone/tests/presets/sbmat_default_soft.asset|
+|assets/plugins/ezsoftbone/tests/presets/sbmat_demo.asset|
 |assets/plugins/rust.ui/controls/container.popup.normal.asset|
 |assets/plugins/rust.ui/controls/dropdown.normal.asset|
 |assets/plugins/rust.ui/controls/form.horizontal.normal.asset|
@@ -3609,6 +3650,8 @@
 |assets/prefabs/clothes/diving.tank/sound/scuba_inhale.asset|
 |assets/prefabs/clothes/frogboots/frogboots.sitem.asset|
 |assets/prefabs/clothes/gloves.leather/gloves.leather.skinnable.asset|
+|assets/prefabs/clothes/halloween.ghostsheet/player_skeleton.ghostsheet.asset|
+|assets/prefabs/clothes/halloween.ghostsheet/sbmat_ghostsheet.asset|
 |assets/prefabs/clothes/halterneck.hide/halterneck.hide.skinnable.asset|
 |assets/prefabs/clothes/hat.beenie/black/hat.beenie.black.itemskin.asset|
 |assets/prefabs/clothes/hat.beenie/blue/hat.beenie.blue.itemskin.asset|
@@ -3685,6 +3728,7 @@
 |assets/prefabs/clothes/shoes.boots/tan/shoes.boots.tan.itemskin.asset|
 |assets/prefabs/clothes/shoes.burlap/shoes.burlap.skinnable.asset|
 |assets/prefabs/clothes/shoes.hide/shoes.hide.skinnable.asset|
+|assets/prefabs/clothes/skin/underwear/halloween/mummywraps.asset|
 |assets/prefabs/clothes/skin/underwear/resources/underwearmanifest.asset|
 |assets/prefabs/clothes/skin/underwear/swimwear/bikini.asset|
 |assets/prefabs/clothes/skin/underwear/swimwear/boardshorts.asset|
@@ -4130,6 +4174,7 @@
 |assets/prefabs/misc/halloween/lootbag/sound/halloween-loot-bag-medium-open.asset|
 |assets/prefabs/misc/halloween/lootbag/sound/halloween-loot-bag-small-open.asset|
 |assets/prefabs/misc/halloween/lootbag/sound/halloween-loot-bag-upgrade.asset|
+|assets/prefabs/misc/halloween/mummywraps_underwear/mummywrapunderwear.sitem.asset|
 |assets/prefabs/misc/halloween/pumpkin_bucket/sound/pumpkin-bucket-add-candy.asset|
 |assets/prefabs/misc/halloween/pumpkin_bucket/sound/pumpkin-bucket-aim.asset|
 |assets/prefabs/misc/halloween/pumpkin_bucket/sound/pumpkin-bucket-aim-cancel.asset|
@@ -4141,6 +4186,10 @@
 |assets/prefabs/misc/halloween/pumpkin_bucket/sound/pumpkin-bucket-settle.asset|
 |assets/prefabs/misc/halloween/pumpkin_bucket/sound/pumpkin-bucket-throw.asset|
 |assets/prefabs/misc/halloween/scarecrow/scarecrow.sitem.asset|
+|assets/prefabs/misc/halloween/skull spikes/skins/skullspikes.candles.skin.asset|
+|assets/prefabs/misc/halloween/skull spikes/skins/skullspikes.pumpkin.skin.asset|
+|assets/prefabs/misc/halloween/skull spikes/skullspike.sitem.asset|
+|assets/prefabs/misc/halloween/skull spikes/skullspikes.skinnable.asset|
 |assets/prefabs/misc/halloween/skull_door_knocker/skull_door_knocker.sitem.asset|
 |assets/prefabs/misc/halloween/skull_door_knocker/sound/knock.asset|
 |assets/prefabs/misc/halloween/skull_fire_pit/skull_fire_pit.sitem.asset|
@@ -4149,6 +4198,11 @@
 |assets/prefabs/misc/halloween/spookyspeaker/sound/spookysounds.asset|
 |assets/prefabs/misc/halloween/spookyspeaker/spookyspeaker.sitem.asset|
 |assets/prefabs/misc/halloween/surgeon_outfit/surgeon_suit.sitem.asset|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.jar.skin.asset|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.jar2.skin.asset|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.table.skin.asset|
+|assets/prefabs/misc/halloween/trophy skulls/skulltrophy.sitem.asset|
+|assets/prefabs/misc/halloween/trophy skulls/skulltrophy.skinnable.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_fail.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_finish.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_hit.asset|
