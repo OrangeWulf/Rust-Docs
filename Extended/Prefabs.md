@@ -1178,6 +1178,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.fuelsmall.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.fuelstorage.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.furnace.prefab|
+|assets/bundled/prefabs/ui/lootpanels/lootpanel.fuse.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.generic.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.genericlarge.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.lantern.prefab|
@@ -1197,6 +1198,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.samsite.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.shopfront.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.shotguntrap.prefab|
+|assets/bundled/prefabs/ui/lootpanels/lootpanel.skulltrophy.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.smallrefinery.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.smallstash.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.smallwoodbox.prefab|
@@ -1210,16 +1212,19 @@
 |assets/bundled/prefabs/wire_prefab.prefab|
 |assets/bundled/prefabs/world/ai.prefab|
 |assets/bundled/prefabs/world/ambience.prefab|
+|assets/bundled/prefabs/world/auroras.prefab|
 |assets/bundled/prefabs/world/batching.prefab|
 |assets/bundled/prefabs/world/climate.prefab|
 |assets/bundled/prefabs/world/environment.prefab|
 |assets/bundled/prefabs/world/event_airdrop.prefab|
 |assets/bundled/prefabs/world/event_cargoheli.prefab|
 |assets/bundled/prefabs/world/event_cargoship.prefab|
+|assets/bundled/prefabs/world/event_halloween.prefab|
 |assets/bundled/prefabs/world/event_helicopter.prefab|
+|assets/bundled/prefabs/world/lightning.prefab|
 |assets/bundled/prefabs/world/lod.prefab|
-|assets/bundled/prefabs/world/rain.prefab|
-|assets/bundled/prefabs/world/snow.prefab|
+|assets/bundled/prefabs/world/particles.prefab|
+|assets/bundled/prefabs/world/rainbow.prefab|
 |assets/bundled/prefabs/world/underwater.prefab|
 |assets/bundled/prefabs/world/wind.prefab|
 |assets/content/building/bld_frame.prefab|
@@ -1333,6 +1338,17 @@
 |assets/content/effects/muzzleflashes/smg/shell_eject_smg.prefab|
 |assets/content/effects/objects/decal_box.prefab|
 |assets/content/effects/water/bullet_trails_underwater_01.prefab|
+|assets/content/effects/weather/lightning/lightningbolt.prefab|
+|assets/content/effects/weather/pfx_auroras.prefab|
+|assets/content/effects/weather/pfx_lightning_medium.prefab|
+|assets/content/effects/weather/pfx_lightning_mild.prefab|
+|assets/content/effects/weather/pfx_lightning_strong.prefab|
+|assets/content/effects/weather/pfx_lightningstorm_looptest.prefab|
+|assets/content/effects/weather/pfx_rain.prefab|
+|assets/content/effects/weather/pfx_rain_stormy.prefab|
+|assets/content/effects/weather/pfx_rainbow.prefab|
+|assets/content/effects/weather/pfx_snow.prefab|
+|assets/content/effects/weather/pfx_snow_stormy.prefab|
 |assets/content/effects/wip/frosty_breath_fx.prefab|
 |assets/content/effects/wip/muzzle_smoke.prefab|
 |assets/content/nature/ambientlife/fireflies/fireflies.prefab|
@@ -2277,8 +2293,8 @@
 |assets/content/props/wooden_pallets/pallet_stacks_c.prefab|
 |assets/content/sound/ambience/baseambienceemitter.prefab|
 |assets/content/sound/ambience/lifeambienceemitter.prefab|
+|assets/content/sound/ambience/rain/ambience-rain-on-surface.ambience-emitter.prefab|
 |assets/content/sound/ambience/rainambienceemitter.prefab|
-|assets/content/sound/ambience/rain-surface-ambience-settings.prefab|
 |assets/content/sound/oilrig/oilriglargeaudio.prefab|
 |assets/content/sound/oilrig/oilrigsmallaudio.prefab|
 |assets/content/sound/templates/ambience.sound-template.prefab|
@@ -4059,6 +4075,11 @@
 |assets/prefabs/clothes/hair/hair_style05/male_hairstyle_05.prefab|
 |assets/prefabs/clothes/hair/pubichair/pubic_hair_female_01.prefab|
 |assets/prefabs/clothes/hair/pubichair/pubic_hair_male_01.prefab|
+|assets/prefabs/clothes/halloween.ghostsheet/ghostsheet.female.prefab|
+|assets/prefabs/clothes/halloween.ghostsheet/ghostsheet.item.prefab|
+|assets/prefabs/clothes/halloween.ghostsheet/ghostsheet.prefab|
+|assets/prefabs/clothes/halloween.ghostsheet/ghostsheet.test.prefab|
+|assets/prefabs/clothes/halloween.ghostsheet/pelvis.prefab|
 |assets/prefabs/clothes/halloween.mummy/halloween.mummysuit.item.prefab|
 |assets/prefabs/clothes/halloween.mummy/halloweenmummy.prefab|
 |assets/prefabs/clothes/halloween.scarecrow/halloween.scarecrow.item.prefab|
@@ -5169,7 +5190,6 @@
 |assets/prefabs/misc/halloween/deployablegravestone/gravestone.stone.item.prefab|
 |assets/prefabs/misc/halloween/deployablegravestone/gravestone.wood.deployed.prefab|
 |assets/prefabs/misc/halloween/deployablegravestone/gravestone.wood.item.prefab|
-|assets/prefabs/misc/halloween/event_halloween.prefab|
 |assets/prefabs/misc/halloween/graveyard_fence/graveyardfence.item.prefab|
 |assets/prefabs/misc/halloween/graveyard_fence/graveyardfence.prefab|
 |assets/prefabs/misc/halloween/halloweenhunt.prefab|
@@ -5180,6 +5200,13 @@
 |assets/prefabs/misc/halloween/lootbag/lootbag.large.item.prefab|
 |assets/prefabs/misc/halloween/lootbag/lootbag.medium.item.prefab|
 |assets/prefabs/misc/halloween/lootbag/lootbag.small.item.prefab|
+|assets/prefabs/misc/halloween/mummywraps_underwear/femaleunderwear_mummywraps_bottom.prefab|
+|assets/prefabs/misc/halloween/mummywraps_underwear/femaleunderwear_mummywraps_fullbody_bottom.prefab|
+|assets/prefabs/misc/halloween/mummywraps_underwear/femaleunderwear_mummywraps_fullbody_top.prefab|
+|assets/prefabs/misc/halloween/mummywraps_underwear/femaleunderwear_mummywraps_top.prefab|
+|assets/prefabs/misc/halloween/mummywraps_underwear/maleunderwear_mummywraps_bottom.prefab|
+|assets/prefabs/misc/halloween/mummywraps_underwear/maleunderwear_mummywraps_fullbody_bottom.prefab|
+|assets/prefabs/misc/halloween/mummywraps_underwear/maleunderwear_mummywraps_fullbody_top.prefab|
 |assets/prefabs/misc/halloween/pumpkin_bucket/effects/add_egg.prefab|
 |assets/prefabs/misc/halloween/pumpkin_bucket/effects/aim.prefab|
 |assets/prefabs/misc/halloween/pumpkin_bucket/effects/aim_cancel.prefab|
@@ -5196,6 +5223,15 @@
 |assets/prefabs/misc/halloween/pumpkin_bucket/pumpkin_basket.viewmodel.prefab|
 |assets/prefabs/misc/halloween/scarecrow/scarecrow.deployed.prefab|
 |assets/prefabs/misc/halloween/scarecrow/scarecrow.item.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skins/skullspikes.candles.deployed.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skins/skullspikes.candles.item.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skins/skullspikes.pumpkin.deployed.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skins/skullspikes.pumpkin.item.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skullspike_1.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skullspike_2.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skullspike_3.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skullspikes.deployed.prefab|
+|assets/prefabs/misc/halloween/skull spikes/skullspikes.item.prefab|
 |assets/prefabs/misc/halloween/skull_door_knocker/effects/door_knock_fx.prefab|
 |assets/prefabs/misc/halloween/skull_door_knocker/effects/skull_door_knock_fx.prefab|
 |assets/prefabs/misc/halloween/skull_door_knocker/skull_door_knocker.deployed.prefab|
@@ -5213,6 +5249,18 @@
 |assets/prefabs/misc/halloween/surgeon_outfit/surgeon_outfit_vm.prefab|
 |assets/prefabs/misc/halloween/surgeon_outfit/surgeon_outfit_worldmodel.prefab|
 |assets/prefabs/misc/halloween/surgeon_outfit/surgeon_suit.item.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.jar.deployed.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.jar.item.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.jar2.deployed.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.jar2.item.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.table.deployed.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.table.item.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skulltrophy.deployed.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skulltrophy.item.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skulltrophy_1.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skulltrophy_2.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skulltrophy_3.prefab|
+|assets/prefabs/misc/halloween/trophy skulls/skulltrophy_4.prefab|
 |assets/prefabs/misc/item drop/item_drop.prefab|
 |assets/prefabs/misc/item drop/item_drop_backpack.prefab|
 |assets/prefabs/misc/junkpile/effects/despawn.prefab|
