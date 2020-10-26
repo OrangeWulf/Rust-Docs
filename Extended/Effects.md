@@ -636,6 +636,17 @@
 |assets/content/effects/muzzleflashes/smg/shell_eject_smg.prefab|
 |assets/content/effects/objects/decal_box.prefab|
 |assets/content/effects/water/bullet_trails_underwater_01.prefab|
+|assets/content/effects/weather/lightning/lightningbolt.prefab|
+|assets/content/effects/weather/pfx_auroras.prefab|
+|assets/content/effects/weather/pfx_lightning_medium.prefab|
+|assets/content/effects/weather/pfx_lightning_mild.prefab|
+|assets/content/effects/weather/pfx_lightning_strong.prefab|
+|assets/content/effects/weather/pfx_lightningstorm_looptest.prefab|
+|assets/content/effects/weather/pfx_rain.prefab|
+|assets/content/effects/weather/pfx_rain_stormy.prefab|
+|assets/content/effects/weather/pfx_rainbow.prefab|
+|assets/content/effects/weather/pfx_snow.prefab|
+|assets/content/effects/weather/pfx_snow_stormy.prefab|
 |assets/content/effects/wip/frosty_breath_fx.prefab|
 |assets/content/effects/wip/muzzle_smoke.prefab|
 |assets/content/nature/dunes/pfx sand.prefab|
@@ -660,8 +671,8 @@
 |assets/content/props/light_fixtures/v2/radtown work prefabs/small oil rig fx.prefab|
 |assets/content/sound/ambience/baseambienceemitter.prefab|
 |assets/content/sound/ambience/lifeambienceemitter.prefab|
+|assets/content/sound/ambience/rain/ambience-rain-on-surface.ambience-emitter.prefab|
 |assets/content/sound/ambience/rainambienceemitter.prefab|
-|assets/content/sound/ambience/rain-surface-ambience-settings.prefab|
 |assets/content/sound/oilrig/oilriglargeaudio.prefab|
 |assets/content/sound/oilrig/oilrigsmallaudio.prefab|
 |assets/content/sound/templates/ambience.sound-template.prefab|
