@@ -147,15 +147,15 @@
 |assets/bundled/prefabs/autospawn/decor/roadside/electrical_box_a.prefab|
 |assets/bundled/prefabs/autospawn/decor/roadside/electrical_box_b.prefab|
 |assets/bundled/prefabs/autospawn/decor/roadside/electrical_box_c.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign1.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign2.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign3.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign4.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign5.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign6.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign7.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign8.prefab|
-|assets/bundled/prefabs/autospawn/decor/roadside/roadsign9.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign1spawner.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign2spawner.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign3spawner.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign4spawner.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign5spawner.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign6spawner.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign7spawner.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign8spawner.prefab|
+|assets/bundled/prefabs/autospawn/decor/roadside/roadsign9spawner.prefab|
 |assets/bundled/prefabs/autospawn/decor/rock-underwater/rock_med_a.prefab|
 |assets/bundled/prefabs/autospawn/decor/rock-underwater/rock_med_a_b.prefab|
 |assets/bundled/prefabs/autospawn/decor/rock-underwater/rock_med_b.prefab|
@@ -168,6 +168,15 @@
 |assets/bundled/prefabs/autospawn/decor/rock-waterside/rock_med_b_b.prefab|
 |assets/bundled/prefabs/autospawn/decor/rock-waterside/rock_med_c.prefab|
 |assets/bundled/prefabs/autospawn/decor/rock-waterside/rock_med_c_b.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_1.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_1_end.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_1_start.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_2.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_2_end.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_2_start.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_3.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_3_end.prefab|
+|assets/bundled/prefabs/autospawn/decor/test_cliff/test_cliff_3_start.prefab|
 |assets/bundled/prefabs/autospawn/decor/v2_arctic_forest_rocks/rock_med_c.prefab|
 |assets/bundled/prefabs/autospawn/decor/v2_arctic_forest_rocks/rock_small_a.prefab|
 |assets/bundled/prefabs/autospawn/decor/v2_arctic_forest_rocks/rock_small_b.prefab|
@@ -263,6 +272,8 @@
 |assets/bundled/prefabs/autospawn/monument/medium/bandit_town.prefab|
 |assets/bundled/prefabs/autospawn/monument/medium/compound.prefab|
 |assets/bundled/prefabs/autospawn/monument/medium/radtown_small_3.prefab|
+|assets/bundled/prefabs/autospawn/monument/medium/stables_a.prefab|
+|assets/bundled/prefabs/autospawn/monument/medium/stables_b.prefab|
 |assets/bundled/prefabs/autospawn/monument/offshore/oilrig_1.prefab|
 |assets/bundled/prefabs/autospawn/monument/offshore/oilrig_2.prefab|
 |assets/bundled/prefabs/autospawn/monument/roadside/gas_station_1.prefab|
@@ -286,6 +297,7 @@
 |assets/bundled/prefabs/autospawn/mountain/mountain_3.prefab|
 |assets/bundled/prefabs/autospawn/mountain/mountain_4.prefab|
 |assets/bundled/prefabs/autospawn/mountain/mountain_5.prefab|
+|assets/bundled/prefabs/autospawn/phonebooth/phonebooth.static.prefab|
 |assets/bundled/prefabs/autospawn/power substations/big/power_sub_big_1.prefab|
 |assets/bundled/prefabs/autospawn/power substations/big/power_sub_big_2.prefab|
 |assets/bundled/prefabs/autospawn/power substations/small/power_sub_small_1.prefab|
@@ -1003,6 +1015,9 @@
 |assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modarmored.prefab|
 |assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modcockpit.prefab|
 |assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modcockpitengine.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modtaxi_back_rear.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modtaxi_mid_rear.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modtaxi_side.prefab|
 |assets/bundled/prefabs/fx/water/groundsplash.prefab|
 |assets/bundled/prefabs/fx/water/midair_splash.prefab|
 |assets/bundled/prefabs/fx/water/playerjumpinwater.prefab|
@@ -1169,6 +1184,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.bbq.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.bigwheel.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.campfire.prefab|
+|assets/bundled/prefabs/ui/lootpanels/lootpanel.cassettereceiver.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.composter.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.crate.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.dropboxcontents.prefab|
@@ -1219,7 +1235,6 @@
 |assets/bundled/prefabs/world/event_airdrop.prefab|
 |assets/bundled/prefabs/world/event_cargoheli.prefab|
 |assets/bundled/prefabs/world/event_cargoship.prefab|
-|assets/bundled/prefabs/world/event_halloween.prefab|
 |assets/bundled/prefabs/world/event_helicopter.prefab|
 |assets/bundled/prefabs/world/lightning.prefab|
 |assets/bundled/prefabs/world/lod.prefab|
@@ -1837,6 +1852,9 @@
 |assets/content/props/gas_canisters/gas_canister_pallet_b.prefab|
 |assets/content/props/gas_canisters/gas_canister_pile_a.prefab|
 |assets/content/props/gas_pump/gas_pump_a.prefab|
+|assets/content/props/hay_bales/hay_bale_1x1.prefab|
+|assets/content/props/hay_bales/hay_bale_2x1.prefab|
+|assets/content/props/hay_bales/hay_bale_round.prefab|
 |assets/content/props/helicopter_parts/heli_cockpit.prefab|
 |assets/content/props/helicopter_parts/heli_door_a.prefab|
 |assets/content/props/helicopter_parts/heli_door_b.prefab|
@@ -1845,6 +1863,12 @@
 |assets/content/props/helicopter_parts/heli_tail.prefab|
 |assets/content/props/helipad_tarpaulin/helipad_tarpaulin.prefab|
 |assets/content/props/helipad_tarpaulin/hut_tarp.prefab|
+|assets/content/props/hitch and trough/hitchingpost.prefab|
+|assets/content/props/hitch and trough/trough.prefab|
+|assets/content/props/horse_dung_piles/horse_dung_pile_flat.prefab|
+|assets/content/props/horse_dung_piles/horse_dung_pile_l.prefab|
+|assets/content/props/horse_dung_piles/horse_dung_pile_m.prefab|
+|assets/content/props/horse_dung_piles/horse_dung_pile_s.prefab|
 |assets/content/props/hvac_exhausts/hvac_exhausts.prefab|
 |assets/content/props/industrial_fixtures/vent_a.prefab|
 |assets/content/props/industrial_fixtures/vent_b.prefab|
@@ -1949,6 +1973,8 @@
 |assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig lighting.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/small oil rig fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/small oil rig lighting.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/stables_a_lighting.prefab|
+|assets/content/props/light_fixtures/v2/radtown work prefabs/stables_b_lighting.prefab|
 |assets/content/props/light_fixtures/v2/smallcandleset_static.prefab|
 |assets/content/props/light_fixtures/walllight.prefab|
 |assets/content/props/light_fixtures/walllight_on.prefab|
@@ -1980,6 +2006,7 @@
 |assets/content/props/misc_dressing_props/toolbox.prefab|
 |assets/content/props/misc_dressing_props/washingmachine.prefab|
 |assets/content/props/misc_dressing_props/workbench.prefab|
+|assets/content/props/mixing_table_decor/mixingtable.decor.prefab|
 |assets/content/props/office_furniture/bin_a.prefab|
 |assets/content/props/office_furniture/chair_a.prefab|
 |assets/content/props/office_furniture/computer_cabinet_a.prefab|
@@ -2098,6 +2125,24 @@
 |assets/content/props/road_cone/road_cone_a.prefab|
 |assets/content/props/road_cone/road_cone_b.prefab|
 |assets/content/props/road_cone/road_cone_c.prefab|
+|assets/content/props/roadsigns/roadsign1.prefab|
+|assets/content/props/roadsigns/roadsign1static.prefab|
+|assets/content/props/roadsigns/roadsign2.prefab|
+|assets/content/props/roadsigns/roadsign2static.prefab|
+|assets/content/props/roadsigns/roadsign3.prefab|
+|assets/content/props/roadsigns/roadsign3static.prefab|
+|assets/content/props/roadsigns/roadsign4.prefab|
+|assets/content/props/roadsigns/roadsign4static.prefab|
+|assets/content/props/roadsigns/roadsign5.prefab|
+|assets/content/props/roadsigns/roadsign5static.prefab|
+|assets/content/props/roadsigns/roadsign6.prefab|
+|assets/content/props/roadsigns/roadsign6static.prefab|
+|assets/content/props/roadsigns/roadsign7.prefab|
+|assets/content/props/roadsigns/roadsign7static.prefab|
+|assets/content/props/roadsigns/roadsign8.prefab|
+|assets/content/props/roadsigns/roadsign8static.prefab|
+|assets/content/props/roadsigns/roadsign9.prefab|
+|assets/content/props/roadsigns/roadsign9static.prefab|
 |assets/content/props/rocking chair/rockingchair.prefab|
 |assets/content/props/ropes/rope_docks_a.prefab|
 |assets/content/props/rubble_piles/brick_pile_1x6.prefab|
@@ -2212,6 +2257,7 @@
 |assets/content/props/small_junk/wooden_tray.prefab|
 |assets/content/props/spraypaintcan/spraycan.v.prefab|
 |assets/content/props/spraypaintcan/spraycan.w.prefab|
+|assets/content/props/static_horse_saddle/saddle_nostirrups.prefab|
 |assets/content/props/strobe light/strobelight.item.prefab|
 |assets/content/props/strobe light/strobelight.prefab|
 |assets/content/props/studio/backdrop_black.prefab|
@@ -3137,6 +3183,18 @@
 |assets/content/structures/wooden_buildings/wooden_building_b.prefab|
 |assets/content/structures/wooden_buildings/wooden_building_c.prefab|
 |assets/content/structures/wooden_buildings/wooden_building_d.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_e.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_e_int.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_e_stables.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_e_stables_hay.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_f.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_f_barn_doors.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_f_extension.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_f_hay.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_f_int.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_f_shed.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_f_shop.prefab|
+|assets/content/structures/wooden_buildings/wooden_building_stables_box.prefab|
 |assets/content/structures/wooden_cabins/cabin_doorway_a.prefab|
 |assets/content/structures/wooden_cabins/cabin_floor_a.prefab|
 |assets/content/structures/wooden_cabins/cabin_foundation.prefab|
@@ -3155,6 +3213,9 @@
 |assets/content/structures/wooden_cabins/wooden_cabin_d.prefab|
 |assets/content/structures/wooden_cabins/wooden_cabin_e.prefab|
 |assets/content/structures/wooden_cabins/wooden_cabin_f.prefab|
+|assets/content/structures/wooden_fence/wooden_fence_300.prefab|
+|assets/content/structures/wooden_fence/wooden_fence_600.prefab|
+|assets/content/structures/wooden_fence/wooden_fence_900.prefab|
 |assets/content/structures/wooden_walkway/water_spikes_300.prefab|
 |assets/content/structures/wooden_walkway/water_spikes_600.prefab|
 |assets/content/structures/wooden_walkway/water_spikes_900.prefab|
@@ -3258,6 +3319,7 @@
 |assets/content/ui/gameui/gameui.hud.recorder.prefab|
 |assets/content/ui/gameui/gameui.hud.recorder.progress.prefab|
 |assets/content/ui/gameui/gameui.hud.recorder.saved.prefab|
+|assets/content/ui/gameui/gameui.hud.recording.prefab|
 |assets/content/ui/gameui/gameui.hud.scopeoverlay.prefab|
 |assets/content/ui/gameui/gameui.hud.sunglasses.prefab|
 |assets/content/ui/gameui/gameui.hud.teamdock.prefab|
@@ -3372,6 +3434,7 @@
 |assets/content/vehicles/boats/kayak/effects/kayak-push-water.prefab|
 |assets/content/vehicles/boats/kayak/kayak.item.prefab|
 |assets/content/vehicles/boats/kayak/kayak.prefab|
+|assets/content/vehicles/boats/kayak/makeshift canoe/kayakpaddle.prefab|
 |assets/content/vehicles/boats/kayak/makeshift canoe/makeshiftcanoe.prefab|
 |assets/content/vehicles/boats/kayak/makeshift canoe/oar.prefab|
 |assets/content/vehicles/boats/rhib/rhib.prefab|
@@ -3455,12 +3518,13 @@
 |assets/content/vehicles/modularcar/module_entities/1module_passengers_armored.prefab|
 |assets/content/vehicles/modularcar/module_entities/1module_rear_seats.prefab|
 |assets/content/vehicles/modularcar/module_entities/1module_storage.prefab|
+|assets/content/vehicles/modularcar/module_entities/1module_taxi.prefab|
 |assets/content/vehicles/modularcar/module_entities/2module_flatbed.prefab|
 |assets/content/vehicles/modularcar/module_entities/2module_fuel_tank.prefab|
 |assets/content/vehicles/modularcar/module_entities/2module_passengers.prefab|
-|assets/content/vehicles/modularcar/randommodular.entity.prefab|
 |assets/content/vehicles/modularcar/sound/modular-car-engine-test-nice-setup.prefab|
 |assets/content/vehicles/modularcar/subents/modular_car_1mod_storage.prefab|
+|assets/content/vehicles/modularcar/subents/modular_car_1mod_trade.prefab|
 |assets/content/vehicles/modularcar/subents/modular_car_2mod_fuel_tank.prefab|
 |assets/content/vehicles/modularcar/subents/modular_car_fuel_storage.prefab|
 |assets/content/vehicles/modularcar/subents/modular_car_i4_engine_storage.prefab|
@@ -5190,6 +5254,7 @@
 |assets/prefabs/misc/halloween/deployablegravestone/gravestone.stone.item.prefab|
 |assets/prefabs/misc/halloween/deployablegravestone/gravestone.wood.deployed.prefab|
 |assets/prefabs/misc/halloween/deployablegravestone/gravestone.wood.item.prefab|
+|assets/prefabs/misc/halloween/event_halloween.prefab|
 |assets/prefabs/misc/halloween/graveyard_fence/graveyardfence.item.prefab|
 |assets/prefabs/misc/halloween/graveyard_fence/graveyardfence.prefab|
 |assets/prefabs/misc/halloween/halloweenhunt.prefab|
@@ -5284,6 +5349,62 @@
 |assets/prefabs/misc/junkpile_water/junkpile_water_a.prefab|
 |assets/prefabs/misc/junkpile_water/junkpile_water_b.prefab|
 |assets/prefabs/misc/junkpile_water/junkpile_water_c.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/movember_moustache_card.item.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/movember_moustache_card_female.wearable.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/movember_moustache_card_male.wearable.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_asian01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_asian02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_asian03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_dark01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_dark02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_dark03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_dark04.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_light01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_light02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_light03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_female_light04.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_asian01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_asian02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_asian03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_dark01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_dark02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_dark03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_dark04.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_dark05.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_light00.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_light01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_light02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_light03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_light04.prefab|
+|assets/prefabs/misc/movember/movember_moustache_card/prefabs/movember_moustache_card_male_light05.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/movember_moustache_style01.item.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/movember_moustache_style01_female.wearable.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/movember_moustache_style01_male.wearable.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_asian01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_asian02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_asian03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_dark01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_dark02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_dark03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_dark04.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_light01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_light02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_light03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_female_light04.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_asian01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_asian02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_asian03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_dark01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_dark02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_dark03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_dark04.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_dark05.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_light00.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_light01.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_light02.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_light03.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_light04.prefab|
+|assets/prefabs/misc/movember/movember_moustache_style01/prefabs/movember_moustache_style01_male_light05.prefab|
 |assets/prefabs/misc/note/note.item.prefab|
 |assets/prefabs/misc/note/notepanel.prefab|
 |assets/prefabs/misc/orebonus/effects/bonus_fail.prefab|
@@ -5588,9 +5709,11 @@
 |assets/prefabs/npc/bandit/bandit_town_npc_spawner.prefab|
 |assets/prefabs/npc/bandit/boatspawner.prefab|
 |assets/prefabs/npc/bandit/guard/bandit_guard.prefab|
+|assets/prefabs/npc/bandit/horsespawner.prefab|
 |assets/prefabs/npc/bandit/shopkeepers/bandit_conversationalist.prefab|
 |assets/prefabs/npc/bandit/shopkeepers/bandit_shopkeeper.prefab|
 |assets/prefabs/npc/bandit/shopkeepers/boat_shopkeeper.prefab|
+|assets/prefabs/npc/bandit/shopkeepers/stables_shopkeeper.prefab|
 |assets/prefabs/npc/bear/bear_full.prefab|
 |assets/prefabs/npc/bear/sound/breathe.prefab|
 |assets/prefabs/npc/bear/sound/death.prefab|
@@ -6036,8 +6159,10 @@
 |assets/prefabs/vehicle/seats/minihelipassenger.prefab|
 |assets/prefabs/vehicle/seats/miniheliseat.prefab|
 |assets/prefabs/vehicle/seats/modularcardriverseat.prefab|
-|assets/prefabs/vehicle/seats/modularcarpassengerseat.prefab|
-|assets/prefabs/vehicle/seats/modularcarpassengerseatlesslegroom.prefab|
+|assets/prefabs/vehicle/seats/modularcarpassengerseatleft.prefab|
+|assets/prefabs/vehicle/seats/modularcarpassengerseatlesslegroomleft.prefab|
+|assets/prefabs/vehicle/seats/modularcarpassengerseatlesslegroomright.prefab|
+|assets/prefabs/vehicle/seats/modularcarpassengerseatright.prefab|
 |assets/prefabs/vehicle/seats/passenger.prefab|
 |assets/prefabs/vehicle/seats/passengerchair.prefab|
 |assets/prefabs/vehicle/seats/pilotseat.prefab|
@@ -6061,10 +6186,19 @@
 |assets/prefabs/vehicle/vehiclemoduleitems/1module_passengers_armored/1module_passengers_armored.item.prefab|
 |assets/prefabs/vehicle/vehiclemoduleitems/1module_rear_seats/1module_rear_seats.item.prefab|
 |assets/prefabs/vehicle/vehiclemoduleitems/1module_storage/1module_storage.item.prefab|
+|assets/prefabs/vehicle/vehiclemoduleitems/1module_taxi/1module_taxi.item.prefab|
 |assets/prefabs/vehicle/vehiclemoduleitems/2module_flatbed/2module_flatbed.item.prefab|
 |assets/prefabs/vehicle/vehiclemoduleitems/2module_fuel_tank/2module_fuel_tank.item.prefab|
 |assets/prefabs/vehicle/vehiclemoduleitems/2module_passengers/2module_passengers.item.prefab|
 |assets/prefabs/visualization/sphere.prefab|
+|assets/prefabs/voiceaudio/phonebooth/phonebooth.prefab|
+|assets/prefabs/voiceaudio/telephone/effects/telephone-deploy.prefab|
+|assets/prefabs/voiceaudio/telephone/telephone.deployed.prefab|
+|assets/prefabs/voiceaudio/telephone/telephone.item.prefab|
+|assets/prefabs/voiceaudio/telephone/telephone.viewmodel.prefab|
+|assets/prefabs/voiceaudio/telephone/telephone.worldmodel.prefab|
+|assets/prefabs/voiceaudio/telephone/ui/phonedialler.prefab|
+|assets/prefabs/voiceaudio/telephone/ui/phonedirectoryentry.prefab|
 |assets/prefabs/weapon mods/8x scope/8xscope.entity.prefab|
 |assets/prefabs/weapon mods/8x scope/8xscope.item.prefab|
 |assets/prefabs/weapon mods/8x scope/8xscope.prefab|
@@ -7123,6 +7257,7 @@
 |assets/rust.ai/nextai/effects/dusttrail.prefab|
 |assets/rust.ai/nextai/ridablehorse/items/horse.armor.roadsign.item.prefab|
 |assets/rust.ai/nextai/ridablehorse/items/horse.armor.wood.item.prefab|
+|assets/rust.ai/nextai/ridablehorse/items/horse.saddle.item.prefab|
 |assets/rust.ai/nextai/ridablehorse/items/horse.saddlebag.item.prefab|
 |assets/rust.ai/nextai/ridablehorse/items/horse.shoes.advanced.item.prefab|
 |assets/rust.ai/nextai/ridablehorse/items/horse.shoes.basic.item.prefab|
