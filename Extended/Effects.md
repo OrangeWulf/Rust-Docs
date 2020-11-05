@@ -543,6 +543,9 @@
 |assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modarmored.prefab|
 |assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modcockpit.prefab|
 |assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modcockpitengine.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modtaxi_back_rear.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modtaxi_mid_rear.prefab|
+|assets/bundled/prefabs/fx/vehicle/vehicle_glass_fx_1modtaxi_side.prefab|
 |assets/bundled/prefabs/fx/water/groundsplash.prefab|
 |assets/bundled/prefabs/fx/water/midair_splash.prefab|
 |assets/bundled/prefabs/fx/water/playerjumpinwater.prefab|
@@ -1095,6 +1098,7 @@
 |assets/prefabs/tools/smoke grenade/effects/smokegrenade_small.prefab|
 |assets/prefabs/tools/surveycharge/effects/deploy.prefab|
 |assets/prefabs/tools/wire/effects/plugeffect.prefab|
+|assets/prefabs/voiceaudio/telephone/effects/telephone-deploy.prefab|
 |assets/prefabs/weapon mods/flashlight/lighteffect_1p.prefab|
 |assets/prefabs/weapon mods/flashlight/lighteffect_3p.prefab|
 |assets/prefabs/weapon mods/lasersight/lasereffect_1p.prefab|
