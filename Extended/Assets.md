@@ -695,6 +695,7 @@
 |assets/content/properties/lootspawn/generated/items/component/vehicle.1mod.passengers.armored.asset|
 |assets/content/properties/lootspawn/generated/items/component/vehicle.1mod.rear.seats.asset|
 |assets/content/properties/lootspawn/generated/items/component/vehicle.1mod.storage.asset|
+|assets/content/properties/lootspawn/generated/items/component/vehicle.1mod.taxi.asset|
 |assets/content/properties/lootspawn/generated/items/component/vehicle.2mod.flatbed.asset|
 |assets/content/properties/lootspawn/generated/items/component/vehicle.2mod.fuel.tank.asset|
 |assets/content/properties/lootspawn/generated/items/component/vehicle.2mod.passengers.asset|
@@ -862,6 +863,7 @@
 |assets/content/properties/lootspawn/generated/items/fun/fun.tuba.asset|
 |assets/content/properties/lootspawn/generated/items/fun/innertube.asset|
 |assets/content/properties/lootspawn/generated/items/fun/piano.asset|
+|assets/content/properties/lootspawn/generated/items/fun/telephone.asset|
 |assets/content/properties/lootspawn/generated/items/fun/wrappedgift.asset|
 |assets/content/properties/lootspawn/generated/items/fun/wrappingpaper.asset|
 |assets/content/properties/lootspawn/generated/items/fun/xylophone.asset|
@@ -1166,6 +1168,7 @@
 |assets/content/properties/lootspawn/lootspawn.radtown1.asset|
 |assets/content/properties/lootspawn/lootspawn.radtown2.asset|
 |assets/content/properties/lootspawn/lootspawn.radtownelite.asset|
+|assets/content/properties/lootspawn/lootspawn.roadsign.asset|
 |assets/content/properties/lootspawn/lootspawn.starterstuff.asset|
 |assets/content/properties/lootspawn/lootspawn.supplydrop.asset|
 |assets/content/properties/lootspawn/lootspawn.trashcan.asset|
@@ -1202,6 +1205,7 @@
 |assets/content/properties/playerinventory/bandit_guard.asset|
 |assets/content/properties/playerinventory/bandit_shopkeeper_adv.asset|
 |assets/content/properties/playerinventory/bandit_shopkeeper_basic.asset|
+|assets/content/properties/playerinventory/bandit_shopkeeper_stables.asset|
 |assets/content/properties/playerinventory/builderinventory.asset|
 |assets/content/properties/playerinventory/combat.asset|
 |assets/content/properties/playerinventory/defaultinventory.asset|
@@ -1229,6 +1233,7 @@
 |assets/content/properties/playerinventory/science_shotgn.asset|
 |assets/content/properties/playerinventory/summerdlc.asset|
 |assets/content/properties/playerinventory/survivorinventory.asset|
+|assets/content/properties/playerinventory/voiceprops.asset|
 |assets/content/properties/protection/barricademetal.asset|
 |assets/content/properties/protection/barricadestone.asset|
 |assets/content/properties/protection/barricadewood.asset|
@@ -1327,6 +1332,7 @@
 |assets/content/properties/protection/tree protection.asset|
 |assets/content/properties/protection/turret_protection.asset|
 |assets/content/properties/protection/waterinflatable.asset|
+|assets/content/properties/protection/worldmetal.asset|
 |assets/content/properties/recipes/mixingtable.recipelist.asset|
 |assets/content/properties/recipes/mixingtable/fertilizerexplosives.recipe.asset|
 |assets/content/properties/recipes/mixingtable/gunpowderrecipe.asset|
@@ -1469,6 +1475,7 @@
 |assets/content/properties/steamcategories/limited-halloween2020-499.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2020-599.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2020-899.steam.asset|
+|assets/content/properties/steamcategories/limited-movember2020.steam.asset|
 |assets/content/properties/steamcategories/limited-spacesuit.steam.asset|
 |assets/content/properties/steamcategories/nocrate.steam.asset|
 |assets/content/properties/steamcategories/resource.steam.asset|
@@ -3162,6 +3169,9 @@
 |assets/content/sound/worldmusic/boat-shop-music-loop.ambience-def.asset|
 |assets/content/sound/worldmusic/boat-shop-music-loop.ambience-list.asset|
 |assets/content/sound/worldmusic/boat-shop-music-loop.asset|
+|assets/content/sound/worldmusic/stable-music-loop.ambience-def.asset|
+|assets/content/sound/worldmusic/stable-music-loop.ambience-list.asset|
+|assets/content/sound/worldmusic/stable-music-loop.asset|
 |assets/content/structures/awnings/models/sound/tarp_flap.asset|
 |assets/content/structures/excavator/prefabs/sound/diesel_engine_on_loop.asset|
 |assets/content/structures/excavator/prefabs/sound/diesel_engine_shutdown.asset|
@@ -3275,11 +3285,13 @@
 |assets/content/vehicles/modularcar/car_presets/2socket modular car preset 6.asset|
 |assets/content/vehicles/modularcar/car_presets/2socket modular car preset 7.asset|
 |assets/content/vehicles/modularcar/car_presets/2socket modular car preset 8.asset|
+|assets/content/vehicles/modularcar/car_presets/2socket modular car preset 9.asset|
 |assets/content/vehicles/modularcar/car_presets/3socket modular car preset 1.asset|
 |assets/content/vehicles/modularcar/car_presets/3socket modular car preset 10.asset|
 |assets/content/vehicles/modularcar/car_presets/3socket modular car preset 11.asset|
 |assets/content/vehicles/modularcar/car_presets/3socket modular car preset 12.asset|
 |assets/content/vehicles/modularcar/car_presets/3socket modular car preset 13.asset|
+|assets/content/vehicles/modularcar/car_presets/3socket modular car preset 14.asset|
 |assets/content/vehicles/modularcar/car_presets/3socket modular car preset 2.asset|
 |assets/content/vehicles/modularcar/car_presets/3socket modular car preset 3.asset|
 |assets/content/vehicles/modularcar/car_presets/3socket modular car preset 4.asset|
@@ -3311,6 +3323,7 @@
 |assets/content/vehicles/modularcar/sound/engineloop2.asset|
 |assets/content/vehicles/modularcar/sound/engineloop3.asset|
 |assets/content/vehicles/modularcar/sound/engineloop4.asset|
+|assets/content/vehicles/modularcar/sound/kick-button.asset|
 |assets/content/vehicles/modularcar/sound/modular-car-brake-squeal-loop.asset|
 |assets/content/vehicles/modularcar/sound/modular-car-burn-loop.asset|
 |assets/content/vehicles/modularcar/sound/modular-car-damaged-engine-loop.asset|
@@ -3587,6 +3600,7 @@
 |assets/plugins/rust.ui/controls/menu.normal.asset|
 |assets/plugins/rust.ui/controls/menuoption.normal.asset|
 |assets/plugins/rust.ui/controls/rustbutton.alt.asset|
+|assets/plugins/rust.ui/controls/rustbutton.altwithdisable.asset|
 |assets/plugins/rust.ui/controls/rustbutton.buttongroup.normal.asset|
 |assets/plugins/rust.ui/controls/rustbutton.danger.asset|
 |assets/plugins/rust.ui/controls/rustbutton.grey.asset|
@@ -3601,6 +3615,7 @@
 |assets/plugins/rust.ui/controls/rustbutton.toggle.asset|
 |assets/plugins/rust.ui/controls/rustbutton.toolbar.normal.asset|
 |assets/plugins/rust.ui/controls/rustinput.normal.asset|
+|assets/plugins/rust.ui/controls/rustinput.transparent.asset|
 |assets/plugins/rust.ui/controls/rustoption.normal.asset|
 |assets/plugins/rust.ui/controls/rustslider.normal.asset|
 |assets/plugins/rust.ui/controls/rusttoggle.normal.off.asset|
@@ -4037,6 +4052,7 @@
 |assets/prefabs/deployable/vendingmachine/npcsellorders/foodvendor.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/hapisvendor.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/resources.asset|
+|assets/prefabs/deployable/vendingmachine/npcsellorders/stables.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/tools.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/vehicles.asset|
 |assets/prefabs/deployable/vendingmachine/npcsellorders/vehicles2.asset|
@@ -4203,6 +4219,7 @@
 |assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.table.skin.asset|
 |assets/prefabs/misc/halloween/trophy skulls/skulltrophy.sitem.asset|
 |assets/prefabs/misc/halloween/trophy skulls/skulltrophy.skinnable.asset|
+|assets/prefabs/misc/movember/movember_moustache_style01/movember_moustache_style01.sitem.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_fail.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_finish.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_hit.asset|
@@ -4407,6 +4424,7 @@
 |assets/prefabs/npc/bandit/airwolfhelivendor.asset|
 |assets/prefabs/npc/bandit/boatvendor.asset|
 |assets/prefabs/npc/bandit/pickleconversation.asset|
+|assets/prefabs/npc/bandit/stablesconversation.asset|
 |assets/prefabs/npc/bandit/vehiclevendoroccupiedconversation.asset|
 |assets/prefabs/npc/bear/sound/attack.asset|
 |assets/prefabs/npc/bear/sound/bite.asset|
@@ -4537,6 +4555,24 @@
 |assets/prefabs/tools/surveycharge/sound/survey-charge-deploy.asset|
 |assets/prefabs/tools/surveycharge/sound/survey-charge-deploy-3p.asset|
 |assets/prefabs/tools/surveycharge/sound/survey-charge-fuse-loop.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-active-loop.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-button.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-button-beep-a.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-button-beep-b.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-button-beep-c.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-deploy.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-dial-tone-loop.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-error-busy-loop.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-error-busy-oneshot.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-error-engaged.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-error-wrong-number.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-handset-down.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-handset-down-remote.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-handset-pick-up.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-handset-pick-up-remote.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-ring-incoming-while-active.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-ring-loop.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-ring-remote.asset|
 |assets/prefabs/weapon mods/mod_attach.sound.asset|
 |assets/prefabs/weapon mods/silencers/effects/silencer_attach.sound.asset|
 |assets/prefabs/weapon mods/silencers/sound/silenced_shot.asset|
