@@ -5542,6 +5542,13 @@
 |assets/prefabs/misc/summer_dlc/waterpistol/waterpistol.worldmodel.prefab|
 |assets/prefabs/misc/summer_dlc/watervolumetest.prefab|
 |assets/prefabs/misc/supply drop/supply_drop.prefab|
+|assets/prefabs/misc/twitch/blocky_sunglasses/sunglasses.item.prefab|
+|assets/prefabs/misc/twitch/blocky_sunglasses/sunglasses_blocky.prefab|
+|assets/prefabs/misc/twitch/headsetcap/hat.cap.headset.item.prefab|
+|assets/prefabs/misc/twitch/headsetcap/hat.cap_headset.prefab|
+|assets/prefabs/misc/twitch/underwear/femaleunderwear_twitch_legs.prefab|
+|assets/prefabs/misc/twitch/underwear/femaleunderwear_twitch_torso.prefab|
+|assets/prefabs/misc/twitch/underwear/maleunderwear_twitch_legs.prefab|
 |assets/prefabs/misc/xmas/candy cane club/candy_cane.entity.prefab|
 |assets/prefabs/misc/xmas/candy cane club/candy_cane.projectile.prefab|
 |assets/prefabs/misc/xmas/candy cane club/candy_cane.viewmodel.prefab|
