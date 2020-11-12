@@ -573,6 +573,8 @@
 |![](https://rustlabs.com/img/items180/tshirt.png)|T-Shirt|tshirt|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||assets/prefabs/clothes/tshirt/tshirt_basic_worldmodel.prefab|223891266|
 |![](https://rustlabs.com/img/items180/tshirt.long.png)|Longsleeve T-Shirt|tshirt.long|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||assets/prefabs/clothes/tshirt.long/tshirtlongsleeve_basic_worldmodel.prefab|935692442|
 |![](https://rustlabs.com/img/items180/tunalight.png)|Tuna Can Lamp|tunalight|ItemModDeployable<br>ItemBlueprint<br>ItemModEntity<br>ItemModContainer<br>ItemMod<br>------------<br>Planner (held)<br>HeldEntity (held)<br>BaseEntity (held)<br>BaseNetworkable (held)<br>|planner||-1478445584|
+|![](https://rustlabs.com/img/items180/twitch.headset.png)|Headset|twitch.headset|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>||assets/prefabs/clothes/hat.cap/hatcap_worldmodel.prefab|-1569700847|
+|![](https://rustlabs.com/img/items180/twitchsunglasses.png)|Purple Sunglasses|twitchsunglasses|ItemModWearable<br>ItemBlueprint<br>ItemMod<br>|||20489901|
 |![](https://rustlabs.com/img/items180/valve1.png)|Low Quality Valves|valve1|ItemBlueprint<br>Rust.Modular.ItemModEngineItem<br>ItemMod<br>||assets/prefabs/componentitems/engine_valves/valves1.worldmodel.prefab|1330084809|
 |![](https://rustlabs.com/img/items180/valve2.png)|Medium Quality Valves|valve2|ItemBlueprint<br>Rust.Modular.ItemModEngineItem<br>ItemMod<br>||assets/prefabs/componentitems/engine_valves/valves2.worldmodel.prefab|926800282|
 |![](https://rustlabs.com/img/items180/valve3.png)|High Quality Valves|valve3|ItemBlueprint<br>Rust.Modular.ItemModEngineItem<br>ItemMod<br>||assets/prefabs/componentitems/engine_valves/valves3.worldmodel.prefab|-1802083073|
