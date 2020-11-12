@@ -1289,6 +1289,7 @@
 |assets/content/properties/protection/clothing/skin_torso.asset|
 |assets/content/properties/protection/clothing/surgeonsuit.asset|
 |assets/content/properties/protection/clothing/tactical_gloves.asset|
+|assets/content/properties/protection/clothing/twitchheadset.asset|
 |assets/content/properties/protection/clothing/urban_boots.asset|
 |assets/content/properties/protection/clothing/urban_jacket.asset|
 |assets/content/properties/protection/clothing/urban_pants.asset|
@@ -1480,6 +1481,7 @@
 |assets/content/properties/steamcategories/nocrate.steam.asset|
 |assets/content/properties/steamcategories/resource.steam.asset|
 |assets/content/properties/steamcategories/retired.steam.asset|
+|assets/content/properties/steamcategories/twitchdrops.steam.asset|
 |assets/content/properties/steamcategories/weapon-normal.steam.asset|
 |assets/content/properties/steamcategories/weapon-rare.steam.asset|
 |assets/content/properties/steamcategories/workshop-default.steam.asset|
@@ -3754,6 +3756,7 @@
 |assets/prefabs/clothes/skin/underwear/swimwear/scribble.asset|
 |assets/prefabs/clothes/skin/underwear/swimwear/trunks.asset|
 |assets/prefabs/clothes/skin/underwear/testreplacement/testunderwearreplacement.asset|
+|assets/prefabs/clothes/skin/underwear/twitch/twitch.asset|
 |assets/prefabs/clothes/skirt.hide/skirt.hide.skinnable.asset|
 |assets/prefabs/clothes/suit.hazmat/hazmat.skinnable.asset|
 |assets/prefabs/clothes/suit.hazmat/spacesuit/hazmat.spacesuit.skin.asset|
@@ -4340,6 +4343,11 @@
 |assets/prefabs/misc/summer_dlc/waterpistol/sound/water-pistol-refill-start.asset|
 |assets/prefabs/misc/summer_dlc/waterpistol/sound/water-pistol-shoot.asset|
 |assets/prefabs/misc/summer_dlc/waterpistol/sound/water-pistol-trigger-back.asset|
+|assets/prefabs/misc/twitch/blocky_sunglasses/twitchsunglasses.sitem.asset|
+|assets/prefabs/misc/twitch/headsetcap/skins/hat.cap_headset.twitch.itemskin.asset|
+|assets/prefabs/misc/twitch/headsetcap/twitchheadset.sitem.asset|
+|assets/prefabs/misc/twitch/headsetcap/twitchheadset.skinnable.asset|
+|assets/prefabs/misc/twitch/underwear/twitchunderwear.sitem.asset|
 |assets/prefabs/misc/xmas/christmas_lights/lightstring.sitem.asset|
 |assets/prefabs/misc/xmas/giant_candy_cane/giantcandies.sitem.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/coalspawn.asset|
