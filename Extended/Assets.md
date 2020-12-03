@@ -333,6 +333,18 @@
 |assets/content/properties/lazyaim/hands.lazyaim.asset|
 |assets/content/properties/lazyaim/ironsights.lazyaim.asset|
 |assets/content/properties/lazyaim/off.lazyaim.asset|
+|assets/content/properties/lootspawn/airdrop/armor_supplydrop_rare.asset|
+|assets/content/properties/lootspawn/airdrop/armorroll.asset|
+|assets/content/properties/lootspawn/airdrop/gunroll.asset|
+|assets/content/properties/lootspawn/airdrop/gunroll_medium.asset|
+|assets/content/properties/lootspawn/airdrop/gunroll_rare.asset|
+|assets/content/properties/lootspawn/airdrop/gunroll_sub_medium.asset|
+|assets/content/properties/lootspawn/airdrop/resourceroll.asset|
+|assets/content/properties/lootspawn/airdrop/resourceroll_components.asset|
+|assets/content/properties/lootspawn/airdrop/resourceroll_hqm.asset|
+|assets/content/properties/lootspawn/airdrop/resourceroll_scrap.asset|
+|assets/content/properties/lootspawn/airdrop/toolroll.asset|
+|assets/content/properties/lootspawn/airdrop/toolroll_sub_tools.asset|
 |assets/content/properties/lootspawn/ammo/ammo.asset|
 |assets/content/properties/lootspawn/ammo/ammostandard.asset|
 |assets/content/properties/lootspawn/ammo/pistol.asset|
@@ -410,12 +422,14 @@
 |assets/content/properties/lootspawn/collections/mining ore.asset|
 |assets/content/properties/lootspawn/collections/mp5 with ammo.asset|
 |assets/content/properties/lootspawn/collections/pistolammocollection.asset|
+|assets/content/properties/lootspawn/collections/pump with ammo.asset|
 |assets/content/properties/lootspawn/collections/rarebaseparts.asset|
 |assets/content/properties/lootspawn/collections/researchpaper.asset|
 |assets/content/properties/lootspawn/collections/researchpaperlarge.asset|
 |assets/content/properties/lootspawn/collections/researchpapersmall.asset|
 |assets/content/properties/lootspawn/collections/rifleammocollection.asset|
 |assets/content/properties/lootspawn/collections/rocketammocollection.asset|
+|assets/content/properties/lootspawn/collections/sar with ammo.asset|
 |assets/content/properties/lootspawn/collections/satchels.asset|
 |assets/content/properties/lootspawn/collections/scrapsmall.asset|
 |assets/content/properties/lootspawn/collections/smg with ammo.asset|
@@ -429,6 +443,7 @@
 |assets/content/properties/lootspawn/componentloot/sub/binoculars.asset|
 |assets/content/properties/lootspawn/componentloot/sub/ducttape.asset|
 |assets/content/properties/lootspawn/componentloot/sub/gears.asset|
+|assets/content/properties/lootspawn/componentloot/sub/gearslarge.asset|
 |assets/content/properties/lootspawn/componentloot/sub/metal blades.asset|
 |assets/content/properties/lootspawn/componentloot/sub/pipes.asset|
 |assets/content/properties/lootspawn/componentloot/sub/pipes_large.asset|
@@ -439,11 +454,13 @@
 |assets/content/properties/lootspawn/componentloot/sub/semibody.asset|
 |assets/content/properties/lootspawn/componentloot/sub/sewingkits.asset|
 |assets/content/properties/lootspawn/componentloot/sub/sheetmetal.asset|
+|assets/content/properties/lootspawn/componentloot/sub/sheetmetallarge.asset|
 |assets/content/properties/lootspawn/componentloot/sub/smgbody.asset|
 |assets/content/properties/lootspawn/componentloot/sub/springs.asset|
 |assets/content/properties/lootspawn/componentloot/sub/sticks.asset|
 |assets/content/properties/lootspawn/componentloot/sub/tarps.asset|
 |assets/content/properties/lootspawn/componentloot/sub/techparts.asset|
+|assets/content/properties/lootspawn/componentloot/sub/techparts5.asset|
 |assets/content/properties/lootspawn/componentloot/sub/techpartslarge.asset|
 |assets/content/properties/lootspawn/deathmatchloot/collectionsammo/dm ammo (handmade).asset|
 |assets/content/properties/lootspawn/deathmatchloot/collectionsammo/dm ammo (pistol fire).asset|
@@ -1282,6 +1299,7 @@
 |assets/content/properties/protection/clothing/roadsign_gloves.asset|
 |assets/content/properties/protection/clothing/roadsign_jacket.asset|
 |assets/content/properties/protection/clothing/roadsign_pants.asset|
+|assets/content/properties/protection/clothing/shirt_long.asset|
 |assets/content/properties/protection/clothing/skin_feet.asset|
 |assets/content/properties/protection/clothing/skin_hands.asset|
 |assets/content/properties/protection/clothing/skin_head.asset|
@@ -1289,6 +1307,7 @@
 |assets/content/properties/protection/clothing/skin_torso.asset|
 |assets/content/properties/protection/clothing/surgeonsuit.asset|
 |assets/content/properties/protection/clothing/tactical_gloves.asset|
+|assets/content/properties/protection/clothing/tank_top.asset|
 |assets/content/properties/protection/clothing/twitchheadset.asset|
 |assets/content/properties/protection/clothing/urban_boots.asset|
 |assets/content/properties/protection/clothing/urban_jacket.asset|
@@ -5211,6 +5230,11 @@
 |assets/scenes/prefabs/cave/cave_large_sewers_hard.asset|
 |assets/scenes/release/savasisland.asset|
 |assets/scenes/test/billbtestmap/billbtestmap terrain.asset|
+|assets/scripts/game/techtree/techtree.asset|
+|assets/scripts/game/techtree/techtreet0.asset|
+|assets/scripts/game/techtree/techtreet1.asset|
+|assets/scripts/game/techtree/techtreet2.asset|
+|assets/scripts/game/techtree/techtreet3.asset|
 |assets/skins.asset|
 |assets/standard assets/third party/postprocessing/postprocessresources.asset|
 |assets/textmesh pro/resources/tmp settings.asset|
