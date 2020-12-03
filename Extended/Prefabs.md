@@ -968,6 +968,7 @@
 |assets/bundled/prefabs/fx/impacts/stab/wood/wood1.prefab|
 |assets/bundled/prefabs/fx/invite_notice.prefab|
 |assets/bundled/prefabs/fx/item_break.prefab|
+|assets/bundled/prefabs/fx/item_unlock.prefab|
 |assets/bundled/prefabs/fx/missing.prefab|
 |assets/bundled/prefabs/fx/notice/item.select.fx.prefab|
 |assets/bundled/prefabs/fx/notice/loot.copy.fx.prefab|
@@ -1053,6 +1054,7 @@
 |assets/bundled/prefabs/modding/glass_type_reinforced.prefab|
 |assets/bundled/prefabs/modding/invisible_collider.prefab|
 |assets/bundled/prefabs/modding/ladder_trigger.prefab|
+|assets/bundled/prefabs/modding/monument_marker.prefab|
 |assets/bundled/prefabs/modding/prevent_building_cube.prefab|
 |assets/bundled/prefabs/modding/prevent_building_sphere.prefab|
 |assets/bundled/prefabs/modding/prevent_movment_volume.prefab|
@@ -1172,6 +1174,7 @@
 |assets/bundled/prefabs/ui/dialogs/ui.dialog.setupappnotification.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.dialog.sign.update.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.dialog.sleepingbag.rename.prefab|
+|assets/bundled/prefabs/ui/dialogs/ui.dialog.techtree.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.dialog.timerconfig.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.itemsearchentry.prefab|
 |assets/bundled/prefabs/ui/dialogs/ui.sellorderadmindisplay.prefab|
@@ -1218,6 +1221,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.smallrefinery.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.smallstash.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.smallwoodbox.prefab|
+|assets/bundled/prefabs/ui/lootpanels/lootpanel.supplydrop.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.toolcupboard.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.vehicleediting.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.vendingmachine.customer.prefab|
@@ -5541,6 +5545,7 @@
 |assets/prefabs/misc/summer_dlc/waterpistol/waterpistol.viewmodel.prefab|
 |assets/prefabs/misc/summer_dlc/waterpistol/waterpistol.worldmodel.prefab|
 |assets/prefabs/misc/summer_dlc/watervolumetest.prefab|
+|assets/prefabs/misc/supply drop/new/supplydrop.prefab|
 |assets/prefabs/misc/supply drop/supply_drop.prefab|
 |assets/prefabs/misc/twitch/blocky_sunglasses/sunglasses.item.prefab|
 |assets/prefabs/misc/twitch/blocky_sunglasses/sunglasses_blocky.prefab|
@@ -6393,6 +6398,7 @@
 |assets/prefabs/weapons/chainsaw/effects/fill-gas.prefab|
 |assets/prefabs/weapons/chainsaw/effects/ignition.prefab|
 |assets/prefabs/weapons/chainsaw/effects/unscrew-cap.prefab|
+|assets/prefabs/weapons/chocolate_cake/chocolate_cake.worldmodel.prefab|
 |assets/prefabs/weapons/cleaver big/2handed_cleaver.worldmodel.prefab|
 |assets/prefabs/weapons/cleaver big/effects/attack-1.prefab|
 |assets/prefabs/weapons/cleaver big/effects/attack-2.prefab|
