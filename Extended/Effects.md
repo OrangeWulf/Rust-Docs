@@ -496,6 +496,7 @@
 |assets/bundled/prefabs/fx/impacts/stab/wood/wood1.prefab|
 |assets/bundled/prefabs/fx/invite_notice.prefab|
 |assets/bundled/prefabs/fx/item_break.prefab|
+|assets/bundled/prefabs/fx/item_unlock.prefab|
 |assets/bundled/prefabs/fx/missing.prefab|
 |assets/bundled/prefabs/fx/notice/item.select.fx.prefab|
 |assets/bundled/prefabs/fx/notice/loot.copy.fx.prefab|
