@@ -606,6 +606,9 @@
 |assets/content/effects/muzzleflashes/muzzleflash_lightex_tiny.prefab|
 |assets/content/effects/muzzleflashes/other/eoka_attack.prefab|
 |assets/content/effects/muzzleflashes/other/eoka_flint_spark.prefab|
+|assets/content/effects/muzzleflashes/other/muzzle_flash_snowballgun.prefab|
+|assets/content/effects/muzzleflashes/other/projectilefx_snowballgun.prefab|
+|assets/content/effects/muzzleflashes/other/projectilefx_snowballgun_impact.prefab|
 |assets/content/effects/muzzleflashes/pistol/muzzle_flash_nailgun.prefab|
 |assets/content/effects/muzzleflashes/pistol/muzzle_flash_pistol.prefab|
 |assets/content/effects/muzzleflashes/pistol/muzzle_flash_pistol_braked.prefab|
@@ -1013,12 +1016,21 @@
 |assets/prefabs/misc/xmas/candy cane club/effects/throw.prefab|
 |assets/prefabs/misc/xmas/presents/effects/unwrap.prefab|
 |assets/prefabs/misc/xmas/presents/effects/wrap.prefab|
+|assets/prefabs/misc/xmas/sled/effects/sled-deploy.prefab|
+|assets/prefabs/misc/xmas/sled/effects/vfx_sled_trails.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/attack.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/deploy.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/impact.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/strike.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/strike_screenshake.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/throw.prefab|
+|assets/prefabs/misc/xmas/snowballgun/effects/attack.prefab|
+|assets/prefabs/misc/xmas/snowballgun/effects/deploy.prefab|
+|assets/prefabs/misc/xmas/snowballgun/effects/reload_end.prefab|
+|assets/prefabs/misc/xmas/snowballgun/effects/reload_single_insert.prefab|
+|assets/prefabs/misc/xmas/snowballgun/effects/reload_single_spin.prefab|
+|assets/prefabs/misc/xmas/snowballgun/effects/reload_single_start.prefab|
+|assets/prefabs/misc/xmas/snowballgun/effects/reload_start.prefab|
 |assets/prefabs/npc/autoturret/effects/autoturret-deploy.prefab|
 |assets/prefabs/npc/autoturret/effects/offline.prefab|
 |assets/prefabs/npc/autoturret/effects/online.prefab|
