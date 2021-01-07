@@ -886,6 +886,7 @@
 |assets/content/properties/lootspawn/generated/items/fun/xylophone.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.ammunition.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.attire.asset|
+|assets/content/properties/lootspawn/generated/items/items.common.component.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.construction.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.electrical.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.food.asset|
@@ -1478,7 +1479,7 @@
 |assets/content/properties/steamcategories/limited-christmas2019-dirtcheap.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2019-expensive.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2019-legacy.steam.asset|
-|assets/content/properties/steamcategories/limited-christmas2020-1400.steam.asset|
+|assets/content/properties/steamcategories/limited-christmas2020-1500.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2020-350.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2020-500.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2020-650.steam.asset|
@@ -1501,6 +1502,8 @@
 |assets/content/properties/steamcategories/limited-halloween2020-599.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2020-899.steam.asset|
 |assets/content/properties/steamcategories/limited-movember2020.steam.asset|
+|assets/content/properties/steamcategories/limited-newyear-2020-2021-fireworks-cheap.steam.asset|
+|assets/content/properties/steamcategories/limited-newyear-2020-2021-fireworks-expensive.steam.asset|
 |assets/content/properties/steamcategories/limited-spacesuit.steam.asset|
 |assets/content/properties/steamcategories/nocrate.steam.asset|
 |assets/content/properties/steamcategories/resource.steam.asset|
@@ -4038,6 +4041,11 @@
 |assets/prefabs/deployable/small stash/sound/small-stash-close.asset|
 |assets/prefabs/deployable/small stash/sound/small-stash-deploy.asset|
 |assets/prefabs/deployable/small stash/sound/small-stash-open.asset|
+|assets/prefabs/deployable/sofa/sofa.sitem.asset|
+|assets/prefabs/deployable/sofa/sound/sofa-deploy.asset|
+|assets/prefabs/deployable/sofa/sound/sofa-destroy.asset|
+|assets/prefabs/deployable/sofa/sound/sofa-dismount.asset|
+|assets/prefabs/deployable/sofa/sound/sofa-mount.asset|
 |assets/prefabs/deployable/spinner_wheel/sound/spinner-wheel-deploy.asset|
 |assets/prefabs/deployable/spinner_wheel/sound/spinner-wheel-spin-accent.asset|
 |assets/prefabs/deployable/spinner_wheel/sound/spinner-wheel-spin-loop.asset|
@@ -4377,6 +4385,8 @@
 |assets/prefabs/misc/twitch/headsetcap/skins/hat.cap_headset.twitch.itemskin.asset|
 |assets/prefabs/misc/twitch/headsetcap/twitchheadset.sitem.asset|
 |assets/prefabs/misc/twitch/headsetcap/twitchheadset.skinnable.asset|
+|assets/prefabs/misc/twitch/hobobarrel/hobobarrel.sitem.asset|
+|assets/prefabs/misc/twitch/industrialdoora/door.hinged.metal.industrial.a.skin.asset|
 |assets/prefabs/misc/twitch/underwear/twitchunderwear.sitem.asset|
 |assets/prefabs/misc/xmas/christmas_lights/lightstring.sitem.asset|
 |assets/prefabs/misc/xmas/giant_candy_cane/giantcandies.sitem.asset|
