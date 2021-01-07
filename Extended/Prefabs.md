@@ -1241,7 +1241,6 @@
 |assets/bundled/prefabs/world/event_cargoheli.prefab|
 |assets/bundled/prefabs/world/event_cargoship.prefab|
 |assets/bundled/prefabs/world/event_helicopter.prefab|
-|assets/bundled/prefabs/world/event_xmas.prefab|
 |assets/bundled/prefabs/world/lightning.prefab|
 |assets/bundled/prefabs/world/lod.prefab|
 |assets/bundled/prefabs/world/particles.prefab|
@@ -3971,6 +3970,7 @@
 |assets/prefabs/building/door.double.hinged/effects/door-double-wood-close-end.prefab|
 |assets/prefabs/building/door.double.hinged/effects/door-double-wood-close-start.prefab|
 |assets/prefabs/building/door.double.hinged/effects/door-double-wood-open-start.prefab|
+|assets/prefabs/building/door.hinged.industrial/models/industrial_doors_a_a.gibs.red.prefab|
 |assets/prefabs/building/door.hinged/door.hinged.metal.item.prefab|
 |assets/prefabs/building/door.hinged/door.hinged.metal.prefab|
 |assets/prefabs/building/door.hinged/door.hinged.toptier.item.prefab|
@@ -4829,6 +4829,11 @@
 |assets/prefabs/deployable/small stash/effects/small-stash-deploy.prefab|
 |assets/prefabs/deployable/small stash/small_stash.item.prefab|
 |assets/prefabs/deployable/small stash/small_stash_deployed.prefab|
+|assets/prefabs/deployable/sofa/effects/sofa-deploy.prefab|
+|assets/prefabs/deployable/sofa/effects/sofa-destroy.prefab|
+|assets/prefabs/deployable/sofa/seats/sofaseat.prefab|
+|assets/prefabs/deployable/sofa/sofa.deployed.prefab|
+|assets/prefabs/deployable/sofa/sofa.item.prefab|
 |assets/prefabs/deployable/spinner_wheel/effects/spinner-wheel-deploy.prefab|
 |assets/prefabs/deployable/spinner_wheel/spinner.wheel.deployed.prefab|
 |assets/prefabs/deployable/spinner_wheel/spinner.wheel.item.prefab|
@@ -5556,6 +5561,10 @@
 |assets/prefabs/misc/twitch/blocky_sunglasses/sunglasses_blocky.prefab|
 |assets/prefabs/misc/twitch/headsetcap/hat.cap.headset.item.prefab|
 |assets/prefabs/misc/twitch/headsetcap/hat.cap_headset.prefab|
+|assets/prefabs/misc/twitch/hobobarrel/hobobarrel.deployed.prefab|
+|assets/prefabs/misc/twitch/hobobarrel/hobobarrel.item.prefab|
+|assets/prefabs/misc/twitch/industrialdoora/door.hinged.industrial.a.prefab|
+|assets/prefabs/misc/twitch/industrialdoora/door.hinged.metal.industrial.a.item.prefab|
 |assets/prefabs/misc/twitch/underwear/femaleunderwear_twitch_legs.prefab|
 |assets/prefabs/misc/twitch/underwear/femaleunderwear_twitch_torso.prefab|
 |assets/prefabs/misc/twitch/underwear/maleunderwear_twitch_legs.prefab|
@@ -5589,6 +5598,7 @@
 |assets/prefabs/misc/xmas/christmas-presents/prefabs/teddybear.prefab|
 |assets/prefabs/misc/xmas/doorgarland/doorgarland.deployed.prefab|
 |assets/prefabs/misc/xmas/doorgarland/doorgarland.item.prefab|
+|assets/prefabs/misc/xmas/event_xmas.prefab|
 |assets/prefabs/misc/xmas/firework mortar/mortar.prefab|
 |assets/prefabs/misc/xmas/food/candycane.item.prefab|
 |assets/prefabs/misc/xmas/food/candycane.worldmodel.prefab|
