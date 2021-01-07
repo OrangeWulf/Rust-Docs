@@ -872,6 +872,8 @@
 |assets/prefabs/deployable/single shot trap/effects/shotgun-trap-deploy.prefab|
 |assets/prefabs/deployable/sleeping bag/effects/sleeping-bag-deploy.prefab|
 |assets/prefabs/deployable/small stash/effects/small-stash-deploy.prefab|
+|assets/prefabs/deployable/sofa/effects/sofa-deploy.prefab|
+|assets/prefabs/deployable/sofa/effects/sofa-destroy.prefab|
 |assets/prefabs/deployable/spinner_wheel/effects/spinner-wheel-deploy.prefab|
 |assets/prefabs/deployable/survivalfishtrap/effects/fish_caught.prefab|
 |assets/prefabs/deployable/survivalfishtrap/effects/fish-trap-deploy.prefab|
