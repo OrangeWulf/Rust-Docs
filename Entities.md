@@ -135,6 +135,7 @@
 |campfire_static|assets/bundled/prefabs/static/campfire_static.prefab|1339281147|BaseOven<br>EntityFlag_Toggle<br>MeshCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |candy_cane.entity|assets/prefabs/misc/xmas/candy cane club/candy_cane.entity.prefab|3331777431|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |candyprojectile|assets/prefabs/misc/halloween/candies/candyprojectile.prefab|1465468950|SeasonalTimedExplosive<br>ServerProjectile<br>TimedExplosive<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
+|capturepoint|assets/prefabs/gamemodes/objects/capturepoint/capturepoint.prefab|3788504645|GameModeCapturePoint<br>Model<br>BaseEntity<br>BaseNetworkable<br>|
 |car_chassis_2module.entity|assets/content/vehicles/modularcar/car_chassis_2module.entity.prefab|3386615946|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |car_chassis_3module.entity|assets/content/vehicles/modularcar/car_chassis_3module.entity.prefab|4140947108|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |car_chassis_4module.entity|assets/content/vehicles/modularcar/car_chassis_4module.entity.prefab|1682477379|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
@@ -199,7 +200,9 @@
 |dead_log_c|assets/bundled/prefabs/autospawn/resource/logs_dry/dead_log_c.prefab|900882703|Spawnable<br>ResourceEntity<br>ResourceDispenser<br>MeshCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |dead_log_c|assets/bundled/prefabs/autospawn/resource/logs_snow/dead_log_c.prefab|2524096513|Spawnable<br>ResourceEntity<br>ResourceDispenser<br>MeshCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |dead_log_c|assets/bundled/prefabs/autospawn/resource/logs_wet/dead_log_c.prefab|1861715755|Spawnable<br>ResourceEntity<br>ResourceDispenser<br>MeshCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
+|deathmatch|assets/prefabs/gamemodes/deathmatch.prefab|3323268180|BaseGameMode<br>BaseEntity<br>BaseNetworkable<br>|
 |debris.wall|assets/prefabs/debris/debris.wall.prefab|1424066995|GroundWatch<br>DestroyOnGroundMissing<br>DebrisEntity<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|deliverydronemarker|assets/prefabs/misc/marketplace/deliverydronemarker.prefab|3742716325|MapMarkerDeliveryDrone<br>MapMarker<br>BaseEntity<br>BaseNetworkable<br>|
 |detonator.entity|assets/prefabs/tools/detonator/detonator.entity.prefab|3503830994|Detonator<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |diesel_barrel_world|assets/prefabs/resource/diesel barrel/diesel_barrel_world.prefab|4140706055|Spawnable<br>LootContainer<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |diesel_collectable|assets/content/structures/excavator/prefabs/diesel_collectable.prefab|1388355532|CollectibleEntity<br>Spawnable<br>BaseEntity<br>BaseNetworkable<br>|
@@ -270,6 +273,8 @@
 |driftwood_4|assets/bundled/prefabs/autospawn/resource/driftwood/driftwood_4.prefab|4211220439|Spawnable<br>ResourceEntity<br>ResourceDispenser<br>MeshCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |driftwood_5|assets/bundled/prefabs/autospawn/resource/driftwood/driftwood_5.prefab|2046267825|Spawnable<br>ResourceEntity<br>ResourceDispenser<br>MeshCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |driverseat|assets/prefabs/vehicle/seats/driverseat.prefab|4088163379|BaseVehicleSeat<br>MeshCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|drone.delivery|assets/prefabs/misc/marketplace/drone.delivery.prefab|2325891644|DeliveryDrone<br>Rigidbody (UE)<br>Drone<br>RemoteControlEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|drone.deployed|assets/prefabs/deployable/drone/drone.deployed.prefab|1191314495|Drone<br>Rigidbody (UE)<br>RemoteControlEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |dropbox.deployed|assets/prefabs/deployable/dropbox/dropbox.deployed.prefab|661881069|DropBox<br>GroundWatch<br>DestroyOnGroundMissing<br>Model<br>Mailbox<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |drumkit.deployed|assets/prefabs/instruments/drumkit/drumkit.deployed.prefab|1980628900|StaticInstrument<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>InstrumentKeyController<br>InstrumentIKController<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |drumkit.deployed.static|assets/bundled/prefabs/static/drumkit.deployed.static.prefab|703403829|StaticInstrument<br>Model<br>InstrumentKeyController<br>InstrumentIKController<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
@@ -374,7 +379,7 @@
 |grenade.supplysignal.deployed|assets/prefabs/tools/supply signal/grenade.supplysignal.deployed.prefab|3350651790|SupplySignal<br>Rigidbody (UE)<br>CapsuleCollider (UE)<br>TimedExplosive<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |guitar.weapon|assets/prefabs/instruments/guitar/guitar.weapon.prefab|4177390149|InstrumentToolGuitar<br>InstrumentKeyController<br>InstrumentTool<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |gunnertest|assets/prefabs/vehicle/seats/gunnertest.prefab|986236302|BaseAimable<br>MeshCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
-|guntrap.deployed|assets/prefabs/deployable/single shot trap/guntrap.deployed.prefab|1348746224|GunTrap<br>Model<br>DestroyOnGroundMissing<br>GroundWatch<br>MeshCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|guntrap.deployed|assets/prefabs/deployable/single shot trap/guntrap.deployed.prefab|1348746224|GunTrap<br>Model<br>DestroyOnGroundMissing<br>GroundWatch<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |hab_storage|assets/prefabs/deployable/hot air balloon/subents/hab_storage.prefab|675927205|StorageContainer<br>BoxCollider (UE)<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |hacksaw.weapon|assets/prefabs/weapons/hacksaw/hacksaw.weapon.prefab|2487927393|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |halloween-bone-collectable|assets/bundled/prefabs/autospawn/collectable/stone/halloween/halloween-bone-collectable.prefab|3927243187|CollectibleEntity<br>Spawnable<br>BaseEntity<br>BaseNetworkable<br>|
@@ -413,7 +418,7 @@
 |instant_camera.entity|assets/prefabs/misc/summer_dlc/instantcamera/instant_camera.entity.prefab|509717370|InstantCameraTool<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |item_drop|assets/prefabs/misc/item drop/item_drop.prefab|545786656|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |item_drop_backpack|assets/prefabs/misc/item drop/item_drop_backpack.prefab|1519640547|DroppedItemContainer<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
-|jackhammer.entity|assets/prefabs/tools/jackhammer/jackhammer.entity.prefab|3537156861|Jackhammer<br>BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|jackhammer.entity|assets/prefabs/tools/jackhammer/jackhammer.entity.prefab|3537156861|Jackhammer<br>Model<br>BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |jackolantern.angry|assets/prefabs/deployable/jack o lantern/jackolantern.angry.prefab|1889323056|BaseOven<br>GroundWatch<br>DestroyOnGroundMissing<br>EntityFlag_Toggle<br>SphereCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |jackolantern.happy|assets/prefabs/deployable/jack o lantern/jackolantern.happy.prefab|630866573|BaseOven<br>GroundWatch<br>DestroyOnGroundMissing<br>EntityFlag_Toggle<br>SphereCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |jerrycanguitar.weapon|assets/prefabs/instruments/jerrycanguitar/jerrycanguitar.weapon.prefab|1977067472|InstrumentToolGuitar<br>InstrumentKeyController<br>InstrumentTool<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
@@ -433,6 +438,8 @@
 |keycard_blue_pickup.entity|assets/prefabs/tools/keycard/keycard_blue_pickup.entity.prefab|675407027|ItemPickup<br>PhysicsEffects<br>DroppedItem<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>|
 |keycard_green_pickup.entity|assets/prefabs/tools/keycard/keycard_green_pickup.entity.prefab|1317896088|ItemPickup<br>PhysicsEffects<br>DroppedItem<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>|
 |keycard_red_pickup.entity|assets/prefabs/tools/keycard/keycard_red_pickup.entity.prefab|3985212893|ItemPickup<br>PhysicsEffects<br>DroppedItem<br>WorldItem<br>BaseEntity<br>BaseNetworkable<br>|
+|kingofthehilldm|assets/prefabs/gamemodes/kingofthehilldm.prefab|825419898|BaseGameMode<br>BaseEntity<br>BaseNetworkable<br>|
+|kingofthehillteam|assets/prefabs/gamemodes/kingofthehillteam.prefab|4276462027|BaseGameMode<br>BaseEntity<br>BaseNetworkable<br>|
 |knife.combat.entity|assets/prefabs/weapons/knife/knife.combat.entity.prefab|327944951|BaseMelee<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |knife_bone.entity|assets/prefabs/weapons/bone knife/knife_bone.entity.prefab|1483241467|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |l96.entity|assets/prefabs/weapons/l96/l96.entity.prefab|2620171289|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
@@ -470,6 +477,8 @@
 |mailbox.deployed|assets/prefabs/deployable/mailbox/mailbox.deployed.prefab|2697131904|Mailbox<br>GroundWatch<br>DestroyOnGroundMissing<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |maincannonshell|assets/prefabs/npc/m2bradley/maincannonshell.prefab|3032863244|TimedExplosive<br>ServerProjectile<br>CapsuleCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |map|assets/prefabs/tools/map/map.prefab|491065559|MapEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|marketplace|assets/prefabs/misc/marketplace/marketplace.prefab|3953076030|Marketplace<br>Model<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|marketterminal|assets/prefabs/misc/marketplace/marketterminal.prefab|407767262|MarketTerminal<br>Model<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |medium.rechargable.battery.deployed|assets/prefabs/deployable/playerioents/batteries/medium/medium.rechargable.battery.deployed.prefab|262703036|ElectricBattery<br>GroundWatch<br>DestroyOnGroundMissing<br>MeshCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |metal-collectable|assets/bundled/prefabs/autospawn/collectable/stone/metal-collectable.prefab|4060169083|CollectibleEntity<br>Spawnable<br>BaseEntity<br>BaseNetworkable<br>|
 |metal-ore|assets/bundled/prefabs/autospawn/resource/ores/metal-ore.prefab|3774647716|Spawnable<br>OreResourceEntity<br>ResourceDispenser<br>AI.NavMeshObstacle (UE)<br>StagedResourceEntity<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
@@ -546,6 +555,7 @@
 |oil_barrel|assets/bundled/prefabs/radtown/oil_barrel.prefab|3438187947|Spawnable<br>LootContainer<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |oilfireball2|assets/prefabs/npc/m2bradley/oilfireball2.prefab|3761185980|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |oilfireballsmall|assets/bundled/prefabs/oilfireballsmall.prefab|3550347674|FireBall<br>Rigidbody (UE)<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|onedeath|assets/prefabs/gamemodes/onedeath.prefab|3275115225|BaseGameMode<br>BaseEntity<br>BaseNetworkable<br>|
 |ore_metal|assets/bundled/prefabs/radtown/ore_metal.prefab|3327726152|Spawnable<br>OreResourceEntity<br>ResourceDispenser<br>AI.NavMeshObstacle (UE)<br>StagedResourceEntity<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
 |ore_stone|assets/bundled/prefabs/radtown/ore_stone.prefab|960501790|Spawnable<br>OreResourceEntity<br>ResourceDispenser<br>AI.NavMeshObstacle (UE)<br>StagedResourceEntity<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
 |ore_sulfur|assets/bundled/prefabs/radtown/ore_sulfur.prefab|152562243|Spawnable<br>OreResourceEntity<br>ResourceDispenser<br>AI.NavMeshObstacle (UE)<br>StagedResourceEntity<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
@@ -616,6 +626,9 @@
 |python.entity|assets/prefabs/weapons/python/python.entity.prefab|3305012504|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |ramp|assets/prefabs/building core/ramp/ramp.prefab|623529040|BuildingBlock<br>AI.NavMeshObstacle (UE)<br>StabilityEntity<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |reactivetarget_deployed|assets/prefabs/deployable/reactive target/reactivetarget_deployed.prefab|3994459244|ReactiveTarget<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>BoxCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|reclaimbackpack|assets/prefabs/gamemodes/objects/reclaim/reclaimbackpack.prefab|1658485694|ReclaimBackpack<br>BoxCollider (UE)<br>Rigidbody (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|reclaimmanager|assets/prefabs/gamemodes/objects/reclaim/reclaimmanager.prefab|3866571115|ReclaimManager<br>BaseEntity<br>BaseNetworkable<br>|
+|reclaimterminal|assets/prefabs/gamemodes/objects/reclaim/reclaimterminal.prefab|2564311448|ReclaimTerminal<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |recycler_static|assets/bundled/prefabs/static/recycler_static.prefab|1729604075|Recycler<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |red_berry.entity|assets/prefabs/plants/berrry/red/red_berry.entity.prefab|3359110450|GrowableEntity<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |refinery_small_deployed|assets/prefabs/deployable/oil refinery/refinery_small_deployed.prefab|1057236622|BaseOven<br>EntityFlag_Toggle<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
@@ -776,6 +789,7 @@
 |snowman.deployed|assets/prefabs/misc/xmas/snowman/snowman.deployed.prefab|1103550732|DecorDeployable<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |sofa.deployed|assets/prefabs/deployable/sofa/sofa.deployed.prefab|51176708|BaseVehicle<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>MeshCollider (UE)<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |sofaseat|assets/prefabs/deployable/sofa/seats/sofaseat.prefab|2119696825|BaseChair<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|softcore|assets/prefabs/gamemodes/softcore.prefab|1954920076|GameModeSoftcore<br>GameModeVanilla<br>BaseGameMode<br>BaseEntity<br>BaseNetworkable<br>|
 |solarpanel.large.deployed|assets/prefabs/deployable/playerioents/generators/solar_panels_roof/solarpanel.large.deployed.prefab|2231260353|SolarPanel<br>GroundWatch<br>DestroyOnGroundMissing<br>MeshCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |spas12.entity|assets/prefabs/weapons/spas12/spas12.entity.prefab|1877401463|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |spear_stone.entity|assets/prefabs/weapons/stone spear/spear_stone.entity.prefab|1943636975|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
@@ -792,6 +806,8 @@
 |stag|assets/rust.ai/agents/stag/stag.prefab|1378621008|Stag<br>Apex.AI.Components.UtilityAIComponent<br>AI.NavMeshAgent (UE)<br>Spawnable<br>Rust.Ai.AiManagedAgent<br>CapsuleCollider (UE)<br>BaseAnimalNPC<br>BaseNpc<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Apex.ExtendedMonoBehaviour<br>Collider (UE)<br>|
 |stag.corpse|assets/rust.ai/agents/stag/stag.corpse.prefab|784238137|BaseCorpse<br>ResourceDispenser<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
 |standingdriver|assets/prefabs/vehicle/seats/standingdriver.prefab|1392704482|BaseVehicleSeat<br>MeshCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|staticrespawnzonebandit|assets/prefabs/gamemodes/softcore/staticrespawnzonebandit.prefab|3810400291|StaticRespawnArea<br>SleepingBag<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|staticrespawnzonecompound|assets/prefabs/gamemodes/softcore/staticrespawnzonecompound.prefab|1919922518|StaticRespawnArea<br>SleepingBag<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |stocking_large_deployed|assets/prefabs/misc/xmas/stockings/stocking_large_deployed.prefab|771996658|Stocking<br>Model<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>LootContainer<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |stocking_small_deployed|assets/prefabs/misc/xmas/stockings/stocking_small_deployed.prefab|3141927338|Stocking<br>Model<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>LootContainer<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |stone_pickaxe.entity|assets/prefabs/weapons/stone pickaxe/stone_pickaxe.entity.prefab|1450582435|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
@@ -823,6 +839,7 @@
 |syringe_medical.entity|assets/prefabs/tools/medical syringe/syringe_medical.entity.prefab|283937635|MedicalTool<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |table.deployed|assets/prefabs/deployable/table/table.deployed.prefab|2662124780|DecorDeployable<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>MeshCollider (UE)<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |tambourine.weapon|assets/prefabs/instruments/tambourine/tambourine.weapon.prefab|1754256281|InstrumentTool<br>InstrumentKeyController<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|teamdeathmatch|assets/prefabs/gamemodes/teamdeathmatch.prefab|18701516|BaseGameMode<br>BaseEntity<br>BaseNetworkable<br>|
 |telephone.deployed|assets/prefabs/voiceaudio/telephone/telephone.deployed.prefab|2160363615|Telephone<br>DestroyOnGroundMissing<br>PhoneController<br>GroundWatch<br>ContainerIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
 |teslacoil.deployed|assets/prefabs/deployable/playerioents/teslacoil/teslacoil.deployed.prefab|60725884|TeslaCoil<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |testridablehorse|assets/rust.ai/nextai/testridablehorse.prefab|2421623959|RidableHorse<br>CapsuleCollider (UE)<br>Rigidbody (UE)<br>Spawnable<br>BaseRidableAnimal<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
@@ -840,6 +857,7 @@
 |trumpet.weapon|assets/prefabs/instruments/trumpet/trumpet.weapon.prefab|1050701358|InstrumentTool<br>InstrumentKeyController<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |tuba.weapon|assets/prefabs/instruments/tuba/tuba.weapon.prefab|2388319642|InstrumentTool<br>InstrumentKeyController<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |tunalight.deployed|assets/prefabs/deployable/tuna can wall lamp/tunalight.deployed.prefab|1392608348|BaseFuelLightSource<br>GroundWatch<br>DestroyOnGroundMissing<br>EntityFlag_Toggle<br>MeshCollider (UE)<br>BaseOven<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
+|vanilla|assets/prefabs/gamemodes/vanilla.prefab|2957505463|BaseGameMode<br>BaseEntity<br>BaseNetworkable<br>|
 |vehicle_parts|assets/bundled/prefabs/radtown/vehicle_parts.prefab|356724277|Spawnable<br>LootContainer<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |vending_mapmarker|assets/prefabs/deployable/vendingmachine/vending_mapmarker.prefab|3459945130|VendingMachineMapMarker<br>MapMarker<br>BaseEntity<br>BaseNetworkable<br>|
 |vendingmachine.deployed|assets/prefabs/deployable/vendingmachine/vendingmachine.deployed.prefab|186002280|VendingMachine<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
