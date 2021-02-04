@@ -1470,6 +1470,7 @@
 |assets/content/properties/steamcategories/limited-chinese-newyear-2020-fireworks-cheap.steam.asset|
 |assets/content/properties/steamcategories/limited-chinese-newyear-2020-fireworks-expensive.steam.asset|
 |assets/content/properties/steamcategories/limited-chinese-newyear-2020-resell-cheap.asset|
+|assets/content/properties/steamcategories/limited-chinese-newyear-2021-1000.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2015.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2017.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2017-cheap.steam.asset|
@@ -3846,6 +3847,10 @@
 |assets/prefabs/deployable/computerstation/computer-station-on-loop.asset|
 |assets/prefabs/deployable/computerstation/computer-station-turn-off.asset|
 |assets/prefabs/deployable/computerstation/computer-station-turn-on.asset|
+|assets/prefabs/deployable/drone/sound/drone-movement-loop.asset|
+|assets/prefabs/deployable/drone/sound/drone-movement-start.asset|
+|assets/prefabs/deployable/drone/sound/drone-movement-stop.asset|
+|assets/prefabs/deployable/drone/sound/drone-movement-stop-delivery.asset|
 |assets/prefabs/deployable/dropbox/sound/dropbox-close.asset|
 |assets/prefabs/deployable/dropbox/sound/dropbox-deploy.asset|
 |assets/prefabs/deployable/dropbox/sound/dropbox-open.asset|
@@ -4152,6 +4157,17 @@
 |assets/prefabs/food/water jug/sounds/water-jug-open-cap.asset|
 |assets/prefabs/food/water jug/sounds/water-jug-throw-water.asset|
 |assets/prefabs/food/water jug/sounds/water-jug-throw-water-3p.asset|
+|assets/prefabs/gamemodes/loadouts/1.asset|
+|assets/prefabs/gamemodes/loadouts/2.asset|
+|assets/prefabs/gamemodes/loadouts/3.asset|
+|assets/prefabs/gamemodes/loadouts/4.asset|
+|assets/prefabs/gamemodes/loadouts/5.asset|
+|assets/prefabs/gamemodes/loadouts/6.asset|
+|assets/prefabs/gamemodes/loadouts/default.asset|
+|assets/prefabs/gamemodes/loadouts/scientistsuits/7.asset|
+|assets/prefabs/gamemodes/objects/capturepoint/sound/capturepoint_progress_beep.asset|
+|assets/prefabs/gamemodes/objects/capturepoint/sound/capturepoint_progress_complete.asset|
+|assets/prefabs/gamemodes/resources/gamemodemanifest.asset|
 |assets/prefabs/instruments/bass/bass.weapon.asset|
 |assets/prefabs/instruments/cowbell/cowbell.weapon.asset|
 |assets/prefabs/instruments/dlc.instruments.asset|
@@ -4188,6 +4204,8 @@
 |assets/prefabs/misc/chinesenewyear/dragonmask/dragonmask.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/newyeargong/newyeargong.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/newyeargong/sound/gong.asset|
+|assets/prefabs/misc/chinesenewyear/oxmask/oxmask.sitem.asset|
+|assets/prefabs/misc/chinesenewyear/oxmask/sbmat_bullmasktassels.asset|
 |assets/prefabs/misc/chinesenewyear/ratmask/ratmask.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/throwablefirecrackers/sound/firework_explode.asset|
 |assets/prefabs/misc/chippy arcade/chippyarcade.sitem.asset|
@@ -4260,6 +4278,11 @@
 |assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.table.skin.asset|
 |assets/prefabs/misc/halloween/trophy skulls/skulltrophy.sitem.asset|
 |assets/prefabs/misc/halloween/trophy skulls/skulltrophy.skinnable.asset|
+|assets/prefabs/misc/marketplace/cobaltdeliverydroneconfig.asset|
+|assets/prefabs/misc/marketplace/sound/marketplace-button-press.asset|
+|assets/prefabs/misc/marketplace/sound/marketplace-close.asset|
+|assets/prefabs/misc/marketplace/sound/marketplace-open.asset|
+|assets/prefabs/misc/marketplace/sound/marketplace-place-order.asset|
 |assets/prefabs/misc/movember/movember_moustache_style01/movember_moustache_style01.sitem.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_fail.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_finish.asset|
@@ -4609,6 +4632,7 @@
 |assets/prefabs/tools/flashlight/sound/flashlight-deploy-3p.asset|
 |assets/prefabs/tools/flashlight/sound/flashlight-strike.asset|
 |assets/prefabs/tools/flashlight/sound/flashlight-switch.asset|
+|assets/prefabs/tools/jackhammer/jackhammer.skinnable.asset|
 |assets/prefabs/tools/jackhammer/sound/mechanics_loop.asset|
 |assets/prefabs/tools/keycard/sound/keycard_swing.asset|
 |assets/prefabs/tools/keycard/sound/keycard_swipe.asset|
