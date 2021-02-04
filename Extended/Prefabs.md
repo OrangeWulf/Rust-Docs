@@ -1201,6 +1201,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.fuse.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.generic.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.genericlarge.prefab|
+|assets/bundled/prefabs/ui/lootpanels/lootpanel.genericsmall.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.lantern.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.largefurnace.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.largewoodbox.prefab|
@@ -1212,6 +1213,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.photoframe.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.planter.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.player_corpse.prefab|
+|assets/bundled/prefabs/ui/lootpanels/lootpanel.reclaim.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.recycler.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.repairbench.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.researchtable.prefab|
@@ -2172,6 +2174,7 @@
 |assets/content/props/rubble_piles/rubble_pile_6x6.prefab|
 |assets/content/props/rubble_piles/rubble_pile_6x6_junkyard.prefab|
 |assets/content/props/rubble_piles/rubble_pile_9x9.prefab|
+|assets/content/props/rubble_piles/snow_pile_18x18.prefab|
 |assets/content/props/scrap_heli_wreck/scrap_heli_wreck.prefab|
 |assets/content/props/sentry_scientists/sentry.bandit.static.prefab|
 |assets/content/props/sentry_scientists/sentry.scientist.static.prefab|
@@ -2892,6 +2895,11 @@
 |assets/content/structures/residential_buildings/models/rowhouse_3st_9x12.prefab|
 |assets/content/structures/residential_buildings/models/rowhouse_3st_9x9.prefab|
 |assets/content/structures/residential_buildings/models/rowhouse_4st_9x12.prefab|
+|assets/content/structures/road_tunnels/road_tunnel_double_bend_a_36m.prefab|
+|assets/content/structures/road_tunnels/road_tunnel_double_exit_a_36m.prefab|
+|assets/content/structures/road_tunnels/road_tunnel_double_slope_a_72m.prefab|
+|assets/content/structures/road_tunnels/road_tunnel_double_slope_b_72m.prefab|
+|assets/content/structures/road_tunnels/road_tunnel_double_str_a_36m.prefab|
 |assets/content/structures/roads/carpark_a.prefab|
 |assets/content/structures/roads/loading_bay_lane_a.prefab|
 |assets/content/structures/roads/pavement_3x3_isle_end.prefab|
@@ -3342,6 +3350,7 @@
 |assets/content/ui/gameui/mixingtablerecipe.prefab|
 |assets/content/ui/gameui/paint/paintbox.prefab|
 |assets/content/ui/gameui/pieoption.prefab|
+|assets/content/ui/gameui/scoreboardcanvas.prefab|
 |assets/content/ui/gameui/teamdisplay/teammember.prefab|
 |assets/content/ui/gameui/tooltip.prefab|
 |assets/content/ui/gameui/tooltip_alwaysontop.prefab|
@@ -3372,6 +3381,7 @@
 |assets/content/ui/gameui/ui.item.iconnointeraction.prefab|
 |assets/content/ui/gameui/ui.item.iconwithcount.prefab|
 |assets/content/ui/gameui/ui.item.option.prefab|
+|assets/content/ui/gameui/ui.item.pending.prefab|
 |assets/content/ui/gameui/ui.item.pickup.prefab|
 |assets/content/ui/gameui/ui.iteminfoslider.prefab|
 |assets/content/ui/gameui/ui.map.monumentmarker.prefab|
@@ -3389,6 +3399,7 @@
 |assets/content/ui/gameui/underlays/ui.damage.funwater.prefab|
 |assets/content/ui/gameui/workshopitembutton.prefab|
 |assets/content/ui/gameui/workshopitemrow.prefab|
+|assets/content/ui/menuui/menuiui.suicide.prefab|
 |assets/content/ui/menuui/menuui.companion.prefab|
 |assets/content/ui/menuui/menuui.connection.prefab|
 |assets/content/ui/menuui/menuui.demos.deleteconfirmation.prefab|
@@ -3420,6 +3431,7 @@
 |assets/content/ui/menuui/ui.serverbrowser.button.prefab|
 |assets/content/ui/menuui/ui.serverbrowser.category.prefab|
 |assets/content/ui/menuui/ui.serverbrowser.list.prefab|
+|assets/content/ui/menuui/ui.serverbrowser.tag.prefab|
 |assets/content/ui/menuui/ui.tweaks.dropdown.prefab|
 |assets/content/ui/menuui/ui.tweaks.multiselect.prefab|
 |assets/content/ui/menuui/ui.tweaks.slider.prefab|
@@ -4510,6 +4522,8 @@
 |assets/prefabs/deployable/door barricades/door_barricade_dbl_b.prefab|
 |assets/prefabs/deployable/door barricades/door_barricade_dbl_b_large.prefab|
 |assets/prefabs/deployable/door barricades/door_barricade_dbl_b_spawner.prefab|
+|assets/prefabs/deployable/drone/drone.deployed.prefab|
+|assets/prefabs/deployable/drone/drone.item.prefab|
 |assets/prefabs/deployable/drone/drone.prefab|
 |assets/prefabs/deployable/dropbox/dropbox.deployed.prefab|
 |assets/prefabs/deployable/dropbox/dropbox.item.prefab|
@@ -5034,6 +5048,23 @@
 |assets/prefabs/food/water jug/waterjug.item.prefab|
 |assets/prefabs/food/water jug/waterjug.viewmodel.prefab|
 |assets/prefabs/food/water jug/waterjug.worldmodel.prefab|
+|assets/prefabs/gamemodes/deathmatch.prefab|
+|assets/prefabs/gamemodes/kingofthehilldm.prefab|
+|assets/prefabs/gamemodes/kingofthehillteam.prefab|
+|assets/prefabs/gamemodes/objects/capturepoint/capturepoint.prefab|
+|assets/prefabs/gamemodes/objects/capturepoint/effects/capturepoint_progress_beep.prefab|
+|assets/prefabs/gamemodes/objects/capturepoint/effects/capturepoint_progress_complete.prefab|
+|assets/prefabs/gamemodes/objects/reclaim/reclaimbackpack.prefab|
+|assets/prefabs/gamemodes/objects/reclaim/reclaimcontainerstatic.prefab|
+|assets/prefabs/gamemodes/objects/reclaim/reclaimmanager.prefab|
+|assets/prefabs/gamemodes/objects/reclaim/reclaimsign.prefab|
+|assets/prefabs/gamemodes/objects/reclaim/reclaimterminal.prefab|
+|assets/prefabs/gamemodes/onedeath.prefab|
+|assets/prefabs/gamemodes/softcore.prefab|
+|assets/prefabs/gamemodes/softcore/staticrespawnzonebandit.prefab|
+|assets/prefabs/gamemodes/softcore/staticrespawnzonecompound.prefab|
+|assets/prefabs/gamemodes/teamdeathmatch.prefab|
+|assets/prefabs/gamemodes/vanilla.prefab|
 |assets/prefabs/instruments/bass/bass.item.prefab|
 |assets/prefabs/instruments/bass/bass.viewmodel.prefab|
 |assets/prefabs/instruments/bass/bass.weapon.prefab|
@@ -5139,6 +5170,9 @@
 |assets/prefabs/misc/chinesenewyear/fountainfirework/fountainfirework.prefab|
 |assets/prefabs/misc/chinesenewyear/newyeargong/newyeargong.deployed.prefab|
 |assets/prefabs/misc/chinesenewyear/newyeargong/newyeargong.item.prefab|
+|assets/prefabs/misc/chinesenewyear/oxmask/bullmask.wearable.prefab|
+|assets/prefabs/misc/chinesenewyear/oxmask/bullmask.world.prefab|
+|assets/prefabs/misc/chinesenewyear/oxmask/hat.bullmask.item.prefab|
 |assets/prefabs/misc/chinesenewyear/ratmask/hat.ratmask.item.prefab|
 |assets/prefabs/misc/chinesenewyear/ratmask/hat.ratmask.prefab|
 |assets/prefabs/misc/chinesenewyear/ratmask/hat.ratmask.world.prefab|
@@ -5363,6 +5397,11 @@
 |assets/prefabs/misc/junkpile_water/junkpile_water_a.prefab|
 |assets/prefabs/misc/junkpile_water/junkpile_water_b.prefab|
 |assets/prefabs/misc/junkpile_water/junkpile_water_c.prefab|
+|assets/prefabs/misc/marketplace/deliverydronemarker.prefab|
+|assets/prefabs/misc/marketplace/drone.delivery.prefab|
+|assets/prefabs/misc/marketplace/marketplace.prefab|
+|assets/prefabs/misc/marketplace/marketterminal.prefab|
+|assets/prefabs/misc/marketplace/ui.dialog.marketterminal.prefab|
 |assets/prefabs/misc/movember/movember_moustache_card/movember_moustache_card.item.prefab|
 |assets/prefabs/misc/movember/movember_moustache_card/movember_moustache_card_female.wearable.prefab|
 |assets/prefabs/misc/movember/movember_moustache_card/movember_moustache_card_male.wearable.prefab|
@@ -6153,6 +6192,7 @@
 |assets/prefabs/tools/map/ui/ui.map.cargoship.prefab|
 |assets/prefabs/tools/map/ui/ui.map.ch47marker.prefab|
 |assets/prefabs/tools/map/ui/ui.map.deathpoint.prefab|
+|assets/prefabs/tools/map/ui/ui.map.deliverydrone.prefab|
 |assets/prefabs/tools/map/ui/ui.map.explosion.prefab|
 |assets/prefabs/tools/map/ui/ui.map.genericradial.prefab|
 |assets/prefabs/tools/map/ui/ui.map.hackablecrate.prefab|
@@ -7333,6 +7373,8 @@
 |assets/scenes/prefabs/oilrig/oilrigai2.prefab|
 |assets/scenes/prefabs/powerplant/powerplant_puzzlebypassfix.prefab|
 |assets/scenes/prefabs/trainyard/trainyard_monument_bypass_fix.prefab|
+|assets/scenes/release/hapisislandterrain/roadsv2signs/__fog volume.prefab|
+|assets/scenes/release/hapisislandterrain/roadsv2signs/road signs.prefab|
 |assets/scenes/release/hapisislandterrain/waterfall/waterfall.prefab|
 |assets/scenes/test/material_zoo/neutral_dungeon_lighting.prefab|
 |assets/scripts/entity/misc/visualstoragecontainer/visualshelvestest.prefab|
@@ -7342,6 +7384,16 @@
 |assets/standard assets/third party/camelotvfx_adv_water_fx/prefabs/splash_v3.prefab|
 |assets/standard assets/third party/detailed_pyro_fx/prefabs/4096/smoke_04.prefab|
 |assets/standard assets/third party/time of day/prefabs/sky dome.prefab|
+|assets/third party/easyroads3d/_preset editors/road types.prefab|
+|assets/third party/easyroads3d/resources/dynamic prefabs/default t crossing.prefab|
+|assets/third party/easyroads3d/resources/dynamic prefabs/default x crossing.prefab|
+|assets/third party/easyroads3d/resources/dynamic prefabs/roundabout 4 connections.prefab|
+|assets/third party/easyroads3d/resources/erprojectlog.prefab|
+|assets/third party/easyroads3d/resources/erproroad.prefab|
+|assets/third party/easyroads3d/resources/erroadnetwork.prefab|
+|assets/third party/easyroads3d/resources/ersideobjectslog.prefab|
+|assets/third party/easyroads3d/resources/standard prefabs/roundabout.prefab|
+|assets/third party/easyroads3d/resources/standard prefabs/x crossing.prefab|
 |assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion1.prefab|
 |assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion10.prefab|
 |assets/third party/kriptofx/explosions/prefabs/mobile/mobileexplosion11.prefab|
