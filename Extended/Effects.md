@@ -922,6 +922,8 @@
 |assets/prefabs/food/water jug/effects/water-jug-fill-world.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-open-cap.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-throw-water.prefab|
+|assets/prefabs/gamemodes/objects/capturepoint/effects/capturepoint_progress_beep.prefab|
+|assets/prefabs/gamemodes/objects/capturepoint/effects/capturepoint_progress_complete.prefab|
 |assets/prefabs/instruments/bass/effects/guitardeploy.prefab|
 |assets/prefabs/instruments/drumkit/effects/drumkit-deploy.prefab|
 |assets/prefabs/instruments/guitar/effects/guitardeploy.prefab|
