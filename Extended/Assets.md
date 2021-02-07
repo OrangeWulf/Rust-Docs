@@ -333,18 +333,6 @@
 |assets/content/properties/lazyaim/hands.lazyaim.asset|
 |assets/content/properties/lazyaim/ironsights.lazyaim.asset|
 |assets/content/properties/lazyaim/off.lazyaim.asset|
-|assets/content/properties/lootspawn/airdrop/armor_supplydrop_rare.asset|
-|assets/content/properties/lootspawn/airdrop/armorroll.asset|
-|assets/content/properties/lootspawn/airdrop/gunroll.asset|
-|assets/content/properties/lootspawn/airdrop/gunroll_medium.asset|
-|assets/content/properties/lootspawn/airdrop/gunroll_rare.asset|
-|assets/content/properties/lootspawn/airdrop/gunroll_sub_medium.asset|
-|assets/content/properties/lootspawn/airdrop/resourceroll.asset|
-|assets/content/properties/lootspawn/airdrop/resourceroll_components.asset|
-|assets/content/properties/lootspawn/airdrop/resourceroll_hqm.asset|
-|assets/content/properties/lootspawn/airdrop/resourceroll_scrap.asset|
-|assets/content/properties/lootspawn/airdrop/toolroll.asset|
-|assets/content/properties/lootspawn/airdrop/toolroll_sub_tools.asset|
 |assets/content/properties/lootspawn/ammo/ammo.asset|
 |assets/content/properties/lootspawn/ammo/ammostandard.asset|
 |assets/content/properties/lootspawn/ammo/pistol.asset|
@@ -422,14 +410,12 @@
 |assets/content/properties/lootspawn/collections/mining ore.asset|
 |assets/content/properties/lootspawn/collections/mp5 with ammo.asset|
 |assets/content/properties/lootspawn/collections/pistolammocollection.asset|
-|assets/content/properties/lootspawn/collections/pump with ammo.asset|
 |assets/content/properties/lootspawn/collections/rarebaseparts.asset|
 |assets/content/properties/lootspawn/collections/researchpaper.asset|
 |assets/content/properties/lootspawn/collections/researchpaperlarge.asset|
 |assets/content/properties/lootspawn/collections/researchpapersmall.asset|
 |assets/content/properties/lootspawn/collections/rifleammocollection.asset|
 |assets/content/properties/lootspawn/collections/rocketammocollection.asset|
-|assets/content/properties/lootspawn/collections/sar with ammo.asset|
 |assets/content/properties/lootspawn/collections/satchels.asset|
 |assets/content/properties/lootspawn/collections/scrapsmall.asset|
 |assets/content/properties/lootspawn/collections/smg with ammo.asset|
@@ -443,7 +429,6 @@
 |assets/content/properties/lootspawn/componentloot/sub/binoculars.asset|
 |assets/content/properties/lootspawn/componentloot/sub/ducttape.asset|
 |assets/content/properties/lootspawn/componentloot/sub/gears.asset|
-|assets/content/properties/lootspawn/componentloot/sub/gearslarge.asset|
 |assets/content/properties/lootspawn/componentloot/sub/metal blades.asset|
 |assets/content/properties/lootspawn/componentloot/sub/pipes.asset|
 |assets/content/properties/lootspawn/componentloot/sub/pipes_large.asset|
@@ -454,13 +439,11 @@
 |assets/content/properties/lootspawn/componentloot/sub/semibody.asset|
 |assets/content/properties/lootspawn/componentloot/sub/sewingkits.asset|
 |assets/content/properties/lootspawn/componentloot/sub/sheetmetal.asset|
-|assets/content/properties/lootspawn/componentloot/sub/sheetmetallarge.asset|
 |assets/content/properties/lootspawn/componentloot/sub/smgbody.asset|
 |assets/content/properties/lootspawn/componentloot/sub/springs.asset|
 |assets/content/properties/lootspawn/componentloot/sub/sticks.asset|
 |assets/content/properties/lootspawn/componentloot/sub/tarps.asset|
 |assets/content/properties/lootspawn/componentloot/sub/techparts.asset|
-|assets/content/properties/lootspawn/componentloot/sub/techparts5.asset|
 |assets/content/properties/lootspawn/componentloot/sub/techpartslarge.asset|
 |assets/content/properties/lootspawn/deathmatchloot/collectionsammo/dm ammo (handmade).asset|
 |assets/content/properties/lootspawn/deathmatchloot/collectionsammo/dm ammo (pistol fire).asset|
@@ -886,7 +869,6 @@
 |assets/content/properties/lootspawn/generated/items/fun/xylophone.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.ammunition.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.attire.asset|
-|assets/content/properties/lootspawn/generated/items/items.common.component.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.construction.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.electrical.asset|
 |assets/content/properties/lootspawn/generated/items/items.common.food.asset|
@@ -1300,7 +1282,6 @@
 |assets/content/properties/protection/clothing/roadsign_gloves.asset|
 |assets/content/properties/protection/clothing/roadsign_jacket.asset|
 |assets/content/properties/protection/clothing/roadsign_pants.asset|
-|assets/content/properties/protection/clothing/shirt_long.asset|
 |assets/content/properties/protection/clothing/skin_feet.asset|
 |assets/content/properties/protection/clothing/skin_hands.asset|
 |assets/content/properties/protection/clothing/skin_head.asset|
@@ -1308,7 +1289,6 @@
 |assets/content/properties/protection/clothing/skin_torso.asset|
 |assets/content/properties/protection/clothing/surgeonsuit.asset|
 |assets/content/properties/protection/clothing/tactical_gloves.asset|
-|assets/content/properties/protection/clothing/tank_top.asset|
 |assets/content/properties/protection/clothing/twitchheadset.asset|
 |assets/content/properties/protection/clothing/urban_boots.asset|
 |assets/content/properties/protection/clothing/urban_jacket.asset|
@@ -1470,7 +1450,6 @@
 |assets/content/properties/steamcategories/limited-chinese-newyear-2020-fireworks-cheap.steam.asset|
 |assets/content/properties/steamcategories/limited-chinese-newyear-2020-fireworks-expensive.steam.asset|
 |assets/content/properties/steamcategories/limited-chinese-newyear-2020-resell-cheap.asset|
-|assets/content/properties/steamcategories/limited-chinese-newyear-2021-1000.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2015.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2017.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2017-cheap.steam.asset|
@@ -1480,11 +1459,6 @@
 |assets/content/properties/steamcategories/limited-christmas2019-dirtcheap.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2019-expensive.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2019-legacy.steam.asset|
-|assets/content/properties/steamcategories/limited-christmas2020-1500.steam.asset|
-|assets/content/properties/steamcategories/limited-christmas2020-350.steam.asset|
-|assets/content/properties/steamcategories/limited-christmas2020-500.steam.asset|
-|assets/content/properties/steamcategories/limited-christmas2020-650.steam.asset|
-|assets/content/properties/steamcategories/limited-christmas2020-800.steam.asset|
 |assets/content/properties/steamcategories/limited-easter-2019.cheap.steam.asset|
 |assets/content/properties/steamcategories/limited-easter-2019.expensive.asset|
 |assets/content/properties/steamcategories/limited-easter-2019.medium.steam.asset|
@@ -1503,12 +1477,9 @@
 |assets/content/properties/steamcategories/limited-halloween2020-599.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2020-899.steam.asset|
 |assets/content/properties/steamcategories/limited-movember2020.steam.asset|
-|assets/content/properties/steamcategories/limited-newyear-2020-2021-fireworks-cheap.steam.asset|
-|assets/content/properties/steamcategories/limited-newyear-2020-2021-fireworks-expensive.steam.asset|
 |assets/content/properties/steamcategories/limited-spacesuit.steam.asset|
 |assets/content/properties/steamcategories/nocrate.steam.asset|
 |assets/content/properties/steamcategories/resource.steam.asset|
-|assets/content/properties/steamcategories/resource.twitchdrop.asset|
 |assets/content/properties/steamcategories/retired.steam.asset|
 |assets/content/properties/steamcategories/twitchdrops.steam.asset|
 |assets/content/properties/steamcategories/weapon-normal.steam.asset|
@@ -2686,7 +2657,6 @@
 |assets/content/sound/physics/phys-impact-metal-thin-hollow.asset|
 |assets/content/sound/physics/phys-impact-paper.asset|
 |assets/content/sound/physics/phys-impact-plastic.asset|
-|assets/content/sound/physics/phys-impact-snow.asset|
 |assets/content/sound/physics/phys-impact-stone.asset|
 |assets/content/sound/physics/phys-impact-tarp.asset|
 |assets/content/sound/physics/phys-impact-tool.asset|
@@ -3160,7 +3130,6 @@
 |assets/content/sound/ui/ui-drop-plastic-junk.asset|
 |assets/content/sound/ui/ui-drop-rubber.asset|
 |assets/content/sound/ui/ui-drop-seeds.asset|
-|assets/content/sound/ui/ui-drop-snow.asset|
 |assets/content/sound/ui/ui-drop-spring.asset|
 |assets/content/sound/ui/ui-drop-stone.asset|
 |assets/content/sound/ui/ui-drop-tarp.asset|
@@ -3189,7 +3158,6 @@
 |assets/content/sound/ui/ui-pickup-plastic-junk.asset|
 |assets/content/sound/ui/ui-pickup-rubber.asset|
 |assets/content/sound/ui/ui-pickup-seeds.asset|
-|assets/content/sound/ui/ui-pickup-snow.asset|
 |assets/content/sound/ui/ui-pickup-spring.asset|
 |assets/content/sound/ui/ui-pickup-stone.asset|
 |assets/content/sound/ui/ui-pickup-tarp.asset|
@@ -3472,7 +3440,6 @@
 |assets/content/workshop/items/crates/bag.low.sitem.asset|
 |assets/content/workshop/items/crates/barrel.sitem.asset|
 |assets/content/workshop/items/crates/box.high.sitem.asset|
-|assets/content/workshop/items/crates/box.trustinrust.twitchdrop.sitem.asset|
 |assets/content/workshop/items/resources/cloth.sitem.asset|
 |assets/content/workshop/items/resources/metal.sitem.asset|
 |assets/content/workshop/items/resources/wood.sitem.asset|
@@ -3847,10 +3814,6 @@
 |assets/prefabs/deployable/computerstation/computer-station-on-loop.asset|
 |assets/prefabs/deployable/computerstation/computer-station-turn-off.asset|
 |assets/prefabs/deployable/computerstation/computer-station-turn-on.asset|
-|assets/prefabs/deployable/drone/sound/drone-movement-loop.asset|
-|assets/prefabs/deployable/drone/sound/drone-movement-start.asset|
-|assets/prefabs/deployable/drone/sound/drone-movement-stop.asset|
-|assets/prefabs/deployable/drone/sound/drone-movement-stop-delivery.asset|
 |assets/prefabs/deployable/dropbox/sound/dropbox-close.asset|
 |assets/prefabs/deployable/dropbox/sound/dropbox-deploy.asset|
 |assets/prefabs/deployable/dropbox/sound/dropbox-open.asset|
@@ -3970,7 +3933,6 @@
 |assets/prefabs/deployable/playerioents/poweredwaterpurifier/sound/powered-water-purifier-loop.asset|
 |assets/prefabs/deployable/playerioents/poweredwaterpurifier/sound/powered-water-purifier-start.asset|
 |assets/prefabs/deployable/playerioents/poweredwaterpurifier/sound/powered-water-purifier-stop.asset|
-|assets/prefabs/deployable/playerioents/sounds/switch_toggle_on.asset|
 |assets/prefabs/deployable/playerioents/sprinkler/sound/sprinkler-active-loop.ambience-def.asset|
 |assets/prefabs/deployable/playerioents/sprinkler/sound/sprinkler-active-loop.ambience-list.asset|
 |assets/prefabs/deployable/playerioents/sprinkler/sound/sprinkler-active-loop.asset|
@@ -4046,11 +4008,6 @@
 |assets/prefabs/deployable/small stash/sound/small-stash-close.asset|
 |assets/prefabs/deployable/small stash/sound/small-stash-deploy.asset|
 |assets/prefabs/deployable/small stash/sound/small-stash-open.asset|
-|assets/prefabs/deployable/sofa/sofa.sitem.asset|
-|assets/prefabs/deployable/sofa/sound/sofa-deploy.asset|
-|assets/prefabs/deployable/sofa/sound/sofa-destroy.asset|
-|assets/prefabs/deployable/sofa/sound/sofa-dismount.asset|
-|assets/prefabs/deployable/sofa/sound/sofa-mount.asset|
 |assets/prefabs/deployable/spinner_wheel/sound/spinner-wheel-deploy.asset|
 |assets/prefabs/deployable/spinner_wheel/sound/spinner-wheel-spin-accent.asset|
 |assets/prefabs/deployable/spinner_wheel/sound/spinner-wheel-spin-loop.asset|
@@ -4157,17 +4114,6 @@
 |assets/prefabs/food/water jug/sounds/water-jug-open-cap.asset|
 |assets/prefabs/food/water jug/sounds/water-jug-throw-water.asset|
 |assets/prefabs/food/water jug/sounds/water-jug-throw-water-3p.asset|
-|assets/prefabs/gamemodes/loadouts/1.asset|
-|assets/prefabs/gamemodes/loadouts/2.asset|
-|assets/prefabs/gamemodes/loadouts/3.asset|
-|assets/prefabs/gamemodes/loadouts/4.asset|
-|assets/prefabs/gamemodes/loadouts/5.asset|
-|assets/prefabs/gamemodes/loadouts/6.asset|
-|assets/prefabs/gamemodes/loadouts/default.asset|
-|assets/prefabs/gamemodes/loadouts/scientistsuits/7.asset|
-|assets/prefabs/gamemodes/objects/capturepoint/sound/capturepoint_progress_beep.asset|
-|assets/prefabs/gamemodes/objects/capturepoint/sound/capturepoint_progress_complete.asset|
-|assets/prefabs/gamemodes/resources/gamemodemanifest.asset|
 |assets/prefabs/instruments/bass/bass.weapon.asset|
 |assets/prefabs/instruments/cowbell/cowbell.weapon.asset|
 |assets/prefabs/instruments/dlc.instruments.asset|
@@ -4204,8 +4150,6 @@
 |assets/prefabs/misc/chinesenewyear/dragonmask/dragonmask.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/newyeargong/newyeargong.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/newyeargong/sound/gong.asset|
-|assets/prefabs/misc/chinesenewyear/oxmask/oxmask.sitem.asset|
-|assets/prefabs/misc/chinesenewyear/oxmask/sbmat_bullmasktassels.asset|
 |assets/prefabs/misc/chinesenewyear/ratmask/ratmask.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/throwablefirecrackers/sound/firework_explode.asset|
 |assets/prefabs/misc/chippy arcade/chippyarcade.sitem.asset|
@@ -4278,11 +4222,6 @@
 |assets/prefabs/misc/halloween/trophy skulls/skins/skulltrophy.table.skin.asset|
 |assets/prefabs/misc/halloween/trophy skulls/skulltrophy.sitem.asset|
 |assets/prefabs/misc/halloween/trophy skulls/skulltrophy.skinnable.asset|
-|assets/prefabs/misc/marketplace/cobaltdeliverydroneconfig.asset|
-|assets/prefabs/misc/marketplace/sound/marketplace-button-press.asset|
-|assets/prefabs/misc/marketplace/sound/marketplace-close.asset|
-|assets/prefabs/misc/marketplace/sound/marketplace-open.asset|
-|assets/prefabs/misc/marketplace/sound/marketplace-place-order.asset|
 |assets/prefabs/misc/movember/movember_moustache_style01/movember_moustache_style01.sitem.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_fail.asset|
 |assets/prefabs/misc/orebonus/sound/bonus_finish.asset|
@@ -4408,8 +4347,6 @@
 |assets/prefabs/misc/twitch/headsetcap/skins/hat.cap_headset.twitch.itemskin.asset|
 |assets/prefabs/misc/twitch/headsetcap/twitchheadset.sitem.asset|
 |assets/prefabs/misc/twitch/headsetcap/twitchheadset.skinnable.asset|
-|assets/prefabs/misc/twitch/hobobarrel/hobobarrel.sitem.asset|
-|assets/prefabs/misc/twitch/industrialdoora/door.hinged.metal.industrial.a.skin.asset|
 |assets/prefabs/misc/twitch/underwear/twitchunderwear.sitem.asset|
 |assets/prefabs/misc/xmas/christmas_lights/lightstring.sitem.asset|
 |assets/prefabs/misc/xmas/giant_candy_cane/giantcandies.sitem.asset|
@@ -4423,12 +4360,9 @@
 |assets/prefabs/misc/xmas/loottables/individuals/mediumgift/1000stone.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/mediumgift/2500stone.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/mediumgift/fuel.asset|
-|assets/prefabs/misc/xmas/loottables/individuals/mediumgift/icefences.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/mediumgift/medicalsyringe.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/mediumgift/pookie.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/mediumgift/revolver_w_ammo.asset|
-|assets/prefabs/misc/xmas/loottables/individuals/mediumgift/sled.asset|
-|assets/prefabs/misc/xmas/loottables/individuals/mediumgift/snowballgun.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/mediumgift/stockingsmall.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/mediumgift/waterpipe_w_ammo.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/smallgift/150stone.asset|
@@ -4440,7 +4374,6 @@
 |assets/prefabs/misc/xmas/loottables/individuals/smallgift/eoka_w_ammo.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/smallgift/reindeerhat.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/smallgift/santahat.asset|
-|assets/prefabs/misc/xmas/loottables/individuals/smallgift/snowball.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/treedecor/balls.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/treedecor/canedecor.asset|
 |assets/prefabs/misc/xmas/loottables/individuals/treedecor/gingermen.asset|
@@ -4453,40 +4386,17 @@
 |assets/prefabs/misc/xmas/loottables/largegift-contents.asset|
 |assets/prefabs/misc/xmas/loottables/mediumgift-contents.asset|
 |assets/prefabs/misc/xmas/loottables/smallgift-contents.asset|
-|assets/prefabs/misc/xmas/loottables/world/gifts.asset|
 |assets/prefabs/misc/xmas/loottables/world/mediumgift.asset|
 |assets/prefabs/misc/xmas/loottables/world/smallgift.asset|
 |assets/prefabs/misc/xmas/loottables/world/smallstocking.asset|
 |assets/prefabs/misc/xmas/loottables/world/superstocking.asset|
 |assets/prefabs/misc/xmas/loottables/world/worldgiftbox.asset|
-|assets/prefabs/misc/xmas/neon_sign/neon.signs.sitem.asset|
-|assets/prefabs/misc/xmas/neon_sign/sound/neon-sign-active-loop.ambience-def.asset|
-|assets/prefabs/misc/xmas/neon_sign/sound/neon-sign-active-loop.ambience-list.asset|
-|assets/prefabs/misc/xmas/neon_sign/sound/neon-sign-active-loop.asset|
-|assets/prefabs/misc/xmas/neon_sign/sound/neon-sign-switch.asset|
 |assets/prefabs/misc/xmas/poweredlights/deluxechristmaslights.sitem.asset|
-|assets/prefabs/misc/xmas/sled/skins/sled_xmas.asset|
-|assets/prefabs/misc/xmas/sled/sled.skinnable.asset|
-|assets/prefabs/misc/xmas/sled/sound/sled-deploy.asset|
-|assets/prefabs/misc/xmas/sled/sound/sled-dismount.asset|
-|assets/prefabs/misc/xmas/sled/sound/sled-enter-snow.asset|
-|assets/prefabs/misc/xmas/sled/sound/sled-impact.asset|
-|assets/prefabs/misc/xmas/sled/sound/sled-mount.asset|
-|assets/prefabs/misc/xmas/sled/sound/sled-slide-dirt-loop.asset|
-|assets/prefabs/misc/xmas/sled/sound/sled-slide-snow-loop.asset|
 |assets/prefabs/misc/xmas/sleigh/sound/sleigh_movement.asset|
 |assets/prefabs/misc/xmas/sleigh/sound/sleigh-drop-sparkles.asset|
 |assets/prefabs/misc/xmas/sleigh/sound/sleigh-ho-ho-ho.asset|
 |assets/prefabs/misc/xmas/snow_machine/snowmachine.sitem.asset|
 |assets/prefabs/misc/xmas/snow_machine/sound/snow_blast.asset|
-|assets/prefabs/misc/xmas/snowballgun/sound/snowball-gun-attack.asset|
-|assets/prefabs/misc/xmas/snowballgun/sound/snowball-gun-deploy.asset|
-|assets/prefabs/misc/xmas/snowballgun/sound/snowball-gun-impact.asset|
-|assets/prefabs/misc/xmas/snowballgun/sound/snowball-gun-reload-finish.asset|
-|assets/prefabs/misc/xmas/snowballgun/sound/snowball-gun-reload-insert.asset|
-|assets/prefabs/misc/xmas/snowballgun/sound/snowball-gun-reload-spin.asset|
-|assets/prefabs/misc/xmas/snowballgun/sound/snowball-gun-reload-start.asset|
-|assets/prefabs/misc/xmas/snowballgun/sound/snowball-gun-reload-start-single.asset|
 |assets/prefabs/misc/xmas/snowman/snowman.sitem.asset|
 |assets/prefabs/misc/xmas/sound/firework-fountain-loop.asset|
 |assets/prefabs/misc/xmas/sound/firework-tube-burning-loop.asset|
@@ -4504,7 +4414,6 @@
 |assets/prefabs/misc/xmas/wearable/santabeard/santabeard.sitem.asset|
 |assets/prefabs/misc/xmas/windowgarland/windowgardland.sitem.asset|
 |assets/prefabs/misc/xmas/wreath/wreath.sitem.asset|
-|assets/prefabs/misc/xmas/xmas2020.asset|
 |assets/prefabs/npc/autoturret/sound/ambient-loop.asset|
 |assets/prefabs/npc/autoturret/sound/attack.asset|
 |assets/prefabs/npc/autoturret/sound/autoturrent-ambient-loop.ambience-def.asset|
@@ -4632,7 +4541,6 @@
 |assets/prefabs/tools/flashlight/sound/flashlight-deploy-3p.asset|
 |assets/prefabs/tools/flashlight/sound/flashlight-strike.asset|
 |assets/prefabs/tools/flashlight/sound/flashlight-switch.asset|
-|assets/prefabs/tools/jackhammer/jackhammer.skinnable.asset|
 |assets/prefabs/tools/jackhammer/sound/mechanics_loop.asset|
 |assets/prefabs/tools/keycard/sound/keycard_swing.asset|
 |assets/prefabs/tools/keycard/sound/keycard_swipe.asset|
@@ -5303,11 +5211,6 @@
 |assets/scenes/prefabs/cave/cave_large_sewers_hard.asset|
 |assets/scenes/release/savasisland.asset|
 |assets/scenes/test/billbtestmap/billbtestmap terrain.asset|
-|assets/scripts/game/techtree/techtree.asset|
-|assets/scripts/game/techtree/techtreet0.asset|
-|assets/scripts/game/techtree/techtreet1.asset|
-|assets/scripts/game/techtree/techtreet2.asset|
-|assets/scripts/game/techtree/techtreet3.asset|
 |assets/skins.asset|
 |assets/standard assets/third party/postprocessing/postprocessresources.asset|
 |assets/textmesh pro/resources/tmp settings.asset|
