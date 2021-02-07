@@ -496,7 +496,6 @@
 |assets/bundled/prefabs/fx/impacts/stab/wood/wood1.prefab|
 |assets/bundled/prefabs/fx/invite_notice.prefab|
 |assets/bundled/prefabs/fx/item_break.prefab|
-|assets/bundled/prefabs/fx/item_unlock.prefab|
 |assets/bundled/prefabs/fx/missing.prefab|
 |assets/bundled/prefabs/fx/notice/item.select.fx.prefab|
 |assets/bundled/prefabs/fx/notice/loot.copy.fx.prefab|
@@ -606,9 +605,6 @@
 |assets/content/effects/muzzleflashes/muzzleflash_lightex_tiny.prefab|
 |assets/content/effects/muzzleflashes/other/eoka_attack.prefab|
 |assets/content/effects/muzzleflashes/other/eoka_flint_spark.prefab|
-|assets/content/effects/muzzleflashes/other/muzzle_flash_snowballgun.prefab|
-|assets/content/effects/muzzleflashes/other/projectilefx_snowballgun.prefab|
-|assets/content/effects/muzzleflashes/other/projectilefx_snowballgun_impact.prefab|
 |assets/content/effects/muzzleflashes/pistol/muzzle_flash_nailgun.prefab|
 |assets/content/effects/muzzleflashes/pistol/muzzle_flash_pistol.prefab|
 |assets/content/effects/muzzleflashes/pistol/muzzle_flash_pistol_braked.prefab|
@@ -872,8 +868,6 @@
 |assets/prefabs/deployable/single shot trap/effects/shotgun-trap-deploy.prefab|
 |assets/prefabs/deployable/sleeping bag/effects/sleeping-bag-deploy.prefab|
 |assets/prefabs/deployable/small stash/effects/small-stash-deploy.prefab|
-|assets/prefabs/deployable/sofa/effects/sofa-deploy.prefab|
-|assets/prefabs/deployable/sofa/effects/sofa-destroy.prefab|
 |assets/prefabs/deployable/spinner_wheel/effects/spinner-wheel-deploy.prefab|
 |assets/prefabs/deployable/survivalfishtrap/effects/fish_caught.prefab|
 |assets/prefabs/deployable/survivalfishtrap/effects/fish-trap-deploy.prefab|
@@ -922,8 +916,6 @@
 |assets/prefabs/food/water jug/effects/water-jug-fill-world.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-open-cap.prefab|
 |assets/prefabs/food/water jug/effects/water-jug-throw-water.prefab|
-|assets/prefabs/gamemodes/objects/capturepoint/effects/capturepoint_progress_beep.prefab|
-|assets/prefabs/gamemodes/objects/capturepoint/effects/capturepoint_progress_complete.prefab|
 |assets/prefabs/instruments/bass/effects/guitardeploy.prefab|
 |assets/prefabs/instruments/drumkit/effects/drumkit-deploy.prefab|
 |assets/prefabs/instruments/guitar/effects/guitardeploy.prefab|
@@ -1020,21 +1012,12 @@
 |assets/prefabs/misc/xmas/candy cane club/effects/throw.prefab|
 |assets/prefabs/misc/xmas/presents/effects/unwrap.prefab|
 |assets/prefabs/misc/xmas/presents/effects/wrap.prefab|
-|assets/prefabs/misc/xmas/sled/effects/sled-deploy.prefab|
-|assets/prefabs/misc/xmas/sled/effects/vfx_sled_trails.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/attack.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/deploy.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/impact.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/strike.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/strike_screenshake.prefab|
 |assets/prefabs/misc/xmas/snowball/effects/throw.prefab|
-|assets/prefabs/misc/xmas/snowballgun/effects/attack.prefab|
-|assets/prefabs/misc/xmas/snowballgun/effects/deploy.prefab|
-|assets/prefabs/misc/xmas/snowballgun/effects/reload_end.prefab|
-|assets/prefabs/misc/xmas/snowballgun/effects/reload_single_insert.prefab|
-|assets/prefabs/misc/xmas/snowballgun/effects/reload_single_spin.prefab|
-|assets/prefabs/misc/xmas/snowballgun/effects/reload_single_start.prefab|
-|assets/prefabs/misc/xmas/snowballgun/effects/reload_start.prefab|
 |assets/prefabs/npc/autoturret/effects/autoturret-deploy.prefab|
 |assets/prefabs/npc/autoturret/effects/offline.prefab|
 |assets/prefabs/npc/autoturret/effects/online.prefab|
