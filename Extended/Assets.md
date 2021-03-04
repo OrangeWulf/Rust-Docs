@@ -1252,6 +1252,7 @@
 |assets/content/properties/playerinventory/summerdlc.asset|
 |assets/content/properties/playerinventory/survivorinventory.asset|
 |assets/content/properties/playerinventory/voiceprops.asset|
+|assets/content/properties/protection/50percent.asset|
 |assets/content/properties/protection/barricademetal.asset|
 |assets/content/properties/protection/barricadestone.asset|
 |assets/content/properties/protection/barricadewood.asset|
@@ -1329,6 +1330,7 @@
 |assets/content/properties/protection/doors/wooddoor.asset|
 |assets/content/properties/protection/fence.asset|
 |assets/content/properties/protection/flame_turret_protection.asset|
+|assets/content/properties/protection/glassprotection.asset|
 |assets/content/properties/protection/helicopter_gib_protection.asset|
 |assets/content/properties/protection/helicopter_protection.asset|
 |assets/content/properties/protection/immortal.asset|
@@ -1350,6 +1352,7 @@
 |assets/content/properties/protection/signprotection.asset|
 |assets/content/properties/protection/tankprotection.asset|
 |assets/content/properties/protection/target_protection.asset|
+|assets/content/properties/protection/trainprotection.asset|
 |assets/content/properties/protection/tree protection.asset|
 |assets/content/properties/protection/turret_protection.asset|
 |assets/content/properties/protection/waterinflatable.asset|
@@ -1471,6 +1474,11 @@
 |assets/content/properties/steamcategories/limited-chinese-newyear-2020-fireworks-expensive.steam.asset|
 |assets/content/properties/steamcategories/limited-chinese-newyear-2020-resell-cheap.asset|
 |assets/content/properties/steamcategories/limited-chinese-newyear-2021-1000.steam.asset|
+|assets/content/properties/steamcategories/limited-chinese-newyear-2021-350.steam.asset|
+|assets/content/properties/steamcategories/limited-chinese-newyear-2021-400.steam.asset|
+|assets/content/properties/steamcategories/limited-chinese-newyear-2021-450.steam.asset|
+|assets/content/properties/steamcategories/limited-chinese-newyear-2021-500.steam.asset|
+|assets/content/properties/steamcategories/limited-chinese-newyear-2021-650.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2015.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2017.steam.asset|
 |assets/content/properties/steamcategories/limited-christmas2017-cheap.steam.asset|
@@ -1529,6 +1537,7 @@
 |assets/content/props/strobe light/sound/on.asset|
 |assets/content/props/strobe light/sound/slow.asset|
 |assets/content/props/strobe light/strobelight.sitem.asset|
+|assets/content/props/train_tunnels/barricade-damage.asset|
 |assets/content/shaders/core/subsurfaceprofiles/ssp_skindefault.asset|
 |assets/content/sound/ambience/ambience-none.ambience-def.asset|
 |assets/content/sound/ambience/animals/sting-coyote/sting-coyote.ambience-def.asset|
@@ -2695,6 +2704,9 @@
 |assets/content/sound/reverbsettings/cave-large.reverb-settings.asset|
 |assets/content/sound/reverbsettings/cave-medium.reverb-settings.asset|
 |assets/content/sound/reverbsettings/cave-small.reverb-settings.asset|
+|assets/content/sound/reverbsettings/tunnel-large.reverb-settings.asset|
+|assets/content/sound/reverbsettings/tunnel-medium.reverb-settings.asset|
+|assets/content/sound/reverbsettings/tunnel-small.reverb-settings.asset|
 |assets/content/sound/soundclasses/ambience-background.sound-class.asset|
 |assets/content/sound/soundclasses/ambience-background-birds.sound-class.asset|
 |assets/content/sound/soundclasses/ambience-crickets.sound-class.asset|
@@ -2707,6 +2719,7 @@
 |assets/content/sound/soundclasses/destruction-impact.sound-class.asset|
 |assets/content/sound/soundclasses/destruction-large.sound-class.asset|
 |assets/content/sound/soundclasses/destruction-object-break.sound-class.asset|
+|assets/content/sound/soundclasses/destruction-object-break-no-occlusion.sound-class.asset|
 |assets/content/sound/soundclasses/footstep-jump.sound-class.asset|
 |assets/content/sound/soundclasses/footstep-land.sound-class.asset|
 |assets/content/sound/soundclasses/footstep-run.sound-class.asset|
@@ -3467,6 +3480,32 @@
 |assets/content/vehicles/scrap heli carrier/sound/scrap-transport-heli-rotor-loop.asset|
 |assets/content/vehicles/sedan_a/sound/engine_drive_loop.asset|
 |assets/content/vehicles/sedan_a/sound/idle_loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-active-loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-barricade-break.asset|
+|assets/content/vehicles/workcart/sound/workcart-brake-loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-close-fuel.asset|
+|assets/content/vehicles/workcart/sound/workcart-damaged-loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-dismount.asset|
+|assets/content/vehicles/workcart/sound/workcart-engine.loop-definition.asset|
+|assets/content/vehicles/workcart/sound/workcart-engine-idle-loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-engine-low-loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-engine-low-loop-reflected.asset|
+|assets/content/vehicles/workcart/sound/workcart-engine-start.asset|
+|assets/content/vehicles/workcart/sound/workcart-engine-start-fail.asset|
+|assets/content/vehicles/workcart/sound/workcart-engine-stop.asset|
+|assets/content/vehicles/workcart/sound/workcart-explosion.asset|
+|assets/content/vehicles/workcart/sound/workcart-explosion-debris.asset|
+|assets/content/vehicles/workcart/sound/workcart-impact.asset|
+|assets/content/vehicles/workcart/sound/workcart-mount.asset|
+|assets/content/vehicles/workcart/sound/workcart-movement-loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-movement-start.asset|
+|assets/content/vehicles/workcart/sound/workcart-movement-stop.asset|
+|assets/content/vehicles/workcart/sound/workcart-open-fuel.asset|
+|assets/content/vehicles/workcart/sound/workcart-proximity-alarm-loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-throttle-switch.asset|
+|assets/content/vehicles/workcart/sound/workcart-toggle-lights.asset|
+|assets/content/vehicles/workcart/sound/workcart-track-clatter-loop.asset|
+|assets/content/vehicles/workcart/sound/workcart-turn-loop.asset|
 |assets/content/workshop/items/book.accident.sitem.asset|
 |assets/content/workshop/items/crates/bag.high.sitem.asset|
 |assets/content/workshop/items/crates/bag.low.sitem.asset|
@@ -3700,6 +3739,7 @@
 |assets/prefabs/clothes/diving.tank/sound/scuba_inhale.asset|
 |assets/prefabs/clothes/frogboots/frogboots.sitem.asset|
 |assets/prefabs/clothes/gloves.leather/gloves.leather.skinnable.asset|
+|assets/prefabs/clothes/gloves.roadsign/gloves.roadsign.skinnable.asset|
 |assets/prefabs/clothes/halloween.ghostsheet/player_skeleton.ghostsheet.asset|
 |assets/prefabs/clothes/halloween.ghostsheet/sbmat_ghostsheet.asset|
 |assets/prefabs/clothes/halterneck.hide/halterneck.hide.skinnable.asset|
@@ -3856,9 +3896,14 @@
 |assets/prefabs/deployable/dropbox/sound/dropbox-open.asset|
 |assets/prefabs/deployable/dropbox/sound/submit.asset|
 |assets/prefabs/deployable/elevator/sound/elevator-button.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-cage-close-end.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-cage-close-start.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-cage-open-end.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-cage-open-start.asset|
 |assets/prefabs/deployable/elevator/sound/elevator-deploy.asset|
 |assets/prefabs/deployable/elevator/sound/elevator-motor-loop.asset|
 |assets/prefabs/deployable/elevator/sound/elevator-movement-loop.asset|
+|assets/prefabs/deployable/elevator/sound/elevator-movement-loop-long-metal.asset|
 |assets/prefabs/deployable/elevator/sound/elevator-movement-squeak.asset|
 |assets/prefabs/deployable/elevator/sound/elevator-movement-start.asset|
 |assets/prefabs/deployable/elevator/sound/elevator-movement-stop.asset|
@@ -4198,6 +4243,12 @@
 |assets/prefabs/misc/casino/bigwheel/sound/big-wheel-spin-start.asset|
 |assets/prefabs/misc/casino/bigwheel/sound/big-wheel-spin-stop.asset|
 |assets/prefabs/misc/casino/bigwheel/sound/win.asset|
+|assets/prefabs/misc/casino/slotmachine/payouts.asset|
+|assets/prefabs/misc/casino/slotmachine/sound/slot-machine-close.asset|
+|assets/prefabs/misc/casino/slotmachine/sound/slot-machine-open.asset|
+|assets/prefabs/misc/casino/slotmachine/sound/slot-machine-spin.asset|
+|assets/prefabs/misc/casino/slotmachine/sound/slot-machine-win.asset|
+|assets/prefabs/misc/casino/slotmachine/sound/slot-machine-win-jackpot.asset|
 |assets/prefabs/misc/chinesenewyear/chineselantern/chineselantern.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/dragondoorknocker/dragondoorknocker.sitem.asset|
 |assets/prefabs/misc/chinesenewyear/dragondoorknocker/sound/knock.asset|
@@ -5140,6 +5191,7 @@
 |assets/resources/apexaistorage/npcplayer.move.asset|
 |assets/resources/apexaistorage/npcplayer.think.asset|
 |assets/resources/apexaistorage/zombie.action.asset|
+|assets/resources/worldspline prefab shared data.asset|
 |assets/rust.ai/agents/bear/bear.footstep.asset|
 |assets/rust.ai/agents/bear/bear.population.asset|
 |assets/rust.ai/agents/bear/bear.skeleton.asset|
@@ -5229,6 +5281,8 @@
 |assets/rust.ai/agents/npcplayer/humannpc/scientist/scientist 1.asset|
 |assets/rust.ai/agents/npcplayer/humannpc/scientist/scientist.asset|
 |assets/rust.ai/agents/npcplayer/humannpc/testloadout.asset|
+|assets/rust.ai/agents/npcplayer/humannpc/tunneldweller/tunneldwellera.asset|
+|assets/rust.ai/agents/npcplayer/humannpc/tunneldweller/tunneldwellerb.asset|
 |assets/rust.ai/agents/stag/footsteps/stag-footstep-concrete.asset|
 |assets/rust.ai/agents/stag/footsteps/stag-footstep-dirt.asset|
 |assets/rust.ai/agents/stag/footsteps/stag-footstep-grass.asset|
@@ -5301,7 +5355,6 @@
 |assets/rust.ai/nextai/ridablehorse/items/wood.horse.rider.protection.asset|
 |assets/rust.ai/nextai/sound/horse-eat.asset|
 |assets/scenes/prefabs/cave/cave_large_sewers_hard.asset|
-|assets/scenes/release/savasisland.asset|
 |assets/scenes/test/billbtestmap/billbtestmap terrain.asset|
 |assets/scripts/game/techtree/techtree.asset|
 |assets/scripts/game/techtree/techtreet0.asset|
