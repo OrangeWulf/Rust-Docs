@@ -676,6 +676,7 @@
 |assets/content/props/light_fixtures/v2/radtown work prefabs/lighthousefx-ph.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/oil rig fx.prefab|
 |assets/content/props/light_fixtures/v2/radtown work prefabs/small oil rig fx.prefab|
+|assets/content/props/train_tunnels/trainbarricadegibeffect.prefab|
 |assets/content/sound/ambience/baseambienceemitter.prefab|
 |assets/content/sound/ambience/lifeambienceemitter.prefab|
 |assets/content/sound/ambience/rain/ambience-rain-on-surface.ambience-emitter.prefab|
@@ -735,6 +736,12 @@
 |assets/content/vehicles/modularcar/sound/modular-car-engine-test-nice-setup.prefab|
 |assets/content/vehicles/scrap heli carrier/effects/debris_effect.prefab|
 |assets/content/vehicles/scrap heli carrier/effects/wheel-impact.prefab|
+|assets/content/vehicles/workcart/effects/pfx_workcart_damage_light.prefab|
+|assets/content/vehicles/workcart/effects/pfx_workcart_damage_medium.prefab|
+|assets/content/vehicles/workcart/effects/pfx_workcart_damage_severe.prefab|
+|assets/content/vehicles/workcart/effects/pfx_workcart_engine_trouble.prefab|
+|assets/content/vehicles/workcart/effects/pfx_workcart_friction_sparks.prefab|
+|assets/content/vehicles/workcart/traincollisioneffect.prefab|
 |assets/content/weapons/_gestures/effects/drink.prefab|
 |assets/content/weapons/_gestures/effects/eat_1hand_celery.prefab|
 |assets/content/weapons/_gestures/effects/eat_2hand_chewymeat.prefab|
@@ -824,6 +831,10 @@
 |assets/prefabs/deployable/chinooklockedcrate/effects/landing.prefab|
 |assets/prefabs/deployable/dropbox/effects/dropbox-deploy.prefab|
 |assets/prefabs/deployable/dropbox/effects/submit_items.prefab|
+|assets/prefabs/deployable/elevator/effects/door-elevator-cage-close-end.prefab|
+|assets/prefabs/deployable/elevator/effects/door-elevator-cage-close-start.prefab|
+|assets/prefabs/deployable/elevator/effects/door-elevator-cage-open-end.prefab|
+|assets/prefabs/deployable/elevator/effects/door-elevator-cage-open-start.prefab|
 |assets/prefabs/deployable/elevator/effects/elevator-button-pressed.prefab|
 |assets/prefabs/deployable/elevator/effects/elevator-deploy.prefab|
 |assets/prefabs/deployable/floor spikes/effects/floor-spikes-deploy.prefab|
@@ -941,6 +952,8 @@
 |assets/prefabs/misc/burlap sack/effects/phys-impact-hard.prefab|
 |assets/prefabs/misc/burlap sack/effects/phys-impact-med.prefab|
 |assets/prefabs/misc/burlap sack/effects/phys-impact-soft.prefab|
+|assets/prefabs/misc/casino/slotmachine/effects/payout.prefab|
+|assets/prefabs/misc/casino/slotmachine/effects/payout_jackpot.prefab|
 |assets/prefabs/misc/chinesenewyear/dragondoorknocker/effects/door_knock_fx.prefab|
 |assets/prefabs/misc/chinesenewyear/throwablefirecrackers/effects/throw.prefab|
 |assets/prefabs/misc/easter/easter basket/effects/add_egg.prefab|
