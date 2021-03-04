@@ -295,7 +295,10 @@
 |electrical.modularcarlift.deployed|assets/prefabs/deployable/modular car lift/electrical.modularcarlift.deployed.prefab|428217161|ModularCarGarage<br>GroundWatch<br>DestroyOnGroundMissing<br>ContainerIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |electrical.random.switch.deployed|assets/prefabs/deployable/playerioents/gates/randswitch/electrical.random.switch.deployed.prefab|489282820|RANDSwitch<br>GroundWatch<br>DestroyOnGroundMissing<br>BoxCollider (UE)<br>ElectricalBlocker<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |elevator|assets/prefabs/deployable/elevator/elevator.prefab|3978222077|Elevator<br>EntityFlag_Toggle<br>GroundWatch<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
+|elevator.static|assets/prefabs/deployable/elevator/static/elevator.static.prefab|140200872|ElevatorStatic<br>Elevator<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|elevator.static.top|assets/prefabs/deployable/elevator/static/elevator.static.top.prefab|1033358365|ElevatorStatic<br>Elevator<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |elevator_lift|assets/prefabs/deployable/elevator/elevator_lift.prefab|147094869|ElevatorLift<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|elevator_lift.static|assets/prefabs/deployable/elevator/static/elevator_lift.static.prefab|3845190333|ElevatorLiftStatic<br>ElevatorLift<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |elevatorioentity|assets/prefabs/deployable/elevator/elevatorioentity.prefab|855553829|ElevatorIOEntity<br>EntityFlag_ToggleNotify<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityFlag_Toggle<br>EntityComponentBase<br>|
 |engine|assets/content/structures/excavator/prefabs/engine.prefab|2982299738|DieselEngine<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |enginelistener|assets/content/structures/excavator/prefabs/enginelistener.prefab|2833986992|DummySwitch<br>SphereCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
@@ -619,6 +622,7 @@
 |poweredwaterpurifier.storage|assets/prefabs/deployable/playerioents/poweredwaterpurifier/poweredwaterpurifier.storage.prefab|795179107|BoxCollider (UE)<br>LiquidContainer<br>Collider (UE)<br>ContainerIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |presentdrop|assets/prefabs/misc/xmas/sleigh/presentdrop.prefab|1473303316|SupplyDrop<br>EntityTimedDestroy<br>Rigidbody (UE)<br>BoxCollider (UE)<br>LootContainer<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |pressbutton|assets/prefabs/io/electric/switches/pressbutton/pressbutton.prefab|4224395968|PressButton<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|pressbutton_trainstairwell|assets/prefabs/io/electric/switches/pressbutton/pressbutton_trainstairwell.prefab|1802909967|PressButton_TrainTunnel<br>BoxCollider (UE)<br>PressButton<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |pressurepad.deployed|assets/prefabs/deployable/playerioents/detectors/pressurepad/pressurepad.deployed.prefab|687239341|PressurePad<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>BaseDetector<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |pumpjack-static|assets/bundled/prefabs/static/pumpjack-static.prefab|3449840583|MiningQuarry<br>AI.NavMeshObstacle (UE)<br>BaseResourceExtractor<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |pumpkin.entity|assets/prefabs/plants/pumpkin/pumpkin.entity.prefab|1524652375|GrowableEntity<br>BoxCollider (UE)<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
@@ -770,6 +774,8 @@
 |sledseatrear|assets/prefabs/vehicle/seats/sledseatrear.prefab|518673090|SledSeat<br>MeshCollider (UE)<br>BaseVehicleSeat<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |sleepingbag_leather_deployed|assets/prefabs/deployable/sleeping bag/sleepingbag_leather_deployed.prefab|159326486|BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>SleepingBag<br>Model<br>Collider (UE)<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |sliding_blast_door|assets/content/structures/interactive_garage_door/sliding_blast_door.prefab|34236153|SlidingProgressDoor<br>ProgressDoor<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|slotmachine|assets/prefabs/misc/casino/slotmachine/slotmachine.prefab|2230162530|SlotMachine<br>Model<br>MeshCollider (UE)<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|slotmachinestorage|assets/prefabs/misc/casino/slotmachine/slotmachinestorage.prefab|3176258750|SlotMachineStorage<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |small_fuel_generator.deployed|assets/prefabs/deployable/playerioents/generators/fuel generator/small_fuel_generator.deployed.prefab|3518207786|FuelGenerator<br>GroundWatch<br>DestroyOnGroundMissing<br>BoxCollider (UE)<br>ContainerIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |small_refinery_static|assets/bundled/prefabs/static/small_refinery_static.prefab|919097516|BaseOven<br>EntityFlag_Toggle<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>|
 |small_stash_deployed|assets/prefabs/deployable/small stash/small_stash_deployed.prefab|2568831788|BoxCollider (UE)<br>StashContainer<br>Model<br>Collider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
@@ -851,6 +857,8 @@
 |tool_camera|assets/prefabs/tools/camera/tool_camera.prefab|1410597758|CameraTool<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |toolgun.entity|assets/prefabs/weapons/toolgun/toolgun.entity.prefab|417347909|Toolgun<br>Model<br>Hammer<br>BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |torch.entity|assets/prefabs/weapons/torch/torch.entity.prefab|1543342082|TorchWeapon<br>BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|trainbarricade|assets/content/props/train_tunnels/trainbarricade.prefab|1221760186|TrainBarricade<br>Spawnable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|trainbarricadeheavy|assets/content/props/train_tunnels/trainbarricadeheavy.prefab|1363243026|TrainBarricade<br>Spawnable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |transporthelicopilot|assets/prefabs/vehicle/seats/transporthelicopilot.prefab|1771416011|BaseVehicleSeat<br>MeshCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |transporthelipilot|assets/prefabs/vehicle/seats/transporthelipilot.prefab|3180731352|BaseVehicleSeat<br>MeshCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |trash-pile-1|assets/bundled/prefabs/autospawn/resource/loot/trash-pile-1.prefab|615147957|Spawnable<br>LootContainer<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
@@ -858,6 +866,16 @@
 |trumpet.weapon|assets/prefabs/instruments/trumpet/trumpet.weapon.prefab|1050701358|InstrumentTool<br>InstrumentKeyController<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |tuba.weapon|assets/prefabs/instruments/tuba/tuba.weapon.prefab|2388319642|InstrumentTool<br>InstrumentKeyController<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |tunalight.deployed|assets/prefabs/deployable/tuna can wall lamp/tunalight.deployed.prefab|1392608348|BaseFuelLightSource<br>GroundWatch<br>DestroyOnGroundMissing<br>EntityFlag_Toggle<br>MeshCollider (UE)<br>BaseOven<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
+|tunnel_dwelling_a|assets/prefabs/misc/tunneldwelling/tunnel_dwelling_a.prefab|1864849250|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
+|tunnel_dwelling_b|assets/prefabs/misc/tunneldwelling/tunnel_dwelling_b.prefab|914018621|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
+|tunnel_dwelling_c|assets/prefabs/misc/tunneldwelling/tunnel_dwelling_c.prefab|2692544615|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
+|tunnel_dwelling_d|assets/prefabs/misc/tunneldwelling/tunnel_dwelling_d.prefab|4148006895|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
+|tunnel_dwelling_e|assets/prefabs/misc/tunneldwelling/tunnel_dwelling_e.prefab|1913161776|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
+|tunnel_dwelling_f|assets/prefabs/misc/tunneldwelling/tunnel_dwelling_f.prefab|1784918280|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
+|tunnel_dwelling_g|assets/prefabs/misc/tunneldwelling/tunnel_dwelling_g.prefab|2926207843|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
+|tunnel_dwelling_h|assets/prefabs/misc/tunneldwelling/tunnel_dwelling_h.prefab|563461422|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
+|tunneldweller|assets/rust.ai/agents/npcplayer/humannpc/tunneldweller/tunneldweller.prefab|3421815773|TunnelDweller<br>PlayerMetabolism<br>PlayerInventory<br>PlayerEyes<br>PlayerInput<br>ItemCrafter<br>CapsuleCollider (UE)<br>PlayerBlueprints<br>Rigidbody (UE)<br>SteamInventory<br>AI.NavMeshAgent (UE)<br>HumanBrain<br>HumanNPC<br>NPCPlayer<br>BasePlayer<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
+|tunnellootstrip_a|assets/prefabs/misc/tunneldwelling/tunnellootstrip_a.prefab|1970684768|NPCDwelling<br>BaseEntity<br>BaseNetworkable<br>|
 |vanilla|assets/prefabs/gamemodes/vanilla.prefab|2957505463|BaseGameMode<br>BaseEntity<br>BaseNetworkable<br>|
 |vehicle_parts|assets/bundled/prefabs/radtown/vehicle_parts.prefab|356724277|Spawnable<br>LootContainer<br>BoxCollider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |vending_mapmarker|assets/prefabs/deployable/vendingmachine/vending_mapmarker.prefab|3459945130|VendingMachineMapMarker<br>MapMarker<br>BaseEntity<br>BaseNetworkable<br>|
@@ -915,6 +933,7 @@
 |workbench2.deployed|assets/prefabs/deployable/tier 2 workbench/workbench2.deployed.prefab|601265145|Workbench<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |workbench2.static|assets/bundled/prefabs/static/workbench2.static.prefab|1457273871|MeshCollider (UE)<br>Workbench<br>Collider (UE)<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |workbench3.deployed|assets/prefabs/deployable/tier 3 workbench/workbench3.deployed.prefab|2764275075|Workbench<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|workcart.entity|assets/content/vehicles/workcart/workcart.entity.prefab|612480793|TrainEngine<br>Rigidbody (UE)<br>Spawnable<br>BaseTrain<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |workcart_fuel_storage|assets/content/vehicles/workcart/subents/workcart_fuel_storage.prefab|2293470337|StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |workcartdriver|assets/prefabs/vehicle/seats/workcartdriver.prefab|311277167|BaseVehicleSeat<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |xmas.advanced.lights.deployed|assets/prefabs/misc/xmas/poweredlights/xmas.advanced.lights.deployed.prefab|132493746|AdvancedChristmasLights<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
