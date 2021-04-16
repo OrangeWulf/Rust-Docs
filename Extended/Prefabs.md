@@ -1252,6 +1252,7 @@
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.bbq.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.bigwheel.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.campfire.prefab|
+|assets/bundled/prefabs/ui/lootpanels/lootpanel.cardtable.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.cassettereceiver.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.composter.prefab|
 |assets/bundled/prefabs/ui/lootpanels/lootpanel.crate.prefab|
@@ -1999,13 +2000,17 @@
 |assets/content/props/light_fixtures/v2/plight.fluorescent.pole.cold.prefab|
 |assets/content/props/light_fixtures/v2/plight.fluorescent.pole.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.fluorescent.pole.warm.prefab|
+|assets/content/props/light_fixtures/v2/plight.gambling.on.green.prefab|
+|assets/content/props/light_fixtures/v2/plight.gambling.on.red.prefab|
 |assets/content/props/light_fixtures/v2/plight.hanging.bulbs.warm.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.ceiling.lamp.compact.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.ceiling.lamp.compact.on.prefab|
+|assets/content/props/light_fixtures/v2/plight.industrial.ceiling.lamp.compact.on.warm.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.ceiling.lamp.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.ceiling.lamp.on.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.off.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.cool.prefab|
+|assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.green.exit.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.green.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.red.prefab|
 |assets/content/props/light_fixtures/v2/plight.industrial.wall.lamp.on.warm.prefab|
@@ -2196,6 +2201,8 @@
 |assets/content/props/powerline_poles/powerline_pole_a.prefab|
 |assets/content/props/powerline_poles/powerline_pole_b.prefab|
 |assets/content/props/powerline_poles/powerline_pole_c.prefab|
+|assets/content/props/powerline_poles/powerline_pole_c_streetlight_hapis.prefab|
+|assets/content/props/powerline_poles/powerline_pole_c_streetlight_hapis_off.prefab|
 |assets/content/props/powerline_poles/powerline_pole_electric_box.prefab|
 |assets/content/props/powerline_poles/powerline_pole_light.prefab|
 |assets/content/props/powerline_poles/powerline_pole_snapped_cables.prefab|
@@ -4748,6 +4755,20 @@
 |assets/prefabs/deployable/campfire/campfire.item.prefab|
 |assets/prefabs/deployable/campfire/campfire.prefab|
 |assets/prefabs/deployable/campfire/effects/campfire-deploy.prefab|
+|assets/prefabs/deployable/card table/_cardtable_base.prefab|
+|assets/prefabs/deployable/card table/cardtable.deployed.prefab|
+|assets/prefabs/deployable/card table/cardtable.item.prefab|
+|assets/prefabs/deployable/card table/cardtable.static_configa.prefab|
+|assets/prefabs/deployable/card table/cardtable.static_configb.prefab|
+|assets/prefabs/deployable/card table/cardtable.static_configc.prefab|
+|assets/prefabs/deployable/card table/cardtable.static_configd.prefab|
+|assets/prefabs/deployable/card table/subents/cardtableplayerstorage.prefab|
+|assets/prefabs/deployable/card table/subents/cardtablepotstorage.prefab|
+|assets/prefabs/deployable/card table/subents/cardtableseat.prefab|
+|assets/prefabs/deployable/card table/ui/availableinputui.prefab|
+|assets/prefabs/deployable/card table/ui/cardslotui.prefab|
+|assets/prefabs/deployable/card table/ui/cardtableui.prefab|
+|assets/prefabs/deployable/card table/ui/texasholdemplayerwidget.prefab|
 |assets/prefabs/deployable/cctvcamera/cctv.static.prefab|
 |assets/prefabs/deployable/cctvcamera/cctv_deployed.prefab|
 |assets/prefabs/deployable/ceiling light/ceilinglight.deployed.prefab|
@@ -4850,6 +4871,7 @@
 |assets/prefabs/deployable/furnace/effects/furnace-deploy.prefab|
 |assets/prefabs/deployable/furnace/furnace.item.prefab|
 |assets/prefabs/deployable/furnace/furnace.prefab|
+|assets/prefabs/deployable/gambling_light/gambling_light.prefab|
 |assets/prefabs/deployable/hitch & trough/hitchingpost.prefab|
 |assets/prefabs/deployable/hitch & trough/hitchtrough.deployed.prefab|
 |assets/prefabs/deployable/hitch & trough/hitchtrough.item.prefab|
@@ -5488,6 +5510,9 @@
 |assets/prefabs/misc/easter/bunny onesie/suit.easteronesie.prefab|
 |assets/prefabs/misc/easter/bunny onesie/suit.easteronesie.viewmodel.prefab|
 |assets/prefabs/misc/easter/bunny onesie/suit.easteronesie.world.prefab|
+|assets/prefabs/misc/easter/bunny_hat/bunnyhat.wearable.prefab|
+|assets/prefabs/misc/easter/bunny_hat/bunnyhat_wm.prefab|
+|assets/prefabs/misc/easter/bunny_hat/hat.bunnyhat.item.prefab|
 |assets/prefabs/misc/easter/chocolate egg/chocolateegg_blue.prefab|
 |assets/prefabs/misc/easter/chocolate egg/chocolateegg_gold.prefab|
 |assets/prefabs/misc/easter/chocolate egg/chocolateegg_green.prefab|
@@ -5528,6 +5553,9 @@
 |assets/prefabs/misc/easter/faberge_egg_d/faberge_egg_d.worldmodel.prefab|
 |assets/prefabs/misc/easter/faberge_egg_d/rustige_egg_d.item.prefab|
 |assets/prefabs/misc/easter/faberge_egg_d/rustigeegg_d.deployed.prefab|
+|assets/prefabs/misc/easter/faberge_egg_e/faberge_egg_e.worldmodel.prefab|
+|assets/prefabs/misc/easter/faberge_egg_e/rustige_egg_e.item.prefab|
+|assets/prefabs/misc/easter/faberge_egg_e/rustigeegg_e.deployed.prefab|
 |assets/prefabs/misc/easter/nest_hat/nest.hat.item.prefab|
 |assets/prefabs/misc/easter/nest_hat/nest.hat.wearable.prefab|
 |assets/prefabs/misc/easter/painted eggs/bronzeegg.item.prefab|
@@ -6498,6 +6526,8 @@
 |assets/prefabs/tools/planner/building_planner.item.prefab|
 |assets/prefabs/tools/planner/building_planner.worldmodel.prefab|
 |assets/prefabs/tools/planner/planner.prefab|
+|assets/prefabs/tools/playing card/playingcard.viewmodel.prefab|
+|assets/prefabs/tools/playing card/playingcard.worldmodel.prefab|
 |assets/prefabs/tools/rf units/rfaerial.prefab|
 |assets/prefabs/tools/rf units/rfreceiver.prefab|
 |assets/prefabs/tools/smoke grenade/effects/ignite.prefab|
