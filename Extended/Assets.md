@@ -1042,6 +1042,7 @@
 |assets/content/properties/lootspawn/generated/items/misc/pumpkinbasket.asset|
 |assets/content/properties/lootspawn/generated/items/misc/rf_pager.asset|
 |assets/content/properties/lootspawn/generated/items/misc/wiretool.asset|
+|assets/content/properties/lootspawn/generated/items/misc/workcart.asset|
 |assets/content/properties/lootspawn/generated/items/res/bone.fragments.asset|
 |assets/content/properties/lootspawn/generated/items/res/can.beans.empty.asset|
 |assets/content/properties/lootspawn/generated/items/res/can.tuna.empty.asset|
@@ -1224,6 +1225,7 @@
 |assets/content/properties/playerinventory/bandit_shopkeeper_adv.asset|
 |assets/content/properties/playerinventory/bandit_shopkeeper_basic.asset|
 |assets/content/properties/playerinventory/bandit_shopkeeper_stables.asset|
+|assets/content/properties/playerinventory/bill b.asset|
 |assets/content/properties/playerinventory/builderinventory.asset|
 |assets/content/properties/playerinventory/combat.asset|
 |assets/content/properties/playerinventory/defaultinventory.asset|
@@ -1233,7 +1235,6 @@
 |assets/content/properties/playerinventory/halloween2020.asset|
 |assets/content/properties/playerinventory/instruments.asset|
 |assets/content/properties/playerinventory/melee weapons.asset|
-|assets/content/properties/playerinventory/modular cars.asset|
 |assets/content/properties/playerinventory/murderer.asset|
 |assets/content/properties/playerinventory/plumber.asset|
 |assets/content/properties/playerinventory/projectile weapons.asset|
@@ -1498,6 +1499,9 @@
 |assets/content/properties/steamcategories/limited-easter-2019.medium.steam.asset|
 |assets/content/properties/steamcategories/limited-easter-2020.attire.steam.asset|
 |assets/content/properties/steamcategories/limited-easter-2020.eggs.steam.asset|
+|assets/content/properties/steamcategories/limited-easter-2021.350.steam.asset|
+|assets/content/properties/steamcategories/limited-easter-2021.500.steam.asset|
+|assets/content/properties/steamcategories/limited-easter-2021.700.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2015.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2017.steam.asset|
 |assets/content/properties/steamcategories/limited-halloween2018.steam.asset|
@@ -3009,17 +3013,6 @@
 |assets/content/sound/sounddefinitions/gestures/drink_generic.asset|
 |assets/content/sound/sounddefinitions/gestures/eat_generic.asset|
 |assets/content/sound/sounddefinitions/gestures/eat_soft.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-chicken.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-cold.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-danger.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-hat-tip.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-hurry.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-point.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-shrug.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-thumbs-up.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-unarmed.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-victory.asset|
-|assets/content/sound/sounddefinitions/gestures/gesture-anim-wave.asset|
 |assets/content/sound/sounddefinitions/gestures/lick.asset|
 |assets/content/sound/sounddefinitions/gestures/pills.asset|
 |assets/content/sound/sounddefinitions/gestures/vomit.asset|
@@ -3692,6 +3685,7 @@
 |assets/plugins/rust.ui/controls/rustinput.transparent.asset|
 |assets/plugins/rust.ui/controls/rustoption.normal.asset|
 |assets/plugins/rust.ui/controls/rustslider.normal.asset|
+|assets/plugins/rust.ui/controls/rustslider.white.asset|
 |assets/plugins/rust.ui/controls/rusttoggle.normal.off.asset|
 |assets/plugins/rust.ui/controls/rusttoggle.normal.on.asset|
 |assets/plugins/rust.ui/controls/tabcontrol.button.normal.asset|
@@ -3870,6 +3864,12 @@
 |assets/prefabs/deployable/campfire/sound/campfire-extinguish.asset|
 |assets/prefabs/deployable/campfire/sound/campfire-ignite.asset|
 |assets/prefabs/deployable/campfire/sound/campfire-open.asset|
+|assets/prefabs/deployable/card table/sound/card-chips-movement.asset|
+|assets/prefabs/deployable/card table/sound/card-draw.asset|
+|assets/prefabs/deployable/card table/sound/card-play.asset|
+|assets/prefabs/deployable/card table/sound/card-shuffle.asset|
+|assets/prefabs/deployable/card table/sound/card-win-ka-ching.asset|
+|assets/prefabs/deployable/card table/sound/card-your-turn.asset|
 |assets/prefabs/deployable/cctvcamera/cctv-camera-switch-camera.asset|
 |assets/prefabs/deployable/cctvcamera/cctv-camera-viewing-loop.asset|
 |assets/prefabs/deployable/cctvcamera/cctv-camera-viewing-start.asset|
@@ -4261,6 +4261,8 @@
 |assets/prefabs/misc/chinesenewyear/throwablefirecrackers/sound/firework_explode.asset|
 |assets/prefabs/misc/chippy arcade/chippyarcade.sitem.asset|
 |assets/prefabs/misc/chippy arcade/chippygame/sound/chiptune.asset|
+|assets/prefabs/misc/easter/bunny_hat/bunnyhat.sitem.asset|
+|assets/prefabs/misc/easter/bunny_hat/sbmat_bunnyhat_ears.asset|
 |assets/prefabs/misc/easter/door_wreath/easterwreath.sitem.asset|
 |assets/prefabs/misc/easter/easter basket/sound/easter-basket-add-egg.asset|
 |assets/prefabs/misc/easter/easter basket/sound/easter-basket-aim.asset|
@@ -4277,6 +4279,7 @@
 |assets/prefabs/misc/easter/faberge_egg_b/rustige_egg_b.sitem.asset|
 |assets/prefabs/misc/easter/faberge_egg_c/rustige_egg_c.sitem.asset|
 |assets/prefabs/misc/easter/faberge_egg_d/rustige_egg_d.sitem.asset|
+|assets/prefabs/misc/easter/faberge_egg_e/rustige_egg_e.sitem.asset|
 |assets/prefabs/misc/easter/loottables/bronzeegg-contents.asset|
 |assets/prefabs/misc/easter/loottables/bunnyears.asset|
 |assets/prefabs/misc/easter/loottables/bunnyonesie.asset|
@@ -4291,6 +4294,7 @@
 |assets/prefabs/misc/easter/sound/music-box-descent-loop.asset|
 |assets/prefabs/misc/easter/sound/music-box-dust-loop.asset|
 |assets/prefabs/misc/easter/sound/music-box-oil-rig-loop.asset|
+|assets/prefabs/misc/easter/sound/music-box-trains-loop.asset|
 |assets/prefabs/misc/easter/sound/silveregg_open.asset|
 |assets/prefabs/misc/halloween/candies/sound/candy_impact.asset|
 |assets/prefabs/misc/halloween/candles/candlecomboset.sitem.asset|
@@ -4652,6 +4656,34 @@
 |assets/prefabs/plants/plantseed.sound.asset|
 |assets/prefabs/plants/potato/potato.plantproperty.asset|
 |assets/prefabs/plants/pumpkin/pumpkin.plantproperty.asset|
+|assets/prefabs/player/gestures/gesture.clap.asset|
+|assets/prefabs/player/gestures/gesture.dance.asset|
+|assets/prefabs/player/gestures/gesture.friendly.asset|
+|assets/prefabs/player/gestures/gesture.hurry.asset|
+|assets/prefabs/player/gestures/gesture.ok.asset|
+|assets/prefabs/player/gestures/gesture.point.asset|
+|assets/prefabs/player/gestures/gesture.shrug.asset|
+|assets/prefabs/player/gestures/gesture.thumbsdown.asset|
+|assets/prefabs/player/gestures/gesture.thumbsup.asset|
+|assets/prefabs/player/gestures/gesture.victory.asset|
+|assets/prefabs/player/gestures/gesture.wave.asset|
+|assets/prefabs/player/gestures/gesturecollection.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-clap.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-clap-clap.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-friendly-end.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-friendly-start.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-hurry.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-okay-end.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-okay-start.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-point-end.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-point-start.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-shrug-end.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-shrug-start.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-thumbsdown.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-thumbsup-end.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-thumbsup-start.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-victory.asset|
+|assets/prefabs/player/gestures/sound/gesture-anim-wave.asset|
 |assets/prefabs/player/player_skeleton.asset|
 |assets/prefabs/tea/sound/tea-sip.asset|
 |assets/prefabs/tea/sound/ui-tea-drop.asset|
@@ -4873,6 +4905,7 @@
 |assets/prefabs/weapons/hatchet/sound/hatchet-strike-soft.asset|
 |assets/prefabs/weapons/knife/knife.combat.skinnable.asset|
 |assets/prefabs/weapons/knife/sound/combat.knife.deploy.asset|
+|assets/prefabs/weapons/l96/l96.skinnable.asset|
 |assets/prefabs/weapons/l96/sound/l96-attack.asset|
 |assets/prefabs/weapons/l96/sound/l96-bolt-action.asset|
 |assets/prefabs/weapons/l96/sound/l96-bolt-finish.asset|
