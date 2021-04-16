@@ -3,6 +3,7 @@
 |Shortname|Full name|Prefab ID|Components|
 |:-:|:-:|:-:|:-:|
 |_base_car_chassis.entity|assets/content/vehicles/modularcar/_base_car_chassis.entity.prefab|3561890772|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|_cardtable_base|assets/prefabs/deployable/card table/_cardtable_base.prefab|1708930778|CardTable<br>Model<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |1module_cockpit|assets/content/vehicles/modularcar/module_entities/1module_cockpit.prefab|3119250179|VehicleModuleSeating<br>ModularCarCentralLockingSwitch<br>BaseVehicleModule<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>VehicleModuleButtonComponent<br>|
 |1module_cockpit_armored|assets/content/vehicles/modularcar/module_entities/1module_cockpit_armored.prefab|2424796981|ModularCarCentralLockingSwitch<br>VehicleModuleSeating<br>VehicleModuleButtonComponent<br>BaseVehicleModule<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |1module_cockpit_with_engine|assets/content/vehicles/modularcar/module_entities/1module_cockpit_with_engine.prefab|3414464968|ModularCarCentralLockingSwitch<br>VehicleModuleEngine<br>VehicleModuleButtonComponent<br>VehicleModuleStorage<br>VehicleModuleSeating<br>BaseVehicleModule<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
@@ -25,6 +26,7 @@
 |abovegroundpool.deployed|assets/prefabs/misc/summer_dlc/abovegroundpool/abovegroundpool.deployed.prefab|2030353082|PaddlingPool<br>Model<br>GroundWatch<br>DestroyOnGroundMissing<br>LiquidContainer<br>ContainerIOEntity<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |airwolfspawner|assets/prefabs/npc/bandit/airwolfspawner.prefab|3960558419|VehicleSpawner<br>BoxCollider (UE)<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |ak47u.entity|assets/prefabs/weapons/ak47u/ak47u.entity.prefab|1978739833|BaseProjectile<br>Model<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|alarmsound|assets/prefabs/io/electric/other/alarmsound.prefab|500822506|IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |alarmsytstem|assets/prefabs/npc/ch47/alarmsytstem.prefab|680397581|DummySwitch<br>SphereCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |american_beech_a|assets/bundled/prefabs/autospawn/resource/v2_temp_field_large/american_beech_a.prefab|872995796|Spawnable<br>TreeEntity<br>ResourceDispenser<br>CapsuleCollider (UE)<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
 |american_beech_a|assets/bundled/prefabs/autospawn/resource/v2_temp_forest_deciduous_large/american_beech_a.prefab|2934397307|Spawnable<br>TreeEntity<br>ResourceDispenser<br>CapsuleCollider (UE)<br>ResourceEntity<br>BaseEntity<br>BaseNetworkable<br>EntityComponentBase<br>Collider (UE)<br>|
@@ -140,6 +142,14 @@
 |car_chassis_3module.entity|assets/content/vehicles/modularcar/car_chassis_3module.entity.prefab|4140947108|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |car_chassis_4module.entity|assets/content/vehicles/modularcar/car_chassis_4module.entity.prefab|1682477379|Rigidbody (UE)<br>ModularCar<br>BaseModularVehicle<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |cardreader|assets/prefabs/io/electric/switches/cardreader.prefab|1841596500|CardReader<br>BoxCollider (UE)<br>IOEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|cardtable.deployed|assets/prefabs/deployable/card table/cardtable.deployed.prefab|1845856065|CardTable<br>Model<br>DestroyOnGroundMissing<br>GroundWatch<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|cardtable.static_configa|assets/prefabs/deployable/card table/cardtable.static_configa.prefab|4262635170|CardTable<br>Model<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|cardtable.static_configb|assets/prefabs/deployable/card table/cardtable.static_configb.prefab|2447998865|CardTable<br>Model<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|cardtable.static_configc|assets/prefabs/deployable/card table/cardtable.static_configc.prefab|1390750221|CardTable<br>Model<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|cardtable.static_configd|assets/prefabs/deployable/card table/cardtable.static_configd.prefab|690460714|CardTable<br>Model<br>BaseVehicle<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|cardtableplayerstorage|assets/prefabs/deployable/card table/subents/cardtableplayerstorage.prefab|1544890879|CardTablePlayerStorage<br>StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|cardtablepotstorage|assets/prefabs/deployable/card table/subents/cardtablepotstorage.prefab|969933255|StorageContainer<br>DecayEntity<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
+|cardtableseat|assets/prefabs/deployable/card table/subents/cardtableseat.prefab|2254147427|CardTableSeat<br>BaseChair<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |cargo_plane|assets/prefabs/npc/cargo plane/cargo_plane.prefab|2383782438|CargoPlane<br>SavePause<br>BaseEntity<br>BaseNetworkable<br>|
 |cargomarker|assets/prefabs/tools/map/cargomarker.prefab|843218194|MapMarkerCH47<br>MapMarker<br>BaseEntity<br>BaseNetworkable<br>|
 |cargoshiptest|assets/content/vehicles/boats/cargoship/cargoshiptest.prefab|3234960997|CargoShip<br>BaseEntity<br>BaseNetworkable<br>|
@@ -685,6 +695,7 @@
 |rustigeegg_b.deployed|assets/prefabs/misc/easter/faberge_egg_b/rustigeegg_b.deployed.prefab|2769334849|RustigeEgg<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>Model<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |rustigeegg_c.deployed|assets/prefabs/misc/easter/faberge_egg_c/rustigeegg_c.deployed.prefab|2259790452|RustigeEgg<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>Model<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |rustigeegg_d.deployed|assets/prefabs/misc/easter/faberge_egg_d/rustigeegg_d.deployed.prefab|3394396962|RustigeEgg<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>Model<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
+|rustigeegg_e.deployed|assets/prefabs/misc/easter/faberge_egg_e/rustigeegg_e.deployed.prefab|1833328825|RustigeEgg<br>BoxCollider (UE)<br>GroundWatch<br>DestroyOnGroundMissing<br>Model<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |saddletest|assets/prefabs/vehicle/seats/saddletest.prefab|750623658|BaseVehicleSeat<br>MeshCollider (UE)<br>BoxCollider (UE)<br>BaseVehicleMountPoint<br>BaseMountable<br>BaseCombatEntity<br>BaseEntity<br>BaseNetworkable<br>Collider (UE)<br>|
 |salvaged_cleaver.entity|assets/prefabs/weapons/cleaver big/salvaged_cleaver.entity.prefab|3340056040|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
 |salvaged_sword.entity|assets/prefabs/weapons/sword/salvaged_sword.entity.prefab|1663991785|BaseMelee<br>AttackEntity<br>HeldEntity<br>BaseEntity<br>BaseNetworkable<br>|
