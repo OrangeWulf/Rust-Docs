@@ -2,7 +2,7 @@
 
 |Full name|
 |:-:|
-|assets/bundled/prefabs/autospawn/clutter/v2_misc_wavesounds/wave-sound-emitter.prefab|
+|assets/bundled/prefabs/autospawn/clutter/v3_misc_wavesounds/wave-sound-emitter.prefab|
 |assets/bundled/prefabs/autospawn/decor/riversound/river-sound-emitter.prefab|
 |assets/bundled/prefabs/fx/animals/flies/flies_large.prefab|
 |assets/bundled/prefabs/fx/animals/flies/flies_looping.prefab|
@@ -721,6 +721,7 @@
 |assets/content/sound/templates/tiny-spread-sound.prefab|
 |assets/content/sound/templates/ui-sound.prefab|
 |assets/content/sound/templates/ultra-tiny-sound.prefab|
+|assets/content/structures/carshredder/shredding_pfx.prefab|
 |assets/content/structures/excavator/prefabs/effects/enginerumble.prefab|
 |assets/content/structures/excavator/prefabs/effects/rockvibration.prefab|
 |assets/content/vehicles/boats/effects/small-boat-push-land.prefab|
@@ -730,6 +731,11 @@
 |assets/content/vehicles/boats/kayak/effects/kayak-paddle.prefab|
 |assets/content/vehicles/boats/kayak/effects/kayak-push-land.prefab|
 |assets/content/vehicles/boats/kayak/effects/kayak-push-water.prefab|
+|assets/content/vehicles/crane_magnet/effects/exhaust.prefab|
+|assets/content/vehicles/crane_magnet/effects/lightgroup arm.prefab|
+|assets/content/vehicles/crane_magnet/effects/lightgroup body.prefab|
+|assets/content/vehicles/crane_magnet/effects/magnetdust.prefab|
+|assets/content/vehicles/crane_magnet/effects/refract.prefab|
 |assets/content/vehicles/minicopter/debris_effect.prefab|
 |assets/content/vehicles/modularcar/carcollisioneffect.prefab|
 |assets/content/vehicles/modularcar/effects/wheel-impact.prefab|
@@ -1060,6 +1066,8 @@
 |assets/prefabs/npc/ch47/effects/metaldebris.prefab|
 |assets/prefabs/npc/ch47/effects/metaldebris-2.prefab|
 |assets/prefabs/npc/ch47/effects/metaldebris-3.prefab|
+|assets/prefabs/npc/ch47/effects/metaldebrissmall.prefab|
+|assets/prefabs/npc/ch47/effects/metaldebrissmallnosound.prefab|
 |assets/prefabs/npc/ch47/effects/watergroundeffect.prefab|
 |assets/prefabs/npc/flame turret/effects/flameturret-deploy.prefab|
 |assets/prefabs/npc/m2bradley/effects/bradley_explosion.prefab|
