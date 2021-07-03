@@ -2,6 +2,21 @@
 
 |Full name|
 |:-:|
+|assets/content/image effects/postfx_volumes/cctv.asset|
+|assets/content/image effects/postfx_volumes/cold.asset|
+|assets/content/image effects/postfx_volumes/hot.asset|
+|assets/content/image effects/postfx_volumes/hurt.asset|
+|assets/content/image effects/postfx_volumes/main_base.asset|
+|assets/content/image effects/postfx_volumes/main_biome_arctic.asset|
+|assets/content/image effects/postfx_volumes/main_biome_arid.asset|
+|assets/content/image effects/postfx_volumes/main_biome_temperate.asset|
+|assets/content/image effects/postfx_volumes/main_biome_tundra.asset|
+|assets/content/image effects/postfx_volumes/main_underground_neutral.asset|
+|assets/content/image effects/postfx_volumes/nvg.asset|
+|assets/content/image effects/postfx_volumes/radiation.asset|
+|assets/content/image effects/postfx_volumes/screen_blur.asset|
+|assets/content/image effects/postfx_volumes/sharpen_vignette.asset|
+|assets/content/image effects/postfx_volumes/water.asset|
 |assets/content/nature/ores/sound/ore-break-001.asset|
 |assets/content/nature/reeds/models/billboards/reeds_dead_lod3.asset|
 |assets/content/nature/reeds/models/billboards/reeds_medium_lod3.asset|
@@ -1739,8 +1754,30 @@
 |assets/content/properties/weather/rainheavy.asset|
 |assets/content/properties/weather/rainmild.asset|
 |assets/content/properties/weather/storm.asset|
+|assets/content/props/boomboxportable/sound/boombox-portable-deploy.asset|
+|assets/content/props/boomboxportable/sound/boombox-portable-start.asset|
+|assets/content/props/boomboxportable/sound/boombox-portable-stop.asset|
+|assets/content/props/cassette/preloadedcontent/cassette_chippy_30.asset|
+|assets/content/props/cassette/preloadedcontent/cassette_farming_20.asset|
+|assets/content/props/cassette/preloadedcontent/cassette_instruments_10.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-active-loop.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-deploy.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-insert-cassette.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-recording-start.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-recording-stop.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-remove-cassette.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-rewind.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-start.asset|
+|assets/content/props/cassetterecorder/sound/cassette-recorder-stop.asset|
 |assets/content/props/fog machine/fogmachine.sitem.asset|
 |assets/content/props/fog machine/sound/fogblast.asset|
+|assets/content/props/megaphone/sound/megaphone-active-loop.asset|
+|assets/content/props/megaphone/sound/megaphone-deploy.asset|
+|assets/content/props/megaphone/sound/megaphone-start.asset|
+|assets/content/props/megaphone/sound/megaphone-start-foley.asset|
+|assets/content/props/megaphone/sound/megaphone-stop.asset|
+|assets/content/props/megaphone/sound/megaphone-stop-foley.asset|
+|assets/content/props/mobilephone/sound/mobile-phone-deploy.asset|
 |assets/content/props/strobe light/sound/fast.asset|
 |assets/content/props/strobe light/sound/med.asset|
 |assets/content/props/strobe light/sound/off.asset|
@@ -1943,6 +1980,7 @@
 |assets/content/sound/ambience/wind/ambience-sting-wind-gust-snowy.ambience-def.asset|
 |assets/content/sound/ambience/wind/ambience-sting-wind-gust-snowy.asset|
 |assets/content/sound/audioclips/break/rock-break.asset|
+|assets/content/sound/deployable/small-device-deploy.asset|
 |assets/content/sound/footsteps/barefoot/footstep-barefoot-cloth-jump-land.asset|
 |assets/content/sound/footsteps/barefoot/footstep-barefoot-cloth-jump-start.asset|
 |assets/content/sound/footsteps/barefoot/footstep-barefoot-cloth-run.asset|
@@ -3372,6 +3410,7 @@
 |assets/content/sound/ui/ui-drop-plastic-junk.asset|
 |assets/content/sound/ui/ui-drop-rubber.asset|
 |assets/content/sound/ui/ui-drop-seeds.asset|
+|assets/content/sound/ui/ui-drop-small-device.asset|
 |assets/content/sound/ui/ui-drop-snow.asset|
 |assets/content/sound/ui/ui-drop-spring.asset|
 |assets/content/sound/ui/ui-drop-stone.asset|
@@ -3401,6 +3440,7 @@
 |assets/content/sound/ui/ui-pickup-plastic-junk.asset|
 |assets/content/sound/ui/ui-pickup-rubber.asset|
 |assets/content/sound/ui/ui-pickup-seeds.asset|
+|assets/content/sound/ui/ui-pickup-small-device.asset|
 |assets/content/sound/ui/ui-pickup-snow.asset|
 |assets/content/sound/ui/ui-pickup-spring.asset|
 |assets/content/sound/ui/ui-pickup-stone.asset|
@@ -3419,6 +3459,10 @@
 |assets/content/sound/worldmusic/stable-music-loop.ambience-list.asset|
 |assets/content/sound/worldmusic/stable-music-loop.asset|
 |assets/content/structures/awnings/models/sound/tarp_flap.asset|
+|assets/content/structures/bunker_hatch/sound/bunker-hatch-close-end.asset|
+|assets/content/structures/bunker_hatch/sound/bunker-hatch-close-start.asset|
+|assets/content/structures/bunker_hatch/sound/bunker-hatch-open-end.asset|
+|assets/content/structures/bunker_hatch/sound/bunker-hatch-open-start.asset|
 |assets/content/structures/carshredder/sound/car-shredder-active-loop.asset|
 |assets/content/structures/carshredder/sound/car-shredder-idle.ambience-def.asset|
 |assets/content/structures/carshredder/sound/car-shredder-idle.ambience-list.asset|
@@ -4266,6 +4310,7 @@
 |assets/prefabs/deployable/playerioents/waterpump/sound/water-pump-loop.asset|
 |assets/prefabs/deployable/playerioents/waterpump/sound/water-pump-start.asset|
 |assets/prefabs/deployable/playerioents/waterpump/sound/water-pump-stop.asset|
+|assets/prefabs/deployable/primitive lootbox/sound/primitive-lootbox-destroy.asset|
 |assets/prefabs/deployable/quarry/sound/mining-quarry-deploy.asset|
 |assets/prefabs/deployable/reactive target/effects/bullseye.asset|
 |assets/prefabs/deployable/reactive target/reactivetarget_deployed.skinnable.asset|
@@ -4831,6 +4876,7 @@
 |assets/prefabs/npc/bear/sound/roar_short.asset|
 |assets/prefabs/npc/bear/sound/sleeping.asset|
 |assets/prefabs/npc/bear/sound/sniff.asset|
+|assets/prefabs/npc/birds/sound/flap_fly_away.asset|
 |assets/prefabs/npc/cargo plane/sound/cargo-plane-loop.asset|
 |assets/prefabs/npc/ch47/sound/ch47-engine-loop.asset|
 |assets/prefabs/npc/ch47/sound/ch47-rotors-loop.asset|
@@ -4895,15 +4941,18 @@
 |assets/prefabs/plants/plantseed.sound.asset|
 |assets/prefabs/plants/potato/potato.plantproperty.asset|
 |assets/prefabs/plants/pumpkin/pumpkin.plantproperty.asset|
+|assets/prefabs/player/gestures/gesture.cabbagepatch.asset|
 |assets/prefabs/player/gestures/gesture.clap.asset|
 |assets/prefabs/player/gestures/gesture.dance.asset|
 |assets/prefabs/player/gestures/gesture.friendly.asset|
 |assets/prefabs/player/gestures/gesture.hurry.asset|
 |assets/prefabs/player/gestures/gesture.ok.asset|
 |assets/prefabs/player/gestures/gesture.point.asset|
+|assets/prefabs/player/gestures/gesture.raiseroof.asset|
 |assets/prefabs/player/gestures/gesture.shrug.asset|
 |assets/prefabs/player/gestures/gesture.thumbsdown.asset|
 |assets/prefabs/player/gestures/gesture.thumbsup.asset|
+|assets/prefabs/player/gestures/gesture.twist.asset|
 |assets/prefabs/player/gestures/gesture.victory.asset|
 |assets/prefabs/player/gestures/gesture.wave.asset|
 |assets/prefabs/player/gestures/gesturecollection.asset|
@@ -4977,6 +5026,27 @@
 |assets/prefabs/tools/surveycharge/sound/survey-charge-deploy.asset|
 |assets/prefabs/tools/surveycharge/sound/survey-charge-deploy-3p.asset|
 |assets/prefabs/tools/surveycharge/sound/survey-charge-fuse-loop.asset|
+|assets/prefabs/voiceaudio/boombox/sound/boombox-active-loop.asset|
+|assets/prefabs/voiceaudio/boombox/sound/boombox-deploy.asset|
+|assets/prefabs/voiceaudio/boombox/sound/boombox-start.asset|
+|assets/prefabs/voiceaudio/boombox/sound/boombox-stop.asset|
+|assets/prefabs/voiceaudio/boombox/sound/builtinplaylists/chippyradio.asset|
+|assets/prefabs/voiceaudio/boombox/sound/builtinplaylists/rustradio.asset|
+|assets/prefabs/voiceaudio/boombox/sound/builtinplaylists/sonisradio.asset|
+|assets/prefabs/voiceaudio/cassette/preloadedcassettecontent.asset|
+|assets/prefabs/voiceaudio/cassette/sound/cassette-music-air-wolf.asset|
+|assets/prefabs/voiceaudio/cassette/sound/cassette-music-boat-shop.asset|
+|assets/prefabs/voiceaudio/cassette/sound/cassette-music-disco.asset|
+|assets/prefabs/voiceaudio/cassette/sound/cassette-music-farming.asset|
+|assets/prefabs/voiceaudio/cassette/sound/cassette-music-stable.asset|
+|assets/prefabs/voiceaudio/cassette/sound/cassette-music-sunburn.asset|
+|assets/prefabs/voiceaudio/discoball/sound/disco-ball-deploy.asset|
+|assets/prefabs/voiceaudio/discofloor/discofloor.skinnable.asset|
+|assets/prefabs/voiceaudio/discofloor/skins/discofloor.largetiles.itemskin.asset|
+|assets/prefabs/voiceaudio/discofloor/sound/disco-floor-deploy.asset|
+|assets/prefabs/voiceaudio/dlc.voiceprops.asset|
+|assets/prefabs/voiceaudio/microphonestand/sound/microphone-stand-deploy.asset|
+|assets/prefabs/voiceaudio/mobilephone/vibrate_mobile.asset|
 |assets/prefabs/voiceaudio/telephone/sound/telephone-active-loop.asset|
 |assets/prefabs/voiceaudio/telephone/sound/telephone-button.asset|
 |assets/prefabs/voiceaudio/telephone/sound/telephone-button-beep-a.asset|
@@ -4994,6 +5064,8 @@
 |assets/prefabs/voiceaudio/telephone/sound/telephone-handset-pick-up-remote.asset|
 |assets/prefabs/voiceaudio/telephone/sound/telephone-ring-incoming-while-active.asset|
 |assets/prefabs/voiceaudio/telephone/sound/telephone-ring-loop.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-ring-loop-payphone.asset|
+|assets/prefabs/voiceaudio/telephone/sound/telephone-ring-mobile-loop.asset|
 |assets/prefabs/voiceaudio/telephone/sound/telephone-ring-remote.asset|
 |assets/prefabs/weapon mods/mod_attach.sound.asset|
 |assets/prefabs/weapon mods/silencers/effects/silencer_attach.sound.asset|
@@ -5465,6 +5537,7 @@
 |assets/resources/apexaistorage/zombie.action.asset|
 |assets/resources/worldspline prefab shared data.asset|
 |assets/rust.ai/agents/animal/animal.aidesign.asset|
+|assets/rust.ai/agents/animal/animal.bearwolf.aidesign.asset|
 |assets/rust.ai/agents/bear/bear.footstep.asset|
 |assets/rust.ai/agents/bear/bear.population.asset|
 |assets/rust.ai/agents/bear/bear.skeleton.asset|
@@ -5563,7 +5636,9 @@
 |assets/rust.ai/agents/npcplayer/humannpc/scientist/scientist.junkpile.aidesign.asset|
 |assets/rust.ai/agents/npcplayer/humannpc/scientist/scientist.militarytunnels.aidesign.asset|
 |assets/rust.ai/agents/npcplayer/humannpc/scientist/scientist.oilrig.aidesign.asset|
+|assets/rust.ai/agents/npcplayer/humannpc/scientist/scientist.patrol.aidesign.asset|
 |assets/rust.ai/agents/npcplayer/humannpc/scientist/scientist.peacekeeper.aidesign.asset|
+|assets/rust.ai/agents/npcplayer/humannpc/scientist/scientist.roam.aidesign.asset|
 |assets/rust.ai/agents/npcplayer/humannpc/testloadout.asset|
 |assets/rust.ai/agents/npcplayer/humannpc/tunneldweller/tunneldweller.aidesign.asset|
 |assets/rust.ai/agents/npcplayer/humannpc/tunneldweller/tunneldwellera.asset|
@@ -5647,8 +5722,9 @@
 |assets/scripts/game/techtree/techtreet1.asset|
 |assets/scripts/game/techtree/techtreet2.asset|
 |assets/scripts/game/techtree/techtreet3.asset|
+|assets/scripts/postprocessing/customposteffects/resources/custom post effects resources.asset|
+|assets/scripts/postprocessing/postprocessing/postprocessresources.asset|
 |assets/skins.asset|
-|assets/standard assets/third party/postprocessing/postprocessresources.asset|
 |assets/textmesh pro/resources/tmp settings.asset|
 |assets/third party/apex/editor/data/aigeneralsettings.asset|
 |assets/third party/apex/editor/data/apexsettings.asset|
