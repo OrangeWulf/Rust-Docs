@@ -1,0 +1,768 @@
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+[ExtensionAttribute]
+internal static class System.IO.TextWriterExtensions : object {
+    [ExtensionAttribute]
+public static void WritePartialString(TextWriter writer, string value, int offset, int count);
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.IsByRefLikeAttribute : Attribute {
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.IsReadOnlyAttribute : Attribute {
+}
+internal class System.Text.Encodings.Web.DefaultHtmlEncoder : HtmlEncoder {
+    private AllowedCharactersBitmap _allowedCharacters;
+    internal static DefaultHtmlEncoder Singleton;
+    private static Char[] s_quote;
+    private static Char[] s_ampersand;
+    private static Char[] s_lessthan;
+    private static Char[] s_greaterthan;
+    public int MaxOutputCharactersPerInputCharacter { get; }
+    public DefaultHtmlEncoder(TextEncoderSettings settings);
+    public DefaultHtmlEncoder(UnicodeRange[] allowedRanges);
+    private static DefaultHtmlEncoder();
+    internal static void ForbidHtmlCharacters(AllowedCharactersBitmap allowedCharacters);
+    public virtual bool WillEncode(int unicodeScalar);
+    public virtual int FindFirstCharacterToEncode(Char* text, int textLength);
+    public virtual int get_MaxOutputCharactersPerInputCharacter();
+    public virtual bool TryEncodeUnicodeScalar(int unicodeScalar, Char* buffer, int bufferLength, Int32& numberOfCharactersWritten);
+    private static bool TryWriteEncodedScalarAsNumericEntity(int unicodeScalar, Char* buffer, int bufferLength, Int32& numberOfCharactersWritten);
+}
+internal class System.Text.Encodings.Web.DefaultJavaScriptEncoder : JavaScriptEncoder {
+    private AllowedCharactersBitmap _allowedCharacters;
+    internal static DefaultJavaScriptEncoder Singleton;
+    private static Char[] s_b;
+    private static Char[] s_t;
+    private static Char[] s_n;
+    private static Char[] s_f;
+    private static Char[] s_r;
+    private static Char[] s_back;
+    public int MaxOutputCharactersPerInputCharacter { get; }
+    public DefaultJavaScriptEncoder(TextEncoderSettings filter);
+    public DefaultJavaScriptEncoder(UnicodeRange[] allowedRanges);
+    private static DefaultJavaScriptEncoder();
+    public virtual bool WillEncode(int unicodeScalar);
+    public virtual int FindFirstCharacterToEncode(Char* text, int textLength);
+    public virtual int get_MaxOutputCharactersPerInputCharacter();
+    public virtual bool TryEncodeUnicodeScalar(int unicodeScalar, Char* buffer, int bufferLength, Int32& numberOfCharactersWritten);
+    private static bool TryWriteEncodedScalarAsNumericEntity(int unicodeScalar, Char* buffer, int length, Int32& numberOfCharactersWritten);
+    private static bool TryWriteEncodedSingleCharacter(int unicodeScalar, Char* buffer, int length, Int32& numberOfCharactersWritten);
+}
+internal class System.Text.Encodings.Web.DefaultUrlEncoder : UrlEncoder {
+    private AllowedCharactersBitmap _allowedCharacters;
+    internal static DefaultUrlEncoder Singleton;
+    public int MaxOutputCharactersPerInputCharacter { get; }
+    public DefaultUrlEncoder(TextEncoderSettings filter);
+    public DefaultUrlEncoder(UnicodeRange[] allowedRanges);
+    private static DefaultUrlEncoder();
+    public virtual int get_MaxOutputCharactersPerInputCharacter();
+    public virtual bool WillEncode(int unicodeScalar);
+    public virtual int FindFirstCharacterToEncode(Char* text, int textLength);
+    public virtual bool TryEncodeUnicodeScalar(int unicodeScalar, Char* buffer, int bufferLength, Int32& numberOfCharactersWritten);
+}
+internal static class System.Text.Encodings.Web.HexUtil : object {
+    internal static char UInt32LsbToHexDigit(UInt32 value);
+    internal static char Int32LsbToHexDigit(int value);
+    internal static void ByteToHexDigits(byte value, Char& firstHexChar, Char& secondHexChar);
+}
+public abstract class System.Text.Encodings.Web.HtmlEncoder : TextEncoder {
+    public static HtmlEncoder Default { get; }
+    public static HtmlEncoder get_Default();
+    public static HtmlEncoder Create(TextEncoderSettings settings);
+    public static HtmlEncoder Create(UnicodeRange[] allowedRanges);
+}
+public abstract class System.Text.Encodings.Web.JavaScriptEncoder : TextEncoder {
+    public static JavaScriptEncoder Default { get; }
+    public static JavaScriptEncoder UnsafeRelaxedJsonEscaping { get; }
+    public static JavaScriptEncoder get_Default();
+    public static JavaScriptEncoder get_UnsafeRelaxedJsonEscaping();
+    public static JavaScriptEncoder Create(TextEncoderSettings settings);
+    public static JavaScriptEncoder Create(UnicodeRange[] allowedRanges);
+}
+public abstract class System.Text.Encodings.Web.TextEncoder : object {
+    private static int EncodeStartingOutputBufferSize;
+    private Byte[][] _asciiEscape;
+    private static Byte[] s_noEscape;
+    [EditorBrowsableAttribute("1")]
+public int MaxOutputCharactersPerInputCharacter { get; }
+    private static TextEncoder();
+    [CLSCompliantAttribute("False")]
+[EditorBrowsableAttribute("1")]
+public abstract virtual bool TryEncodeUnicodeScalar(int unicodeScalar, Char* buffer, int bufferLength, Int32& numberOfCharactersWritten);
+    [CLSCompliantAttribute("False")]
+[EditorBrowsableAttribute("1")]
+public abstract virtual int FindFirstCharacterToEncode(Char* text, int textLength);
+    [EditorBrowsableAttribute("1")]
+public abstract virtual bool WillEncode(int unicodeScalar);
+    public abstract virtual int get_MaxOutputCharactersPerInputCharacter();
+    public virtual string Encode(string value);
+    public void Encode(TextWriter output, string value);
+    public virtual void Encode(TextWriter output, string value, int startIndex, int characterCount);
+    public virtual void Encode(TextWriter output, Char[] value, int startIndex, int characterCount);
+    public virtual OperationStatus EncodeUtf8(ReadOnlySpan`1<byte> utf8Source, Span`1<byte> utf8Destination, Int32& bytesConsumed, Int32& bytesWritten, bool isFinalBlock);
+    internal static OperationStatus EncodeUtf8Shim(TextEncoder encoder, ReadOnlySpan`1<byte> utf8Source, Span`1<byte> utf8Destination, Int32& bytesConsumed, Int32& bytesWritten, bool isFinalBlock);
+    public virtual OperationStatus Encode(ReadOnlySpan`1<char> source, Span`1<char> destination, Int32& charsConsumed, Int32& charsWritten, bool isFinalBlock);
+    private void Encode(TextWriter output, ReadOnlySpan`1<char> value);
+    private int FindFirstCharacterToEncode(ReadOnlySpan`1<char> text);
+    [EditorBrowsableAttribute("1")]
+public virtual int FindFirstCharacterToEncodeUtf8(ReadOnlySpan`1<byte> utf8Text);
+    internal static int FindFirstCharacterToEncodeUtf8Shim(TextEncoder encoder, ReadOnlySpan`1<byte> utf8Text);
+    internal static bool TryCopyCharacters(Char[] source, Char* destination, int destinationLength, Int32& numberOfCharactersWritten);
+    internal static bool TryWriteScalarAsChar(int unicodeScalar, Char* destination, int destinationLength, Int32& numberOfCharactersWritten);
+    private static void ValidateRanges(int startIndex, int characterCount, int actualInputLength);
+    private Byte[] GetAsciiEncoding(byte value);
+    private static void ThrowArgumentException_MaxOutputCharsPerInputChar();
+    [CompilerGeneratedAttribute]
+private OperationStatus <Encode>g__EncodeCore|14_0(ReadOnlySpan`1<char> source, Span`1<char> destination, Int32& charsConsumed, Int32& charsWritten, bool isFinalBlock);
+}
+public class System.Text.Encodings.Web.TextEncoderSettings : object {
+    private AllowedCharactersBitmap _allowedCharactersBitmap;
+    public TextEncoderSettings(TextEncoderSettings other);
+    public TextEncoderSettings(UnicodeRange[] allowedRanges);
+    public virtual void AllowCharacter(char character);
+    public virtual void AllowCharacters(Char[] characters);
+    public virtual void AllowCodePoints(IEnumerable`1<int> codePoints);
+    public virtual void AllowRange(UnicodeRange range);
+    public virtual void AllowRanges(UnicodeRange[] ranges);
+    public virtual void Clear();
+    public virtual void ForbidCharacter(char character);
+    public virtual void ForbidCharacters(Char[] characters);
+    public virtual void ForbidRange(UnicodeRange range);
+    public virtual void ForbidRanges(UnicodeRange[] ranges);
+    internal AllowedCharactersBitmap GetAllowedCharacters();
+    [IteratorStateMachineAttribute("System.Text.Encodings.Web.TextEncoderSettings/<GetAllowedCodePoints>d__15")]
+public virtual IEnumerable`1<int> GetAllowedCodePoints();
+}
+internal class System.Text.Encodings.Web.UnsafeRelaxedJavaScriptEncoder : JavaScriptEncoder {
+    private AllowedCharactersBitmap _allowedCharacters;
+    internal static UnsafeRelaxedJavaScriptEncoder s_singleton;
+    private static Char[] s_b;
+    private static Char[] s_t;
+    private static Char[] s_n;
+    private static Char[] s_f;
+    private static Char[] s_r;
+    private static Char[] s_back;
+    private static Char[] s_doubleQuote;
+    public int MaxOutputCharactersPerInputCharacter { get; }
+    private UnsafeRelaxedJavaScriptEncoder(TextEncoderSettings filter);
+    private static UnsafeRelaxedJavaScriptEncoder();
+    public virtual bool WillEncode(int unicodeScalar);
+    public virtual int FindFirstCharacterToEncode(Char* text, int textLength);
+    public virtual int get_MaxOutputCharactersPerInputCharacter();
+    public virtual bool TryEncodeUnicodeScalar(int unicodeScalar, Char* buffer, int bufferLength, Int32& numberOfCharactersWritten);
+    private static bool TryWriteEncodedScalarAsNumericEntity(int unicodeScalar, Char* buffer, int length, Int32& numberOfCharactersWritten);
+    private static bool TryWriteEncodedSingleCharacter(int unicodeScalar, Char* buffer, int length, Int32& numberOfCharactersWritten);
+}
+public abstract class System.Text.Encodings.Web.UrlEncoder : TextEncoder {
+    public static UrlEncoder Default { get; }
+    public static UrlEncoder get_Default();
+    public static UrlEncoder Create(TextEncoderSettings settings);
+    public static UrlEncoder Create(UnicodeRange[] allowedRanges);
+}
+[IsReadOnlyAttribute]
+internal class System.Text.Internal.AllowedCharactersBitmap : ValueType {
+    private static int ALLOWED_CHARS_BITMAP_LENGTH;
+    private UInt32[] _allowedCharacters;
+    private AllowedCharactersBitmap(UInt32[] allowedCharacters);
+    public static AllowedCharactersBitmap CreateNew();
+    public void AllowCharacter(char character);
+    public void ForbidCharacter(char character);
+    public void ForbidUndefinedCharacters();
+    public void Clear();
+    public AllowedCharactersBitmap Clone();
+    public bool IsCharacterAllowed(char character);
+    public bool IsUnicodeScalarAllowed(int unicodeScalar);
+    public int FindFirstCharacterToEncode(Char* text, int textLength);
+}
+internal static class System.Text.Unicode.UnicodeHelpers : object {
+    internal static int UNICODE_LAST_CODEPOINT;
+    private static UInt32[] _definedCharacterBitmapBigEndian;
+    private static ReadOnlySpan`1<byte> DefinedCharsBitmapSpan { get; }
+    private static UnicodeHelpers();
+    private static UInt32[] CreateDefinedCharacterBitmapMachineEndian();
+    public static OperationStatus DecodeScalarValueFromUtf8(ReadOnlySpan`1<byte> source, UInt32& result, Int32& bytesConsumed);
+    internal static ReadOnlySpan`1<UInt32> GetDefinedCharacterBitmap();
+    internal static void GetUtf16SurrogatePairFromAstralScalarValue(int scalar, Char& highSurrogate, Char& lowSurrogate);
+    internal static int GetUtf8RepresentationForScalarValue(UInt32 scalar);
+    internal static bool IsSupplementaryCodePoint(int scalar);
+    private static ReadOnlySpan`1<byte> get_DefinedCharsBitmapSpan();
+}
+public class System.Text.Unicode.UnicodeRange : object {
+    [CompilerGeneratedAttribute]
+private int <FirstCodePoint>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <Length>k__BackingField;
+    public int FirstCodePoint { get; private set; }
+    public int Length { get; private set; }
+    public UnicodeRange(int firstCodePoint, int length);
+    [CompilerGeneratedAttribute]
+public int get_FirstCodePoint();
+    [CompilerGeneratedAttribute]
+private void set_FirstCodePoint(int value);
+    [CompilerGeneratedAttribute]
+public int get_Length();
+    [CompilerGeneratedAttribute]
+private void set_Length(int value);
+    public static UnicodeRange Create(char firstCharacter, char lastCharacter);
+}
+public static class System.Text.Unicode.UnicodeRanges : object {
+    private static UnicodeRange _none;
+    private static UnicodeRange _all;
+    private static UnicodeRange _u0000;
+    private static UnicodeRange _u0080;
+    private static UnicodeRange _u0100;
+    private static UnicodeRange _u0180;
+    private static UnicodeRange _u0250;
+    private static UnicodeRange _u02B0;
+    private static UnicodeRange _u0300;
+    private static UnicodeRange _u0370;
+    private static UnicodeRange _u0400;
+    private static UnicodeRange _u0500;
+    private static UnicodeRange _u0530;
+    private static UnicodeRange _u0590;
+    private static UnicodeRange _u0600;
+    private static UnicodeRange _u0700;
+    private static UnicodeRange _u0750;
+    private static UnicodeRange _u0780;
+    private static UnicodeRange _u07C0;
+    private static UnicodeRange _u0800;
+    private static UnicodeRange _u0840;
+    private static UnicodeRange _u0860;
+    private static UnicodeRange _u08A0;
+    private static UnicodeRange _u0900;
+    private static UnicodeRange _u0980;
+    private static UnicodeRange _u0A00;
+    private static UnicodeRange _u0A80;
+    private static UnicodeRange _u0B00;
+    private static UnicodeRange _u0B80;
+    private static UnicodeRange _u0C00;
+    private static UnicodeRange _u0C80;
+    private static UnicodeRange _u0D00;
+    private static UnicodeRange _u0D80;
+    private static UnicodeRange _u0E00;
+    private static UnicodeRange _u0E80;
+    private static UnicodeRange _u0F00;
+    private static UnicodeRange _u1000;
+    private static UnicodeRange _u10A0;
+    private static UnicodeRange _u1100;
+    private static UnicodeRange _u1200;
+    private static UnicodeRange _u1380;
+    private static UnicodeRange _u13A0;
+    private static UnicodeRange _u1400;
+    private static UnicodeRange _u1680;
+    private static UnicodeRange _u16A0;
+    private static UnicodeRange _u1700;
+    private static UnicodeRange _u1720;
+    private static UnicodeRange _u1740;
+    private static UnicodeRange _u1760;
+    private static UnicodeRange _u1780;
+    private static UnicodeRange _u1800;
+    private static UnicodeRange _u18B0;
+    private static UnicodeRange _u1900;
+    private static UnicodeRange _u1950;
+    private static UnicodeRange _u1980;
+    private static UnicodeRange _u19E0;
+    private static UnicodeRange _u1A00;
+    private static UnicodeRange _u1A20;
+    private static UnicodeRange _u1AB0;
+    private static UnicodeRange _u1B00;
+    private static UnicodeRange _u1B80;
+    private static UnicodeRange _u1BC0;
+    private static UnicodeRange _u1C00;
+    private static UnicodeRange _u1C50;
+    private static UnicodeRange _u1C80;
+    private static UnicodeRange _u1C90;
+    private static UnicodeRange _u1CC0;
+    private static UnicodeRange _u1CD0;
+    private static UnicodeRange _u1D00;
+    private static UnicodeRange _u1D80;
+    private static UnicodeRange _u1DC0;
+    private static UnicodeRange _u1E00;
+    private static UnicodeRange _u1F00;
+    private static UnicodeRange _u2000;
+    private static UnicodeRange _u2070;
+    private static UnicodeRange _u20A0;
+    private static UnicodeRange _u20D0;
+    private static UnicodeRange _u2100;
+    private static UnicodeRange _u2150;
+    private static UnicodeRange _u2190;
+    private static UnicodeRange _u2200;
+    private static UnicodeRange _u2300;
+    private static UnicodeRange _u2400;
+    private static UnicodeRange _u2440;
+    private static UnicodeRange _u2460;
+    private static UnicodeRange _u2500;
+    private static UnicodeRange _u2580;
+    private static UnicodeRange _u25A0;
+    private static UnicodeRange _u2600;
+    private static UnicodeRange _u2700;
+    private static UnicodeRange _u27C0;
+    private static UnicodeRange _u27F0;
+    private static UnicodeRange _u2800;
+    private static UnicodeRange _u2900;
+    private static UnicodeRange _u2980;
+    private static UnicodeRange _u2A00;
+    private static UnicodeRange _u2B00;
+    private static UnicodeRange _u2C00;
+    private static UnicodeRange _u2C60;
+    private static UnicodeRange _u2C80;
+    private static UnicodeRange _u2D00;
+    private static UnicodeRange _u2D30;
+    private static UnicodeRange _u2D80;
+    private static UnicodeRange _u2DE0;
+    private static UnicodeRange _u2E00;
+    private static UnicodeRange _u2E80;
+    private static UnicodeRange _u2F00;
+    private static UnicodeRange _u2FF0;
+    private static UnicodeRange _u3000;
+    private static UnicodeRange _u3040;
+    private static UnicodeRange _u30A0;
+    private static UnicodeRange _u3100;
+    private static UnicodeRange _u3130;
+    private static UnicodeRange _u3190;
+    private static UnicodeRange _u31A0;
+    private static UnicodeRange _u31C0;
+    private static UnicodeRange _u31F0;
+    private static UnicodeRange _u3200;
+    private static UnicodeRange _u3300;
+    private static UnicodeRange _u3400;
+    private static UnicodeRange _u4DC0;
+    private static UnicodeRange _u4E00;
+    private static UnicodeRange _uA000;
+    private static UnicodeRange _uA490;
+    private static UnicodeRange _uA4D0;
+    private static UnicodeRange _uA500;
+    private static UnicodeRange _uA640;
+    private static UnicodeRange _uA6A0;
+    private static UnicodeRange _uA700;
+    private static UnicodeRange _uA720;
+    private static UnicodeRange _uA800;
+    private static UnicodeRange _uA830;
+    private static UnicodeRange _uA840;
+    private static UnicodeRange _uA880;
+    private static UnicodeRange _uA8E0;
+    private static UnicodeRange _uA900;
+    private static UnicodeRange _uA930;
+    private static UnicodeRange _uA960;
+    private static UnicodeRange _uA980;
+    private static UnicodeRange _uA9E0;
+    private static UnicodeRange _uAA00;
+    private static UnicodeRange _uAA60;
+    private static UnicodeRange _uAA80;
+    private static UnicodeRange _uAAE0;
+    private static UnicodeRange _uAB00;
+    private static UnicodeRange _uAB30;
+    private static UnicodeRange _uAB70;
+    private static UnicodeRange _uABC0;
+    private static UnicodeRange _uAC00;
+    private static UnicodeRange _uD7B0;
+    private static UnicodeRange _uF900;
+    private static UnicodeRange _uFB00;
+    private static UnicodeRange _uFB50;
+    private static UnicodeRange _uFE00;
+    private static UnicodeRange _uFE10;
+    private static UnicodeRange _uFE20;
+    private static UnicodeRange _uFE30;
+    private static UnicodeRange _uFE50;
+    private static UnicodeRange _uFE70;
+    private static UnicodeRange _uFF00;
+    private static UnicodeRange _uFFF0;
+    public static UnicodeRange None { get; }
+    public static UnicodeRange All { get; }
+    public static UnicodeRange BasicLatin { get; }
+    public static UnicodeRange Latin1Supplement { get; }
+    public static UnicodeRange LatinExtendedA { get; }
+    public static UnicodeRange LatinExtendedB { get; }
+    public static UnicodeRange IpaExtensions { get; }
+    public static UnicodeRange SpacingModifierLetters { get; }
+    public static UnicodeRange CombiningDiacriticalMarks { get; }
+    public static UnicodeRange GreekandCoptic { get; }
+    public static UnicodeRange Cyrillic { get; }
+    public static UnicodeRange CyrillicSupplement { get; }
+    public static UnicodeRange Armenian { get; }
+    public static UnicodeRange Hebrew { get; }
+    public static UnicodeRange Arabic { get; }
+    public static UnicodeRange Syriac { get; }
+    public static UnicodeRange ArabicSupplement { get; }
+    public static UnicodeRange Thaana { get; }
+    public static UnicodeRange NKo { get; }
+    public static UnicodeRange Samaritan { get; }
+    public static UnicodeRange Mandaic { get; }
+    public static UnicodeRange SyriacSupplement { get; }
+    public static UnicodeRange ArabicExtendedA { get; }
+    public static UnicodeRange Devanagari { get; }
+    public static UnicodeRange Bengali { get; }
+    public static UnicodeRange Gurmukhi { get; }
+    public static UnicodeRange Gujarati { get; }
+    public static UnicodeRange Oriya { get; }
+    public static UnicodeRange Tamil { get; }
+    public static UnicodeRange Telugu { get; }
+    public static UnicodeRange Kannada { get; }
+    public static UnicodeRange Malayalam { get; }
+    public static UnicodeRange Sinhala { get; }
+    public static UnicodeRange Thai { get; }
+    public static UnicodeRange Lao { get; }
+    public static UnicodeRange Tibetan { get; }
+    public static UnicodeRange Myanmar { get; }
+    public static UnicodeRange Georgian { get; }
+    public static UnicodeRange HangulJamo { get; }
+    public static UnicodeRange Ethiopic { get; }
+    public static UnicodeRange EthiopicSupplement { get; }
+    public static UnicodeRange Cherokee { get; }
+    public static UnicodeRange UnifiedCanadianAboriginalSyllabics { get; }
+    public static UnicodeRange Ogham { get; }
+    public static UnicodeRange Runic { get; }
+    public static UnicodeRange Tagalog { get; }
+    public static UnicodeRange Hanunoo { get; }
+    public static UnicodeRange Buhid { get; }
+    public static UnicodeRange Tagbanwa { get; }
+    public static UnicodeRange Khmer { get; }
+    public static UnicodeRange Mongolian { get; }
+    public static UnicodeRange UnifiedCanadianAboriginalSyllabicsExtended { get; }
+    public static UnicodeRange Limbu { get; }
+    public static UnicodeRange TaiLe { get; }
+    public static UnicodeRange NewTaiLue { get; }
+    public static UnicodeRange KhmerSymbols { get; }
+    public static UnicodeRange Buginese { get; }
+    public static UnicodeRange TaiTham { get; }
+    public static UnicodeRange CombiningDiacriticalMarksExtended { get; }
+    public static UnicodeRange Balinese { get; }
+    public static UnicodeRange Sundanese { get; }
+    public static UnicodeRange Batak { get; }
+    public static UnicodeRange Lepcha { get; }
+    public static UnicodeRange OlChiki { get; }
+    public static UnicodeRange CyrillicExtendedC { get; }
+    public static UnicodeRange GeorgianExtended { get; }
+    public static UnicodeRange SundaneseSupplement { get; }
+    public static UnicodeRange VedicExtensions { get; }
+    public static UnicodeRange PhoneticExtensions { get; }
+    public static UnicodeRange PhoneticExtensionsSupplement { get; }
+    public static UnicodeRange CombiningDiacriticalMarksSupplement { get; }
+    public static UnicodeRange LatinExtendedAdditional { get; }
+    public static UnicodeRange GreekExtended { get; }
+    public static UnicodeRange GeneralPunctuation { get; }
+    public static UnicodeRange SuperscriptsandSubscripts { get; }
+    public static UnicodeRange CurrencySymbols { get; }
+    public static UnicodeRange CombiningDiacriticalMarksforSymbols { get; }
+    public static UnicodeRange LetterlikeSymbols { get; }
+    public static UnicodeRange NumberForms { get; }
+    public static UnicodeRange Arrows { get; }
+    public static UnicodeRange MathematicalOperators { get; }
+    public static UnicodeRange MiscellaneousTechnical { get; }
+    public static UnicodeRange ControlPictures { get; }
+    public static UnicodeRange OpticalCharacterRecognition { get; }
+    public static UnicodeRange EnclosedAlphanumerics { get; }
+    public static UnicodeRange BoxDrawing { get; }
+    public static UnicodeRange BlockElements { get; }
+    public static UnicodeRange GeometricShapes { get; }
+    public static UnicodeRange MiscellaneousSymbols { get; }
+    public static UnicodeRange Dingbats { get; }
+    public static UnicodeRange MiscellaneousMathematicalSymbolsA { get; }
+    public static UnicodeRange SupplementalArrowsA { get; }
+    public static UnicodeRange BraillePatterns { get; }
+    public static UnicodeRange SupplementalArrowsB { get; }
+    public static UnicodeRange MiscellaneousMathematicalSymbolsB { get; }
+    public static UnicodeRange SupplementalMathematicalOperators { get; }
+    public static UnicodeRange MiscellaneousSymbolsandArrows { get; }
+    public static UnicodeRange Glagolitic { get; }
+    public static UnicodeRange LatinExtendedC { get; }
+    public static UnicodeRange Coptic { get; }
+    public static UnicodeRange GeorgianSupplement { get; }
+    public static UnicodeRange Tifinagh { get; }
+    public static UnicodeRange EthiopicExtended { get; }
+    public static UnicodeRange CyrillicExtendedA { get; }
+    public static UnicodeRange SupplementalPunctuation { get; }
+    public static UnicodeRange CjkRadicalsSupplement { get; }
+    public static UnicodeRange KangxiRadicals { get; }
+    public static UnicodeRange IdeographicDescriptionCharacters { get; }
+    public static UnicodeRange CjkSymbolsandPunctuation { get; }
+    public static UnicodeRange Hiragana { get; }
+    public static UnicodeRange Katakana { get; }
+    public static UnicodeRange Bopomofo { get; }
+    public static UnicodeRange HangulCompatibilityJamo { get; }
+    public static UnicodeRange Kanbun { get; }
+    public static UnicodeRange BopomofoExtended { get; }
+    public static UnicodeRange CjkStrokes { get; }
+    public static UnicodeRange KatakanaPhoneticExtensions { get; }
+    public static UnicodeRange EnclosedCjkLettersandMonths { get; }
+    public static UnicodeRange CjkCompatibility { get; }
+    public static UnicodeRange CjkUnifiedIdeographsExtensionA { get; }
+    public static UnicodeRange YijingHexagramSymbols { get; }
+    public static UnicodeRange CjkUnifiedIdeographs { get; }
+    public static UnicodeRange YiSyllables { get; }
+    public static UnicodeRange YiRadicals { get; }
+    public static UnicodeRange Lisu { get; }
+    public static UnicodeRange Vai { get; }
+    public static UnicodeRange CyrillicExtendedB { get; }
+    public static UnicodeRange Bamum { get; }
+    public static UnicodeRange ModifierToneLetters { get; }
+    public static UnicodeRange LatinExtendedD { get; }
+    public static UnicodeRange SylotiNagri { get; }
+    public static UnicodeRange CommonIndicNumberForms { get; }
+    public static UnicodeRange Phagspa { get; }
+    public static UnicodeRange Saurashtra { get; }
+    public static UnicodeRange DevanagariExtended { get; }
+    public static UnicodeRange KayahLi { get; }
+    public static UnicodeRange Rejang { get; }
+    public static UnicodeRange HangulJamoExtendedA { get; }
+    public static UnicodeRange Javanese { get; }
+    public static UnicodeRange MyanmarExtendedB { get; }
+    public static UnicodeRange Cham { get; }
+    public static UnicodeRange MyanmarExtendedA { get; }
+    public static UnicodeRange TaiViet { get; }
+    public static UnicodeRange MeeteiMayekExtensions { get; }
+    public static UnicodeRange EthiopicExtendedA { get; }
+    public static UnicodeRange LatinExtendedE { get; }
+    public static UnicodeRange CherokeeSupplement { get; }
+    public static UnicodeRange MeeteiMayek { get; }
+    public static UnicodeRange HangulSyllables { get; }
+    public static UnicodeRange HangulJamoExtendedB { get; }
+    public static UnicodeRange CjkCompatibilityIdeographs { get; }
+    public static UnicodeRange AlphabeticPresentationForms { get; }
+    public static UnicodeRange ArabicPresentationFormsA { get; }
+    public static UnicodeRange VariationSelectors { get; }
+    public static UnicodeRange VerticalForms { get; }
+    public static UnicodeRange CombiningHalfMarks { get; }
+    public static UnicodeRange CjkCompatibilityForms { get; }
+    public static UnicodeRange SmallFormVariants { get; }
+    public static UnicodeRange ArabicPresentationFormsB { get; }
+    public static UnicodeRange HalfwidthandFullwidthForms { get; }
+    public static UnicodeRange Specials { get; }
+    public static UnicodeRange get_None();
+    public static UnicodeRange get_All();
+    private static UnicodeRange CreateEmptyRange(UnicodeRange& range);
+    private static UnicodeRange CreateRange(UnicodeRange& range, char first, char last);
+    public static UnicodeRange get_BasicLatin();
+    public static UnicodeRange get_Latin1Supplement();
+    public static UnicodeRange get_LatinExtendedA();
+    public static UnicodeRange get_LatinExtendedB();
+    public static UnicodeRange get_IpaExtensions();
+    public static UnicodeRange get_SpacingModifierLetters();
+    public static UnicodeRange get_CombiningDiacriticalMarks();
+    public static UnicodeRange get_GreekandCoptic();
+    public static UnicodeRange get_Cyrillic();
+    public static UnicodeRange get_CyrillicSupplement();
+    public static UnicodeRange get_Armenian();
+    public static UnicodeRange get_Hebrew();
+    public static UnicodeRange get_Arabic();
+    public static UnicodeRange get_Syriac();
+    public static UnicodeRange get_ArabicSupplement();
+    public static UnicodeRange get_Thaana();
+    public static UnicodeRange get_NKo();
+    public static UnicodeRange get_Samaritan();
+    public static UnicodeRange get_Mandaic();
+    public static UnicodeRange get_SyriacSupplement();
+    public static UnicodeRange get_ArabicExtendedA();
+    public static UnicodeRange get_Devanagari();
+    public static UnicodeRange get_Bengali();
+    public static UnicodeRange get_Gurmukhi();
+    public static UnicodeRange get_Gujarati();
+    public static UnicodeRange get_Oriya();
+    public static UnicodeRange get_Tamil();
+    public static UnicodeRange get_Telugu();
+    public static UnicodeRange get_Kannada();
+    public static UnicodeRange get_Malayalam();
+    public static UnicodeRange get_Sinhala();
+    public static UnicodeRange get_Thai();
+    public static UnicodeRange get_Lao();
+    public static UnicodeRange get_Tibetan();
+    public static UnicodeRange get_Myanmar();
+    public static UnicodeRange get_Georgian();
+    public static UnicodeRange get_HangulJamo();
+    public static UnicodeRange get_Ethiopic();
+    public static UnicodeRange get_EthiopicSupplement();
+    public static UnicodeRange get_Cherokee();
+    public static UnicodeRange get_UnifiedCanadianAboriginalSyllabics();
+    public static UnicodeRange get_Ogham();
+    public static UnicodeRange get_Runic();
+    public static UnicodeRange get_Tagalog();
+    public static UnicodeRange get_Hanunoo();
+    public static UnicodeRange get_Buhid();
+    public static UnicodeRange get_Tagbanwa();
+    public static UnicodeRange get_Khmer();
+    public static UnicodeRange get_Mongolian();
+    public static UnicodeRange get_UnifiedCanadianAboriginalSyllabicsExtended();
+    public static UnicodeRange get_Limbu();
+    public static UnicodeRange get_TaiLe();
+    public static UnicodeRange get_NewTaiLue();
+    public static UnicodeRange get_KhmerSymbols();
+    public static UnicodeRange get_Buginese();
+    public static UnicodeRange get_TaiTham();
+    public static UnicodeRange get_CombiningDiacriticalMarksExtended();
+    public static UnicodeRange get_Balinese();
+    public static UnicodeRange get_Sundanese();
+    public static UnicodeRange get_Batak();
+    public static UnicodeRange get_Lepcha();
+    public static UnicodeRange get_OlChiki();
+    public static UnicodeRange get_CyrillicExtendedC();
+    public static UnicodeRange get_GeorgianExtended();
+    public static UnicodeRange get_SundaneseSupplement();
+    public static UnicodeRange get_VedicExtensions();
+    public static UnicodeRange get_PhoneticExtensions();
+    public static UnicodeRange get_PhoneticExtensionsSupplement();
+    public static UnicodeRange get_CombiningDiacriticalMarksSupplement();
+    public static UnicodeRange get_LatinExtendedAdditional();
+    public static UnicodeRange get_GreekExtended();
+    public static UnicodeRange get_GeneralPunctuation();
+    public static UnicodeRange get_SuperscriptsandSubscripts();
+    public static UnicodeRange get_CurrencySymbols();
+    public static UnicodeRange get_CombiningDiacriticalMarksforSymbols();
+    public static UnicodeRange get_LetterlikeSymbols();
+    public static UnicodeRange get_NumberForms();
+    public static UnicodeRange get_Arrows();
+    public static UnicodeRange get_MathematicalOperators();
+    public static UnicodeRange get_MiscellaneousTechnical();
+    public static UnicodeRange get_ControlPictures();
+    public static UnicodeRange get_OpticalCharacterRecognition();
+    public static UnicodeRange get_EnclosedAlphanumerics();
+    public static UnicodeRange get_BoxDrawing();
+    public static UnicodeRange get_BlockElements();
+    public static UnicodeRange get_GeometricShapes();
+    public static UnicodeRange get_MiscellaneousSymbols();
+    public static UnicodeRange get_Dingbats();
+    public static UnicodeRange get_MiscellaneousMathematicalSymbolsA();
+    public static UnicodeRange get_SupplementalArrowsA();
+    public static UnicodeRange get_BraillePatterns();
+    public static UnicodeRange get_SupplementalArrowsB();
+    public static UnicodeRange get_MiscellaneousMathematicalSymbolsB();
+    public static UnicodeRange get_SupplementalMathematicalOperators();
+    public static UnicodeRange get_MiscellaneousSymbolsandArrows();
+    public static UnicodeRange get_Glagolitic();
+    public static UnicodeRange get_LatinExtendedC();
+    public static UnicodeRange get_Coptic();
+    public static UnicodeRange get_GeorgianSupplement();
+    public static UnicodeRange get_Tifinagh();
+    public static UnicodeRange get_EthiopicExtended();
+    public static UnicodeRange get_CyrillicExtendedA();
+    public static UnicodeRange get_SupplementalPunctuation();
+    public static UnicodeRange get_CjkRadicalsSupplement();
+    public static UnicodeRange get_KangxiRadicals();
+    public static UnicodeRange get_IdeographicDescriptionCharacters();
+    public static UnicodeRange get_CjkSymbolsandPunctuation();
+    public static UnicodeRange get_Hiragana();
+    public static UnicodeRange get_Katakana();
+    public static UnicodeRange get_Bopomofo();
+    public static UnicodeRange get_HangulCompatibilityJamo();
+    public static UnicodeRange get_Kanbun();
+    public static UnicodeRange get_BopomofoExtended();
+    public static UnicodeRange get_CjkStrokes();
+    public static UnicodeRange get_KatakanaPhoneticExtensions();
+    public static UnicodeRange get_EnclosedCjkLettersandMonths();
+    public static UnicodeRange get_CjkCompatibility();
+    public static UnicodeRange get_CjkUnifiedIdeographsExtensionA();
+    public static UnicodeRange get_YijingHexagramSymbols();
+    public static UnicodeRange get_CjkUnifiedIdeographs();
+    public static UnicodeRange get_YiSyllables();
+    public static UnicodeRange get_YiRadicals();
+    public static UnicodeRange get_Lisu();
+    public static UnicodeRange get_Vai();
+    public static UnicodeRange get_CyrillicExtendedB();
+    public static UnicodeRange get_Bamum();
+    public static UnicodeRange get_ModifierToneLetters();
+    public static UnicodeRange get_LatinExtendedD();
+    public static UnicodeRange get_SylotiNagri();
+    public static UnicodeRange get_CommonIndicNumberForms();
+    public static UnicodeRange get_Phagspa();
+    public static UnicodeRange get_Saurashtra();
+    public static UnicodeRange get_DevanagariExtended();
+    public static UnicodeRange get_KayahLi();
+    public static UnicodeRange get_Rejang();
+    public static UnicodeRange get_HangulJamoExtendedA();
+    public static UnicodeRange get_Javanese();
+    public static UnicodeRange get_MyanmarExtendedB();
+    public static UnicodeRange get_Cham();
+    public static UnicodeRange get_MyanmarExtendedA();
+    public static UnicodeRange get_TaiViet();
+    public static UnicodeRange get_MeeteiMayekExtensions();
+    public static UnicodeRange get_EthiopicExtendedA();
+    public static UnicodeRange get_LatinExtendedE();
+    public static UnicodeRange get_CherokeeSupplement();
+    public static UnicodeRange get_MeeteiMayek();
+    public static UnicodeRange get_HangulSyllables();
+    public static UnicodeRange get_HangulJamoExtendedB();
+    public static UnicodeRange get_CjkCompatibilityIdeographs();
+    public static UnicodeRange get_AlphabeticPresentationForms();
+    public static UnicodeRange get_ArabicPresentationFormsA();
+    public static UnicodeRange get_VariationSelectors();
+    public static UnicodeRange get_VerticalForms();
+    public static UnicodeRange get_CombiningHalfMarks();
+    public static UnicodeRange get_CjkCompatibilityForms();
+    public static UnicodeRange get_SmallFormVariants();
+    public static UnicodeRange get_ArabicPresentationFormsB();
+    public static UnicodeRange get_HalfwidthandFullwidthForms();
+    public static UnicodeRange get_Specials();
+}
+internal static class System.Text.UnicodeDebug : object {
+    [ConditionalAttribute("DEBUG")]
+internal static void AssertIsHighSurrogateCodePoint(UInt32 codePoint);
+    [ConditionalAttribute("DEBUG")]
+internal static void AssertIsLowSurrogateCodePoint(UInt32 codePoint);
+    [ConditionalAttribute("DEBUG")]
+internal static void AssertIsValidCodePoint(UInt32 codePoint);
+    [ConditionalAttribute("DEBUG")]
+internal static void AssertIsValidScalar(UInt32 scalarValue);
+    [ConditionalAttribute("DEBUG")]
+internal static void AssertIsValidSupplementaryPlaneScalar(UInt32 scalarValue);
+    private static string ToHexString(UInt32 codePoint);
+}
+internal static class System.Text.UnicodeUtility : object {
+    public static UInt32 ReplacementChar;
+    public static int GetPlane(UInt32 codePoint);
+    public static UInt32 GetScalarFromUtf16SurrogatePair(UInt32 highSurrogateCodePoint, UInt32 lowSurrogateCodePoint);
+    public static int GetUtf16SequenceLength(UInt32 value);
+    public static void GetUtf16SurrogatesFromSupplementaryPlaneScalar(UInt32 value, Char& highSurrogateCodePoint, Char& lowSurrogateCodePoint);
+    public static int GetUtf8SequenceLength(UInt32 value);
+    public static bool IsAsciiCodePoint(UInt32 value);
+    public static bool IsBmpCodePoint(UInt32 value);
+    public static bool IsHighSurrogateCodePoint(UInt32 value);
+    public static bool IsInRangeInclusive(UInt32 value, UInt32 lowerBound, UInt32 upperBound);
+    public static bool IsLowSurrogateCodePoint(UInt32 value);
+    public static bool IsSurrogateCodePoint(UInt32 value);
+    public static bool IsValidCodePoint(UInt32 codePoint);
+    public static bool IsValidUnicodeScalar(UInt32 value);
+}
+[DefaultMemberAttribute("Item")]
+[IsByRefLikeAttribute]
+[ObsoleteAttribute("Types with embedded references are not supported in this version of your compiler.", "True")]
+internal class System.Text.ValueStringBuilder : ValueType {
+    private Char[] _arrayToReturnToPool;
+    private Span`1<char> _chars;
+    private int _pos;
+    public int Length { get; public set; }
+    public int Capacity { get; }
+    public Char& Item { get; }
+    public Span`1<char> RawChars { get; }
+    public ValueStringBuilder(Span`1<char> initialBuffer);
+    public ValueStringBuilder(int initialCapacity);
+    public int get_Length();
+    public void set_Length(int value);
+    public int get_Capacity();
+    public void EnsureCapacity(int capacity);
+    public Char& GetPinnableReference();
+    public Char& GetPinnableReference(bool terminate);
+    public Char& get_Item(int index);
+    public virtual string ToString();
+    public Span`1<char> get_RawChars();
+    public ReadOnlySpan`1<char> AsSpan(bool terminate);
+    public ReadOnlySpan`1<char> AsSpan();
+    public ReadOnlySpan`1<char> AsSpan(int start);
+    public ReadOnlySpan`1<char> AsSpan(int start, int length);
+    public bool TryCopyTo(Span`1<char> destination, Int32& charsWritten);
+    public void Insert(int index, char value, int count);
+    public void Insert(int index, string s);
+    public void Append(char c);
+    public void Append(string s);
+    private void AppendSlow(string s);
+    public void Append(char c, int count);
+    public void Append(Char* value, int length);
+    public void Append(ReadOnlySpan`1<char> value);
+    public Span`1<char> AppendSpan(int length);
+    private void GrowAndAppend(char c);
+    private void Grow(int additionalCapacityBeyondPos);
+    public void Dispose();
+}

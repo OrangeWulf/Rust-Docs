@@ -1,0 +1,136 @@
+public class Facepunch.Network.Raknet.Client : Client {
+    private Peer peer;
+    public virtual bool IsConnected();
+    public virtual bool Connect(string strURL, int port);
+    internal bool HandleRaknetPacket(byte type, NetRead read);
+    protected void HandleMessage();
+    public virtual void ProcessRead(NetRead read);
+    protected virtual bool Receive();
+    public virtual void Disconnect(string reason, bool sendReasonToServer);
+    public virtual string GetDebug(Connection connection);
+    public virtual ulong GetStat(Connection connection, StatTypeLong type);
+    public virtual int GetLastPing();
+    public virtual void ProcessWrite(NetWrite write);
+}
+[SuppressUnmanagedCodeSecurityAttribute]
+public class Facepunch.Network.Raknet.Native : object {
+    public static IntPtr NET_Create();
+    public static void NET_Close(IntPtr nw);
+    public static int NET_StartClient(IntPtr nw, string hostName, int port, int retries, int retryDelay, int timeout);
+    public static int NET_StartServer(IntPtr nw, string ip, int port, int maxConnections);
+    public static IntPtr NET_LastStartupError(IntPtr nw);
+    public static UInt32 NET_GetReceiveBufferSize(IntPtr nw);
+    public static bool NET_Receive(IntPtr nw);
+    public static ulong NETRCV_GUID(IntPtr nw);
+    public static UInt32 NETRCV_Address(IntPtr nw);
+    public static UInt32 NETRCV_Port(IntPtr nw);
+    public static IntPtr NETRCV_RawData(IntPtr nw);
+    public static int NETRCV_LengthBits(IntPtr nw);
+    public static int NETRCV_UnreadBits(IntPtr nw);
+    public static bool NETRCV_ReadBytes(IntPtr nw, Byte* data, int length);
+    public static void NETRCV_SetReadPointer(IntPtr nw, int bitsOffset);
+    public static void NETSND_Start(IntPtr nw);
+    public static void NETSND_WriteBytes(IntPtr nw, Byte* data, int length);
+    public static UInt32 NETSND_Size(IntPtr nw);
+    public static UInt32 NETSND_Broadcast(IntPtr nw, int priority, int reliability, int channel);
+    public static UInt32 NETSND_Send(IntPtr nw, ulong connectionID, int priority, int reliability, int channel);
+    public static void NET_CloseConnection(IntPtr nw, ulong connectionID);
+    public static IntPtr NET_GetAddress(IntPtr nw, ulong connectionID);
+    public static IntPtr NET_GetStatisticsString(IntPtr nw, ulong connectionID);
+    public static bool NET_GetStatistics(IntPtr nw, ulong connectionID, RaknetStats& data, int dataLength);
+    public static int NET_GetAveragePing(IntPtr nw, ulong connectionID);
+    public static int NET_GetLastPing(IntPtr nw, ulong connectionID);
+    public static int NET_GetLowestPing(IntPtr nw, ulong connectionID);
+    public static void NET_SendMessage(IntPtr nw, Byte* data, int length, UInt32 adr, ushort port);
+    public static float NETSND_ReadCompressedFloat(IntPtr nw);
+}
+public static class Facepunch.Network.Raknet.PacketType : object {
+    public static byte NEW_INCOMING_CONNECTION;
+    public static byte CONNECTION_REQUEST_ACCEPTED;
+    public static byte CONNECTION_ATTEMPT_FAILED;
+    public static byte DISCONNECTION_NOTIFICATION;
+    public static byte NO_FREE_INCOMING_CONNECTIONS;
+    public static byte CONNECTION_LOST;
+    public static byte CONNECTION_BANNED;
+}
+[SuppressUnmanagedCodeSecurityAttribute]
+internal class Facepunch.Network.Raknet.Peer : object {
+    private IntPtr ptr;
+    private static Byte[] ByteBuffer;
+    public ulong incomingGUID { get; }
+    public UInt32 incomingAddressInt { get; }
+    public UInt32 incomingPort { get; }
+    public string incomingAddress { get; }
+    public int incomingBits { get; }
+    public int incomingBitsUnread { get; }
+    public int incomingBytes { get; }
+    public int incomingBytesUnread { get; }
+    private static Peer();
+    public static Peer CreateServer(string ip, int port, int maxConnections);
+    public static Peer CreateConnection(string hostname, int port, int retries, int retryDelay, int timeout);
+    public void Close();
+    public UInt32 PendingReceiveCount();
+    public bool Receive();
+    public virtual ulong get_incomingGUID();
+    public virtual UInt32 get_incomingAddressInt();
+    public virtual UInt32 get_incomingPort();
+    public string get_incomingAddress();
+    public virtual int get_incomingBits();
+    public virtual int get_incomingBitsUnread();
+    public virtual int get_incomingBytes();
+    public virtual int get_incomingBytesUnread();
+    public virtual void SetReadPos(int bitsOffset);
+    protected virtual bool Read(Byte* data, int length);
+    public int ReadBytes(Byte[] buffer, int offset, int length);
+    public byte ReadByte();
+    public virtual IntPtr RawData();
+    public int ReadBytes(MemoryStream memoryStream, int length);
+    public virtual void SendStart();
+    public void WriteByte(byte val);
+    public void WriteBytes(Byte[] val, int offset, int length);
+    public void WriteBytes(Byte[] val);
+    public void WriteBytes(MemoryStream stream);
+    protected virtual void Write(Byte* data, int size);
+    public virtual UInt32 SendBroadcast(Priority priority, SendMethod reliability, sbyte channel);
+    public virtual UInt32 SendTo(ulong guid, Priority priority, SendMethod reliability, sbyte channel);
+    public void SendUnconnectedMessage(Byte* data, int length, UInt32 adr, ushort port);
+    public string GetAddress(ulong guid);
+    private static string StringFromPointer(IntPtr p);
+    public int ToRaknetPriority(Priority priority);
+    public int ToRaknetPacketReliability(SendMethod reliability);
+    public void Kick(Connection connection);
+    protected virtual void Check();
+    public virtual string GetStatisticsString(ulong guid);
+    public virtual int GetPingAverage(ulong guid);
+    public virtual int GetPingLast(ulong guid);
+    public virtual int GetPingLowest(ulong guid);
+    public virtual RaknetStats GetStatistics(ulong guid);
+    public virtual ulong GetStat(Connection connection, StatTypeLong type);
+}
+public class Facepunch.Network.Raknet.Server : Server {
+    private Peer peer;
+    public string ProtocolId { get; }
+    public virtual string get_ProtocolId();
+    public virtual bool IsConnected();
+    public virtual bool Start();
+    public virtual void Stop(string shutdownMsg);
+    public virtual void Disconnect(Connection cn);
+    public virtual void Kick(Connection cn, string message, bool logfile);
+    internal bool HandleRaknetPacket(byte type, NetRead read);
+    private void HandleMessage();
+    public virtual void ProcessRead(NetRead read);
+    protected virtual bool Receive();
+    public virtual string GetDebug(Connection connection);
+    public bool TryGetConnectionStats(Connection connection, RaknetStats& stats);
+    public virtual int GetAveragePing(Connection connection);
+    public int GetLatestPing(Connection connection);
+    public virtual ulong GetStat(Connection connection, StatTypeLong type);
+    public virtual void ProcessWrite(NetWrite write);
+    private void ProcessWrite(NetWrite write, Connection connection);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

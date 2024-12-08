@@ -1,0 +1,206 @@
+Сборка: EZhex1991.EZSoftBone.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: EZhex1991.EZSoftBone.EZCurveRectAttribute
+Наследуется от: PropertyAttribute
+Поля:
+  Rect rect
+  Color color
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(Rect rect)
+  void .ctor(float x, float y, float width, float height)
+  void .ctor(Rect rect, Color color)
+  void .ctor(float x, float y, float width, float height, Color color)
+--------------------------------------------------
+Класс: EZhex1991.EZSoftBone.EZNestedEditorAttribute
+Наследуется от: PropertyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: EZhex1991.EZSoftBone.CustomForce
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  Vector3 Invoke(float normalizedLength, Transform forceSpace)
+  IAsyncResult BeginInvoke(float normalizedLength, Transform forceSpace, AsyncCallback callback, object object)
+  Vector3 EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: EZhex1991.EZSoftBone.EZSoftBone
+Наследуется от: MonoBehaviour
+Поля:
+  float DeltaTime_Min
+  int MaxInstanceCount
+  float CurrentFrame
+  int InstanceNumber
+  List`1<Transform> rootBones
+  List`1<Transform> endBones
+  EZSoftBoneMaterial _material
+  int startDepth
+  int stiffnessDepth
+  UnificationMode siblingConstraints
+  UnificationMode lengthUnification
+  bool siblingRotationConstraints
+  bool closedSiblings
+  LayerMask collisionLayers
+  float radius
+  AnimationCurve radiusCurve
+  float deadZoneRadius
+  float deadZoneExtent
+  DeltaTimeMode deltaTimeMode
+  float constantDeltaTime
+  int iterations
+  float sleepThreshold
+  Vector3 gravity
+  Transform _simulateSpace
+  float globalRadius
+  Vector3 globalForce
+  bool collisionEnabled
+  BoneChain[] structures
+  Vector3 origin
+  Vector3 prevOrigin
+  Vector3 originDelta
+  bool simulationSpaceChanged
+  Capsule deadZoneCapsule
+  bool isVisible
+  Vector3 forceDirection
+Свойства:
+  EZSoftBoneMaterial sharedMaterial
+  Transform simulateSpace
+Методы:
+  EZSoftBoneMaterial get_sharedMaterial()
+  void set_sharedMaterial(EZSoftBoneMaterial value)
+  Transform get_simulateSpace()
+  void set_simulateSpace(Transform value)
+  void Awake()
+  void OnEnable()
+  void OnDisable()
+  void LateUpdate()
+  void RevertTransforms()
+  void RevertTransforms(int startDepth)
+  void InitStructures(bool force)
+  void SetRestState()
+  void CreateBones()
+  void SetParentBones()
+  void SetSiblings()
+  void SetTreeLength()
+  void RefreshRadius()
+  void UpdateStructures(float deltaTime)
+  void UpdateBones(Bone bone, float deltaTime)
+  void UpdateTransforms()
+  void UpdateSimulationSpace(Transform transform)
+  void PushBonesOutOfDeadZone()
+  void PlayerPreviewVisibility(bool isVisible)
+  void PreProcess(IPrefabProcessor preProcess, GameObject rootObj, string name, bool serverside, bool clientside, bool bundling)
+  void .ctor()
+  bool <SetSiblings>g__HasBoneAtDepth|55_1(BoneChain chain, int depth)
+--------------------------------------------------
+Класс: EZhex1991.EZSoftBone.EZSoftBoneColliderBase
+Наследуется от: MonoBehaviour
+Поля:
+  ListHashSet`1<EZSoftBoneColliderBase> EnabledColliders
+Свойства:
+Методы:
+  void OnEnable()
+  void OnDisable()
+  void Collide(Vector3& position, float spacing)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: EZhex1991.EZSoftBone.EZSoftBoneColliderCylinder
+Наследуется от: EZSoftBoneColliderBase
+Поля:
+  float m_Margin
+  bool m_InsideMode
+Свойства:
+  float margin
+  bool insideMode
+Методы:
+  float get_margin()
+  void set_margin(float value)
+  bool get_insideMode()
+  void set_insideMode(bool value)
+  void Collide(Vector3& position, float spacing)
+  void .ctor()
+--------------------------------------------------
+Класс: EZhex1991.EZSoftBone.EZSoftBoneMaterial
+Наследуется от: ScriptableObject
+Поля:
+  float m_Damping
+  AnimationCurve m_DampingCurve
+  float m_Stiffness
+  AnimationCurve m_StiffnessCurve
+  float m_Resistance
+  AnimationCurve m_ResistanceCurve
+  float m_Slackness
+  AnimationCurve m_SlacknessCurve
+  EZSoftBoneMaterial m_DefaultMaterial
+Свойства:
+  float damping
+  AnimationCurve dampingCurve
+  float stiffness
+  AnimationCurve stiffnessCurve
+  float resistance
+  AnimationCurve resistanceCurve
+  float slackness
+  AnimationCurve slacknessCurve
+  EZSoftBoneMaterial defaultMaterial
+Методы:
+  float get_damping()
+  void set_damping(float value)
+  AnimationCurve get_dampingCurve()
+  float get_stiffness()
+  void set_stiffness(float value)
+  AnimationCurve get_stiffnessCurve()
+  float get_resistance()
+  void set_resistance(float value)
+  AnimationCurve get_resistanceCurve()
+  float get_slackness()
+  void set_slackness(float value)
+  AnimationCurve get_slacknessCurve()
+  EZSoftBoneMaterial get_defaultMaterial()
+  float GetDamping(float t)
+  float GetStiffness(float t)
+  float GetResistance(float t)
+  float GetSlackness(float t)
+  void .ctor()
+--------------------------------------------------
+Класс: EZhex1991.EZSoftBone.EZSoftBoneUtility
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Vector3 Abs(Vector3 v)
+  float Max(Vector3 v)
+  bool Contains(LayerMask mask, int layer)
+  void GetCapsuleParams(CapsuleCollider collider, Vector3& center0, Vector3& center1, Single& radius)
+  void GetCylinderParams(Transform transform, Vector3& center, Vector3& direction, Single& radius, Single& height)
+  void PointOutsideSphere(Vector3& position, SphereCollider collider, float spacing)
+  void PointOutsideSphere(Vector3& position, Vector3 spherePosition, float radius)
+  void PointInsideSphere(Vector3& position, SphereCollider collider, float spacing)
+  void PointInsideSphere(Vector3& position, Vector3 spherePosition, float radius)
+  void PointOutsideCapsule(Vector3& position, CapsuleCollider collider, float spacing)
+  void PointOutsideCapsule(Vector3& position, Vector3 center0, Vector3 center1, float radius)
+  void PointInsideCapsule(Vector3& position, CapsuleCollider collider, float spacing)
+  void PointInsideCapsule(Vector3& position, Vector3 center0, Vector3 center1, float radius)
+  void PointOutsideCylinder(Vector3& position, Transform transform, float spacing)
+  void PointOutsideCylinder(Vector3& position, Vector3 center, Vector3 direction, float radius, float height)
+  void PointInsideCylinder(Vector3& position, Transform transform, float spacing)
+  void PointInsideCylinder(Vector3& position, Vector3 center, Vector3 direction, float radius, float height)
+  void PointOutsideBox(Vector3& position, BoxCollider collider, float spacing)
+  void PointOutsideBox(Vector3& position, Vector3 boxSize)
+  void PointInsideBox(Vector3& position, BoxCollider collider, float spacing)
+  void PointInsideBox(Vector3& position, Vector3 boxSize)
+  void PointOutsideCollider(Vector3& position, Collider collider, float spacing)
+  void DrawGizmosArrow(Vector3 startPoint, Vector3 direction, float halfWidth, Vector3 normal)
+  void DrawGizmosPolyLine(Vector3[] vertices)
+--------------------------------------------------

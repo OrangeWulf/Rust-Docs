@@ -1,0 +1,567 @@
+Сборка: Mono.Cecil.Mdb.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.MonoSymbolFileException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message, Object[] args)
+  void .ctor(string message, Exception innerException)
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.MyBinaryWriter
+Наследуется от: BinaryWriter
+Поля:
+Свойства:
+Методы:
+  void .ctor(Stream stream)
+  void WriteLeb128(int value)
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.MyBinaryReader
+Наследуется от: BinaryReader
+Поля:
+Свойства:
+Методы:
+  void .ctor(Stream stream)
+  int ReadLeb128()
+  string ReadString(int offset)
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.ISourceFile
+Поля:
+Свойства:
+  SourceFileEntry Entry
+Методы:
+  SourceFileEntry get_Entry()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.ICompileUnit
+Поля:
+Свойства:
+  CompileUnitEntry Entry
+Методы:
+  CompileUnitEntry get_Entry()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.IMethodDef
+Поля:
+Свойства:
+  string Name
+  int Token
+Методы:
+  string get_Name()
+  int get_Token()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.MonoSymbolFile
+Наследуется от: object
+Поля:
+  List`1<MethodEntry> methods
+  List`1<SourceFileEntry> sources
+  List`1<CompileUnitEntry> comp_units
+  Dictionary`2<int, AnonymousScopeEntry> anonymous_scopes
+  OffsetTable ot
+  int last_type_index
+  int last_method_index
+  int last_namespace_index
+  int MajorVersion
+  int MinorVersion
+  int NumLineNumbers
+  MyBinaryReader reader
+  Dictionary`2<int, SourceFileEntry> source_file_hash
+  Dictionary`2<int, CompileUnitEntry> compile_unit_hash
+  List`1<MethodEntry> method_list
+  Dictionary`2<int, MethodEntry> method_token_hash
+  Dictionary`2<string, int> source_name_hash
+  Guid guid
+  int LineNumberCount
+  int LocalCount
+  int StringSize
+  int LineNumberSize
+  int ExtendedLineNumberSize
+Свойства:
+  int CompileUnitCount
+  int SourceCount
+  int MethodCount
+  int TypeCount
+  int AnonymousScopeCount
+  int NamespaceCount
+  Guid Guid
+  OffsetTable OffsetTable
+  SourceFileEntry[] Sources
+  CompileUnitEntry[] CompileUnits
+  MethodEntry[] Methods
+  MyBinaryReader BinaryReader
+Методы:
+  void .ctor()
+  int AddSource(SourceFileEntry source)
+  int AddCompileUnit(CompileUnitEntry entry)
+  void AddMethod(MethodEntry entry)
+  MethodEntry DefineMethod(CompileUnitEntry comp_unit, int token, ScopeVariable[] scope_vars, LocalVariableEntry[] locals, LineNumberEntry[] lines, CodeBlockEntry[] code_blocks, string real_name, Flags flags, int namespace_id)
+  void DefineAnonymousScope(int id)
+  void DefineCapturedVariable(int scope_id, string name, string captured_name, CapturedKind kind)
+  void DefineCapturedScope(int scope_id, int id, string captured_name)
+  int GetNextTypeIndex()
+  int GetNextMethodIndex()
+  int GetNextNamespaceIndex()
+  void Write(MyBinaryWriter bw, Guid guid)
+  void CreateSymbolFile(Guid guid, FileStream fs)
+  void .ctor(Stream stream)
+  MonoSymbolFile ReadSymbolFile(string mdbFilename)
+  MonoSymbolFile ReadSymbolFile(string mdbFilename, Guid assemblyGuid)
+  MonoSymbolFile ReadSymbolFile(Stream stream)
+  int get_CompileUnitCount()
+  int get_SourceCount()
+  int get_MethodCount()
+  int get_TypeCount()
+  int get_AnonymousScopeCount()
+  int get_NamespaceCount()
+  Guid get_Guid()
+  OffsetTable get_OffsetTable()
+  SourceFileEntry GetSourceFile(int index)
+  SourceFileEntry[] get_Sources()
+  CompileUnitEntry GetCompileUnit(int index)
+  CompileUnitEntry[] get_CompileUnits()
+  void read_methods()
+  MethodEntry GetMethodByToken(int token)
+  MethodEntry GetMethod(int index)
+  MethodEntry[] get_Methods()
+  int FindSource(string file_name)
+  AnonymousScopeEntry GetAnonymousScope(int id)
+  MyBinaryReader get_BinaryReader()
+  void Dispose()
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.OffsetTable
+Наследуется от: object
+Поля:
+  int MajorVersion
+  int MinorVersion
+  long Magic
+  int TotalFileSize
+  int DataSectionOffset
+  int DataSectionSize
+  int CompileUnitCount
+  int CompileUnitTableOffset
+  int CompileUnitTableSize
+  int SourceCount
+  int SourceTableOffset
+  int SourceTableSize
+  int MethodCount
+  int MethodTableOffset
+  int MethodTableSize
+  int TypeCount
+  int AnonymousScopeCount
+  int AnonymousScopeTableOffset
+  int AnonymousScopeTableSize
+  Flags FileFlags
+  int LineNumberTable_LineBase
+  int LineNumberTable_LineRange
+  int LineNumberTable_OpcodeBase
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(BinaryReader reader, int major_version, int minor_version)
+  void Write(BinaryWriter bw, int major_version, int minor_version)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.LineNumberEntry
+Наследуется от: object
+Поля:
+  int Row
+  int Column
+  int EndRow
+  int EndColumn
+  int File
+  int Offset
+  bool IsHidden
+  LineNumberEntry Null
+Свойства:
+Методы:
+  void .ctor(int file, int row, int column, int offset)
+  void .ctor(int file, int row, int offset)
+  void .ctor(int file, int row, int column, int offset, bool is_hidden)
+  void .ctor(int file, int row, int column, int end_row, int end_column, int offset, bool is_hidden)
+  string ToString()
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.CodeBlockEntry
+Наследуется от: object
+Поля:
+  int Index
+  int Parent
+  Type BlockType
+  int StartOffset
+  int EndOffset
+Свойства:
+Методы:
+  void .ctor(int index, int parent, Type type, int start_offset)
+  void .ctor(int index, MyBinaryReader reader)
+  void Close(int end_offset)
+  void Write(MyBinaryWriter bw)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.LocalVariableEntry
+Наследуется от: ValueType
+Поля:
+  int Index
+  string Name
+  int BlockIndex
+Свойства:
+Методы:
+  void .ctor(int index, string name, int block)
+  void .ctor(MonoSymbolFile file, MyBinaryReader reader)
+  void Write(MonoSymbolFile file, MyBinaryWriter bw)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.CapturedVariable
+Наследуется от: ValueType
+Поля:
+  string Name
+  string CapturedName
+  CapturedKind Kind
+Свойства:
+Методы:
+  void .ctor(string name, string captured_name, CapturedKind kind)
+  void .ctor(MyBinaryReader reader)
+  void Write(MyBinaryWriter bw)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.CapturedScope
+Наследуется от: ValueType
+Поля:
+  int Scope
+  string CapturedName
+Свойства:
+Методы:
+  void .ctor(int scope, string captured_name)
+  void .ctor(MyBinaryReader reader)
+  void Write(MyBinaryWriter bw)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.ScopeVariable
+Наследуется от: ValueType
+Поля:
+  int Scope
+  int Index
+Свойства:
+Методы:
+  void .ctor(int scope, int index)
+  void .ctor(MyBinaryReader reader)
+  void Write(MyBinaryWriter bw)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.AnonymousScopeEntry
+Наследуется от: object
+Поля:
+  int ID
+  List`1<CapturedVariable> captured_vars
+  List`1<CapturedScope> captured_scopes
+Свойства:
+  CapturedVariable[] CapturedVariables
+  CapturedScope[] CapturedScopes
+Методы:
+  void .ctor(int id)
+  void .ctor(MyBinaryReader reader)
+  void AddCapturedVariable(string name, string captured_name, CapturedKind kind)
+  CapturedVariable[] get_CapturedVariables()
+  void AddCapturedScope(int scope, string captured_name)
+  CapturedScope[] get_CapturedScopes()
+  void Write(MyBinaryWriter bw)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.CompileUnitEntry
+Наследуется от: object
+Поля:
+  int Index
+  int DataOffset
+  MonoSymbolFile file
+  SourceFileEntry source
+  List`1<SourceFileEntry> include_files
+  List`1<NamespaceEntry> namespaces
+  bool creating
+Свойства:
+  int Size
+  CompileUnitEntry Mono.CompilerServices.SymbolWriter.ICompileUnit.Entry
+  SourceFileEntry SourceFile
+  NamespaceEntry[] Namespaces
+  SourceFileEntry[] IncludeFiles
+Методы:
+  int get_Size()
+  CompileUnitEntry Mono.CompilerServices.SymbolWriter.ICompileUnit.get_Entry()
+  void .ctor(MonoSymbolFile file, SourceFileEntry source)
+  void AddFile(SourceFileEntry file)
+  SourceFileEntry get_SourceFile()
+  int DefineNamespace(string name, String[] using_clauses, int parent)
+  void WriteData(MyBinaryWriter bw)
+  void Write(BinaryWriter bw)
+  void .ctor(MonoSymbolFile file, MyBinaryReader reader)
+  void ReadAll()
+  void ReadData()
+  NamespaceEntry[] get_Namespaces()
+  SourceFileEntry[] get_IncludeFiles()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.SourceFileEntry
+Наследуется от: object
+Поля:
+  int Index
+  int DataOffset
+  MonoSymbolFile file
+  string file_name
+  Byte[] guid
+  Byte[] hash
+  bool creating
+  bool auto_generated
+  string sourceFile
+Свойства:
+  int Size
+  Byte[] Checksum
+  string FileName
+  bool AutoGenerated
+Методы:
+  int get_Size()
+  void .ctor(MonoSymbolFile file, string file_name)
+  void .ctor(MonoSymbolFile file, string sourceFile, Byte[] guid, Byte[] checksum)
+  void .ctor(MonoSymbolFile file, string fileName, string sourceFile, Byte[] guid, Byte[] checksum)
+  Byte[] get_Checksum()
+  void WriteData(MyBinaryWriter bw)
+  void Write(BinaryWriter bw)
+  void .ctor(MonoSymbolFile file, MyBinaryReader reader)
+  string get_FileName()
+  void set_FileName(string value)
+  bool get_AutoGenerated()
+  void SetAutoGenerated()
+  bool CheckChecksum()
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.LineNumberTable
+Наследуется от: object
+Поля:
+  LineNumberEntry[] _line_numbers
+  int LineBase
+  int LineRange
+  byte OpcodeBase
+  int MaxAddressIncrement
+  int Default_LineBase
+  int Default_LineRange
+  byte Default_OpcodeBase
+  byte DW_LNS_copy
+  byte DW_LNS_advance_pc
+  byte DW_LNS_advance_line
+  byte DW_LNS_set_file
+  byte DW_LNS_const_add_pc
+  byte DW_LNE_end_sequence
+  byte DW_LNE_MONO_negate_is_hidden
+  byte DW_LNE_MONO__extensions_start
+  byte DW_LNE_MONO__extensions_end
+Свойства:
+  LineNumberEntry[] LineNumbers
+Методы:
+  LineNumberEntry[] get_LineNumbers()
+  void .ctor(MonoSymbolFile file)
+  void .ctor(MonoSymbolFile file, LineNumberEntry[] lines)
+  void Write(MonoSymbolFile file, MyBinaryWriter bw, bool hasColumnsInfo, bool hasEndInfo)
+  LineNumberTable Read(MonoSymbolFile file, MyBinaryReader br, bool readColumnsInfo, bool readEndInfo)
+  void DoRead(MonoSymbolFile file, MyBinaryReader br, bool includesColumns, bool includesEnds)
+  bool GetMethodBounds(LineNumberEntry& start, LineNumberEntry& end)
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.MethodEntry
+Наследуется от: object
+Поля:
+  int CompileUnitIndex
+  int Token
+  int NamespaceID
+  int DataOffset
+  int LocalVariableTableOffset
+  int LineNumberTableOffset
+  int CodeBlockTableOffset
+  int ScopeVariableTableOffset
+  int RealNameOffset
+  Flags flags
+  int index
+  CompileUnitEntry CompileUnit
+  LocalVariableEntry[] locals
+  CodeBlockEntry[] code_blocks
+  ScopeVariable[] scope_vars
+  LineNumberTable lnt
+  string real_name
+  MonoSymbolFile SymbolFile
+  int Size
+Свойства:
+  Flags MethodFlags
+  int Index
+Методы:
+  Flags get_MethodFlags()
+  int get_Index()
+  void set_Index(int value)
+  void .ctor(MonoSymbolFile file, MyBinaryReader reader, int index)
+  void .ctor(MonoSymbolFile file, CompileUnitEntry comp_unit, int token, ScopeVariable[] scope_vars, LocalVariableEntry[] locals, LineNumberEntry[] lines, CodeBlockEntry[] code_blocks, string real_name, Flags flags, int namespace_id)
+  void CheckLineNumberTable(LineNumberEntry[] line_numbers)
+  void Write(MyBinaryWriter bw)
+  void WriteData(MonoSymbolFile file, MyBinaryWriter bw)
+  void ReadAll()
+  LineNumberTable GetLineNumberTable()
+  LocalVariableEntry[] GetLocals()
+  CodeBlockEntry[] GetCodeBlocks()
+  ScopeVariable[] GetScopeVariables()
+  string GetRealName()
+  int CompareTo(object obj)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.NamespaceEntry
+Наследуется от: ValueType
+Поля:
+  string Name
+  int Index
+  int Parent
+  String[] UsingClauses
+Свойства:
+Методы:
+  void .ctor(string name, int index, String[] using_clauses, int parent)
+  void .ctor(MonoSymbolFile file, MyBinaryReader reader)
+  void Write(MonoSymbolFile file, MyBinaryWriter bw)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.MonoSymbolWriter
+Наследуется от: object
+Поля:
+  List`1<SourceMethodBuilder> methods
+  List`1<SourceFileEntry> sources
+  List`1<CompileUnitEntry> comp_units
+  MonoSymbolFile file
+  string filename
+  SourceMethodBuilder current_method
+  Stack`1<SourceMethodBuilder> current_method_stack
+Свойства:
+  MonoSymbolFile SymbolFile
+Методы:
+  void .ctor(string filename)
+  MonoSymbolFile get_SymbolFile()
+  void CloseNamespace()
+  void DefineLocalVariable(int index, string name)
+  void DefineCapturedLocal(int scope_id, string name, string captured_name)
+  void DefineCapturedParameter(int scope_id, string name, string captured_name)
+  void DefineCapturedThis(int scope_id, string captured_name)
+  void DefineCapturedScope(int scope_id, int id, string captured_name)
+  void DefineScopeVariable(int scope, int index)
+  void MarkSequencePoint(int offset, SourceFileEntry file, int line, int column, bool is_hidden)
+  SourceMethodBuilder OpenMethod(ICompileUnit file, int ns_id, IMethodDef method)
+  void CloseMethod()
+  SourceFileEntry DefineDocument(string url)
+  SourceFileEntry DefineDocument(string url, Byte[] guid, Byte[] checksum)
+  CompileUnitEntry DefineCompilationUnit(SourceFileEntry source)
+  int DefineNamespace(string name, CompileUnitEntry unit, String[] using_clauses, int parent)
+  int OpenScope(int start_offset)
+  void CloseScope(int end_offset)
+  void OpenCompilerGeneratedBlock(int start_offset)
+  void CloseCompilerGeneratedBlock(int end_offset)
+  void StartIteratorBody(int start_offset)
+  void EndIteratorBody(int end_offset)
+  void StartIteratorDispatcher(int start_offset)
+  void EndIteratorDispatcher(int end_offset)
+  void DefineAnonymousScope(int id)
+  void WriteSymbolFile(Guid guid)
+--------------------------------------------------
+Класс: Mono.CompilerServices.SymbolWriter.SourceMethodBuilder
+Наследуется от: object
+Поля:
+  List`1<LocalVariableEntry> _locals
+  List`1<CodeBlockEntry> _blocks
+  List`1<ScopeVariable> _scope_vars
+  Stack`1<CodeBlockEntry> _block_stack
+  List`1<LineNumberEntry> method_lines
+  ICompileUnit _comp_unit
+  int ns_id
+  IMethodDef method
+Свойства:
+  CodeBlockEntry[] Blocks
+  CodeBlockEntry CurrentBlock
+  LocalVariableEntry[] Locals
+  ICompileUnit SourceFile
+  ScopeVariable[] ScopeVariables
+Методы:
+  void .ctor(ICompileUnit comp_unit)
+  void .ctor(ICompileUnit comp_unit, int ns_id, IMethodDef method)
+  void MarkSequencePoint(int offset, SourceFileEntry file, int line, int column, bool is_hidden)
+  void MarkSequencePoint(int offset, SourceFileEntry file, int line, int column, int end_line, int end_column, bool is_hidden)
+  void StartBlock(Type type, int start_offset)
+  void StartBlock(Type type, int start_offset, int scopeIndex)
+  void EndBlock(int end_offset)
+  CodeBlockEntry[] get_Blocks()
+  CodeBlockEntry get_CurrentBlock()
+  LocalVariableEntry[] get_Locals()
+  ICompileUnit get_SourceFile()
+  void AddLocal(int index, string name)
+  ScopeVariable[] get_ScopeVariables()
+  void AddScopeVariable(int scope, int index)
+  void DefineMethod(MonoSymbolFile file)
+  void DefineMethod(MonoSymbolFile file, int token)
+--------------------------------------------------
+Класс: Mono.Cecil.Mdb.MdbReaderProvider
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ISymbolReader GetSymbolReader(ModuleDefinition module, string fileName)
+  ISymbolReader GetSymbolReader(ModuleDefinition module, Stream symbolStream)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Cecil.Mdb.MdbReader
+Наследуется от: object
+Поля:
+  ModuleDefinition module
+  MonoSymbolFile symbol_file
+  Dictionary`2<string, Document> documents
+Свойства:
+Методы:
+  void .ctor(ModuleDefinition module, MonoSymbolFile symFile)
+  ISymbolWriterProvider GetWriterProvider()
+  bool ProcessDebugHeader(ImageDebugHeader header)
+  MethodDebugInformation Read(MethodDefinition method)
+  int ReadCodeSize(MethodDefinition method)
+  void ReadLocalVariables(MethodEntry entry, ScopeDebugInformation[] scopes)
+  void ReadLineNumbers(MethodEntry entry, MethodDebugInformation info)
+  Document GetDocument(SourceFileEntry file)
+  ScopeDebugInformation[] ReadScopes(MethodEntry entry, MethodDebugInformation info)
+  bool AddScope(Collection`1<ScopeDebugInformation> scopes, ScopeDebugInformation scope)
+  SequencePoint LineToSequencePoint(LineNumberEntry line)
+  void Dispose()
+--------------------------------------------------
+Класс: Mono.Cecil.Mdb.MethodEntryExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool HasColumnInfo(MethodEntry entry)
+  bool HasEndInfo(MethodEntry entry)
+--------------------------------------------------
+Класс: Mono.Cecil.Mdb.MdbWriterProvider
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ISymbolWriter GetSymbolWriter(ModuleDefinition module, string fileName)
+  ISymbolWriter GetSymbolWriter(ModuleDefinition module, Stream symbolStream)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Cecil.Mdb.MdbWriter
+Наследуется от: object
+Поля:
+  ModuleDefinition module
+  MonoSymbolWriter writer
+  Dictionary`2<string, SourceFile> source_files
+Свойства:
+Методы:
+  void .ctor(ModuleDefinition module, string assembly)
+  ISymbolReaderProvider GetReaderProvider()
+  SourceFile GetSourceFile(Document document)
+  void Populate(Collection`1<SequencePoint> sequencePoints, Int32[] offsets, Int32[] startRows, Int32[] endRows, Int32[] startCols, Int32[] endCols, SourceFile& file)
+  void Write(MethodDebugInformation info)
+  void WriteRootScope(ScopeDebugInformation scope, MethodDebugInformation info)
+  void WriteScope(ScopeDebugInformation scope, MethodDebugInformation info)
+  void WriteScopes(Collection`1<ScopeDebugInformation> scopes, MethodDebugInformation info)
+  void WriteScopeVariables(ScopeDebugInformation scope)
+  ImageDebugHeader GetDebugHeader()
+  void Dispose()
+--------------------------------------------------

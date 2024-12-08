@@ -1,0 +1,104 @@
+Сборка: MidiJack.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MidiJack.MidiChannel
+Наследуется от: Enum
+Поля:
+  int value__
+  MidiChannel Ch1
+  MidiChannel Ch2
+  MidiChannel Ch3
+  MidiChannel Ch4
+  MidiChannel Ch5
+  MidiChannel Ch6
+  MidiChannel Ch7
+  MidiChannel Ch8
+  MidiChannel Ch9
+  MidiChannel Ch10
+  MidiChannel Ch11
+  MidiChannel Ch12
+  MidiChannel Ch13
+  MidiChannel Ch14
+  MidiChannel Ch15
+  MidiChannel Ch16
+  MidiChannel All
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MidiJack.MidiMessage
+Наследуется от: ValueType
+Поля:
+  UInt32 source
+  byte status
+  byte data1
+  byte data2
+Свойства:
+Методы:
+  void .ctor(ulong data)
+  string ToString()
+--------------------------------------------------
+Класс: MidiJack.MidiDriver
+Наследуется от: object
+Поля:
+  ChannelState[] _channelArray
+  int _lastFrame
+  bool enabled
+  NoteOnDelegate <noteOnDelegate>k__BackingField
+  NoteOffDelegate <noteOffDelegate>k__BackingField
+  KnobDelegate <knobDelegate>k__BackingField
+  MidiDriver _instance
+Свойства:
+  NoteOnDelegate noteOnDelegate
+  NoteOffDelegate noteOffDelegate
+  KnobDelegate knobDelegate
+  MidiDriver Instance
+Методы:
+  float GetKey(MidiChannel channel, int noteNumber)
+  bool GetKeyDown(MidiChannel channel, int noteNumber)
+  bool GetKeyUp(MidiChannel channel, int noteNumber)
+  Int32[] GetKnobNumbers(MidiChannel channel)
+  float GetKnob(MidiChannel channel, int knobNumber, float defaultValue)
+  NoteOnDelegate get_noteOnDelegate()
+  void set_noteOnDelegate(NoteOnDelegate value)
+  NoteOffDelegate get_noteOffDelegate()
+  void set_noteOffDelegate(NoteOffDelegate value)
+  KnobDelegate get_knobDelegate()
+  void set_knobDelegate(KnobDelegate value)
+  void .ctor()
+  void ToggleEnabled(bool state)
+  void ClearOutstandingData()
+  void UpdateIfNeeded()
+  void Update()
+  ulong DequeueIncomingData()
+  MidiDriver get_Instance()
+--------------------------------------------------
+Класс: MidiJack.MidiMaster
+Наследуется от: object
+Поля:
+Свойства:
+  NoteOnDelegate noteOnDelegate
+  NoteOffDelegate noteOffDelegate
+  KnobDelegate knobDelegate
+Методы:
+  NoteOnDelegate get_noteOnDelegate()
+  void set_noteOnDelegate(NoteOnDelegate value)
+  NoteOffDelegate get_noteOffDelegate()
+  void set_noteOffDelegate(NoteOffDelegate value)
+  KnobDelegate get_knobDelegate()
+  void set_knobDelegate(KnobDelegate value)
+  float GetKey(MidiChannel channel, int noteNumber)
+  float GetKey(int noteNumber)
+  bool GetKeyDown(MidiChannel channel, int noteNumber)
+  bool GetKeyDown(int noteNumber)
+  bool GetKeyUp(MidiChannel channel, int noteNumber)
+  bool GetKeyUp(int noteNumber)
+  Int32[] GetKnobNumbers(MidiChannel channel)
+  Int32[] GetKnobNumbers()
+  float GetKnob(MidiChannel channel, int knobNumber, float defaultValue)
+  float GetKnob(int knobNumber, float defaultValue)
+  void ToggleEnabled(bool state)
+--------------------------------------------------

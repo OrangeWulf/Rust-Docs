@@ -1,0 +1,38 @@
+[NativeHeaderAttribute("Modules/UnityWebRequestAudio/Public/DownloadHandlerAudioClip.h")]
+public class UnityEngine.Networking.DownloadHandlerAudioClip : DownloadHandler {
+    private NativeArray`1<byte> m_NativeData;
+    [NativeThrowsAttribute]
+public AudioClip audioClip { get; }
+    public bool streamAudio { get; public set; }
+    public bool compressed { get; public set; }
+    public DownloadHandlerAudioClip(string url, AudioType audioType);
+    public DownloadHandlerAudioClip(Uri uri, AudioType audioType);
+    private static IntPtr Create(DownloadHandlerAudioClip obj, string url, AudioType audioType);
+    private void InternalCreateAudioClip(string url, AudioType audioType);
+    protected virtual NativeArray`1<byte> GetNativeData();
+    public virtual void Dispose();
+    protected virtual string GetText();
+    public AudioClip get_audioClip();
+    public bool get_streamAudio();
+    public void set_streamAudio(bool value);
+    public bool get_compressed();
+    public void set_compressed(bool value);
+    public static AudioClip GetContent(UnityWebRequest www);
+}
+[ObsoleteAttribute("MovieTexture is deprecated. Use VideoPlayer instead.", "True")]
+public class UnityEngine.Networking.DownloadHandlerMovieTexture : DownloadHandler {
+    public MovieTexture movieTexture { get; }
+    protected virtual Byte[] GetData();
+    protected virtual string GetText();
+    public MovieTexture get_movieTexture();
+    public static MovieTexture GetContent(UnityWebRequest uwr);
+    private static void FeatureRemoved();
+}
+public static class UnityEngine.Networking.UnityWebRequestMultimedia : object {
+    public static UnityWebRequest GetAudioClip(string uri, AudioType audioType);
+    public static UnityWebRequest GetAudioClip(Uri uri, AudioType audioType);
+    [ObsoleteAttribute("MovieTexture is deprecated. Use VideoPlayer instead.", "True")]
+public static UnityWebRequest GetMovieTexture(string uri);
+    [ObsoleteAttribute("MovieTexture is deprecated. Use VideoPlayer instead.", "True")]
+public static UnityWebRequest GetMovieTexture(Uri uri);
+}

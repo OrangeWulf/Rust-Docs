@@ -1,0 +1,1732 @@
+internal static class Cysharp.Text.EnumUtil`1 : object {
+    [NullableAttribute("1")]
+private static string InvalidName;
+    [NullableAttribute("1")]
+private static Dictionary`2<T, string> names;
+    [NullableAttribute("1")]
+private static Dictionary`2<T, Byte[]> utf8names;
+    private static EnumUtil`1();
+    public static bool TryFormatUtf16(T value, Span`1<char> dest, Int32& written, ReadOnlySpan`1<char> _);
+    public static bool TryFormatUtf8(T value, Span`1<byte> dest, Int32& written, StandardFormat _);
+}
+internal static class Cysharp.Text.ExceptionUtil : object {
+    [NullableContextAttribute("1")]
+internal static void ThrowArgumentException(string paramName);
+    internal static void ThrowFormatException();
+    internal static void ThrowFormatError();
+}
+internal static class Cysharp.Text.FastNumberWriter : object {
+    public static bool TryWriteInt64(Span`1<char> buffer, Int32& charsWritten, long value);
+    public static bool TryWriteUInt64(Span`1<char> buffer, Int32& charsWritten, ulong value);
+}
+internal static class Cysharp.Text.FormatParser : object {
+    internal static int ArgLengthLimit;
+    internal static int WidthLimit;
+    [NullableContextAttribute("1")]
+public static ParserScanResult ScanFormatString(string format, Int32& i);
+    public static ParserScanResult ScanFormatString(ReadOnlySpan`1<char> format, Int32& i);
+    private static bool IsDigit(char c);
+    public static ParseResult Parse(ReadOnlySpan`1<char> format, int i);
+    [NullableContextAttribute("1")]
+public static ParseResult Parse(string format, int i);
+}
+[NullableContextAttribute("2")]
+public interface Cysharp.Text.IResettableBufferWriter`1 {
+    public abstract virtual void Reset();
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+internal class Cysharp.Text.NestedStringBuilderCreationException : InvalidOperationException {
+    protected internal NestedStringBuilderCreationException(string typeName, string extraMessage);
+    protected internal NestedStringBuilderCreationException(string message, Exception innerException);
+}
+internal enum Cysharp.Text.ParserScanResult : Enum {
+    public int value__;
+    public static ParserScanResult BraceOpen;
+    public static ParserScanResult EscapedChar;
+    public static ParserScanResult NormalChar;
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+internal static class Cysharp.Text.PreparedFormatHelper : object {
+    internal static Utf16FormatSegment[] Utf16Parse(string format);
+    internal static Utf8FormatSegment[] Utf8Parse(string format, Byte[]& utf8buffer);
+}
+[DefaultMemberAttribute("Item")]
+[IsReadOnlyAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+internal class Cysharp.Text.ReadOnlyListAdaptor`1 : ValueType {
+    private IList`1<T> _list;
+    public T Item { get; }
+    public int Count { get; }
+    public ReadOnlyListAdaptor`1(IList`1<T> list);
+    public sealed virtual T get_Item(int index);
+    public sealed virtual int get_Count();
+    public sealed virtual IEnumerator`1<T> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+}
+public static class Cysharp.Text.StandardFormats : object {
+    public static StandardFormat DateTime_ISO;
+    private static StandardFormats();
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+internal static class Cysharp.Text.Utf16FormatHelper : object {
+    private static char sp;
+    public static void FormatTo(TBufferWriter& sb, T arg, int width, ReadOnlySpan`1<char> format, string argName);
+    private static void FormatToRightJustify(TBufferWriter& sb, T arg, int width, ReadOnlySpan`1<char> format, string argName);
+}
+[IsReadOnlyAttribute]
+internal class Cysharp.Text.Utf16FormatSegment : ValueType {
+    public static int NotFormatIndex;
+    public int Offset;
+    public int Count;
+    public int FormatIndex;
+    public int Alignment;
+    public bool IsFormatArgument { get; }
+    public Utf16FormatSegment(int offset, int count, int formatIndex, int alignment);
+    public bool get_IsFormatArgument();
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf16PreparedFormat`1 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf16FormatSegment[] segments;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf16PreparedFormat`1(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1);
+    public void FormatTo(TBufferWriter& sb, T1 arg1);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`10 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`10(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`11 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`11(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`12 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`12(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`13 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`13(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`14 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`14(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`15 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`15(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`16 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`16(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf16PreparedFormat`2 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf16FormatSegment[] segments;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf16PreparedFormat`2(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf16PreparedFormat`3 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf16FormatSegment[] segments;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf16PreparedFormat`3(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf16PreparedFormat`4 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf16FormatSegment[] segments;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf16PreparedFormat`4(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf16PreparedFormat`5 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf16FormatSegment[] segments;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf16PreparedFormat`5(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf16PreparedFormat`6 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf16FormatSegment[] segments;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf16PreparedFormat`6(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf16PreparedFormat`7 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf16FormatSegment[] segments;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf16PreparedFormat`7(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`8 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`8(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf16PreparedFormat`9 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf16FormatSegment[] segments;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf16PreparedFormat`9(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf16ValueStringBuilder : ValueType {
+    private static int ThreadStaticBufferSize;
+    private static int DefaultBufferSize;
+    private static char newLine1;
+    private static char newLine2;
+    private static bool crlf;
+    [NullableAttribute("2")]
+[ThreadStaticAttribute]
+private static Char[] scratchBuffer;
+    [ThreadStaticAttribute]
+internal static bool scratchBufferUsed;
+    [NullableAttribute("2")]
+private Char[] buffer;
+    private int index;
+    private bool disposeImmediately;
+    public int Length { get; }
+    private static Utf16ValueStringBuilder();
+    public Utf16ValueStringBuilder(bool disposeImmediately);
+    public void AppendJoin(char separator, T[] values);
+    public void AppendJoin(char separator, List`1<T> values);
+    [NullableContextAttribute("2")]
+public void AppendJoin(char separator, ReadOnlySpan`1<T> values);
+    public void AppendJoin(char separator, IEnumerable`1<T> values);
+    public void AppendJoin(char separator, ICollection`1<T> values);
+    public void AppendJoin(char separator, IList`1<T> values);
+    public void AppendJoin(char separator, IReadOnlyList`1<T> values);
+    public void AppendJoin(char separator, IReadOnlyCollection`1<T> values);
+    public void AppendJoin(string separator, T[] values);
+    public void AppendJoin(string separator, List`1<T> values);
+    public void AppendJoin(string separator, ReadOnlySpan`1<T> values);
+    public void AppendJoin(string separator, IEnumerable`1<T> values);
+    public void AppendJoin(string separator, ICollection`1<T> values);
+    public void AppendJoin(string separator, IList`1<T> values);
+    public void AppendJoin(string separator, IReadOnlyList`1<T> values);
+    public void AppendJoin(string separator, IReadOnlyCollection`1<T> values);
+    [NullableContextAttribute("0")]
+internal void AppendJoinInternal(ReadOnlySpan`1<char> separator, IList`1<T> values);
+    [NullableContextAttribute("0")]
+internal void AppendJoinInternal(ReadOnlySpan`1<char> separator, IReadOnlyList`1<T> values);
+    [NullableContextAttribute("0")]
+internal void AppendJoinInternal(ReadOnlySpan`1<char> separator, ReadOnlySpan`1<T> values);
+    [NullableContextAttribute("0")]
+internal void AppendJoinInternal(ReadOnlySpan`1<char> separator, IEnumerable`1<T> values);
+    public void AppendFormat(string format, T1 arg1);
+    [NullableContextAttribute("0")]
+public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1);
+    public void AppendFormat(string format, T1 arg1, T2 arg2);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+    public void AppendFormat(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+    private static object CreateFormatter(Type type);
+    public void Append(byte value);
+    public void Append(byte value, string format);
+    public void AppendLine(byte value);
+    public void AppendLine(byte value, string format);
+    public void Append(DateTime value);
+    public void Append(DateTime value, string format);
+    public void AppendLine(DateTime value);
+    public void AppendLine(DateTime value, string format);
+    public void Append(DateTimeOffset value);
+    public void Append(DateTimeOffset value, string format);
+    public void AppendLine(DateTimeOffset value);
+    public void AppendLine(DateTimeOffset value, string format);
+    public void Append(decimal value);
+    public void Append(decimal value, string format);
+    public void AppendLine(decimal value);
+    public void AppendLine(decimal value, string format);
+    public void Append(double value);
+    public void Append(double value, string format);
+    public void AppendLine(double value);
+    public void AppendLine(double value, string format);
+    public void Append(short value);
+    public void Append(short value, string format);
+    public void AppendLine(short value);
+    public void AppendLine(short value, string format);
+    public void Append(int value);
+    public void Append(int value, string format);
+    public void AppendLine(int value);
+    public void AppendLine(int value, string format);
+    public void Append(long value);
+    public void Append(long value, string format);
+    public void AppendLine(long value);
+    public void AppendLine(long value, string format);
+    public void Append(sbyte value);
+    public void Append(sbyte value, string format);
+    public void AppendLine(sbyte value);
+    public void AppendLine(sbyte value, string format);
+    public void Append(float value);
+    public void Append(float value, string format);
+    public void AppendLine(float value);
+    public void AppendLine(float value, string format);
+    public void Append(TimeSpan value);
+    public void Append(TimeSpan value, string format);
+    public void AppendLine(TimeSpan value);
+    public void AppendLine(TimeSpan value, string format);
+    public void Append(ushort value);
+    public void Append(ushort value, string format);
+    public void AppendLine(ushort value);
+    public void AppendLine(ushort value, string format);
+    public void Append(UInt32 value);
+    public void Append(UInt32 value, string format);
+    public void AppendLine(UInt32 value);
+    public void AppendLine(UInt32 value, string format);
+    public void Append(ulong value);
+    public void Append(ulong value, string format);
+    public void AppendLine(ulong value);
+    public void AppendLine(ulong value, string format);
+    public void Append(Guid value);
+    public void Append(Guid value, string format);
+    public void AppendLine(Guid value);
+    public void AppendLine(Guid value, string format);
+    public int get_Length();
+    [NullableContextAttribute("0")]
+public ReadOnlySpan`1<char> AsSpan();
+    [NullableContextAttribute("0")]
+public ReadOnlyMemory`1<char> AsMemory();
+    [NullableContextAttribute("0")]
+public ArraySegment`1<char> AsArraySegment();
+    public sealed virtual void Dispose();
+    public void Clear();
+    public void TryGrow(int sizeHint);
+    public void Grow(int sizeHint);
+    public void AppendLine();
+    public void Append(char value);
+    public void Append(char value, int repeatCount);
+    public void AppendLine(char value);
+    public void Append(string value);
+    public void AppendLine(string value);
+    public void Append(string value, int startIndex, int count);
+    public void Append(Char[] value, int startIndex, int charCount);
+    [NullableContextAttribute("0")]
+public void Append(ReadOnlySpan`1<char> value);
+    [NullableContextAttribute("0")]
+public void AppendLine(ReadOnlySpan`1<char> value);
+    public void Append(T value);
+    public void AppendLine(T value);
+    public void Insert(int index, string value, int count);
+    public void Insert(int index, string value);
+    [NullableContextAttribute("0")]
+public void Insert(int index, ReadOnlySpan`1<char> value, int count);
+    public void Replace(char oldChar, char newChar);
+    public void Replace(char oldChar, char newChar, int startIndex, int count);
+    public void Replace(string oldValue, string newValue);
+    [NullableContextAttribute("0")]
+public void Replace(ReadOnlySpan`1<char> oldValue, ReadOnlySpan`1<char> newValue);
+    public void Replace(string oldValue, string newValue, int startIndex, int count);
+    [NullableContextAttribute("0")]
+public void Replace(ReadOnlySpan`1<char> oldValue, ReadOnlySpan`1<char> newValue, int startIndex, int count);
+    public void ReplaceAt(char newChar, int replaceIndex);
+    public void Remove(int startIndex, int length);
+    [NullableContextAttribute("0")]
+public bool TryCopyTo(Span`1<char> destination, Int32& charsWritten);
+    public virtual string ToString();
+    [NullableContextAttribute("0")]
+public sealed virtual Memory`1<char> GetMemory(int sizeHint);
+    [NullableContextAttribute("0")]
+public sealed virtual Span`1<char> GetSpan(int sizeHint);
+    public sealed virtual void Advance(int count);
+    private sealed virtual override void Cysharp.Text.IResettableBufferWriter<System.Char>.Reset();
+    private void ThrowArgumentException(string paramName);
+    private static void ThrowFormatException();
+    private void AppendFormatInternal(T arg, int width, ReadOnlySpan`1<char> format, string argName);
+    private static void ThrowNestedException();
+    public static void RegisterTryFormat(TryFormat`1<T> formatMethod);
+    [NullableContextAttribute("0")]
+private static TryFormat`1<Nullable`1<T>> CreateNullableFormatter();
+    [NullableContextAttribute("0")]
+public static void EnableNullableFormat();
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+internal static class Cysharp.Text.Utf8FormatHelper : object {
+    private static byte sp;
+    public static void FormatTo(TBufferWriter& sb, T arg, int width, StandardFormat format, string argName);
+    private static void FormatToRightJustify(TBufferWriter& sb, T arg, int width, StandardFormat format, string argName);
+}
+[IsReadOnlyAttribute]
+internal class Cysharp.Text.Utf8FormatSegment : ValueType {
+    public static int NotFormatIndex;
+    public int Offset;
+    public int Count;
+    public int FormatIndex;
+    public StandardFormat StandardFormat;
+    public int Alignment;
+    public bool IsFormatArgument { get; }
+    public Utf8FormatSegment(int offset, int count, int formatIndex, StandardFormat format, int alignment);
+    public bool get_IsFormatArgument();
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8PreparedFormat`1 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf8FormatSegment[] segments;
+    private Byte[] utf8PreEncodedbuffer;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf8PreparedFormat`1(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1);
+    public void FormatTo(TBufferWriter& sb, T1 arg1);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf8PreparedFormat`10 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf8FormatSegment[] segments;
+    [NullableAttribute("1")]
+private Byte[] utf8PreEncodedbuffer;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf8PreparedFormat`10(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf8PreparedFormat`11 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf8FormatSegment[] segments;
+    [NullableAttribute("1")]
+private Byte[] utf8PreEncodedbuffer;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf8PreparedFormat`11(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf8PreparedFormat`12 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf8FormatSegment[] segments;
+    [NullableAttribute("1")]
+private Byte[] utf8PreEncodedbuffer;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf8PreparedFormat`12(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf8PreparedFormat`13 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf8FormatSegment[] segments;
+    [NullableAttribute("1")]
+private Byte[] utf8PreEncodedbuffer;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf8PreparedFormat`13(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf8PreparedFormat`14 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf8FormatSegment[] segments;
+    [NullableAttribute("1")]
+private Byte[] utf8PreEncodedbuffer;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf8PreparedFormat`14(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf8PreparedFormat`15 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf8FormatSegment[] segments;
+    [NullableAttribute("1")]
+private Byte[] utf8PreEncodedbuffer;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf8PreparedFormat`15(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf8PreparedFormat`16 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf8FormatSegment[] segments;
+    [NullableAttribute("1")]
+private Byte[] utf8PreEncodedbuffer;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf8PreparedFormat`16(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8PreparedFormat`2 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf8FormatSegment[] segments;
+    private Byte[] utf8PreEncodedbuffer;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf8PreparedFormat`2(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8PreparedFormat`3 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf8FormatSegment[] segments;
+    private Byte[] utf8PreEncodedbuffer;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf8PreparedFormat`3(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8PreparedFormat`4 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf8FormatSegment[] segments;
+    private Byte[] utf8PreEncodedbuffer;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf8PreparedFormat`4(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8PreparedFormat`5 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf8FormatSegment[] segments;
+    private Byte[] utf8PreEncodedbuffer;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf8PreparedFormat`5(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8PreparedFormat`6 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf8FormatSegment[] segments;
+    private Byte[] utf8PreEncodedbuffer;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf8PreparedFormat`6(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8PreparedFormat`7 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf8FormatSegment[] segments;
+    private Byte[] utf8PreEncodedbuffer;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf8PreparedFormat`7(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8PreparedFormat`8 : object {
+    [CompilerGeneratedAttribute]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    private Utf8FormatSegment[] segments;
+    private Byte[] utf8PreEncodedbuffer;
+    public string FormatString { get; }
+    public int MinSize { get; }
+    public Utf8PreparedFormat`8(string format);
+    [CompilerGeneratedAttribute]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class Cysharp.Text.Utf8PreparedFormat`9 : object {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <FormatString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MinSize>k__BackingField;
+    [NullableAttribute("1")]
+private Utf8FormatSegment[] segments;
+    [NullableAttribute("1")]
+private Byte[] utf8PreEncodedbuffer;
+    [NullableAttribute("1")]
+public string FormatString { get; }
+    public int MinSize { get; }
+    [NullableContextAttribute("1")]
+public Utf8PreparedFormat`9(string format);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_FormatString();
+    [CompilerGeneratedAttribute]
+public int get_MinSize();
+    [NullableContextAttribute("1")]
+public string Format(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    [NullableContextAttribute("1")]
+public void FormatTo(TBufferWriter& sb, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.Utf8ValueStringBuilder : ValueType {
+    private static int ThreadStaticBufferSize;
+    private static int DefaultBufferSize;
+    private static Encoding UTF8NoBom;
+    private static byte newLine1;
+    private static byte newLine2;
+    private static bool crlf;
+    [NullableAttribute("2")]
+[ThreadStaticAttribute]
+private static Byte[] scratchBuffer;
+    [ThreadStaticAttribute]
+internal static bool scratchBufferUsed;
+    [NullableAttribute("2")]
+private Byte[] buffer;
+    private int index;
+    private bool disposeImmediately;
+    public int Length { get; }
+    private static Utf8ValueStringBuilder();
+    public Utf8ValueStringBuilder(bool disposeImmediately);
+    public void AppendJoin(char separator, T[] values);
+    public void AppendJoin(char separator, List`1<T> values);
+    [NullableContextAttribute("2")]
+public void AppendJoin(char separator, ReadOnlySpan`1<T> values);
+    public void AppendJoin(char separator, IEnumerable`1<T> values);
+    public void AppendJoin(char separator, ICollection`1<T> values);
+    public void AppendJoin(char separator, IList`1<T> values);
+    public void AppendJoin(char separator, IReadOnlyList`1<T> values);
+    public void AppendJoin(char separator, IReadOnlyCollection`1<T> values);
+    public void AppendJoin(string separator, T[] values);
+    public void AppendJoin(string separator, List`1<T> values);
+    public void AppendJoin(string separator, ReadOnlySpan`1<T> values);
+    public void AppendJoin(string separator, IEnumerable`1<T> values);
+    public void AppendJoin(string separator, ICollection`1<T> values);
+    public void AppendJoin(string separator, IList`1<T> values);
+    public void AppendJoin(string separator, IReadOnlyList`1<T> values);
+    public void AppendJoin(string separator, IReadOnlyCollection`1<T> values);
+    [NullableContextAttribute("0")]
+internal void AppendJoinInternal(ReadOnlySpan`1<char> separator, IList`1<T> values);
+    [NullableContextAttribute("0")]
+internal void AppendJoinInternal(ReadOnlySpan`1<char> separator, IReadOnlyList`1<T> values);
+    [NullableContextAttribute("0")]
+internal void AppendJoinInternal(ReadOnlySpan`1<char> separator, ReadOnlySpan`1<T> values);
+    [NullableContextAttribute("0")]
+internal void AppendJoinInternal(ReadOnlySpan`1<char> separator, IEnumerable`1<T> values);
+    public void AppendFormat(string format, T1 arg1);
+    public void AppendFormat(string format, T1 arg1, T2 arg2);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    public void AppendFormat(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+    private static object CreateFormatter(Type type);
+    public void Append(byte value);
+    public void Append(byte value, StandardFormat format);
+    public void AppendLine(byte value);
+    public void AppendLine(byte value, StandardFormat format);
+    public void Append(DateTime value);
+    public void Append(DateTime value, StandardFormat format);
+    public void AppendLine(DateTime value);
+    public void AppendLine(DateTime value, StandardFormat format);
+    public void Append(DateTimeOffset value);
+    public void Append(DateTimeOffset value, StandardFormat format);
+    public void AppendLine(DateTimeOffset value);
+    public void AppendLine(DateTimeOffset value, StandardFormat format);
+    public void Append(decimal value);
+    public void Append(decimal value, StandardFormat format);
+    public void AppendLine(decimal value);
+    public void AppendLine(decimal value, StandardFormat format);
+    public void Append(double value);
+    public void Append(double value, StandardFormat format);
+    public void AppendLine(double value);
+    public void AppendLine(double value, StandardFormat format);
+    public void Append(short value);
+    public void Append(short value, StandardFormat format);
+    public void AppendLine(short value);
+    public void AppendLine(short value, StandardFormat format);
+    public void Append(int value);
+    public void Append(int value, StandardFormat format);
+    public void AppendLine(int value);
+    public void AppendLine(int value, StandardFormat format);
+    public void Append(long value);
+    public void Append(long value, StandardFormat format);
+    public void AppendLine(long value);
+    public void AppendLine(long value, StandardFormat format);
+    public void Append(sbyte value);
+    public void Append(sbyte value, StandardFormat format);
+    public void AppendLine(sbyte value);
+    public void AppendLine(sbyte value, StandardFormat format);
+    public void Append(float value);
+    public void Append(float value, StandardFormat format);
+    public void AppendLine(float value);
+    public void AppendLine(float value, StandardFormat format);
+    public void Append(TimeSpan value);
+    public void Append(TimeSpan value, StandardFormat format);
+    public void AppendLine(TimeSpan value);
+    public void AppendLine(TimeSpan value, StandardFormat format);
+    public void Append(ushort value);
+    public void Append(ushort value, StandardFormat format);
+    public void AppendLine(ushort value);
+    public void AppendLine(ushort value, StandardFormat format);
+    public void Append(UInt32 value);
+    public void Append(UInt32 value, StandardFormat format);
+    public void AppendLine(UInt32 value);
+    public void AppendLine(UInt32 value, StandardFormat format);
+    public void Append(ulong value);
+    public void Append(ulong value, StandardFormat format);
+    public void AppendLine(ulong value);
+    public void AppendLine(ulong value, StandardFormat format);
+    public void Append(Guid value);
+    public void Append(Guid value, StandardFormat format);
+    public void AppendLine(Guid value);
+    public void AppendLine(Guid value, StandardFormat format);
+    public void Append(bool value);
+    public void Append(bool value, StandardFormat format);
+    public void AppendLine(bool value);
+    public void AppendLine(bool value, StandardFormat format);
+    public int get_Length();
+    [NullableContextAttribute("0")]
+public ReadOnlySpan`1<byte> AsSpan();
+    [NullableContextAttribute("0")]
+public ReadOnlyMemory`1<byte> AsMemory();
+    [NullableContextAttribute("0")]
+public ArraySegment`1<byte> AsArraySegment();
+    public sealed virtual void Dispose();
+    public void Clear();
+    public void TryGrow(int sizeHint);
+    public void Grow(int sizeHint);
+    public void AppendLine();
+    public void Append(char value);
+    public void Append(char value, int repeatCount);
+    public void AppendLine(char value);
+    public void Append(string value, int startIndex, int count);
+    public void Append(string value);
+    public void AppendLine(string value);
+    [NullableContextAttribute("0")]
+public void Append(ReadOnlySpan`1<char> value);
+    [NullableContextAttribute("0")]
+public void AppendLine(ReadOnlySpan`1<char> value);
+    [NullableContextAttribute("0")]
+public void AppendLiteral(ReadOnlySpan`1<byte> value);
+    public void Append(T value);
+    public void AppendLine(T value);
+    public void CopyTo(IBufferWriter`1<byte> bufferWriter);
+    [NullableContextAttribute("0")]
+public bool TryCopyTo(Span`1<byte> destination, Int32& bytesWritten);
+    public void WriteTo(Stream stream);
+    public Task WriteToAsync(Stream stream);
+    public Task WriteToAsync(Stream stream, CancellationToken cancellationToken);
+    public virtual string ToString();
+    [NullableContextAttribute("0")]
+public sealed virtual Memory`1<byte> GetMemory(int sizeHint);
+    [NullableContextAttribute("0")]
+public sealed virtual Span`1<byte> GetSpan(int sizeHint);
+    public sealed virtual void Advance(int count);
+    private sealed virtual override void Cysharp.Text.IResettableBufferWriter<System.Byte>.Reset();
+    private void ThrowArgumentException(string paramName);
+    private void ThrowFormatException();
+    private static void ThrowNestedException();
+    private void AppendFormatInternal(T arg, int width, StandardFormat format, string argName);
+    public static void RegisterTryFormat(TryFormat`1<T> formatMethod);
+    [NullableContextAttribute("0")]
+private static TryFormat`1<Nullable`1<T>> CreateNullableFormatter();
+    [NullableContextAttribute("0")]
+public static void EnableNullableFormat();
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public static class Cysharp.Text.ZString : object {
+    private static Encoding UTF8NoBom;
+    private static ZString();
+    public static string Concat(T1 arg1);
+    public static string Concat(T1 arg1, T2 arg2);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    public static string Concat(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+    [NullableContextAttribute("0")]
+internal static void AppendChars(TBufferWriter& sb, ReadOnlySpan`1<char> chars);
+    public static Utf16ValueStringBuilder CreateStringBuilder();
+    public static Utf8ValueStringBuilder CreateUtf8StringBuilder();
+    public static Utf16ValueStringBuilder CreateStringBuilder(bool notNested);
+    public static Utf8ValueStringBuilder CreateUtf8StringBuilder(bool notNested);
+    public static string Join(char separator, T[] values);
+    public static string Join(char separator, List`1<T> values);
+    public static string Join(char separator, ReadOnlySpan`1<T> values);
+    public static string Join(char separator, IEnumerable`1<T> values);
+    public static string Join(char separator, ICollection`1<T> values);
+    public static string Join(char separator, IList`1<T> values);
+    public static string Join(char separator, IReadOnlyList`1<T> values);
+    public static string Join(char separator, IReadOnlyCollection`1<T> values);
+    public static string Join(string separator, T[] values);
+    public static string Join(string separator, List`1<T> values);
+    public static string Join(string separator, ReadOnlySpan`1<T> values);
+    public static string Join(string separator, ICollection`1<T> values);
+    public static string Join(string separator, IList`1<T> values);
+    public static string Join(string separator, IReadOnlyList`1<T> values);
+    public static string Join(string separator, IReadOnlyCollection`1<T> values);
+    public static string Join(string separator, IEnumerable`1<T> values);
+    public static string Concat(T[] values);
+    public static string Concat(List`1<T> values);
+    public static string Concat(ReadOnlySpan`1<T> values);
+    public static string Concat(ICollection`1<T> values);
+    public static string Concat(IList`1<T> values);
+    public static string Concat(IReadOnlyList`1<T> values);
+    public static string Concat(IReadOnlyCollection`1<T> values);
+    public static string Concat(IEnumerable`1<T> values);
+    private static string JoinInternal(ReadOnlySpan`1<char> separator, IList`1<T> values);
+    private static string JoinInternal(ReadOnlySpan`1<char> separator, IReadOnlyList`1<T> values);
+    [NullableContextAttribute("0")]
+private static string JoinInternal(ReadOnlySpan`1<char> separator, ReadOnlySpan`1<T> values);
+    private static string JoinInternal(ReadOnlySpan`1<char> separator, IEnumerable`1<T> values);
+    public static string Format(string format, T1 arg1);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1);
+    public static string Format(string format, T1 arg1, T2 arg2);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    public static string Format(string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+    public static string Format(ReadOnlySpan`1<char> format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+    public static Utf16PreparedFormat`1<T1> PrepareUtf16(string format);
+    public static Utf8PreparedFormat`1<T1> PrepareUtf8(string format);
+    public static Utf16PreparedFormat`2<T1, T2> PrepareUtf16(string format);
+    public static Utf8PreparedFormat`2<T1, T2> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`3<T1, T2, T3> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`3<T1, T2, T3> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`4<T1, T2, T3, T4> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`4<T1, T2, T3, T4> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`5<T1, T2, T3, T4, T5> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`5<T1, T2, T3, T4, T5> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`6<T1, T2, T3, T4, T5, T6> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`6<T1, T2, T3, T4, T5, T6> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`7<T1, T2, T3, T4, T5, T6, T7> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`7<T1, T2, T3, T4, T5, T6, T7> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`8<T1, T2, T3, T4, T5, T6, T7, T8> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`8<T1, T2, T3, T4, T5, T6, T7, T8> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`9<T1, T2, T3, T4, T5, T6, T7, T8, T9> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`9<T1, T2, T3, T4, T5, T6, T7, T8, T9> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`10<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`10<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`11<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`11<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`12<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`12<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`13<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`13<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`14<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`14<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`15<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`15<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> PrepareUtf8(string format);
+    [NullableContextAttribute("2")]
+public static Utf16PreparedFormat`16<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> PrepareUtf16(string format);
+    [NullableContextAttribute("2")]
+public static Utf8PreparedFormat`16<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> PrepareUtf8(string format);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15);
+    public static void Utf8Format(IBufferWriter`1<byte> bufferWriter, string format, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class Cysharp.Text.ZStringWriter : TextWriter {
+    private Utf16ValueStringBuilder sb;
+    private bool isOpen;
+    [NullableAttribute("2")]
+private UnicodeEncoding encoding;
+    public Encoding Encoding { get; }
+    public ZStringWriter(IFormatProvider formatProvider);
+    public virtual void Close();
+    protected virtual void Dispose(bool disposing);
+    public virtual Encoding get_Encoding();
+    public virtual void Write(char value);
+    public virtual void Write(Char[] buffer, int index, int count);
+    public virtual void Write(string value);
+    public virtual Task WriteAsync(char value);
+    public virtual Task WriteAsync(string value);
+    public virtual Task WriteAsync(Char[] buffer, int index, int count);
+    public virtual Task WriteLineAsync(char value);
+    public virtual Task WriteLineAsync(string value);
+    public virtual Task WriteLineAsync(Char[] buffer, int index, int count);
+    public virtual void Write(bool value);
+    public virtual void Write(decimal value);
+    public virtual Task FlushAsync();
+    public virtual string ToString();
+    private void AssertNotDisposed();
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+internal static class System.BufferEx : object {
+    internal static void ZeroMemory(Byte* dest, UInt32 len);
+    internal static void Memcpy(Byte* dest, Byte* src, int len);
+}
+internal static class System.Buffers.Text.FormattingHelpers : object {
+    public static int CountDigits(ulong value);
+    public static int CountDigits(UInt32 value);
+    public static int CountHexDigits(ulong value);
+    public static int CountDecimalTrailingZeros(UInt32 value, UInt32& valueWithoutTrailingZeros);
+}
+[ExtensionAttribute]
+internal static class System.DecimalEx : object {
+    private static int ScaleShift;
+    private static DecCalc& AsMutable(Decimal& d);
+    [ExtensionAttribute]
+internal static UInt32 High(decimal value);
+    [ExtensionAttribute]
+internal static UInt32 Low(decimal value);
+    [ExtensionAttribute]
+internal static UInt32 Mid(decimal value);
+    [ExtensionAttribute]
+internal static bool IsNegative(decimal value);
+    [ExtensionAttribute]
+internal static int Scale(decimal value);
+    internal static UInt32 DecDivMod1E9(Decimal& value);
+}
+internal static class System.FloatEx : object {
+    public static bool IsFinite(double d);
+    public static bool IsNegative(double d);
+    public static bool IsFinite(float f);
+    public static bool IsNegative(float f);
+    public static int SingleToInt32Bits(float value);
+}
+internal class System.GuidEx : ValueType {
+    private int _a;
+    private short _b;
+    private short _c;
+    private byte _d;
+    private byte _e;
+    private byte _f;
+    private byte _g;
+    private byte _h;
+    private byte _i;
+    private byte _j;
+    private byte _k;
+    private static int HexsToChars(Char* guidChars, int a, int b);
+    private static int HexsToCharsHexOutput(Char* guidChars, int a, int b);
+    public bool TryFormat(Span`1<char> destination, Int32& charsWritten, ReadOnlySpan`1<char> format);
+}
+internal static class System.HexConverter : object {
+    public static void ToBytesBuffer(byte value, Span`1<byte> buffer, int startingIndex, Casing casing);
+    public static void ToCharsBuffer(byte value, Span`1<char> buffer, int startingIndex, Casing casing);
+    public static string ToString(ReadOnlySpan`1<byte> bytes, Casing casing);
+    public static char ToCharUpper(int value);
+    public static char ToCharLower(int value);
+}
+[ExtensionAttribute]
+internal static class System.InternalSpanEx : object {
+    [ExtensionAttribute]
+internal static bool EqualsOrdinalIgnoreCase(ReadOnlySpan`1<char> span, ReadOnlySpan`1<char> value);
+    private static bool EqualsOrdinalIgnoreCase(Char& charA, Char& charB, int length);
+    internal static bool AllCharsInUInt32AreAscii(UInt32 value);
+    internal static bool AllCharsInUInt64AreAscii(ulong value);
+    internal static bool UInt32OrdinalIgnoreCaseAscii(UInt32 valueA, UInt32 valueB);
+    internal static bool UInt64OrdinalIgnoreCaseAscii(ulong valueA, ulong valueB);
+    private static bool EqualsOrdinalIgnoreCaseNonAscii(Char& charA, Char& charB, int length);
+}
+internal static class System.MathEx : object {
+    public static UInt32 DivRem(UInt32 a, UInt32 b, UInt32& result);
+    public static ulong DivRem(ulong a, ulong b, UInt64& result);
+    public static int DivRem(int a, int b, Int32& result);
+    public static long DivRem(long a, long b, Int64& result);
+    public static byte Clamp(byte value, byte min, byte max);
+    public static decimal Clamp(decimal value, decimal min, decimal max);
+    public static double Clamp(double value, double min, double max);
+    public static short Clamp(short value, short min, short max);
+    public static int Clamp(int value, int min, int max);
+    public static long Clamp(long value, long min, long max);
+    public static sbyte Clamp(sbyte value, sbyte min, sbyte max);
+    public static float Clamp(float value, float min, float max);
+    public static ushort Clamp(ushort value, ushort min, ushort max);
+    public static UInt32 Clamp(UInt32 value, UInt32 min, UInt32 max);
+    public static ulong Clamp(ulong value, ulong min, ulong max);
+    [NullableContextAttribute("1")]
+private static void ThrowMinMaxException(T min, T max);
+}
+internal static class System.Number : object {
+    internal static int DecimalPrecision;
+    private static int SinglePrecision;
+    private static int DoublePrecision;
+    private static int SinglePrecisionCustomFormat;
+    private static int DoublePrecisionCustomFormat;
+    private static int DefaultPrecisionExponentialFormat;
+    private static int MaxUInt32DecDigits;
+    private static int CharStackBufferSize;
+    private static string PosNumberFormat;
+    private static String[] s_singleDigitStringCache;
+    private static String[] s_posCurrencyFormats;
+    private static String[] s_negCurrencyFormats;
+    private static String[] s_posPercentFormats;
+    private static String[] s_negPercentFormats;
+    private static String[] s_negNumberFormats;
+    internal static int DecimalNumberBufferLength;
+    internal static int DoubleNumberBufferLength;
+    internal static int Int32NumberBufferLength;
+    internal static int Int64NumberBufferLength;
+    internal static int SingleNumberBufferLength;
+    internal static int UInt32NumberBufferLength;
+    internal static int UInt64NumberBufferLength;
+    [NullableAttribute("1")]
+private static Single[] s_Pow10SingleTable;
+    [NullableAttribute("1")]
+private static Double[] s_Pow10DoubleTable;
+    private static int Int32Precision;
+    private static int UInt32Precision;
+    private static int Int64Precision;
+    private static int UInt64Precision;
+    private static int DoubleMaxExponent;
+    private static int DoubleMinExponent;
+    private static int FloatingPointMaxExponent;
+    private static int FloatingPointMinExponent;
+    private static int SingleMaxExponent;
+    private static int SingleMinExponent;
+    internal static ReadOnlySpan`1<byte> CharToHexLookup { get; }
+    private static Number();
+    private static bool IsNegative(double d);
+    public static bool IsNegativeInfinity(float f);
+    public static void Dragon4Double(double value, int cutoffNumber, bool isSignificantDigits, NumberBuffer& number);
+    public static void Dragon4Single(float value, int cutoffNumber, bool isSignificantDigits, NumberBuffer& number);
+    private static UInt32 Dragon4(ulong mantissa, int exponent, UInt32 mantissaHighBitIdx, bool hasUnequalMargins, int cutoffNumber, bool isSignificantDigits, Span`1<byte> buffer, Int32& decimalExponent);
+    public static string FormatDecimal(decimal value, ReadOnlySpan`1<char> format, NumberFormatInfo info);
+    public static bool TryFormatDecimal(decimal value, ReadOnlySpan`1<char> format, NumberFormatInfo info, Span`1<char> destination, Int32& charsWritten);
+    internal static void DecimalToNumber(Decimal& d, NumberBuffer& number);
+    public static string FormatDouble(double value, string format, NumberFormatInfo info);
+    public static bool TryFormatDouble(double value, ReadOnlySpan`1<char> format, NumberFormatInfo info, Span`1<char> destination, Int32& charsWritten);
+    private static int GetFloatingPointMaxDigitsAndPrecision(char fmt, Int32& precision, NumberFormatInfo info, Boolean& isSignificantDigits);
+    private static string FormatDouble(ValueStringBuilder& sb, double value, ReadOnlySpan`1<char> format, NumberFormatInfo info);
+    public static string FormatSingle(float value, string format, NumberFormatInfo info);
+    public static bool TryFormatSingle(float value, ReadOnlySpan`1<char> format, NumberFormatInfo info, Span`1<char> destination, Int32& charsWritten);
+    private static string FormatSingle(ValueStringBuilder& sb, float value, ReadOnlySpan`1<char> format, NumberFormatInfo info);
+    private static bool TryCopyTo(string source, Span`1<char> destination, Int32& charsWritten);
+    public static string FormatInt32(int value, ReadOnlySpan`1<char> format, IFormatProvider provider);
+    public static bool TryFormatInt32(int value, ReadOnlySpan`1<char> format, IFormatProvider provider, Span`1<char> destination, Int32& charsWritten);
+    public static string FormatUInt32(UInt32 value, ReadOnlySpan`1<char> format, IFormatProvider provider);
+    public static bool TryFormatUInt32(UInt32 value, ReadOnlySpan`1<char> format, IFormatProvider provider, Span`1<char> destination, Int32& charsWritten);
+    public static string FormatInt64(long value, ReadOnlySpan`1<char> format, IFormatProvider provider);
+    public static bool TryFormatInt64(long value, ReadOnlySpan`1<char> format, IFormatProvider provider, Span`1<char> destination, Int32& charsWritten);
+    public static string FormatUInt64(ulong value, ReadOnlySpan`1<char> format, IFormatProvider provider);
+    public static bool TryFormatUInt64(ulong value, ReadOnlySpan`1<char> format, IFormatProvider provider, Span`1<char> destination, Int32& charsWritten);
+    private static void Int32ToNumber(int value, NumberBuffer& number);
+    private static string NegativeInt32ToDecStr(int value, int digits, string sNegative);
+    private static bool TryNegativeInt32ToDecStr(int value, int digits, string sNegative, Span`1<char> destination, Int32& charsWritten);
+    private static string Int32ToHexStr(int value, char hexBase, int digits);
+    private static bool TryInt32ToHexStr(int value, char hexBase, int digits, Span`1<char> destination, Int32& charsWritten);
+    private static Char* Int32ToHexChars(Char* buffer, UInt32 value, int hexBase, int digits);
+    private static void UInt32ToNumber(UInt32 value, NumberBuffer& number);
+    internal static Byte* UInt32ToDecChars(Byte* bufferEnd, UInt32 value, int digits);
+    internal static Char* UInt32ToDecChars(Char* bufferEnd, UInt32 value, int digits);
+    internal static string UInt32ToDecStr(UInt32 value, int digits);
+    private static bool TryUInt32ToDecStr(UInt32 value, int digits, Span`1<char> destination, Int32& charsWritten);
+    private static void Int64ToNumber(long input, NumberBuffer& number);
+    private static string NegativeInt64ToDecStr(long input, int digits, string sNegative);
+    private static bool TryNegativeInt64ToDecStr(long input, int digits, string sNegative, Span`1<char> destination, Int32& charsWritten);
+    private static string Int64ToHexStr(long value, char hexBase, int digits);
+    private static bool TryInt64ToHexStr(long value, char hexBase, int digits, Span`1<char> destination, Int32& charsWritten);
+    private static void UInt64ToNumber(ulong value, NumberBuffer& number);
+    internal static string UInt64ToDecStr(ulong value, int digits);
+    private static bool TryUInt64ToDecStr(ulong value, int digits, Span`1<char> destination, Int32& charsWritten);
+    internal static char ParseFormatSpecifier(ReadOnlySpan`1<char> format, Int32& digits);
+    internal static void NumberToString(ValueStringBuilder& sb, NumberBuffer& number, char format, int nMaxDigits, NumberFormatInfo info);
+    internal static void NumberToStringFormat(ValueStringBuilder& sb, NumberBuffer& number, ReadOnlySpan`1<char> format, NumberFormatInfo info);
+    private static void FormatCurrency(ValueStringBuilder& sb, NumberBuffer& number, int nMaxDigits, NumberFormatInfo info);
+    private static void FormatFixed(ValueStringBuilder& sb, NumberBuffer& number, int nMaxDigits, Int32[] groupDigits, string sDecimal, string sGroup);
+    private static void FormatNumber(ValueStringBuilder& sb, NumberBuffer& number, int nMaxDigits, NumberFormatInfo info);
+    private static void FormatScientific(ValueStringBuilder& sb, NumberBuffer& number, int nMaxDigits, NumberFormatInfo info, char expChar);
+    private static void FormatExponent(ValueStringBuilder& sb, NumberFormatInfo info, int value, char expChar, int minDigits, bool positiveSign);
+    private static void FormatGeneral(ValueStringBuilder& sb, NumberBuffer& number, int nMaxDigits, NumberFormatInfo info, char expChar, bool bSuppressScientific);
+    private static void FormatPercent(ValueStringBuilder& sb, NumberBuffer& number, int nMaxDigits, NumberFormatInfo info);
+    internal static void RoundNumber(NumberBuffer& number, int pos, bool isCorrectlyRounded);
+    private static int FindSection(ReadOnlySpan`1<char> format, int section);
+    private static UInt32 Low32(ulong value);
+    private static UInt32 High32(ulong value);
+    private static UInt32 Int64DivMod1E9(UInt64& value);
+    private static ulong ExtractFractionAndBiasedExponent(double value, Int32& exponent);
+    private static UInt32 ExtractFractionAndBiasedExponent(float value, Int32& exponent);
+    private static string FastAllocateString(int length);
+    private static int SingleToInt32Bits(float value);
+    private static void AccumulateDecimalDigitsIntoBigInteger(NumberBuffer& number, UInt32 firstIndex, UInt32 lastIndex, BigInteger& result);
+    private static ulong AssembleFloatingPointBits(FloatingPointInfo& info, ulong initialMantissa, int initialExponent, bool hasZeroTail);
+    private static ulong ConvertBigIntegerToFloatingPointBits(BigInteger& value, FloatingPointInfo& info, UInt32 integerBitsOfPrecision, bool hasNonZeroFractionalPart);
+    private static UInt32 DigitsToUInt32(Byte* p, int count);
+    private static ulong DigitsToUInt64(Byte* p, int count);
+    private static ulong NumberToFloatingPointBits(NumberBuffer& number, FloatingPointInfo& info);
+    private static ulong NumberToFloatingPointBitsSlow(NumberBuffer& number, FloatingPointInfo& info, UInt32 positiveExponent, UInt32 integerDigitsPresent, UInt32 fractionalDigitsPresent);
+    private static ulong RightShiftWithRounding(ulong value, int shift, bool hasZeroTail);
+    private static bool ShouldRoundUp(bool lsbBit, bool roundBit, bool hasTailBits);
+    internal static ReadOnlySpan`1<byte> get_CharToHexLookup();
+    private static bool TryNumberToInt32(NumberBuffer& number, Int32& value);
+    private static bool TryNumberToInt64(NumberBuffer& number, Int64& value);
+    private static bool TryNumberToUInt32(NumberBuffer& number, UInt32& value);
+    private static bool TryNumberToUInt64(NumberBuffer& number, UInt64& value);
+    internal static int ParseInt32(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info);
+    internal static long ParseInt64(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info);
+    internal static UInt32 ParseUInt32(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info);
+    internal static ulong ParseUInt64(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info);
+    private static bool TryParseNumber(Char*& str, Char* strEnd, NumberStyles styles, NumberBuffer& number, NumberFormatInfo info);
+    internal static ParsingStatus TryParseInt32(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Int32& result);
+    private static ParsingStatus TryParseInt32Number(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Int32& result);
+    internal static ParsingStatus TryParseInt32IntegerStyle(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Int32& result);
+    internal static ParsingStatus TryParseInt64IntegerStyle(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Int64& result);
+    internal static ParsingStatus TryParseInt64(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Int64& result);
+    private static ParsingStatus TryParseInt64Number(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Int64& result);
+    internal static ParsingStatus TryParseUInt32(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, UInt32& result);
+    private static ParsingStatus TryParseUInt32Number(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, UInt32& result);
+    internal static ParsingStatus TryParseUInt32IntegerStyle(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, UInt32& result);
+    private static ParsingStatus TryParseUInt32HexNumberStyle(ReadOnlySpan`1<char> value, NumberStyles styles, UInt32& result);
+    internal static ParsingStatus TryParseUInt64(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, UInt64& result);
+    private static ParsingStatus TryParseUInt64Number(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, UInt64& result);
+    internal static ParsingStatus TryParseUInt64IntegerStyle(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, UInt64& result);
+    private static ParsingStatus TryParseUInt64HexNumberStyle(ReadOnlySpan`1<char> value, NumberStyles styles, UInt64& result);
+    internal static decimal ParseDecimal(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info);
+    internal static bool TryNumberToDecimal(NumberBuffer& number, Decimal& value);
+    internal static double ParseDouble(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info);
+    internal static float ParseSingle(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info);
+    internal static ParsingStatus TryParseDecimal(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Decimal& result);
+    internal static bool TryParseDouble(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Double& result);
+    internal static bool TryParseSingle(ReadOnlySpan`1<char> value, NumberStyles styles, NumberFormatInfo info, Single& result);
+    internal static bool TryStringToNumber(ReadOnlySpan`1<char> value, NumberStyles styles, NumberBuffer& number, NumberFormatInfo info);
+    private static bool TrailingZeros(ReadOnlySpan`1<char> value, int index);
+    private static bool IsSpaceReplacingChar(char c);
+    private static Char* MatchChars(Char* p, Char* pEnd, string value);
+    private static bool IsWhite(int ch);
+    private static bool IsDigit(int ch);
+    internal static void ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type);
+    internal static void ThrowOverflowException(TypeCode type);
+    private static Exception GetException(ParsingStatus status, TypeCode type);
+    internal static double NumberToDouble(NumberBuffer& number);
+    internal static float NumberToSingle(NumberBuffer& number);
+    private static float Int32BitsToSingle(int value);
+    [CompilerGeneratedAttribute]
+internal static bool <RoundNumber>g__ShouldRoundUp|70_0(Byte* _dig, int _i, NumberBufferKind numberKind, bool _isCorrectlyRounded);
+}
+[ExtensionAttribute]
+internal static class System.NumberFormatInfoEx : object {
+    [ExtensionAttribute]
+[NullableContextAttribute("1")]
+internal static bool HasInvariantNumberSigns(NumberFormatInfo info);
+}
+internal static class System.Numerics.BitOperations : object {
+    private static ReadOnlySpan`1<byte> TrailingZeroCountDeBruijn { get; }
+    private static ReadOnlySpan`1<byte> Log2DeBruijn { get; }
+    private static ReadOnlySpan`1<byte> get_TrailingZeroCountDeBruijn();
+    private static ReadOnlySpan`1<byte> get_Log2DeBruijn();
+    public static int LeadingZeroCount(UInt32 value);
+    public static int LeadingZeroCount(ulong value);
+    public static int Log2(UInt32 value);
+    public static int Log2(ulong value);
+    private static int Log2SoftwareFallback(UInt32 value);
+    public static int PopCount(UInt32 value);
+    public static int PopCount(ulong value);
+    public static int TrailingZeroCount(int value);
+    public static int TrailingZeroCount(UInt32 value);
+    public static int TrailingZeroCount(long value);
+    public static int TrailingZeroCount(ulong value);
+    public static UInt32 RotateLeft(UInt32 value, int offset);
+    public static ulong RotateLeft(ulong value, int offset);
+    public static UInt32 RotateRight(UInt32 value, int offset);
+    public static ulong RotateRight(ulong value, int offset);
+}
+[AttributeUsageAttribute("27524")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullableAttribute : Attribute {
+    public Byte[] NullableFlags;
+    public NullableAttribute(byte );
+    public NullableAttribute(Byte[] );
+}
+[AttributeUsageAttribute("5196")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullableContextAttribute : Attribute {
+    public byte Flag;
+    public NullableContextAttribute(byte );
+}
+[DefaultMemberAttribute("Item")]
+[IsByRefLikeAttribute]
+[ObsoleteAttribute("Types with embedded references are not supported in this version of your compiler.", "True")]
+internal class System.Text.ValueStringBuilder : ValueType {
+    [NullableAttribute("2")]
+private Char[] _arrayToReturnToPool;
+    private Span`1<char> _chars;
+    private int _pos;
+    public int Length { get; public set; }
+    public int Capacity { get; }
+    public Char& Item { get; }
+    public Span`1<char> RawChars { get; }
+    public ValueStringBuilder(Span`1<char> initialBuffer);
+    public ValueStringBuilder(int initialCapacity);
+    public int get_Length();
+    public void set_Length(int value);
+    public int get_Capacity();
+    public void EnsureCapacity(int capacity);
+    public Char& GetPinnableReference();
+    public Char& GetPinnableReference(bool terminate);
+    public Char& get_Item(int index);
+    [NullableContextAttribute("1")]
+public virtual string ToString();
+    public Span`1<char> get_RawChars();
+    public ReadOnlySpan`1<char> AsSpan(bool terminate);
+    public ReadOnlySpan`1<char> AsSpan();
+    public ReadOnlySpan`1<char> AsSpan(int start);
+    public ReadOnlySpan`1<char> AsSpan(int start, int length);
+    public bool TryCopyTo(Span`1<char> destination, Int32& charsWritten);
+    public void Insert(int index, char value, int count);
+    [NullableContextAttribute("1")]
+public void Insert(int index, string s);
+    public void Append(char c);
+    [NullableContextAttribute("1")]
+public void Append(string s);
+    [NullableContextAttribute("1")]
+private void AppendSlow(string s);
+    public void Append(char c, int count);
+    public void Append(Char* value, int length);
+    public void Append(ReadOnlySpan`1<char> value);
+    public Span`1<char> AppendSpan(int length);
+    private void GrowAndAppend(char c);
+    private void Grow(int additionalCapacityBeyondPos);
+    public void Dispose();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

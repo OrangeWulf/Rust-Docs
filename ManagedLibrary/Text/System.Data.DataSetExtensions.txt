@@ -1,0 +1,260 @@
+Сборка: System.Data.DataSetExtensions.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: DataSetUtil
+Наследуется от: object
+Поля:
+  Type s_stackOverflowType
+  Type s_outOfMemoryType
+  Type s_threadAbortType
+  Type s_nullReferenceType
+  Type s_accessViolationType
+  Type s_securityType
+Свойства:
+Методы:
+  void CheckArgumentNull(T argumentValue, string argumentName)
+  T TraceException(string trace, T e)
+  T TraceExceptionAsReturnValue(T e)
+  ArgumentException Argument(string message)
+  ArgumentNullException ArgumentNull(string message)
+  ArgumentOutOfRangeException ArgumentOutOfRange(string message, string parameterName)
+  InvalidCastException InvalidCast(string message)
+  InvalidOperationException InvalidOperation(string message)
+  NotSupportedException NotSupported(string message)
+  ArgumentOutOfRangeException InvalidEnumerationValue(Type type, int value)
+  ArgumentOutOfRangeException InvalidDataRowState(DataRowState value)
+  ArgumentOutOfRangeException InvalidLoadOption(LoadOption value)
+  bool IsCatchableExceptionType(Exception e)
+  void .cctor()
+--------------------------------------------------
+Класс: Consts
+Наследуется от: object
+Поля:
+  string MonoCorlibVersion
+  string MonoVersion
+  string MonoCompany
+  string MonoProduct
+  string MonoCopyright
+  string FxVersion
+  string FxFileVersion
+  string EnvironmentVersion
+  string VsVersion
+  string VsFileVersion
+  string PublicKeyToken
+  string AssemblyI18N
+  string AssemblyMicrosoft_JScript
+  string AssemblyMicrosoft_VisualStudio
+  string AssemblyMicrosoft_VisualStudio_Web
+  string AssemblyMicrosoft_VSDesigner
+  string AssemblyMono_Http
+  string AssemblyMono_Posix
+  string AssemblyMono_Security
+  string AssemblyMono_Messaging_RabbitMQ
+  string AssemblyCorlib
+  string AssemblySystem
+  string AssemblySystem_Data
+  string AssemblySystem_Design
+  string AssemblySystem_DirectoryServices
+  string AssemblySystem_Drawing
+  string AssemblySystem_Drawing_Design
+  string AssemblySystem_Messaging
+  string AssemblySystem_Security
+  string AssemblySystem_ServiceProcess
+  string AssemblySystem_Web
+  string AssemblySystem_Windows_Forms
+  string AssemblySystem_2_0
+  string AssemblySystemCore_3_5
+  string AssemblySystem_Core
+  string WindowsBase_3_0
+  string AssemblyWindowsBase
+  string AssemblyPresentationCore_3_5
+  string AssemblyPresentationCore_4_0
+  string AssemblyPresentationFramework_3_5
+  string AssemblySystemServiceModel_3_0
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: SR
+Наследуется от: object
+Поля:
+  string DataSetLinq_InvalidEnumerationValue
+  string DataSetLinq_EmptyDataRowSource
+  string DataSetLinq_NullDataRow
+  string DataSetLinq_CannotLoadDetachedRow
+  string DataSetLinq_CannotCompareDeletedRow
+  string DataSetLinq_CannotLoadDeletedRow
+  string DataSetLinq_NonNullableCast
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Data.DataRowComparer
+Наследуется от: object
+Поля:
+Свойства:
+  DataRowComparer`1<DataRow> Default
+Методы:
+  DataRowComparer`1<DataRow> get_Default()
+  bool AreEqual(object a, object b)
+  bool AreElementEqual(object a, object b)
+  bool CompareArray(Array a, Array b)
+  bool CompareEquatableArray(TElem[] a, TElem[] b)
+--------------------------------------------------
+Класс: System.Data.DataRowComparer`1
+Наследуется от: object
+Поля:
+  DataRowComparer`1<TRow> s_instance
+Свойства:
+  DataRowComparer`1<TRow> Default
+Методы:
+  void .ctor()
+  DataRowComparer`1<TRow> get_Default()
+  bool Equals(TRow leftRow, TRow rightRow)
+  int GetHashCode(TRow row)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.DataRowExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  T Field(DataRow row, string columnName)
+  T Field(DataRow row, DataColumn column)
+  T Field(DataRow row, int columnIndex)
+  T Field(DataRow row, int columnIndex, DataRowVersion version)
+  T Field(DataRow row, string columnName, DataRowVersion version)
+  T Field(DataRow row, DataColumn column, DataRowVersion version)
+  void SetField(DataRow row, int columnIndex, T value)
+  void SetField(DataRow row, string columnName, T value)
+  void SetField(DataRow row, DataColumn column, T value)
+--------------------------------------------------
+Класс: System.Data.DataTableExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  EnumerableRowCollection`1<DataRow> AsEnumerable(DataTable source)
+  DataTable CopyToDataTable(IEnumerable`1<T> source)
+  void CopyToDataTable(IEnumerable`1<T> source, DataTable table, LoadOption options)
+  void CopyToDataTable(IEnumerable`1<T> source, DataTable table, LoadOption options, FillErrorEventHandler errorHandler)
+  DataTable LoadTableFromEnumerable(IEnumerable`1<T> source, DataTable table, Nullable`1<LoadOption> options, FillErrorEventHandler errorHandler)
+  DataView AsDataView(DataTable table)
+  DataView AsDataView(EnumerableRowCollection`1<T> source)
+--------------------------------------------------
+Класс: System.Data.EnumerableRowCollection
+Наследуется от: object
+Поля:
+Свойства:
+  Type ElementType
+  DataTable Table
+Методы:
+  Type get_ElementType()
+  DataTable get_Table()
+  void .ctor()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+--------------------------------------------------
+Класс: System.Data.EnumerableRowCollection`1
+Наследуется от: EnumerableRowCollection
+Поля:
+  DataTable _table
+  IEnumerable`1<TRow> _enumerableRows
+  List`1<Func`2<TRow, bool>> _listOfPredicates
+  SortExpressionBuilder`1<TRow> _sortExpression
+  Func`2<TRow, TRow> _selector
+Свойства:
+  Type ElementType
+  IEnumerable`1<TRow> EnumerableRows
+  DataTable Table
+Методы:
+  Type get_ElementType()
+  IEnumerable`1<TRow> get_EnumerableRows()
+  DataTable get_Table()
+  void .ctor(IEnumerable`1<TRow> enumerableRows, bool isDataViewable, DataTable table)
+  void .ctor(DataTable table)
+  void .ctor(EnumerableRowCollection`1<TRow> source, IEnumerable`1<TRow> enumerableRows, Func`2<TRow, TRow> selector)
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  IEnumerator`1<TRow> GetEnumerator()
+  void AddPredicate(Func`2<TRow, bool> pred)
+  void AddSortExpression(Func`2<TRow, TKey> keySelector, bool isDescending, bool isOrderBy)
+  void AddSortExpression(Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer, bool isDescending, bool isOrderBy)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Data.EnumerableRowCollectionExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  EnumerableRowCollection`1<TRow> Where(EnumerableRowCollection`1<TRow> source, Func`2<TRow, bool> predicate)
+  OrderedEnumerableRowCollection`1<TRow> OrderBy(EnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector)
+  OrderedEnumerableRowCollection`1<TRow> OrderBy(EnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer)
+  OrderedEnumerableRowCollection`1<TRow> OrderByDescending(EnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector)
+  OrderedEnumerableRowCollection`1<TRow> OrderByDescending(EnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer)
+  OrderedEnumerableRowCollection`1<TRow> ThenBy(OrderedEnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector)
+  OrderedEnumerableRowCollection`1<TRow> ThenBy(OrderedEnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer)
+  OrderedEnumerableRowCollection`1<TRow> ThenByDescending(OrderedEnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector)
+  OrderedEnumerableRowCollection`1<TRow> ThenByDescending(OrderedEnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer)
+  EnumerableRowCollection`1<S> Select(EnumerableRowCollection`1<TRow> source, Func`2<TRow, S> selector)
+  EnumerableRowCollection`1<TResult> Cast(EnumerableRowCollection source)
+--------------------------------------------------
+Класс: System.Data.OrderedEnumerableRowCollection`1
+Наследуется от: EnumerableRowCollection`1<TRow>
+Поля:
+Свойства:
+Методы:
+  void .ctor(EnumerableRowCollection`1<TRow> enumerableTable, IEnumerable`1<TRow> enumerableRows)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Data.SortExpressionBuilder`1
+Наследуется от: object
+Поля:
+  LinkedList`1<Func`2<T, object>> _selectors
+  LinkedList`1<Comparison`1<object>> _comparers
+  LinkedListNode`1<Func`2<T, object>> _currentSelector
+  LinkedListNode`1<Comparison`1<object>> _currentComparer
+Свойства:
+  int Count
+Методы:
+  void Add(Func`2<T, object> keySelector, Comparison`1<object> compare, bool isOrderBy)
+  List`1<object> Select(T row)
+  int Compare(List`1<object> a, List`1<object> b)
+  int get_Count()
+  SortExpressionBuilder`1<T> Clone()
+  SortExpressionBuilder`1<TResult> CloneCast()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Data.TypedTableBase`1
+Наследуется от: DataTable
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(SerializationInfo info, StreamingContext context)
+  IEnumerator`1<T> GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  EnumerableRowCollection`1<TResult> Cast()
+--------------------------------------------------
+Класс: System.Data.TypedTableBaseExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  EnumerableRowCollection`1<TRow> Where(TypedTableBase`1<TRow> source, Func`2<TRow, bool> predicate)
+  OrderedEnumerableRowCollection`1<TRow> OrderBy(TypedTableBase`1<TRow> source, Func`2<TRow, TKey> keySelector)
+  OrderedEnumerableRowCollection`1<TRow> OrderBy(TypedTableBase`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer)
+  OrderedEnumerableRowCollection`1<TRow> OrderByDescending(TypedTableBase`1<TRow> source, Func`2<TRow, TKey> keySelector)
+  OrderedEnumerableRowCollection`1<TRow> OrderByDescending(TypedTableBase`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer)
+  EnumerableRowCollection`1<S> Select(TypedTableBase`1<TRow> source, Func`2<TRow, S> selector)
+  EnumerableRowCollection`1<TRow> AsEnumerable(TypedTableBase`1<TRow> source)
+  TRow ElementAtOrDefault(TypedTableBase`1<TRow> source, int index)
+--------------------------------------------------
+Класс: Unity.ThrowStub
+Наследуется от: ObjectDisposedException
+Поля:
+Свойства:
+Методы:
+  void ThrowNotSupportedException()
+--------------------------------------------------

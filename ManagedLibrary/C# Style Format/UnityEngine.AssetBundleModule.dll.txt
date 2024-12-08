@@ -1,0 +1,231 @@
+[ExcludeFromPresetAttribute]
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleLoadFromMemoryAsyncOperation.h")]
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleLoadAssetOperation.h")]
+[NativeHeaderAttribute("Runtime/Scripting/ScriptingExportUtility.h")]
+[NativeHeaderAttribute("Runtime/Scripting/ScriptingObjectWithIntPtrField.h")]
+[NativeHeaderAttribute("Runtime/Scripting/ScriptingUtility.h")]
+[NativeHeaderAttribute("AssetBundleScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleSaveAndLoadHelper.h")]
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleUtility.h")]
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleLoadAssetUtility.h")]
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleLoadFromFileAsyncOperation.h")]
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleLoadFromManagedStreamAsyncOperation.h")]
+public class UnityEngine.AssetBundle : Object {
+    [ObsoleteAttribute("mainAsset has been made obsolete. Please use the new AssetBundle build system introduced in 5.0 and check BuildAssetBundles documentation for details.")]
+public Object mainAsset { get; }
+    public bool isStreamedSceneAssetBundle { get; }
+    public static UInt32 memoryBudgetKB { get; public set; }
+    public Object get_mainAsset();
+    [FreeFunctionAttribute("LoadMainObjectFromAssetBundle", "True")]
+internal static Object returnMainAsset(AssetBundle bundle);
+    [FreeFunctionAttribute("UnloadAllAssetBundles")]
+public static void UnloadAllAssetBundles(bool unloadAllObjects);
+    [FreeFunctionAttribute("GetAllAssetBundles")]
+internal static AssetBundle[] GetAllLoadedAssetBundles_Native();
+    public static IEnumerable`1<AssetBundle> GetAllLoadedAssetBundles();
+    [FreeFunctionAttribute("LoadFromFileAsync")]
+internal static AssetBundleCreateRequest LoadFromFileAsync_Internal(string path, UInt32 crc, ulong offset);
+    public static AssetBundleCreateRequest LoadFromFileAsync(string path);
+    public static AssetBundleCreateRequest LoadFromFileAsync(string path, UInt32 crc);
+    public static AssetBundleCreateRequest LoadFromFileAsync(string path, UInt32 crc, ulong offset);
+    [FreeFunctionAttribute("LoadFromFile")]
+internal static AssetBundle LoadFromFile_Internal(string path, UInt32 crc, ulong offset);
+    public static AssetBundle LoadFromFile(string path);
+    public static AssetBundle LoadFromFile(string path, UInt32 crc);
+    public static AssetBundle LoadFromFile(string path, UInt32 crc, ulong offset);
+    [FreeFunctionAttribute("LoadFromMemoryAsync")]
+internal static AssetBundleCreateRequest LoadFromMemoryAsync_Internal(Byte[] binary, UInt32 crc);
+    public static AssetBundleCreateRequest LoadFromMemoryAsync(Byte[] binary);
+    public static AssetBundleCreateRequest LoadFromMemoryAsync(Byte[] binary, UInt32 crc);
+    [FreeFunctionAttribute("LoadFromMemory")]
+internal static AssetBundle LoadFromMemory_Internal(Byte[] binary, UInt32 crc);
+    public static AssetBundle LoadFromMemory(Byte[] binary);
+    public static AssetBundle LoadFromMemory(Byte[] binary, UInt32 crc);
+    internal static void ValidateLoadFromStream(Stream stream);
+    public static AssetBundleCreateRequest LoadFromStreamAsync(Stream stream, UInt32 crc, UInt32 managedReadBufferSize);
+    public static AssetBundleCreateRequest LoadFromStreamAsync(Stream stream, UInt32 crc);
+    public static AssetBundleCreateRequest LoadFromStreamAsync(Stream stream);
+    public static AssetBundle LoadFromStream(Stream stream, UInt32 crc, UInt32 managedReadBufferSize);
+    public static AssetBundle LoadFromStream(Stream stream, UInt32 crc);
+    public static AssetBundle LoadFromStream(Stream stream);
+    [FreeFunctionAttribute("LoadFromStreamAsyncInternal")]
+internal static AssetBundleCreateRequest LoadFromStreamAsyncInternal(Stream stream, UInt32 crc, UInt32 managedReadBufferSize);
+    [FreeFunctionAttribute("LoadFromStreamInternal")]
+internal static AssetBundle LoadFromStreamInternal(Stream stream, UInt32 crc, UInt32 managedReadBufferSize);
+    [NativeMethodAttribute("GetIsStreamedSceneAssetBundle")]
+public bool get_isStreamedSceneAssetBundle();
+    [NativeMethodAttribute("Contains")]
+public bool Contains(string name);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Method Load has been deprecated. Script updater cannot update it as the loading behaviour has changed. Please use LoadAsset instead and check the documentation for details.", "True")]
+public Object Load(string name);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Method Load has been deprecated. Script updater cannot update it as the loading behaviour has changed. Please use LoadAsset instead and check the documentation for details.", "True")]
+public Object Load(string name);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Method Load has been deprecated. Script updater cannot update it as the loading behaviour has changed. Please use LoadAsset instead and check the documentation for details.", "True")]
+private Object Load(string name, Type type);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Method LoadAsync has been deprecated. Script updater cannot update it as the loading behaviour has changed. Please use LoadAssetAsync instead and check the documentation for details.", "True")]
+private AssetBundleRequest LoadAsync(string name, Type type);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Method LoadAll has been deprecated. Script updater cannot update it as the loading behaviour has changed. Please use LoadAllAssets instead and check the documentation for details.", "True")]
+private Object[] LoadAll(Type type);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Method LoadAll has been deprecated. Script updater cannot update it as the loading behaviour has changed. Please use LoadAllAssets instead and check the documentation for details.", "True")]
+public Object[] LoadAll();
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Method LoadAll has been deprecated. Script updater cannot update it as the loading behaviour has changed. Please use LoadAllAssets instead and check the documentation for details.", "True")]
+public T[] LoadAll();
+    public Object LoadAsset(string name);
+    public T LoadAsset(string name);
+    [TypeInferenceRuleAttribute("1")]
+public Object LoadAsset(string name, Type type);
+    [NativeMethodAttribute("LoadAsset_Internal")]
+[NativeThrowsAttribute]
+[TypeInferenceRuleAttribute("1")]
+private Object LoadAsset_Internal(string name, Type type);
+    public AssetBundleRequest LoadAssetAsync(string name);
+    public AssetBundleRequest LoadAssetAsync(string name);
+    public AssetBundleRequest LoadAssetAsync(string name, Type type);
+    public Object[] LoadAssetWithSubAssets(string name);
+    internal static T[] ConvertObjects(Object[] rawObjects);
+    public T[] LoadAssetWithSubAssets(string name);
+    public Object[] LoadAssetWithSubAssets(string name, Type type);
+    public AssetBundleRequest LoadAssetWithSubAssetsAsync(string name);
+    public AssetBundleRequest LoadAssetWithSubAssetsAsync(string name);
+    public AssetBundleRequest LoadAssetWithSubAssetsAsync(string name, Type type);
+    public Object[] LoadAllAssets();
+    public T[] LoadAllAssets();
+    public Object[] LoadAllAssets(Type type);
+    public AssetBundleRequest LoadAllAssetsAsync();
+    public AssetBundleRequest LoadAllAssetsAsync();
+    public AssetBundleRequest LoadAllAssetsAsync(Type type);
+    [ObsoleteAttribute("This method is deprecated.Use GetAllAssetNames() instead.", "False")]
+public String[] AllAssetNames();
+    [NativeMethodAttribute("LoadAssetAsync_Internal")]
+[NativeThrowsAttribute]
+private AssetBundleRequest LoadAssetAsync_Internal(string name, Type type);
+    [NativeMethodAttribute("Unload")]
+[NativeThrowsAttribute]
+public void Unload(bool unloadAllLoadedObjects);
+    [NativeMethodAttribute("UnloadAsync")]
+[NativeThrowsAttribute]
+public AssetBundleUnloadOperation UnloadAsync(bool unloadAllLoadedObjects);
+    [NativeMethodAttribute("GetAllAssetNames")]
+public String[] GetAllAssetNames();
+    [NativeMethodAttribute("GetAllScenePaths")]
+public String[] GetAllScenePaths();
+    [NativeMethodAttribute("LoadAssetWithSubAssets_Internal")]
+[NativeThrowsAttribute]
+internal Object[] LoadAssetWithSubAssets_Internal(string name, Type type);
+    [NativeMethodAttribute("LoadAssetWithSubAssetsAsync_Internal")]
+[NativeThrowsAttribute]
+private AssetBundleRequest LoadAssetWithSubAssetsAsync_Internal(string name, Type type);
+    public static AssetBundleRecompressOperation RecompressAssetBundleAsync(string inputPath, string outputPath, BuildCompression method, UInt32 expectedCRC, ThreadPriority priority);
+    [FreeFunctionAttribute("RecompressAssetBundleAsync_Internal")]
+[NativeThrowsAttribute]
+internal static AssetBundleRecompressOperation RecompressAssetBundleAsync_Internal(string inputPath, string outputPath, BuildCompression method, UInt32 expectedCRC, ThreadPriority priority);
+    public static UInt32 get_memoryBudgetKB();
+    public static void set_memoryBudgetKB(UInt32 value);
+    private static AssetBundleRecompressOperation RecompressAssetBundleAsync_Internal_Injected(string inputPath, string outputPath, BuildCompression& method, UInt32 expectedCRC, ThreadPriority priority);
+}
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleLoadFromAsyncOperation.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.AssetBundleCreateRequest : AsyncOperation {
+    public AssetBundle assetBundle { get; }
+    [NativeMethodAttribute("GetAssetBundleBlocking")]
+public AssetBundle get_assetBundle();
+    [NativeMethodAttribute("SetEnableCompatibilityChecks")]
+private void SetEnableCompatibilityChecks(bool set);
+    internal void DisableCompatibilityChecks();
+}
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleLoadingCache.h")]
+[UsedByNativeCodeAttribute]
+internal static class UnityEngine.AssetBundleLoadingCache : object {
+    internal static int kMinAllowedBlockCount;
+    internal static int kMinAllowedMaxBlocksPerFile;
+    internal static UInt32 maxBlocksPerFile { get; internal set; }
+    internal static UInt32 blockCount { get; internal set; }
+    internal static UInt32 blockSize { get; }
+    internal static UInt32 memoryBudgetKB { get; internal set; }
+    internal static UInt32 get_maxBlocksPerFile();
+    internal static void set_maxBlocksPerFile(UInt32 value);
+    internal static UInt32 get_blockCount();
+    internal static void set_blockCount(UInt32 value);
+    internal static UInt32 get_blockSize();
+    internal static UInt32 get_memoryBudgetKB();
+    internal static void set_memoryBudgetKB(UInt32 value);
+}
+public enum UnityEngine.AssetBundleLoadResult : Enum {
+    public int value__;
+    public static AssetBundleLoadResult Success;
+    public static AssetBundleLoadResult Cancelled;
+    public static AssetBundleLoadResult NotMatchingCrc;
+    public static AssetBundleLoadResult FailedCache;
+    public static AssetBundleLoadResult NotValidAssetBundle;
+    public static AssetBundleLoadResult NoSerializedData;
+    public static AssetBundleLoadResult NotCompatible;
+    public static AssetBundleLoadResult AlreadyLoaded;
+    public static AssetBundleLoadResult FailedRead;
+    public static AssetBundleLoadResult FailedDecompression;
+    public static AssetBundleLoadResult FailedWrite;
+    public static AssetBundleLoadResult FailedDeleteRecompressionTarget;
+    public static AssetBundleLoadResult RecompressionTargetIsLoaded;
+    public static AssetBundleLoadResult RecompressionTargetExistsButNotArchive;
+}
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleManifest.h")]
+public class UnityEngine.AssetBundleManifest : Object {
+    [NativeMethodAttribute("GetAllAssetBundles")]
+public String[] GetAllAssetBundles();
+    [NativeMethodAttribute("GetAllAssetBundlesWithVariant")]
+public String[] GetAllAssetBundlesWithVariant();
+    [NativeMethodAttribute("GetAssetBundleHash")]
+public Hash128 GetAssetBundleHash(string assetBundleName);
+    [NativeMethodAttribute("GetDirectDependencies")]
+public String[] GetDirectDependencies(string assetBundleName);
+    [NativeMethodAttribute("GetAllDependencies")]
+public String[] GetAllDependencies(string assetBundleName);
+    private void GetAssetBundleHash_Injected(string assetBundleName, Hash128& ret);
+}
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleRecompressOperation.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.AssetBundleRecompressOperation : AsyncOperation {
+    public string humanReadableResult { get; }
+    public string inputPath { get; }
+    public string outputPath { get; }
+    public AssetBundleLoadResult result { get; }
+    public bool success { get; }
+    [NativeMethodAttribute("GetResultStr")]
+public string get_humanReadableResult();
+    [NativeMethodAttribute("GetInputPath")]
+public string get_inputPath();
+    [NativeMethodAttribute("GetOutputPath")]
+public string get_outputPath();
+    [NativeMethodAttribute("GetResult")]
+public AssetBundleLoadResult get_result();
+    [NativeMethodAttribute("GetSuccess")]
+public bool get_success();
+}
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleLoadAssetOperation.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.AssetBundleRequest : ResourceRequest {
+    public Object asset { get; }
+    public Object[] allAssets { get; }
+    [NativeMethodAttribute("GetLoadedAsset")]
+protected virtual Object GetResult();
+    public Object get_asset();
+    [NativeMethodAttribute("GetAllLoadedAssets")]
+public Object[] get_allAssets();
+}
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundleUnloadOperation.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.AssetBundleUnloadOperation : AsyncOperation {
+    [NativeMethodAttribute("WaitForCompletion")]
+public void WaitForCompletion();
+}
+[NativeHeaderAttribute("Modules/AssetBundle/Public/AssetBundlePatching.h")]
+public static class UnityEngine.Experimental.AssetBundlePatching.AssetBundleUtility : object {
+    [FreeFunctionAttribute]
+public static void PatchAssetBundles(AssetBundle[] bundles, String[] filenames);
+}

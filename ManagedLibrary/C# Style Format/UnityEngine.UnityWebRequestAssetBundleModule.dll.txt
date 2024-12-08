@@ -1,0 +1,36 @@
+[NativeHeaderAttribute("Modules/UnityWebRequestAssetBundle/Public/DownloadHandlerAssetBundle.h")]
+public class UnityEngine.Networking.DownloadHandlerAssetBundle : DownloadHandler {
+    public AssetBundle assetBundle { get; }
+    public bool autoLoadAssetBundle { get; public set; }
+    public bool isDownloadComplete { get; }
+    public DownloadHandlerAssetBundle(string url, UInt32 crc);
+    public DownloadHandlerAssetBundle(string url, UInt32 version, UInt32 crc);
+    public DownloadHandlerAssetBundle(string url, Hash128 hash, UInt32 crc);
+    public DownloadHandlerAssetBundle(string url, string name, Hash128 hash, UInt32 crc);
+    public DownloadHandlerAssetBundle(string url, CachedAssetBundle cachedBundle, UInt32 crc);
+    private static IntPtr Create(DownloadHandlerAssetBundle obj, string url, UInt32 crc);
+    private static IntPtr CreateCached(DownloadHandlerAssetBundle obj, string url, string name, Hash128 hash, UInt32 crc);
+    private void InternalCreateAssetBundle(string url, UInt32 crc);
+    private void InternalCreateAssetBundleCached(string url, string name, Hash128 hash, UInt32 crc);
+    protected virtual Byte[] GetData();
+    protected virtual string GetText();
+    public AssetBundle get_assetBundle();
+    public bool get_autoLoadAssetBundle();
+    [NativeThrowsAttribute]
+public void set_autoLoadAssetBundle(bool value);
+    public bool get_isDownloadComplete();
+    public static AssetBundle GetContent(UnityWebRequest www);
+    private static IntPtr CreateCached_Injected(DownloadHandlerAssetBundle obj, string url, string name, Hash128& hash, UInt32 crc);
+}
+public static class UnityEngine.Networking.UnityWebRequestAssetBundle : object {
+    public static UnityWebRequest GetAssetBundle(string uri);
+    public static UnityWebRequest GetAssetBundle(Uri uri);
+    public static UnityWebRequest GetAssetBundle(string uri, UInt32 crc);
+    public static UnityWebRequest GetAssetBundle(Uri uri, UInt32 crc);
+    public static UnityWebRequest GetAssetBundle(string uri, UInt32 version, UInt32 crc);
+    public static UnityWebRequest GetAssetBundle(Uri uri, UInt32 version, UInt32 crc);
+    public static UnityWebRequest GetAssetBundle(string uri, Hash128 hash, UInt32 crc);
+    public static UnityWebRequest GetAssetBundle(Uri uri, Hash128 hash, UInt32 crc);
+    public static UnityWebRequest GetAssetBundle(string uri, CachedAssetBundle cachedAssetBundle, UInt32 crc);
+    public static UnityWebRequest GetAssetBundle(Uri uri, CachedAssetBundle cachedAssetBundle, UInt32 crc);
+}

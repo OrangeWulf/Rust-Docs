@@ -1,0 +1,170 @@
+internal static class Cronos.CalendarHelper : object {
+    private static int DaysPerWeekCount;
+    private static long TicksPerMillisecond;
+    private static long TicksPerSecond;
+    private static long TicksPerMinute;
+    private static long TicksPerHour;
+    private static long TicksPerDay;
+    private static int DaysPerYear;
+    private static int DaysPer4Years;
+    private static int DaysPer100Years;
+    private static int DaysPer400Years;
+    private static Int32[] DaysToMonth365;
+    private static Int32[] DaysToMonth366;
+    private static Int32[] DaysInMonth;
+    private static CalendarHelper();
+    public static bool IsGreaterThan(int year1, int month1, int day1, int year2, int month2, int day2);
+    public static long DateTimeToTicks(int year, int month, int day, int hour, int minute, int second);
+    public static void FillDateTimeParts(long ticks, Int32& second, Int32& minute, Int32& hour, Int32& day, Int32& month, Int32& year);
+    public static DayOfWeek GetDayOfWeek(int year, int month, int day);
+    public static int GetDaysInMonth(int year, int month);
+    public static int MoveToNearestWeekDay(int year, int month, int day);
+    public static bool IsNthDayOfWeek(int day, int n);
+    public static bool IsLastDayOfWeek(int year, int month, int day);
+}
+public class Cronos.CronExpression : object {
+    private static long NotFound;
+    private static int MinNthDayOfWeek;
+    private static int MaxNthDayOfWeek;
+    private static int SundayBits;
+    private static int MaxYear;
+    private static TimeZoneInfo UtcTimeZone;
+    private static CronExpression Yearly;
+    private static CronExpression Weekly;
+    private static CronExpression Monthly;
+    private static CronExpression Daily;
+    private static CronExpression Hourly;
+    private static CronExpression Minutely;
+    private static CronExpression Secondly;
+    private static Int32[] DeBruijnPositions;
+    private long _second;
+    private long _minute;
+    private int _hour;
+    private int _dayOfMonth;
+    private short _month;
+    private byte _dayOfWeek;
+    private byte _nthDayOfWeek;
+    private byte _lastMonthOffset;
+    private CronExpressionFlag _flags;
+    private static CronExpression();
+    public static CronExpression Parse(string expression);
+    public static CronExpression Parse(string expression, CronFormat format);
+    public Nullable`1<DateTime> GetNextOccurrence(DateTime fromUtc, bool inclusive);
+    [IteratorStateMachineAttribute("Cronos.CronExpression/<GetOccurrences>d__27")]
+public IEnumerable`1<DateTime> GetOccurrences(DateTime fromUtc, DateTime toUtc, bool fromInclusive, bool toInclusive);
+    public Nullable`1<DateTime> GetNextOccurrence(DateTime fromUtc, TimeZoneInfo zone, bool inclusive);
+    [IteratorStateMachineAttribute("Cronos.CronExpression/<GetOccurrences>d__29")]
+public IEnumerable`1<DateTime> GetOccurrences(DateTime fromUtc, DateTime toUtc, TimeZoneInfo zone, bool fromInclusive, bool toInclusive);
+    public Nullable`1<DateTimeOffset> GetNextOccurrence(DateTimeOffset from, TimeZoneInfo zone, bool inclusive);
+    [IteratorStateMachineAttribute("Cronos.CronExpression/<GetOccurrences>d__31")]
+public IEnumerable`1<DateTimeOffset> GetOccurrences(DateTimeOffset from, DateTimeOffset to, TimeZoneInfo zone, bool fromInclusive, bool toInclusive);
+    public virtual string ToString();
+    public sealed virtual bool Equals(CronExpression other);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static bool op_Equality(CronExpression left, CronExpression right);
+    public static bool op_Inequality(CronExpression left, CronExpression right);
+    private Nullable`1<DateTimeOffset> GetOccurrenceConsideringTimeZone(DateTimeOffset fromUtc, TimeZoneInfo zone, bool inclusive);
+    private long FindOccurrence(long startTimeTicks, long endTimeTicks, bool startInclusive);
+    private long FindOccurrence(long ticks, bool startInclusive);
+    private static bool Move(long fieldBits, Int32& fieldValue);
+    private int GetLastDayOfMonth(int year, int month);
+    private bool IsDayOfWeekMatch(int year, int month, int day);
+    private static int GetFirstSet(long value);
+    private bool HasFlag(CronExpressionFlag value);
+    private static void SkipWhiteSpaces(Char*& pointer);
+    private static void ParseWhiteSpace(CronField prevField, Char*& pointer);
+    private static void ParseEndOfString(Char*& pointer);
+    private static CronExpression ParseMacro(Char*& pointer);
+    private static long ParseField(CronField field, Char*& pointer, CronExpressionFlag& flags);
+    private static long ParseDayOfMonth(Char*& pointer, CronExpressionFlag& flags, Byte& lastDayOffset);
+    private static long ParseDayOfWeek(Char*& pointer, CronExpressionFlag& flags, Byte& nthWeekDay);
+    private static long ParseStar(CronField field, Char*& pointer);
+    private static long ParseList(CronField field, Char*& pointer, CronExpressionFlag& flags);
+    private static long ParseRange(CronField field, Char*& pointer, int low, CronExpressionFlag& flags);
+    private static long ParseStep(CronField field, Char*& pointer, int low, int high);
+    private static long ParseLastDayOfMonth(CronField field, Char*& pointer, CronExpressionFlag& flags, Byte& lastMonthOffset);
+    private static long ParseNthWeekDay(CronField field, Char*& pointer, int dayOfWeek, CronExpressionFlag& flags, Byte& nthDayOfWeek);
+    private static long ParseLastWeekDay(int dayOfWeek, CronExpressionFlag& flags);
+    private static bool Accept(Char*& pointer, char character);
+    private static bool AcceptCharacter(Char*& pointer, char character);
+    private static int ParseNumber(CronField field, Char*& pointer, int low, int high);
+    private static int ParseValue(CronField field, Char*& pointer);
+    private static StringBuilder AppendFieldValue(StringBuilder expressionBuilder, CronField field, long fieldValue);
+    private StringBuilder AppendDayOfMonth(StringBuilder expressionBuilder, int domValue);
+    private void AppendDayOfWeek(StringBuilder expressionBuilder, int dowValue);
+    private static long GetBits(CronField field, int num1, int num2, int step);
+    private static long GetRangeBits(int low, int high, int step);
+    private static long GetReversedRangeBits(CronField field, int num1, int num2, int step);
+    private static long GetBit(int num1);
+    private static int GetNumber(Char*& pointer, Int32[] names);
+    private static void ThrowFormatException(CronField field, string format, Object[] args);
+    private static void ThrowFormatException(string format, Object[] args);
+    private static void ThrowFromShouldBeLessThanToException(string fromName, string toName);
+    private static void ThrowWrongDateTimeKindException(string paramName);
+    private static bool GetBit(long value, int index);
+    private static void SetBit(Int64& value, int index);
+    private static bool IsEndOfString(int code);
+    private static bool IsWhiteSpace(int code);
+    private static bool IsDigit(int code);
+    private static bool IsLetter(int code);
+    private static int GetNumeric(int code);
+    private static int ToUpper(int code);
+}
+[FlagsAttribute]
+internal enum Cronos.CronExpressionFlag : Enum {
+    public byte value__;
+    public static CronExpressionFlag DayOfMonthLast;
+    public static CronExpressionFlag DayOfWeekLast;
+    public static CronExpressionFlag Interval;
+    public static CronExpressionFlag NearestWeekday;
+    public static CronExpressionFlag NthDayOfWeek;
+}
+internal class Cronos.CronField : object {
+    private static String[] MonthNames;
+    private static String[] DayOfWeekNames;
+    private static Int32[] MonthNamesArray;
+    private static Int32[] DayOfWeekNamesArray;
+    public static CronField DaysOfWeek;
+    public static CronField Months;
+    public static CronField DaysOfMonth;
+    public static CronField Hours;
+    public static CronField Minutes;
+    public static CronField Seconds;
+    public string Name;
+    public int First;
+    public int Last;
+    public Int32[] Names;
+    public bool CanDefineInterval;
+    public long AllBits;
+    private static CronField();
+    private CronField(string name, int first, int last, Int32[] names, bool canDefineInterval);
+    public virtual string ToString();
+}
+[FlagsAttribute]
+public enum Cronos.CronFormat : Enum {
+    public int value__;
+    public static CronFormat Standard;
+    public static CronFormat IncludeSeconds;
+}
+public class Cronos.CronFormatException : FormatException {
+    public CronFormatException(string message);
+    internal CronFormatException(CronField field, string message);
+}
+internal static class Cronos.DateTimeHelper : object {
+    private static TimeSpan OneSecond;
+    private static DateTimeHelper();
+    public static DateTimeOffset FloorToSeconds(DateTimeOffset dateTimeOffset);
+    public static bool IsRound(DateTimeOffset dateTimeOffset);
+    private static long GetExtraTicks(long ticks);
+}
+internal static class Cronos.TimeZoneHelper : object {
+    public static bool IsAmbiguousTime(TimeZoneInfo zone, DateTime ambiguousTime);
+    public static TimeSpan GetDaylightOffset(TimeZoneInfo zone, DateTime ambiguousDateTime);
+    public static DateTimeOffset GetDaylightTimeStart(TimeZoneInfo zone, DateTime invalidDateTime);
+    public static DateTimeOffset GetStandardTimeStart(TimeZoneInfo zone, DateTime ambiguousTime, TimeSpan daylightOffset);
+    public static DateTimeOffset GetAmbiguousIntervalEnd(TimeZoneInfo zone, DateTime ambiguousTime);
+    public static DateTimeOffset GetDaylightTimeEnd(TimeZoneInfo zone, DateTime ambiguousTime, TimeSpan daylightOffset);
+    private static TimeSpan[] GetAmbiguousOffsets(TimeZoneInfo zone, DateTime ambiguousTime);
+    private static DateTime GetDstTransitionEndDateTime(TimeZoneInfo zone, DateTime ambiguousDateTime);
+}

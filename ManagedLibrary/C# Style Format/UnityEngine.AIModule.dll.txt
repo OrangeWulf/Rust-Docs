@@ -1,0 +1,929 @@
+[MovedFromAttribute("UnityEngine")]
+[NativeHeaderAttribute("Modules/AI/NavMesh/NavMesh.bindings.h")]
+[NativeHeaderAttribute("Modules/AI/NavMeshManager.h")]
+[StaticAccessorAttribute("NavMeshBindings", "2")]
+public static class UnityEngine.AI.NavMesh : object {
+    public static int AllAreas;
+    public static OnNavMeshPreUpdate onPreUpdate;
+    [StaticAccessorAttribute("GetNavMeshManager()")]
+public static float avoidancePredictionTime { get; public set; }
+    [StaticAccessorAttribute("GetNavMeshManager()")]
+public static int pathfindingIterationsPerFrame { get; public set; }
+    [RequiredByNativeCodeAttribute]
+private static void Internal_CallOnNavMeshPreUpdate();
+    public static bool Raycast(Vector3 sourcePosition, Vector3 targetPosition, NavMeshHit& hit, int areaMask);
+    public static bool CalculatePath(Vector3 sourcePosition, Vector3 targetPosition, int areaMask, NavMeshPath path);
+    private static bool CalculatePathInternal(Vector3 sourcePosition, Vector3 targetPosition, int areaMask, NavMeshPath path);
+    public static bool FindClosestEdge(Vector3 sourcePosition, NavMeshHit& hit, int areaMask);
+    public static bool SamplePosition(Vector3 sourcePosition, NavMeshHit& hit, float maxDistance, int areaMask);
+    [NativeNameAttribute("SetAreaCost")]
+[ObsoleteAttribute("Use SetAreaCost instead.")]
+[StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static void SetLayerCost(int layer, float cost);
+    [NativeNameAttribute("GetAreaCost")]
+[ObsoleteAttribute("Use GetAreaCost instead.")]
+[StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static float GetLayerCost(int layer);
+    [NativeNameAttribute("GetAreaFromName")]
+[ObsoleteAttribute("Use GetAreaFromName instead.")]
+[StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static int GetNavMeshLayerFromName(string layerName);
+    [NativeNameAttribute("SetAreaCost")]
+[StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static void SetAreaCost(int areaIndex, float cost);
+    [NativeNameAttribute("GetAreaCost")]
+[StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static float GetAreaCost(int areaIndex);
+    [NativeNameAttribute("GetAreaFromName")]
+[StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static int GetAreaFromName(string areaName);
+    public static NavMeshTriangulation CalculateTriangulation();
+    [ObsoleteAttribute("use NavMesh.CalculateTriangulation() instead.")]
+public static void Triangulate(Vector3[]& vertices, Int32[]& indices);
+    [ObsoleteAttribute("AddOffMeshLinks has no effect and is deprecated.")]
+public static void AddOffMeshLinks();
+    [ObsoleteAttribute("RestoreNavMesh has no effect and is deprecated.")]
+public static void RestoreNavMesh();
+    public static float get_avoidancePredictionTime();
+    public static void set_avoidancePredictionTime(float value);
+    public static int get_pathfindingIterationsPerFrame();
+    public static void set_pathfindingIterationsPerFrame(int value);
+    public static NavMeshDataInstance AddNavMeshData(NavMeshData navMeshData);
+    public static NavMeshDataInstance AddNavMeshData(NavMeshData navMeshData, Vector3 position, Quaternion rotation);
+    public static void RemoveNavMeshData(NavMeshDataInstance handle);
+    [NativeNameAttribute("IsValidSurfaceID")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+internal static bool IsValidNavMeshDataHandle(int handle);
+    [StaticAccessorAttribute("GetNavMeshManager()")]
+internal static bool IsValidLinkHandle(int handle);
+    internal static Object InternalGetOwner(int dataID);
+    [NativeNameAttribute("SetSurfaceUserID")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+internal static bool InternalSetOwner(int dataID, int ownerID);
+    internal static Object InternalGetLinkOwner(int linkID);
+    [NativeNameAttribute("SetLinkUserID")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+internal static bool InternalSetLinkOwner(int linkID, int ownerID);
+    [NativeNameAttribute("LoadData")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+internal static int AddNavMeshDataInternal(NavMeshData navMeshData);
+    [NativeNameAttribute("LoadData")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+internal static int AddNavMeshDataTransformedInternal(NavMeshData navMeshData, Vector3 position, Quaternion rotation);
+    [NativeNameAttribute("UnloadData")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+internal static void RemoveNavMeshDataInternal(int handle);
+    public static NavMeshLinkInstance AddLink(NavMeshLinkData link);
+    public static NavMeshLinkInstance AddLink(NavMeshLinkData link, Vector3 position, Quaternion rotation);
+    public static void RemoveLink(NavMeshLinkInstance handle);
+    [NativeNameAttribute("AddLink")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+internal static int AddLinkInternal(NavMeshLinkData link, Vector3 position, Quaternion rotation);
+    [NativeNameAttribute("RemoveLink")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+internal static void RemoveLinkInternal(int handle);
+    public static bool SamplePosition(Vector3 sourcePosition, NavMeshHit& hit, float maxDistance, NavMeshQueryFilter filter);
+    private static bool SamplePositionFilter(Vector3 sourcePosition, NavMeshHit& hit, float maxDistance, int type, int mask);
+    public static bool FindClosestEdge(Vector3 sourcePosition, NavMeshHit& hit, NavMeshQueryFilter filter);
+    private static bool FindClosestEdgeFilter(Vector3 sourcePosition, NavMeshHit& hit, int type, int mask);
+    public static bool Raycast(Vector3 sourcePosition, Vector3 targetPosition, NavMeshHit& hit, NavMeshQueryFilter filter);
+    private static bool RaycastFilter(Vector3 sourcePosition, Vector3 targetPosition, NavMeshHit& hit, int type, int mask);
+    public static bool CalculatePath(Vector3 sourcePosition, Vector3 targetPosition, NavMeshQueryFilter filter, NavMeshPath path);
+    private static bool CalculatePathFilterInternal(Vector3 sourcePosition, Vector3 targetPosition, NavMeshPath path, int type, int mask, Single[] costs);
+    [StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static NavMeshBuildSettings CreateSettings();
+    [StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static void RemoveSettings(int agentTypeID);
+    public static NavMeshBuildSettings GetSettingsByID(int agentTypeID);
+    [StaticAccessorAttribute("GetNavMeshProjectSettings()")]
+public static int GetSettingsCount();
+    public static NavMeshBuildSettings GetSettingsByIndex(int index);
+    public static string GetSettingsNameFromID(int agentTypeID);
+    [NativeNameAttribute("CleanupAfterCarving")]
+[StaticAccessorAttribute("GetNavMeshManager()")]
+public static void RemoveAllNavMeshData();
+    private static bool Raycast_Injected(Vector3& sourcePosition, Vector3& targetPosition, NavMeshHit& hit, int areaMask);
+    private static bool CalculatePathInternal_Injected(Vector3& sourcePosition, Vector3& targetPosition, int areaMask, NavMeshPath path);
+    private static bool FindClosestEdge_Injected(Vector3& sourcePosition, NavMeshHit& hit, int areaMask);
+    private static bool SamplePosition_Injected(Vector3& sourcePosition, NavMeshHit& hit, float maxDistance, int areaMask);
+    private static void CalculateTriangulation_Injected(NavMeshTriangulation& ret);
+    private static int AddNavMeshDataTransformedInternal_Injected(NavMeshData navMeshData, Vector3& position, Quaternion& rotation);
+    private static int AddLinkInternal_Injected(NavMeshLinkData& link, Vector3& position, Quaternion& rotation);
+    private static bool SamplePositionFilter_Injected(Vector3& sourcePosition, NavMeshHit& hit, float maxDistance, int type, int mask);
+    private static bool FindClosestEdgeFilter_Injected(Vector3& sourcePosition, NavMeshHit& hit, int type, int mask);
+    private static bool RaycastFilter_Injected(Vector3& sourcePosition, Vector3& targetPosition, NavMeshHit& hit, int type, int mask);
+    private static bool CalculatePathFilterInternal_Injected(Vector3& sourcePosition, Vector3& targetPosition, NavMeshPath path, int type, int mask, Single[] costs);
+    private static void CreateSettings_Injected(NavMeshBuildSettings& ret);
+    private static void GetSettingsByID_Injected(int agentTypeID, NavMeshBuildSettings& ret);
+    private static void GetSettingsByIndex_Injected(int index, NavMeshBuildSettings& ret);
+}
+[HelpURLAttribute("https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/NavMeshAgent.html")]
+[MovedFromAttribute("UnityEngine")]
+[NativeHeaderAttribute("Modules/AI/Components/NavMeshAgent.bindings.h")]
+[NativeHeaderAttribute("Modules/AI/NavMesh/NavMesh.bindings.h")]
+public class UnityEngine.AI.NavMeshAgent : Behaviour {
+    public Vector3 destination { get; public set; }
+    public float stoppingDistance { get; public set; }
+    public Vector3 velocity { get; public set; }
+    [NativePropertyAttribute("Position")]
+public Vector3 nextPosition { get; public set; }
+    public Vector3 steeringTarget { get; }
+    public Vector3 desiredVelocity { get; }
+    public float remainingDistance { get; }
+    public float baseOffset { get; public set; }
+    public bool isOnOffMeshLink { get; }
+    public OffMeshLinkData currentOffMeshLinkData { get; }
+    public OffMeshLinkData nextOffMeshLinkData { get; }
+    public bool autoTraverseOffMeshLink { get; public set; }
+    public bool autoBraking { get; public set; }
+    public bool autoRepath { get; public set; }
+    public bool hasPath { get; }
+    public bool pathPending { get; }
+    public bool isPathStale { get; }
+    public NavMeshPathStatus pathStatus { get; }
+    [NativePropertyAttribute("EndPositionOfCurrentPath")]
+public Vector3 pathEndPosition { get; }
+    public bool isStopped { get; public set; }
+    public NavMeshPath path { get; public set; }
+    public Object navMeshOwner { get; }
+    public int agentTypeID { get; public set; }
+    [ObsoleteAttribute("Use areaMask instead.")]
+public int walkableMask { get; public set; }
+    public int areaMask { get; public set; }
+    public float speed { get; public set; }
+    public float angularSpeed { get; public set; }
+    public float acceleration { get; public set; }
+    public bool updatePosition { get; public set; }
+    public bool updateRotation { get; public set; }
+    public bool updateUpAxis { get; public set; }
+    public float radius { get; public set; }
+    public float height { get; public set; }
+    public ObstacleAvoidanceType obstacleAvoidanceType { get; public set; }
+    public int avoidancePriority { get; public set; }
+    public bool isOnNavMesh { get; }
+    public bool SetDestination(Vector3 target);
+    public Vector3 get_destination();
+    public void set_destination(Vector3 value);
+    public float get_stoppingDistance();
+    public void set_stoppingDistance(float value);
+    public Vector3 get_velocity();
+    public void set_velocity(Vector3 value);
+    public Vector3 get_nextPosition();
+    public void set_nextPosition(Vector3 value);
+    public Vector3 get_steeringTarget();
+    public Vector3 get_desiredVelocity();
+    public float get_remainingDistance();
+    public float get_baseOffset();
+    public void set_baseOffset(float value);
+    [NativeNameAttribute("IsOnOffMeshLink")]
+public bool get_isOnOffMeshLink();
+    public void ActivateCurrentOffMeshLink(bool activated);
+    public OffMeshLinkData get_currentOffMeshLinkData();
+    [FreeFunctionAttribute("NavMeshAgentScriptBindings::GetCurrentOffMeshLinkDataInternal")]
+internal OffMeshLinkData GetCurrentOffMeshLinkDataInternal();
+    public OffMeshLinkData get_nextOffMeshLinkData();
+    [FreeFunctionAttribute("NavMeshAgentScriptBindings::GetNextOffMeshLinkDataInternal")]
+internal OffMeshLinkData GetNextOffMeshLinkDataInternal();
+    public void CompleteOffMeshLink();
+    public bool get_autoTraverseOffMeshLink();
+    public void set_autoTraverseOffMeshLink(bool value);
+    public bool get_autoBraking();
+    public void set_autoBraking(bool value);
+    public bool get_autoRepath();
+    public void set_autoRepath(bool value);
+    [NativeNameAttribute("HasPath")]
+public bool get_hasPath();
+    [NativeNameAttribute("PathPending")]
+public bool get_pathPending();
+    [NativeNameAttribute("IsPathStale")]
+public bool get_isPathStale();
+    public NavMeshPathStatus get_pathStatus();
+    public Vector3 get_pathEndPosition();
+    public bool Warp(Vector3 newPosition);
+    public void Move(Vector3 offset);
+    [ObsoleteAttribute("Set isStopped to true instead.")]
+public void Stop();
+    [ObsoleteAttribute("Set isStopped to true instead.")]
+public void Stop(bool stopUpdates);
+    [ObsoleteAttribute("Set isStopped to false instead.")]
+public void Resume();
+    [FreeFunctionAttribute("NavMeshAgentScriptBindings::GetIsStopped")]
+public bool get_isStopped();
+    [FreeFunctionAttribute("NavMeshAgentScriptBindings::SetIsStopped")]
+public void set_isStopped(bool value);
+    public void ResetPath();
+    public bool SetPath(NavMeshPath path);
+    public NavMeshPath get_path();
+    public void set_path(NavMeshPath value);
+    [NativeMethodAttribute("CopyPath")]
+internal void CopyPathTo(NavMeshPath path);
+    [NativeNameAttribute("DistanceToEdge")]
+public bool FindClosestEdge(NavMeshHit& hit);
+    public bool Raycast(Vector3 targetPosition, NavMeshHit& hit);
+    public bool CalculatePath(Vector3 targetPosition, NavMeshPath path);
+    [FreeFunctionAttribute("NavMeshAgentScriptBindings::CalculatePathInternal")]
+private bool CalculatePathInternal(Vector3 targetPosition, NavMeshPath path);
+    public bool SamplePathPosition(int areaMask, float maxDistance, NavMeshHit& hit);
+    [NativeMethodAttribute("SetAreaCost")]
+[ObsoleteAttribute("Use SetAreaCost instead.")]
+public void SetLayerCost(int layer, float cost);
+    [NativeMethodAttribute("GetAreaCost")]
+[ObsoleteAttribute("Use GetAreaCost instead.")]
+public float GetLayerCost(int layer);
+    public void SetAreaCost(int areaIndex, float areaCost);
+    public float GetAreaCost(int areaIndex);
+    public Object get_navMeshOwner();
+    public int get_agentTypeID();
+    public void set_agentTypeID(int value);
+    [NativeNameAttribute("GetCurrentPolygonOwner")]
+private Object GetOwnerInternal();
+    public int get_walkableMask();
+    public void set_walkableMask(int value);
+    public int get_areaMask();
+    public void set_areaMask(int value);
+    public float get_speed();
+    public void set_speed(float value);
+    public float get_angularSpeed();
+    public void set_angularSpeed(float value);
+    public float get_acceleration();
+    public void set_acceleration(float value);
+    public bool get_updatePosition();
+    public void set_updatePosition(bool value);
+    public bool get_updateRotation();
+    public void set_updateRotation(bool value);
+    public bool get_updateUpAxis();
+    public void set_updateUpAxis(bool value);
+    public float get_radius();
+    public void set_radius(float value);
+    public float get_height();
+    public void set_height(float value);
+    public ObstacleAvoidanceType get_obstacleAvoidanceType();
+    public void set_obstacleAvoidanceType(ObstacleAvoidanceType value);
+    public int get_avoidancePriority();
+    public void set_avoidancePriority(int value);
+    [NativeNameAttribute("InCrowdSystem")]
+public bool get_isOnNavMesh();
+    private bool SetDestination_Injected(Vector3& target);
+    private void get_destination_Injected(Vector3& ret);
+    private void set_destination_Injected(Vector3& value);
+    private void get_velocity_Injected(Vector3& ret);
+    private void set_velocity_Injected(Vector3& value);
+    private void get_nextPosition_Injected(Vector3& ret);
+    private void set_nextPosition_Injected(Vector3& value);
+    private void get_steeringTarget_Injected(Vector3& ret);
+    private void get_desiredVelocity_Injected(Vector3& ret);
+    private void GetCurrentOffMeshLinkDataInternal_Injected(OffMeshLinkData& ret);
+    private void GetNextOffMeshLinkDataInternal_Injected(OffMeshLinkData& ret);
+    private void get_pathEndPosition_Injected(Vector3& ret);
+    private bool Warp_Injected(Vector3& newPosition);
+    private void Move_Injected(Vector3& offset);
+    private bool Raycast_Injected(Vector3& targetPosition, NavMeshHit& hit);
+    private bool CalculatePathInternal_Injected(Vector3& targetPosition, NavMeshPath path);
+}
+[FlagsAttribute]
+public enum UnityEngine.AI.NavMeshBuildDebugFlags : Enum {
+    public int value__;
+    public static NavMeshBuildDebugFlags None;
+    public static NavMeshBuildDebugFlags InputGeometry;
+    public static NavMeshBuildDebugFlags Voxels;
+    public static NavMeshBuildDebugFlags Regions;
+    public static NavMeshBuildDebugFlags RawContours;
+    public static NavMeshBuildDebugFlags SimplifiedContours;
+    public static NavMeshBuildDebugFlags PolygonMeshes;
+    public static NavMeshBuildDebugFlags PolygonMeshesDetail;
+    public static NavMeshBuildDebugFlags All;
+}
+[NativeHeaderAttribute("Modules/AI/Public/NavMeshBuildDebugSettings.h")]
+public class UnityEngine.AI.NavMeshBuildDebugSettings : ValueType {
+    private byte m_Flags;
+    public NavMeshBuildDebugFlags flags { get; public set; }
+    public NavMeshBuildDebugFlags get_flags();
+    public void set_flags(NavMeshBuildDebugFlags value);
+}
+[NativeHeaderAttribute("Modules/AI/Builder/NavMeshBuilder.bindings.h")]
+[StaticAccessorAttribute("NavMeshBuilderBindings", "2")]
+public static class UnityEngine.AI.NavMeshBuilder : object {
+    public static void CollectSources(Bounds includedWorldBounds, int includedLayerMask, NavMeshCollectGeometry geometry, int defaultArea, bool generateLinksByDefault, List`1<NavMeshBuildMarkup> markups, bool includeOnlyMarkedObjects, List`1<NavMeshBuildSource> results);
+    public static void CollectSources(Bounds includedWorldBounds, int includedLayerMask, NavMeshCollectGeometry geometry, int defaultArea, List`1<NavMeshBuildMarkup> markups, List`1<NavMeshBuildSource> results);
+    public static void CollectSources(Transform root, int includedLayerMask, NavMeshCollectGeometry geometry, int defaultArea, bool generateLinksByDefault, List`1<NavMeshBuildMarkup> markups, bool includeOnlyMarkedObjects, List`1<NavMeshBuildSource> results);
+    public static void CollectSources(Transform root, int includedLayerMask, NavMeshCollectGeometry geometry, int defaultArea, List`1<NavMeshBuildMarkup> markups, List`1<NavMeshBuildSource> results);
+    private static NavMeshBuildSource[] CollectSourcesInternal(int includedLayerMask, Bounds includedWorldBounds, Transform root, bool useBounds, NavMeshCollectGeometry geometry, int defaultArea, bool generateLinksByDefault, NavMeshBuildMarkup[] markups, bool includeOnlyMarkedObjects);
+    public static NavMeshData BuildNavMeshData(NavMeshBuildSettings buildSettings, List`1<NavMeshBuildSource> sources, Bounds localBounds, Vector3 position, Quaternion rotation);
+    public static bool UpdateNavMeshData(NavMeshData data, NavMeshBuildSettings buildSettings, List`1<NavMeshBuildSource> sources, Bounds localBounds);
+    private static bool UpdateNavMeshDataListInternal(NavMeshData data, NavMeshBuildSettings buildSettings, object sources, Bounds localBounds);
+    public static AsyncOperation UpdateNavMeshDataAsync(NavMeshData data, NavMeshBuildSettings buildSettings, List`1<NavMeshBuildSource> sources, Bounds localBounds);
+    [NativeHeaderAttribute("Modules/AI/NavMeshManager.h")]
+[NativeMethodAttribute("Purge")]
+[StaticAccessorAttribute("GetNavMeshManager().GetNavMeshBuildManager()", "1")]
+public static void Cancel(NavMeshData data);
+    private static AsyncOperation UpdateNavMeshDataAsyncListInternal(NavMeshData data, NavMeshBuildSettings buildSettings, object sources, Bounds localBounds);
+    private static NavMeshBuildSource[] CollectSourcesInternal_Injected(int includedLayerMask, Bounds& includedWorldBounds, Transform root, bool useBounds, NavMeshCollectGeometry geometry, int defaultArea, bool generateLinksByDefault, NavMeshBuildMarkup[] markups, bool includeOnlyMarkedObjects);
+    private static bool UpdateNavMeshDataListInternal_Injected(NavMeshData data, NavMeshBuildSettings& buildSettings, object sources, Bounds& localBounds);
+    private static AsyncOperation UpdateNavMeshDataAsyncListInternal_Injected(NavMeshData data, NavMeshBuildSettings& buildSettings, object sources, Bounds& localBounds);
+}
+[NativeHeaderAttribute("Modules/AI/Public/NavMeshBindingTypes.h")]
+public class UnityEngine.AI.NavMeshBuildMarkup : ValueType {
+    private int m_OverrideArea;
+    private int m_Area;
+    private int m_InheritIgnoreFromBuild;
+    private int m_IgnoreFromBuild;
+    private int m_OverrideGenerateLinks;
+    private int m_GenerateLinks;
+    private int m_InstanceID;
+    private int m_IgnoreChildren;
+    public bool overrideArea { get; public set; }
+    public int area { get; public set; }
+    public bool overrideIgnore { get; public set; }
+    public bool ignoreFromBuild { get; public set; }
+    public bool overrideGenerateLinks { get; public set; }
+    public bool generateLinks { get; public set; }
+    public bool applyToChildren { get; public set; }
+    public Transform root { get; public set; }
+    public bool get_overrideArea();
+    public void set_overrideArea(bool value);
+    public int get_area();
+    public void set_area(int value);
+    public bool get_overrideIgnore();
+    public void set_overrideIgnore(bool value);
+    public bool get_ignoreFromBuild();
+    public void set_ignoreFromBuild(bool value);
+    public bool get_overrideGenerateLinks();
+    public void set_overrideGenerateLinks(bool value);
+    public bool get_generateLinks();
+    public void set_generateLinks(bool value);
+    public bool get_applyToChildren();
+    public void set_applyToChildren(bool value);
+    public Transform get_root();
+    public void set_root(Transform value);
+    [StaticAccessorAttribute("NavMeshBuildMarkup", "2")]
+private static Transform InternalGetRootGO(int instanceID);
+}
+[NativeHeaderAttribute("Modules/AI/Public/NavMeshBuildSettings.h")]
+public class UnityEngine.AI.NavMeshBuildSettings : ValueType {
+    private int m_AgentTypeID;
+    private float m_AgentRadius;
+    private float m_AgentHeight;
+    private float m_AgentSlope;
+    private float m_AgentClimb;
+    private float m_LedgeDropHeight;
+    private float m_MaxJumpAcrossDistance;
+    private float m_MinRegionArea;
+    private int m_OverrideVoxelSize;
+    private float m_VoxelSize;
+    private int m_OverrideTileSize;
+    private int m_TileSize;
+    private int m_BuildHeightMesh;
+    private UInt32 m_MaxJobWorkers;
+    private int m_PreserveTilesOutsideBounds;
+    private NavMeshBuildDebugSettings m_Debug;
+    public int agentTypeID { get; public set; }
+    public float agentRadius { get; public set; }
+    public float agentHeight { get; public set; }
+    public float agentSlope { get; public set; }
+    public float agentClimb { get; public set; }
+    public float ledgeDropHeight { get; public set; }
+    public float maxJumpAcrossDistance { get; public set; }
+    public float minRegionArea { get; public set; }
+    public bool overrideVoxelSize { get; public set; }
+    public float voxelSize { get; public set; }
+    public bool overrideTileSize { get; public set; }
+    public int tileSize { get; public set; }
+    public UInt32 maxJobWorkers { get; public set; }
+    public bool preserveTilesOutsideBounds { get; public set; }
+    public bool buildHeightMesh { get; public set; }
+    public NavMeshBuildDebugSettings debug { get; public set; }
+    public int get_agentTypeID();
+    public void set_agentTypeID(int value);
+    public float get_agentRadius();
+    public void set_agentRadius(float value);
+    public float get_agentHeight();
+    public void set_agentHeight(float value);
+    public float get_agentSlope();
+    public void set_agentSlope(float value);
+    public float get_agentClimb();
+    public void set_agentClimb(float value);
+    public float get_ledgeDropHeight();
+    public void set_ledgeDropHeight(float value);
+    public float get_maxJumpAcrossDistance();
+    public void set_maxJumpAcrossDistance(float value);
+    public float get_minRegionArea();
+    public void set_minRegionArea(float value);
+    public bool get_overrideVoxelSize();
+    public void set_overrideVoxelSize(bool value);
+    public float get_voxelSize();
+    public void set_voxelSize(float value);
+    public bool get_overrideTileSize();
+    public void set_overrideTileSize(bool value);
+    public int get_tileSize();
+    public void set_tileSize(int value);
+    public UInt32 get_maxJobWorkers();
+    public void set_maxJobWorkers(UInt32 value);
+    public bool get_preserveTilesOutsideBounds();
+    public void set_preserveTilesOutsideBounds(bool value);
+    public bool get_buildHeightMesh();
+    public void set_buildHeightMesh(bool value);
+    public NavMeshBuildDebugSettings get_debug();
+    public void set_debug(NavMeshBuildDebugSettings value);
+    public String[] ValidationReport(Bounds buildBounds);
+    [FreeFunctionAttribute]
+[NativeHeaderAttribute("Modules/AI/Public/NavMeshBuildSettings.h")]
+private static String[] InternalValidationReport(NavMeshBuildSettings buildSettings, Bounds buildBounds);
+    private static String[] InternalValidationReport_Injected(NavMeshBuildSettings& buildSettings, Bounds& buildBounds);
+}
+[NativeHeaderAttribute("Modules/AI/Public/NavMeshBindingTypes.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.AI.NavMeshBuildSource : ValueType {
+    private Matrix4x4 m_Transform;
+    private Vector3 m_Size;
+    private NavMeshBuildSourceShape m_Shape;
+    private int m_Area;
+    private int m_InstanceID;
+    private int m_ComponentID;
+    private int m_GenerateLinks;
+    public Matrix4x4 transform { get; public set; }
+    public Vector3 size { get; public set; }
+    public NavMeshBuildSourceShape shape { get; public set; }
+    public int area { get; public set; }
+    public bool generateLinks { get; public set; }
+    public Object sourceObject { get; public set; }
+    public Component component { get; public set; }
+    public Matrix4x4 get_transform();
+    public void set_transform(Matrix4x4 value);
+    public Vector3 get_size();
+    public void set_size(Vector3 value);
+    public NavMeshBuildSourceShape get_shape();
+    public void set_shape(NavMeshBuildSourceShape value);
+    public int get_area();
+    public void set_area(int value);
+    public bool get_generateLinks();
+    public void set_generateLinks(bool value);
+    public Object get_sourceObject();
+    public void set_sourceObject(Object value);
+    public Component get_component();
+    public void set_component(Component value);
+    [StaticAccessorAttribute("NavMeshBuildSource", "2")]
+private static Component InternalGetComponent(int instanceID);
+    [StaticAccessorAttribute("NavMeshBuildSource", "2")]
+private static Object InternalGetObject(int instanceID);
+}
+public enum UnityEngine.AI.NavMeshBuildSourceShape : Enum {
+    public int value__;
+    public static NavMeshBuildSourceShape Mesh;
+    public static NavMeshBuildSourceShape Terrain;
+    public static NavMeshBuildSourceShape Box;
+    public static NavMeshBuildSourceShape Sphere;
+    public static NavMeshBuildSourceShape Capsule;
+    public static NavMeshBuildSourceShape ModifierBox;
+}
+public enum UnityEngine.AI.NavMeshCollectGeometry : Enum {
+    public int value__;
+    public static NavMeshCollectGeometry RenderMeshes;
+    public static NavMeshCollectGeometry PhysicsColliders;
+}
+[NativeHeaderAttribute("Modules/AI/NavMesh/NavMesh.bindings.h")]
+public class UnityEngine.AI.NavMeshData : Object {
+    public Bounds sourceBounds { get; }
+    public Vector3 position { get; public set; }
+    public Quaternion rotation { get; public set; }
+    internal bool hasHeightMeshData { get; }
+    internal NavMeshBuildSettings buildSettings { get; }
+    public NavMeshData(int agentTypeID);
+    [StaticAccessorAttribute("NavMeshDataBindings", "2")]
+private static void Internal_Create(NavMeshData mono, int agentTypeID);
+    public Bounds get_sourceBounds();
+    public Vector3 get_position();
+    public void set_position(Vector3 value);
+    public Quaternion get_rotation();
+    public void set_rotation(Quaternion value);
+    [NativeMethodAttribute("HasHeightMeshData")]
+internal bool get_hasHeightMeshData();
+    internal NavMeshBuildSettings get_buildSettings();
+    private void get_sourceBounds_Injected(Bounds& ret);
+    private void get_position_Injected(Vector3& ret);
+    private void set_position_Injected(Vector3& value);
+    private void get_rotation_Injected(Quaternion& ret);
+    private void set_rotation_Injected(Quaternion& value);
+    private void get_buildSettings_Injected(NavMeshBuildSettings& ret);
+}
+public class UnityEngine.AI.NavMeshDataInstance : ValueType {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <id>k__BackingField;
+    public bool valid { get; }
+    internal int id { get; internal set; }
+    public Object owner { get; public set; }
+    public bool get_valid();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+internal int get_id();
+    [CompilerGeneratedAttribute]
+internal void set_id(int value);
+    public void Remove();
+    public Object get_owner();
+    public void set_owner(Object value);
+}
+[MovedFromAttribute("UnityEngine")]
+public class UnityEngine.AI.NavMeshHit : ValueType {
+    private Vector3 m_Position;
+    private Vector3 m_Normal;
+    private float m_Distance;
+    private int m_Mask;
+    private int m_Hit;
+    public Vector3 position { get; public set; }
+    public Vector3 normal { get; public set; }
+    public float distance { get; public set; }
+    public int mask { get; public set; }
+    public bool hit { get; public set; }
+    public Vector3 get_position();
+    public void set_position(Vector3 value);
+    public Vector3 get_normal();
+    public void set_normal(Vector3 value);
+    public float get_distance();
+    public void set_distance(float value);
+    public int get_mask();
+    public void set_mask(int value);
+    public bool get_hit();
+    public void set_hit(bool value);
+}
+public class UnityEngine.AI.NavMeshLinkData : ValueType {
+    private Vector3 m_StartPosition;
+    private Vector3 m_EndPosition;
+    private float m_CostModifier;
+    private int m_Bidirectional;
+    private float m_Width;
+    private int m_Area;
+    private int m_AgentTypeID;
+    public Vector3 startPosition { get; public set; }
+    public Vector3 endPosition { get; public set; }
+    public float costModifier { get; public set; }
+    public bool bidirectional { get; public set; }
+    public float width { get; public set; }
+    public int area { get; public set; }
+    public int agentTypeID { get; public set; }
+    public Vector3 get_startPosition();
+    public void set_startPosition(Vector3 value);
+    public Vector3 get_endPosition();
+    public void set_endPosition(Vector3 value);
+    public float get_costModifier();
+    public void set_costModifier(float value);
+    public bool get_bidirectional();
+    public void set_bidirectional(bool value);
+    public float get_width();
+    public void set_width(float value);
+    public int get_area();
+    public void set_area(int value);
+    public int get_agentTypeID();
+    public void set_agentTypeID(int value);
+}
+public class UnityEngine.AI.NavMeshLinkInstance : ValueType {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <id>k__BackingField;
+    public bool valid { get; }
+    internal int id { get; internal set; }
+    public Object owner { get; public set; }
+    public bool get_valid();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+internal int get_id();
+    [CompilerGeneratedAttribute]
+internal void set_id(int value);
+    public void Remove();
+    public Object get_owner();
+    public void set_owner(Object value);
+}
+[HelpURLAttribute("https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/NavMeshObstacle.html")]
+[MovedFromAttribute("UnityEngine")]
+[NativeHeaderAttribute("Modules/AI/Components/NavMeshObstacle.bindings.h")]
+public class UnityEngine.AI.NavMeshObstacle : Behaviour {
+    public float height { get; public set; }
+    public float radius { get; public set; }
+    public Vector3 velocity { get; public set; }
+    public bool carving { get; public set; }
+    public bool carveOnlyStationary { get; public set; }
+    [NativePropertyAttribute("MoveThreshold")]
+public float carvingMoveThreshold { get; public set; }
+    [NativePropertyAttribute("TimeToStationary")]
+public float carvingTimeToStationary { get; public set; }
+    public NavMeshObstacleShape shape { get; public set; }
+    public Vector3 center { get; public set; }
+    public Vector3 size { get; public set; }
+    public float get_height();
+    public void set_height(float value);
+    public float get_radius();
+    public void set_radius(float value);
+    public Vector3 get_velocity();
+    public void set_velocity(Vector3 value);
+    public bool get_carving();
+    public void set_carving(bool value);
+    public bool get_carveOnlyStationary();
+    public void set_carveOnlyStationary(bool value);
+    public float get_carvingMoveThreshold();
+    public void set_carvingMoveThreshold(float value);
+    public float get_carvingTimeToStationary();
+    public void set_carvingTimeToStationary(float value);
+    public NavMeshObstacleShape get_shape();
+    public void set_shape(NavMeshObstacleShape value);
+    public Vector3 get_center();
+    public void set_center(Vector3 value);
+    [FreeFunctionAttribute("NavMeshObstacleScriptBindings::GetSize")]
+public Vector3 get_size();
+    [FreeFunctionAttribute("NavMeshObstacleScriptBindings::SetSize")]
+public void set_size(Vector3 value);
+    [FreeFunctionAttribute("NavMeshObstacleScriptBindings::FitExtents")]
+internal void FitExtents();
+    private void get_velocity_Injected(Vector3& ret);
+    private void set_velocity_Injected(Vector3& value);
+    private void get_center_Injected(Vector3& ret);
+    private void set_center_Injected(Vector3& value);
+    private void get_size_Injected(Vector3& ret);
+    private void set_size_Injected(Vector3& value);
+}
+[MovedFromAttribute("UnityEngine")]
+public enum UnityEngine.AI.NavMeshObstacleShape : Enum {
+    public int value__;
+    public static NavMeshObstacleShape Capsule;
+    public static NavMeshObstacleShape Box;
+}
+[MovedFromAttribute("UnityEngine")]
+[NativeHeaderAttribute("Modules/AI/NavMeshPath.bindings.h")]
+public class UnityEngine.AI.NavMeshPath : object {
+    internal IntPtr m_Ptr;
+    internal Vector3[] m_Corners;
+    public Vector3[] corners { get; }
+    public NavMeshPathStatus status { get; }
+    protected virtual override void Finalize();
+    [FreeFunctionAttribute("NavMeshPathScriptBindings::InitializeNavMeshPath")]
+private static IntPtr InitializeNavMeshPath();
+    [FreeFunctionAttribute("NavMeshPathScriptBindings::DestroyNavMeshPath")]
+private static void DestroyNavMeshPath(IntPtr ptr);
+    [FreeFunctionAttribute("NavMeshPathScriptBindings::GetCornersNonAlloc")]
+public int GetCornersNonAlloc(Vector3[] results);
+    [FreeFunctionAttribute("NavMeshPathScriptBindings::CalculateCornersInternal")]
+private Vector3[] CalculateCornersInternal();
+    [FreeFunctionAttribute("NavMeshPathScriptBindings::ClearCornersInternal")]
+private void ClearCornersInternal();
+    public void ClearCorners();
+    private void CalculateCorners();
+    public Vector3[] get_corners();
+    public NavMeshPathStatus get_status();
+}
+[MovedFromAttribute("UnityEngine")]
+public enum UnityEngine.AI.NavMeshPathStatus : Enum {
+    public int value__;
+    public static NavMeshPathStatus PathComplete;
+    public static NavMeshPathStatus PathPartial;
+    public static NavMeshPathStatus PathInvalid;
+}
+public class UnityEngine.AI.NavMeshQueryFilter : ValueType {
+    private static int k_AreaCostElementCount;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Single[] <costs>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <areaMask>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <agentTypeID>k__BackingField;
+    internal Single[] costs { get; private set; }
+    public int areaMask { get; public set; }
+    public int agentTypeID { get; public set; }
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+internal Single[] get_costs();
+    [CompilerGeneratedAttribute]
+private void set_costs(Single[] value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public int get_areaMask();
+    [CompilerGeneratedAttribute]
+public void set_areaMask(int value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public int get_agentTypeID();
+    [CompilerGeneratedAttribute]
+public void set_agentTypeID(int value);
+    public float GetAreaCost(int areaIndex);
+    public void SetAreaCost(int areaIndex, float cost);
+}
+[MovedFromAttribute("UnityEngine")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.AI.NavMeshTriangulation : ValueType {
+    public Vector3[] vertices;
+    public Int32[] indices;
+    public Int32[] areas;
+    [ObsoleteAttribute("Use areas instead.")]
+public Int32[] layers { get; }
+    public Int32[] get_layers();
+}
+[MovedFromAttribute("UnityEngine")]
+public enum UnityEngine.AI.ObstacleAvoidanceType : Enum {
+    public int value__;
+    public static ObstacleAvoidanceType NoObstacleAvoidance;
+    public static ObstacleAvoidanceType LowQualityObstacleAvoidance;
+    public static ObstacleAvoidanceType MedQualityObstacleAvoidance;
+    public static ObstacleAvoidanceType GoodQualityObstacleAvoidance;
+    public static ObstacleAvoidanceType HighQualityObstacleAvoidance;
+}
+[HelpURLAttribute("https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/OffMeshLink.html")]
+[MovedFromAttribute("UnityEngine")]
+public class UnityEngine.AI.OffMeshLink : Behaviour {
+    public bool activated { get; public set; }
+    public bool occupied { get; }
+    public float costOverride { get; public set; }
+    public bool biDirectional { get; public set; }
+    [ObsoleteAttribute("Use area instead.")]
+public int navMeshLayer { get; public set; }
+    public int area { get; public set; }
+    public bool autoUpdatePositions { get; public set; }
+    public Transform startTransform { get; public set; }
+    public Transform endTransform { get; public set; }
+    public bool get_activated();
+    public void set_activated(bool value);
+    public bool get_occupied();
+    public float get_costOverride();
+    public void set_costOverride(float value);
+    public bool get_biDirectional();
+    public void set_biDirectional(bool value);
+    public void UpdatePositions();
+    public int get_navMeshLayer();
+    public void set_navMeshLayer(int value);
+    public int get_area();
+    public void set_area(int value);
+    public bool get_autoUpdatePositions();
+    public void set_autoUpdatePositions(bool value);
+    public Transform get_startTransform();
+    public void set_startTransform(Transform value);
+    public Transform get_endTransform();
+    public void set_endTransform(Transform value);
+}
+[MovedFromAttribute("UnityEngine")]
+[NativeHeaderAttribute("Modules/AI/Components/OffMeshLink.bindings.h")]
+public class UnityEngine.AI.OffMeshLinkData : ValueType {
+    internal int m_Valid;
+    internal int m_Activated;
+    internal int m_InstanceID;
+    internal OffMeshLinkType m_LinkType;
+    internal Vector3 m_StartPos;
+    internal Vector3 m_EndPos;
+    public bool valid { get; }
+    public bool activated { get; }
+    public OffMeshLinkType linkType { get; }
+    public Vector3 startPos { get; }
+    public Vector3 endPos { get; }
+    public OffMeshLink offMeshLink { get; }
+    public bool get_valid();
+    public bool get_activated();
+    public OffMeshLinkType get_linkType();
+    public Vector3 get_startPos();
+    public Vector3 get_endPos();
+    public OffMeshLink get_offMeshLink();
+    [FreeFunctionAttribute("OffMeshLinkScriptBindings::GetOffMeshLinkInternal")]
+internal static OffMeshLink GetOffMeshLinkInternal(int instanceID);
+}
+[MovedFromAttribute("UnityEngine")]
+public enum UnityEngine.AI.OffMeshLinkType : Enum {
+    public int value__;
+    public static OffMeshLinkType LinkTypeManual;
+    public static OffMeshLinkType LinkTypeDropDown;
+    public static OffMeshLinkType LinkTypeJumpAcross;
+}
+public class UnityEngine.Experimental.AI.NavMeshLocation : ValueType {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private PolygonId <polygon>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Vector3 <position>k__BackingField;
+    public PolygonId polygon { get; }
+    public Vector3 position { get; }
+    internal NavMeshLocation(Vector3 position, PolygonId polygon);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public PolygonId get_polygon();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public Vector3 get_position();
+}
+public enum UnityEngine.Experimental.AI.NavMeshPolyTypes : Enum {
+    public int value__;
+    public static NavMeshPolyTypes Ground;
+    public static NavMeshPolyTypes OffMeshConnection;
+}
+[NativeContainerAttribute]
+[NativeHeaderAttribute("Modules/AI/Public/NavMeshBindingTypes.h")]
+[NativeHeaderAttribute("Modules/AI/NavMeshExperimental.bindings.h")]
+[NativeHeaderAttribute("Runtime/Math/Matrix4x4.h")]
+[StaticAccessorAttribute("NavMeshQueryBindings", "2")]
+public class UnityEngine.Experimental.AI.NavMeshQuery : ValueType {
+    [NativeDisableUnsafePtrRestrictionAttribute]
+internal IntPtr m_NavMeshQuery;
+    public NavMeshQuery(NavMeshWorld world, Allocator allocator, int pathNodePoolSize);
+    public sealed virtual void Dispose();
+    private static IntPtr Create(NavMeshWorld world, int nodePoolSize);
+    private static void Destroy(IntPtr navMeshQuery);
+    public PathQueryStatus BeginFindPath(NavMeshLocation start, NavMeshLocation end, int areaMask, NativeArray`1<float> costs);
+    public PathQueryStatus UpdateFindPath(int iterations, Int32& iterationsPerformed);
+    public PathQueryStatus EndFindPath(Int32& pathSize);
+    public int GetPathResult(NativeSlice`1<PolygonId> path);
+    [ThreadSafeAttribute]
+private static PathQueryStatus BeginFindPath(IntPtr navMeshQuery, NavMeshLocation start, NavMeshLocation end, int areaMask, Void* costs);
+    [ThreadSafeAttribute]
+private static PathQueryStatus UpdateFindPath(IntPtr navMeshQuery, int iterations, Int32& iterationsPerformed);
+    [ThreadSafeAttribute]
+private static PathQueryStatus EndFindPath(IntPtr navMeshQuery, Int32& pathSize);
+    [ThreadSafeAttribute]
+private static int GetPathResult(IntPtr navMeshQuery, Void* path, int maxPath);
+    [ThreadSafeAttribute]
+private static bool IsValidPolygon(IntPtr navMeshQuery, PolygonId polygon);
+    public bool IsValid(PolygonId polygon);
+    public bool IsValid(NavMeshLocation location);
+    [ThreadSafeAttribute]
+private static int GetAgentTypeIdForPolygon(IntPtr navMeshQuery, PolygonId polygon);
+    public int GetAgentTypeIdForPolygon(PolygonId polygon);
+    [ThreadSafeAttribute]
+private static bool IsPositionInPolygon(IntPtr navMeshQuery, Vector3 position, PolygonId polygon);
+    [ThreadSafeAttribute]
+private static PathQueryStatus GetClosestPointOnPoly(IntPtr navMeshQuery, PolygonId polygon, Vector3 position, Vector3& nearest);
+    public NavMeshLocation CreateLocation(Vector3 position, PolygonId polygon);
+    [ThreadSafeAttribute]
+private static NavMeshLocation MapLocation(IntPtr navMeshQuery, Vector3 position, Vector3 extents, int agentTypeID, int areaMask);
+    public NavMeshLocation MapLocation(Vector3 position, Vector3 extents, int agentTypeID, int areaMask);
+    [ThreadSafeAttribute]
+private static void MoveLocations(IntPtr navMeshQuery, Void* locations, Void* targets, Void* areaMasks, int count);
+    public void MoveLocations(NativeSlice`1<NavMeshLocation> locations, NativeSlice`1<Vector3> targets, NativeSlice`1<int> areaMasks);
+    [ThreadSafeAttribute]
+private static void MoveLocationsInSameAreas(IntPtr navMeshQuery, Void* locations, Void* targets, int count, int areaMask);
+    public void MoveLocationsInSameAreas(NativeSlice`1<NavMeshLocation> locations, NativeSlice`1<Vector3> targets, int areaMask);
+    [ThreadSafeAttribute]
+private static NavMeshLocation MoveLocation(IntPtr navMeshQuery, NavMeshLocation location, Vector3 target, int areaMask);
+    public NavMeshLocation MoveLocation(NavMeshLocation location, Vector3 target, int areaMask);
+    [ThreadSafeAttribute]
+private static bool GetPortalPoints(IntPtr navMeshQuery, PolygonId polygon, PolygonId neighbourPolygon, Vector3& left, Vector3& right);
+    public bool GetPortalPoints(PolygonId polygon, PolygonId neighbourPolygon, Vector3& left, Vector3& right);
+    [ThreadSafeAttribute]
+private static Matrix4x4 PolygonLocalToWorldMatrix(IntPtr navMeshQuery, PolygonId polygon);
+    public Matrix4x4 PolygonLocalToWorldMatrix(PolygonId polygon);
+    [ThreadSafeAttribute]
+private static Matrix4x4 PolygonWorldToLocalMatrix(IntPtr navMeshQuery, PolygonId polygon);
+    public Matrix4x4 PolygonWorldToLocalMatrix(PolygonId polygon);
+    [ThreadSafeAttribute]
+private static NavMeshPolyTypes GetPolygonType(IntPtr navMeshQuery, PolygonId polygon);
+    public NavMeshPolyTypes GetPolygonType(PolygonId polygon);
+    [ThreadSafeAttribute]
+private static PathQueryStatus Raycast(IntPtr navMeshQuery, NavMeshLocation start, Vector3 targetPosition, int areaMask, Void* costs, NavMeshHit& hit, Void* path, Int32& pathCount, int maxPath);
+    public PathQueryStatus Raycast(NavMeshHit& hit, NavMeshLocation start, Vector3 targetPosition, int areaMask, NativeArray`1<float> costs);
+    public PathQueryStatus Raycast(NavMeshHit& hit, NativeSlice`1<PolygonId> path, Int32& pathCount, NavMeshLocation start, Vector3 targetPosition, int areaMask, NativeArray`1<float> costs);
+    [ThreadSafeAttribute]
+private static PathQueryStatus GetEdgesAndNeighbors(IntPtr navMeshQuery, PolygonId node, int maxVerts, int maxNei, Void* verts, Void* neighbors, Void* edgeIndices, Int32& vertCount, Int32& neighborsCount);
+    public PathQueryStatus GetEdgesAndNeighbors(PolygonId node, NativeSlice`1<Vector3> edgeVertices, NativeSlice`1<PolygonId> neighbors, NativeSlice`1<byte> edgeIndices, Int32& verticesCount, Int32& neighborsCount);
+    private static IntPtr Create_Injected(NavMeshWorld& world, int nodePoolSize);
+    private static PathQueryStatus BeginFindPath_Injected(IntPtr navMeshQuery, NavMeshLocation& start, NavMeshLocation& end, int areaMask, Void* costs);
+    private static bool IsValidPolygon_Injected(IntPtr navMeshQuery, PolygonId& polygon);
+    private static int GetAgentTypeIdForPolygon_Injected(IntPtr navMeshQuery, PolygonId& polygon);
+    private static bool IsPositionInPolygon_Injected(IntPtr navMeshQuery, Vector3& position, PolygonId& polygon);
+    private static PathQueryStatus GetClosestPointOnPoly_Injected(IntPtr navMeshQuery, PolygonId& polygon, Vector3& position, Vector3& nearest);
+    private static void MapLocation_Injected(IntPtr navMeshQuery, Vector3& position, Vector3& extents, int agentTypeID, int areaMask, NavMeshLocation& ret);
+    private static void MoveLocation_Injected(IntPtr navMeshQuery, NavMeshLocation& location, Vector3& target, int areaMask, NavMeshLocation& ret);
+    private static bool GetPortalPoints_Injected(IntPtr navMeshQuery, PolygonId& polygon, PolygonId& neighbourPolygon, Vector3& left, Vector3& right);
+    private static void PolygonLocalToWorldMatrix_Injected(IntPtr navMeshQuery, PolygonId& polygon, Matrix4x4& ret);
+    private static void PolygonWorldToLocalMatrix_Injected(IntPtr navMeshQuery, PolygonId& polygon, Matrix4x4& ret);
+    private static NavMeshPolyTypes GetPolygonType_Injected(IntPtr navMeshQuery, PolygonId& polygon);
+    private static PathQueryStatus Raycast_Injected(IntPtr navMeshQuery, NavMeshLocation& start, Vector3& targetPosition, int areaMask, Void* costs, NavMeshHit& hit, Void* path, Int32& pathCount, int maxPath);
+    private static PathQueryStatus GetEdgesAndNeighbors_Injected(IntPtr navMeshQuery, PolygonId& node, int maxVerts, int maxNei, Void* verts, Void* neighbors, Void* edgeIndices, Int32& vertCount, Int32& neighborsCount);
+}
+[StaticAccessorAttribute("NavMeshWorldBindings", "2")]
+public class UnityEngine.Experimental.AI.NavMeshWorld : ValueType {
+    internal IntPtr world;
+    public bool IsValid();
+    public static NavMeshWorld GetDefaultWorld();
+    private static void AddDependencyInternal(IntPtr navmesh, JobHandle handle);
+    public void AddDependency(JobHandle job);
+    private static void GetDefaultWorld_Injected(NavMeshWorld& ret);
+    private static void AddDependencyInternal_Injected(IntPtr navmesh, JobHandle& handle);
+}
+[FlagsAttribute]
+public enum UnityEngine.Experimental.AI.PathQueryStatus : Enum {
+    public int value__;
+    public static PathQueryStatus Failure;
+    public static PathQueryStatus Success;
+    public static PathQueryStatus InProgress;
+    public static PathQueryStatus StatusDetailMask;
+    public static PathQueryStatus WrongMagic;
+    public static PathQueryStatus WrongVersion;
+    public static PathQueryStatus OutOfMemory;
+    public static PathQueryStatus InvalidParam;
+    public static PathQueryStatus BufferTooSmall;
+    public static PathQueryStatus OutOfNodes;
+    public static PathQueryStatus PartialResult;
+}
+public class UnityEngine.Experimental.AI.PolygonId : ValueType {
+    internal ulong polyRef;
+    public bool IsNull();
+    public static bool op_Equality(PolygonId x, PolygonId y);
+    public static bool op_Inequality(PolygonId x, PolygonId y);
+    public virtual int GetHashCode();
+    public sealed virtual bool Equals(PolygonId rhs);
+    public virtual bool Equals(object obj);
+}

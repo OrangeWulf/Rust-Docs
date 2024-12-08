@@ -1,0 +1,916 @@
+public class AABB : ValueType {
+    public Vector3 position;
+    public Vector3 extents;
+    public AABB(Vector3 position, Vector3 size);
+    public bool Contains(Vector3 target);
+    public Vector3 ClosestPoint(Vector3 target);
+    public bool Trace(Ray ray, RaycastHit& hit, float radius, float maxDistance);
+}
+public class ArrayIndexIsEnum : PropertyAttribute {
+    public Type enumType;
+}
+public class ArrayIndexIsEnumRanged : ArrayIndexIsEnum {
+    public float min;
+    public float max;
+}
+public static class AssetPool : object {
+    public static Dictionary`2<Type, Pool> storage;
+    private static AssetPool();
+    public static T Get();
+    public static void Free(Mesh& mesh);
+    private static Pool GetPool();
+    public static void Clear(string filter);
+}
+public class Capsule : ValueType {
+    public Vector3 position;
+    public float radius;
+    public float extent;
+    public Capsule(Vector3 position, float radius, float extent);
+    public bool Contains(Vector3 target);
+    public Vector3 ClosestPoint(Vector3 target);
+    public void Move(Vector3 direction, float distance, int layerMask);
+    public bool Trace(Ray ray, RaycastHit& hit, float rayRadius, float maxDistance);
+}
+public class CRC : object {
+    private static Byte[] byteBuffer;
+    private static UInt32[] crc32_tab;
+    private static UInt64[] crc64_tab;
+    private static CRC();
+    public static UInt32 Compute32(UInt32 crc, int i);
+    public static UInt32 Compute32(UInt32 crc, UInt32 u);
+    public static UInt32 Compute32(UInt32 crc, float f);
+    public static UInt32 Compute32(UInt32 crc, long i);
+    public static UInt32 Compute32(UInt32 crc, ulong u);
+    public static UInt32 Compute32(UInt32 crc, double f);
+    public static UInt32 Compute32(UInt32 crc, string str);
+    public static UInt32 Compute32(String[] strs);
+    public static ulong Compute64(ulong crc, int i);
+    public static ulong Compute64(ulong crc, UInt32 u);
+    public static ulong Compute64(ulong crc, float f);
+    public static ulong Compute64(ulong crc, long i);
+    public static ulong Compute64(ulong crc, ulong u);
+    public static ulong Compute64(ulong crc, double f);
+    public static ulong Compute64(ulong crc, string str);
+    public static ulong Compute64(String[] strs);
+    private static int GrowByteBuffer(int count);
+    private static UInt32 CRC32(UInt32 value, Byte[] buf, ulong size);
+    private static ulong CRC64(ulong value, Byte[] buf, ulong size);
+}
+public class Cylinder : ValueType {
+    public Vector3 position;
+    public float radius;
+    public float extent;
+    public Cylinder(Vector3 position, float radius, float extent);
+    public bool Contains(Vector3 target);
+    public Vector3 ClosestPoint(Vector3 target);
+}
+public class Facepunch.GameObjectPool`1 : ObjectPool`1<T> {
+    private GameObject poolRoot;
+    public virtual void AddToPool(T t);
+    public void AddChildrenToPool(Transform t);
+    public T TakeOrInstantiate(GameObject prefabSource);
+}
+public static class Facepunch.Instantiate : object {
+    public static GameObject GameObject(GameObject go, Transform parent);
+    public static GameObject GameObject(GameObject go, Vector3 pos, Quaternion rot);
+}
+public class Facepunch.ObjectPool`1 : object {
+    public List`1<T> list;
+    public virtual void AddToPool(T t);
+    public T TakeFromPool();
+}
+public static class Facepunch.Tick : object {
+    private static List Timed;
+    private static List Update;
+    private static List Late;
+    private static List`1<Object> RemoveList;
+    private static Tick();
+    public static void AddTimed(Object obj, float minDelay, float maxDelay, Action action, string DebugName);
+    public static void Add(Object obj, Action action, string DebugName);
+    public static void AddLateUpdate(Object obj, Action action, string DebugName);
+    public static void RemoveAll(Object obj);
+    private static void Cleanup();
+    internal static void OnFrame();
+    internal static void OnFrameLate();
+}
+public class Facepunch.TickComponent : MonoBehaviour {
+    public static TickComponent Instance;
+    public static void Init();
+    private void OnEnable();
+    private void Update();
+    private void LateUpdate();
+}
+public static class GJK : object {
+    private static ProfilerMarker p_Distance;
+    private static ProfilerMarker p_SolveDistance;
+    private static ProfilerMarker p_GetSupportingVertex;
+    private static float MaxIterations;
+    private static GJK();
+    public static float Distance(OBB a, OBB b);
+    public static float Distance2(OBB a, OBB b);
+    private static float DistanceInternal(ReadOnlySpan`1& a, ReadOnlySpan`1& b);
+    private static float Distance2Internal(ReadOnlySpan`1& a, ReadOnlySpan`1& b);
+    private static void SolveDistanceSimplex(ReadOnlySpan`1& a, ReadOnlySpan`1& b, Simplex& simplex);
+    private static Vector3 Support(ReadOnlySpan`1& vertices, Vector3& direction);
+    private static Vector3 GetSupportingVertex(ReadOnlySpan`1& verticesA, ReadOnlySpan`1& verticesB, Vector3& direction);
+    private static void PopulateVertices(OBB obb, Span`1<Vector3> vertices);
+}
+public class HorizontalAttribute : PropertyAttribute {
+    public int count;
+    public int label;
+    public HorizontalAttribute(int count, int label);
+}
+public interface IClientComponent {
+}
+public interface IClientComponentEx {
+    public abstract virtual void PreClientComponentCull(IPrefabProcessor p);
+}
+public interface ICustomMaterialReplacer {
+}
+public interface IEditorComponent {
+}
+public class InspectorFlagsAttribute : PropertyAttribute {
+}
+public interface IPrefabPostProcess {
+    public abstract virtual void PostProcess(IPrefabProcessor preProcess, GameObject rootObj, string name, bool serverside, bool clientside, bool bundling);
+}
+public interface IPrefabPreProcess {
+    public abstract virtual void PreProcess(IPrefabProcessor preProcess, GameObject rootObj, string name, bool serverside, bool clientside, bool bundling);
+}
+public interface IPrefabProcessor {
+    public abstract virtual void RemoveComponent(Component component);
+    public abstract virtual void NominateForDeletion(GameObject obj);
+}
+public interface IPropRenderNotify {
+}
+public interface IServerComponent {
+}
+public interface IServerComponentEx {
+    public abstract virtual void PreServerComponentCull(IPrefabProcessor p);
+}
+public class Line : ValueType {
+    public Vector3 point0;
+    public Vector3 point1;
+    public float Length { get; }
+    public float LengthSqr { get; }
+    public Line(Vector3 point0, Vector3 point1);
+    public Line(Vector3 origin, Vector3 direction, float length);
+    public float get_Length();
+    public float get_LengthSqr();
+    public bool Trace(Ray ray, float radius, RaycastHit& hit, float maxDistance);
+    public Vector3 ClosestPoint(Vector3 pos);
+    public Vector3 ClosestPoint2D(Vector3 pos);
+    public float Distance(Vector3 pos);
+    public float SqrDistance(Vector3 pos);
+    public Vector3 ClosestPoint(Line& other);
+    public void ClosestPoints(Line& other, Vector3& closestThis, Vector3& closestOther);
+    public float Distance(Line other);
+    public float SqrDistance(Line other);
+}
+[ExtensionAttribute]
+public static class ListEx : object {
+    [ExtensionAttribute]
+public static T GetRandom(List`1<T> list);
+    [ExtensionAttribute]
+public static T GetRandom(List`1<T> list, UInt32 seed);
+    [ExtensionAttribute]
+public static T GetRandom(List`1<T> list, UInt32& seed);
+    [ExtensionAttribute]
+public static void Shuffle(List`1<T> list, UInt32 seed);
+    [ExtensionAttribute]
+public static void Shuffle(List`1<T> list, UInt32& seed);
+    [ExtensionAttribute]
+public static void BubbleSort(List`1<T> list);
+    [ExtensionAttribute]
+public static void RemoveUnordered(List`1<T> list, int index);
+    [ExtensionAttribute]
+public static double TruncatedAverage(List`1<double> list, float pct);
+}
+public class MaterialReplacement : MonoBehaviour {
+    private bool initialized;
+    public Material[] Default;
+    public Material[] Override;
+    public Renderer Renderer;
+    public static void ReplaceRecursive(GameObject go, Material mat);
+    public static void ReplaceRecursive(GameObject obj, Material[] find, Material[] replace);
+    public static void Prepare(GameObject go);
+    public static bool MaterialsContainAny(Material[] source, Material[] find);
+    public static void Reset(GameObject go);
+    public void Init();
+    private void Replace(Material mat);
+    private void Replace(Material find, Material replace);
+    private void Replace(Material[] find, Material[] replace);
+    private void Revert();
+}
+public static class Mathx : object {
+    public static float Increment(float f);
+    public static float Decrement(float f);
+    public static float Above(float latitude, float lower, float fade);
+    public static float Tween(float latitude, float lower, float upper, float fade);
+    public static float Below(float latitude, float upper, float fade);
+    public static Color Lerp3(float f1, Color c1, float f2, Color c2, float f3, Color c3);
+    public static int Clamp(int v, int min, int max);
+    public static int Sign(int v);
+    public static float SmoothMax(float a, float b, float fade);
+    public static float Discretize01(float v, int steps);
+    public static float Min(float f1, float f2, float f3);
+    public static float Min(float f1, float f2, float f3, float f4);
+    public static int Min(int f1, int f2, int f3);
+    public static int Min(int f1, int f2, int f3, int f4);
+    public static float Max(float f1, float f2, float f3);
+    public static float Max(float f1, float f2, float f3, float f4);
+    public static int Max(int f1, int f2, int f3);
+    public static int Max(int f1, int f2, int f3, int f4);
+    public static UInt32 Min(UInt32 i1, UInt32 i2);
+    public static UInt32 Max(UInt32 i1, UInt32 i2);
+    public static float fsel(float c, float x, float y);
+    public static float RemapValClamped(float val, float A, float B, float C, float D);
+    public static bool HasSignFlipped(int signA, int signB);
+    public static int GetSignZero(float input, bool useApproximate);
+    public static float Lerp(float from, float to, float speed, float deltaTime);
+    public static float Lerp(float from, float to, float speed);
+    public static Vector3 Lerp(Vector3 from, Vector3 to, float speed, float deltaTime);
+    public static Vector3 Lerp(Vector3 from, Vector3 to, float speed);
+    public static Quaternion Lerp(Quaternion from, Quaternion to, float speed, float deltaTime);
+    public static Quaternion Lerp(Quaternion from, Quaternion to, float speed);
+}
+public class OBB : ValueType {
+    public Quaternion rotation;
+    public Vector3 position;
+    public Vector3 extents;
+    public Vector3 forward;
+    public Vector3 right;
+    public Vector3 up;
+    public float reject;
+    public OBB(Bounds bounds);
+    public OBB(Transform transform, Bounds bounds);
+    public OBB(Vector3 position, Vector3 scale, Quaternion rotation, Bounds bounds);
+    public OBB(Vector3 position, Quaternion rotation, Bounds bounds);
+    public OBB(Vector3 position, Vector3 size, Quaternion rotation);
+    public void Transform(Vector3 position, Vector3 scale, Quaternion rotation);
+    public Vector3 GetPoint(float x, float y, float z);
+    public Bounds ToBounds();
+    public bool Contains(Vector3 target);
+    public bool Intersects(OBB target);
+    public bool Intersects2D(OBB target);
+    public bool Intersects(Ray ray);
+    public bool Trace(Ray ray, RaycastHit& hit, float maxDistance);
+    public Vector3 ClosestPoint(Vector3 target);
+    public float Distance(OBB other);
+    public float Distance(Vector3 position);
+    public float SqrDistance(OBB other);
+    public float SqrDistance(Vector3 position);
+    public void DebugDraw(Color colour, float duration);
+}
+public abstract class ObjectWorkQueue : object {
+    public static List`1<ObjectWorkQueue> All;
+    public string Name;
+    public TimeSpan WarningThreshold;
+    public long TotalProcessedCount;
+    public TimeSpan TotalExecutionTime;
+    public int LastProcessedCount;
+    public TimeSpan LastExecutionTime;
+    public int HashSetMaxLength;
+    [CompilerGeneratedAttribute]
+private int <LastQueueLength>k__BackingField;
+    public int LastQueueLength { get; protected set; }
+    public int QueueLength { get; }
+    private static ObjectWorkQueue();
+    [CompilerGeneratedAttribute]
+public int get_LastQueueLength();
+    [CompilerGeneratedAttribute]
+protected void set_LastQueueLength(int value);
+    public abstract virtual int get_QueueLength();
+}
+public abstract class ObjectWorkQueue`1 : ObjectWorkQueue {
+    protected Queue`1<T> queue;
+    protected HashSet`1<T> containerTest;
+    private Stopwatch stopwatch;
+    public int QueueLength { get; }
+    public virtual int get_QueueLength();
+    public void Clear();
+    public void RunQueue(double maximumMilliseconds);
+    public void Add(T entity);
+    public void AddNoContainsCheck(T entity);
+    public bool Contains(T entity);
+    protected virtual void SortQueue();
+    protected virtual bool ShouldAdd(T entity);
+    protected abstract virtual void RunJob(T entity);
+    public string Info();
+}
+public abstract class PersistentObjectWorkQueue : object {
+    public static List`1<PersistentObjectWorkQueue> All;
+    public string Name;
+    public TimeSpan WarningThreshold;
+    public TimeSpan TotalExecutionTime;
+    public TimeSpan LastExecutionTime;
+    public int LastProcessedCount;
+    public int ListLength { get; }
+    private static PersistentObjectWorkQueue();
+    public abstract virtual int get_ListLength();
+}
+public abstract class PersistentObjectWorkQueue`1 : PersistentObjectWorkQueue {
+    protected ListHashSet`1<T> workList;
+    private int currentIndex;
+    private Stopwatch stopwatch;
+    public int ListLength { get; }
+    public virtual int get_ListLength();
+    public void Clear();
+    public void RunList(double maximumMilliseconds);
+    public void Add(T entity);
+    public void Remove(T entity);
+    public bool Contains(T entity);
+    protected virtual bool ShouldAdd(T entity);
+    protected abstract virtual void RunJob(T entity);
+    public string Info();
+}
+[FlagsAttribute]
+public enum Rust.AmmoTypes : Enum {
+    public int value__;
+    public static AmmoTypes PISTOL_9MM;
+    public static AmmoTypes RIFLE_556MM;
+    public static AmmoTypes SHOTGUN_12GUAGE;
+    public static AmmoTypes BOW_ARROW;
+    public static AmmoTypes HANDMADE_SHELL;
+    public static AmmoTypes ROCKET;
+    public static AmmoTypes NAILS;
+    public static AmmoTypes AMMO_40MM;
+    public static AmmoTypes SNOWBALL;
+    public static AmmoTypes SPEARGUN_BOLT;
+    public static AmmoTypes TORPEDO;
+    public static AmmoTypes MLRS_ROCKET;
+    public static AmmoTypes MISSILE_SEEKING;
+}
+public static class Rust.Application : object {
+    public static bool isPlaying;
+    public static bool isQuitting;
+    public static bool isLoading;
+    public static bool isReceiving;
+    public static bool isLoadingSave;
+    public static bool isLoadingPrefabs;
+    public static string installPath { get; }
+    public static string dataPath { get; }
+    [RuntimeInitializeOnLoadMethodAttribute("2")]
+private static void Startup();
+    public static void Quit();
+    public static string get_installPath();
+    public static string get_dataPath();
+}
+public class Rust.AsyncTextureLoad : CustomYieldInstruction {
+    private IntPtr buffer;
+    private int size;
+    private int width;
+    private int height;
+    private int format;
+    public string filename;
+    public bool normal;
+    public bool dither;
+    public bool hqmode;
+    public bool cache;
+    private Action worker;
+    public bool keepWaiting { get; }
+    public bool isDone { get; }
+    public bool isValid { get; }
+    public Texture2D texture { get; }
+    public AsyncTextureLoad(string filename, bool normal, bool dither, bool hqmode, bool cache);
+    public virtual bool get_keepWaiting();
+    public bool get_isDone();
+    public bool get_isValid();
+    public Texture2D get_texture();
+    public void LoadIntoTexture(Texture2D tex);
+    public void WriteToCache(string cachename);
+    private static void FreeTexture(IntPtr& buffer);
+    private static void LoadTextureFromFile(string filename, IntPtr& buffer, Int32& size, Int32& width, Int32& height, Int32& channels, bool normal, bool dither, bool hqmode);
+    private static void LoadTextureFromCache(string filename, IntPtr& buffer, Int32& size, Int32& width, Int32& height, Int32& format);
+    private static void SaveTextureToCache(string filename, IntPtr buffer, int size, int width, int height, int format);
+    private void DoWork();
+    private void Invoke();
+    private void Callback(IAsyncResult result);
+}
+public class Rust.Components.Camera.DepthOfFieldFocusPoint : ListComponent`1<DepthOfFieldFocusPoint> {
+    private Renderer cachedRenderer;
+    public Vector3 FocusPoint { get; }
+    public Vector3 get_FocusPoint();
+    protected virtual void OnEnable();
+    public static DepthOfFieldFocusPoint Evaluate(Camera cam);
+    private float Score(Camera cam);
+}
+[ExecuteInEditMode]
+public class Rust.Components.Camera.LightingOverride : MonoBehaviour {
+    public bool overrideAmbientLight;
+    public AmbientMode ambientMode;
+    public Color ambientGroundColor;
+    public Color ambientEquatorColor;
+    public Color ambientLight;
+    public float ambientIntensity;
+    internal Color old_ambientLight;
+    internal Color old_ambientGroundColor;
+    internal Color old_ambientEquatorColor;
+    internal float old_ambientIntensity;
+    internal AmbientMode old_ambientMode;
+    public float aspect;
+    public bool overrideSkyReflection;
+    public ReflectionProbe reflectionProbe;
+    private static int global_SkyReflection;
+    private static int global_SkyReflection_HDR;
+    private static LightingOverride();
+    private void OnPreRender();
+    private void OnPostRender();
+}
+public class Rust.Components.NullMonoBehaviour : FacepunchBehaviour {
+}
+internal class Rust.Components.Utility.OnObjectDisable : MonoBehaviour {
+    public UnityEvent Action;
+    private void OnDisable();
+}
+internal class Rust.Components.Utility.OnObjectEnable : MonoBehaviour {
+    public UnityEvent Action;
+    private void OnEnable();
+}
+public static class Rust.Global : object {
+    public static Func`2<string, GameObject> LoadPrefab;
+    public static Func`2<string, GameObject> FindPrefab;
+    public static Func`2<string, GameObject> CreatePrefab;
+    public static Action OpenMainMenu;
+    private static FacepunchBehaviour _runner;
+    [CompilerGeneratedAttribute]
+private static int <LaunchCountThisVersion>k__BackingField;
+    public static FacepunchBehaviour Runner { get; }
+    public static int LaunchCountThisVersion { get; private set; }
+    public static FacepunchBehaviour get_Runner();
+    [CompilerGeneratedAttribute]
+public static int get_LaunchCountThisVersion();
+    [CompilerGeneratedAttribute]
+private static void set_LaunchCountThisVersion(int value);
+    public static void Init();
+}
+public interface Rust.IEntity {
+    public bool IsDestroyed { get; }
+    public abstract virtual bool get_IsDestroyed();
+}
+[AddComponentMenu("Image Effects/Icon Outline")]
+[ExecuteInEditMode]
+[RequireComponent("UnityEngine.Camera")]
+public class Rust.ImageEffects.IconOutline : MonoBehaviour {
+    public Material Material;
+    private void OnEnable();
+    private void OnDisable();
+    private void OnRenderImage(RenderTexture source, RenderTexture destination);
+}
+public static class Rust.IndirectLighting : object {
+    private static SphericalHarmonicsL2[] lightProbe;
+    public static SphericalHarmonicsL2[] LightProbe { get; }
+    private static IndirectLighting();
+    public static SphericalHarmonicsL2[] get_LightProbe();
+    public static void UpdateLightProbe();
+    public static void UpdateAmbientProbe();
+}
+public enum Rust.Layer : Enum {
+    public int value__;
+    public static Layer Default;
+    public static Layer TransparentFX;
+    public static Layer Ignore_Raycast;
+    public static Layer Reserved1;
+    public static Layer Water;
+    public static Layer UI;
+    public static Layer Reserved2;
+    public static Layer Reserved3;
+    public static Layer Deployed;
+    public static Layer Ragdoll;
+    public static Layer Invisible;
+    public static Layer AI;
+    public static Layer Player_Movement;
+    public static Layer Vehicle_Detailed;
+    public static Layer Game_Trace;
+    public static Layer Vehicle_World;
+    public static Layer World;
+    public static Layer Player_Server;
+    public static Layer Trigger;
+    public static Layer Harvestable;
+    public static Layer Physics_Projectile;
+    public static Layer Construction;
+    public static Layer Construction_Socket;
+    public static Layer Terrain;
+    public static Layer Transparent;
+    public static Layer Clutter;
+    public static Layer Bush;
+    public static Layer Vehicle_Large;
+    public static Layer Prevent_Movement;
+    public static Layer Prevent_Building;
+    public static Layer Tree;
+    public static Layer Physics_Debris;
+}
+public static class Rust.Layers : object {
+    public static int Terrain;
+    public static int World;
+    public static int Ragdolls;
+    public static int Construction;
+    public static int ConstructionSocket;
+    public static int Craters;
+    public static int GameTrace;
+    public static int Trigger;
+    public static int VehiclesLarge;
+    public static int VehiclesDetailed;
+    public static int Tree;
+    public static int Harvestable;
+    public static int Deployed;
+    public static int RainFall;
+    public static int Deploy;
+    public static int DefaultDeployVolumeCheck;
+    public static int PreventBuilding;
+    public static int BuildLineOfSightCheck;
+    public static int ProjectileLineOfSightCheck;
+    public static int MeleeLineOfSightCheck;
+    public static int EyeLineOfSightCheck;
+    public static int EntityLineOfSightCheck;
+    public static int PlayerBuildings;
+    public static int PlannerPlacement;
+    public static int IndustrialPipeObstruction;
+    public static int Solid;
+    public static int StaticSolid;
+    public static int StaticSolidAndVehicleLarge;
+    public static int VisCulling;
+    public static int HABGroundEffect;
+    public static int AILineOfSight;
+    public static int DismountCheck;
+    public static int AIPlacement;
+    public static int WheelRay;
+    public static int Water;
+    public static int Sprays;
+    public static int InactivePhysicsStuff;
+    public static int InactivePhysicsStuffLayer;
+    public static int Vehicle_Detailed;
+}
+public class Rust.PropRenderer : MonoBehaviour {
+    public bool HideLowLods;
+    public bool HideUnskinnable;
+    public bool Outline;
+    [HeaderAttribute("Rotation")]
+public Vector3 Rotation;
+    public Vector3 PostRotation;
+    [HeaderAttribute("Position Offset")]
+public Vector3 PositionalTweak;
+    [HeaderAttribute("Misc")]
+public float FieldOfView;
+    public float farClipPlane;
+    public Vector3 LookDirection;
+    public Vector3 UpDirection;
+    public GameObject[] HideDuringRender;
+    public SkinViewerSettings skinViewerSettings;
+    public void DebugAlign();
+    public void PositionCamera(Camera cam, bool isSkinViewer);
+    public void PreRender();
+    public static void PreRender(GameObject gameObject, bool hideLowLODs, bool hideUnskinnable, GameObject[] hideDuringRender);
+    public void PostRender();
+    [ContextMenu("Create 512x512 Icon")]
+public void CreateIcon();
+    [ContextMenu("Create Large Render")]
+public void CreateRender();
+    private static float DefaultLightIntensityScale(float intensity);
+    public void CreateScreenshot(string filename, int width, int height, int SuperSampleSize, LightIntensityScale lightIntensityScale);
+    public static bool RenderScreenshot(GameObject prefab, string filename, int width, int height, int SuperSampleSize);
+}
+[ExecuteInEditMode]
+public class Rust.PropRendererDebug : MonoBehaviour {
+    public void Update();
+}
+public static class Rust.Protocol : object {
+    public static int network;
+    public static int save;
+    public static int report;
+    public static int persistance;
+    public static int analytics_db;
+    public static int ping;
+    public static string printable { get; }
+    public static string get_printable();
+}
+public enum Rust.Rarity : Enum {
+    public int value__;
+    public static Rarity None;
+    public static Rarity Common;
+    public static Rarity Uncommon;
+    public static Rarity Rare;
+    public static Rarity VeryRare;
+}
+public static class Rust.Registry.Entity : object {
+    private static Dictionary`2<Transform, IEntity> _dict;
+    private static Entity();
+    public static void Register(Transform t, IEntity entity);
+    public static IEntity Get(Transform t);
+    public static void Unregister(Transform t);
+    public static void Register(GameObject obj, IEntity entity);
+    public static IEntity Get(GameObject obj);
+    public static void Unregister(GameObject obj);
+}
+[ExtensionAttribute]
+public static class SeedEx : object {
+    [ExtensionAttribute]
+public static UInt32 Seed(Vector2 v, UInt32 baseSeed);
+    [ExtensionAttribute]
+public static UInt32 Seed(Vector3 v, UInt32 baseSeed);
+    [ExtensionAttribute]
+public static UInt32 Seed(Vector4 v, UInt32 baseSeed);
+}
+public class SeedRandom : object {
+    public UInt32 Seed;
+    public SeedRandom(UInt32 seed);
+    public int Range(int min, int max);
+    public static int Range(UInt32 seed, int min, int max);
+    public static int Range(UInt32& seed, int min, int max);
+    public float Range(float min, float max);
+    public static float Range(UInt32 seed, float min, float max);
+    public static float Range(UInt32& seed, float min, float max);
+    public int Sign();
+    public static int Sign(UInt32 seed);
+    public static int Sign(UInt32& seed);
+    public float Value();
+    public static float Value(UInt32 seed);
+    public static float Value(UInt32& seed);
+    public Vector2 Value2D();
+    public static Vector2 Value2D(UInt32 seed);
+    public static Vector2 Value2D(UInt32& seed);
+    public static UInt32 Wanghash(UInt32& x);
+    public static ulong Wanghash(UInt64& x);
+    public static float Wanghash01(UInt32& x);
+    public static UInt32 Xorshift(UInt32& x);
+    public static ulong Xorshift(UInt64& x);
+    public static float Xorshift01(UInt32& x);
+}
+internal class Simplex : ValueType {
+    public Vector3 a;
+    public Vector3 b;
+    public Vector3 c;
+    public Vector3 d;
+    public int size;
+    public Vector3 Direction;
+    public float ScaledDistance;
+    public void SolveDistance();
+    private void DebugDraw();
+    private void Point();
+    private void Line();
+    private void Triangle();
+    private void Tetrahedron();
+    private static float Det(Vector3 a, Vector3 b, Vector3 c);
+}
+public class Sphere : ValueType {
+    public Vector3 position;
+    public float radius;
+    public Sphere(Vector3 position, float radius);
+    public bool Contains(Vector3 target);
+    public Vector3 ClosestPoint(Vector3 target);
+    public void Move(Vector3 direction, float distance, int layerMask);
+    public bool Trace(Ray ray, RaycastHit& hit, float maxDistance);
+}
+[ExtensionAttribute]
+public static class StringBuilderEx : object {
+    [ExtensionAttribute]
+public static void Clear(StringBuilder value);
+}
+public class TextBuffer : object {
+    private Queue`1<string> buffer;
+    private StringBuilder builder;
+    private string text;
+    private bool dirty;
+    private int curlines;
+    private int maxlines;
+    private int curchars;
+    private int maxchars;
+    public int Count { get; }
+    public TextBuffer(int maxlines, int maxchars);
+    public int get_Count();
+    public void Add(string text);
+    public void Remove();
+    public void Clear();
+    public string Get(int index);
+    public virtual string ToString();
+}
+public class TextTable : object {
+    private List`1<Row> rows;
+    private List`1<Column> columns;
+    private StringBuilder builder;
+    private string text;
+    private string jsonText;
+    private static Encoding utf8NoBom;
+    private static TextTable();
+    public void Clear();
+    public void AddColumns(String[] values);
+    public void AddColumn(string title);
+    public void AddRow(String[] values);
+    public string ToJson();
+    public virtual string ToString();
+    private void MarkDirty();
+}
+public class Triangle : ValueType {
+    public Vector3 point0;
+    public Vector3 point1;
+    public Vector3 point2;
+    public Vector3 Normal { get; }
+    public Vector3 Center { get; }
+    public Triangle(Vector3 point0, Vector3 point1, Vector3 point2);
+    public bool Trace(Ray ray, float radius, RaycastHit& hit, float maxDistance);
+    private bool LineTest(Vector3 a, Vector3 b, Ray ray, float radius, RaycastHit& hit, float maxDistance);
+    public Vector3 get_Normal();
+    public Vector3 get_Center();
+    public Vector3 ClosestPoint(Vector3 pos);
+    public float Distance(Vector3 pos);
+    public float SqrDistance(Vector3 pos);
+    public float Area();
+}
+[ExtensionAttribute]
+public static class UnityEngine.MathEx : object {
+    [ExtensionAttribute]
+public static float SnapTo(float val, float snapValue);
+    [ExtensionAttribute]
+public static bool QuadTest(Ray ray, Vector3 planeCenter, Quaternion planeRot, Vector2 planeSize, Vector3& hitPosition, float gridSize);
+    public static float BiasedLerp(float x, float bias);
+    public static float Bias(float x, float bias);
+}
+[ExtensionAttribute]
+public static class UnityEngine.StringEx : object {
+    private static Regex regexNumeric;
+    private static Regex regexAlphaNumeric;
+    private static StringEx();
+    [ExtensionAttribute]
+public static string Replace(string originalString, string oldValue, string newValue, StringComparison comparisonType);
+    [ExtensionAttribute]
+public static bool Contains(string haystack, string needle, CompareOptions options);
+    [ExtensionAttribute]
+public static bool IsLower(string str);
+    [ExtensionAttribute]
+public static string ToPrintable(string str, int maxLength);
+    [ExtensionAttribute]
+public static bool IsNumeric(string str);
+    [ExtensionAttribute]
+public static bool IsAlphaNumeric(string str);
+    [ExtensionAttribute]
+public static string FilterRichText(string str, bool invert, String[] tags);
+    [ExtensionAttribute]
+public static string EscapeRichText(string str, bool altMode);
+    [ExtensionAttribute]
+[IteratorStateMachineAttribute("UnityEngine.StringEx/<SplitToLines>d__10")]
+public static IEnumerable`1<string> SplitToLines(string input);
+    [ExtensionAttribute]
+[IteratorStateMachineAttribute("UnityEngine.StringEx/<SplitToChunks>d__11")]
+public static IEnumerable`1<string> SplitToChunks(string str, int chunkLength);
+    [ExtensionAttribute]
+public static UInt32 ManifestHash(string str);
+    [ExtensionAttribute]
+public static Byte[] Sha256(string str);
+    [ExtensionAttribute]
+public static string HexString(Byte[] bytes);
+    [ExtensionAttribute]
+public static bool StartsWithAny(string str, String[] values);
+}
+[ExtensionAttribute]
+public static class UnityEngine.Vector2Ex : object {
+    [ExtensionAttribute]
+public static Vector2 WithX(Vector2 v, float x);
+    [ExtensionAttribute]
+public static Vector2 WithY(Vector2 v, float y);
+    public static Vector2 Parse(string p);
+    [ExtensionAttribute]
+public static Vector2 Rotate(Vector2 v, float degrees);
+    public static float Length(float x, float y);
+    public static float Length(Vector2 vec);
+    [ExtensionAttribute]
+public static Vector2 X(Vector2 v, float x);
+    [ExtensionAttribute]
+public static Vector2 Y(Vector2 v, float y);
+    [ExtensionAttribute]
+public static Vector2 ToCanvas(Vector2 v, RectTransform target, Camera cam);
+    public static float AngleFromTo(Vector2 from, Vector2 to);
+}
+[ExtensionAttribute]
+public static class UnityEngine.Vector3Ex : object {
+    [ExtensionAttribute]
+public static Vector3 WithX(Vector3 v, float x);
+    [ExtensionAttribute]
+public static Vector3 WithY(Vector3 v, float y);
+    [ExtensionAttribute]
+public static Vector3 WithZ(Vector3 v, float z);
+    [ExtensionAttribute]
+public static Vector3 WithXY(Vector3 v, float x, float y);
+    [ExtensionAttribute]
+public static Vector3 WithXY(Vector3 v, Vector2 other);
+    [ExtensionAttribute]
+public static Vector3 WithXZ(Vector3 v, float x, float z);
+    [ExtensionAttribute]
+public static Vector3 WithXZ(Vector3 v, Vector2 other);
+    public static Vector3 XZ(Vector3 v);
+    public static float Distance2D(Vector3 a, Vector3 b);
+    public static float HeightDelta(Vector3 a, Vector3 b);
+    public static Vector3 Direction2D(Vector3 aimAt, Vector3 aimFrom);
+    public static Vector3 Direction(Vector3 aimAt, Vector3 aimFrom);
+    public static Vector3 Range(float x, float y);
+    [ExtensionAttribute]
+public static Vector3 Scale(Vector3 vector, float x, float y, float z);
+    [ExtensionAttribute]
+public static Vector3 SnapTo(Vector3 vector, float snapValue);
+    [ExtensionAttribute]
+public static Vector3 Inverse(Vector3 v);
+    [ExtensionAttribute]
+public static float SignedAngle(Vector3 v1, Vector3 v2, Vector3 n);
+    [ExtensionAttribute]
+public static void FastRenormalize(Vector3 n, float scale);
+    [ExtensionAttribute]
+public static void ToDirectionAndMagnitude(Vector3 value, Vector3& direction, Single& magnitude);
+    public static Vector3 BlendNormals(Vector3 n1, Vector3 n2);
+    [ExtensionAttribute]
+public static bool IsNaNOrInfinity(Vector3 v);
+    [ExtensionAttribute]
+public static float DotRadians(Vector3 a, Vector3 b);
+    [ExtensionAttribute]
+public static float DotDegrees(Vector3 a, Vector3 b);
+    [ExtensionAttribute]
+public static float Magnitude2D(Vector3 v);
+    [ExtensionAttribute]
+public static float SqrMagnitude2D(Vector3 v);
+    [ExtensionAttribute]
+public static float MagnitudeXY(Vector3 v);
+    [ExtensionAttribute]
+public static float SqrMagnitudeXY(Vector3 v);
+    [ExtensionAttribute]
+public static float MagnitudeXZ(Vector3 v);
+    [ExtensionAttribute]
+public static float SqrMagnitudeXZ(Vector3 v);
+    [ExtensionAttribute]
+public static float MagnitudeYZ(Vector3 v);
+    [ExtensionAttribute]
+public static float MagnitudeXPositiveYZ(Vector3 v);
+    [ExtensionAttribute]
+public static float SqrMagnitudeYZ(Vector3 v);
+    [ExtensionAttribute]
+public static Vector3 XY3D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector3 XZ3D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector3 YZ3D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector2 XY2D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector2 XZ2D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector2 YZ2D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector2 YX2D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector2 ZX2D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector2 ZY2D(Vector3 v);
+    [ExtensionAttribute]
+public static Vector3 XZ3D(Vector2 v);
+    [ExtensionAttribute]
+public static float Max(Vector4 v);
+    [ExtensionAttribute]
+public static float Max(Vector3 v);
+    [ExtensionAttribute]
+public static float Max(Vector2 v);
+    [ExtensionAttribute]
+public static Vector4 Abs(Vector4 v);
+    [ExtensionAttribute]
+public static Vector3 Abs(Vector3 v);
+    [ExtensionAttribute]
+public static Vector2 Abs(Vector2 v);
+    public static Vector3 Parse(string p);
+    [ExtensionAttribute]
+public static Vector3 GetWithInaccuracy(Vector3 o, float maxAngle);
+    [ExtensionAttribute]
+public static Vector3 NormalizeXZ(Vector3 v);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}
+public class WorldSpaceGrid : object {
+    public static Vector3 ClosestGridCell(Vector3 worldPos, float gridSize, float cellSize);
+}
+[DefaultMemberAttribute("Item")]
+public class WorldSpaceGrid`1 : object {
+    public T[] Cells;
+    public float CellSize;
+    public float CellSizeHalf;
+    public float CellSizeInverse;
+    public float CellArea;
+    public int CellCount;
+    public int CellCountHalf;
+    public T Item { get; public set; }
+    public T Item { get; public set; }
+    public T Item { get; public set; }
+    public T Item { get; public set; }
+    public WorldSpaceGrid`1(float gridSize, float cellSize);
+    public T get_Item(Vector3 worldPos);
+    public void set_Item(Vector3 worldPos, T value);
+    public T get_Item(Vector2i cellCoords);
+    public void set_Item(Vector2i cellCoords, T value);
+    public T get_Item(int x, int y);
+    public void set_Item(int x, int y, T value);
+    public T get_Item(int index);
+    public void set_Item(int index, T value);
+    public Vector2i IndexToGridCoords(int index);
+    public Vector3 IndexToWorldCoords(int index);
+    public Vector2i WorldToGridCoords(Vector3 worldPos);
+    public Vector3 GridToWorldCoords(Vector2i cellPos);
+    public void Copy(WorldSpaceGrid`1<T> other);
+}

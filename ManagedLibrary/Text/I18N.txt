@@ -1,0 +1,172 @@
+Сборка: I18N.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Consts
+Наследуется от: object
+Поля:
+  string MonoVersion
+  string MonoCompany
+  string MonoProduct
+  string MonoCopyright
+  string FxVersion
+  string VsVersion
+  string FxFileVersion
+  string VsFileVersion
+  string AssemblyI18N
+  string AssemblyMicrosoft_VisualStudio
+  string AssemblyMicrosoft_VisualStudio_Web
+  string AssemblyMicrosoft_VSDesigner
+  string AssemblyMono_Http
+  string AssemblyMono_Posix
+  string AssemblyMono_Security
+  string AssemblyMono_Messaging_RabbitMQ
+  string AssemblyCorlib
+  string AssemblySystem
+  string AssemblySystem_Data
+  string AssemblySystem_Design
+  string AssemblySystem_DirectoryServices
+  string AssemblySystem_Drawing
+  string AssemblySystem_Drawing_Design
+  string AssemblySystem_Messaging
+  string AssemblySystem_Security
+  string AssemblySystem_ServiceProcess
+  string AssemblySystem_Web
+  string AssemblySystem_Windows_Forms
+  string AssemblySystem_Core
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: I18N.Common.ByteEncoding
+Наследуется от: MonoEncoding
+Поля:
+  Char[] toChars
+  string encodingName
+  string bodyName
+  string headerName
+  string webName
+  bool isBrowserDisplay
+  bool isBrowserSave
+  bool isMailNewsDisplay
+  bool isMailNewsSave
+  int windowsCodePage
+  Byte[] isNormalized
+  Byte[] isNormalizedComputed
+  Byte[] normalization_bytes
+Свойства:
+  bool IsSingleByte
+  string BodyName
+  string EncodingName
+  string HeaderName
+  bool IsBrowserDisplay
+  bool IsBrowserSave
+  bool IsMailNewsDisplay
+  bool IsMailNewsSave
+  string WebName
+  int WindowsCodePage
+Методы:
+  void .ctor(int codePage, Char[] toChars, string encodingName, string bodyName, string headerName, string webName, bool isBrowserDisplay, bool isBrowserSave, bool isMailNewsDisplay, bool isMailNewsSave, int windowsCodePage)
+  bool IsAlwaysNormalized(NormalizationForm form)
+  bool get_IsSingleByte()
+  int GetByteCount(string s)
+  int GetByteCountImpl(Char* chars, int count)
+  void ToBytes(Char* chars, int charCount, Byte* bytes, int byteCount)
+  void ToBytes(Char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  int GetMaxByteCount(int charCount)
+  int GetMaxCharCount(int byteCount)
+  string GetString(Byte[] bytes, int index, int count)
+  string GetString(Byte[] bytes)
+  string get_BodyName()
+  string get_EncodingName()
+  string get_HeaderName()
+  bool get_IsBrowserDisplay()
+  bool get_IsBrowserSave()
+  bool get_IsMailNewsDisplay()
+  bool get_IsMailNewsSave()
+  string get_WebName()
+  int get_WindowsCodePage()
+--------------------------------------------------
+Класс: I18N.Common.Handlers
+Наследуется от: object
+Поля:
+  String[] List
+  Hashtable aliases
+Свойства:
+Методы:
+  void .ctor()
+  void .cctor()
+  string GetAlias(string name)
+  void BuildHash()
+--------------------------------------------------
+Класс: I18N.Common.Manager
+Наследуется от: object
+Поля:
+  string hex
+  Manager manager
+  Hashtable handlers
+  Hashtable active
+  Hashtable assemblies
+  object lockobj
+Свойства:
+  Manager PrimaryManager
+Методы:
+  void .ctor()
+  void .cctor()
+  Manager get_PrimaryManager()
+  string Normalize(string name)
+  Encoding GetEncoding(int codePage)
+  Encoding GetEncoding(string name)
+  CultureInfo GetCulture(int culture, bool useUserOverride)
+  CultureInfo GetCulture(string name, bool useUserOverride)
+  object Instantiate(string name)
+  void LoadClassList()
+  void LoadInternalClasses()
+--------------------------------------------------
+Класс: I18N.Common.MonoEncoding
+Наследуется от: Encoding
+Поля:
+  int win_code_page
+Свойства:
+  int WindowsCodePage
+Методы:
+  void .ctor(int codePage)
+  void .ctor(int codePage, int windowsCodePage)
+  int get_WindowsCodePage()
+  void HandleFallback(EncoderFallbackBuffer& buffer, Char* chars, Int32& charIndex, Int32& charCount, Byte* bytes, Int32& byteIndex, Int32& byteCount)
+  int GetByteCount(Char[] chars, int index, int count)
+  int GetBytes(Char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex)
+  int GetBytes(string s, int charIndex, int charCount, Byte[] bytes, int byteIndex)
+  int GetByteCount(Char* chars, int count)
+  int GetBytes(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetByteCountImpl(Char* chars, int charCount)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+--------------------------------------------------
+Класс: I18N.Common.MonoEncoder
+Наследуется от: Encoder
+Поля:
+  MonoEncoding encoding
+Свойства:
+Методы:
+  void .ctor(MonoEncoding encoding)
+  int GetByteCount(Char[] chars, int index, int count, bool refresh)
+  int GetBytes(Char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex, bool flush)
+  int GetByteCountImpl(Char* chars, int charCount, bool refresh)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount, bool refresh)
+  int GetBytes(Char* chars, int charCount, Byte* bytes, int byteCount, bool flush)
+  void HandleFallback(Char* chars, Int32& charIndex, Int32& charCount, Byte* bytes, Int32& byteIndex, Int32& byteCount)
+--------------------------------------------------
+Класс: I18N.Common.Strings
+Наследуется от: object
+Поля:
+  Dictionary`2<string, int> <>f__switch$map0
+Свойства:
+Методы:
+  void .ctor()
+  string GetString(string tag)
+--------------------------------------------------

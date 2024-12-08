@@ -1,0 +1,1095 @@
+Сборка: Oxide.CSharp.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ObjectStream.ObjectStreamClient`1
+Наследуется от: ObjectStreamClient`2<TReadWrite, TReadWrite>
+Поля:
+Свойства:
+Методы:
+  void .ctor(Stream inStream, Stream outStream)
+--------------------------------------------------
+Класс: ObjectStream.StreamExceptionEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(Exception exception)
+  IAsyncResult BeginInvoke(Exception exception, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: ObjectStream.ObjectStreamClient`2
+Наследуется от: object
+Поля:
+  Stream _inStream
+  Stream _outStream
+  ObjectStreamConnection`2<TRead, TWrite> _connection
+  ConnectionMessageEventHandler`2<TRead, TWrite> Message
+  StreamExceptionEventHandler Error
+Свойства:
+Методы:
+  void .ctor(Stream inStream, Stream outStream)
+  void add_Message(ConnectionMessageEventHandler`2<TRead, TWrite> value)
+  void remove_Message(ConnectionMessageEventHandler`2<TRead, TWrite> value)
+  void add_Error(StreamExceptionEventHandler value)
+  void remove_Error(StreamExceptionEventHandler value)
+  void Start()
+  void PushMessage(TWrite message)
+  void Stop()
+  void ListenSync()
+  void OnReceiveMessage(ObjectStreamConnection`2<TRead, TWrite> connection, TRead message)
+  void ConnectionOnError(ObjectStreamConnection`2<TRead, TWrite> connection, Exception exception)
+  void OnError(Exception exception)
+--------------------------------------------------
+Класс: ObjectStream.ObjectStreamClientFactory
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ObjectStreamWrapper`2<TRead, TWrite> Connect(Stream inStream, Stream outStream)
+--------------------------------------------------
+Класс: ObjectStream.ObjectStreamConnection`2
+Наследуется от: object
+Поля:
+  ObjectStreamWrapper`2<TRead, TWrite> _streamWrapper
+  Queue`1<TWrite> _writeQueue
+  AutoResetEvent _writeSignal
+  ConnectionMessageEventHandler`2<TRead, TWrite> ReceiveMessage
+  ConnectionExceptionEventHandler`2<TRead, TWrite> Error
+Свойства:
+Методы:
+  void .ctor(Stream inStream, Stream outStream)
+  void add_ReceiveMessage(ConnectionMessageEventHandler`2<TRead, TWrite> value)
+  void remove_ReceiveMessage(ConnectionMessageEventHandler`2<TRead, TWrite> value)
+  void add_Error(ConnectionExceptionEventHandler`2<TRead, TWrite> value)
+  void remove_Error(ConnectionExceptionEventHandler`2<TRead, TWrite> value)
+  void Open()
+  void PushMessage(TWrite message)
+  void Close()
+  void CloseImpl()
+  void OnError(Exception exception)
+  void ReadStream()
+  void WriteStream()
+--------------------------------------------------
+Класс: ObjectStream.ConnectionFactory
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ObjectStreamConnection`2<TRead, TWrite> CreateConnection(Stream inStream, Stream outStream)
+--------------------------------------------------
+Класс: ObjectStream.ConnectionMessageEventHandler`2
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(ObjectStreamConnection`2<TRead, TWrite> connection, TRead message)
+  IAsyncResult BeginInvoke(ObjectStreamConnection`2<TRead, TWrite> connection, TRead message, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: ObjectStream.ConnectionExceptionEventHandler`2
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(ObjectStreamConnection`2<TRead, TWrite> connection, Exception exception)
+  IAsyncResult BeginInvoke(ObjectStreamConnection`2<TRead, TWrite> connection, Exception exception, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: ObjectStream.Threading.Worker
+Наследуется от: object
+Поля:
+  WorkerExceptionEventHandler Error
+Свойства:
+Методы:
+  void add_Error(WorkerExceptionEventHandler value)
+  void remove_Error(WorkerExceptionEventHandler value)
+  void .ctor()
+  void DoWork(Action action)
+  void DoWorkImpl(object oAction)
+  void Fail(Exception exception)
+  void Callback(Action action)
+--------------------------------------------------
+Класс: ObjectStream.Threading.WorkerSucceededEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke()
+  IAsyncResult BeginInvoke(AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: ObjectStream.Threading.WorkerExceptionEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(Exception exception)
+  IAsyncResult BeginInvoke(Exception exception, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: ObjectStream.IO.BindChanger
+Наследуется от: SerializationBinder
+Поля:
+Свойства:
+Методы:
+  Type BindToType(string assemblyName, string typeName)
+  void .ctor()
+--------------------------------------------------
+Класс: ObjectStream.IO.ObjectStreamWrapper`1
+Наследуется от: ObjectStreamWrapper`2<TReadWrite, TReadWrite>
+Поля:
+Свойства:
+Методы:
+  void .ctor(Stream inStream, Stream outStream)
+--------------------------------------------------
+Класс: ObjectStream.IO.ObjectStreamWrapper`2
+Наследуется от: object
+Поля:
+  BinaryFormatter _binaryFormatter
+  Stream _inStream
+  Stream _outStream
+  bool _run
+Свойства:
+  bool CanRead
+  bool CanWrite
+Методы:
+  void .ctor(Stream inStream, Stream outStream)
+  bool get_CanRead()
+  bool get_CanWrite()
+  void Close()
+  TRead ReadObject()
+  int ReadLength()
+  TRead ReadObject(int len)
+  void WriteObject(TWrite obj)
+  Byte[] Serialize(TWrite obj)
+  void WriteLength(int len)
+  void WriteObject(Byte[] data)
+  void Flush()
+--------------------------------------------------
+Класс: ObjectStream.Data.CompilationResult
+Наследуется от: object
+Поля:
+  string <Name>k__BackingField
+  Byte[] <Data>k__BackingField
+  Byte[] <Symbols>k__BackingField
+Свойства:
+  string Name
+  Byte[] Data
+  Byte[] Symbols
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  Byte[] get_Data()
+  void set_Data(Byte[] value)
+  Byte[] get_Symbols()
+  void set_Symbols(Byte[] value)
+  void .ctor()
+--------------------------------------------------
+Класс: ObjectStream.Data.CompilerData
+Наследуется от: object
+Поля:
+  bool <LoadDefaultReferences>k__BackingField
+  string <OutputFile>k__BackingField
+  CompilerPlatform <Platform>k__BackingField
+  CompilerFile[] <ReferenceFiles>k__BackingField
+  string <SdkVersion>k__BackingField
+  CompilerFile[] <SourceFiles>k__BackingField
+  bool <StdLib>k__BackingField
+  CompilerTarget <Target>k__BackingField
+  CompilerLanguageVersion <Version>k__BackingField
+  string <Encoding>k__BackingField
+  bool <Debug>k__BackingField
+Свойства:
+  bool LoadDefaultReferences
+  string OutputFile
+  CompilerPlatform Platform
+  CompilerFile[] ReferenceFiles
+  string SdkVersion
+  CompilerFile[] SourceFiles
+  bool StdLib
+  CompilerTarget Target
+  CompilerLanguageVersion Version
+  string Encoding
+  bool Debug
+Методы:
+  void .ctor()
+  bool get_LoadDefaultReferences()
+  void set_LoadDefaultReferences(bool value)
+  string get_OutputFile()
+  void set_OutputFile(string value)
+  CompilerPlatform get_Platform()
+  void set_Platform(CompilerPlatform value)
+  CompilerFile[] get_ReferenceFiles()
+  void set_ReferenceFiles(CompilerFile[] value)
+  string get_SdkVersion()
+  void set_SdkVersion(string value)
+  CompilerFile[] get_SourceFiles()
+  void set_SourceFiles(CompilerFile[] value)
+  bool get_StdLib()
+  void set_StdLib(bool value)
+  CompilerTarget get_Target()
+  void set_Target(CompilerTarget value)
+  CompilerLanguageVersion get_Version()
+  void set_Version(CompilerLanguageVersion value)
+  string get_Encoding()
+  void set_Encoding(string value)
+  bool get_Debug()
+  void set_Debug(bool value)
+--------------------------------------------------
+Класс: ObjectStream.Data.CompilerFile
+Наследуется от: object
+Поля:
+  Dictionary`2<string, CompilerFile> FileCache
+  string <Name>k__BackingField
+  Byte[] <Data>k__BackingField
+  DateTime LastRead
+  bool KeepCached
+Свойства:
+  string Name
+  Byte[] Data
+Методы:
+  CompilerFile CachedReadFile(string directory, string fileName, Byte[] data)
+  string get_Name()
+  void set_Name(string value)
+  Byte[] get_Data()
+  void set_Data(Byte[] value)
+  void .ctor(string name, Byte[] data)
+  void .ctor(string directory, string name)
+  void .ctor(string path)
+  void .cctor()
+--------------------------------------------------
+Класс: ObjectStream.Data.CompilerLanguageVersion
+Наследуется от: Enum
+Поля:
+  int value__
+  CompilerLanguageVersion Latest
+  CompilerLanguageVersion V16
+  CompilerLanguageVersion V15
+  CompilerLanguageVersion V14
+  CompilerLanguageVersion V13
+  CompilerLanguageVersion V12
+  CompilerLanguageVersion V11
+  CompilerLanguageVersion V10
+  CompilerLanguageVersion V9
+  CompilerLanguageVersion V8
+  CompilerLanguageVersion V7
+  CompilerLanguageVersion V6
+  CompilerLanguageVersion V5
+  CompilerLanguageVersion V4
+  CompilerLanguageVersion V3
+  CompilerLanguageVersion V2
+  CompilerLanguageVersion V1
+  CompilerLanguageVersion Preview
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ObjectStream.Data.CompilerMessage
+Наследуется от: object
+Поля:
+  object <Data>k__BackingField
+  object <ExtraData>k__BackingField
+  int <Id>k__BackingField
+  CompilerMessageType <Type>k__BackingField
+Свойства:
+  object Data
+  object ExtraData
+  int Id
+  CompilerMessageType Type
+Методы:
+  object get_Data()
+  void set_Data(object value)
+  object get_ExtraData()
+  void set_ExtraData(object value)
+  int get_Id()
+  void set_Id(int value)
+  CompilerMessageType get_Type()
+  void set_Type(CompilerMessageType value)
+  void .ctor()
+--------------------------------------------------
+Класс: ObjectStream.Data.CompilerMessageType
+Наследуется от: Enum
+Поля:
+  int value__
+  CompilerMessageType Assembly
+  CompilerMessageType Compile
+  CompilerMessageType Error
+  CompilerMessageType Exit
+  CompilerMessageType Ready
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ObjectStream.Data.CompilerPlatform
+Наследуется от: Enum
+Поля:
+  int value__
+  CompilerPlatform AnyCPU
+  CompilerPlatform AnyCPU32Preferred
+  CompilerPlatform Arm
+  CompilerPlatform X86
+  CompilerPlatform X64
+  CompilerPlatform IA64
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ObjectStream.Data.CompilerTarget
+Наследуется от: Enum
+Поля:
+  int value__
+  CompilerTarget Library
+  CompilerTarget Exe
+  CompilerTarget Module
+  CompilerTarget WinExe
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Oxide.ExtensionMethods
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void WriteDebug(Logger logger, LogType level, Nullable`1<LogEvent> event, string source, string message, Exception exception)
+--------------------------------------------------
+Класс: Oxide.Logging.LogEvent
+Наследуется от: ValueType
+Поля:
+  int <Id>k__BackingField
+  string <Name>k__BackingField
+  LogEvent <Compile>k__BackingField
+  LogEvent <HookCall>k__BackingField
+  LogEvent <Patch>k__BackingField
+Свойства:
+  int Id
+  string Name
+  LogEvent Compile
+  LogEvent HookCall
+  LogEvent Patch
+Методы:
+  int get_Id()
+  string get_Name()
+  void .ctor(int id, string name)
+  LogEvent get_Compile()
+  LogEvent get_HookCall()
+  LogEvent get_Patch()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.CSharp.DirectCallMethod
+Наследуется от: object
+Поля:
+  ModuleDefinition module
+  TypeDefinition type
+  MethodDefinition method
+  MethodBody body
+  Instruction endInstruction
+  Dictionary`2<Instruction, Node> jumpToEdgePlaceholderTargets
+  List`1<Instruction> jumpToEndPlaceholders
+  Dictionary`2<string, MethodDefinition> hookMethods
+  MethodReference getLength
+  MethodReference getChars
+  MethodReference isNullOrEmpty
+  MethodReference stringEquals
+  string hook_attribute
+Свойства:
+Методы:
+  void .ctor(ModuleDefinition module, TypeDefinition type, ReaderParameters readerParameters)
+  bool IsHookMethod(MethodDefinition method)
+  void BuildNode(Node node, int edge_number)
+  void CallMethod(MethodDefinition method)
+  Instruction Return(bool value)
+  void JumpToEdge(Node node)
+  void JumpToEnd()
+  Instruction AddInstruction(OpCode opcode)
+  Instruction AddInstruction(OpCode opcode, Instruction instruction)
+  Instruction AddInstruction(OpCode opcode, MethodReference method_reference)
+  Instruction AddInstruction(OpCode opcode, TypeReference type_reference)
+  Instruction AddInstruction(OpCode opcode, int value)
+  Instruction AddInstruction(OpCode opcode, VariableDefinition value)
+  Instruction AddInstruction(Instruction instruction)
+  VariableDefinition AddVariable(TypeReference typeRef, string name)
+  Instruction Ldc_I4_n(int n)
+--------------------------------------------------
+Класс: Oxide.Plugins.CompilableFile
+Наследуется от: object
+Поля:
+  Timer timer
+  object compileLock
+  CSharpExtension Extension
+  CSharpPluginLoader Loader
+  string Name
+  string Directory
+  string ScriptName
+  string ScriptPath
+  String[] ScriptLines
+  Encoding ScriptEncoding
+  HashSet`1<string> Requires
+  HashSet`1<string> References
+  HashSet`1<string> IncludePaths
+  string CompilerErrors
+  CompiledAssembly CompiledAssembly
+  DateTime LastModifiedAt
+  DateTime LastCachedScriptAt
+  DateTime LastCompiledAt
+  bool IsCompilationNeeded
+  Action`1<CSharpPlugin> LoadCallback
+  Action`1<bool> CompileCallback
+  float CompilationQueuedAt
+  TimerInstance timeoutTimer
+Свойства:
+  Byte[] ScriptSource
+Методы:
+  Byte[] get_ScriptSource()
+  void .ctor(CSharpExtension extension, CSharpPluginLoader loader, string directory, string name)
+  void Compile(Action`1<bool> callback)
+  void OnCompilationStarted()
+  void OnCompilationSucceeded(CompiledAssembly compiledAssembly)
+  void OnCompilationFailed()
+  void OnCompilationTimeout()
+  bool HasBeenModified()
+  void CheckLastModificationTime()
+  DateTime GetLastModificationTime()
+  void OnLoadingStarted()
+  void OnCompilationRequested()
+  void InitFailed(string message)
+  void .cctor()
+  void <OnCompilationStarted>b__27_0()
+--------------------------------------------------
+Класс: Oxide.Plugins.CompilablePlugin
+Наследуется от: CompilableFile
+Поля:
+  object compileLock
+  CompiledAssembly LastGoodAssembly
+  bool IsLoading
+Свойства:
+Методы:
+  void .ctor(CSharpExtension extension, CSharpPluginLoader loader, string directory, string name)
+  void OnLoadingStarted()
+  void OnCompilationRequested()
+  void LoadPlugin(Action`1<CSharpPlugin> callback)
+  void OnCompilationStarted()
+  void InitFailed(string message)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Plugins.Compilation
+Наследуется от: object
+Поля:
+  Compilation Current
+  Regex SymbolEscapeRegex
+  int id
+  string name
+  Action`1<Compilation> callback
+  ConcurrentHashSet`1<CompilablePlugin> queuedPlugins
+  HashSet`1<CompilablePlugin> plugins
+  float startedAt
+  float endedAt
+  Hash`2<string, CompilerFile> references
+  HashSet`1<string> referencedPlugins
+  CompiledAssembly compiledAssembly
+  string includePath
+  String[] extensionNames
+  string gameExtensionNamespace
+  string gameExtensionName
+  string gameExtensionBranch
+Свойства:
+  float duration
+Методы:
+  float get_duration()
+  void .ctor(int id, Action`1<Compilation> callback, CompilablePlugin[] plugins)
+  void Started()
+  void Completed(Byte[] rawAssembly, Byte[] symbols)
+  void Add(CompilablePlugin plugin)
+  bool IncludesRequiredPlugin(string name)
+  void Prepare(Action callback)
+  void PreparseScript(CompilablePlugin plugin)
+  void ResolveReferences(CompilablePlugin plugin)
+  void AddDependency(CompilablePlugin plugin)
+  void AddReference(CompilablePlugin plugin, string assemblyName)
+  void AddReference(CompilablePlugin plugin, AssemblyName reference)
+  bool CacheScriptLines(CompilablePlugin plugin)
+  void CacheModifiedScripts()
+  void RemovePlugin(CompilablePlugin plugin)
+  string EscapeSymbolName(string name)
+  void .cctor()
+  void <Completed>b__21_0()
+--------------------------------------------------
+Класс: Oxide.Plugins.CompiledAssembly
+Наследуется от: object
+Поля:
+  CompilablePlugin[] CompilablePlugins
+  String[] PluginNames
+  string Name
+  DateTime CompiledAt
+  Byte[] RawAssembly
+  Byte[] Symbols
+  Byte[] PatchedAssembly
+  float Duration
+  Assembly LoadedAssembly
+  bool IsLoading
+  List`1<Action`1<bool>> loadCallbacks
+  bool isPatching
+  bool isLoaded
+Свойства:
+  bool IsBatch
+Методы:
+  bool get_IsBatch()
+  void .ctor(string name, CompilablePlugin[] plugins, Byte[] rawAssembly, float duration, Byte[] symbols)
+  void LoadAssembly(Action`1<bool> callback)
+  void ValidateAssembly(Action`1<Byte[]> callback)
+  bool IsOutdated()
+  void <LoadAssembly>b__16_0(Byte[] rawAssembly)
+  bool <IsOutdated>b__18_0(CompilablePlugin pl)
+--------------------------------------------------
+Класс: Oxide.Plugins.CommandAttribute
+Наследуется от: Attribute
+Поля:
+  String[] <Commands>k__BackingField
+Свойства:
+  String[] Commands
+Методы:
+  String[] get_Commands()
+  void .ctor(String[] commands)
+--------------------------------------------------
+Класс: Oxide.Plugins.PermissionAttribute
+Наследуется от: Attribute
+Поля:
+  String[] <Permission>k__BackingField
+Свойства:
+  String[] Permission
+Методы:
+  String[] get_Permission()
+  void .ctor(string permission)
+--------------------------------------------------
+Класс: Oxide.Plugins.CovalencePlugin
+Наследуется от: CSharpPlugin
+Поля:
+  Covalence covalence
+  string game
+  IPlayerManager players
+  IServer server
+Свойства:
+Методы:
+  void Log(string format, Object[] args)
+  void LogWarning(string format, Object[] args)
+  void LogError(string format, Object[] args)
+  void HandleAddedToManager(PluginManager manager)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Plugins.CSharpExtension
+Наследуется от: Extension
+Поля:
+  Assembly Assembly
+  AssemblyName AssemblyName
+  VersionNumber AssemblyVersion
+  string AssemblyAuthors
+  FSWatcher <Watcher>k__BackingField
+  CSharpPluginLoader loader
+Свойства:
+  bool IsCoreExtension
+  string Name
+  string Author
+  VersionNumber Version
+  FSWatcher Watcher
+Методы:
+  bool get_IsCoreExtension()
+  string get_Name()
+  string get_Author()
+  VersionNumber get_Version()
+  FSWatcher get_Watcher()
+  void set_Watcher(FSWatcher value)
+  void .ctor(ExtensionManager manager)
+  void Load()
+  void LoadPluginWatchers(string pluginDirectory)
+  void OnModLoad()
+  void OnShutdown()
+  void OnFrame(float delta)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Plugins.PluginLoadFailure
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor(string reason)
+--------------------------------------------------
+Класс: Oxide.Plugins.InfoAttribute
+Наследуется от: Attribute
+Поля:
+  string <Title>k__BackingField
+  string <Author>k__BackingField
+  VersionNumber <Version>k__BackingField
+  int <ResourceId>k__BackingField
+Свойства:
+  string Title
+  string Author
+  VersionNumber Version
+  int ResourceId
+Методы:
+  string get_Title()
+  string get_Author()
+  VersionNumber get_Version()
+  void set_Version(VersionNumber value)
+  int get_ResourceId()
+  void set_ResourceId(int value)
+  void .ctor(string Title, string Author, string Version)
+  void .ctor(string Title, string Author, double Version)
+  void SetVersion(string version)
+--------------------------------------------------
+Класс: Oxide.Plugins.DescriptionAttribute
+Наследуется от: Attribute
+Поля:
+  string <Description>k__BackingField
+Свойства:
+  string Description
+Методы:
+  string get_Description()
+  void .ctor(string description)
+--------------------------------------------------
+Класс: Oxide.Plugins.PluginReferenceAttribute
+Наследуется от: Attribute
+Поля:
+  string <Name>k__BackingField
+Свойства:
+  string Name
+Методы:
+  string get_Name()
+  void .ctor()
+  void .ctor(string name)
+--------------------------------------------------
+Класс: Oxide.Plugins.ConsoleCommandAttribute
+Наследуется от: Attribute
+Поля:
+  string <Command>k__BackingField
+Свойства:
+  string Command
+Методы:
+  string get_Command()
+  void set_Command(string value)
+  void .ctor(string command)
+--------------------------------------------------
+Класс: Oxide.Plugins.ChatCommandAttribute
+Наследуется от: Attribute
+Поля:
+  string <Command>k__BackingField
+Свойства:
+  string Command
+Методы:
+  string get_Command()
+  void set_Command(string value)
+  void .ctor(string command)
+--------------------------------------------------
+Класс: Oxide.Plugins.OnlinePlayersAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Plugins.CSharpPlugin
+Наследуется от: CSPlugin
+Поля:
+  FSWatcher Watcher
+  Covalence covalence
+  Lang lang
+  Plugins plugins
+  Permission permission
+  WebRequests webrequest
+  PluginTimers timer
+  HashSet`1<PluginFieldInfo> onlinePlayerFields
+  Dictionary`2<string, MemberInfo> pluginReferenceMembers
+  bool hookDispatchFallback
+  bool <HookedOnFrame>k__BackingField
+  object _logFileLock
+Свойства:
+  bool HookedOnFrame
+Методы:
+  bool get_HookedOnFrame()
+  void set_HookedOnFrame(bool value)
+  void .ctor()
+  bool SetPluginInfo(string name, string path)
+  void HandleAddedToManager(PluginManager manager)
+  void HandleRemovedFromManager(PluginManager manager)
+  bool DirectCallHook(string name, Object& ret, Object[] args)
+  object InvokeMethod(HookMethod method, Object[] args)
+  void SetFailState(string reason)
+  void OnPluginLoaded(Plugin plugin)
+  void OnPluginUnloaded(Plugin plugin)
+  void Puts(string format, Object[] args)
+  void PrintWarning(string format, Object[] args)
+  void PrintError(string format, Object[] args)
+  void LogToFile(string filename, string text, Plugin plugin, bool datedFilename, bool timestampPrefix)
+  void NextFrame(Action callback)
+  void NextTick(Action callback)
+  void QueueWorkerThread(Action`1<object> callback)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Plugins.CSharpPluginLoader
+Наследуется от: PluginLoader
+Поля:
+  String[] DefaultReferences
+  HashSet`1<string> PluginReferences
+  CSharpPluginLoader Instance
+  CSharpExtension extension
+  Dictionary`2<string, CompilablePlugin> plugins
+  String[] AssemblyBlacklist
+  Timer <timer>k__BackingField
+  List`1<CompilablePlugin> compilationQueue
+  CompilerService compiler
+Свойства:
+  Timer timer
+  string FileExtension
+Методы:
+  Timer get_timer()
+  CompilablePlugin GetCompilablePlugin(string directory, string name)
+  string get_FileExtension()
+  void .ctor(CSharpExtension extension)
+  void OnModLoaded()
+  IEnumerable`1<string> ScanDirectory(string directory)
+  Plugin Load(string directory, string name)
+  void Reload(string directory, string name)
+  void Unloading(Plugin pluginBase)
+  void Load(CompilablePlugin plugin)
+  void CompilationRequested(CompilablePlugin plugin)
+  void PluginLoadingStarted(CompilablePlugin plugin)
+  void PluginLoadingCompleted(CompilablePlugin plugin)
+  void CompileAssembly(CompilablePlugin[] plugins)
+  void OnShutdown()
+  void .cctor()
+  IEnumerable`1<string> <>n__0(string directory)
+  void <CompilationRequested>b__21_0()
+  void <CompileAssembly>b__24_0(Compilation compilation)
+--------------------------------------------------
+Класс: Oxide.Plugins.Timer
+Наследуется от: object
+Поля:
+  TimerInstance instance
+Свойства:
+  int Repetitions
+  float Delay
+  Action Callback
+  bool Destroyed
+  Plugin Owner
+Методы:
+  void .ctor(TimerInstance instance)
+  int get_Repetitions()
+  float get_Delay()
+  Action get_Callback()
+  bool get_Destroyed()
+  Plugin get_Owner()
+  void Reset(float delay, int repetitions)
+  void Destroy()
+  void DestroyToPool()
+--------------------------------------------------
+Класс: Oxide.Plugins.PluginTimers
+Наследуется от: object
+Поля:
+  Timer timer
+  Plugin plugin
+Свойства:
+Методы:
+  void .ctor(Plugin plugin)
+  Timer Once(float seconds, Action callback)
+  Timer In(float seconds, Action callback)
+  Timer Every(float interval, Action callback)
+  Timer Repeat(float interval, int repeats, Action callback)
+  void Destroy(Timer& timer)
+--------------------------------------------------
+Класс: Oxide.Plugins.Hash`2
+Наследуется от: object
+Поля:
+  IDictionary`2<TKey, TValue> dictionary
+Свойства:
+  TValue Item
+  ICollection`1<TKey> Keys
+  ICollection`1<TValue> Values
+  int Count
+  bool IsReadOnly
+Методы:
+  void .ctor()
+  void .ctor(IEqualityComparer`1<TKey> comparer)
+  TValue get_Item(TKey key)
+  void set_Item(TKey key, TValue value)
+  ICollection`1<TKey> get_Keys()
+  ICollection`1<TValue> get_Values()
+  int get_Count()
+  bool get_IsReadOnly()
+  IEnumerator`1<KeyValuePair`2<TKey, TValue>> GetEnumerator()
+  bool ContainsKey(TKey key)
+  bool Contains(KeyValuePair`2<TKey, TValue> item)
+  void CopyTo(KeyValuePair`2[] array, int index)
+  bool TryGetValue(TKey key, TValue& value)
+  void Add(TKey key, TValue value)
+  void Add(KeyValuePair`2<TKey, TValue> item)
+  bool Remove(TKey key)
+  bool Remove(KeyValuePair`2<TKey, TValue> item)
+  void Clear()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+--------------------------------------------------
+Класс: Oxide.CSharp.AssemblyResolver
+Наследуется от: DefaultAssemblyResolver
+Поля:
+  AssemblyDefinition mscorlib
+Свойства:
+Методы:
+  void .ctor()
+  AssemblyDefinition Resolve(AssemblyNameReference name, ReaderParameters parameters)
+--------------------------------------------------
+Класс: Oxide.CSharp.CompilerService
+Наследуется от: object
+Поля:
+  string baseUrl
+  Hash`2<int, Compilation> compilations
+  Queue`1<CompilerMessage> messageQueue
+  Process process
+  Int32 modreq(System.Runtime.CompilerServices.IsVolatile) lastId
+  Boolean modreq(System.Runtime.CompilerServices.IsVolatile) ready
+  TimerInstance idleTimer
+  ObjectStreamClient`1<CompilerMessage> client
+  string filePath
+  string remoteName
+  string compilerBasicArguments
+  Regex fileErrorRegex
+  float startTime
+Свойства:
+  bool Installed
+Методы:
+  bool get_Installed()
+  void .ctor(Extension extension)
+  void ExpireFileCache()
+  bool Precheck()
+  bool Start()
+  void Stop(bool synchronous, string reason)
+  void OnMessage(ObjectStreamConnection`2<CompilerMessage, CompilerMessage> connection, CompilerMessage message)
+  void OnError(Exception exception)
+  void OnProcessExited(object sender, EventArgs eventArgs)
+  void ResetIdleTimer()
+  void Compile(CompilablePlugin[] plugins, Action`1<Compilation> callback)
+  void OnCompileTimeout()
+  void EnqueueCompilation(Compilation compilation)
+  void OnCompilerFailed(string reason)
+  bool SetFilePermissions(string filePath)
+  bool DownloadFile(string url, string path, int retries)
+  bool TryDownload(string url, int retries, Int32& current, Nullable`1<DateTime> lastModified, Byte[]& data, Int32& code, Boolean& newerFound, String& md5)
+  void Log(LogType type, string message, Exception exception)
+  string GetCompilerVersion()
+  string GenerateFileHash(string file)
+  void .cctor()
+  void <OnMessage>b__20_0()
+  void <OnProcessExited>b__22_0()
+  void <ResetIdleTimer>b__23_0()
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.IPatch
+Поля:
+Свойства:
+Методы:
+  void Patch(PatchContext context)
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.PatchContext
+Наследуется от: object
+Поля:
+  AssemblyDefinition <Assembly>k__BackingField
+  List`1<PatchValidationAttribute> <PatchValidators>k__BackingField
+  int <TotalPatches>k__BackingField
+  int <ContextPatches>k__BackingField
+Свойства:
+  AssemblyDefinition Assembly
+  List`1<PatchValidationAttribute> PatchValidators
+  int TotalPatches
+  int ContextPatches
+Методы:
+  AssemblyDefinition get_Assembly()
+  List`1<PatchValidationAttribute> get_PatchValidators()
+  void set_PatchValidators(List`1<PatchValidationAttribute> value)
+  int get_TotalPatches()
+  void set_TotalPatches(int value)
+  int get_ContextPatches()
+  void set_ContextPatches(int value)
+  void .ctor(AssemblyDefinition assembly)
+  void IncrementPatches()
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Patcher
+Наследуется от: object
+Поля:
+  Type <PatchType>k__BackingField
+  Type <PatchValidationType>k__BackingField
+  Dictionary`2<Type, List`1<PatchValidationAttribute>> Patches
+Свойства:
+  Type PatchType
+  Type PatchValidationType
+Методы:
+  Type get_PatchType()
+  Type get_PatchValidationType()
+  void GetPatches(Assembly module, Dictionary`2& patchTypes)
+  void GetPatches(Assembly[] modules, Dictionary`2& patchTypes)
+  bool Run(AssemblyDefinition module)
+  Byte[] Run(Byte[] data, Boolean& patched)
+  List`1<PatchValidationAttribute> GetValidationRules(Object[] attributes)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Publicizer
+Наследуется от: TraversePatch
+Поля:
+Свойства:
+Методы:
+  bool OnMemberDefinition(IMemberDefinition member)
+  bool OnTypeDefinition(TypeDefinition type)
+  bool OnFieldDefinition(FieldDefinition field)
+  bool OnPropertyDefinition(PropertyDefinition property)
+  bool OnMethodDefinition(MethodDefinition method)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.TraversePatch
+Наследуется от: object
+Поля:
+  string <Name>k__BackingField
+  IEnumerable`1<PatchValidationAttribute> <TypeValidators>k__BackingField
+  IEnumerable`1<PatchValidationAttribute> <PropertyValidators>k__BackingField
+  IEnumerable`1<PatchValidationAttribute> <FieldValidators>k__BackingField
+  IEnumerable`1<PatchValidationAttribute> <MethodValidators>k__BackingField
+  IEnumerable`1<PatchValidationAttribute> <EventValidators>k__BackingField
+  IEnumerable`1<PatchValidationAttribute> <MemberValidators>k__BackingField
+Свойства:
+  string Name
+  IEnumerable`1<PatchValidationAttribute> TypeValidators
+  IEnumerable`1<PatchValidationAttribute> PropertyValidators
+  IEnumerable`1<PatchValidationAttribute> FieldValidators
+  IEnumerable`1<PatchValidationAttribute> MethodValidators
+  IEnumerable`1<PatchValidationAttribute> EventValidators
+  IEnumerable`1<PatchValidationAttribute> MemberValidators
+Методы:
+  string get_Name()
+  IEnumerable`1<PatchValidationAttribute> get_TypeValidators()
+  IEnumerable`1<PatchValidationAttribute> get_PropertyValidators()
+  IEnumerable`1<PatchValidationAttribute> get_FieldValidators()
+  IEnumerable`1<PatchValidationAttribute> get_MethodValidators()
+  IEnumerable`1<PatchValidationAttribute> get_EventValidators()
+  IEnumerable`1<PatchValidationAttribute> get_MemberValidators()
+  void .ctor()
+  void Patch(PatchContext context)
+  void RecurseType(TypeDefinition type, PatchContext context)
+  bool OnMemberDefinition(IMemberDefinition member)
+  bool OnTypeDefinition(TypeDefinition type)
+  bool OnPropertyDefinition(PropertyDefinition property)
+  bool OnFieldDefinition(FieldDefinition field)
+  bool OnMethodDefinition(MethodDefinition method)
+  bool OnEventDefinition(EventDefinition event)
+  bool RunValidation(IMemberDefinition member, IEnumerable`1<PatchValidationAttribute> validations)
+  void Log(string message, LogType logType, Exception e)
+  IEnumerable`1<PatchValidationAttribute> GetValidationRules(string methodName, Type type)
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.HasAttributeAttribute
+Наследуется от: HasNameAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string rule, StringValidationType type, StringComparison comparison)
+  bool IsValid(object item)
+  bool <IsValid>b__1_0(CustomAttribute a)
+  bool <IsValid>b__1_1(CustomAttribute a)
+  bool <IsValid>b__1_2(CustomAttribute a)
+  bool <IsValid>b__1_3(CustomAttribute a)
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.HasEnvironmentalVariableAttribute
+Наследуется от: PatchValidationAttribute
+Поля:
+  string <VariableName>k__BackingField
+Свойства:
+  string VariableName
+Методы:
+  string get_VariableName()
+  void .ctor(string rule)
+  bool IsValid(object item)
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.HasNameAttribute
+Наследуется от: PatchValidationAttribute
+Поля:
+  string <ValidationRule>k__BackingField
+  StringValidationType <ValidationType>k__BackingField
+  StringComparison <ValidationComparison>k__BackingField
+Свойства:
+  string ValidationRule
+  StringValidationType ValidationType
+  StringComparison ValidationComparison
+Методы:
+  string get_ValidationRule()
+  StringValidationType get_ValidationType()
+  StringComparison get_ValidationComparison()
+  void .ctor(string rule, StringValidationType type, StringComparison comparison)
+  bool IsValid(object item)
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.HasVisabilityAttribute
+Наследуется от: PatchValidationAttribute
+Поля:
+  bool <IsPublic>k__BackingField
+  Nullable`1<bool> <IsStatic>k__BackingField
+Свойства:
+  bool IsPublic
+  Nullable`1<bool> IsStatic
+Методы:
+  bool get_IsPublic()
+  Nullable`1<bool> get_IsStatic()
+  void set_IsStatic(Nullable`1<bool> value)
+  void .ctor(bool isPublic)
+  bool IsValid(object item)
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.IsHideBySig
+Наследуется от: PatchValidationAttribute
+Поля:
+Свойства:
+Методы:
+  bool IsValid(object item)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.IsSpecialNameAttribute
+Наследуется от: PatchValidationAttribute
+Поля:
+Свойства:
+Методы:
+  bool IsValid(object item)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.PatchValidationAttribute
+Наследуется от: Attribute
+Поля:
+  bool <InverseCheck>k__BackingField
+Свойства:
+  bool InverseCheck
+Методы:
+  bool get_InverseCheck()
+  void set_InverseCheck(bool value)
+  bool IsValid(object item)
+  bool Validate(object item)
+  T GetPropertyValue(object instance, string name, T defaultValue, BindingFlags flags)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.StringValidationType
+Наследуется от: Enum
+Поля:
+  int value__
+  StringValidationType Equals
+  StringValidationType Contains
+  StringValidationType StartsWith
+  StringValidationType EndsWith
+  StringValidationType RegularExpression
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Oxide.CSharp.Patching.Validation.VersionCompareMethod
+Наследуется от: Enum
+Поля:
+  int value__
+  VersionCompareMethod Equality
+  VersionCompareMethod GreaterThan
+  VersionCompareMethod LessThan
+  VersionCompareMethod GreaterThanOrEqualTo
+  VersionCompareMethod LessThanOrEqualTo
+Свойства:
+Методы:
+--------------------------------------------------

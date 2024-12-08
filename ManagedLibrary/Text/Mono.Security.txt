@@ -1,0 +1,2996 @@
+Сборка: Mono.Security.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: AssemblyRef
+Наследуется от: object
+Поля:
+  string SystemConfiguration
+  string System
+  string EcmaPublicKey
+  string FrameworkPublicKeyFull
+  string FrameworkPublicKeyFull2
+  string MicrosoftPublicKey
+  string MicrosoftJScript
+  string MicrosoftVSDesigner
+  string SystemData
+  string SystemDesign
+  string SystemDrawing
+  string SystemWeb
+  string SystemWebExtensions
+  string SystemWindowsForms
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Consts
+Наследуется от: object
+Поля:
+  string MonoCorlibVersion
+  string MonoVersion
+  string MonoCompany
+  string MonoProduct
+  string MonoCopyright
+  string FxVersion
+  string FxFileVersion
+  string EnvironmentVersion
+  string VsVersion
+  string VsFileVersion
+  string PublicKeyToken
+  string AssemblyI18N
+  string AssemblyMicrosoft_JScript
+  string AssemblyMicrosoft_VisualStudio
+  string AssemblyMicrosoft_VisualStudio_Web
+  string AssemblyMicrosoft_VSDesigner
+  string AssemblyMono_Http
+  string AssemblyMono_Posix
+  string AssemblyMono_Security
+  string AssemblyMono_Messaging_RabbitMQ
+  string AssemblyCorlib
+  string AssemblySystem
+  string AssemblySystem_Data
+  string AssemblySystem_Design
+  string AssemblySystem_DirectoryServices
+  string AssemblySystem_Drawing
+  string AssemblySystem_Drawing_Design
+  string AssemblySystem_Messaging
+  string AssemblySystem_Security
+  string AssemblySystem_ServiceProcess
+  string AssemblySystem_Web
+  string AssemblySystem_Windows_Forms
+  string AssemblySystem_2_0
+  string AssemblySystemCore_3_5
+  string AssemblySystem_Core
+  string WindowsBase_3_0
+  string AssemblyWindowsBase
+  string AssemblyPresentationCore_3_5
+  string AssemblyPresentationCore_4_0
+  string AssemblyPresentationFramework_3_5
+  string AssemblySystemServiceModel_3_0
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Locale
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  string GetText(string msg)
+  string GetText(string fmt, Object[] args)
+--------------------------------------------------
+Класс: Mono.Xml.MiniParser
+Наследуется от: object
+Поля:
+  int INPUT_RANGE
+  UInt16[] tbl
+  String[] errors
+  int line
+  int col
+  Int32[] twoCharBuff
+  bool splitCData
+Свойства:
+Методы:
+  void .ctor()
+  void Reset()
+  bool StrEquals(string str, StringBuilder sb, int sbStart, int len)
+  void FatalErr(string descr)
+  int Xlat(int charCode, int state)
+  void Parse(IReader reader, IHandler handler)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Xml.SecurityParser
+Наследуется от: MiniParser
+Поля:
+  SecurityElement root
+  string xmldoc
+  int pos
+  SecurityElement current
+  Stack stack
+Свойства:
+Методы:
+  void .ctor()
+  void LoadXml(string xml)
+  SecurityElement ToXml()
+  int Read()
+  void OnStartParsing(MiniParser parser)
+  void OnStartElement(string name, IAttrList attrs)
+  void OnEndElement(string name)
+  void OnChars(string ch)
+  void OnEndParsing(MiniParser parser)
+--------------------------------------------------
+Класс: Mono.Security.ASN1
+Наследуется от: object
+Поля:
+  byte m_nTag
+  Byte[] m_aValue
+  ArrayList elist
+Свойства:
+  int Count
+  byte Tag
+  int Length
+  Byte[] Value
+  ASN1 Item
+Методы:
+  void .ctor()
+  void .ctor(byte tag)
+  void .ctor(byte tag, Byte[] data)
+  void .ctor(Byte[] data)
+  int get_Count()
+  byte get_Tag()
+  int get_Length()
+  Byte[] get_Value()
+  void set_Value(Byte[] value)
+  bool CompareArray(Byte[] array1, Byte[] array2)
+  bool Equals(Byte[] asn1)
+  bool CompareValue(Byte[] value)
+  ASN1 Add(ASN1 asn1)
+  Byte[] GetBytes()
+  void Decode(Byte[] asn1, Int32& anPos, int anLength)
+  void DecodeTLV(Byte[] asn1, Int32& pos, Byte& tag, Int32& length, Byte[]& content)
+  ASN1 get_Item(int index)
+  ASN1 Element(int index, byte anTag)
+  string ToString()
+  void SaveToFile(string filename)
+--------------------------------------------------
+Класс: Mono.Security.ASN1Convert
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ASN1 FromDateTime(DateTime dt)
+  ASN1 FromInt32(int value)
+  ASN1 FromOid(string oid)
+  ASN1 FromUnsignedBigInteger(Byte[] big)
+  int ToInt32(ASN1 asn1)
+  string ToOid(ASN1 asn1)
+  DateTime ToDateTime(ASN1 time)
+--------------------------------------------------
+Класс: Mono.Security.BitConverterLE
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  Byte[] GetUShortBytes(Byte* bytes)
+  Byte[] GetUIntBytes(Byte* bytes)
+  Byte[] GetULongBytes(Byte* bytes)
+  Byte[] GetBytes(bool value)
+  Byte[] GetBytes(char value)
+  Byte[] GetBytes(short value)
+  Byte[] GetBytes(int value)
+  Byte[] GetBytes(long value)
+  Byte[] GetBytes(ushort value)
+  Byte[] GetBytes(UInt32 value)
+  Byte[] GetBytes(ulong value)
+  Byte[] GetBytes(float value)
+  Byte[] GetBytes(double value)
+  void UShortFromBytes(Byte* dst, Byte[] src, int startIndex)
+  void UIntFromBytes(Byte* dst, Byte[] src, int startIndex)
+  void ULongFromBytes(Byte* dst, Byte[] src, int startIndex)
+  bool ToBoolean(Byte[] value, int startIndex)
+  char ToChar(Byte[] value, int startIndex)
+  short ToInt16(Byte[] value, int startIndex)
+  int ToInt32(Byte[] value, int startIndex)
+  long ToInt64(Byte[] value, int startIndex)
+  ushort ToUInt16(Byte[] value, int startIndex)
+  UInt32 ToUInt32(Byte[] value, int startIndex)
+  ulong ToUInt64(Byte[] value, int startIndex)
+  float ToSingle(Byte[] value, int startIndex)
+  double ToDouble(Byte[] value, int startIndex)
+--------------------------------------------------
+Класс: Mono.Security.PKCS7
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  ASN1 Attribute(string oid, ASN1 value)
+  ASN1 AlgorithmIdentifier(string oid)
+  ASN1 AlgorithmIdentifier(string oid, ASN1 parameters)
+  ASN1 IssuerAndSerialNumber(X509Certificate x509)
+--------------------------------------------------
+Класс: Mono.Security.StrongName
+Наследуется от: object
+Поля:
+  RSA rsa
+  Byte[] publicKey
+  Byte[] keyToken
+  string tokenAlgorithm
+Свойства:
+  bool CanSign
+  RSA RSA
+  Byte[] PublicKey
+  Byte[] PublicKeyToken
+  string TokenAlgorithm
+Методы:
+  void .ctor()
+  void .ctor(int keySize)
+  void .ctor(Byte[] data)
+  void .ctor(RSA rsa)
+  void InvalidateCache()
+  bool get_CanSign()
+  RSA get_RSA()
+  void set_RSA(RSA value)
+  Byte[] get_PublicKey()
+  Byte[] get_PublicKeyToken()
+  HashAlgorithm GetHashAlgorithm(string algorithm)
+  string get_TokenAlgorithm()
+  void set_TokenAlgorithm(string value)
+  Byte[] GetBytes()
+  UInt32 RVAtoPosition(UInt32 r, int sections, Byte[] headers)
+  StrongNameSignature Error(string a)
+  Byte[] ReadMore(Stream stream, Byte[] a, int newSize)
+  StrongNameSignature StrongHash(Stream stream, StrongNameOptions options)
+  Byte[] Hash(string fileName)
+  bool Sign(string fileName)
+  bool Verify(string fileName)
+  bool Verify(Stream stream)
+  bool Verify(RSA rsa, AssemblyHashAlgorithm algorithm, Byte[] hash, Byte[] signature)
+--------------------------------------------------
+Класс: Mono.Security.X509.PKCS5
+Наследуется от: object
+Поля:
+  string pbeWithMD2AndDESCBC
+  string pbeWithMD5AndDESCBC
+  string pbeWithMD2AndRC2CBC
+  string pbeWithMD5AndRC2CBC
+  string pbeWithSHA1AndDESCBC
+  string pbeWithSHA1AndRC2CBC
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Security.X509.PKCS9
+Наследуется от: object
+Поля:
+  string friendlyName
+  string localKeyId
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Security.X509.SafeBag
+Наследуется от: object
+Поля:
+  string _bagOID
+  ASN1 _asn1
+Свойства:
+  string BagOID
+  ASN1 ASN1
+Методы:
+  void .ctor(string bagOID, ASN1 asn1)
+  string get_BagOID()
+  ASN1 get_ASN1()
+--------------------------------------------------
+Класс: Mono.Security.X509.PKCS12
+Наследуется от: object
+Поля:
+  string pbeWithSHAAnd128BitRC4
+  string pbeWithSHAAnd40BitRC4
+  string pbeWithSHAAnd3KeyTripleDESCBC
+  string pbeWithSHAAnd2KeyTripleDESCBC
+  string pbeWithSHAAnd128BitRC2CBC
+  string pbeWithSHAAnd40BitRC2CBC
+  string keyBag
+  string pkcs8ShroudedKeyBag
+  string certBag
+  string crlBag
+  string secretBag
+  string safeContentsBag
+  string x509Certificate
+  string sdsiCertificate
+  string x509Crl
+  int recommendedIterationCount
+  Byte[] _password
+  ArrayList _keyBags
+  ArrayList _secretBags
+  X509CertificateCollection _certs
+  bool _keyBagsChanged
+  bool _secretBagsChanged
+  bool _certsChanged
+  int _iterations
+  ArrayList _safeBags
+  RandomNumberGenerator _rng
+  int CryptoApiPasswordLimit
+  int password_max_length
+Свойства:
+  string Password
+  int IterationCount
+  ArrayList Keys
+  ArrayList Secrets
+  X509CertificateCollection Certificates
+  RandomNumberGenerator RNG
+  int MaximumPasswordLength
+Методы:
+  void .ctor()
+  void .ctor(Byte[] data)
+  void .ctor(Byte[] data, string password)
+  void .ctor(Byte[] data, Byte[] password)
+  void Decode(Byte[] data)
+  void Finalize()
+  void set_Password(string value)
+  int get_IterationCount()
+  void set_IterationCount(int value)
+  ArrayList get_Keys()
+  ArrayList get_Secrets()
+  X509CertificateCollection get_Certificates()
+  RandomNumberGenerator get_RNG()
+  bool Compare(Byte[] expected, Byte[] actual)
+  SymmetricAlgorithm GetSymmetricAlgorithm(string algorithmOid, Byte[] salt, int iterationCount)
+  Byte[] Decrypt(string algorithmOid, Byte[] salt, int iterationCount, Byte[] encryptedData)
+  Byte[] Decrypt(EncryptedData ed)
+  Byte[] Encrypt(string algorithmOid, Byte[] salt, int iterationCount, Byte[] data)
+  DSAParameters GetExistingParameters(Boolean& found)
+  void AddPrivateKey(PrivateKeyInfo pki)
+  void ReadSafeBag(ASN1 safeBag)
+  ASN1 Pkcs8ShroudedKeyBagSafeBag(AsymmetricAlgorithm aa, IDictionary attributes)
+  ASN1 KeyBagSafeBag(AsymmetricAlgorithm aa, IDictionary attributes)
+  ASN1 SecretBagSafeBag(Byte[] secret, IDictionary attributes)
+  ASN1 CertificateSafeBag(X509Certificate x509, IDictionary attributes)
+  Byte[] MAC(Byte[] password, Byte[] salt, int iterations, Byte[] data)
+  Byte[] GetBytes()
+  ContentInfo EncryptedContentInfo(ASN1 safeBags, string algorithmOid)
+  void AddCertificate(X509Certificate cert)
+  void AddCertificate(X509Certificate cert, IDictionary attributes)
+  void RemoveCertificate(X509Certificate cert)
+  void RemoveCertificate(X509Certificate cert, IDictionary attrs)
+  bool CompareAsymmetricAlgorithm(AsymmetricAlgorithm a1, AsymmetricAlgorithm a2)
+  void AddPkcs8ShroudedKeyBag(AsymmetricAlgorithm aa)
+  void AddPkcs8ShroudedKeyBag(AsymmetricAlgorithm aa, IDictionary attributes)
+  void RemovePkcs8ShroudedKeyBag(AsymmetricAlgorithm aa)
+  void AddKeyBag(AsymmetricAlgorithm aa)
+  void AddKeyBag(AsymmetricAlgorithm aa, IDictionary attributes)
+  void RemoveKeyBag(AsymmetricAlgorithm aa)
+  void AddSecretBag(Byte[] secret)
+  void AddSecretBag(Byte[] secret, IDictionary attributes)
+  void RemoveSecretBag(Byte[] secret)
+  AsymmetricAlgorithm GetAsymmetricAlgorithm(IDictionary attrs)
+  Byte[] GetSecret(IDictionary attrs)
+  X509Certificate GetCertificate(IDictionary attrs)
+  IDictionary GetAttributes(AsymmetricAlgorithm aa)
+  IDictionary GetAttributes(X509Certificate cert)
+  void SaveToFile(string filename)
+  object Clone()
+  int get_MaximumPasswordLength()
+  void set_MaximumPasswordLength(int value)
+  Byte[] LoadFile(string filename)
+  PKCS12 LoadFromFile(string filename)
+  PKCS12 LoadFromFile(string filename, string password)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.X509.X501
+Наследуется от: object
+Поля:
+  Byte[] countryName
+  Byte[] organizationName
+  Byte[] organizationalUnitName
+  Byte[] commonName
+  Byte[] localityName
+  Byte[] stateOrProvinceName
+  Byte[] streetAddress
+  Byte[] serialNumber
+  Byte[] domainComponent
+  Byte[] userid
+  Byte[] email
+  Byte[] dnQualifier
+  Byte[] title
+  Byte[] surname
+  Byte[] givenName
+  Byte[] initial
+Свойства:
+Методы:
+  void .ctor()
+  string ToString(ASN1 seq)
+  string ToString(ASN1 seq, bool reversed, string separator, bool quotes)
+  void AppendEntry(StringBuilder sb, ASN1 entry, bool quotes)
+  AttributeTypeAndValue GetAttributeFromOid(string attributeType)
+  bool IsOid(string oid)
+  AttributeTypeAndValue ReadAttribute(string value, Int32& pos)
+  bool IsHex(char c)
+  string ReadHex(string value, Int32& pos)
+  int ReadEscaped(StringBuilder sb, string value, int pos)
+  int ReadQuoted(StringBuilder sb, string value, int pos)
+  string ReadValue(string value, Int32& pos)
+  ASN1 FromString(string rdn)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.X509.X509Builder
+Наследуется от: object
+Поля:
+  string defaultHash
+  string hashName
+Свойства:
+  string Hash
+Методы:
+  void .ctor()
+  ASN1 ToBeSigned(string hashName)
+  string GetOid(string hashName)
+  string get_Hash()
+  void set_Hash(string value)
+  Byte[] Sign(AsymmetricAlgorithm aa)
+  Byte[] Build(ASN1 tbs, string hashoid, Byte[] signature)
+  Byte[] Sign(RSA key)
+  Byte[] Sign(DSA key)
+--------------------------------------------------
+Класс: Mono.Security.X509.X509Crl
+Наследуется от: object
+Поля:
+  string issuer
+  byte version
+  DateTime thisUpdate
+  DateTime nextUpdate
+  ArrayList entries
+  string signatureOID
+  Byte[] signature
+  X509ExtensionCollection extensions
+  Byte[] encoded
+  Byte[] hash_value
+Свойства:
+  ArrayList Entries
+  X509CrlEntry Item
+  X509CrlEntry Item
+  X509ExtensionCollection Extensions
+  Byte[] Hash
+  string IssuerName
+  DateTime NextUpdate
+  DateTime ThisUpdate
+  string SignatureAlgorithm
+  Byte[] Signature
+  Byte[] RawData
+  byte Version
+  bool IsCurrent
+Методы:
+  void .ctor(Byte[] crl)
+  void Parse(Byte[] crl)
+  ArrayList get_Entries()
+  X509CrlEntry get_Item(int index)
+  X509CrlEntry get_Item(Byte[] serialNumber)
+  X509ExtensionCollection get_Extensions()
+  Byte[] get_Hash()
+  string get_IssuerName()
+  DateTime get_NextUpdate()
+  DateTime get_ThisUpdate()
+  string get_SignatureAlgorithm()
+  Byte[] get_Signature()
+  Byte[] get_RawData()
+  byte get_Version()
+  bool get_IsCurrent()
+  bool WasCurrent(DateTime instant)
+  Byte[] GetBytes()
+  bool Compare(Byte[] array1, Byte[] array2)
+  X509CrlEntry GetCrlEntry(X509Certificate x509)
+  X509CrlEntry GetCrlEntry(Byte[] serialNumber)
+  bool VerifySignature(X509Certificate x509)
+  bool VerifySignature(DSA dsa)
+  bool VerifySignature(RSA rsa)
+  bool VerifySignature(AsymmetricAlgorithm aa)
+  X509Crl CreateFromFile(string filename)
+--------------------------------------------------
+Класс: Mono.Security.X509.X509Certificate
+Наследуется от: object
+Поля:
+  ASN1 decoder
+  Byte[] m_encodedcert
+  DateTime m_from
+  DateTime m_until
+  ASN1 issuer
+  string m_issuername
+  string m_keyalgo
+  Byte[] m_keyalgoparams
+  ASN1 subject
+  string m_subject
+  Byte[] m_publickey
+  Byte[] signature
+  string m_signaturealgo
+  Byte[] m_signaturealgoparams
+  Byte[] certhash
+  RSA _rsa
+  DSA _dsa
+  string OID_DSA
+  string OID_RSA
+  string OID_ECC
+  int version
+  Byte[] serialnumber
+  Byte[] issuerUniqueID
+  Byte[] subjectUniqueID
+  X509ExtensionCollection extensions
+  string encoding_error
+Свойства:
+  DSA DSA
+  X509ExtensionCollection Extensions
+  Byte[] Hash
+  string IssuerName
+  string KeyAlgorithm
+  Byte[] KeyAlgorithmParameters
+  Byte[] PublicKey
+  RSA RSA
+  Byte[] RawData
+  Byte[] SerialNumber
+  Byte[] Signature
+  string SignatureAlgorithm
+  Byte[] SignatureAlgorithmParameters
+  string SubjectName
+  DateTime ValidFrom
+  DateTime ValidUntil
+  int Version
+  bool IsCurrent
+  Byte[] IssuerUniqueIdentifier
+  Byte[] SubjectUniqueIdentifier
+  bool IsSelfSigned
+Методы:
+  void Parse(Byte[] data)
+  void .ctor(Byte[] data)
+  Byte[] GetUnsignedBigInteger(Byte[] integer)
+  DSA get_DSA()
+  void set_DSA(DSA value)
+  X509ExtensionCollection get_Extensions()
+  Byte[] get_Hash()
+  string get_IssuerName()
+  string get_KeyAlgorithm()
+  Byte[] get_KeyAlgorithmParameters()
+  void set_KeyAlgorithmParameters(Byte[] value)
+  Byte[] get_PublicKey()
+  RSA get_RSA()
+  void set_RSA(RSA value)
+  Byte[] get_RawData()
+  Byte[] get_SerialNumber()
+  Byte[] get_Signature()
+  string get_SignatureAlgorithm()
+  Byte[] get_SignatureAlgorithmParameters()
+  string get_SubjectName()
+  DateTime get_ValidFrom()
+  DateTime get_ValidUntil()
+  int get_Version()
+  bool get_IsCurrent()
+  bool WasCurrent(DateTime instant)
+  Byte[] get_IssuerUniqueIdentifier()
+  Byte[] get_SubjectUniqueIdentifier()
+  bool VerifySignature(DSA dsa)
+  bool VerifySignature(RSA rsa)
+  bool VerifySignature(AsymmetricAlgorithm aa)
+  bool CheckSignature(Byte[] hash, string hashAlgorithm, Byte[] signature)
+  bool get_IsSelfSigned()
+  ASN1 GetIssuerName()
+  ASN1 GetSubjectName()
+  void .ctor(SerializationInfo info, StreamingContext context)
+  void GetObjectData(SerializationInfo info, StreamingContext context)
+  Byte[] PEM(string type, Byte[] data)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.X509.X509CertificateBuilder
+Наследуется от: X509Builder
+Поля:
+  byte version
+  Byte[] sn
+  string issuer
+  DateTime notBefore
+  DateTime notAfter
+  string subject
+  AsymmetricAlgorithm aa
+  Byte[] issuerUniqueID
+  Byte[] subjectUniqueID
+  X509ExtensionCollection extensions
+Свойства:
+  byte Version
+  Byte[] SerialNumber
+  string IssuerName
+  DateTime NotBefore
+  DateTime NotAfter
+  string SubjectName
+  AsymmetricAlgorithm SubjectPublicKey
+  Byte[] IssuerUniqueId
+  Byte[] SubjectUniqueId
+  X509ExtensionCollection Extensions
+Методы:
+  void .ctor()
+  void .ctor(byte version)
+  byte get_Version()
+  void set_Version(byte value)
+  Byte[] get_SerialNumber()
+  void set_SerialNumber(Byte[] value)
+  string get_IssuerName()
+  void set_IssuerName(string value)
+  DateTime get_NotBefore()
+  void set_NotBefore(DateTime value)
+  DateTime get_NotAfter()
+  void set_NotAfter(DateTime value)
+  string get_SubjectName()
+  void set_SubjectName(string value)
+  AsymmetricAlgorithm get_SubjectPublicKey()
+  void set_SubjectPublicKey(AsymmetricAlgorithm value)
+  Byte[] get_IssuerUniqueId()
+  void set_IssuerUniqueId(Byte[] value)
+  Byte[] get_SubjectUniqueId()
+  void set_SubjectUniqueId(Byte[] value)
+  X509ExtensionCollection get_Extensions()
+  ASN1 SubjectPublicKeyInfo()
+  Byte[] UniqueIdentifier(Byte[] id)
+  ASN1 ToBeSigned(string oid)
+--------------------------------------------------
+Класс: Mono.Security.X509.X509CertificateCollection
+Наследуется от: CollectionBase
+Поля:
+Свойства:
+  X509Certificate Item
+Методы:
+  void .ctor()
+  void .ctor(X509Certificate[] value)
+  void .ctor(X509CertificateCollection value)
+  X509Certificate get_Item(int index)
+  void set_Item(int index, X509Certificate value)
+  int Add(X509Certificate value)
+  void AddRange(X509Certificate[] value)
+  void AddRange(X509CertificateCollection value)
+  bool Contains(X509Certificate value)
+  void CopyTo(X509Certificate[] array, int index)
+  X509CertificateEnumerator GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  int GetHashCode()
+  int IndexOf(X509Certificate value)
+  void Insert(int index, X509Certificate value)
+  void Remove(X509Certificate value)
+  bool Compare(Byte[] array1, Byte[] array2)
+--------------------------------------------------
+Класс: Mono.Security.X509.X509Chain
+Наследуется от: object
+Поля:
+  X509CertificateCollection roots
+  X509CertificateCollection certs
+  X509Certificate _root
+  X509CertificateCollection _chain
+  X509ChainStatusFlags _status
+Свойства:
+  X509CertificateCollection Chain
+  X509Certificate Root
+  X509ChainStatusFlags Status
+  X509CertificateCollection TrustAnchors
+Методы:
+  void .ctor()
+  void .ctor(X509CertificateCollection chain)
+  X509CertificateCollection get_Chain()
+  X509Certificate get_Root()
+  X509ChainStatusFlags get_Status()
+  X509CertificateCollection get_TrustAnchors()
+  void set_TrustAnchors(X509CertificateCollection value)
+  void LoadCertificate(X509Certificate x509)
+  void LoadCertificates(X509CertificateCollection collection)
+  X509Certificate FindByIssuerName(string issuerName)
+  bool Build(X509Certificate leaf)
+  void Reset()
+  bool IsValid(X509Certificate cert)
+  X509Certificate FindCertificateParent(X509Certificate child)
+  X509Certificate FindCertificateRoot(X509Certificate potentialRoot)
+  bool IsTrusted(X509Certificate potentialTrusted)
+  bool IsParent(X509Certificate child, X509Certificate parent)
+--------------------------------------------------
+Класс: Mono.Security.X509.X509ChainStatusFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  X509ChainStatusFlags InvalidBasicConstraints
+  X509ChainStatusFlags NoError
+  X509ChainStatusFlags NotSignatureValid
+  X509ChainStatusFlags NotTimeNested
+  X509ChainStatusFlags NotTimeValid
+  X509ChainStatusFlags PartialChain
+  X509ChainStatusFlags UntrustedRoot
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.X509.X509Extension
+Наследуется от: object
+Поля:
+  string extnOid
+  bool extnCritical
+  ASN1 extnValue
+Свойства:
+  ASN1 ASN1
+  string Oid
+  bool Critical
+  string Name
+  ASN1 Value
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  void Encode()
+  ASN1 get_ASN1()
+  string get_Oid()
+  bool get_Critical()
+  void set_Critical(bool value)
+  string get_Name()
+  ASN1 get_Value()
+  bool Equals(object obj)
+  Byte[] GetBytes()
+  int GetHashCode()
+  void WriteLine(StringBuilder sb, int n, int pos)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.X509ExtensionCollection
+Наследуется от: CollectionBase
+Поля:
+  bool readOnly
+Свойства:
+  X509Extension Item
+  X509Extension Item
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  int Add(X509Extension extension)
+  void AddRange(X509Extension[] extension)
+  void AddRange(X509ExtensionCollection collection)
+  bool Contains(X509Extension extension)
+  bool Contains(string oid)
+  void CopyTo(X509Extension[] extensions, int index)
+  int IndexOf(X509Extension extension)
+  int IndexOf(string oid)
+  void Insert(int index, X509Extension extension)
+  void Remove(X509Extension extension)
+  void Remove(string oid)
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  X509Extension get_Item(int index)
+  X509Extension get_Item(string oid)
+  Byte[] GetBytes()
+--------------------------------------------------
+Класс: Mono.Security.X509.X509Store
+Наследуется от: object
+Поля:
+  string _storePath
+  X509CertificateCollection _certificates
+  ArrayList _crls
+  bool _crl
+  bool _newFormat
+  string _name
+Свойства:
+  X509CertificateCollection Certificates
+  ArrayList Crls
+  string Name
+Методы:
+  void .ctor(string path, bool crl, bool newFormat)
+  X509CertificateCollection get_Certificates()
+  ArrayList get_Crls()
+  string get_Name()
+  void Clear()
+  void ClearCertificates()
+  void ClearCrls()
+  void Import(X509Certificate certificate)
+  void Import(X509Crl crl)
+  void Remove(X509Certificate certificate)
+  void Remove(X509Crl crl)
+  void ImportNewFormat(X509Certificate certificate)
+  void RemoveNewFormat(X509Certificate certificate)
+  string GetUniqueNameWithSerial(X509Certificate certificate)
+  string GetUniqueName(X509Certificate certificate, Byte[] serial)
+  string GetUniqueName(X509Crl crl)
+  Byte[] GetUniqueName(X509ExtensionCollection extensions, Byte[] serial)
+  string GetUniqueName(string method, Byte[] name, string fileExtension)
+  Byte[] Load(string filename)
+  X509Certificate LoadCertificate(string filename)
+  X509Crl LoadCrl(string filename)
+  bool CheckStore(string path, bool throwException)
+  X509CertificateCollection BuildCertificatesCollection(string storeName)
+  ArrayList BuildCrlsCollection(string storeName)
+  void ImportPrivateKey(X509Certificate certificate, CspParameters cspParams)
+--------------------------------------------------
+Класс: Mono.Security.X509.X509StoreManager
+Наследуется от: object
+Поля:
+  string _userPath
+  string _localMachinePath
+  string _newUserPath
+  string _newLocalMachinePath
+  X509Stores _userStore
+  X509Stores _machineStore
+  X509Stores _newUserStore
+  X509Stores _newMachineStore
+Свойства:
+  string CurrentUserPath
+  string LocalMachinePath
+  string NewCurrentUserPath
+  string NewLocalMachinePath
+  X509Stores CurrentUser
+  X509Stores LocalMachine
+  X509Stores NewCurrentUser
+  X509Stores NewLocalMachine
+  X509CertificateCollection IntermediateCACertificates
+  ArrayList IntermediateCACrls
+  X509CertificateCollection TrustedRootCertificates
+  ArrayList TrustedRootCACrls
+  X509CertificateCollection UntrustedCertificates
+Методы:
+  void .ctor()
+  string get_CurrentUserPath()
+  string get_LocalMachinePath()
+  string get_NewCurrentUserPath()
+  string get_NewLocalMachinePath()
+  X509Stores get_CurrentUser()
+  X509Stores get_LocalMachine()
+  X509Stores get_NewCurrentUser()
+  X509Stores get_NewLocalMachine()
+  X509CertificateCollection get_IntermediateCACertificates()
+  ArrayList get_IntermediateCACrls()
+  X509CertificateCollection get_TrustedRootCertificates()
+  ArrayList get_TrustedRootCACrls()
+  X509CertificateCollection get_UntrustedCertificates()
+--------------------------------------------------
+Класс: Mono.Security.X509.X509Stores
+Наследуется от: object
+Поля:
+  string _storePath
+  bool _newFormat
+  X509Store _personal
+  X509Store _other
+  X509Store _intermediate
+  X509Store _trusted
+  X509Store _untrusted
+Свойства:
+  X509Store Personal
+  X509Store OtherPeople
+  X509Store IntermediateCA
+  X509Store TrustedRoot
+  X509Store Untrusted
+Методы:
+  void .ctor(string path, bool newFormat)
+  X509Store get_Personal()
+  X509Store get_OtherPeople()
+  X509Store get_IntermediateCA()
+  X509Store get_TrustedRoot()
+  X509Store get_Untrusted()
+  void Clear()
+  X509Store Open(string storeName, bool create)
+--------------------------------------------------
+Класс: Mono.Security.X509.X520
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.AuthorityKeyIdentifierExtension
+Наследуется от: X509Extension
+Поля:
+  Byte[] aki
+Свойства:
+  string Name
+  Byte[] Identifier
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  void Encode()
+  string get_Name()
+  Byte[] get_Identifier()
+  void set_Identifier(Byte[] value)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.BasicConstraintsExtension
+Наследуется от: X509Extension
+Поля:
+  int NoPathLengthConstraint
+  bool cA
+  int pathLenConstraint
+Свойства:
+  bool CertificateAuthority
+  string Name
+  int PathLenConstraint
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  void Encode()
+  bool get_CertificateAuthority()
+  void set_CertificateAuthority(bool value)
+  string get_Name()
+  int get_PathLenConstraint()
+  void set_PathLenConstraint(int value)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.CRLDistributionPointsExtension
+Наследуется от: X509Extension
+Поля:
+  List`1<DistributionPoint> dps
+Свойства:
+  string Name
+  IEnumerable`1<DistributionPoint> DistributionPoints
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  string get_Name()
+  IEnumerable`1<DistributionPoint> get_DistributionPoints()
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.CertificatePoliciesExtension
+Наследуется от: X509Extension
+Поля:
+  Hashtable policies
+Свойства:
+  string Name
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  string get_Name()
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.ExtendedKeyUsageExtension
+Наследуется от: X509Extension
+Поля:
+  ArrayList keyPurpose
+Свойства:
+  ArrayList KeyPurpose
+  string Name
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  void Encode()
+  ArrayList get_KeyPurpose()
+  string get_Name()
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.GeneralNames
+Наследуется от: object
+Поля:
+  ArrayList rfc822Name
+  ArrayList dnsName
+  ArrayList directoryNames
+  ArrayList uris
+  ArrayList ipAddr
+  ASN1 asn
+Свойства:
+  String[] RFC822
+  String[] DirectoryNames
+  String[] DNSNames
+  String[] UniformResourceIdentifiers
+  String[] IPAddresses
+Методы:
+  void .ctor()
+  void .ctor(String[] rfc822s, String[] dnsNames, String[] ipAddresses, String[] uris)
+  void .ctor(ASN1 sequence)
+  String[] get_RFC822()
+  String[] get_DirectoryNames()
+  String[] get_DNSNames()
+  String[] get_UniformResourceIdentifiers()
+  String[] get_IPAddresses()
+  Byte[] GetBytes()
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.KeyAttributesExtension
+Наследуется от: X509Extension
+Поля:
+  Byte[] keyId
+  int kubits
+  DateTime notBefore
+  DateTime notAfter
+Свойства:
+  Byte[] KeyIdentifier
+  string Name
+  DateTime NotAfter
+  DateTime NotBefore
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  Byte[] get_KeyIdentifier()
+  string get_Name()
+  DateTime get_NotAfter()
+  DateTime get_NotBefore()
+  bool Support(KeyUsages usage)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.KeyUsages
+Наследуется от: Enum
+Поля:
+  int value__
+  KeyUsages digitalSignature
+  KeyUsages nonRepudiation
+  KeyUsages keyEncipherment
+  KeyUsages dataEncipherment
+  KeyUsages keyAgreement
+  KeyUsages keyCertSign
+  KeyUsages cRLSign
+  KeyUsages encipherOnly
+  KeyUsages decipherOnly
+  KeyUsages none
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.KeyUsageExtension
+Наследуется от: X509Extension
+Поля:
+  int kubits
+Свойства:
+  KeyUsages KeyUsage
+  string Name
+Методы:
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void .ctor()
+  void Decode()
+  void Encode()
+  KeyUsages get_KeyUsage()
+  void set_KeyUsage(KeyUsages value)
+  string get_Name()
+  bool Support(KeyUsages usage)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.NetscapeCertTypeExtension
+Наследуется от: X509Extension
+Поля:
+  int ctbits
+Свойства:
+  string Name
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  string get_Name()
+  bool Support(CertTypes usage)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.PrivateKeyUsagePeriodExtension
+Наследуется от: X509Extension
+Поля:
+  DateTime notBefore
+  DateTime notAfter
+Свойства:
+  string Name
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  string get_Name()
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.SubjectAltNameExtension
+Наследуется от: X509Extension
+Поля:
+  GeneralNames _names
+Свойства:
+  string Name
+  String[] RFC822
+  String[] DNSNames
+  String[] IPAddresses
+  String[] UniformResourceIdentifiers
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void .ctor(String[] rfc822, String[] dnsNames, String[] ipAddresses, String[] uris)
+  void Decode()
+  string get_Name()
+  String[] get_RFC822()
+  String[] get_DNSNames()
+  String[] get_IPAddresses()
+  String[] get_UniformResourceIdentifiers()
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.X509.Extensions.SubjectKeyIdentifierExtension
+Наследуется от: X509Extension
+Поля:
+  Byte[] ski
+Свойства:
+  string Name
+  Byte[] Identifier
+Методы:
+  void .ctor()
+  void .ctor(ASN1 asn1)
+  void .ctor(X509Extension extension)
+  void Decode()
+  void Encode()
+  string get_Name()
+  Byte[] get_Identifier()
+  void set_Identifier(Byte[] value)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.ChallengeResponse
+Наследуется от: object
+Поля:
+  Byte[] magic
+  Byte[] nullEncMagic
+  bool _disposed
+  Byte[] _challenge
+  Byte[] _lmpwd
+  Byte[] _ntpwd
+Свойства:
+  string Password
+  Byte[] Challenge
+  Byte[] LM
+  Byte[] NT
+Методы:
+  void .ctor()
+  void .ctor(string password, Byte[] challenge)
+  void Finalize()
+  string get_Password()
+  void set_Password(string value)
+  Byte[] get_Challenge()
+  void set_Challenge(Byte[] value)
+  Byte[] get_LM()
+  Byte[] get_NT()
+  void Dispose()
+  void Dispose(bool disposing)
+  Byte[] GetResponse(Byte[] pwd)
+  Byte[] PrepareDESKey(Byte[] key56bits, int position)
+  Byte[] PasswordToKey(string password, int position)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.ChallengeResponse2
+Наследуется от: object
+Поля:
+  Byte[] magic
+  Byte[] nullEncMagic
+Свойства:
+Методы:
+  Byte[] Compute_LM(string password, Byte[] challenge)
+  Byte[] Compute_NTLM_Password(string password)
+  Byte[] Compute_NTLM(string password, Byte[] challenge)
+  void Compute_NTLMv2_Session(string password, Byte[] challenge, Byte[]& lm, Byte[]& ntlm)
+  Byte[] Compute_NTLMv2(Type2Message type2, string username, string password, string domain)
+  void Compute(Type2Message type2, NtlmAuthLevel level, string username, string password, string domain, Byte[]& lm, Byte[]& ntlm)
+  Byte[] GetResponse(Byte[] challenge, Byte[] pwd)
+  Byte[] PrepareDESKey(Byte[] key56bits, int position)
+  Byte[] PasswordToKey(string password, int position)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.MessageBase
+Наследуется от: object
+Поля:
+  Byte[] header
+  int _type
+  NtlmFlags _flags
+Свойства:
+  NtlmFlags Flags
+  int Type
+Методы:
+  void .ctor(int messageType)
+  NtlmFlags get_Flags()
+  void set_Flags(NtlmFlags value)
+  int get_Type()
+  Byte[] PrepareMessage(int messageSize)
+  void Decode(Byte[] message)
+  bool CheckHeader(Byte[] message)
+  Byte[] GetBytes()
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.NtlmAuthLevel
+Наследуется от: Enum
+Поля:
+  int value__
+  NtlmAuthLevel LM_and_NTLM
+  NtlmAuthLevel LM_and_NTLM_and_try_NTLMv2_Session
+  NtlmAuthLevel NTLM_only
+  NtlmAuthLevel NTLMv2_only
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.NtlmFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  NtlmFlags NegotiateUnicode
+  NtlmFlags NegotiateOem
+  NtlmFlags RequestTarget
+  NtlmFlags NegotiateNtlm
+  NtlmFlags NegotiateDomainSupplied
+  NtlmFlags NegotiateWorkstationSupplied
+  NtlmFlags NegotiateAlwaysSign
+  NtlmFlags NegotiateNtlm2Key
+  NtlmFlags Negotiate128
+  NtlmFlags Negotiate56
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.NtlmSettings
+Наследуется от: object
+Поля:
+  NtlmAuthLevel defaultAuthLevel
+Свойства:
+  NtlmAuthLevel DefaultAuthLevel
+Методы:
+  NtlmAuthLevel get_DefaultAuthLevel()
+  void set_DefaultAuthLevel(NtlmAuthLevel value)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.Type1Message
+Наследуется от: MessageBase
+Поля:
+  string _host
+  string _domain
+Свойства:
+  string Domain
+  string Host
+Методы:
+  void .ctor()
+  void .ctor(Byte[] message)
+  string get_Domain()
+  void set_Domain(string value)
+  string get_Host()
+  void set_Host(string value)
+  void Decode(Byte[] message)
+  Byte[] GetBytes()
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.Type2Message
+Наследуется от: MessageBase
+Поля:
+  Byte[] _nonce
+  string _targetName
+  Byte[] _targetInfo
+Свойства:
+  Byte[] Nonce
+  string TargetName
+  Byte[] TargetInfo
+Методы:
+  void .ctor()
+  void .ctor(Byte[] message)
+  void Finalize()
+  Byte[] get_Nonce()
+  void set_Nonce(Byte[] value)
+  string get_TargetName()
+  Byte[] get_TargetInfo()
+  void Decode(Byte[] message)
+  Byte[] GetBytes()
+--------------------------------------------------
+Класс: Mono.Security.Protocol.Ntlm.Type3Message
+Наследуется от: MessageBase
+Поля:
+  NtlmAuthLevel _level
+  Byte[] _challenge
+  string _host
+  string _domain
+  string _username
+  string _password
+  Type2Message _type2
+  Byte[] _lm
+  Byte[] _nt
+  string LegacyAPIWarning
+Свойства:
+  NtlmAuthLevel DefaultAuthLevel
+  NtlmAuthLevel Level
+  Byte[] Challenge
+  string Domain
+  string Host
+  string Password
+  string Username
+  Byte[] LM
+  Byte[] NT
+Методы:
+  void .ctor()
+  void .ctor(Byte[] message)
+  void .ctor(Type2Message type2)
+  void Finalize()
+  NtlmAuthLevel get_DefaultAuthLevel()
+  void set_DefaultAuthLevel(NtlmAuthLevel value)
+  NtlmAuthLevel get_Level()
+  void set_Level(NtlmAuthLevel value)
+  Byte[] get_Challenge()
+  void set_Challenge(Byte[] value)
+  string get_Domain()
+  void set_Domain(string value)
+  string get_Host()
+  void set_Host(string value)
+  string get_Password()
+  void set_Password(string value)
+  string get_Username()
+  void set_Username(string value)
+  Byte[] get_LM()
+  Byte[] get_NT()
+  void set_NT(Byte[] value)
+  void Decode(Byte[] message)
+  string DecodeString(Byte[] buffer, int offset, int len)
+  Byte[] EncodeString(string text)
+  Byte[] GetBytes()
+--------------------------------------------------
+Класс: Mono.Security.Interface.AlertLevel
+Наследуется от: Enum
+Поля:
+  byte value__
+  AlertLevel Warning
+  AlertLevel Fatal
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.AlertDescription
+Наследуется от: Enum
+Поля:
+  byte value__
+  AlertDescription CloseNotify
+  AlertDescription UnexpectedMessage
+  AlertDescription BadRecordMAC
+  AlertDescription DecryptionFailed_RESERVED
+  AlertDescription RecordOverflow
+  AlertDescription DecompressionFailure
+  AlertDescription HandshakeFailure
+  AlertDescription NoCertificate_RESERVED
+  AlertDescription BadCertificate
+  AlertDescription UnsupportedCertificate
+  AlertDescription CertificateRevoked
+  AlertDescription CertificateExpired
+  AlertDescription CertificateUnknown
+  AlertDescription IlegalParameter
+  AlertDescription UnknownCA
+  AlertDescription AccessDenied
+  AlertDescription DecodeError
+  AlertDescription DecryptError
+  AlertDescription ExportRestriction
+  AlertDescription ProtocolVersion
+  AlertDescription InsuficientSecurity
+  AlertDescription InternalError
+  AlertDescription UserCancelled
+  AlertDescription NoRenegotiation
+  AlertDescription UnsupportedExtension
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.Alert
+Наследуется от: object
+Поля:
+  AlertLevel level
+  AlertDescription description
+Свойства:
+  AlertLevel Level
+  AlertDescription Description
+  string Message
+  bool IsWarning
+  bool IsCloseNotify
+Методы:
+  AlertLevel get_Level()
+  AlertDescription get_Description()
+  string get_Message()
+  bool get_IsWarning()
+  bool get_IsCloseNotify()
+  void .ctor(AlertDescription description)
+  void .ctor(AlertLevel level, AlertDescription description)
+  void inferAlertLevel()
+  string ToString()
+  string GetAlertMessage(AlertDescription description)
+--------------------------------------------------
+Класс: Mono.Security.Interface.ValidationResult
+Наследуется от: object
+Поля:
+  bool trusted
+  bool user_denied
+  int error_code
+  Nullable`1<MonoSslPolicyErrors> policy_errors
+Свойства:
+  bool Trusted
+  bool UserDenied
+  int ErrorCode
+  Nullable`1<MonoSslPolicyErrors> PolicyErrors
+Методы:
+  void .ctor(bool trusted, bool user_denied, int error_code, Nullable`1<MonoSslPolicyErrors> policy_errors)
+  void .ctor(bool trusted, bool user_denied, int error_code)
+  bool get_Trusted()
+  bool get_UserDenied()
+  int get_ErrorCode()
+  Nullable`1<MonoSslPolicyErrors> get_PolicyErrors()
+--------------------------------------------------
+Класс: Mono.Security.Interface.ICertificateValidator
+Поля:
+Свойства:
+  MonoTlsSettings Settings
+Методы:
+  MonoTlsSettings get_Settings()
+  bool SelectClientCertificate(string targetHost, X509CertificateCollection localCertificates, X509Certificate remoteCertificate, String[] acceptableIssuers, X509Certificate& clientCertificate)
+  ValidationResult ValidateCertificate(string targetHost, bool serverMode, X509CertificateCollection certificates)
+--------------------------------------------------
+Класс: Mono.Security.Interface.CertificateValidationHelper
+Наследуется от: object
+Поля:
+  string SecurityLibrary
+  bool noX509Chain
+  bool supportsTrustAnchors
+Свойства:
+  bool SupportsX509Chain
+  bool SupportsTrustAnchors
+Методы:
+  void .cctor()
+  bool get_SupportsX509Chain()
+  bool get_SupportsTrustAnchors()
+  ICertificateValidator GetValidator(MonoTlsSettings settings)
+--------------------------------------------------
+Класс: Mono.Security.Interface.CipherAlgorithmType
+Наследуется от: Enum
+Поля:
+  int value__
+  CipherAlgorithmType None
+  CipherAlgorithmType Aes128
+  CipherAlgorithmType Aes256
+  CipherAlgorithmType AesGcm128
+  CipherAlgorithmType AesGcm256
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.CipherSuiteCode
+Наследуется от: Enum
+Поля:
+  ushort value__
+  CipherSuiteCode TLS_NULL_WITH_NULL_NULL
+  CipherSuiteCode TLS_RSA_WITH_NULL_MD5
+  CipherSuiteCode TLS_RSA_WITH_NULL_SHA
+  CipherSuiteCode TLS_RSA_EXPORT_WITH_RC4_40_MD5
+  CipherSuiteCode TLS_RSA_WITH_RC4_128_MD5
+  CipherSuiteCode TLS_RSA_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5
+  CipherSuiteCode TLS_RSA_WITH_IDEA_CBC_SHA
+  CipherSuiteCode TLS_RSA_EXPORT_WITH_DES40_CBC_SHA
+  CipherSuiteCode TLS_RSA_WITH_DES_CBC_SHA
+  CipherSuiteCode TLS_RSA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_DH_DSS_EXPORT_WITH_DES40_CBC_SHA
+  CipherSuiteCode TLS_DH_DSS_WITH_DES_CBC_SHA
+  CipherSuiteCode TLS_DH_DSS_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_DH_RSA_EXPORT_WITH_DES40_CBC_SHA
+  CipherSuiteCode TLS_DH_RSA_WITH_DES_CBC_SHA
+  CipherSuiteCode TLS_DH_RSA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
+  CipherSuiteCode TLS_DHE_DSS_WITH_DES_CBC_SHA
+  CipherSuiteCode TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+  CipherSuiteCode TLS_DHE_RSA_WITH_DES_CBC_SHA
+  CipherSuiteCode TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_DH_anon_EXPORT_WITH_RC4_40_MD5
+  CipherSuiteCode TLS_DH_anon_WITH_RC4_128_MD5
+  CipherSuiteCode TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA
+  CipherSuiteCode TLS_DH_anon_WITH_DES_CBC_SHA
+  CipherSuiteCode TLS_DH_anon_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_RSA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_DH_DSS_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_DH_RSA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_DH_anon_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_RSA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_DH_DSS_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_DH_RSA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_DH_anon_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+  CipherSuiteCode TLS_DH_DSS_WITH_CAMELLIA_128_CBC_SHA
+  CipherSuiteCode TLS_DH_RSA_WITH_CAMELLIA_128_CBC_SHA
+  CipherSuiteCode TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA
+  CipherSuiteCode TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
+  CipherSuiteCode TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA
+  CipherSuiteCode TLS_RSA_WITH_CAMELLIA_256_CBC_SHA
+  CipherSuiteCode TLS_DH_DSS_WITH_CAMELLIA_256_CBC_SHA
+  CipherSuiteCode TLS_DH_RSA_WITH_CAMELLIA_256_CBC_SHA
+  CipherSuiteCode TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA
+  CipherSuiteCode TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA
+  CipherSuiteCode TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA
+  CipherSuiteCode TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_DH_DSS_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_DH_RSA_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256
+  CipherSuiteCode TLS_DH_DSS_WITH_CAMELLIA_256_CBC_SHA256
+  CipherSuiteCode TLS_DH_RSA_WITH_CAMELLIA_256_CBC_SHA256
+  CipherSuiteCode TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA256
+  CipherSuiteCode TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA256
+  CipherSuiteCode TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA256
+  CipherSuiteCode TLS_RSA_WITH_SEED_CBC_SHA
+  CipherSuiteCode TLS_DH_DSS_WITH_SEED_CBC_SHA
+  CipherSuiteCode TLS_DH_RSA_WITH_SEED_CBC_SHA
+  CipherSuiteCode TLS_DHE_DSS_WITH_SEED_CBC_SHA
+  CipherSuiteCode TLS_DHE_RSA_WITH_SEED_CBC_SHA
+  CipherSuiteCode TLS_DH_anon_WITH_SEED_CBC_SHA
+  CipherSuiteCode TLS_PSK_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_PSK_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_PSK_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_PSK_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_DHE_PSK_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_DHE_PSK_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_DHE_PSK_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_DHE_PSK_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_RSA_PSK_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_RSA_PSK_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_RSA_PSK_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_RSA_PSK_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_NULL_SHA
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_NULL_SHA
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_ECDH_RSA_WITH_NULL_SHA
+  CipherSuiteCode TLS_ECDH_RSA_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_ECDH_RSA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_ECDH_RSA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_NULL_SHA
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_ECDH_anon_WITH_NULL_SHA
+  CipherSuiteCode TLS_ECDH_anon_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_ECDH_anon_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_ECDH_anon_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_PSK_WITH_NULL_SHA
+  CipherSuiteCode TLS_DHE_PSK_WITH_NULL_SHA
+  CipherSuiteCode TLS_RSA_PSK_WITH_NULL_SHA
+  CipherSuiteCode TLS_SRP_SHA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_SRP_SHA_RSA_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_SRP_SHA_DSS_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_SRP_SHA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_SRP_SHA_RSA_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_SRP_SHA_DSS_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_SRP_SHA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_SRP_SHA_RSA_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_SRP_SHA_DSS_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_RSA_WITH_NULL_SHA256
+  CipherSuiteCode TLS_RSA_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_RSA_WITH_AES_256_CBC_SHA256
+  CipherSuiteCode TLS_DH_DSS_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_DH_RSA_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_DH_DSS_WITH_AES_256_CBC_SHA256
+  CipherSuiteCode TLS_DH_RSA_WITH_AES_256_CBC_SHA256
+  CipherSuiteCode TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+  CipherSuiteCode TLS_DH_anon_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_DH_anon_WITH_AES_256_CBC_SHA256
+  CipherSuiteCode TLS_RSA_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_RSA_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_DH_RSA_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_DH_RSA_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_DHE_DSS_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_DHE_DSS_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_DH_DSS_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_DH_DSS_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_DH_anon_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_DH_anon_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_PSK_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_PSK_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_DHE_PSK_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_DHE_PSK_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_RSA_PSK_WITH_AES_128_GCM_SHA256
+  CipherSuiteCode TLS_RSA_PSK_WITH_AES_256_GCM_SHA384
+  CipherSuiteCode TLS_PSK_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_PSK_WITH_AES_256_CBC_SHA384
+  CipherSuiteCode TLS_PSK_WITH_NULL_SHA256
+  CipherSuiteCode TLS_PSK_WITH_NULL_SHA384
+  CipherSuiteCode TLS_DHE_PSK_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_DHE_PSK_WITH_AES_256_CBC_SHA384
+  CipherSuiteCode TLS_DHE_PSK_WITH_NULL_SHA256
+  CipherSuiteCode TLS_DHE_PSK_WITH_NULL_SHA384
+  CipherSuiteCode TLS_RSA_PSK_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_RSA_PSK_WITH_AES_256_CBC_SHA384
+  CipherSuiteCode TLS_RSA_PSK_WITH_NULL_SHA256
+  CipherSuiteCode TLS_RSA_PSK_WITH_NULL_SHA384
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_RC4_128_SHA
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_3DES_EDE_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_NULL_SHA
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_NULL_SHA256
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_NULL_SHA384
+  CipherSuiteCode TLS_EMPTY_RENEGOTIATION_INFO_SCSV
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_CAMELLIA_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDH_RSA_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDH_RSA_WITH_CAMELLIA_256_CBC_SHA384
+  CipherSuiteCode TLS_RSA_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_RSA_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_DHE_RSA_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_DHE_RSA_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_DH_RSA_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_DH_RSA_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_DHE_DSS_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_DHE_DSS_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_DH_DSS_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_DH_DSS_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_DH_anon_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_DH_anon_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_ECDH_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_ECDH_RSA_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_ECDH_RSA_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_PSK_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_PSK_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_DHE_PSK_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_DHE_PSK_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_RSA_PSK_WITH_CAMELLIA_128_GCM_SHA256
+  CipherSuiteCode TLS_RSA_PSK_WITH_CAMELLIA_256_GCM_SHA384
+  CipherSuiteCode TLS_PSK_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_PSK_WITH_CAMELLIA_256_CBC_SHA384
+  CipherSuiteCode TLS_DHE_PSK_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_DHE_PSK_WITH_CAMELLIA_256_CBC_SHA384
+  CipherSuiteCode TLS_RSA_PSK_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_RSA_PSK_WITH_CAMELLIA_256_CBC_SHA384
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_CAMELLIA_128_CBC_SHA256
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_CAMELLIA_256_CBC_SHA384
+  CipherSuiteCode TLS_RSA_WITH_AES_128_CCM
+  CipherSuiteCode TLS_RSA_WITH_AES_256_CCM
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_128_CCM
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_256_CCM
+  CipherSuiteCode TLS_RSA_WITH_AES_128_CCM_8
+  CipherSuiteCode TLS_RSA_WITH_AES_256_CCM_8
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_128_CCM_8
+  CipherSuiteCode TLS_DHE_RSA_WITH_AES_256_CCM_8
+  CipherSuiteCode TLS_PSK_WITH_AES_128_CCM
+  CipherSuiteCode TLS_PSK_WITH_AES_256_CCM
+  CipherSuiteCode TLS_DHE_PSK_WITH_AES_128_CCM
+  CipherSuiteCode TLS_DHE_PSK_WITH_AES_256_CCM
+  CipherSuiteCode TLS_PSK_WITH_AES_128_CCM_8
+  CipherSuiteCode TLS_PSK_WITH_AES_256_CCM_8
+  CipherSuiteCode TLS_PSK_DHE_WITH_AES_128_CCM_8
+  CipherSuiteCode TLS_PSK_DHE_WITH_AES_256_CCM_8
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+  CipherSuiteCode TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+  CipherSuiteCode TLS_RSA_WITH_ESTREAM_SALSA20_SHA1
+  CipherSuiteCode TLS_RSA_WITH_SALSA20_SHA1
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_ESTREAM_SALSA20_SHA1
+  CipherSuiteCode TLS_ECDHE_RSA_WITH_SALSA20_SHA1
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_ESTREAM_SALSA20_SHA1
+  CipherSuiteCode TLS_ECDHE_ECDSA_WITH_SALSA20_SHA1
+  CipherSuiteCode TLS_PSK_WITH_ESTREAM_SALSA20_SHA1
+  CipherSuiteCode TLS_PSK_WITH_SALSA20_SHA1
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_ESTREAM_SALSA20_SHA1
+  CipherSuiteCode TLS_ECDHE_PSK_WITH_SALSA20_SHA1
+  CipherSuiteCode TLS_RSA_PSK_WITH_ESTREAM_SALSA20_SHA1
+  CipherSuiteCode TLS_RSA_PSK_WITH_SALSA20_SHA1
+  CipherSuiteCode TLS_DHE_PSK_WITH_ESTREAM_SALSA20_SHA1
+  CipherSuiteCode TLS_DHE_PSK_WITH_SALSA20_SHA1
+  CipherSuiteCode TLS_DHE_RSA_WITH_ESTREAM_SALSA20_SHA1
+  CipherSuiteCode TLS_DHE_RSA_WITH_SALSA20_SHA1
+  CipherSuiteCode TLS_FALLBACK_SCSV
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.ExchangeAlgorithmType
+Наследуется от: Enum
+Поля:
+  int value__
+  ExchangeAlgorithmType None
+  ExchangeAlgorithmType Dhe
+  ExchangeAlgorithmType Rsa
+  ExchangeAlgorithmType EcDhe
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.HashAlgorithmType
+Наследуется от: Enum
+Поля:
+  int value__
+  HashAlgorithmType None
+  HashAlgorithmType Md5
+  HashAlgorithmType Sha1
+  HashAlgorithmType Sha224
+  HashAlgorithmType Sha256
+  HashAlgorithmType Sha384
+  HashAlgorithmType Sha512
+  HashAlgorithmType Unknown
+  HashAlgorithmType Md5Sha1
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoServerCertificateSelectionCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  X509Certificate Invoke(object sender, string hostName)
+  IAsyncResult BeginInvoke(object sender, string hostName, AsyncCallback callback, object object)
+  X509Certificate EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Security.Interface.IMonoAuthenticationOptions
+Поля:
+Свойства:
+  bool AllowRenegotiation
+  RemoteCertificateValidationCallback RemoteCertificateValidationCallback
+  SslProtocols EnabledSslProtocols
+  EncryptionPolicy EncryptionPolicy
+  X509RevocationMode CertificateRevocationCheckMode
+Методы:
+  bool get_AllowRenegotiation()
+  void set_AllowRenegotiation(bool value)
+  RemoteCertificateValidationCallback get_RemoteCertificateValidationCallback()
+  void set_RemoteCertificateValidationCallback(RemoteCertificateValidationCallback value)
+  SslProtocols get_EnabledSslProtocols()
+  void set_EnabledSslProtocols(SslProtocols value)
+  EncryptionPolicy get_EncryptionPolicy()
+  void set_EncryptionPolicy(EncryptionPolicy value)
+  X509RevocationMode get_CertificateRevocationCheckMode()
+  void set_CertificateRevocationCheckMode(X509RevocationMode value)
+--------------------------------------------------
+Класс: Mono.Security.Interface.IMonoSslClientAuthenticationOptions
+Поля:
+Свойства:
+  LocalCertificateSelectionCallback LocalCertificateSelectionCallback
+  string TargetHost
+  X509CertificateCollection ClientCertificates
+Методы:
+  LocalCertificateSelectionCallback get_LocalCertificateSelectionCallback()
+  void set_LocalCertificateSelectionCallback(LocalCertificateSelectionCallback value)
+  string get_TargetHost()
+  void set_TargetHost(string value)
+  X509CertificateCollection get_ClientCertificates()
+  void set_ClientCertificates(X509CertificateCollection value)
+--------------------------------------------------
+Класс: Mono.Security.Interface.IMonoSslServerAuthenticationOptions
+Поля:
+Свойства:
+  bool ClientCertificateRequired
+  MonoServerCertificateSelectionCallback ServerCertificateSelectionCallback
+  X509Certificate ServerCertificate
+Методы:
+  bool get_ClientCertificateRequired()
+  void set_ClientCertificateRequired(bool value)
+  MonoServerCertificateSelectionCallback get_ServerCertificateSelectionCallback()
+  void set_ServerCertificateSelectionCallback(MonoServerCertificateSelectionCallback value)
+  X509Certificate get_ServerCertificate()
+  void set_ServerCertificate(X509Certificate value)
+--------------------------------------------------
+Класс: Mono.Security.Interface.IMonoSslStream
+Поля:
+Свойства:
+  SslStream SslStream
+  TransportContext TransportContext
+  bool IsAuthenticated
+  bool IsMutuallyAuthenticated
+  bool IsEncrypted
+  bool IsSigned
+  bool IsServer
+  CipherAlgorithmType CipherAlgorithm
+  int CipherStrength
+  HashAlgorithmType HashAlgorithm
+  int HashStrength
+  ExchangeAlgorithmType KeyExchangeAlgorithm
+  int KeyExchangeStrength
+  bool CanRead
+  bool CanTimeout
+  bool CanWrite
+  long Length
+  long Position
+  AuthenticatedStream AuthenticatedStream
+  int ReadTimeout
+  int WriteTimeout
+  bool CheckCertRevocationStatus
+  X509Certificate InternalLocalCertificate
+  X509Certificate LocalCertificate
+  X509Certificate RemoteCertificate
+  SslProtocols SslProtocol
+  MonoTlsProvider Provider
+  bool CanRenegotiate
+Методы:
+  SslStream get_SslStream()
+  Task AuthenticateAsClientAsync(string targetHost, X509CertificateCollection clientCertificates, SslProtocols enabledSslProtocols, bool checkCertificateRevocation)
+  Task AuthenticateAsServerAsync(X509Certificate serverCertificate, bool clientCertificateRequired, SslProtocols enabledSslProtocols, bool checkCertificateRevocation)
+  Task`1<int> ReadAsync(Byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+  Task WriteAsync(Byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+  Task ShutdownAsync()
+  TransportContext get_TransportContext()
+  bool get_IsAuthenticated()
+  bool get_IsMutuallyAuthenticated()
+  bool get_IsEncrypted()
+  bool get_IsSigned()
+  bool get_IsServer()
+  CipherAlgorithmType get_CipherAlgorithm()
+  int get_CipherStrength()
+  HashAlgorithmType get_HashAlgorithm()
+  int get_HashStrength()
+  ExchangeAlgorithmType get_KeyExchangeAlgorithm()
+  int get_KeyExchangeStrength()
+  bool get_CanRead()
+  bool get_CanTimeout()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void SetLength(long value)
+  AuthenticatedStream get_AuthenticatedStream()
+  int get_ReadTimeout()
+  void set_ReadTimeout(int value)
+  int get_WriteTimeout()
+  void set_WriteTimeout(int value)
+  bool get_CheckCertRevocationStatus()
+  X509Certificate get_InternalLocalCertificate()
+  X509Certificate get_LocalCertificate()
+  X509Certificate get_RemoteCertificate()
+  SslProtocols get_SslProtocol()
+  MonoTlsProvider get_Provider()
+  MonoTlsConnectionInfo GetConnectionInfo()
+  bool get_CanRenegotiate()
+  Task RenegotiateAsync(CancellationToken cancellationToken)
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoTlsConnectionInfo
+Наследуется от: object
+Поля:
+  CipherSuiteCode <CipherSuiteCode>k__BackingField
+  TlsProtocols <ProtocolVersion>k__BackingField
+  CipherAlgorithmType <CipherAlgorithmType>k__BackingField
+  HashAlgorithmType <HashAlgorithmType>k__BackingField
+  ExchangeAlgorithmType <ExchangeAlgorithmType>k__BackingField
+  string <PeerDomainName>k__BackingField
+Свойства:
+  CipherSuiteCode CipherSuiteCode
+  TlsProtocols ProtocolVersion
+  CipherAlgorithmType CipherAlgorithmType
+  HashAlgorithmType HashAlgorithmType
+  ExchangeAlgorithmType ExchangeAlgorithmType
+  string PeerDomainName
+Методы:
+  CipherSuiteCode get_CipherSuiteCode()
+  void set_CipherSuiteCode(CipherSuiteCode value)
+  TlsProtocols get_ProtocolVersion()
+  void set_ProtocolVersion(TlsProtocols value)
+  CipherAlgorithmType get_CipherAlgorithmType()
+  void set_CipherAlgorithmType(CipherAlgorithmType value)
+  HashAlgorithmType get_HashAlgorithmType()
+  void set_HashAlgorithmType(HashAlgorithmType value)
+  ExchangeAlgorithmType get_ExchangeAlgorithmType()
+  void set_ExchangeAlgorithmType(ExchangeAlgorithmType value)
+  string get_PeerDomainName()
+  void set_PeerDomainName(string value)
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoSslPolicyErrors
+Наследуется от: Enum
+Поля:
+  int value__
+  MonoSslPolicyErrors None
+  MonoSslPolicyErrors RemoteCertificateNotAvailable
+  MonoSslPolicyErrors RemoteCertificateNameMismatch
+  MonoSslPolicyErrors RemoteCertificateChainErrors
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoEncryptionPolicy
+Наследуется от: Enum
+Поля:
+  int value__
+  MonoEncryptionPolicy RequireEncryption
+  MonoEncryptionPolicy AllowNoEncryption
+  MonoEncryptionPolicy NoEncryption
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoRemoteCertificateValidationCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  bool Invoke(string targetHost, X509Certificate certificate, X509Chain chain, MonoSslPolicyErrors sslPolicyErrors)
+  IAsyncResult BeginInvoke(string targetHost, X509Certificate certificate, X509Chain chain, MonoSslPolicyErrors sslPolicyErrors, AsyncCallback callback, object object)
+  bool EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoLocalCertificateSelectionCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  X509Certificate Invoke(string targetHost, X509CertificateCollection localCertificates, X509Certificate remoteCertificate, String[] acceptableIssuers)
+  IAsyncResult BeginInvoke(string targetHost, X509CertificateCollection localCertificates, X509Certificate remoteCertificate, String[] acceptableIssuers, AsyncCallback callback, object object)
+  X509Certificate EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoTlsProvider
+Наследуется от: object
+Поля:
+Свойства:
+  Guid ID
+  string Name
+  bool SupportsSslStream
+  bool SupportsConnectionInfo
+  bool SupportsMonoExtensions
+  SslProtocols SupportedProtocols
+  bool HasNativeCertificates
+  bool SupportsCleanShutdown
+Методы:
+  void .ctor()
+  Guid get_ID()
+  string get_Name()
+  bool get_SupportsSslStream()
+  bool get_SupportsConnectionInfo()
+  bool get_SupportsMonoExtensions()
+  SslProtocols get_SupportedProtocols()
+  IMonoSslStream CreateSslStream(Stream innerStream, bool leaveInnerStreamOpen, MonoTlsSettings settings)
+  bool get_HasNativeCertificates()
+  bool get_SupportsCleanShutdown()
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoTlsProviderFactory
+Наследуется от: object
+Поля:
+  int InternalVersion
+Свойства:
+  bool IsInitialized
+Методы:
+  MonoTlsProvider GetProvider()
+  bool get_IsInitialized()
+  void Initialize()
+  void Initialize(string provider)
+  bool IsProviderSupported(string provider)
+  MonoTlsProvider GetProvider(string provider)
+  HttpWebRequest CreateHttpsRequest(Uri requestUri, MonoTlsProvider provider, MonoTlsSettings settings)
+  HttpListener CreateHttpListener(X509Certificate certificate, MonoTlsProvider provider, MonoTlsSettings settings)
+  IMonoSslStream GetMonoSslStream(SslStream stream)
+  IMonoSslStream GetMonoSslStream(HttpListenerContext context)
+--------------------------------------------------
+Класс: Mono.Security.Interface.MonoTlsSettings
+Наследуется от: object
+Поля:
+  MonoRemoteCertificateValidationCallback <RemoteCertificateValidationCallback>k__BackingField
+  MonoLocalCertificateSelectionCallback <ClientCertificateSelectionCallback>k__BackingField
+  Nullable`1<DateTime> <CertificateValidationTime>k__BackingField
+  X509CertificateCollection <TrustAnchors>k__BackingField
+  object <UserSettings>k__BackingField
+  String[] <CertificateSearchPaths>k__BackingField
+  bool <SendCloseNotify>k__BackingField
+  String[] <ClientCertificateIssuers>k__BackingField
+  bool <DisallowUnauthenticatedCertificateRequest>k__BackingField
+  Nullable`1<TlsProtocols> <EnabledProtocols>k__BackingField
+  CipherSuiteCode[] <EnabledCiphers>k__BackingField
+  bool cloned
+  bool checkCertName
+  bool checkCertRevocationStatus
+  Nullable`1<bool> useServicePointManagerCallback
+  bool skipSystemValidators
+  bool callbackNeedsChain
+  ICertificateValidator certificateValidator
+  MonoTlsSettings defaultSettings
+Свойства:
+  MonoRemoteCertificateValidationCallback RemoteCertificateValidationCallback
+  MonoLocalCertificateSelectionCallback ClientCertificateSelectionCallback
+  bool CheckCertificateName
+  bool CheckCertificateRevocationStatus
+  Nullable`1<bool> UseServicePointManagerCallback
+  bool SkipSystemValidators
+  bool CallbackNeedsCertificateChain
+  Nullable`1<DateTime> CertificateValidationTime
+  X509CertificateCollection TrustAnchors
+  object UserSettings
+  String[] CertificateSearchPaths
+  bool SendCloseNotify
+  String[] ClientCertificateIssuers
+  bool DisallowUnauthenticatedCertificateRequest
+  Nullable`1<TlsProtocols> EnabledProtocols
+  CipherSuiteCode[] EnabledCiphers
+  MonoTlsSettings DefaultSettings
+  ICertificateValidator CertificateValidator
+Методы:
+  MonoRemoteCertificateValidationCallback get_RemoteCertificateValidationCallback()
+  void set_RemoteCertificateValidationCallback(MonoRemoteCertificateValidationCallback value)
+  MonoLocalCertificateSelectionCallback get_ClientCertificateSelectionCallback()
+  void set_ClientCertificateSelectionCallback(MonoLocalCertificateSelectionCallback value)
+  bool get_CheckCertificateName()
+  void set_CheckCertificateName(bool value)
+  bool get_CheckCertificateRevocationStatus()
+  void set_CheckCertificateRevocationStatus(bool value)
+  Nullable`1<bool> get_UseServicePointManagerCallback()
+  void set_UseServicePointManagerCallback(Nullable`1<bool> value)
+  bool get_SkipSystemValidators()
+  void set_SkipSystemValidators(bool value)
+  bool get_CallbackNeedsCertificateChain()
+  void set_CallbackNeedsCertificateChain(bool value)
+  Nullable`1<DateTime> get_CertificateValidationTime()
+  void set_CertificateValidationTime(Nullable`1<DateTime> value)
+  X509CertificateCollection get_TrustAnchors()
+  void set_TrustAnchors(X509CertificateCollection value)
+  object get_UserSettings()
+  void set_UserSettings(object value)
+  String[] get_CertificateSearchPaths()
+  void set_CertificateSearchPaths(String[] value)
+  bool get_SendCloseNotify()
+  void set_SendCloseNotify(bool value)
+  String[] get_ClientCertificateIssuers()
+  void set_ClientCertificateIssuers(String[] value)
+  bool get_DisallowUnauthenticatedCertificateRequest()
+  void set_DisallowUnauthenticatedCertificateRequest(bool value)
+  Nullable`1<TlsProtocols> get_EnabledProtocols()
+  void set_EnabledProtocols(Nullable`1<TlsProtocols> value)
+  CipherSuiteCode[] get_EnabledCiphers()
+  void set_EnabledCiphers(CipherSuiteCode[] value)
+  void .ctor()
+  MonoTlsSettings get_DefaultSettings()
+  void set_DefaultSettings(MonoTlsSettings value)
+  MonoTlsSettings CopyDefaultSettings()
+  ICertificateValidator get_CertificateValidator()
+  MonoTlsSettings CloneWithValidator(ICertificateValidator validator)
+  MonoTlsSettings Clone()
+  void .ctor(MonoTlsSettings other)
+--------------------------------------------------
+Класс: Mono.Security.Interface.TlsException
+Наследуется от: Exception
+Поля:
+  Alert alert
+Свойства:
+  Alert Alert
+Методы:
+  Alert get_Alert()
+  void .ctor(Alert alert)
+  void .ctor(Alert alert, string message)
+  void .ctor(AlertLevel level, AlertDescription description)
+  void .ctor(AlertDescription description)
+  void .ctor(AlertDescription description, string message)
+  void .ctor(AlertDescription description, string format, Object[] args)
+--------------------------------------------------
+Класс: Mono.Security.Interface.TlsProtocolCode
+Наследуется от: Enum
+Поля:
+  short value__
+  TlsProtocolCode Tls10
+  TlsProtocolCode Tls11
+  TlsProtocolCode Tls12
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Interface.TlsProtocols
+Наследуется от: Enum
+Поля:
+  int value__
+  TlsProtocols Zero
+  TlsProtocols Tls10Client
+  TlsProtocols Tls10Server
+  TlsProtocols Tls10
+  TlsProtocols Tls11Client
+  TlsProtocols Tls11Server
+  TlsProtocols Tls11
+  TlsProtocols Tls12Client
+  TlsProtocols Tls12Server
+  TlsProtocols Tls12
+  TlsProtocols ClientMask
+  TlsProtocols ServerMask
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.ARC4Managed
+Наследуется от: RC4
+Поля:
+  Byte[] key
+  Byte[] state
+  byte x
+  byte y
+  bool m_disposed
+Свойства:
+  Byte[] Key
+  bool CanReuseTransform
+  bool CanTransformMultipleBlocks
+  int InputBlockSize
+  int OutputBlockSize
+Методы:
+  void .ctor()
+  void Finalize()
+  void Dispose(bool disposing)
+  Byte[] get_Key()
+  void set_Key(Byte[] value)
+  bool get_CanReuseTransform()
+  ICryptoTransform CreateEncryptor(Byte[] rgbKey, Byte[] rgvIV)
+  ICryptoTransform CreateDecryptor(Byte[] rgbKey, Byte[] rgvIV)
+  void GenerateIV()
+  void GenerateKey()
+  bool get_CanTransformMultipleBlocks()
+  int get_InputBlockSize()
+  int get_OutputBlockSize()
+  void KeySetup(Byte[] key)
+  void CheckInput(Byte[] inputBuffer, int inputOffset, int inputCount)
+  int TransformBlock(Byte[] inputBuffer, int inputOffset, int inputCount, Byte[] outputBuffer, int outputOffset)
+  int InternalTransformBlock(Byte[] inputBuffer, int inputOffset, int inputCount, Byte[] outputBuffer, int outputOffset)
+  Byte[] TransformFinalBlock(Byte[] inputBuffer, int inputOffset, int inputCount)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.CryptoConvert
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  int ToInt32LE(Byte[] bytes, int offset)
+  UInt32 ToUInt32LE(Byte[] bytes, int offset)
+  Byte[] GetBytesLE(int val)
+  Byte[] Trim(Byte[] array)
+  RSA FromCapiPrivateKeyBlob(Byte[] blob)
+  RSA FromCapiPrivateKeyBlob(Byte[] blob, int offset)
+  RSAParameters GetParametersFromCapiPrivateKeyBlob(Byte[] blob, int offset)
+  DSA FromCapiPrivateKeyBlobDSA(Byte[] blob)
+  DSA FromCapiPrivateKeyBlobDSA(Byte[] blob, int offset)
+  Byte[] ToCapiPrivateKeyBlob(RSA rsa)
+  Byte[] ToCapiPrivateKeyBlob(DSA dsa)
+  RSA FromCapiPublicKeyBlob(Byte[] blob)
+  RSA FromCapiPublicKeyBlob(Byte[] blob, int offset)
+  RSAParameters GetParametersFromCapiPublicKeyBlob(Byte[] blob, int offset)
+  DSA FromCapiPublicKeyBlobDSA(Byte[] blob)
+  DSA FromCapiPublicKeyBlobDSA(Byte[] blob, int offset)
+  Byte[] ToCapiPublicKeyBlob(RSA rsa)
+  Byte[] ToCapiPublicKeyBlob(DSA dsa)
+  RSA FromCapiKeyBlob(Byte[] blob)
+  RSA FromCapiKeyBlob(Byte[] blob, int offset)
+  DSA FromCapiKeyBlobDSA(Byte[] blob)
+  DSA FromCapiKeyBlobDSA(Byte[] blob, int offset)
+  Byte[] ToCapiKeyBlob(AsymmetricAlgorithm keypair, bool includePrivateKey)
+  Byte[] ToCapiKeyBlob(RSA rsa, bool includePrivateKey)
+  Byte[] ToCapiKeyBlob(DSA dsa, bool includePrivateKey)
+  string ToHex(Byte[] input)
+  byte FromHexChar(char c)
+  Byte[] FromHex(string hex)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.KeyBuilder
+Наследуется от: object
+Поля:
+  RandomNumberGenerator rng
+Свойства:
+  RandomNumberGenerator Rng
+Методы:
+  void .ctor()
+  RandomNumberGenerator get_Rng()
+  Byte[] Key(int size)
+  Byte[] IV(int size)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.BlockProcessor
+Наследуется от: object
+Поля:
+  ICryptoTransform transform
+  Byte[] block
+  int blockSize
+  int blockCount
+Свойства:
+Методы:
+  void .ctor(ICryptoTransform transform)
+  void .ctor(ICryptoTransform transform, int blockSize)
+  void Finalize()
+  void Initialize()
+  void Core(Byte[] rgb)
+  void Core(Byte[] rgb, int ib, int cb)
+  Byte[] Final()
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.DHKeyGeneration
+Наследуется от: Enum
+Поля:
+  int value__
+  DHKeyGeneration Random
+  DHKeyGeneration Static
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.DHParameters
+Наследуется от: ValueType
+Поля:
+  Byte[] P
+  Byte[] G
+  Byte[] X
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.DiffieHellman
+Наследуется от: AsymmetricAlgorithm
+Поля:
+Свойства:
+Методы:
+  DiffieHellman Create()
+  DiffieHellman Create(string algName)
+  Byte[] CreateKeyExchange()
+  Byte[] DecryptKeyExchange(Byte[] keyex)
+  DHParameters ExportParameters(bool includePrivate)
+  void ImportParameters(DHParameters parameters)
+  Byte[] GetNamedParam(SecurityElement se, string param)
+  void FromXmlString(string xmlString)
+  string ToXmlString(bool includePrivateParameters)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.DiffieHellmanManaged
+Наследуется от: DiffieHellman
+Поля:
+  BigInteger m_P
+  BigInteger m_G
+  BigInteger m_X
+  bool m_Disposed
+  Byte[] m_OAKLEY768
+  Byte[] m_OAKLEY1024
+  Byte[] m_OAKLEY1536
+Свойства:
+  string KeyExchangeAlgorithm
+  string SignatureAlgorithm
+Методы:
+  void .ctor()
+  void .ctor(int bitLength, int l, DHKeyGeneration method)
+  void .ctor(Byte[] p, Byte[] g, Byte[] x)
+  void .ctor(Byte[] p, Byte[] g, int l)
+  void Initialize(BigInteger p, BigInteger g, BigInteger x, int secretLen, bool checkInput)
+  Byte[] CreateKeyExchange()
+  Byte[] DecryptKeyExchange(Byte[] keyEx)
+  string get_KeyExchangeAlgorithm()
+  string get_SignatureAlgorithm()
+  void Dispose(bool disposing)
+  DHParameters ExportParameters(bool includePrivateParameters)
+  void ImportParameters(DHParameters parameters)
+  void Finalize()
+  void GenerateKey(int bitlen, DHKeyGeneration keygen, BigInteger& p, BigInteger& g)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.KeyPairPersistence
+Наследуется от: object
+Поля:
+  bool _userPathExists
+  string _userPath
+  bool _machinePathExists
+  string _machinePath
+  CspParameters _params
+  string _keyvalue
+  string _filename
+  string _container
+  object lockobj
+Свойства:
+  string Filename
+  string KeyValue
+  CspParameters Parameters
+  string UserPath
+  string MachinePath
+  bool CanChange
+  bool UseDefaultKeyContainer
+  bool UseMachineKeyStore
+  string ContainerName
+Методы:
+  void .ctor(CspParameters parameters)
+  void .ctor(CspParameters parameters, string keyPair)
+  string get_Filename()
+  string get_KeyValue()
+  void set_KeyValue(string value)
+  CspParameters get_Parameters()
+  bool Load()
+  void Save()
+  void Remove()
+  string get_UserPath()
+  string get_MachinePath()
+  bool _CanSecure(Char* root)
+  bool _ProtectUser(Char* path)
+  bool _ProtectMachine(Char* path)
+  bool _IsUserProtected(Char* path)
+  bool _IsMachineProtected(Char* path)
+  bool CanSecure(string path)
+  bool ProtectUser(string path)
+  bool ProtectMachine(string path)
+  bool IsUserProtected(string path)
+  bool IsMachineProtected(string path)
+  bool get_CanChange()
+  bool get_UseDefaultKeyContainer()
+  bool get_UseMachineKeyStore()
+  string get_ContainerName()
+  CspParameters Copy(CspParameters p)
+  void FromXml(string xml)
+  string ToXml()
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.MD2
+Наследуется от: HashAlgorithm
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  MD2 Create()
+  MD2 Create(string hashName)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.MD2Managed
+Наследуется от: MD2
+Поля:
+  Byte[] state
+  Byte[] checksum
+  Byte[] buffer
+  int count
+  Byte[] x
+  Byte[] PI_SUBST
+Свойства:
+Методы:
+  Byte[] Padding(int nLength)
+  void .ctor()
+  void Initialize()
+  void HashCore(Byte[] array, int ibStart, int cbSize)
+  Byte[] HashFinal()
+  void MD2Transform(Byte[] state, Byte[] checksum, Byte[] block, int index)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.MD4
+Наследуется от: HashAlgorithm
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  MD4 Create()
+  MD4 Create(string hashName)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.MD4Managed
+Наследуется от: MD4
+Поля:
+  UInt32[] state
+  Byte[] buffer
+  UInt32[] count
+  UInt32[] x
+  int S11
+  int S12
+  int S13
+  int S14
+  int S21
+  int S22
+  int S23
+  int S24
+  int S31
+  int S32
+  int S33
+  int S34
+  Byte[] digest
+Свойства:
+Методы:
+  void .ctor()
+  void Initialize()
+  void HashCore(Byte[] array, int ibStart, int cbSize)
+  Byte[] HashFinal()
+  Byte[] Padding(int nLength)
+  UInt32 F(UInt32 x, UInt32 y, UInt32 z)
+  UInt32 G(UInt32 x, UInt32 y, UInt32 z)
+  UInt32 H(UInt32 x, UInt32 y, UInt32 z)
+  UInt32 ROL(UInt32 x, byte n)
+  void FF(UInt32& a, UInt32 b, UInt32 c, UInt32 d, UInt32 x, byte s)
+  void GG(UInt32& a, UInt32 b, UInt32 c, UInt32 d, UInt32 x, byte s)
+  void HH(UInt32& a, UInt32 b, UInt32 c, UInt32 d, UInt32 x, byte s)
+  void Encode(Byte[] output, UInt32[] input)
+  void Decode(UInt32[] output, Byte[] input, int index)
+  void MD4Transform(UInt32[] state, Byte[] block, int index)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.PKCS1
+Наследуется от: object
+Поля:
+  Byte[] emptySHA1
+  Byte[] emptySHA256
+  Byte[] emptySHA384
+  Byte[] emptySHA512
+Свойства:
+Методы:
+  void .ctor()
+  bool Compare(Byte[] array1, Byte[] array2)
+  Byte[] xor(Byte[] array1, Byte[] array2)
+  Byte[] GetEmptyHash(HashAlgorithm hash)
+  Byte[] I2OSP(int x, int size)
+  Byte[] I2OSP(Byte[] x, int size)
+  Byte[] OS2IP(Byte[] x)
+  Byte[] RSAEP(RSA rsa, Byte[] m)
+  Byte[] RSADP(RSA rsa, Byte[] c)
+  Byte[] RSASP1(RSA rsa, Byte[] m)
+  Byte[] RSAVP1(RSA rsa, Byte[] s)
+  Byte[] Encrypt_OAEP(RSA rsa, HashAlgorithm hash, RandomNumberGenerator rng, Byte[] M)
+  Byte[] Decrypt_OAEP(RSA rsa, HashAlgorithm hash, Byte[] C)
+  Byte[] Encrypt_v15(RSA rsa, RandomNumberGenerator rng, Byte[] M)
+  Byte[] Decrypt_v15(RSA rsa, Byte[] C)
+  Byte[] Sign_v15(RSA rsa, HashAlgorithm hash, Byte[] hashValue)
+  Byte[] Sign_v15(RSA rsa, string hashName, Byte[] hashValue)
+  bool Verify_v15(RSA rsa, HashAlgorithm hash, Byte[] hashValue, Byte[] signature)
+  bool Verify_v15(RSA rsa, string hashName, Byte[] hashValue, Byte[] signature)
+  bool Verify_v15(RSA rsa, HashAlgorithm hash, Byte[] hashValue, Byte[] signature, bool tryNonStandardEncoding)
+  Byte[] Encode_v15(HashAlgorithm hash, Byte[] hashValue, int emLength)
+  Byte[] MGF1(HashAlgorithm hash, Byte[] mgfSeed, int maskLen)
+  string HashNameFromOid(string oid, bool throwOnError)
+  HashAlgorithm CreateFromOid(string oid)
+  HashAlgorithm CreateFromName(string name)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.PKCS8
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  KeyInfo GetType(Byte[] data)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.RC4
+Наследуется от: SymmetricAlgorithm
+Поля:
+  KeySizes[] s_legalBlockSizes
+  KeySizes[] s_legalKeySizes
+Свойства:
+  Byte[] IV
+Методы:
+  void .ctor()
+  Byte[] get_IV()
+  void set_IV(Byte[] value)
+  RC4 Create()
+  RC4 Create(string algName)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.RSAManaged
+Наследуется от: RSA
+Поля:
+  int defaultKeySize
+  bool isCRTpossible
+  bool keyBlinding
+  bool keypairGenerated
+  bool m_disposed
+  BigInteger d
+  BigInteger p
+  BigInteger q
+  BigInteger dp
+  BigInteger dq
+  BigInteger qInv
+  BigInteger n
+  BigInteger e
+  KeyGeneratedEventHandler KeyGenerated
+Свойства:
+  int KeySize
+  string KeyExchangeAlgorithm
+  bool PublicOnly
+  string SignatureAlgorithm
+  bool UseKeyBlinding
+  bool IsCrtPossible
+Методы:
+  void .ctor()
+  void .ctor(int keySize)
+  void Finalize()
+  void GenerateKeyPair()
+  int get_KeySize()
+  string get_KeyExchangeAlgorithm()
+  bool get_PublicOnly()
+  string get_SignatureAlgorithm()
+  Byte[] DecryptValue(Byte[] rgb)
+  Byte[] EncryptValue(Byte[] rgb)
+  RSAParameters ExportParameters(bool includePrivateParameters)
+  void ImportParameters(RSAParameters parameters)
+  void Dispose(bool disposing)
+  void add_KeyGenerated(KeyGeneratedEventHandler value)
+  void remove_KeyGenerated(KeyGeneratedEventHandler value)
+  string ToXmlString(bool includePrivateParameters)
+  bool get_UseKeyBlinding()
+  void set_UseKeyBlinding(bool value)
+  bool get_IsCrtPossible()
+  Byte[] GetPaddedValue(BigInteger value, int length)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.SHAConstants
+Наследуется от: object
+Поля:
+  UInt32[] K1
+Свойства:
+Методы:
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.SHA224
+Наследуется от: HashAlgorithm
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  SHA224 Create()
+  SHA224 Create(string hashName)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.SHA224Managed
+Наследуется от: SHA224
+Поля:
+  int BLOCK_SIZE_BYTES
+  UInt32[] _H
+  ulong count
+  Byte[] _ProcessingBuffer
+  int _ProcessingBufferCount
+  UInt32[] buff
+Свойства:
+Методы:
+  void .ctor()
+  UInt32 Ch(UInt32 u, UInt32 v, UInt32 w)
+  UInt32 Maj(UInt32 u, UInt32 v, UInt32 w)
+  UInt32 Ro0(UInt32 x)
+  UInt32 Ro1(UInt32 x)
+  UInt32 Sig0(UInt32 x)
+  UInt32 Sig1(UInt32 x)
+  void HashCore(Byte[] rgb, int start, int size)
+  Byte[] HashFinal()
+  void Initialize()
+  void ProcessBlock(Byte[] inputBuffer, int inputOffset)
+  void ProcessFinalBlock(Byte[] inputBuffer, int inputOffset, int inputCount)
+  void AddLength(ulong length, Byte[] buffer, int position)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.SymmetricTransform
+Наследуется от: object
+Поля:
+  SymmetricAlgorithm algo
+  bool encrypt
+  int BlockSizeByte
+  Byte[] temp
+  Byte[] temp2
+  Byte[] workBuff
+  Byte[] workout
+  PaddingMode padmode
+  int FeedBackByte
+  bool m_disposed
+  bool lastBlock
+  RandomNumberGenerator _rng
+Свойства:
+  bool CanTransformMultipleBlocks
+  bool CanReuseTransform
+  int InputBlockSize
+  int OutputBlockSize
+  bool KeepLastBlock
+Методы:
+  void .ctor(SymmetricAlgorithm symmAlgo, bool encryption, Byte[] rgbIV)
+  void Finalize()
+  void System.IDisposable.Dispose()
+  void Dispose(bool disposing)
+  bool get_CanTransformMultipleBlocks()
+  bool get_CanReuseTransform()
+  int get_InputBlockSize()
+  int get_OutputBlockSize()
+  void Transform(Byte[] input, Byte[] output)
+  void ECB(Byte[] input, Byte[] output)
+  void CBC(Byte[] input, Byte[] output)
+  void CFB(Byte[] input, Byte[] output)
+  void OFB(Byte[] input, Byte[] output)
+  void CTS(Byte[] input, Byte[] output)
+  void CheckInput(Byte[] inputBuffer, int inputOffset, int inputCount)
+  int TransformBlock(Byte[] inputBuffer, int inputOffset, int inputCount, Byte[] outputBuffer, int outputOffset)
+  bool get_KeepLastBlock()
+  int InternalTransformBlock(Byte[] inputBuffer, int inputOffset, int inputCount, Byte[] outputBuffer, int outputOffset)
+  void Random(Byte[] buffer, int start, int length)
+  void ThrowBadPaddingException(PaddingMode padding, int length, int position)
+  Byte[] FinalEncrypt(Byte[] inputBuffer, int inputOffset, int inputCount)
+  Byte[] FinalDecrypt(Byte[] inputBuffer, int inputOffset, int inputCount)
+  Byte[] TransformFinalBlock(Byte[] inputBuffer, int inputOffset, int inputCount)
+--------------------------------------------------
+Класс: Mono.Security.Cryptography.HMAC
+Наследуется от: KeyedHashAlgorithm
+Поля:
+  HashAlgorithm hash
+  bool hashing
+  Byte[] innerPad
+  Byte[] outerPad
+Свойства:
+  Byte[] Key
+Методы:
+  Byte[] get_Key()
+  void set_Key(Byte[] value)
+  void .ctor()
+  void .ctor(HashAlgorithm ha, Byte[] rgbKey)
+  void Initialize()
+  Byte[] HashFinal()
+  void HashCore(Byte[] array, int ibStart, int cbSize)
+  void initializePad()
+--------------------------------------------------
+Класс: Mono.Security.Authenticode.Authority
+Наследуется от: Enum
+Поля:
+  int value__
+  Authority Individual
+  Authority Commercial
+  Authority Maximum
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Security.Authenticode.AuthenticodeBase
+Наследуется от: object
+Поля:
+  string spcIndirectDataContext
+  Byte[] fileblock
+  Stream fs
+  int blockNo
+  int blockLength
+  int peOffset
+  int dirSecurityOffset
+  int dirSecuritySize
+  int coffSymbolTableOffset
+  bool pe64
+Свойства:
+  bool PE64
+  int PEOffset
+  int CoffSymbolTableOffset
+  int SecurityOffset
+Методы:
+  bool get_PE64()
+  void .ctor()
+  int get_PEOffset()
+  int get_CoffSymbolTableOffset()
+  int get_SecurityOffset()
+  void Open(string filename)
+  void Open(Byte[] rawdata)
+  void Close()
+  void ReadFirstBlock()
+  int ProcessFirstBlock()
+  Byte[] GetSecurityEntry()
+  Byte[] GetHash(HashAlgorithm hash)
+  Byte[] HashFile(string fileName, string hashName)
+--------------------------------------------------
+Класс: Mono.Security.Authenticode.AuthenticodeDeformatter
+Наследуется от: AuthenticodeBase
+Поля:
+  string filename
+  Byte[] rawdata
+  Byte[] hash
+  X509CertificateCollection coll
+  ASN1 signedHash
+  DateTime timestamp
+  X509Certificate signingCertificate
+  int reason
+  bool trustedRoot
+  bool trustedTimestampRoot
+  Byte[] entry
+  X509Chain signerChain
+  X509Chain timestampChain
+Свойства:
+  string FileName
+  Byte[] RawData
+  Byte[] Hash
+  int Reason
+  Byte[] Signature
+  DateTime Timestamp
+  X509CertificateCollection Certificates
+  X509Certificate SigningCertificate
+Методы:
+  void .ctor()
+  void .ctor(string fileName)
+  void .ctor(Byte[] rawData)
+  string get_FileName()
+  void set_FileName(string value)
+  Byte[] get_RawData()
+  void set_RawData(Byte[] value)
+  Byte[] get_Hash()
+  int get_Reason()
+  bool IsTrusted()
+  Byte[] get_Signature()
+  DateTime get_Timestamp()
+  X509CertificateCollection get_Certificates()
+  X509Certificate get_SigningCertificate()
+  bool CheckSignature()
+  bool CompareIssuerSerial(string issuer, Byte[] serial, X509Certificate x509)
+  bool VerifySignature(SignedData sd, Byte[] calculatedMessageDigest, HashAlgorithm ha)
+  bool VerifyCounterSignature(SignerInfo cs, Byte[] signature)
+  void Reset()
+--------------------------------------------------
+Класс: Mono.Security.Authenticode.AuthenticodeFormatter
+Наследуется от: AuthenticodeBase
+Поля:
+  Authority authority
+  X509CertificateCollection certs
+  ArrayList crls
+  string hash
+  RSA rsa
+  Uri timestamp
+  ASN1 authenticode
+  SignedData pkcs7
+  string description
+  Uri url
+  string signedData
+  string countersignature
+  string spcStatementType
+  string spcSpOpusInfo
+  string spcPelmageData
+  string commercialCodeSigning
+  string timestampCountersignature
+  Byte[] obsolete
+Свойства:
+  Authority Authority
+  X509CertificateCollection Certificates
+  ArrayList Crl
+  string Hash
+  RSA RSA
+  Uri TimestampUrl
+  string Description
+  Uri Url
+Методы:
+  void .ctor()
+  Authority get_Authority()
+  void set_Authority(Authority value)
+  X509CertificateCollection get_Certificates()
+  ArrayList get_Crl()
+  string get_Hash()
+  void set_Hash(string value)
+  RSA get_RSA()
+  void set_RSA(RSA value)
+  Uri get_TimestampUrl()
+  void set_TimestampUrl(Uri value)
+  string get_Description()
+  void set_Description(string value)
+  Uri get_Url()
+  void set_Url(Uri value)
+  ASN1 AlgorithmIdentifier(string oid)
+  ASN1 Attribute(string oid, ASN1 value)
+  ASN1 Opus(string description, string url)
+  Byte[] Header(Byte[] fileHash, string hashAlgorithm)
+  ASN1 TimestampRequest(Byte[] signature)
+  void ProcessTimestamp(Byte[] response)
+  Byte[] Timestamp(Byte[] signature)
+  bool Save(string fileName, Byte[] asn)
+  bool Sign(string fileName)
+  bool Timestamp(string fileName)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Security.Authenticode.PrivateKey
+Наследуется от: object
+Поля:
+  UInt32 magic
+  bool encrypted
+  RSA rsa
+  bool weak
+  int keyType
+Свойства:
+  bool Encrypted
+  int KeyType
+  RSA RSA
+  bool Weak
+Методы:
+  void .ctor()
+  void .ctor(Byte[] data, string password)
+  bool get_Encrypted()
+  int get_KeyType()
+  void set_KeyType(int value)
+  RSA get_RSA()
+  void set_RSA(RSA value)
+  bool get_Weak()
+  void set_Weak(bool value)
+  Byte[] DeriveKey(Byte[] salt, string password)
+  bool Decode(Byte[] pvk, string password)
+  void Save(string filename)
+  void Save(string filename, string password)
+  PrivateKey CreateFromFile(string filename)
+  PrivateKey CreateFromFile(string filename, string password)
+--------------------------------------------------
+Класс: Mono.Security.Authenticode.SoftwarePublisherCertificate
+Наследуется от: object
+Поля:
+  SignedData pkcs7
+  string header
+  string footer
+Свойства:
+  X509CertificateCollection Certificates
+  ArrayList Crls
+Методы:
+  void .ctor()
+  void .ctor(Byte[] data)
+  X509CertificateCollection get_Certificates()
+  ArrayList get_Crls()
+  Byte[] GetBytes()
+  SoftwarePublisherCertificate CreateFromFile(string filename)
+  Byte[] PEM(Byte[] data)
+--------------------------------------------------
+Класс: Mono.Math.BigInteger
+Наследуется от: object
+Поля:
+  UInt32 length
+  UInt32[] data
+  UInt32 DEFAULT_LEN
+  UInt32[] smallPrimes
+  string WouldReturnNegVal
+  RandomNumberGenerator rng
+Свойства:
+  RandomNumberGenerator Rng
+Методы:
+  void .ctor()
+  void .ctor(Sign sign, UInt32 len)
+  void .ctor(BigInteger bi)
+  void .ctor(BigInteger bi, UInt32 len)
+  void .ctor(Byte[] inData)
+  void .ctor(UInt32[] inData)
+  void .ctor(UInt32 ui)
+  void .ctor(ulong ul)
+  BigInteger op_Implicit(UInt32 value)
+  BigInteger op_Implicit(int value)
+  BigInteger op_Implicit(ulong value)
+  BigInteger Parse(string number)
+  BigInteger op_Addition(BigInteger bi1, BigInteger bi2)
+  BigInteger op_Subtraction(BigInteger bi1, BigInteger bi2)
+  int op_Modulus(BigInteger bi, int i)
+  UInt32 op_Modulus(BigInteger bi, UInt32 ui)
+  BigInteger op_Modulus(BigInteger bi1, BigInteger bi2)
+  BigInteger op_Division(BigInteger bi, int i)
+  BigInteger op_Division(BigInteger bi1, BigInteger bi2)
+  BigInteger op_Multiply(BigInteger bi1, BigInteger bi2)
+  BigInteger op_Multiply(BigInteger bi, int i)
+  BigInteger op_LeftShift(BigInteger bi1, int shiftVal)
+  BigInteger op_RightShift(BigInteger bi1, int shiftVal)
+  BigInteger Add(BigInteger bi1, BigInteger bi2)
+  BigInteger Subtract(BigInteger bi1, BigInteger bi2)
+  int Modulus(BigInteger bi, int i)
+  UInt32 Modulus(BigInteger bi, UInt32 ui)
+  BigInteger Modulus(BigInteger bi1, BigInteger bi2)
+  BigInteger Divid(BigInteger bi, int i)
+  BigInteger Divid(BigInteger bi1, BigInteger bi2)
+  BigInteger Multiply(BigInteger bi1, BigInteger bi2)
+  BigInteger Multiply(BigInteger bi, int i)
+  RandomNumberGenerator get_Rng()
+  BigInteger GenerateRandom(int bits, RandomNumberGenerator rng)
+  BigInteger GenerateRandom(int bits)
+  void Randomize(RandomNumberGenerator rng)
+  void Randomize()
+  int BitCount()
+  bool TestBit(UInt32 bitNum)
+  bool TestBit(int bitNum)
+  void SetBit(UInt32 bitNum)
+  void ClearBit(UInt32 bitNum)
+  void SetBit(UInt32 bitNum, bool value)
+  int LowestSetBit()
+  Byte[] GetBytes()
+  bool op_Equality(BigInteger bi1, UInt32 ui)
+  bool op_Inequality(BigInteger bi1, UInt32 ui)
+  bool op_Equality(BigInteger bi1, BigInteger bi2)
+  bool op_Inequality(BigInteger bi1, BigInteger bi2)
+  bool op_GreaterThan(BigInteger bi1, BigInteger bi2)
+  bool op_LessThan(BigInteger bi1, BigInteger bi2)
+  bool op_GreaterThanOrEqual(BigInteger bi1, BigInteger bi2)
+  bool op_LessThanOrEqual(BigInteger bi1, BigInteger bi2)
+  Sign Compare(BigInteger bi)
+  string ToString(UInt32 radix)
+  string ToString(UInt32 radix, string characterSet)
+  void Normalize()
+  void Clear()
+  int GetHashCode()
+  string ToString()
+  bool Equals(object o)
+  BigInteger GCD(BigInteger bi)
+  BigInteger ModInverse(BigInteger modulus)
+  BigInteger ModPow(BigInteger exp, BigInteger n)
+  bool IsProbablePrime()
+  BigInteger NextHighestPrime(BigInteger bi)
+  BigInteger GeneratePseudoPrime(int bits)
+  void Incr2()
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Math.Prime.ConfidenceFactor
+Наследуется от: Enum
+Поля:
+  int value__
+  ConfidenceFactor ExtraLow
+  ConfidenceFactor Low
+  ConfidenceFactor Medium
+  ConfidenceFactor High
+  ConfidenceFactor ExtraHigh
+  ConfidenceFactor Provable
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Math.Prime.PrimalityTest
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  bool Invoke(BigInteger bi, ConfidenceFactor confidence)
+  IAsyncResult BeginInvoke(BigInteger bi, ConfidenceFactor confidence, AsyncCallback callback, object object)
+  bool EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Math.Prime.PrimalityTests
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  int GetSPPRounds(BigInteger bi, ConfidenceFactor confidence)
+  bool Test(BigInteger n, ConfidenceFactor confidence)
+  bool RabinMillerTest(BigInteger n, ConfidenceFactor confidence)
+  bool SmallPrimeSppTest(BigInteger bi, ConfidenceFactor confidence)
+--------------------------------------------------
+Класс: Mono.Math.Prime.Generator.NextPrimeFinder
+Наследуется от: SequentialSearchPrimeGeneratorBase
+Поля:
+Свойства:
+Методы:
+  BigInteger GenerateSearchBase(int bits, object Context)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Math.Prime.Generator.PrimeGeneratorBase
+Наследуется от: object
+Поля:
+Свойства:
+  ConfidenceFactor Confidence
+  PrimalityTest PrimalityTest
+  int TrialDivisionBounds
+Методы:
+  ConfidenceFactor get_Confidence()
+  PrimalityTest get_PrimalityTest()
+  int get_TrialDivisionBounds()
+  bool PostTrialDivisionTests(BigInteger bi)
+  BigInteger GenerateNewPrime(int bits)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Math.Prime.Generator.SequentialSearchPrimeGeneratorBase
+Наследуется от: PrimeGeneratorBase
+Поля:
+Свойства:
+Методы:
+  BigInteger GenerateSearchBase(int bits, object context)
+  BigInteger GenerateNewPrime(int bits)
+  BigInteger GenerateNewPrime(int bits, object context)
+  bool IsPrimeAcceptable(BigInteger bi, object context)
+  void .ctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=64 001D686DB504E20C792EAA07FE09224A45FF328E24A80072D04D16ABC5C2B5D2
+  __StaticArrayInitTypeSize=524 1A2D323AB50F9559EC80E170FE363BD3E3CCE7A9887E85252FD38EF701395EBC
+  __StaticArrayInitTypeSize=3132 25E3E48132FBDBE9B7C0C6C54D7C10A5DE12A105AA3E5DE2A0DC808BF245B7A5
+  long 290C4A052C215D096172EB81AEE671FB3286E5C1DB5E73F96021FC09825DDB88
+  __StaticArrayInitTypeSize=3 32D0830B8EE1D49A66F395C8EA80E02BFC07C2A12A8EA8C8B484AF02108A1950
+  __StaticArrayInitTypeSize=3 35BF50EEF3270FD8CA09E66FC5B0481C5A151B14F6A634854E32F63633D49DCB
+  __StaticArrayInitTypeSize=3 3C0C410618682C4DF0474E034114CC8E562F05A512B521AC367571017BDFA75D
+  __StaticArrayInitTypeSize=128 3F35A3F5F6C4376A744ACAD409BB22F8D897F949D2311D885ADAA890981B67A0
+  __StaticArrayInitTypeSize=3 44F5B1A2C48314502ACCBF186D1A2F9F7F176825898F32F1A2047B956194F174
+  __StaticArrayInitTypeSize=48 4800FBFC4566EB02D1727A4B1C949CCBC7535C216A0766564C199308631B5DD6
+  __StaticArrayInitTypeSize=20 533B8C444F951E83EFF7305E3807B66CE0005DE0A2D0A44873C130895A3BE6AA
+  __StaticArrayInitTypeSize=256 55D0BF716B334D123E0088CFB3F8E2FEA17AF5025BB527F95EEB09BA978EA329
+  __StaticArrayInitTypeSize=3 59BE5A634187B8A57216EFF5371A47732C05744B1C1A0A6382A6D5622C9FFDCE
+  __StaticArrayInitTypeSize=32 5DF6E0E2761359D30A8275058E299FCC0381534545F55CF43E41983F5D4C9456
+  __StaticArrayInitTypeSize=3 5F8C6B3C66B972606D85E7651F67ADBD02E8316876884674E8328FA710747E5B
+  __StaticArrayInitTypeSize=10 60C6ED13AF98DBFEEDA8F8197FFFCC349BB04395CC81DF0D477CBC57BF5B398B
+  __StaticArrayInitTypeSize=10 64B3E7D737AFF47D4C3BBD81D2D06D697DDD8EB60F29E13E4425D19D8BBCA1F7
+  __StaticArrayInitTypeSize=192 64FCC83EC403930BF18393DBC883CCAA1FBB08AC876F77F7AA99748CA945019B
+  long 6772A9B8BF207A3CFE6EE68769D6985B69522183F24A2A3D41BC3B4602953426
+  __StaticArrayInitTypeSize=9 684312AFB7719E57993D2826FFBAF7EA965614F20F91D999FB19B01E21AA62E6
+  __StaticArrayInitTypeSize=64 6AA56C4BCD208911792AD24C7681FEFB93BED51903AFC54860C9BD37E41E5A31
+  __StaticArrayInitTypeSize=256 74EF7306E7452D6859B6463CE496B8DF30925F69E1B2969E1F3F34BBC9C6AF04
+  __StaticArrayInitTypeSize=3 796E63069E193A008CB4E85573AA1FE53C5F4E58B42A7F61FD0EEE1D89B5120B
+  __StaticArrayInitTypeSize=37 7B6F696E134EED67B49325104962FDDCA4C429751835A507F724797FC79629B8
+  __StaticArrayInitTypeSize=64 7C8975E1E60A5C8337F28EDF8C33C3B180360B7279644A9BC1AF3C51E6220BF5
+  __StaticArrayInitTypeSize=3 850D7367E4FB0766E2CBC3ACF5AB42B4E98348E58E5A789845D4FCCDB63D2AEE
+  long 992F16C986809AB68C7466CC3EC6F12B2506A962EA539753E5D84A2FB7FF8A24
+  __StaticArrayInitTypeSize=3 9A65C09A11757751BFED67A414E00B188DC4C7757FCB6CBD33A916DDE4A3D925
+  __StaticArrayInitTypeSize=18 9ACEFCC0C950280B64AB9E045E38C34ABF71EC70A0DC61B9C621C6BFB4F78047
+  __StaticArrayInitTypeSize=3 B1E34F4A11EE411B83415EF0B252A0B2BBCFCAC2E592865E09C12E4252C93A75
+  __StaticArrayInitTypeSize=96 B52BA6A3026520A6C49D37E4587601801BEE500123B3259B6BF03E7CECC3E63D
+  __StaticArrayInitTypeSize=3 C92FAD7F348A682E7D5B7E74C76B5D019174EE7BC87545B25A1FDD49FBCC2D0B
+  __StaticArrayInitTypeSize=3 E17B8359E685992B0DE6242AAA24FCB7404173CBB7FF8646FF7D658139F41B5F
+  __StaticArrayInitTypeSize=64 F83B332BE4E6A5A4B1C56AAF6DB52657DA495E149870057D8590AB9D7A6167AD
+  __StaticArrayInitTypeSize=3 FB6D7301FFDCB5FBA5807A19B4F0606947897C1105240B6BBA815352DBBE2064
+Свойства:
+Методы:
+  UInt32 ComputeStringHash(string s)
+--------------------------------------------------

@@ -1,0 +1,648 @@
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+public static class Oxide.EnvironmentHelper : object {
+    public static string SECTION_DELIMITER;
+    public static string OXIDE_PREFIX;
+    public static string GetVariable(string key);
+    public static void SetVariable(string key, string value, bool throwOnExisting, bool force);
+    private static string NormalizeKey(string key);
+}
+[ExtensionAttribute]
+public static class Oxide.ExtensionMethods : object {
+    [ExtensionAttribute]
+public static AssemblyMetadataAttribute[] Metadata(Assembly assembly);
+    [ExtensionAttribute]
+public static String[] Metadata(Assembly assembly, string key);
+    [ExtensionAttribute]
+public static HashSet`1<T> ToHashSet(IEnumerable`1<T> collection);
+    [ExtensionAttribute]
+public static bool TryPop(Stack`1<T> stack, T& value);
+    [ExtensionAttribute]
+public static bool TryPeek(Stack`1<T> stack, T& value);
+    [ExtensionAttribute]
+public static bool TryDequeue(Queue`1<T> queue, T& value);
+    [ExtensionAttribute]
+public static bool TryPeek(Queue`1<T> queue, T& value);
+}
+public interface Oxide.Pooling.IArrayPoolProvider`1 {
+    public abstract virtual T[] Take(int length);
+}
+public interface Oxide.Pooling.IPoolFactory {
+    public abstract virtual IPoolProvider`1<T> GetProvider();
+    public abstract virtual bool IsHandledType();
+    public abstract virtual IDisposable RegisterProvider(TProvider& provider, Object[] args);
+}
+public interface Oxide.Pooling.IPoolProvider {
+    public abstract virtual void Return(object item);
+}
+public interface Oxide.Pooling.IPoolProvider`1 {
+    public abstract virtual T Take();
+}
+[ExtensionAttribute]
+public static class Oxide.Pooling.PoolingExtensions : object {
+    [ExtensionAttribute]
+public static IArrayPoolProvider`1<T> GetArrayProvider(IPoolFactory factory);
+    [ExtensionAttribute]
+public static T[] PooledCopy(IArrayPoolProvider`1<T> provider, T[] source, int offset, int count);
+    [ExtensionAttribute]
+public static T[] PooledCopy(IPoolFactory factory, T[] source, int offset, int count);
+}
+[AttributeUsageAttribute("2432")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.AllowNullAttribute : Attribute {
+}
+[AttributeUsageAttribute("2432")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.DisallowNullAttribute : Attribute {
+}
+[AttributeUsageAttribute("64")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute : Attribute {
+}
+[AttributeUsageAttribute("2048")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <ParameterValue>k__BackingField;
+    public bool ParameterValue { get; }
+    public DoesNotReturnIfAttribute(bool parameterValue);
+    [CompilerGeneratedAttribute]
+public bool get_ParameterValue();
+}
+[AttributeUsageAttribute("28108")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private DynamicallyAccessedMemberTypes <MemberTypes>k__BackingField;
+    public DynamicallyAccessedMemberTypes MemberTypes { get; }
+    public DynamicallyAccessedMembersAttribute(DynamicallyAccessedMemberTypes memberTypes);
+    [CompilerGeneratedAttribute]
+public DynamicallyAccessedMemberTypes get_MemberTypes();
+}
+[FlagsAttribute]
+public enum System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes : Enum {
+    public int value__;
+    public static DynamicallyAccessedMemberTypes None;
+    public static DynamicallyAccessedMemberTypes PublicParameterlessConstructor;
+    public static DynamicallyAccessedMemberTypes PublicConstructors;
+    public static DynamicallyAccessedMemberTypes NonPublicConstructors;
+    public static DynamicallyAccessedMemberTypes PublicMethods;
+    public static DynamicallyAccessedMemberTypes NonPublicMethods;
+    public static DynamicallyAccessedMemberTypes PublicFields;
+    public static DynamicallyAccessedMemberTypes NonPublicFields;
+    public static DynamicallyAccessedMemberTypes PublicNestedTypes;
+    public static DynamicallyAccessedMemberTypes NonPublicNestedTypes;
+    public static DynamicallyAccessedMemberTypes PublicProperties;
+    public static DynamicallyAccessedMemberTypes NonPublicProperties;
+    public static DynamicallyAccessedMemberTypes PublicEvents;
+    public static DynamicallyAccessedMemberTypes NonPublicEvents;
+    public static DynamicallyAccessedMemberTypes Interfaces;
+    public static DynamicallyAccessedMemberTypes All;
+}
+[AttributeUsageAttribute("352")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <MemberSignature>k__BackingField;
+    [CompilerGeneratedAttribute]
+private DynamicallyAccessedMemberTypes <MemberTypes>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Type <Type>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <TypeName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <AssemblyName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Condition>k__BackingField;
+    public string MemberSignature { get; }
+    public DynamicallyAccessedMemberTypes MemberTypes { get; }
+    public Type Type { get; }
+    public string TypeName { get; }
+    public string AssemblyName { get; }
+    public string Condition { get; public set; }
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(string memberSignature);
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(string memberSignature, Type type);
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(string memberSignature, string typeName, string assemblyName);
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(DynamicallyAccessedMemberTypes memberTypes, Type type);
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(DynamicallyAccessedMemberTypes memberTypes, string typeName, string assemblyName);
+    [CompilerGeneratedAttribute]
+public string get_MemberSignature();
+    [CompilerGeneratedAttribute]
+public DynamicallyAccessedMemberTypes get_MemberTypes();
+    [CompilerGeneratedAttribute]
+public Type get_Type();
+    [CompilerGeneratedAttribute]
+public string get_TypeName();
+    [CompilerGeneratedAttribute]
+public string get_AssemblyName();
+    [CompilerGeneratedAttribute]
+public string get_Condition();
+    [CompilerGeneratedAttribute]
+public void set_Condition(string value);
+}
+[AttributeUsageAttribute("10624")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.MaybeNullAttribute : Attribute {
+}
+[AttributeUsageAttribute("2048")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <ReturnValue>k__BackingField;
+    public bool ReturnValue { get; }
+    public MaybeNullWhenAttribute(bool returnValue);
+    [CompilerGeneratedAttribute]
+public bool get_ReturnValue();
+}
+[AttributeUsageAttribute("192")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.CodeAnalysis.MemberNotNullAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private String[] <Members>k__BackingField;
+    public String[] Members { get; }
+    public MemberNotNullAttribute(string member);
+    public MemberNotNullAttribute(String[] members);
+    [CompilerGeneratedAttribute]
+public String[] get_Members();
+}
+[AttributeUsageAttribute("192")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <ReturnValue>k__BackingField;
+    [CompilerGeneratedAttribute]
+private String[] <Members>k__BackingField;
+    public bool ReturnValue { get; }
+    public String[] Members { get; }
+    public MemberNotNullWhenAttribute(bool returnValue, string member);
+    public MemberNotNullWhenAttribute(bool returnValue, String[] members);
+    [CompilerGeneratedAttribute]
+public bool get_ReturnValue();
+    [CompilerGeneratedAttribute]
+public String[] get_Members();
+}
+[AttributeUsageAttribute("10624")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.NotNullAttribute : Attribute {
+}
+[AttributeUsageAttribute("10368")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <ParameterName>k__BackingField;
+    public string ParameterName { get; }
+    public NotNullIfNotNullAttribute(string parameterName);
+    [CompilerGeneratedAttribute]
+public string get_ParameterName();
+}
+[AttributeUsageAttribute("2048")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.NotNullWhenAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <ReturnValue>k__BackingField;
+    public bool ReturnValue { get; }
+    public NotNullWhenAttribute(bool returnValue);
+    [CompilerGeneratedAttribute]
+public bool get_ReturnValue();
+}
+[AttributeUsageAttribute("736")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Diagnostics.CodeAnalysis.RequiresAssemblyFilesAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Url>k__BackingField;
+    public string Message { get; }
+    public string Url { get; public set; }
+    [NullableContextAttribute("1")]
+public RequiresAssemblyFilesAttribute(string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+public string get_Url();
+    [CompilerGeneratedAttribute]
+public void set_Url(string value);
+}
+[AttributeUsageAttribute("100")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+[NullableAttribute("2")]
+private string <Url>k__BackingField;
+    public string Message { get; }
+    [NullableAttribute("2")]
+public string Url { get; public set; }
+    public RequiresDynamicCodeAttribute(string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public string get_Url();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public void set_Url(string value);
+}
+[AttributeUsageAttribute("100")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+[NullableAttribute("2")]
+private string <Url>k__BackingField;
+    public string Message { get; }
+    [NullableAttribute("2")]
+public string Url { get; public set; }
+    public RequiresUnreferencedCodeAttribute(string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public string get_Url();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public void set_Url(string value);
+}
+[AttributeUsageAttribute("32")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.SetsRequiredMembersAttribute : Attribute {
+}
+[AttributeUsageAttribute("2432")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.CodeAnalysis.StringSyntaxAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Syntax>k__BackingField;
+    [CompilerGeneratedAttribute]
+[NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+private Object[] <Arguments>k__BackingField;
+    public static string CompositeFormat;
+    public static string DateOnlyFormat;
+    public static string DateTimeFormat;
+    public static string EnumFormat;
+    public static string GuidFormat;
+    public static string Json;
+    public static string NumericFormat;
+    public static string Regex;
+    public static string TimeOnlyFormat;
+    public static string TimeSpanFormat;
+    public static string Uri;
+    public static string Xml;
+    public string Syntax { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public Object[] Arguments { get; }
+    public StringSyntaxAttribute(string syntax);
+    public StringSyntaxAttribute(string syntax, Object[] arguments);
+    [CompilerGeneratedAttribute]
+public string get_Syntax();
+    [CompilerGeneratedAttribute]
+public Object[] get_Arguments();
+}
+[AttributeUsageAttribute("32767")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <Category>k__BackingField;
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <CheckId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Scope>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Target>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <MessageId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Justification>k__BackingField;
+    [NullableAttribute("1")]
+public string Category { get; }
+    [NullableAttribute("1")]
+public string CheckId { get; }
+    public string Scope { get; public set; }
+    public string Target { get; public set; }
+    public string MessageId { get; public set; }
+    public string Justification { get; public set; }
+    [NullableContextAttribute("1")]
+public UnconditionalSuppressMessageAttribute(string category, string checkId);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_Category();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_CheckId();
+    [CompilerGeneratedAttribute]
+public string get_Scope();
+    [CompilerGeneratedAttribute]
+public void set_Scope(string value);
+    [CompilerGeneratedAttribute]
+public string get_Target();
+    [CompilerGeneratedAttribute]
+public void set_Target(string value);
+    [CompilerGeneratedAttribute]
+public string get_MessageId();
+    [CompilerGeneratedAttribute]
+public void set_MessageId(string value);
+    [CompilerGeneratedAttribute]
+public string get_Justification();
+    [CompilerGeneratedAttribute]
+public void set_Justification(string value);
+}
+[AttributeUsageAttribute("2240")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.CodeAnalysis.UnscopedRefAttribute : Attribute {
+}
+[AttributeUsageAttribute("108")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Diagnostics.StackTraceHiddenAttribute : Attribute {
+}
+[ExcludeFromCodeCoverageAttribute]
+[IsReadOnlyAttribute]
+public class System.Index : ValueType {
+    private int _value;
+    public static Index Start { get; }
+    public static Index End { get; }
+    public int Value { get; }
+    public bool IsFromEnd { get; }
+    public Index(int value, bool fromEnd);
+    private Index(int value);
+    public static Index get_Start();
+    public static Index get_End();
+    public static Index FromStart(int value);
+    public static Index FromEnd(int value);
+    public int get_Value();
+    public bool get_IsFromEnd();
+    public int GetOffset(int length);
+    [NullableContextAttribute("2")]
+public virtual bool Equals(object value);
+    public sealed virtual bool Equals(Index other);
+    public virtual int GetHashCode();
+    public static Index op_Implicit(int value);
+    [NullableContextAttribute("1")]
+public virtual string ToString();
+    [NullableContextAttribute("1")]
+private string ToStringFromEnd();
+}
+[ExcludeFromCodeCoverageAttribute]
+[IsReadOnlyAttribute]
+public class System.Range : ValueType {
+    [CompilerGeneratedAttribute]
+private Index <Start>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Index <End>k__BackingField;
+    public Index Start { get; }
+    public Index End { get; }
+    public static Range All { get; }
+    public Range(Index start, Index end);
+    [CompilerGeneratedAttribute]
+public Index get_Start();
+    [CompilerGeneratedAttribute]
+public Index get_End();
+    [NullableContextAttribute("2")]
+public virtual bool Equals(object value);
+    public sealed virtual bool Equals(Range other);
+    public virtual int GetHashCode();
+    [NullableContextAttribute("1")]
+public virtual string ToString();
+    public static Range StartAt(Index start);
+    public static Range EndAt(Index end);
+    public static Range get_All();
+    public ValueTuple`2<int, int> GetOffsetAndLength(int length);
+}
+[AttributeUsageAttribute("5212")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Runtime.CompilerServices.AsyncMethodBuilderAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private Type <BuilderType>k__BackingField;
+    public Type BuilderType { get; }
+    public AsyncMethodBuilderAttribute(Type builderType);
+    [CompilerGeneratedAttribute]
+public Type get_BuilderType();
+}
+[AttributeUsageAttribute("2048")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Runtime.CompilerServices.CallerArgumentExpressionAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <ParameterName>k__BackingField;
+    public string ParameterName { get; }
+    public CallerArgumentExpressionAttribute(string parameterName);
+    [CompilerGeneratedAttribute]
+public string get_ParameterName();
+}
+[AttributeUsageAttribute("32767")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <FeatureName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <IsOptional>k__BackingField;
+    public static string RefStructs;
+    public static string RequiredMembers;
+    public string FeatureName { get; }
+    public bool IsOptional { get; public set; }
+    public CompilerFeatureRequiredAttribute(string featureName);
+    [CompilerGeneratedAttribute]
+public string get_FeatureName();
+    [CompilerGeneratedAttribute]
+public bool get_IsOptional();
+    [CompilerGeneratedAttribute]
+public void set_IsOptional(bool value);
+}
+[AttributeUsageAttribute("1")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.CompilerServices.DisableRuntimeMarshallingAttribute : Attribute {
+}
+[AttributeUsageAttribute("2048")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private String[] <Arguments>k__BackingField;
+    public String[] Arguments { get; }
+    public InterpolatedStringHandlerArgumentAttribute(string argument);
+    public InterpolatedStringHandlerArgumentAttribute(String[] arguments);
+    [CompilerGeneratedAttribute]
+public String[] get_Arguments();
+}
+[AttributeUsageAttribute("12")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.CompilerServices.InterpolatedStringHandlerAttribute : Attribute {
+}
+[EditorBrowsableAttribute("1")]
+[ExcludeFromCodeCoverageAttribute]
+public static class System.Runtime.CompilerServices.IsExternalInit : object {
+}
+[AttributeUsageAttribute("64")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.CompilerServices.ModuleInitializerAttribute : Attribute {
+}
+[AttributeUsageAttribute("27524")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullableAttribute : Attribute {
+    public Byte[] NullableFlags;
+    public NullableAttribute(byte );
+    public NullableAttribute(Byte[] );
+}
+[AttributeUsageAttribute("5196")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullableContextAttribute : Attribute {
+    public byte Flag;
+    public NullableContextAttribute(byte );
+}
+[AttributeUsageAttribute("2")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.RefSafetyRulesAttribute : Attribute {
+    public int Version;
+    public RefSafetyRulesAttribute(int );
+}
+[AttributeUsageAttribute("396")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.CompilerServices.RequiredMemberAttribute : Attribute {
+}
+[AttributeUsageAttribute("1774")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.CompilerServices.SkipLocalsInitAttribute : Attribute {
+}
+[AttributeUsageAttribute("64")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.InteropServices.SuppressGCTransitionAttribute : Attribute {
+}
+[AttributeUsageAttribute("64")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute : Attribute {
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public Type[] CallConvs;
+    [NullableAttribute("2")]
+public string EntryPoint;
+}
+[AttributeUsageAttribute("2047")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Runtime.Versioning.ObsoletedOSPlatformAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Url>k__BackingField;
+    public string Message { get; }
+    public string Url { get; public set; }
+    [NullableContextAttribute("1")]
+public ObsoletedOSPlatformAttribute(string platformName);
+    [NullableContextAttribute("1")]
+public ObsoletedOSPlatformAttribute(string platformName, string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+public string get_Url();
+    [CompilerGeneratedAttribute]
+public void set_Url(string value);
+}
+[AttributeUsageAttribute("6143")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Runtime.Versioning.RequiresPreviewFeaturesAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Url>k__BackingField;
+    public string Message { get; }
+    public string Url { get; public set; }
+    public RequiresPreviewFeaturesAttribute(string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+public string get_Url();
+    [CompilerGeneratedAttribute]
+public void set_Url(string value);
+}
+[AttributeUsageAttribute("2047")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.Versioning.SupportedOSPlatformAttribute : Attribute {
+    [NullableContextAttribute("1")]
+public SupportedOSPlatformAttribute(string platformName);
+}
+[AttributeUsageAttribute("448")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.Versioning.SupportedOSPlatformGuardAttribute : Attribute {
+    [NullableContextAttribute("1")]
+public SupportedOSPlatformGuardAttribute(string platformName);
+}
+[AttributeUsageAttribute("1")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.Versioning.TargetPlatformAttribute : Attribute {
+    [NullableContextAttribute("1")]
+public TargetPlatformAttribute(string platformName);
+}
+[AttributeUsageAttribute("2047")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Runtime.Versioning.UnsupportedOSPlatformAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    public string Message { get; }
+    [NullableContextAttribute("1")]
+public UnsupportedOSPlatformAttribute(string platformName);
+    [NullableContextAttribute("1")]
+public UnsupportedOSPlatformAttribute(string platformName, string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+}
+[AttributeUsageAttribute("448")]
+[ConditionalAttribute("MULTI_TARGETING_SUPPORT_ATTRIBUTES")]
+[ExcludeFromCodeCoverageAttribute]
+public class System.Runtime.Versioning.UnsupportedOSPlatformGuardAttribute : Attribute {
+    [NullableContextAttribute("1")]
+public UnsupportedOSPlatformGuardAttribute(string platformName);
+}

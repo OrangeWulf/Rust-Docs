@@ -1,0 +1,2752 @@
+internal class Ionic.AttributesCriterion : SelectionCriterion {
+    private FileAttributes _Attributes;
+    internal ComparisonOperator Operator;
+    internal string AttributeString { get; internal set; }
+    internal string get_AttributeString();
+    internal void set_AttributeString(string value);
+    public virtual string ToString();
+    private bool _EvaluateOne(FileAttributes fileAttrs, FileAttributes criterionAttrs);
+    internal virtual bool Evaluate(string filename);
+    private bool _Evaluate(FileAttributes fileAttrs);
+    internal virtual bool Evaluate(ZipEntry entry);
+}
+internal class Ionic.BZip2.BitWriter : object {
+    private UInt32 accumulator;
+    private int nAccumulatedBits;
+    private Stream output;
+    private int totalBytesWrittenOut;
+    public byte RemainingBits { get; }
+    public int NumRemainingBits { get; }
+    public int TotalBytesWrittenOut { get; }
+    public BitWriter(Stream s);
+    public byte get_RemainingBits();
+    public int get_NumRemainingBits();
+    public int get_TotalBytesWrittenOut();
+    public void Reset();
+    public void WriteBits(int nbits, UInt32 value);
+    public void WriteByte(byte b);
+    public void WriteInt(UInt32 u);
+    public void Flush();
+    public void FinishAndPad();
+}
+internal static class Ionic.BZip2.BZip2 : object {
+    public static int BlockSizeMultiple;
+    public static int MinBlockSize;
+    public static int MaxBlockSize;
+    public static int MaxAlphaSize;
+    public static int MaxCodeLength;
+    public static char RUNA;
+    public static char RUNB;
+    public static int NGroups;
+    public static int G_SIZE;
+    public static int N_ITERS;
+    public static int MaxSelectors;
+    public static int NUM_OVERSHOOT_BYTES;
+    internal static int QSORT_STACK_SIZE;
+    private static BZip2();
+    internal static T[][] InitRectangularArray(int d1, int d2);
+}
+internal class Ionic.BZip2.BZip2Compressor : object {
+    private int blockSize100k;
+    private int currentByte;
+    private int runLength;
+    private int last;
+    private int outBlockFillThreshold;
+    private CompressionState cstate;
+    private CRC32 crc;
+    private BitWriter bw;
+    private int runs;
+    private int workDone;
+    private int workLimit;
+    private bool firstAttempt;
+    private bool blockRandomised;
+    private int origPtr;
+    private int nInUse;
+    private int nMTF;
+    private static int SETMASK;
+    private static int CLEARMASK;
+    private static byte GREATER_ICOST;
+    private static byte LESSER_ICOST;
+    private static int SMALL_THRESH;
+    private static int DEPTH_THRESH;
+    private static int WORK_FACTOR;
+    private static Int32[] increments;
+    [CompilerGeneratedAttribute]
+private UInt32 <Crc32>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <AvailableBytesOut>k__BackingField;
+    public int BlockSize { get; }
+    public UInt32 Crc32 { get; private set; }
+    public int AvailableBytesOut { get; private set; }
+    public int UncompressedBytes { get; }
+    public BZip2Compressor(BitWriter writer);
+    public BZip2Compressor(BitWriter writer, int blockSize);
+    private static BZip2Compressor();
+    private void Reset();
+    public int get_BlockSize();
+    [CompilerGeneratedAttribute]
+public UInt32 get_Crc32();
+    [CompilerGeneratedAttribute]
+private void set_Crc32(UInt32 value);
+    [CompilerGeneratedAttribute]
+public int get_AvailableBytesOut();
+    [CompilerGeneratedAttribute]
+private void set_AvailableBytesOut(int value);
+    public int get_UncompressedBytes();
+    public int Fill(Byte[] buffer, int offset, int count);
+    private int write0(byte b);
+    private bool AddRunToOutputBlock(bool final);
+    public void CompressAndWrite();
+    private void randomiseBlock();
+    private void mainSort();
+    private void blockSort();
+    private bool mainSimpleSort(CompressionState dataShadow, int lo, int hi, int d);
+    private static void vswap(Int32[] fmap, int p1, int p2, int n);
+    private static byte med3(byte a, byte b, byte c);
+    private void mainQSort3(CompressionState dataShadow, int loSt, int hiSt, int dSt);
+    private void generateMTFValues();
+    private static void hbAssignCodes(Int32[] code, Byte[] length, int minLen, int maxLen, int alphaSize);
+    private void sendMTFValues();
+    private void sendMTFValues0(int nGroups, int alphaSize);
+    private static void hbMakeCodeLengths(Byte[] len, Int32[] freq, CompressionState state1, int alphaSize, int maxLen);
+    private int sendMTFValues1(int nGroups, int alphaSize);
+    private void sendMTFValues2(int nGroups, int nSelectors);
+    private void sendMTFValues3(int nGroups, int alphaSize);
+    private void sendMTFValues4();
+    private void sendMTFValues5(int nGroups, int nSelectors);
+    private void sendMTFValues6(int nGroups, int alphaSize);
+    private void sendMTFValues7(int nSelectors);
+    private void moveToFrontCodeAndSend();
+}
+public class Ionic.BZip2.BZip2InputStream : Stream {
+    private bool _disposed;
+    private bool _leaveOpen;
+    private long totalBytesRead;
+    private int last;
+    private int origPtr;
+    private int blockSize100k;
+    private bool blockRandomised;
+    private int bsBuff;
+    private int bsLive;
+    private CRC32 crc;
+    private int nInUse;
+    private Stream input;
+    private int currentChar;
+    private CState currentState;
+    private UInt32 storedBlockCRC;
+    private UInt32 storedCombinedCRC;
+    private UInt32 computedBlockCRC;
+    private UInt32 computedCombinedCRC;
+    private int su_count;
+    private int su_ch2;
+    private int su_chPrev;
+    private int su_i2;
+    private int su_j2;
+    private int su_rNToGo;
+    private int su_rTPos;
+    private int su_tPos;
+    private char su_z;
+    private DecompressionState data;
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public BZip2InputStream(Stream input);
+    public BZip2InputStream(Stream input, bool leaveOpen);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    private void MakeMaps();
+    public virtual int ReadByte();
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    protected virtual void Dispose(bool disposing);
+    private void init();
+    private void CheckMagicChar(char expected, int position);
+    private void InitBlock();
+    private void EndBlock();
+    private void complete();
+    public virtual void Close();
+    private int GetBits(int n);
+    private bool bsGetBit();
+    private char bsGetUByte();
+    private UInt32 bsGetInt();
+    private static void hbCreateDecodeTables(Int32[] limit, Int32[] bbase, Int32[] perm, Char[] length, int minLen, int maxLen, int alphaSize);
+    private void recvDecodingTables();
+    private void createHuffmanDecodingTables(int alphaSize, int nGroups);
+    private void getAndMoveToFrontDecode();
+    private int getAndMoveToFrontDecode0(int groupNo);
+    private void SetupBlock();
+    private void SetupRandPartA();
+    private void SetupNoRandPartA();
+    private void SetupRandPartB();
+    private void SetupRandPartC();
+    private void SetupNoRandPartB();
+    private void SetupNoRandPartC();
+}
+public class Ionic.BZip2.BZip2OutputStream : Stream {
+    private int totalBytesWrittenIn;
+    private bool leaveOpen;
+    private BZip2Compressor compressor;
+    private UInt32 combinedCRC;
+    private Stream output;
+    private BitWriter bw;
+    private int blockSize100k;
+    private TraceBits desiredTrace;
+    public int BlockSize { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public BZip2OutputStream(Stream output);
+    public BZip2OutputStream(Stream output, int blockSize);
+    public BZip2OutputStream(Stream output, bool leaveOpen);
+    public BZip2OutputStream(Stream output, int blockSize, bool leaveOpen);
+    public virtual void Close();
+    public virtual void Flush();
+    private void EmitHeader();
+    private void EmitTrailer();
+    private void Finish();
+    public int get_BlockSize();
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    [ConditionalAttribute("Trace")]
+private void TraceOutput(TraceBits bits, string format, Object[] varParams);
+}
+public class Ionic.BZip2.ParallelBZip2OutputStream : Stream {
+    private static int BufferPairsPerCore;
+    private int _maxWorkers;
+    private bool firstWriteDone;
+    private int lastFilled;
+    private int lastWritten;
+    private int latestCompressed;
+    private int currentlyFilling;
+    private Exception modreq(System.Runtime.CompilerServices.IsVolatile) pendingException;
+    private bool handlingException;
+    private bool emitting;
+    private Queue`1<int> toWrite;
+    private Queue`1<int> toFill;
+    private List`1<WorkItem> pool;
+    private object latestLock;
+    private object eLock;
+    private object outputLock;
+    private AutoResetEvent newlyCompressedBlob;
+    private long totalBytesWrittenIn;
+    private long totalBytesWrittenOut;
+    private bool leaveOpen;
+    private UInt32 combinedCRC;
+    private Stream output;
+    private BitWriter bw;
+    private int blockSize100k;
+    private TraceBits desiredTrace;
+    public int MaxWorkers { get; public set; }
+    public int BlockSize { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public long BytesWrittenOut { get; }
+    public ParallelBZip2OutputStream(Stream output);
+    public ParallelBZip2OutputStream(Stream output, int blockSize);
+    public ParallelBZip2OutputStream(Stream output, bool leaveOpen);
+    public ParallelBZip2OutputStream(Stream output, int blockSize, bool leaveOpen);
+    private static ParallelBZip2OutputStream();
+    private void InitializePoolOfWorkItems();
+    public int get_MaxWorkers();
+    public void set_MaxWorkers(int value);
+    public virtual void Close();
+    private void FlushOutput(bool lastInput);
+    public virtual void Flush();
+    private void EmitHeader();
+    private void EmitTrailer();
+    public int get_BlockSize();
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    private void EmitPendingBuffers(bool doAll, bool mustWait);
+    private void CompressOne(object wi);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public long get_BytesWrittenOut();
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    [ConditionalAttribute("Trace")]
+private void TraceOutput(TraceBits bits, string format, Object[] varParams);
+}
+internal static class Ionic.BZip2.Rand : object {
+    private static Int32[] RNUMS;
+    private static Rand();
+    internal static int Rnums(int i);
+}
+internal class Ionic.BZip2.WorkItem : object {
+    public int index;
+    public MemoryStream ms;
+    public int ordinal;
+    public BitWriter bw;
+    [CompilerGeneratedAttribute]
+private BZip2Compressor <Compressor>k__BackingField;
+    public BZip2Compressor Compressor { get; private set; }
+    public WorkItem(int ix, int blockSize);
+    [CompilerGeneratedAttribute]
+public BZip2Compressor get_Compressor();
+    [CompilerGeneratedAttribute]
+private void set_Compressor(BZip2Compressor value);
+}
+internal enum Ionic.ComparisonOperator : Enum {
+    public int value__;
+    [DescriptionAttribute(">")]
+public static ComparisonOperator GreaterThan;
+    [DescriptionAttribute(">=")]
+public static ComparisonOperator GreaterThanOrEqualTo;
+    [DescriptionAttribute("<")]
+public static ComparisonOperator LesserThan;
+    [DescriptionAttribute("<=")]
+public static ComparisonOperator LesserThanOrEqualTo;
+    [DescriptionAttribute("=")]
+public static ComparisonOperator EqualTo;
+    [DescriptionAttribute("!=")]
+public static ComparisonOperator NotEqualTo;
+}
+internal class Ionic.CompoundCriterion : SelectionCriterion {
+    internal LogicalConjunction Conjunction;
+    internal SelectionCriterion Left;
+    private SelectionCriterion _Right;
+    internal SelectionCriterion Right { get; internal set; }
+    internal SelectionCriterion get_Right();
+    internal void set_Right(SelectionCriterion value);
+    internal virtual bool Evaluate(string filename);
+    public virtual string ToString();
+    internal virtual bool Evaluate(ZipEntry entry);
+}
+[ClassInterfaceAttribute("1")]
+[ComVisibleAttribute("True")]
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d0000C")]
+public class Ionic.Crc.CRC32 : object {
+    private static int BUFFER_SIZE;
+    private UInt32 dwPolynomial;
+    private long _TotalBytesRead;
+    private bool reverseBits;
+    private UInt32[] crc32Table;
+    private UInt32 _register;
+    public long TotalBytesRead { get; }
+    public int Crc32Result { get; }
+    public CRC32(bool reverseBits);
+    public CRC32(int polynomial, bool reverseBits);
+    public long get_TotalBytesRead();
+    public int get_Crc32Result();
+    public int GetCrc32(Stream input);
+    public int GetCrc32AndCopy(Stream input, Stream output);
+    public int ComputeCrc32(int W, byte B);
+    internal int _InternalComputeCrc32(UInt32 W, byte B);
+    public void SlurpBlock(Byte[] block, int offset, int count);
+    public void UpdateCRC(byte b);
+    public void UpdateCRC(byte b, int n);
+    private static UInt32 ReverseBits(UInt32 data);
+    private static byte ReverseBits(byte data);
+    private void GenerateLookupTable();
+    private UInt32 gf2_matrix_times(UInt32[] matrix, UInt32 vec);
+    private void gf2_matrix_square(UInt32[] square, UInt32[] mat);
+    public void Combine(int crc, int length);
+    public void Reset();
+}
+public class Ionic.Crc.CrcCalculatorStream : Stream {
+    private static long UnsetLengthLimit;
+    internal Stream _innerStream;
+    private CRC32 _Crc32;
+    private long _lengthLimit;
+    private bool _leaveOpen;
+    public long TotalBytesSlurped { get; }
+    public int Crc { get; }
+    public bool LeaveOpen { get; public set; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public CrcCalculatorStream(Stream stream);
+    public CrcCalculatorStream(Stream stream, bool leaveOpen);
+    public CrcCalculatorStream(Stream stream, long length);
+    public CrcCalculatorStream(Stream stream, long length, bool leaveOpen);
+    public CrcCalculatorStream(Stream stream, long length, bool leaveOpen, CRC32 crc32);
+    private CrcCalculatorStream(bool leaveOpen, long length, Stream stream, CRC32 crc32);
+    private static CrcCalculatorStream();
+    public long get_TotalBytesSlurped();
+    public int get_Crc();
+    public bool get_LeaveOpen();
+    public void set_LeaveOpen(bool value);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    private sealed virtual override void System.IDisposable.Dispose();
+    public virtual void Close();
+}
+internal class Ionic.EnumUtil : object {
+    internal static string GetDescription(Enum value);
+    internal static object Parse(Type enumType, string stringRepresentation);
+    internal static object Parse(Type enumType, string stringRepresentation, bool ignoreCase);
+}
+public class Ionic.FileSelector : object {
+    internal SelectionCriterion _Criterion;
+    [CompilerGeneratedAttribute]
+private bool <TraverseReparsePoints>k__BackingField;
+    public string SelectionCriteria { get; public set; }
+    public bool TraverseReparsePoints { get; public set; }
+    public FileSelector(string selectionCriteria);
+    public FileSelector(string selectionCriteria, bool traverseDirectoryReparsePoints);
+    public string get_SelectionCriteria();
+    public void set_SelectionCriteria(string value);
+    [CompilerGeneratedAttribute]
+public bool get_TraverseReparsePoints();
+    [CompilerGeneratedAttribute]
+public void set_TraverseReparsePoints(bool value);
+    private static string NormalizeCriteriaExpression(string source);
+    private static SelectionCriterion _ParseCriterion(string s);
+    public virtual string ToString();
+    private bool Evaluate(string filename);
+    [ConditionalAttribute("SelectorTrace")]
+private void SelectorTrace(string format, Object[] args);
+    public ICollection`1<string> SelectFiles(string directory);
+    public ReadOnlyCollection`1<string> SelectFiles(string directory, bool recurseDirectories);
+    private bool Evaluate(ZipEntry entry);
+    public ICollection`1<ZipEntry> SelectEntries(ZipFile zip);
+    public ICollection`1<ZipEntry> SelectEntries(ZipFile zip, string directoryPathInArchive);
+}
+internal enum Ionic.LogicalConjunction : Enum {
+    public int value__;
+    public static LogicalConjunction NONE;
+    public static LogicalConjunction AND;
+    public static LogicalConjunction OR;
+    public static LogicalConjunction XOR;
+}
+internal class Ionic.NameCriterion : SelectionCriterion {
+    private Regex _re;
+    private string _regexString;
+    internal ComparisonOperator Operator;
+    private string _MatchingFileSpec;
+    unknown string MatchingFileSpec {internal set; }
+    internal virtual void set_MatchingFileSpec(string value);
+    public virtual string ToString();
+    internal virtual bool Evaluate(string filename);
+    private bool _Evaluate(string fullpath);
+    internal virtual bool Evaluate(ZipEntry entry);
+}
+internal abstract class Ionic.SelectionCriterion : object {
+    [CompilerGeneratedAttribute]
+private bool <Verbose>k__BackingField;
+    internal bool Verbose { get; internal set; }
+    [CompilerGeneratedAttribute]
+internal virtual bool get_Verbose();
+    [CompilerGeneratedAttribute]
+internal virtual void set_Verbose(bool value);
+    internal abstract virtual bool Evaluate(string filename);
+    [ConditionalAttribute("SelectorTrace")]
+protected static void CriterionTrace(string format, Object[] args);
+    internal abstract virtual bool Evaluate(ZipEntry entry);
+}
+internal class Ionic.SizeCriterion : SelectionCriterion {
+    internal ComparisonOperator Operator;
+    internal long Size;
+    public virtual string ToString();
+    internal virtual bool Evaluate(string filename);
+    private bool _Evaluate(long Length);
+    internal virtual bool Evaluate(ZipEntry entry);
+}
+internal class Ionic.TimeCriterion : SelectionCriterion {
+    internal ComparisonOperator Operator;
+    internal WhichTime Which;
+    internal DateTime Time;
+    public virtual string ToString();
+    internal virtual bool Evaluate(string filename);
+    private bool _Evaluate(DateTime x);
+    internal virtual bool Evaluate(ZipEntry entry);
+}
+internal class Ionic.TypeCriterion : SelectionCriterion {
+    private char ObjectType;
+    internal ComparisonOperator Operator;
+    internal string AttributeString { get; internal set; }
+    internal string get_AttributeString();
+    internal void set_AttributeString(string value);
+    public virtual string ToString();
+    internal virtual bool Evaluate(string filename);
+    internal virtual bool Evaluate(ZipEntry entry);
+}
+internal enum Ionic.WhichTime : Enum {
+    public int value__;
+    public static WhichTime atime;
+    public static WhichTime mtime;
+    public static WhichTime ctime;
+}
+internal enum Ionic.Zip.AddOrUpdateAction : Enum {
+    public int value__;
+    public static AddOrUpdateAction AddOnly;
+    public static AddOrUpdateAction AddOrUpdate;
+}
+public class Ionic.Zip.AddProgressEventArgs : ZipProgressEventArgs {
+    private AddProgressEventArgs(string archiveName, ZipProgressEventType flavor);
+    internal static AddProgressEventArgs AfterEntry(string archiveName, ZipEntry entry, int entriesTotal);
+    internal static AddProgressEventArgs Started(string archiveName);
+    internal static AddProgressEventArgs Completed(string archiveName);
+}
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d00009")]
+public class Ionic.Zip.BadCrcException : ZipException {
+    public BadCrcException(string message);
+    protected BadCrcException(SerializationInfo info, StreamingContext context);
+}
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d0000B")]
+public class Ionic.Zip.BadPasswordException : ZipException {
+    public BadPasswordException(string message);
+    public BadPasswordException(string message, Exception innerException);
+    protected BadPasswordException(SerializationInfo info, StreamingContext context);
+}
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d0000A")]
+public class Ionic.Zip.BadReadException : ZipException {
+    public BadReadException(string message);
+    public BadReadException(string message, Exception innerException);
+    protected BadReadException(SerializationInfo info, StreamingContext context);
+}
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d00007")]
+public class Ionic.Zip.BadStateException : ZipException {
+    public BadStateException(string message);
+    public BadStateException(string message, Exception innerException);
+    protected BadStateException(SerializationInfo info, StreamingContext context);
+}
+public class Ionic.Zip.CloseDelegate : MulticastDelegate {
+    public CloseDelegate(object object, IntPtr method);
+    public virtual void Invoke(string entryName, Stream stream);
+    public virtual IAsyncResult BeginInvoke(string entryName, Stream stream, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+[ClassInterfaceAttribute("1")]
+[ComVisibleAttribute("True")]
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d0000F")]
+public class Ionic.Zip.ComHelper : object {
+    public bool IsZipFile(string filename);
+    public bool IsZipFileWithExtract(string filename);
+    public bool CheckZip(string filename);
+    public bool CheckZipPassword(string filename, string password);
+    public void FixZipDirectory(string filename);
+    public string GetZipLibraryVersion();
+}
+public enum Ionic.Zip.CompressionMethod : Enum {
+    public int value__;
+    public static CompressionMethod None;
+    public static CompressionMethod Deflate;
+    public static CompressionMethod BZip2;
+}
+public class Ionic.Zip.CountingStream : Stream {
+    private Stream _s;
+    private long _bytesWritten;
+    private long _bytesRead;
+    private long _initialOffset;
+    public Stream WrappedStream { get; }
+    public long BytesWritten { get; }
+    public long BytesRead { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long ComputedPosition { get; }
+    public long Position { get; public set; }
+    public CountingStream(Stream stream);
+    public Stream get_WrappedStream();
+    public long get_BytesWritten();
+    public long get_BytesRead();
+    public void Adjust(long delta);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public long get_ComputedPosition();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+}
+internal enum Ionic.Zip.CryptoMode : Enum {
+    public int value__;
+    public static CryptoMode Encrypt;
+    public static CryptoMode Decrypt;
+}
+public enum Ionic.Zip.EncryptionAlgorithm : Enum {
+    public int value__;
+    public static EncryptionAlgorithm None;
+    public static EncryptionAlgorithm PkzipWeak;
+    public static EncryptionAlgorithm WinZipAes128;
+    public static EncryptionAlgorithm WinZipAes256;
+    public static EncryptionAlgorithm Unsupported;
+}
+public enum Ionic.Zip.ExtractExistingFileAction : Enum {
+    public int value__;
+    public static ExtractExistingFileAction Throw;
+    public static ExtractExistingFileAction OverwriteSilently;
+    public static ExtractExistingFileAction DoNotOverwrite;
+    public static ExtractExistingFileAction InvokeExtractProgressEvent;
+}
+public class Ionic.Zip.ExtractProgressEventArgs : ZipProgressEventArgs {
+    private int _entriesExtracted;
+    private string _target;
+    public int EntriesExtracted { get; }
+    public string ExtractLocation { get; }
+    internal ExtractProgressEventArgs(string archiveName, bool before, int entriesTotal, int entriesExtracted, ZipEntry entry, string extractLocation);
+    internal ExtractProgressEventArgs(string archiveName, ZipProgressEventType flavor);
+    internal static ExtractProgressEventArgs BeforeExtractEntry(string archiveName, ZipEntry entry, string extractLocation);
+    internal static ExtractProgressEventArgs ExtractExisting(string archiveName, ZipEntry entry, string extractLocation);
+    internal static ExtractProgressEventArgs AfterExtractEntry(string archiveName, ZipEntry entry, string extractLocation);
+    internal static ExtractProgressEventArgs ExtractAllStarted(string archiveName, string extractLocation);
+    internal static ExtractProgressEventArgs ExtractAllCompleted(string archiveName, string extractLocation);
+    internal static ExtractProgressEventArgs ByteUpdate(string archiveName, ZipEntry entry, long bytesWritten, long totalBytes);
+    public int get_EntriesExtracted();
+    public string get_ExtractLocation();
+}
+internal class Ionic.Zip.OffsetStream : Stream {
+    private long _originalPosition;
+    private Stream _innerStream;
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public OffsetStream(Stream s);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    private sealed virtual override void System.IDisposable.Dispose();
+    public virtual void Close();
+}
+public class Ionic.Zip.OpenDelegate : MulticastDelegate {
+    public OpenDelegate(object object, IntPtr method);
+    public virtual Stream Invoke(string entryName);
+    public virtual IAsyncResult BeginInvoke(string entryName, AsyncCallback callback, object object);
+    public virtual Stream EndInvoke(IAsyncResult result);
+}
+public class Ionic.Zip.ReadOptions : object {
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ReadProgressEventArgs> <ReadProgress>k__BackingField;
+    [CompilerGeneratedAttribute]
+private TextWriter <StatusMessageWriter>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Encoding <Encoding>k__BackingField;
+    public EventHandler`1<ReadProgressEventArgs> ReadProgress { get; public set; }
+    public TextWriter StatusMessageWriter { get; public set; }
+    public Encoding Encoding { get; public set; }
+    [CompilerGeneratedAttribute]
+public EventHandler`1<ReadProgressEventArgs> get_ReadProgress();
+    [CompilerGeneratedAttribute]
+public void set_ReadProgress(EventHandler`1<ReadProgressEventArgs> value);
+    [CompilerGeneratedAttribute]
+public TextWriter get_StatusMessageWriter();
+    [CompilerGeneratedAttribute]
+public void set_StatusMessageWriter(TextWriter value);
+    [CompilerGeneratedAttribute]
+public Encoding get_Encoding();
+    [CompilerGeneratedAttribute]
+public void set_Encoding(Encoding value);
+}
+public class Ionic.Zip.ReadProgressEventArgs : ZipProgressEventArgs {
+    private ReadProgressEventArgs(string archiveName, ZipProgressEventType flavor);
+    internal static ReadProgressEventArgs Before(string archiveName, int entriesTotal);
+    internal static ReadProgressEventArgs After(string archiveName, ZipEntry entry, int entriesTotal);
+    internal static ReadProgressEventArgs Started(string archiveName);
+    internal static ReadProgressEventArgs ByteUpdate(string archiveName, ZipEntry entry, long bytesXferred, long totalBytes);
+    internal static ReadProgressEventArgs Completed(string archiveName);
+}
+public class Ionic.Zip.SaveProgressEventArgs : ZipProgressEventArgs {
+    private int _entriesSaved;
+    public int EntriesSaved { get; }
+    internal SaveProgressEventArgs(string archiveName, bool before, int entriesTotal, int entriesSaved, ZipEntry entry);
+    internal SaveProgressEventArgs(string archiveName, ZipProgressEventType flavor);
+    internal static SaveProgressEventArgs ByteUpdate(string archiveName, ZipEntry entry, long bytesXferred, long totalBytes);
+    internal static SaveProgressEventArgs Started(string archiveName);
+    internal static SaveProgressEventArgs Completed(string archiveName);
+    public int get_EntriesSaved();
+}
+public enum Ionic.Zip.SelfExtractorFlavor : Enum {
+    public int value__;
+    public static SelfExtractorFlavor ConsoleApplication;
+    public static SelfExtractorFlavor WinFormsApplication;
+}
+public class Ionic.Zip.SelfExtractorSaveOptions : object {
+    [CompilerGeneratedAttribute]
+private SelfExtractorFlavor <Flavor>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <PostExtractCommandLine>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <DefaultExtractDirectory>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <IconFile>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <Quiet>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ExtractExistingFileAction <ExtractExistingFile>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <RemoveUnpackedFilesAfterExecute>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Version <FileVersion>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <ProductVersion>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Copyright>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Description>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <ProductName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <SfxExeWindowTitle>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <AdditionalCompilerSwitches>k__BackingField;
+    public SelfExtractorFlavor Flavor { get; public set; }
+    public string PostExtractCommandLine { get; public set; }
+    public string DefaultExtractDirectory { get; public set; }
+    public string IconFile { get; public set; }
+    public bool Quiet { get; public set; }
+    public ExtractExistingFileAction ExtractExistingFile { get; public set; }
+    public bool RemoveUnpackedFilesAfterExecute { get; public set; }
+    public Version FileVersion { get; public set; }
+    public string ProductVersion { get; public set; }
+    public string Copyright { get; public set; }
+    public string Description { get; public set; }
+    public string ProductName { get; public set; }
+    public string SfxExeWindowTitle { get; public set; }
+    public string AdditionalCompilerSwitches { get; public set; }
+    [CompilerGeneratedAttribute]
+public SelfExtractorFlavor get_Flavor();
+    [CompilerGeneratedAttribute]
+public void set_Flavor(SelfExtractorFlavor value);
+    [CompilerGeneratedAttribute]
+public string get_PostExtractCommandLine();
+    [CompilerGeneratedAttribute]
+public void set_PostExtractCommandLine(string value);
+    [CompilerGeneratedAttribute]
+public string get_DefaultExtractDirectory();
+    [CompilerGeneratedAttribute]
+public void set_DefaultExtractDirectory(string value);
+    [CompilerGeneratedAttribute]
+public string get_IconFile();
+    [CompilerGeneratedAttribute]
+public void set_IconFile(string value);
+    [CompilerGeneratedAttribute]
+public bool get_Quiet();
+    [CompilerGeneratedAttribute]
+public void set_Quiet(bool value);
+    [CompilerGeneratedAttribute]
+public ExtractExistingFileAction get_ExtractExistingFile();
+    [CompilerGeneratedAttribute]
+public void set_ExtractExistingFile(ExtractExistingFileAction value);
+    [CompilerGeneratedAttribute]
+public bool get_RemoveUnpackedFilesAfterExecute();
+    [CompilerGeneratedAttribute]
+public void set_RemoveUnpackedFilesAfterExecute(bool value);
+    [CompilerGeneratedAttribute]
+public Version get_FileVersion();
+    [CompilerGeneratedAttribute]
+public void set_FileVersion(Version value);
+    [CompilerGeneratedAttribute]
+public string get_ProductVersion();
+    [CompilerGeneratedAttribute]
+public void set_ProductVersion(string value);
+    [CompilerGeneratedAttribute]
+public string get_Copyright();
+    [CompilerGeneratedAttribute]
+public void set_Copyright(string value);
+    [CompilerGeneratedAttribute]
+public string get_Description();
+    [CompilerGeneratedAttribute]
+public void set_Description(string value);
+    [CompilerGeneratedAttribute]
+public string get_ProductName();
+    [CompilerGeneratedAttribute]
+public void set_ProductName(string value);
+    [CompilerGeneratedAttribute]
+public string get_SfxExeWindowTitle();
+    [CompilerGeneratedAttribute]
+public void set_SfxExeWindowTitle(string value);
+    [CompilerGeneratedAttribute]
+public string get_AdditionalCompilerSwitches();
+    [CompilerGeneratedAttribute]
+public void set_AdditionalCompilerSwitches(string value);
+}
+public class Ionic.Zip.SetCompressionCallback : MulticastDelegate {
+    public SetCompressionCallback(object object, IntPtr method);
+    public virtual CompressionLevel Invoke(string localFileName, string fileNameInArchive);
+    public virtual IAsyncResult BeginInvoke(string localFileName, string fileNameInArchive, AsyncCallback callback, object object);
+    public virtual CompressionLevel EndInvoke(IAsyncResult result);
+}
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d00008")]
+public class Ionic.Zip.SfxGenerationException : ZipException {
+    public SfxGenerationException(string message);
+    protected SfxGenerationException(SerializationInfo info, StreamingContext context);
+}
+internal static class Ionic.Zip.SharedUtilities : object {
+    private static Regex doubleDotRegex1;
+    private static Encoding ibm437;
+    private static Encoding utf8;
+    private static SharedUtilities();
+    public static long GetFileLength(string fileName);
+    [ConditionalAttribute("NETCF")]
+public static void Workaround_Ladybug318918(Stream s);
+    private static string SimplifyFwdSlashPath(string path);
+    public static string NormalizePathForUseInZipFile(string pathName);
+    internal static Byte[] StringToByteArray(string value, Encoding encoding);
+    internal static Byte[] StringToByteArray(string value);
+    internal static string Utf8StringFromBuffer(Byte[] buf);
+    internal static string StringFromBuffer(Byte[] buf, Encoding encoding);
+    internal static int ReadSignature(Stream s);
+    internal static int ReadEntrySignature(Stream s);
+    internal static int ReadInt(Stream s);
+    private static int _ReadFourBytes(Stream s, string message);
+    internal static long FindSignature(Stream stream, int SignatureToFind);
+    internal static DateTime AdjustTime_Reverse(DateTime time);
+    internal static DateTime PackedToDateTime(int packedDateTime);
+    internal static int DateTimeToPacked(DateTime time);
+    public static void CreateAndOpenUniqueTempFile(string dir, Stream& fs, String& filename);
+    public static string InternalGetTempFileName();
+    internal static int ReadWithRetry(Stream s, Byte[] buffer, int offset, int count, string FileName);
+    private static UInt32 _HRForException(Exception ex1);
+}
+internal class Ionic.Zip.WinZipAesCipherStream : Stream {
+    private static int BLOCK_SIZE_IN_BYTES;
+    private WinZipAesCrypto _params;
+    private Stream _s;
+    private CryptoMode _mode;
+    private int _nonce;
+    private bool _finalBlock;
+    internal HMACSHA1 _mac;
+    internal RijndaelManaged _aesCipher;
+    internal ICryptoTransform _xform;
+    private Byte[] counter;
+    private Byte[] counterOut;
+    private long _length;
+    private long _totalBytesXferred;
+    private Byte[] _PendingWriteBlock;
+    private int _pendingCount;
+    private Byte[] _iobuf;
+    private object _outputLock;
+    public Byte[] FinalAuthentication { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    internal WinZipAesCipherStream(Stream s, WinZipAesCrypto cryptoParams, long length, CryptoMode mode);
+    internal WinZipAesCipherStream(Stream s, WinZipAesCrypto cryptoParams, CryptoMode mode);
+    private void XorInPlace(Byte[] buffer, int offset, int count);
+    private void WriteTransformOneBlock(Byte[] buffer, int offset);
+    private void WriteTransformBlocks(Byte[] buffer, int offset, int count);
+    private void WriteTransformFinalBlock();
+    private int ReadTransformOneBlock(Byte[] buffer, int offset, int last);
+    private void ReadTransformBlocks(Byte[] buffer, int offset, int count);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public Byte[] get_FinalAuthentication();
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public virtual void Close();
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    [ConditionalAttribute("Trace")]
+private void TraceOutput(string format, Object[] varParams);
+}
+internal class Ionic.Zip.WinZipAesCrypto : object {
+    internal Byte[] _Salt;
+    internal Byte[] _providedPv;
+    internal Byte[] _generatedPv;
+    internal int _KeyStrengthInBits;
+    private Byte[] _MacInitializationVector;
+    private Byte[] _StoredMac;
+    private Byte[] _keyBytes;
+    private short PasswordVerificationStored;
+    private short PasswordVerificationGenerated;
+    private int Rfc2898KeygenIterations;
+    private string _Password;
+    private bool _cryptoGenerated;
+    public Byte[] CalculatedMac;
+    public Byte[] GeneratedPV { get; }
+    public Byte[] Salt { get; }
+    private int _KeyStrengthInBytes { get; }
+    public int SizeOfEncryptionMetadata { get; }
+    private string Password { get; public set; }
+    public Byte[] KeyBytes { get; }
+    public Byte[] MacIv { get; }
+    private WinZipAesCrypto(string password, int KeyStrengthInBits);
+    public static WinZipAesCrypto Generate(string password, int KeyStrengthInBits);
+    public static WinZipAesCrypto ReadFromStream(string password, int KeyStrengthInBits, Stream s);
+    public Byte[] get_GeneratedPV();
+    public Byte[] get_Salt();
+    private int get__KeyStrengthInBytes();
+    public int get_SizeOfEncryptionMetadata();
+    public void set_Password(string value);
+    private string get_Password();
+    private void _GenerateCryptoBytes();
+    public Byte[] get_KeyBytes();
+    public Byte[] get_MacIv();
+    public void ReadAndVerifyMac(Stream s);
+}
+public class Ionic.Zip.WriteDelegate : MulticastDelegate {
+    public WriteDelegate(object object, IntPtr method);
+    public virtual void Invoke(string entryName, Stream stream);
+    public virtual IAsyncResult BeginInvoke(string entryName, Stream stream, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public enum Ionic.Zip.Zip64Option : Enum {
+    public int value__;
+    public static Zip64Option Default;
+    public static Zip64Option Never;
+    public static Zip64Option AsNecessary;
+    public static Zip64Option Always;
+}
+internal class Ionic.Zip.ZipCipherStream : Stream {
+    private ZipCrypto _cipher;
+    private Stream _s;
+    private CryptoMode _mode;
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public ZipCipherStream(Stream s, ZipCrypto cipher, CryptoMode mode);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+}
+internal static class Ionic.Zip.ZipConstants : object {
+    public static UInt32 PackedToRemovableMedia;
+    public static UInt32 Zip64EndOfCentralDirectoryRecordSignature;
+    public static UInt32 Zip64EndOfCentralDirectoryLocatorSignature;
+    public static UInt32 EndOfCentralDirectorySignature;
+    public static int ZipEntrySignature;
+    public static int ZipEntryDataDescriptorSignature;
+    public static int SplitArchiveSignature;
+    public static int ZipDirEntrySignature;
+    public static int AesKeySize;
+    public static int AesBlockSize;
+    public static ushort AesAlgId128;
+    public static ushort AesAlgId192;
+    public static ushort AesAlgId256;
+}
+internal class Ionic.Zip.ZipContainer : object {
+    private ZipFile _zf;
+    private ZipOutputStream _zos;
+    private ZipInputStream _zis;
+    public ZipFile ZipFile { get; }
+    public ZipOutputStream ZipOutputStream { get; }
+    public string Name { get; }
+    public string Password { get; }
+    public Zip64Option Zip64 { get; }
+    public int BufferSize { get; }
+    public ParallelDeflateOutputStream ParallelDeflater { get; public set; }
+    public long ParallelDeflateThreshold { get; }
+    public int ParallelDeflateMaxBufferPairs { get; }
+    public int CodecBufferSize { get; }
+    public CompressionStrategy Strategy { get; }
+    public Zip64Option UseZip64WhenSaving { get; }
+    public Encoding AlternateEncoding { get; }
+    public Encoding DefaultEncoding { get; }
+    public ZipOption AlternateEncodingUsage { get; }
+    public Stream ReadStream { get; }
+    public ZipContainer(object o);
+    public ZipFile get_ZipFile();
+    public ZipOutputStream get_ZipOutputStream();
+    public string get_Name();
+    public string get_Password();
+    public Zip64Option get_Zip64();
+    public int get_BufferSize();
+    public ParallelDeflateOutputStream get_ParallelDeflater();
+    public void set_ParallelDeflater(ParallelDeflateOutputStream value);
+    public long get_ParallelDeflateThreshold();
+    public int get_ParallelDeflateMaxBufferPairs();
+    public int get_CodecBufferSize();
+    public CompressionStrategy get_Strategy();
+    public Zip64Option get_UseZip64WhenSaving();
+    public Encoding get_AlternateEncoding();
+    public Encoding get_DefaultEncoding();
+    public ZipOption get_AlternateEncodingUsage();
+    public Stream get_ReadStream();
+}
+internal class Ionic.Zip.ZipCrypto : object {
+    private UInt32[] _Keys;
+    private CRC32 crc32;
+    private byte MagicByte { get; }
+    public static ZipCrypto ForWrite(string password);
+    public static ZipCrypto ForRead(string password, ZipEntry e);
+    private byte get_MagicByte();
+    public Byte[] DecryptMessage(Byte[] cipherText, int length);
+    public Byte[] EncryptMessage(Byte[] plainText, int length);
+    public void InitCipher(string passphrase);
+    private void UpdateKeys(byte byteValue);
+}
+[ClassInterfaceAttribute("1")]
+[ComVisibleAttribute("True")]
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d00004")]
+public class Ionic.Zip.ZipEntry : object {
+    private short _VersionMadeBy;
+    private short _InternalFileAttrs;
+    private int _ExternalFileAttrs;
+    private short _filenameLength;
+    private short _extraFieldLength;
+    private short _commentLength;
+    private ZipCrypto _zipCrypto_forExtract;
+    private ZipCrypto _zipCrypto_forWrite;
+    private WinZipAesCrypto _aesCrypto_forExtract;
+    private WinZipAesCrypto _aesCrypto_forWrite;
+    private short _WinZipAesMethod;
+    internal DateTime _LastModified;
+    private DateTime _Mtime;
+    private DateTime _Atime;
+    private DateTime _Ctime;
+    private bool _ntfsTimesAreSet;
+    private bool _emitNtfsTimes;
+    private bool _emitUnixTimes;
+    private bool _TrimVolumeFromFullyQualifiedPaths;
+    internal string _LocalFileName;
+    private string _FileNameInArchive;
+    internal short _VersionNeeded;
+    internal short _BitField;
+    internal short _CompressionMethod;
+    private short _CompressionMethod_FromZipFile;
+    private CompressionLevel _CompressionLevel;
+    internal string _Comment;
+    private bool _IsDirectory;
+    private Byte[] _CommentBytes;
+    internal long _CompressedSize;
+    internal long _CompressedFileDataSize;
+    internal long _UncompressedSize;
+    internal int _TimeBlob;
+    private bool _crcCalculated;
+    internal int _Crc32;
+    internal Byte[] _Extra;
+    private bool _metadataChanged;
+    private bool _restreamRequiredOnSave;
+    private bool _sourceIsEncrypted;
+    private bool _skippedDuringSave;
+    private UInt32 _diskNumber;
+    private static Encoding ibm437;
+    private Encoding _actualEncoding;
+    internal ZipContainer _container;
+    private long __FileDataPosition;
+    private Byte[] _EntryHeader;
+    internal long _RelativeOffsetOfLocalHeader;
+    private long _future_ROLH;
+    private long _TotalEntrySize;
+    private int _LengthOfHeader;
+    private int _LengthOfTrailer;
+    internal bool _InputUsesZip64;
+    private UInt32 _UnsupportedAlgorithmId;
+    internal string _Password;
+    internal ZipEntrySource _Source;
+    internal EncryptionAlgorithm _Encryption;
+    internal EncryptionAlgorithm _Encryption_FromZipFile;
+    internal Byte[] _WeakEncryptionHeader;
+    internal Stream _archiveStream;
+    private Stream _sourceStream;
+    private Nullable`1<long> _sourceStreamOriginalPosition;
+    private bool _sourceWasJitProvided;
+    private bool _ioOperationCanceled;
+    private bool _presumeZip64;
+    private Nullable`1<bool> _entryRequiresZip64;
+    private Nullable`1<bool> _OutputUsesZip64;
+    private bool _IsText;
+    private ZipEntryTimestamp _timestamp;
+    private static DateTime _unixEpoch;
+    private static DateTime _win32Epoch;
+    private static DateTime _zeroHour;
+    private WriteDelegate _WriteDelegate;
+    private OpenDelegate _OpenDelegate;
+    private CloseDelegate _CloseDelegate;
+    private Stream _inputDecryptorStream;
+    private int _readExtraDepth;
+    private object _outputLock;
+    [CompilerGeneratedAttribute]
+private ExtractExistingFileAction <ExtractExistingFile>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ZipErrorAction <ZipErrorAction>k__BackingField;
+    [CompilerGeneratedAttribute]
+private SetCompressionCallback <SetCompression>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Encoding <ProvisionalAlternateEncoding>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Encoding <AlternateEncoding>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ZipOption <AlternateEncodingUsage>k__BackingField;
+    internal bool AttributesIndicateDirectory { get; }
+    public string Info { get; }
+    public DateTime LastModified { get; public set; }
+    private int BufferSize { get; }
+    public DateTime ModifiedTime { get; public set; }
+    public DateTime AccessedTime { get; public set; }
+    public DateTime CreationTime { get; public set; }
+    public bool EmitTimesInWindowsFormatWhenSaving { get; public set; }
+    public bool EmitTimesInUnixFormatWhenSaving { get; public set; }
+    public ZipEntryTimestamp Timestamp { get; }
+    public FileAttributes Attributes { get; public set; }
+    internal string LocalFileName { get; }
+    public string FileName { get; public set; }
+    public Stream InputStream { get; public set; }
+    public bool InputStreamWasJitProvided { get; }
+    public ZipEntrySource Source { get; }
+    public short VersionNeeded { get; }
+    public string Comment { get; public set; }
+    public Nullable`1<bool> RequiresZip64 { get; }
+    public Nullable`1<bool> OutputUsedZip64 { get; }
+    public short BitField { get; }
+    public CompressionMethod CompressionMethod { get; public set; }
+    public CompressionLevel CompressionLevel { get; public set; }
+    public long CompressedSize { get; }
+    public long UncompressedSize { get; }
+    public double CompressionRatio { get; }
+    public int Crc { get; }
+    public bool IsDirectory { get; }
+    public bool UsesEncryption { get; }
+    public EncryptionAlgorithm Encryption { get; public set; }
+    private string Password { get; public set; }
+    internal bool IsChanged { get; }
+    public ExtractExistingFileAction ExtractExistingFile { get; public set; }
+    public ZipErrorAction ZipErrorAction { get; public set; }
+    public bool IncludedInMostRecentSave { get; }
+    public SetCompressionCallback SetCompression { get; public set; }
+    [ObsoleteAttribute("Beginning with v1.9.1.6 of DotNetZip, this property is obsolete.  It will be removed in a future version of the library. Your applications should  use AlternateEncoding and AlternateEncodingUsage instead.")]
+public bool UseUnicodeAsNecessary { get; public set; }
+    [ObsoleteAttribute("This property is obsolete since v1.9.1.6. Use AlternateEncoding and AlternateEncodingUsage instead.", "True")]
+public Encoding ProvisionalAlternateEncoding { get; public set; }
+    public Encoding AlternateEncoding { get; public set; }
+    public ZipOption AlternateEncodingUsage { get; public set; }
+    public bool IsText { get; public set; }
+    internal Stream ArchiveStream { get; }
+    internal long FileDataPosition { get; }
+    private int LengthOfHeader { get; }
+    private string UnsupportedAlgorithm { get; }
+    private string UnsupportedCompressionMethod { get; }
+    private static ZipEntry();
+    internal bool get_AttributesIndicateDirectory();
+    internal void ResetDirEntry();
+    public string get_Info();
+    internal static ZipEntry ReadDirEntry(ZipFile zf, Dictionary`2<string, object> previouslySeen);
+    internal static bool IsNotValidZipDirEntrySig(int signature);
+    public DateTime get_LastModified();
+    public void set_LastModified(DateTime value);
+    private int get_BufferSize();
+    public DateTime get_ModifiedTime();
+    public void set_ModifiedTime(DateTime value);
+    public DateTime get_AccessedTime();
+    public void set_AccessedTime(DateTime value);
+    public DateTime get_CreationTime();
+    public void set_CreationTime(DateTime value);
+    public void SetEntryTimes(DateTime created, DateTime accessed, DateTime modified);
+    public bool get_EmitTimesInWindowsFormatWhenSaving();
+    public void set_EmitTimesInWindowsFormatWhenSaving(bool value);
+    public bool get_EmitTimesInUnixFormatWhenSaving();
+    public void set_EmitTimesInUnixFormatWhenSaving(bool value);
+    public ZipEntryTimestamp get_Timestamp();
+    public FileAttributes get_Attributes();
+    public void set_Attributes(FileAttributes value);
+    internal string get_LocalFileName();
+    public string get_FileName();
+    public void set_FileName(string value);
+    public Stream get_InputStream();
+    public void set_InputStream(Stream value);
+    public bool get_InputStreamWasJitProvided();
+    public ZipEntrySource get_Source();
+    public short get_VersionNeeded();
+    public string get_Comment();
+    public void set_Comment(string value);
+    public Nullable`1<bool> get_RequiresZip64();
+    public Nullable`1<bool> get_OutputUsedZip64();
+    public short get_BitField();
+    public CompressionMethod get_CompressionMethod();
+    public void set_CompressionMethod(CompressionMethod value);
+    public CompressionLevel get_CompressionLevel();
+    public void set_CompressionLevel(CompressionLevel value);
+    public long get_CompressedSize();
+    public long get_UncompressedSize();
+    public double get_CompressionRatio();
+    public int get_Crc();
+    public bool get_IsDirectory();
+    public bool get_UsesEncryption();
+    public EncryptionAlgorithm get_Encryption();
+    public void set_Encryption(EncryptionAlgorithm value);
+    public void set_Password(string value);
+    private string get_Password();
+    internal bool get_IsChanged();
+    [CompilerGeneratedAttribute]
+public ExtractExistingFileAction get_ExtractExistingFile();
+    [CompilerGeneratedAttribute]
+public void set_ExtractExistingFile(ExtractExistingFileAction value);
+    [CompilerGeneratedAttribute]
+public ZipErrorAction get_ZipErrorAction();
+    [CompilerGeneratedAttribute]
+public void set_ZipErrorAction(ZipErrorAction value);
+    public bool get_IncludedInMostRecentSave();
+    [CompilerGeneratedAttribute]
+public SetCompressionCallback get_SetCompression();
+    [CompilerGeneratedAttribute]
+public void set_SetCompression(SetCompressionCallback value);
+    public bool get_UseUnicodeAsNecessary();
+    public void set_UseUnicodeAsNecessary(bool value);
+    [CompilerGeneratedAttribute]
+public Encoding get_ProvisionalAlternateEncoding();
+    [CompilerGeneratedAttribute]
+public void set_ProvisionalAlternateEncoding(Encoding value);
+    [CompilerGeneratedAttribute]
+public Encoding get_AlternateEncoding();
+    [CompilerGeneratedAttribute]
+public void set_AlternateEncoding(Encoding value);
+    [CompilerGeneratedAttribute]
+public ZipOption get_AlternateEncodingUsage();
+    [CompilerGeneratedAttribute]
+public void set_AlternateEncodingUsage(ZipOption value);
+    internal static string NameInArchive(string filename, string directoryPathInArchive);
+    internal static ZipEntry CreateFromNothing(string nameInArchive);
+    internal static ZipEntry CreateFromFile(string filename, string nameInArchive);
+    internal static ZipEntry CreateForStream(string entryName, Stream s);
+    internal static ZipEntry CreateForWriter(string entryName, WriteDelegate d);
+    internal static ZipEntry CreateForJitStreamProvider(string nameInArchive, OpenDelegate opener, CloseDelegate closer);
+    internal static ZipEntry CreateForZipOutputStream(string nameInArchive);
+    private static ZipEntry Create(string nameInArchive, ZipEntrySource source, object arg1, object arg2);
+    internal void MarkAsDirectory();
+    public bool get_IsText();
+    public void set_IsText(bool value);
+    public virtual string ToString();
+    internal Stream get_ArchiveStream();
+    private void SetFdpLoh();
+    private static int GetKeyStrengthInBits(EncryptionAlgorithm a);
+    internal static int GetLengthOfCryptoHeaderBytes(EncryptionAlgorithm a);
+    internal long get_FileDataPosition();
+    private int get_LengthOfHeader();
+    public void Extract();
+    public void Extract(ExtractExistingFileAction extractExistingFile);
+    public void Extract(Stream stream);
+    public void Extract(string baseDirectory);
+    public void Extract(string baseDirectory, ExtractExistingFileAction extractExistingFile);
+    public void ExtractWithPassword(string password);
+    public void ExtractWithPassword(string baseDirectory, string password);
+    public void ExtractWithPassword(ExtractExistingFileAction extractExistingFile, string password);
+    public void ExtractWithPassword(string baseDirectory, ExtractExistingFileAction extractExistingFile, string password);
+    public void ExtractWithPassword(Stream stream, string password);
+    public CrcCalculatorStream OpenReader();
+    public CrcCalculatorStream OpenReader(string password);
+    internal CrcCalculatorStream InternalOpenReader(string password);
+    private void OnExtractProgress(long bytesWritten, long totalBytesToWrite);
+    private void OnBeforeExtract(string path);
+    private void OnAfterExtract(string path);
+    private void OnExtractExisting(string path);
+    private static void ReallyDelete(string fileName);
+    private void WriteStatus(string format, Object[] args);
+    private void InternalExtract(string baseDir, Stream outstream, string password);
+    internal void VerifyCrcAfterExtract(int actualCrc32);
+    private int CheckExtractExistingFile(string baseDir, string targetFileName);
+    private void _CheckRead(int nbytes);
+    private int ExtractOne(Stream output);
+    internal Stream GetExtractDecompressor(Stream input2);
+    internal Stream GetExtractDecryptor(Stream input);
+    internal void _SetTimes(string fileOrDirectory, bool isFile);
+    private string get_UnsupportedAlgorithm();
+    private string get_UnsupportedCompressionMethod();
+    internal void ValidateEncryption();
+    private void ValidateCompression();
+    private void SetupCryptoForExtract(string password);
+    private bool ValidateOutput(string basedir, Stream outstream, String& outFileName);
+    private void ReadExtraField();
+    private static bool ReadHeader(ZipEntry ze, Encoding defaultEncoding);
+    internal static int ReadWeakEncryptionHeader(Stream s, Byte[] buffer);
+    private static bool IsNotValidSig(int signature);
+    internal static ZipEntry ReadEntry(ZipContainer zc, bool first);
+    internal static void HandlePK00Prefix(Stream s);
+    private static void HandleUnexpectedDataDescriptor(ZipEntry entry);
+    internal static int FindExtraFieldSegment(Byte[] extra, int offx, ushort targetHeaderId);
+    internal int ProcessExtraField(Stream s, short extraFieldLength);
+    private int ProcessExtraFieldPkwareStrongEncryption(Byte[] Buffer, int j);
+    private int ProcessExtraFieldWinZipAes(Byte[] buffer, int j, short dataSize, long posn);
+    private int ProcessExtraFieldZip64(Byte[] buffer, int j, short dataSize, long posn);
+    private int ProcessExtraFieldInfoZipTimes(Byte[] buffer, int j, short dataSize, long posn);
+    private int ProcessExtraFieldUnixTimes(Byte[] buffer, int j, short dataSize, long posn);
+    private int ProcessExtraFieldWindowsTimes(Byte[] buffer, int j, short dataSize, long posn);
+    internal void WriteCentralDirectoryEntry(Stream s);
+    private Byte[] ConstructExtraField(bool forCentralDirectory);
+    private string NormalizeFileName();
+    private Byte[] GetEncodedFileNameBytes();
+    private bool WantReadAgain();
+    private void MaybeUnsetCompressionMethodForWriting(int cycle);
+    internal void WriteHeader(Stream s, int cycle);
+    private int FigureCrc32();
+    private void PrepSourceStream();
+    internal void CopyMetaData(ZipEntry source);
+    private void OnWriteBlock(long bytesXferred, long totalBytesToXfer);
+    private void _WriteEntryData(Stream s);
+    private long SetInputAndFigureFileLength(Stream& input);
+    internal void FinishOutputStream(Stream s, CountingStream entryCounter, Stream encryptor, Stream compressor, CrcCalculatorStream output);
+    internal void PostProcessOutput(Stream s);
+    private void SetZip64Flags();
+    internal void PrepOutputStream(Stream s, long streamLength, CountingStream& outputCounter, Stream& encryptor, Stream& compressor, CrcCalculatorStream& output);
+    private Stream MaybeApplyCompression(Stream s, long streamLength);
+    private Stream MaybeApplyEncryption(Stream s);
+    private void OnZipErrorWhileSaving(Exception e);
+    internal void Write(Stream s);
+    internal void StoreRelativeOffset();
+    internal void NotifySaveComplete();
+    internal void WriteSecurityMetadata(Stream outstream);
+    private void CopyThroughOneEntry(Stream outStream);
+    private void CopyThroughWithRecompute(Stream outstream);
+    private void CopyThroughWithNoChange(Stream outstream);
+    [ConditionalAttribute("Trace")]
+private void TraceWriteLine(string format, Object[] varParams);
+}
+public enum Ionic.Zip.ZipEntrySource : Enum {
+    public int value__;
+    public static ZipEntrySource None;
+    public static ZipEntrySource FileSystem;
+    public static ZipEntrySource Stream;
+    public static ZipEntrySource ZipFile;
+    public static ZipEntrySource WriteDelegate;
+    public static ZipEntrySource JitStream;
+    public static ZipEntrySource ZipOutputStream;
+}
+[FlagsAttribute]
+public enum Ionic.Zip.ZipEntryTimestamp : Enum {
+    public int value__;
+    public static ZipEntryTimestamp None;
+    public static ZipEntryTimestamp DOS;
+    public static ZipEntryTimestamp Windows;
+    public static ZipEntryTimestamp Unix;
+    public static ZipEntryTimestamp InfoZip1;
+}
+public enum Ionic.Zip.ZipErrorAction : Enum {
+    public int value__;
+    public static ZipErrorAction Throw;
+    public static ZipErrorAction Skip;
+    public static ZipErrorAction Retry;
+    public static ZipErrorAction InvokeErrorEvent;
+}
+public class Ionic.Zip.ZipErrorEventArgs : ZipProgressEventArgs {
+    private Exception _exc;
+    public Exception Exception { get; }
+    public string FileName { get; }
+    internal static ZipErrorEventArgs Saving(string archiveName, ZipEntry entry, Exception exception);
+    public Exception get_Exception();
+    public string get_FileName();
+}
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d00006")]
+public class Ionic.Zip.ZipException : Exception {
+    public ZipException(string message);
+    public ZipException(string message, Exception innerException);
+    protected ZipException(SerializationInfo info, StreamingContext context);
+}
+[ClassInterfaceAttribute("1")]
+[ComVisibleAttribute("True")]
+[DefaultMemberAttribute("Item")]
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d00005")]
+public class Ionic.Zip.ZipFile : object {
+    private TextWriter _StatusMessageTextWriter;
+    private bool _CaseSensitiveRetrieval;
+    private Stream _readstream;
+    private Stream _writestream;
+    private ushort _versionMadeBy;
+    private ushort _versionNeededToExtract;
+    private UInt32 _diskNumberWithCd;
+    private int _maxOutputSegmentSize;
+    private UInt32 _numberOfSegmentsForMostRecentSave;
+    private ZipErrorAction _zipErrorAction;
+    private bool _disposed;
+    private Dictionary`2<string, ZipEntry> _entries;
+    private List`1<ZipEntry> _zipEntriesAsList;
+    private string _name;
+    private string _readName;
+    private string _Comment;
+    internal string _Password;
+    private bool _emitNtfsTimes;
+    private bool _emitUnixTimes;
+    private CompressionStrategy _Strategy;
+    private CompressionMethod _compressionMethod;
+    private bool _fileAlreadyExists;
+    private string _temporaryFileName;
+    private bool _contentsChanged;
+    private bool _hasBeenSaved;
+    private string _TempFileFolder;
+    private bool _ReadStreamIsOurs;
+    private object LOCK;
+    private bool _saveOperationCanceled;
+    private bool _extractOperationCanceled;
+    private bool _addOperationCanceled;
+    private EncryptionAlgorithm _Encryption;
+    private bool _JustSaved;
+    private long _locEndOfCDS;
+    private UInt32 _OffsetOfCentralDirectory;
+    private long _OffsetOfCentralDirectory64;
+    private Nullable`1<bool> _OutputUsesZip64;
+    internal bool _inExtractAll;
+    private Encoding _alternateEncoding;
+    private ZipOption _alternateEncodingUsage;
+    private static Encoding _defaultEncoding;
+    private int _BufferSize;
+    internal ParallelDeflateOutputStream ParallelDeflater;
+    private long _ParallelDeflateThreshold;
+    private int _maxBufferPairs;
+    internal Zip64Option _zip64;
+    private bool _SavingSfx;
+    public static int BufferSizeDefault;
+    private EventHandler`1<SaveProgressEventArgs> SaveProgress;
+    private EventHandler`1<ReadProgressEventArgs> ReadProgress;
+    private long _lengthOfReadStream;
+    private EventHandler`1<ExtractProgressEventArgs> ExtractProgress;
+    private EventHandler`1<AddProgressEventArgs> AddProgress;
+    private EventHandler`1<ZipErrorEventArgs> ZipError;
+    private static ExtractorSettings[] SettingsList;
+    [CompilerGeneratedAttribute]
+private bool <FullScan>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <SortEntriesBeforeSaving>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <AddDirectoryWillTraverseReparsePoints>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <CodecBufferSize>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <FlattenFoldersOnExtract>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CompressionLevel <CompressionLevel>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ExtractExistingFileAction <ExtractExistingFile>k__BackingField;
+    [CompilerGeneratedAttribute]
+private SetCompressionCallback <SetCompression>k__BackingField;
+    public string Info { get; }
+    public bool FullScan { get; public set; }
+    public bool SortEntriesBeforeSaving { get; public set; }
+    public bool AddDirectoryWillTraverseReparsePoints { get; public set; }
+    public int BufferSize { get; public set; }
+    public int CodecBufferSize { get; public set; }
+    public bool FlattenFoldersOnExtract { get; public set; }
+    public CompressionStrategy Strategy { get; public set; }
+    public string Name { get; public set; }
+    public CompressionLevel CompressionLevel { get; public set; }
+    public CompressionMethod CompressionMethod { get; public set; }
+    public string Comment { get; public set; }
+    public bool EmitTimesInWindowsFormatWhenSaving { get; public set; }
+    public bool EmitTimesInUnixFormatWhenSaving { get; public set; }
+    internal bool Verbose { get; }
+    public bool CaseSensitiveRetrieval { get; public set; }
+    [ObsoleteAttribute("Beginning with v1.9.1.6 of DotNetZip, this property is obsolete.  It will be removed in a future version of the library. Your applications should  use AlternateEncoding and AlternateEncodingUsage instead.")]
+public bool UseUnicodeAsNecessary { get; public set; }
+    public Zip64Option UseZip64WhenSaving { get; public set; }
+    public Nullable`1<bool> RequiresZip64 { get; }
+    public Nullable`1<bool> OutputUsedZip64 { get; }
+    public Nullable`1<bool> InputUsesZip64 { get; }
+    [ObsoleteAttribute("use AlternateEncoding instead.")]
+public Encoding ProvisionalAlternateEncoding { get; public set; }
+    public Encoding AlternateEncoding { get; public set; }
+    public ZipOption AlternateEncodingUsage { get; public set; }
+    public static Encoding DefaultEncoding { get; }
+    public TextWriter StatusMessageTextWriter { get; public set; }
+    public string TempFileFolder { get; public set; }
+    private string Password { get; public set; }
+    public ExtractExistingFileAction ExtractExistingFile { get; public set; }
+    public ZipErrorAction ZipErrorAction { get; public set; }
+    public EncryptionAlgorithm Encryption { get; public set; }
+    public SetCompressionCallback SetCompression { get; public set; }
+    public int MaxOutputSegmentSize { get; public set; }
+    public int NumberOfSegmentsForMostRecentSave { get; }
+    public long ParallelDeflateThreshold { get; public set; }
+    public int ParallelDeflateMaxBufferPairs { get; public set; }
+    public static Version LibraryVersion { get; }
+    private List`1<ZipEntry> ZipEntriesAsList { get; }
+    public ZipEntry Item { get; }
+    public ZipEntry Item { get; }
+    public ICollection`1<string> EntryFileNames { get; }
+    public ICollection`1<ZipEntry> Entries { get; }
+    public ICollection`1<ZipEntry> EntriesSorted { get; }
+    public int Count { get; }
+    internal Stream ReadStream { get; }
+    private Stream WriteStream { get; private set; }
+    private string ArchiveNameForEvent { get; }
+    private long LengthOfReadStream { get; }
+    public ZipFile(string fileName);
+    public ZipFile(string fileName, Encoding encoding);
+    public ZipFile(Encoding encoding);
+    public ZipFile(string fileName, TextWriter statusMessageWriter);
+    public ZipFile(string fileName, TextWriter statusMessageWriter, Encoding encoding);
+    private static ZipFile();
+    public ZipEntry AddItem(string fileOrDirectoryName);
+    public ZipEntry AddItem(string fileOrDirectoryName, string directoryPathInArchive);
+    public ZipEntry AddFile(string fileName);
+    public ZipEntry AddFile(string fileName, string directoryPathInArchive);
+    public void RemoveEntries(ICollection`1<ZipEntry> entriesToRemove);
+    public void RemoveEntries(ICollection`1<string> entriesToRemove);
+    public void AddFiles(IEnumerable`1<string> fileNames);
+    public void UpdateFiles(IEnumerable`1<string> fileNames);
+    public void AddFiles(IEnumerable`1<string> fileNames, string directoryPathInArchive);
+    public void AddFiles(IEnumerable`1<string> fileNames, bool preserveDirHierarchy, string directoryPathInArchive);
+    public void UpdateFiles(IEnumerable`1<string> fileNames, string directoryPathInArchive);
+    public ZipEntry UpdateFile(string fileName);
+    public ZipEntry UpdateFile(string fileName, string directoryPathInArchive);
+    public ZipEntry UpdateDirectory(string directoryName);
+    public ZipEntry UpdateDirectory(string directoryName, string directoryPathInArchive);
+    public void UpdateItem(string itemName);
+    public void UpdateItem(string itemName, string directoryPathInArchive);
+    public ZipEntry AddEntry(string entryName, string content);
+    public ZipEntry AddEntry(string entryName, string content, Encoding encoding);
+    public ZipEntry AddEntry(string entryName, Stream stream);
+    public ZipEntry AddEntry(string entryName, WriteDelegate writer);
+    public ZipEntry AddEntry(string entryName, OpenDelegate opener, CloseDelegate closer);
+    private ZipEntry _InternalAddEntry(ZipEntry ze);
+    public ZipEntry UpdateEntry(string entryName, string content);
+    public ZipEntry UpdateEntry(string entryName, string content, Encoding encoding);
+    public ZipEntry UpdateEntry(string entryName, WriteDelegate writer);
+    public ZipEntry UpdateEntry(string entryName, OpenDelegate opener, CloseDelegate closer);
+    public ZipEntry UpdateEntry(string entryName, Stream stream);
+    private void RemoveEntryForUpdate(string entryName);
+    public ZipEntry AddEntry(string entryName, Byte[] byteContent);
+    public ZipEntry UpdateEntry(string entryName, Byte[] byteContent);
+    public ZipEntry AddDirectory(string directoryName);
+    public ZipEntry AddDirectory(string directoryName, string directoryPathInArchive);
+    public ZipEntry AddDirectoryByName(string directoryNameInArchive);
+    private ZipEntry AddOrUpdateDirectoryImpl(string directoryName, string rootDirectoryPathInArchive, AddOrUpdateAction action);
+    internal void InternalAddEntry(string name, ZipEntry entry);
+    private ZipEntry AddOrUpdateDirectoryImpl(string directoryName, string rootDirectoryPathInArchive, AddOrUpdateAction action, bool recurse, int level);
+    public static bool CheckZip(string zipFileName);
+    public static bool CheckZip(string zipFileName, bool fixIfNecessary, TextWriter writer);
+    public static void FixZipDirectory(string zipFileName);
+    public static bool CheckZipPassword(string zipFileName, string password);
+    public string get_Info();
+    [CompilerGeneratedAttribute]
+public bool get_FullScan();
+    [CompilerGeneratedAttribute]
+public void set_FullScan(bool value);
+    [CompilerGeneratedAttribute]
+public bool get_SortEntriesBeforeSaving();
+    [CompilerGeneratedAttribute]
+public void set_SortEntriesBeforeSaving(bool value);
+    [CompilerGeneratedAttribute]
+public bool get_AddDirectoryWillTraverseReparsePoints();
+    [CompilerGeneratedAttribute]
+public void set_AddDirectoryWillTraverseReparsePoints(bool value);
+    public int get_BufferSize();
+    public void set_BufferSize(int value);
+    [CompilerGeneratedAttribute]
+public int get_CodecBufferSize();
+    [CompilerGeneratedAttribute]
+public void set_CodecBufferSize(int value);
+    [CompilerGeneratedAttribute]
+public bool get_FlattenFoldersOnExtract();
+    [CompilerGeneratedAttribute]
+public void set_FlattenFoldersOnExtract(bool value);
+    public CompressionStrategy get_Strategy();
+    public void set_Strategy(CompressionStrategy value);
+    public string get_Name();
+    public void set_Name(string value);
+    [CompilerGeneratedAttribute]
+public CompressionLevel get_CompressionLevel();
+    [CompilerGeneratedAttribute]
+public void set_CompressionLevel(CompressionLevel value);
+    public CompressionMethod get_CompressionMethod();
+    public void set_CompressionMethod(CompressionMethod value);
+    public string get_Comment();
+    public void set_Comment(string value);
+    public bool get_EmitTimesInWindowsFormatWhenSaving();
+    public void set_EmitTimesInWindowsFormatWhenSaving(bool value);
+    public bool get_EmitTimesInUnixFormatWhenSaving();
+    public void set_EmitTimesInUnixFormatWhenSaving(bool value);
+    internal bool get_Verbose();
+    public bool ContainsEntry(string name);
+    public bool get_CaseSensitiveRetrieval();
+    public void set_CaseSensitiveRetrieval(bool value);
+    public bool get_UseUnicodeAsNecessary();
+    public void set_UseUnicodeAsNecessary(bool value);
+    public Zip64Option get_UseZip64WhenSaving();
+    public void set_UseZip64WhenSaving(Zip64Option value);
+    public Nullable`1<bool> get_RequiresZip64();
+    public Nullable`1<bool> get_OutputUsedZip64();
+    public Nullable`1<bool> get_InputUsesZip64();
+    public Encoding get_ProvisionalAlternateEncoding();
+    public void set_ProvisionalAlternateEncoding(Encoding value);
+    public Encoding get_AlternateEncoding();
+    public void set_AlternateEncoding(Encoding value);
+    public ZipOption get_AlternateEncodingUsage();
+    public void set_AlternateEncodingUsage(ZipOption value);
+    public static Encoding get_DefaultEncoding();
+    public TextWriter get_StatusMessageTextWriter();
+    public void set_StatusMessageTextWriter(TextWriter value);
+    public string get_TempFileFolder();
+    public void set_TempFileFolder(string value);
+    public void set_Password(string value);
+    private string get_Password();
+    [CompilerGeneratedAttribute]
+public ExtractExistingFileAction get_ExtractExistingFile();
+    [CompilerGeneratedAttribute]
+public void set_ExtractExistingFile(ExtractExistingFileAction value);
+    public ZipErrorAction get_ZipErrorAction();
+    public void set_ZipErrorAction(ZipErrorAction value);
+    public EncryptionAlgorithm get_Encryption();
+    public void set_Encryption(EncryptionAlgorithm value);
+    [CompilerGeneratedAttribute]
+public SetCompressionCallback get_SetCompression();
+    [CompilerGeneratedAttribute]
+public void set_SetCompression(SetCompressionCallback value);
+    public int get_MaxOutputSegmentSize();
+    public void set_MaxOutputSegmentSize(int value);
+    public int get_NumberOfSegmentsForMostRecentSave();
+    public void set_ParallelDeflateThreshold(long value);
+    public long get_ParallelDeflateThreshold();
+    public int get_ParallelDeflateMaxBufferPairs();
+    public void set_ParallelDeflateMaxBufferPairs(int value);
+    public virtual string ToString();
+    public static Version get_LibraryVersion();
+    internal void NotifyEntryChanged();
+    internal Stream StreamForDiskNumber(UInt32 diskNumber);
+    internal void Reset(bool whileSaving);
+    public void Initialize(string fileName);
+    private void _initEntriesDictionary();
+    private void _InitInstance(string zipFileName, TextWriter statusMessageWriter);
+    private List`1<ZipEntry> get_ZipEntriesAsList();
+    public ZipEntry get_Item(int ix);
+    public ZipEntry get_Item(string fileName);
+    public ICollection`1<string> get_EntryFileNames();
+    public ICollection`1<ZipEntry> get_Entries();
+    public ICollection`1<ZipEntry> get_EntriesSorted();
+    public int get_Count();
+    public void RemoveEntry(ZipEntry entry);
+    public void RemoveEntry(string fileName);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposeManagedResources);
+    internal Stream get_ReadStream();
+    private Stream get_WriteStream();
+    private void set_WriteStream(Stream value);
+    private string get_ArchiveNameForEvent();
+    public void add_SaveProgress(EventHandler`1<SaveProgressEventArgs> value);
+    public void remove_SaveProgress(EventHandler`1<SaveProgressEventArgs> value);
+    internal bool OnSaveBlock(ZipEntry entry, long bytesXferred, long totalBytesToXfer);
+    private void OnSaveEntry(int current, ZipEntry entry, bool before);
+    private void OnSaveEvent(ZipProgressEventType eventFlavor);
+    private void OnSaveStarted();
+    private void OnSaveCompleted();
+    public void add_ReadProgress(EventHandler`1<ReadProgressEventArgs> value);
+    public void remove_ReadProgress(EventHandler`1<ReadProgressEventArgs> value);
+    private void OnReadStarted();
+    private void OnReadCompleted();
+    internal void OnReadBytes(ZipEntry entry);
+    internal void OnReadEntry(bool before, ZipEntry entry);
+    private long get_LengthOfReadStream();
+    public void add_ExtractProgress(EventHandler`1<ExtractProgressEventArgs> value);
+    public void remove_ExtractProgress(EventHandler`1<ExtractProgressEventArgs> value);
+    private void OnExtractEntry(int current, bool before, ZipEntry currentEntry, string path);
+    internal bool OnExtractBlock(ZipEntry entry, long bytesWritten, long totalBytesToWrite);
+    internal bool OnSingleEntryExtract(ZipEntry entry, string path, bool before);
+    internal bool OnExtractExisting(ZipEntry entry, string path);
+    private void OnExtractAllCompleted(string path);
+    private void OnExtractAllStarted(string path);
+    public void add_AddProgress(EventHandler`1<AddProgressEventArgs> value);
+    public void remove_AddProgress(EventHandler`1<AddProgressEventArgs> value);
+    private void OnAddStarted();
+    private void OnAddCompleted();
+    internal void AfterAddEntry(ZipEntry entry);
+    public void add_ZipError(EventHandler`1<ZipErrorEventArgs> value);
+    public void remove_ZipError(EventHandler`1<ZipErrorEventArgs> value);
+    internal bool OnZipErrorSaving(ZipEntry entry, Exception exc);
+    public void ExtractAll(string path);
+    public void ExtractAll(string path, ExtractExistingFileAction extractExistingFile);
+    private void _InternalExtractAll(string path, bool overrideExtractExistingProperty);
+    public static ZipFile Read(string fileName);
+    public static ZipFile Read(string fileName, ReadOptions options);
+    private static ZipFile Read(string fileName, TextWriter statusMessageWriter, Encoding encoding, EventHandler`1<ReadProgressEventArgs> readProgress);
+    public static ZipFile Read(Stream zipStream);
+    public static ZipFile Read(Stream zipStream, ReadOptions options);
+    private static ZipFile Read(Stream zipStream, TextWriter statusMessageWriter, Encoding encoding, EventHandler`1<ReadProgressEventArgs> readProgress);
+    private static void ReadIntoInstance(ZipFile zf);
+    private static void Zip64SeekToCentralDirectory(ZipFile zf);
+    private static UInt32 ReadFirstFourBytes(Stream s);
+    private static void ReadCentralDirectory(ZipFile zf);
+    private static void ReadIntoInstance_Orig(ZipFile zf);
+    private static void ReadCentralDirectoryFooter(ZipFile zf);
+    private static void ReadZipFileComment(ZipFile zf);
+    public static bool IsZipFile(string fileName);
+    public static bool IsZipFile(string fileName, bool testExtract);
+    public static bool IsZipFile(Stream stream, bool testExtract);
+    private void DeleteFileWithRetry(string filename);
+    public void Save();
+    private static void NotifyEntriesSaveComplete(ICollection`1<ZipEntry> c);
+    private void RemoveTempFile();
+    private void CleanupAfterSaveOperation();
+    public void Save(string fileName);
+    public void Save(Stream outputStream);
+    public void SaveSelfExtractor(string exeToGenerate, SelfExtractorFlavor flavor);
+    public void SaveSelfExtractor(string exeToGenerate, SelfExtractorSaveOptions options);
+    private static void ExtractResourceToFile(Assembly a, string resourceName, string filename);
+    private void _SaveSfxStub(string exeToGenerate, SelfExtractorSaveOptions options);
+    internal static string GenerateTempPathname(string dir, string extension);
+    public void AddSelectedFiles(string selectionCriteria);
+    public void AddSelectedFiles(string selectionCriteria, bool recurseDirectories);
+    public void AddSelectedFiles(string selectionCriteria, string directoryOnDisk);
+    public void AddSelectedFiles(string selectionCriteria, string directoryOnDisk, bool recurseDirectories);
+    public void AddSelectedFiles(string selectionCriteria, string directoryOnDisk, string directoryPathInArchive);
+    public void AddSelectedFiles(string selectionCriteria, string directoryOnDisk, string directoryPathInArchive, bool recurseDirectories);
+    public void UpdateSelectedFiles(string selectionCriteria, string directoryOnDisk, string directoryPathInArchive, bool recurseDirectories);
+    private string EnsureendInSlash(string s);
+    private void _AddOrUpdateSelectedFiles(string selectionCriteria, string directoryOnDisk, string directoryPathInArchive, bool recurseDirectories, bool wantUpdate);
+    private static string ReplaceLeadingDirectory(string original, string pattern, string replacement);
+    public ICollection`1<ZipEntry> SelectEntries(string selectionCriteria);
+    public ICollection`1<ZipEntry> SelectEntries(string selectionCriteria, string directoryPathInArchive);
+    public int RemoveSelectedEntries(string selectionCriteria);
+    public int RemoveSelectedEntries(string selectionCriteria, string directoryPathInArchive);
+    public void ExtractSelectedEntries(string selectionCriteria);
+    public void ExtractSelectedEntries(string selectionCriteria, ExtractExistingFileAction extractExistingFile);
+    public void ExtractSelectedEntries(string selectionCriteria, string directoryPathInArchive);
+    public void ExtractSelectedEntries(string selectionCriteria, string directoryInArchive, string extractDirectory);
+    public void ExtractSelectedEntries(string selectionCriteria, string directoryPathInArchive, string extractDirectory, ExtractExistingFileAction extractExistingFile);
+    public sealed virtual IEnumerator`1<ZipEntry> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    [DispIdAttribute("-4")]
+public IEnumerator GetNewEnum();
+}
+public class Ionic.Zip.ZipInputStream : Stream {
+    private Stream _inputStream;
+    private Encoding _provisionalAlternateEncoding;
+    private ZipEntry _currentEntry;
+    private bool _firstEntry;
+    private bool _needSetup;
+    private ZipContainer _container;
+    private CrcCalculatorStream _crcStream;
+    private long _LeftToRead;
+    internal string _Password;
+    private long _endOfEntry;
+    private string _name;
+    private bool _leaveUnderlyingStreamOpen;
+    private bool _closed;
+    private bool _findRequired;
+    private bool _exceptionPending;
+    [CompilerGeneratedAttribute]
+private int <CodecBufferSize>k__BackingField;
+    public Encoding ProvisionalAlternateEncoding { get; public set; }
+    public int CodecBufferSize { get; public set; }
+    unknown string Password {public set; }
+    internal Stream ReadStream { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public ZipInputStream(Stream stream);
+    public ZipInputStream(string fileName);
+    public ZipInputStream(Stream stream, bool leaveOpen);
+    private void _Init(Stream stream, bool leaveOpen, string name);
+    public virtual string ToString();
+    public Encoding get_ProvisionalAlternateEncoding();
+    public void set_ProvisionalAlternateEncoding(Encoding value);
+    [CompilerGeneratedAttribute]
+public int get_CodecBufferSize();
+    [CompilerGeneratedAttribute]
+public void set_CodecBufferSize(int value);
+    public void set_Password(string value);
+    private void SetupStream();
+    internal Stream get_ReadStream();
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public ZipEntry GetNextEntry();
+    protected virtual void Dispose(bool disposing);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual void Flush();
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+}
+public enum Ionic.Zip.ZipOption : Enum {
+    public int value__;
+    public static ZipOption Default;
+    public static ZipOption Never;
+    public static ZipOption AsNecessary;
+    public static ZipOption Always;
+}
+internal static class Ionic.Zip.ZipOutput : object {
+    public static bool WriteCentralDirectoryStructure(Stream s, ICollection`1<ZipEntry> entries, UInt32 numSegments, Zip64Option zip64, string comment, ZipContainer container);
+    private static Encoding GetEncoding(ZipContainer container, string t);
+    private static Byte[] GenCentralDirectoryFooter(long StartOfCentralDirectory, long EndOfCentralDirectory, Zip64Option zip64, int entryCount, string comment, ZipContainer container);
+    private static Byte[] GenZip64EndOfCentralDirectory(long StartOfCentralDirectory, long EndOfCentralDirectory, int entryCount, UInt32 numSegments);
+    private static int CountEntries(ICollection`1<ZipEntry> _entries);
+}
+public class Ionic.Zip.ZipOutputStream : Stream {
+    private EncryptionAlgorithm _encryption;
+    private ZipEntryTimestamp _timestamp;
+    internal string _password;
+    private string _comment;
+    private Stream _outputStream;
+    private ZipEntry _currentEntry;
+    internal Zip64Option _zip64;
+    private Dictionary`2<string, ZipEntry> _entriesWritten;
+    private int _entryCount;
+    private ZipOption _alternateEncodingUsage;
+    private Encoding _alternateEncoding;
+    private bool _leaveUnderlyingStreamOpen;
+    private bool _disposed;
+    private bool _exceptionPending;
+    private bool _anyEntriesUsedZip64;
+    private bool _directoryNeededZip64;
+    private CountingStream _outputCounter;
+    private Stream _encryptor;
+    private Stream _deflater;
+    private CrcCalculatorStream _entryOutputStream;
+    private bool _needToWriteEntryHeader;
+    private string _name;
+    private bool _DontIgnoreCase;
+    internal ParallelDeflateOutputStream ParallelDeflater;
+    private long _ParallelDeflateThreshold;
+    private int _maxBufferPairs;
+    [CompilerGeneratedAttribute]
+private int <CodecBufferSize>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CompressionStrategy <Strategy>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CompressionLevel <CompressionLevel>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CompressionMethod <CompressionMethod>k__BackingField;
+    unknown string Password {public set; }
+    public EncryptionAlgorithm Encryption { get; public set; }
+    public int CodecBufferSize { get; public set; }
+    public CompressionStrategy Strategy { get; public set; }
+    public ZipEntryTimestamp Timestamp { get; public set; }
+    public CompressionLevel CompressionLevel { get; public set; }
+    public CompressionMethod CompressionMethod { get; public set; }
+    public string Comment { get; public set; }
+    public Zip64Option EnableZip64 { get; public set; }
+    public bool OutputUsedZip64 { get; }
+    public bool IgnoreCase { get; public set; }
+    [ObsoleteAttribute("Beginning with v1.9.1.6 of DotNetZip, this property is obsolete. It will be removed in a future version of the library. Use AlternateEncoding and AlternateEncodingUsage instead.")]
+public bool UseUnicodeAsNecessary { get; public set; }
+    [ObsoleteAttribute("use AlternateEncoding and AlternateEncodingUsage instead.")]
+public Encoding ProvisionalAlternateEncoding { get; public set; }
+    public Encoding AlternateEncoding { get; public set; }
+    public ZipOption AlternateEncodingUsage { get; public set; }
+    public static Encoding DefaultEncoding { get; }
+    public long ParallelDeflateThreshold { get; public set; }
+    public int ParallelDeflateMaxBufferPairs { get; public set; }
+    internal Stream OutputStream { get; }
+    internal string Name { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public ZipOutputStream(Stream stream);
+    public ZipOutputStream(string fileName);
+    public ZipOutputStream(Stream stream, bool leaveOpen);
+    private void _Init(Stream stream, bool leaveOpen, string name);
+    public virtual string ToString();
+    public void set_Password(string value);
+    public EncryptionAlgorithm get_Encryption();
+    public void set_Encryption(EncryptionAlgorithm value);
+    [CompilerGeneratedAttribute]
+public int get_CodecBufferSize();
+    [CompilerGeneratedAttribute]
+public void set_CodecBufferSize(int value);
+    [CompilerGeneratedAttribute]
+public CompressionStrategy get_Strategy();
+    [CompilerGeneratedAttribute]
+public void set_Strategy(CompressionStrategy value);
+    public ZipEntryTimestamp get_Timestamp();
+    public void set_Timestamp(ZipEntryTimestamp value);
+    [CompilerGeneratedAttribute]
+public CompressionLevel get_CompressionLevel();
+    [CompilerGeneratedAttribute]
+public void set_CompressionLevel(CompressionLevel value);
+    [CompilerGeneratedAttribute]
+public CompressionMethod get_CompressionMethod();
+    [CompilerGeneratedAttribute]
+public void set_CompressionMethod(CompressionMethod value);
+    public string get_Comment();
+    public void set_Comment(string value);
+    public Zip64Option get_EnableZip64();
+    public void set_EnableZip64(Zip64Option value);
+    public bool get_OutputUsedZip64();
+    public bool get_IgnoreCase();
+    public void set_IgnoreCase(bool value);
+    public bool get_UseUnicodeAsNecessary();
+    public void set_UseUnicodeAsNecessary(bool value);
+    public Encoding get_ProvisionalAlternateEncoding();
+    public void set_ProvisionalAlternateEncoding(Encoding value);
+    public Encoding get_AlternateEncoding();
+    public void set_AlternateEncoding(Encoding value);
+    public ZipOption get_AlternateEncodingUsage();
+    public void set_AlternateEncodingUsage(ZipOption value);
+    public static Encoding get_DefaultEncoding();
+    public void set_ParallelDeflateThreshold(long value);
+    public long get_ParallelDeflateThreshold();
+    public int get_ParallelDeflateMaxBufferPairs();
+    public void set_ParallelDeflateMaxBufferPairs(int value);
+    private void InsureUniqueEntry(ZipEntry ze1);
+    internal Stream get_OutputStream();
+    internal string get_Name();
+    public bool ContainsEntry(string name);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public ZipEntry PutNextEntry(string entryName);
+    private void _InitiateCurrentEntry(bool finishing);
+    private void _FinishCurrentEntry();
+    protected virtual void Dispose(bool disposing);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual void Flush();
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+}
+public class Ionic.Zip.ZipProgressEventArgs : EventArgs {
+    private int _entriesTotal;
+    private bool _cancel;
+    private ZipEntry _latestEntry;
+    private ZipProgressEventType _flavor;
+    private string _archiveName;
+    private long _bytesTransferred;
+    private long _totalBytesToTransfer;
+    public int EntriesTotal { get; public set; }
+    public ZipEntry CurrentEntry { get; public set; }
+    public bool Cancel { get; public set; }
+    public ZipProgressEventType EventType { get; public set; }
+    public string ArchiveName { get; public set; }
+    public long BytesTransferred { get; public set; }
+    public long TotalBytesToTransfer { get; public set; }
+    internal ZipProgressEventArgs(string archiveName, ZipProgressEventType flavor);
+    public int get_EntriesTotal();
+    public void set_EntriesTotal(int value);
+    public ZipEntry get_CurrentEntry();
+    public void set_CurrentEntry(ZipEntry value);
+    public bool get_Cancel();
+    public void set_Cancel(bool value);
+    public ZipProgressEventType get_EventType();
+    public void set_EventType(ZipProgressEventType value);
+    public string get_ArchiveName();
+    public void set_ArchiveName(string value);
+    public long get_BytesTransferred();
+    public void set_BytesTransferred(long value);
+    public long get_TotalBytesToTransfer();
+    public void set_TotalBytesToTransfer(long value);
+}
+public enum Ionic.Zip.ZipProgressEventType : Enum {
+    public int value__;
+    public static ZipProgressEventType Adding_Started;
+    public static ZipProgressEventType Adding_AfterAddEntry;
+    public static ZipProgressEventType Adding_Completed;
+    public static ZipProgressEventType Reading_Started;
+    public static ZipProgressEventType Reading_BeforeReadEntry;
+    public static ZipProgressEventType Reading_AfterReadEntry;
+    public static ZipProgressEventType Reading_Completed;
+    public static ZipProgressEventType Reading_ArchiveBytesRead;
+    public static ZipProgressEventType Saving_Started;
+    public static ZipProgressEventType Saving_BeforeWriteEntry;
+    public static ZipProgressEventType Saving_AfterWriteEntry;
+    public static ZipProgressEventType Saving_Completed;
+    public static ZipProgressEventType Saving_AfterSaveTempArchive;
+    public static ZipProgressEventType Saving_BeforeRenameTempArchive;
+    public static ZipProgressEventType Saving_AfterRenameTempArchive;
+    public static ZipProgressEventType Saving_AfterCompileSelfExtractor;
+    public static ZipProgressEventType Saving_EntryBytesRead;
+    public static ZipProgressEventType Extracting_BeforeExtractEntry;
+    public static ZipProgressEventType Extracting_AfterExtractEntry;
+    public static ZipProgressEventType Extracting_ExtractEntryWouldOverwrite;
+    public static ZipProgressEventType Extracting_EntryBytesWritten;
+    public static ZipProgressEventType Extracting_BeforeExtractAll;
+    public static ZipProgressEventType Extracting_AfterExtractAll;
+    public static ZipProgressEventType Error_Saving;
+}
+internal class Ionic.Zip.ZipSegmentedStream : Stream {
+    private RwMode rwMode;
+    private bool _exceptionPending;
+    private string _baseName;
+    private string _baseDir;
+    private string _currentName;
+    private string _currentTempName;
+    private UInt32 _currentDiskNumber;
+    private UInt32 _maxDiskNumber;
+    private int _maxSegmentSize;
+    private Stream _innerStream;
+    [CompilerGeneratedAttribute]
+private bool <ContiguousWrite>k__BackingField;
+    public bool ContiguousWrite { get; public set; }
+    public UInt32 CurrentSegment { get; private set; }
+    public string CurrentName { get; }
+    public string CurrentTempName { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public static ZipSegmentedStream ForReading(string name, UInt32 initialDiskNumber, UInt32 maxDiskNumber);
+    public static ZipSegmentedStream ForWriting(string name, int maxSegmentSize);
+    public static Stream ForUpdate(string name, UInt32 diskNumber);
+    [CompilerGeneratedAttribute]
+public bool get_ContiguousWrite();
+    [CompilerGeneratedAttribute]
+public void set_ContiguousWrite(bool value);
+    public UInt32 get_CurrentSegment();
+    private void set_CurrentSegment(UInt32 value);
+    public string get_CurrentName();
+    public string get_CurrentTempName();
+    private string _NameForSegment(UInt32 diskNumber);
+    public UInt32 ComputeSegment(int length);
+    public virtual string ToString();
+    private void _SetReadStream();
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    private void _SetWriteStream(UInt32 increment);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public long TruncateBackward(UInt32 diskNumber, long offset);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    protected virtual void Dispose(bool disposing);
+}
+public class Ionic.Zlib.Adler : object {
+    private static UInt32 BASE;
+    private static int NMAX;
+    private static Adler();
+    public static UInt32 Adler32(UInt32 adler, Byte[] buf, int index, int len);
+}
+internal enum Ionic.Zlib.BlockState : Enum {
+    public int value__;
+    public static BlockState NeedMore;
+    public static BlockState BlockDone;
+    public static BlockState FinishStarted;
+    public static BlockState FinishDone;
+}
+public enum Ionic.Zlib.CompressionLevel : Enum {
+    public int value__;
+    public static CompressionLevel None;
+    public static CompressionLevel Level0;
+    public static CompressionLevel BestSpeed;
+    public static CompressionLevel Level1;
+    public static CompressionLevel Level2;
+    public static CompressionLevel Level3;
+    public static CompressionLevel Level4;
+    public static CompressionLevel Level5;
+    public static CompressionLevel Default;
+    public static CompressionLevel Level6;
+    public static CompressionLevel Level7;
+    public static CompressionLevel Level8;
+    public static CompressionLevel BestCompression;
+    public static CompressionLevel Level9;
+}
+public enum Ionic.Zlib.CompressionMode : Enum {
+    public int value__;
+    public static CompressionMode Compress;
+    public static CompressionMode Decompress;
+}
+public enum Ionic.Zlib.CompressionStrategy : Enum {
+    public int value__;
+    public static CompressionStrategy Default;
+    public static CompressionStrategy Filtered;
+    public static CompressionStrategy HuffmanOnly;
+}
+internal enum Ionic.Zlib.DeflateFlavor : Enum {
+    public int value__;
+    public static DeflateFlavor Store;
+    public static DeflateFlavor Fast;
+    public static DeflateFlavor Slow;
+}
+internal class Ionic.Zlib.DeflateManager : object {
+    private static int MEM_LEVEL_MAX;
+    private static int MEM_LEVEL_DEFAULT;
+    private CompressFunc DeflateFunction;
+    private static String[] _ErrorMessage;
+    private static int PRESET_DICT;
+    private static int INIT_STATE;
+    private static int BUSY_STATE;
+    private static int FINISH_STATE;
+    private static int Z_DEFLATED;
+    private static int STORED_BLOCK;
+    private static int STATIC_TREES;
+    private static int DYN_TREES;
+    private static int Z_BINARY;
+    private static int Z_ASCII;
+    private static int Z_UNKNOWN;
+    private static int Buf_size;
+    private static int MIN_MATCH;
+    private static int MAX_MATCH;
+    private static int MIN_LOOKAHEAD;
+    private static int HEAP_SIZE;
+    private static int END_BLOCK;
+    internal ZlibCodec _codec;
+    internal int status;
+    internal Byte[] pending;
+    internal int nextPending;
+    internal int pendingCount;
+    internal sbyte data_type;
+    internal int last_flush;
+    internal int w_size;
+    internal int w_bits;
+    internal int w_mask;
+    internal Byte[] window;
+    internal int window_size;
+    internal Int16[] prev;
+    internal Int16[] head;
+    internal int ins_h;
+    internal int hash_size;
+    internal int hash_bits;
+    internal int hash_mask;
+    internal int hash_shift;
+    internal int block_start;
+    private Config config;
+    internal int match_length;
+    internal int prev_match;
+    internal int match_available;
+    internal int strstart;
+    internal int match_start;
+    internal int lookahead;
+    internal int prev_length;
+    internal CompressionLevel compressionLevel;
+    internal CompressionStrategy compressionStrategy;
+    internal Int16[] dyn_ltree;
+    internal Int16[] dyn_dtree;
+    internal Int16[] bl_tree;
+    internal Tree treeLiterals;
+    internal Tree treeDistances;
+    internal Tree treeBitLengths;
+    internal Int16[] bl_count;
+    internal Int32[] heap;
+    internal int heap_len;
+    internal int heap_max;
+    internal SByte[] depth;
+    internal int _lengthOffset;
+    internal int lit_bufsize;
+    internal int last_lit;
+    internal int _distanceOffset;
+    internal int opt_len;
+    internal int static_len;
+    internal int matches;
+    internal int last_eob_len;
+    internal short bi_buf;
+    internal int bi_valid;
+    private bool Rfc1950BytesEmitted;
+    private bool _WantRfc1950HeaderBytes;
+    internal bool WantRfc1950HeaderBytes { get; internal set; }
+    private static DeflateManager();
+    private void _InitializeLazyMatch();
+    private void _InitializeTreeData();
+    internal void _InitializeBlocks();
+    internal void pqdownheap(Int16[] tree, int k);
+    internal static bool _IsSmaller(Int16[] tree, int n, int m, SByte[] depth);
+    internal void scan_tree(Int16[] tree, int max_code);
+    internal int build_bl_tree();
+    internal void send_all_trees(int lcodes, int dcodes, int blcodes);
+    internal void send_tree(Int16[] tree, int max_code);
+    private void put_bytes(Byte[] p, int start, int len);
+    internal void send_code(int c, Int16[] tree);
+    internal void send_bits(int value, int length);
+    internal void _tr_align();
+    internal bool _tr_tally(int dist, int lc);
+    internal void send_compressed_block(Int16[] ltree, Int16[] dtree);
+    internal void set_data_type();
+    internal void bi_flush();
+    internal void bi_windup();
+    internal void copy_block(int buf, int len, bool header);
+    internal void flush_block_only(bool eof);
+    internal BlockState DeflateNone(FlushType flush);
+    internal void _tr_stored_block(int buf, int stored_len, bool eof);
+    internal void _tr_flush_block(int buf, int stored_len, bool eof);
+    private void _fillWindow();
+    internal BlockState DeflateFast(FlushType flush);
+    internal BlockState DeflateSlow(FlushType flush);
+    internal int longest_match(int cur_match);
+    internal bool get_WantRfc1950HeaderBytes();
+    internal void set_WantRfc1950HeaderBytes(bool value);
+    internal int Initialize(ZlibCodec codec, CompressionLevel level);
+    internal int Initialize(ZlibCodec codec, CompressionLevel level, int bits);
+    internal int Initialize(ZlibCodec codec, CompressionLevel level, int bits, CompressionStrategy compressionStrategy);
+    internal int Initialize(ZlibCodec codec, CompressionLevel level, int windowBits, int memLevel, CompressionStrategy strategy);
+    internal void Reset();
+    internal int End();
+    private void SetDeflater();
+    internal int SetParams(CompressionLevel level, CompressionStrategy strategy);
+    internal int SetDictionary(Byte[] dictionary);
+    internal int Deflate(FlushType flush);
+}
+public class Ionic.Zlib.DeflateStream : Stream {
+    internal ZlibBaseStream _baseStream;
+    internal Stream _innerStream;
+    private bool _disposed;
+    public FlushType FlushMode { get; public set; }
+    public int BufferSize { get; public set; }
+    public CompressionStrategy Strategy { get; public set; }
+    public long TotalIn { get; }
+    public long TotalOut { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public DeflateStream(Stream stream, CompressionMode mode);
+    public DeflateStream(Stream stream, CompressionMode mode, CompressionLevel level);
+    public DeflateStream(Stream stream, CompressionMode mode, bool leaveOpen);
+    public DeflateStream(Stream stream, CompressionMode mode, CompressionLevel level, bool leaveOpen);
+    public virtual FlushType get_FlushMode();
+    public virtual void set_FlushMode(FlushType value);
+    public int get_BufferSize();
+    public void set_BufferSize(int value);
+    public CompressionStrategy get_Strategy();
+    public void set_Strategy(CompressionStrategy value);
+    public virtual long get_TotalIn();
+    public virtual long get_TotalOut();
+    protected virtual void Dispose(bool disposing);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public static Byte[] CompressString(string s);
+    public static Byte[] CompressBuffer(Byte[] b);
+    public static string UncompressString(Byte[] compressed);
+    public static Byte[] UncompressBuffer(Byte[] compressed);
+}
+public enum Ionic.Zlib.FlushType : Enum {
+    public int value__;
+    public static FlushType None;
+    public static FlushType Partial;
+    public static FlushType Sync;
+    public static FlushType Full;
+    public static FlushType Finish;
+}
+public class Ionic.Zlib.GZipStream : Stream {
+    public Nullable`1<DateTime> LastModified;
+    private int _headerByteCount;
+    internal ZlibBaseStream _baseStream;
+    private bool _disposed;
+    private bool _firstReadDone;
+    private string _FileName;
+    private string _Comment;
+    private int _Crc32;
+    internal static DateTime _unixEpoch;
+    internal static Encoding iso8859dash1;
+    public string Comment { get; public set; }
+    public string FileName { get; public set; }
+    public int Crc32 { get; }
+    public FlushType FlushMode { get; public set; }
+    public int BufferSize { get; public set; }
+    public long TotalIn { get; }
+    public long TotalOut { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public GZipStream(Stream stream, CompressionMode mode);
+    public GZipStream(Stream stream, CompressionMode mode, CompressionLevel level);
+    public GZipStream(Stream stream, CompressionMode mode, bool leaveOpen);
+    public GZipStream(Stream stream, CompressionMode mode, CompressionLevel level, bool leaveOpen);
+    private static GZipStream();
+    public string get_Comment();
+    public void set_Comment(string value);
+    public string get_FileName();
+    public void set_FileName(string value);
+    public int get_Crc32();
+    public virtual FlushType get_FlushMode();
+    public virtual void set_FlushMode(FlushType value);
+    public int get_BufferSize();
+    public void set_BufferSize(int value);
+    public virtual long get_TotalIn();
+    public virtual long get_TotalOut();
+    protected virtual void Dispose(bool disposing);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    private int EmitHeader();
+    public static Byte[] CompressString(string s);
+    public static Byte[] CompressBuffer(Byte[] b);
+    public static string UncompressString(Byte[] compressed);
+    public static Byte[] UncompressBuffer(Byte[] compressed);
+}
+internal class Ionic.Zlib.InflateBlocks : object {
+    private static int MANY;
+    internal static Int32[] border;
+    private InflateBlockMode mode;
+    internal int left;
+    internal int table;
+    internal int index;
+    internal Int32[] blens;
+    internal Int32[] bb;
+    internal Int32[] tb;
+    internal InflateCodes codes;
+    internal int last;
+    internal ZlibCodec _codec;
+    internal int bitk;
+    internal int bitb;
+    internal Int32[] hufts;
+    internal Byte[] window;
+    internal int end;
+    internal int readAt;
+    internal int writeAt;
+    internal object checkfn;
+    internal UInt32 check;
+    internal InfTree inftree;
+    internal InflateBlocks(ZlibCodec codec, object checkfn, int w);
+    private static InflateBlocks();
+    internal UInt32 Reset();
+    internal int Process(int r);
+    internal void Free();
+    internal void SetDictionary(Byte[] d, int start, int n);
+    internal int SyncPoint();
+    internal int Flush(int r);
+}
+internal class Ionic.Zlib.InflateCodes : object {
+    private static int START;
+    private static int LEN;
+    private static int LENEXT;
+    private static int DIST;
+    private static int DISTEXT;
+    private static int COPY;
+    private static int LIT;
+    private static int WASH;
+    private static int END;
+    private static int BADCODE;
+    internal int mode;
+    internal int len;
+    internal Int32[] tree;
+    internal int tree_index;
+    internal int need;
+    internal int lit;
+    internal int bitsToGet;
+    internal int dist;
+    internal byte lbits;
+    internal byte dbits;
+    internal Int32[] ltree;
+    internal int ltree_index;
+    internal Int32[] dtree;
+    internal int dtree_index;
+    internal void Init(int bl, int bd, Int32[] tl, int tl_index, Int32[] td, int td_index);
+    internal int Process(InflateBlocks blocks, int r);
+    internal int InflateFast(int bl, int bd, Int32[] tl, int tl_index, Int32[] td, int td_index, InflateBlocks s, ZlibCodec z);
+}
+internal class Ionic.Zlib.InflateManager : object {
+    private static int PRESET_DICT;
+    private static int Z_DEFLATED;
+    private InflateManagerMode mode;
+    internal ZlibCodec _codec;
+    internal int method;
+    internal UInt32 computedCheck;
+    internal UInt32 expectedCheck;
+    internal int marker;
+    private bool _handleRfc1950HeaderBytes;
+    internal int wbits;
+    internal InflateBlocks blocks;
+    private static Byte[] mark;
+    internal bool HandleRfc1950HeaderBytes { get; internal set; }
+    public InflateManager(bool expectRfc1950HeaderBytes);
+    private static InflateManager();
+    internal bool get_HandleRfc1950HeaderBytes();
+    internal void set_HandleRfc1950HeaderBytes(bool value);
+    internal int Reset();
+    internal int End();
+    internal int Initialize(ZlibCodec codec, int w);
+    internal int Inflate(FlushType flush);
+    internal int SetDictionary(Byte[] dictionary);
+    internal int Sync();
+    internal int SyncPoint(ZlibCodec z);
+}
+internal class Ionic.Zlib.InfTree : object {
+    private static int MANY;
+    private static int Z_OK;
+    private static int Z_STREAM_END;
+    private static int Z_NEED_DICT;
+    private static int Z_ERRNO;
+    private static int Z_STREAM_ERROR;
+    private static int Z_DATA_ERROR;
+    private static int Z_MEM_ERROR;
+    private static int Z_BUF_ERROR;
+    private static int Z_VERSION_ERROR;
+    internal static int fixed_bl;
+    internal static int fixed_bd;
+    internal static int BMAX;
+    internal static Int32[] fixed_tl;
+    internal static Int32[] fixed_td;
+    internal static Int32[] cplens;
+    internal static Int32[] cplext;
+    internal static Int32[] cpdist;
+    internal static Int32[] cpdext;
+    internal Int32[] hn;
+    internal Int32[] v;
+    internal Int32[] c;
+    internal Int32[] r;
+    internal Int32[] u;
+    internal Int32[] x;
+    private static InfTree();
+    private int huft_build(Int32[] b, int bindex, int n, int s, Int32[] d, Int32[] e, Int32[] t, Int32[] m, Int32[] hp, Int32[] hn, Int32[] v);
+    internal int inflate_trees_bits(Int32[] c, Int32[] bb, Int32[] tb, Int32[] hp, ZlibCodec z);
+    internal int inflate_trees_dynamic(int nl, int nd, Int32[] c, Int32[] bl, Int32[] bd, Int32[] tl, Int32[] td, Int32[] hp, ZlibCodec z);
+    internal static int inflate_trees_fixed(Int32[] bl, Int32[] bd, Int32[][] tl, Int32[][] td, ZlibCodec z);
+    private void initWorkArea(int vsize);
+}
+internal static class Ionic.Zlib.InternalConstants : object {
+    internal static int MAX_BITS;
+    internal static int BL_CODES;
+    internal static int D_CODES;
+    internal static int LITERALS;
+    internal static int LENGTH_CODES;
+    internal static int L_CODES;
+    internal static int MAX_BL_BITS;
+    internal static int REP_3_6;
+    internal static int REPZ_3_10;
+    internal static int REPZ_11_138;
+    private static InternalConstants();
+}
+internal static class Ionic.Zlib.InternalInflateConstants : object {
+    internal static Int32[] InflateMask;
+    private static InternalInflateConstants();
+}
+public class Ionic.Zlib.ParallelDeflateOutputStream : Stream {
+    private static int IO_BUFFER_SIZE_DEFAULT;
+    private static int BufferPairsPerCore;
+    private List`1<WorkItem> _pool;
+    private bool _leaveOpen;
+    private bool emitting;
+    private Stream _outStream;
+    private int _maxBufferPairs;
+    private int _bufferSize;
+    private AutoResetEvent _newlyCompressedBlob;
+    private object _outputLock;
+    private bool _isClosed;
+    private bool _firstWriteDone;
+    private int _currentlyFilling;
+    private int _lastFilled;
+    private int _lastWritten;
+    private int _latestCompressed;
+    private int _Crc32;
+    private CRC32 _runningCrc;
+    private object _latestLock;
+    private Queue`1<int> _toWrite;
+    private Queue`1<int> _toFill;
+    private long _totalBytesProcessed;
+    private CompressionLevel _compressLevel;
+    private Exception modreq(System.Runtime.CompilerServices.IsVolatile) _pendingException;
+    private bool _handlingException;
+    private object _eLock;
+    private TraceBits _DesiredTrace;
+    [CompilerGeneratedAttribute]
+private CompressionStrategy <Strategy>k__BackingField;
+    public CompressionStrategy Strategy { get; private set; }
+    public int MaxBufferPairs { get; public set; }
+    public int BufferSize { get; public set; }
+    public int Crc32 { get; }
+    public long BytesProcessed { get; }
+    public bool CanSeek { get; }
+    public bool CanRead { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public ParallelDeflateOutputStream(Stream stream);
+    public ParallelDeflateOutputStream(Stream stream, CompressionLevel level);
+    public ParallelDeflateOutputStream(Stream stream, bool leaveOpen);
+    public ParallelDeflateOutputStream(Stream stream, CompressionLevel level, bool leaveOpen);
+    public ParallelDeflateOutputStream(Stream stream, CompressionLevel level, CompressionStrategy strategy, bool leaveOpen);
+    private static ParallelDeflateOutputStream();
+    [CompilerGeneratedAttribute]
+public CompressionStrategy get_Strategy();
+    [CompilerGeneratedAttribute]
+private void set_Strategy(CompressionStrategy value);
+    public int get_MaxBufferPairs();
+    public void set_MaxBufferPairs(int value);
+    public int get_BufferSize();
+    public void set_BufferSize(int value);
+    public int get_Crc32();
+    public long get_BytesProcessed();
+    private void _InitializePoolOfWorkItems();
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    private void _FlushFinish();
+    private void _Flush(bool lastInput);
+    public virtual void Flush();
+    public virtual void Close();
+    public void Dispose();
+    protected virtual void Dispose(bool disposing);
+    public void Reset(Stream stream);
+    private void EmitPendingBuffers(bool doAll, bool mustWait);
+    private void _DeflateOne(object wi);
+    private bool DeflateOneSegment(WorkItem workitem);
+    [ConditionalAttribute("Trace")]
+private void TraceOutput(TraceBits bits, string format, Object[] varParams);
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanRead();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+}
+internal class Ionic.Zlib.SharedUtils : object {
+    public static int URShift(int number, int bits);
+    public static int ReadInput(TextReader sourceTextReader, Byte[] target, int start, int count);
+    internal static Byte[] ToByteArray(string sourceString);
+    internal static Char[] ToCharArray(Byte[] byteArray);
+}
+internal class Ionic.Zlib.StaticTree : object {
+    internal static Int16[] lengthAndLiteralsTreeCodes;
+    internal static Int16[] distTreeCodes;
+    internal static StaticTree Literals;
+    internal static StaticTree Distances;
+    internal static StaticTree BitLengths;
+    internal Int16[] treeCodes;
+    internal Int32[] extraBits;
+    internal int extraBase;
+    internal int elems;
+    internal int maxLength;
+    private StaticTree(Int16[] treeCodes, Int32[] extraBits, int extraBase, int elems, int maxLength);
+    private static StaticTree();
+}
+internal class Ionic.Zlib.Tree : object {
+    internal static int Buf_size;
+    private static int HEAP_SIZE;
+    internal static Int32[] ExtraLengthBits;
+    internal static Int32[] ExtraDistanceBits;
+    internal static Int32[] extra_blbits;
+    internal static SByte[] bl_order;
+    private static SByte[] _dist_code;
+    internal static SByte[] LengthCode;
+    internal static Int32[] LengthBase;
+    internal static Int32[] DistanceBase;
+    internal Int16[] dyn_tree;
+    internal int max_code;
+    internal StaticTree staticTree;
+    private static Tree();
+    internal static int DistanceCode(int dist);
+    internal void gen_bitlen(DeflateManager s);
+    internal void build_tree(DeflateManager s);
+    internal static void gen_codes(Int16[] tree, int max_code, Int16[] bl_count);
+    internal static int bi_reverse(int code, int len);
+}
+internal class Ionic.Zlib.WorkItem : object {
+    public Byte[] buffer;
+    public Byte[] compressed;
+    public int crc;
+    public int index;
+    public int ordinal;
+    public int inputBytesAvailable;
+    public int compressedBytesAvailable;
+    public ZlibCodec compressor;
+    public WorkItem(int size, CompressionLevel compressLevel, CompressionStrategy strategy, int ix);
+}
+internal class Ionic.Zlib.ZlibBaseStream : Stream {
+    protected internal ZlibCodec _z;
+    protected internal StreamMode _streamMode;
+    protected internal FlushType _flushMode;
+    protected internal ZlibStreamFlavor _flavor;
+    protected internal CompressionMode _compressionMode;
+    protected internal CompressionLevel _level;
+    protected internal bool _leaveOpen;
+    protected internal Byte[] _workingBuffer;
+    protected internal int _bufferSize;
+    protected internal Byte[] _buf1;
+    protected internal Stream _stream;
+    protected internal CompressionStrategy Strategy;
+    private CRC32 crc;
+    protected internal string _GzipFileName;
+    protected internal string _GzipComment;
+    protected internal DateTime _GzipMtime;
+    protected internal int _gzipHeaderByteCount;
+    private bool nomoreinput;
+    internal int Crc32 { get; }
+    protected internal bool _wantCompress { get; }
+    private ZlibCodec z { get; }
+    private Byte[] workingBuffer { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public ZlibBaseStream(Stream stream, CompressionMode compressionMode, CompressionLevel level, ZlibStreamFlavor flavor, bool leaveOpen);
+    internal int get_Crc32();
+    protected internal bool get__wantCompress();
+    private ZlibCodec get_z();
+    private Byte[] get_workingBuffer();
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    private void finish();
+    private void end();
+    public virtual void Close();
+    public virtual void Flush();
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    private string ReadZeroTerminatedString();
+    private int _ReadAndValidateGzipHeader();
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public static void CompressString(string s, Stream compressor);
+    public static void CompressBuffer(Byte[] b, Stream compressor);
+    public static string UncompressString(Byte[] compressed, Stream decompressor);
+    public static Byte[] UncompressBuffer(Byte[] compressed, Stream decompressor);
+}
+[ClassInterfaceAttribute("1")]
+[ComVisibleAttribute("True")]
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d0000D")]
+public class Ionic.Zlib.ZlibCodec : object {
+    public Byte[] InputBuffer;
+    public int NextIn;
+    public int AvailableBytesIn;
+    public long TotalBytesIn;
+    public Byte[] OutputBuffer;
+    public int NextOut;
+    public int AvailableBytesOut;
+    public long TotalBytesOut;
+    public string Message;
+    internal DeflateManager dstate;
+    internal InflateManager istate;
+    internal UInt32 _Adler32;
+    public CompressionLevel CompressLevel;
+    public int WindowBits;
+    public CompressionStrategy Strategy;
+    public int Adler32 { get; }
+    public ZlibCodec(CompressionMode mode);
+    public int get_Adler32();
+    public int InitializeInflate();
+    public int InitializeInflate(bool expectRfc1950Header);
+    public int InitializeInflate(int windowBits);
+    public int InitializeInflate(int windowBits, bool expectRfc1950Header);
+    public int Inflate(FlushType flush);
+    public int EndInflate();
+    public int SyncInflate();
+    public int InitializeDeflate();
+    public int InitializeDeflate(CompressionLevel level);
+    public int InitializeDeflate(CompressionLevel level, bool wantRfc1950Header);
+    public int InitializeDeflate(CompressionLevel level, int bits);
+    public int InitializeDeflate(CompressionLevel level, int bits, bool wantRfc1950Header);
+    private int _InternalInitializeDeflate(bool wantRfc1950Header);
+    public int Deflate(FlushType flush);
+    public int EndDeflate();
+    public void ResetDeflate();
+    public int SetDeflateParams(CompressionLevel level, CompressionStrategy strategy);
+    public int SetDictionary(Byte[] dictionary);
+    internal void flush_pending();
+    internal int read_buf(Byte[] buf, int start, int size);
+}
+public static class Ionic.Zlib.ZlibConstants : object {
+    public static int WindowBitsMax;
+    public static int WindowBitsDefault;
+    public static int Z_OK;
+    public static int Z_STREAM_END;
+    public static int Z_NEED_DICT;
+    public static int Z_STREAM_ERROR;
+    public static int Z_DATA_ERROR;
+    public static int Z_BUF_ERROR;
+    public static int WorkingBufferSizeDefault;
+    public static int WorkingBufferSizeMin;
+}
+[GuidAttribute("ebc25cf6-9120-4283-b972-0e5520d0000E")]
+public class Ionic.Zlib.ZlibException : Exception {
+    public ZlibException(string s);
+}
+public class Ionic.Zlib.ZlibStream : Stream {
+    internal ZlibBaseStream _baseStream;
+    private bool _disposed;
+    public FlushType FlushMode { get; public set; }
+    public int BufferSize { get; public set; }
+    public long TotalIn { get; }
+    public long TotalOut { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public ZlibStream(Stream stream, CompressionMode mode);
+    public ZlibStream(Stream stream, CompressionMode mode, CompressionLevel level);
+    public ZlibStream(Stream stream, CompressionMode mode, bool leaveOpen);
+    public ZlibStream(Stream stream, CompressionMode mode, CompressionLevel level, bool leaveOpen);
+    public virtual FlushType get_FlushMode();
+    public virtual void set_FlushMode(FlushType value);
+    public int get_BufferSize();
+    public void set_BufferSize(int value);
+    public virtual long get_TotalIn();
+    public virtual long get_TotalOut();
+    protected virtual void Dispose(bool disposing);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public static Byte[] CompressString(string s);
+    public static Byte[] CompressBuffer(Byte[] b);
+    public static string UncompressString(Byte[] compressed);
+    public static Byte[] UncompressBuffer(Byte[] compressed);
+}
+internal enum Ionic.Zlib.ZlibStreamFlavor : Enum {
+    public int value__;
+    public static ZlibStreamFlavor ZLIB;
+    public static ZlibStreamFlavor DEFLATE;
+    public static ZlibStreamFlavor GZIP;
+}

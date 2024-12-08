@@ -1,0 +1,2818 @@
+internal static class Consts : object {
+    public static string MonoCorlibVersion;
+    public static string MonoVersion;
+    public static string MonoCompany;
+    public static string MonoProduct;
+    public static string MonoCopyright;
+    public static string FxVersion;
+    public static string FxFileVersion;
+    public static string EnvironmentVersion;
+    public static string VsVersion;
+    public static string VsFileVersion;
+    private static string PublicKeyToken;
+    public static string AssemblyI18N;
+    public static string AssemblyMicrosoft_JScript;
+    public static string AssemblyMicrosoft_VisualStudio;
+    public static string AssemblyMicrosoft_VisualStudio_Web;
+    public static string AssemblyMicrosoft_VSDesigner;
+    public static string AssemblyMono_Http;
+    public static string AssemblyMono_Posix;
+    public static string AssemblyMono_Security;
+    public static string AssemblyMono_Messaging_RabbitMQ;
+    public static string AssemblyCorlib;
+    public static string AssemblySystem;
+    public static string AssemblySystem_Data;
+    public static string AssemblySystem_Design;
+    public static string AssemblySystem_DirectoryServices;
+    public static string AssemblySystem_Drawing;
+    public static string AssemblySystem_Drawing_Design;
+    public static string AssemblySystem_Messaging;
+    public static string AssemblySystem_Security;
+    public static string AssemblySystem_ServiceProcess;
+    public static string AssemblySystem_Web;
+    public static string AssemblySystem_Windows_Forms;
+    public static string AssemblySystem_2_0;
+    public static string AssemblySystemCore_3_5;
+    public static string AssemblySystem_Core;
+    public static string WindowsBase_3_0;
+    public static string AssemblyWindowsBase;
+    public static string AssemblyPresentationCore_3_5;
+    public static string AssemblyPresentationCore_4_0;
+    public static string AssemblyPresentationFramework_3_5;
+    public static string AssemblySystemServiceModel_3_0;
+}
+internal static class Microsoft.Internal.Assumes : object {
+    [DebuggerStepThroughAttribute]
+internal static void NotNull(T value);
+    [DebuggerStepThroughAttribute]
+internal static void NotNull(T1 value1, T2 value2);
+    [DebuggerStepThroughAttribute]
+internal static void NotNull(T1 value1, T2 value2, T3 value3);
+    [DebuggerStepThroughAttribute]
+internal static void NotNullOrEmpty(string value);
+    [DebuggerStepThroughAttribute]
+internal static void IsTrue(bool condition);
+    [DebuggerStepThroughAttribute]
+internal static void IsTrue(bool condition, string message);
+    [DebuggerStepThroughAttribute]
+internal static T NotReachable();
+    [DebuggerStepThroughAttribute]
+private static Exception UncatchableException(string message);
+}
+[ExtensionAttribute]
+internal static class Microsoft.Internal.AttributeServices : object {
+    [ExtensionAttribute]
+public static T[] GetAttributes(ICustomAttributeProvider attributeProvider);
+    [ExtensionAttribute]
+public static T[] GetAttributes(ICustomAttributeProvider attributeProvider, bool inherit);
+    [ExtensionAttribute]
+public static T GetFirstAttribute(ICustomAttributeProvider attributeProvider);
+    [ExtensionAttribute]
+public static T GetFirstAttribute(ICustomAttributeProvider attributeProvider, bool inherit);
+    [ExtensionAttribute]
+public static bool IsAttributeDefined(ICustomAttributeProvider attributeProvider);
+    [ExtensionAttribute]
+public static bool IsAttributeDefined(ICustomAttributeProvider attributeProvider, bool inherit);
+}
+[ExtensionAttribute]
+internal static class Microsoft.Internal.Collections.CollectionServices : object {
+    private static Type StringType;
+    private static Type IEnumerableType;
+    private static Type IEnumerableOfTType;
+    private static Type ICollectionOfTType;
+    private static CollectionServices();
+    public static ICollection`1<object> GetCollectionWrapper(Type itemType, object collectionObject);
+    public static bool IsEnumerableOfT(Type type);
+    public static Type GetEnumerableElementType(Type type);
+    public static Type GetCollectionElementType(Type type);
+    [ExtensionAttribute]
+public static ReadOnlyCollection`1<T> ToReadOnlyCollection(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<T> ConcatAllowingNull(IEnumerable`1<T> source, IEnumerable`1<T> second);
+    [ExtensionAttribute]
+public static ICollection`1<T> ConcatAllowingNull(ICollection`1<T> source, ICollection`1<T> second);
+    [ExtensionAttribute]
+public static List`1<T> FastAppendToListAllowNulls(List`1<T> source, IEnumerable`1<T> second);
+    [ExtensionAttribute]
+public static void ForEach(IEnumerable`1<T> source, Action`1<T> action);
+    [ExtensionAttribute]
+public static EnumerableCardinality GetCardinality(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static bool FastAny(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static Stack`1<T> Copy(Stack`1<T> stack);
+    [ExtensionAttribute]
+public static T[] AsArray(IEnumerable`1<T> enumerable);
+    [ExtensionAttribute]
+public static List`1<T> AsList(IEnumerable`1<T> enumerable);
+    [ExtensionAttribute]
+public static bool IsArrayEqual(T[] thisArray, T[] thatArray);
+    [ExtensionAttribute]
+public static bool IsCollectionEqual(IList`1<T> thisList, IList`1<T> thatList);
+}
+internal enum Microsoft.Internal.Collections.EnumerableCardinality : Enum {
+    public int value__;
+    public static EnumerableCardinality Zero;
+    public static EnumerableCardinality One;
+    public static EnumerableCardinality TwoOrMore;
+}
+internal class Microsoft.Internal.Collections.WeakReferenceCollection`1 : object {
+    private List`1<WeakReference> _items;
+    public void Add(T item);
+    public void Remove(T item);
+    public bool Contains(T item);
+    public void Clear();
+    private int IndexOf(T item);
+    private void CleanupDeadReferences();
+    public List`1<T> AliveItemsToList();
+}
+internal static class Microsoft.Internal.ContractServices : object {
+    public static bool TryCast(Type contractType, object value, Object& result);
+}
+[ExtensionAttribute]
+internal static class Microsoft.Internal.GenerationServices : object {
+    private static MethodInfo _typeGetTypeFromHandleMethod;
+    private static Type TypeType;
+    private static Type StringType;
+    private static Type CharType;
+    private static Type BooleanType;
+    private static Type ByteType;
+    private static Type SByteType;
+    private static Type Int16Type;
+    private static Type UInt16Type;
+    private static Type Int32Type;
+    private static Type UInt32Type;
+    private static Type Int64Type;
+    private static Type UInt64Type;
+    private static Type DoubleType;
+    private static Type SingleType;
+    private static Type IEnumerableTypeofT;
+    private static Type IEnumerableType;
+    private static MethodInfo ExceptionGetData;
+    private static MethodInfo DictionaryAdd;
+    private static ConstructorInfo ObjectCtor;
+    private static GenerationServices();
+    [ExtensionAttribute]
+public static ILGenerator CreateGeneratorForPublicConstructor(TypeBuilder typeBuilder, Type[] ctrArgumentTypes);
+    [ExtensionAttribute]
+public static void LoadValue(ILGenerator ilGenerator, object value);
+    [ExtensionAttribute]
+public static void AddItemToLocalDictionary(ILGenerator ilGenerator, LocalBuilder dictionary, object key, object value);
+    [ExtensionAttribute]
+public static void AddLocalToLocalDictionary(ILGenerator ilGenerator, LocalBuilder dictionary, object key, LocalBuilder value);
+    [ExtensionAttribute]
+public static void GetExceptionDataAndStoreInLocal(ILGenerator ilGenerator, LocalBuilder exception, LocalBuilder dataStore);
+    [ExtensionAttribute]
+private static void LoadEnumerable(ILGenerator ilGenerator, IEnumerable enumerable);
+    private static bool IsBoxingRequiredForValue(object value);
+    [ExtensionAttribute]
+private static void LoadNull(ILGenerator ilGenerator);
+    [ExtensionAttribute]
+private static void LoadString(ILGenerator ilGenerator, string s);
+    [ExtensionAttribute]
+private static void LoadInt(ILGenerator ilGenerator, int value);
+    [ExtensionAttribute]
+private static void LoadLong(ILGenerator ilGenerator, long value);
+    [ExtensionAttribute]
+private static void LoadFloat(ILGenerator ilGenerator, float value);
+    [ExtensionAttribute]
+private static void LoadDouble(ILGenerator ilGenerator, double value);
+    [ExtensionAttribute]
+private static void LoadTypeOf(ILGenerator ilGenerator, Type type);
+}
+[ExtensionAttribute]
+internal static class Microsoft.Internal.LazyServices : object {
+    [ExtensionAttribute]
+public static T GetNotNullValue(Lazy`1<T> lazy, string argument);
+}
+internal class Microsoft.Internal.Lock : object {
+    private ReaderWriterLockSlim _thisLock;
+    private int _isDisposed;
+    public void EnterReadLock();
+    public void EnterWriteLock();
+    public void ExitReadLock();
+    public void ExitWriteLock();
+    public sealed virtual void Dispose();
+}
+internal class Microsoft.Internal.ReadLock : ValueType {
+    private Lock _lock;
+    private int _isDisposed;
+    public ReadLock(Lock lock);
+    public sealed virtual void Dispose();
+}
+[ExtensionAttribute]
+internal static class Microsoft.Internal.ReflectionInvoke : object {
+    [ExtensionAttribute]
+public static object SafeCreateInstance(Type type, Object[] arguments);
+    [ExtensionAttribute]
+public static object SafeInvoke(ConstructorInfo constructor, Object[] arguments);
+    [ExtensionAttribute]
+public static object SafeInvoke(MethodInfo method, object instance, Object[] arguments);
+    [ExtensionAttribute]
+public static object SafeGetValue(FieldInfo field, object instance);
+    [ExtensionAttribute]
+public static void SafeSetValue(FieldInfo field, object instance, object value);
+    public static void DemandMemberAccessIfNeeded(MethodInfo method);
+    private static void DemandMemberAccessIfNeeded(ConstructorInfo constructor);
+    private static void DemandMemberAccessIfNeeded(FieldInfo field);
+    public static void DemandMemberAccessIfNeeded(Type type);
+}
+[ExtensionAttribute]
+internal static class Microsoft.Internal.ReflectionServices : object {
+    [ExtensionAttribute]
+public static Assembly Assembly(MemberInfo member);
+    [ExtensionAttribute]
+public static bool IsVisible(ConstructorInfo constructor);
+    [ExtensionAttribute]
+public static bool IsVisible(FieldInfo field);
+    [ExtensionAttribute]
+public static bool IsVisible(MethodInfo method);
+    public static string GetDisplayName(Type declaringType, string name);
+    [ExtensionAttribute]
+public static string GetDisplayName(MemberInfo member);
+    internal static bool TryGetGenericInterfaceType(Type instanceType, Type targetOpenInterfaceType, Type& targetClosedInterfaceType);
+    [ExtensionAttribute]
+internal static IEnumerable`1<PropertyInfo> GetAllProperties(Type type);
+    [ExtensionAttribute]
+internal static IEnumerable`1<MethodInfo> GetAllMethods(Type type);
+    [ExtensionAttribute]
+[IteratorStateMachineAttribute("Microsoft.Internal.ReflectionServices/<GetDeclaredMethods>d__9")]
+private static IEnumerable`1<MethodInfo> GetDeclaredMethods(Type type);
+    [ExtensionAttribute]
+public static IEnumerable`1<FieldInfo> GetAllFields(Type type);
+    [ExtensionAttribute]
+[IteratorStateMachineAttribute("Microsoft.Internal.ReflectionServices/<GetDeclaredFields>d__11")]
+private static IEnumerable`1<FieldInfo> GetDeclaredFields(Type type);
+}
+internal static class Microsoft.Internal.Requires : object {
+    [DebuggerStepThroughAttribute]
+public static void NotNull(T value, string parameterName);
+    [DebuggerStepThroughAttribute]
+public static void NotNullOrEmpty(string value, string parameterName);
+    [DebuggerStepThroughAttribute]
+public static void NotNullOrNullElements(IEnumerable`1<T> values, string parameterName);
+    [DebuggerStepThroughAttribute]
+public static void NullOrNotNullElements(IEnumerable`1<KeyValuePair`2<TKey, TValue>> values, string parameterName);
+    [DebuggerStepThroughAttribute]
+public static void NullOrNotNullElements(IEnumerable`1<T> values, string parameterName);
+    private static void NotNullElements(IEnumerable`1<T> values, string parameterName);
+    private static void NotNullElements(IEnumerable`1<KeyValuePair`2<TKey, TValue>> values, string parameterName);
+    [DebuggerStepThroughAttribute]
+public static void IsInMembertypeSet(MemberTypes value, string parameterName, MemberTypes enumFlagSet);
+}
+[ExtensionAttribute]
+internal static class Microsoft.Internal.Runtime.Serialization.SerializationServices : object {
+    [ExtensionAttribute]
+public static T GetValue(SerializationInfo info, string name);
+}
+internal static class Microsoft.Internal.StringComparers : object {
+    public static StringComparer ContractName { get; }
+    public static StringComparer MetadataKeyNames { get; }
+    public static StringComparer get_ContractName();
+    public static StringComparer get_MetadataKeyNames();
+}
+[CompilerGeneratedAttribute]
+[DebuggerNonUserCodeAttribute]
+[GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+internal class Microsoft.Internal.Strings : object {
+    private static ResourceManager resourceMan;
+    private static CultureInfo resourceCulture;
+    [EditorBrowsableAttribute("2")]
+internal static ResourceManager ResourceManager { get; }
+    [EditorBrowsableAttribute("2")]
+internal static CultureInfo Culture { get; internal set; }
+    internal static string Argument_AssemblyReflectionOnly { get; }
+    internal static string Argument_ElementReflectionOnlyType { get; }
+    internal static string Argument_ExportsEmpty { get; }
+    internal static string Argument_ExportsTooMany { get; }
+    internal static string Argument_NullElement { get; }
+    internal static string Argument_ReflectionContextReturnsReflectionOnlyType { get; }
+    internal static string ArgumentException_EmptyString { get; }
+    internal static string ArgumentOutOfRange_InvalidEnum { get; }
+    internal static string ArgumentOutOfRange_InvalidEnumInSet { get; }
+    internal static string ArgumentValueType { get; }
+    internal static string AssemblyFileNotFoundOrWrongType { get; }
+    internal static string AtomicComposition_AlreadyCompleted { get; }
+    internal static string AtomicComposition_AlreadyNested { get; }
+    internal static string AtomicComposition_PartOfAnotherAtomicComposition { get; }
+    internal static string CardinalityMismatch_NoExports { get; }
+    internal static string CardinalityMismatch_TooManyExports { get; }
+    internal static string CatalogMutation_Invalid { get; }
+    internal static string CompositionElement_UnknownOrigin { get; }
+    internal static string CompositionException_ChangesRejected { get; }
+    internal static string CompositionException_ElementPrefix { get; }
+    internal static string CompositionException_ErrorPrefix { get; }
+    internal static string CompositionException_MetadataViewInvalidConstructor { get; }
+    internal static string CompositionException_MultipleErrorsWithMultiplePaths { get; }
+    internal static string CompositionException_OriginFormat { get; }
+    internal static string CompositionException_OriginSeparator { get; }
+    internal static string CompositionException_PathsCountSeparator { get; }
+    internal static string CompositionException_ReviewErrorProperty { get; }
+    internal static string CompositionException_SingleErrorWithMultiplePaths { get; }
+    internal static string CompositionException_SingleErrorWithSinglePath { get; }
+    internal static string CompositionTrace_Discovery_AssemblyLoadFailed { get; }
+    internal static string CompositionTrace_Discovery_DefinitionContainsNoExports { get; }
+    internal static string CompositionTrace_Discovery_DefinitionMarkedWithPartNotDiscoverableAttribute { get; }
+    internal static string CompositionTrace_Discovery_DefinitionMismatchedExportArity { get; }
+    internal static string CompositionTrace_Discovery_MemberMarkedWithMultipleImportAndImportMany { get; }
+    internal static string CompositionTrace_Rejection_DefinitionRejected { get; }
+    internal static string CompositionTrace_Rejection_DefinitionResurrected { get; }
+    internal static string ContractMismatch_ExportedValueCannotBeCastToT { get; }
+    internal static string ContractMismatch_InvalidCastOnMetadataField { get; }
+    internal static string ContractMismatch_MetadataViewImplementationCanNotBeNull { get; }
+    internal static string ContractMismatch_MetadataViewImplementationDoesNotImplementViewInterface { get; }
+    internal static string ContractMismatch_NullReferenceOnMetadataField { get; }
+    internal static string DirectoryNotFound { get; }
+    internal static string Discovery_DuplicateMetadataNameValues { get; }
+    internal static string Discovery_MetadataContainsValueWithInvalidType { get; }
+    internal static string Discovery_ReservedMetadataNameUsed { get; }
+    internal static string ExportDefinitionNotOnThisComposablePart { get; }
+    internal static string ExportFactory_TooManyGenericParameters { get; }
+    internal static string ExportNotValidOnIndexers { get; }
+    internal static string ImportDefinitionNotOnThisComposablePart { get; }
+    internal static string ImportEngine_ComposeTookTooManyIterations { get; }
+    internal static string ImportEngine_InvalidStateForRecomposition { get; }
+    internal static string ImportEngine_PartCannotActivate { get; }
+    internal static string ImportEngine_PartCannotGetExportedValue { get; }
+    internal static string ImportEngine_PartCannotSetImport { get; }
+    internal static string ImportEngine_PartCycle { get; }
+    internal static string ImportEngine_PreventedByExistingImport { get; }
+    internal static string ImportNotSetOnPart { get; }
+    internal static string ImportNotValidOnIndexers { get; }
+    internal static string InternalExceptionMessage { get; }
+    internal static string InvalidArgument_ReflectionContext { get; }
+    internal static string InvalidMetadataValue { get; }
+    internal static string InvalidMetadataView { get; }
+    internal static string InvalidOperation_DefinitionCannotBeRecomposed { get; }
+    internal static string InvalidOperation_GetExportedValueBeforePrereqImportSet { get; }
+    internal static string InvalidOperationReentrantCompose { get; }
+    internal static string InvalidPartCreationPolicyOnImport { get; }
+    internal static string InvalidPartCreationPolicyOnPart { get; }
+    internal static string InvalidSetterOnMetadataField { get; }
+    internal static string LazyMemberInfo_AccessorsNull { get; }
+    internal static string LazyMemberInfo_InvalidAccessorOnSimpleMember { get; }
+    internal static string LazyMemberinfo_InvalidEventAccessors_AccessorType { get; }
+    internal static string LazyMemberInfo_InvalidEventAccessors_Cardinality { get; }
+    internal static string LazyMemberinfo_InvalidPropertyAccessors_AccessorType { get; }
+    internal static string LazyMemberInfo_InvalidPropertyAccessors_Cardinality { get; }
+    internal static string LazyMemberInfo_NoAccessors { get; }
+    internal static string LazyServices_LazyResolvesToNull { get; }
+    internal static string MetadataItemNotSupported { get; }
+    internal static string NotImplemented_NotOverriddenByDerived { get; }
+    internal static string NotSupportedCatalogChanges { get; }
+    internal static string NotSupportedInterfaceMetadataView { get; }
+    internal static string NotSupportedReadOnlyDictionary { get; }
+    internal static string ObjectAlreadyInitialized { get; }
+    internal static string ObjectMustBeInitialized { get; }
+    internal static string ReentrantCompose { get; }
+    internal static string ReflectionContext_Requires_DefaultConstructor { get; }
+    internal static string ReflectionContext_Type_Required { get; }
+    internal static string ReflectionModel_ExportNotReadable { get; }
+    internal static string ReflectionModel_ExportThrewException { get; }
+    internal static string ReflectionModel_ImportCollectionAddThrewException { get; }
+    internal static string ReflectionModel_ImportCollectionClearThrewException { get; }
+    internal static string ReflectionModel_ImportCollectionConstructionThrewException { get; }
+    internal static string ReflectionModel_ImportCollectionGetThrewException { get; }
+    internal static string ReflectionModel_ImportCollectionIsReadOnlyThrewException { get; }
+    internal static string ReflectionModel_ImportCollectionNotWritable { get; }
+    internal static string ReflectionModel_ImportCollectionNull { get; }
+    internal static string ReflectionModel_ImportManyOnParameterCanOnlyBeAssigned { get; }
+    internal static string ReflectionModel_ImportNotAssignableFromExport { get; }
+    internal static string ReflectionModel_ImportNotWritable { get; }
+    internal static string ReflectionModel_ImportThrewException { get; }
+    internal static string ReflectionModel_InvalidExportDefinition { get; }
+    internal static string ReflectionModel_InvalidImportDefinition { get; }
+    internal static string ReflectionModel_InvalidMemberImportDefinition { get; }
+    internal static string ReflectionModel_InvalidParameterImportDefinition { get; }
+    internal static string ReflectionModel_InvalidPartDefinition { get; }
+    internal static string ReflectionModel_PartConstructorMissing { get; }
+    internal static string ReflectionModel_PartConstructorThrewException { get; }
+    internal static string ReflectionModel_PartOnImportsSatisfiedThrewException { get; }
+    internal static string TypeCatalog_DisplayNameFormat { get; }
+    internal static string TypeCatalog_Empty { get; }
+    internal static ResourceManager get_ResourceManager();
+    internal static CultureInfo get_Culture();
+    internal static void set_Culture(CultureInfo value);
+    internal static string get_Argument_AssemblyReflectionOnly();
+    internal static string get_Argument_ElementReflectionOnlyType();
+    internal static string get_Argument_ExportsEmpty();
+    internal static string get_Argument_ExportsTooMany();
+    internal static string get_Argument_NullElement();
+    internal static string get_Argument_ReflectionContextReturnsReflectionOnlyType();
+    internal static string get_ArgumentException_EmptyString();
+    internal static string get_ArgumentOutOfRange_InvalidEnum();
+    internal static string get_ArgumentOutOfRange_InvalidEnumInSet();
+    internal static string get_ArgumentValueType();
+    internal static string get_AssemblyFileNotFoundOrWrongType();
+    internal static string get_AtomicComposition_AlreadyCompleted();
+    internal static string get_AtomicComposition_AlreadyNested();
+    internal static string get_AtomicComposition_PartOfAnotherAtomicComposition();
+    internal static string get_CardinalityMismatch_NoExports();
+    internal static string get_CardinalityMismatch_TooManyExports();
+    internal static string get_CatalogMutation_Invalid();
+    internal static string get_CompositionElement_UnknownOrigin();
+    internal static string get_CompositionException_ChangesRejected();
+    internal static string get_CompositionException_ElementPrefix();
+    internal static string get_CompositionException_ErrorPrefix();
+    internal static string get_CompositionException_MetadataViewInvalidConstructor();
+    internal static string get_CompositionException_MultipleErrorsWithMultiplePaths();
+    internal static string get_CompositionException_OriginFormat();
+    internal static string get_CompositionException_OriginSeparator();
+    internal static string get_CompositionException_PathsCountSeparator();
+    internal static string get_CompositionException_ReviewErrorProperty();
+    internal static string get_CompositionException_SingleErrorWithMultiplePaths();
+    internal static string get_CompositionException_SingleErrorWithSinglePath();
+    internal static string get_CompositionTrace_Discovery_AssemblyLoadFailed();
+    internal static string get_CompositionTrace_Discovery_DefinitionContainsNoExports();
+    internal static string get_CompositionTrace_Discovery_DefinitionMarkedWithPartNotDiscoverableAttribute();
+    internal static string get_CompositionTrace_Discovery_DefinitionMismatchedExportArity();
+    internal static string get_CompositionTrace_Discovery_MemberMarkedWithMultipleImportAndImportMany();
+    internal static string get_CompositionTrace_Rejection_DefinitionRejected();
+    internal static string get_CompositionTrace_Rejection_DefinitionResurrected();
+    internal static string get_ContractMismatch_ExportedValueCannotBeCastToT();
+    internal static string get_ContractMismatch_InvalidCastOnMetadataField();
+    internal static string get_ContractMismatch_MetadataViewImplementationCanNotBeNull();
+    internal static string get_ContractMismatch_MetadataViewImplementationDoesNotImplementViewInterface();
+    internal static string get_ContractMismatch_NullReferenceOnMetadataField();
+    internal static string get_DirectoryNotFound();
+    internal static string get_Discovery_DuplicateMetadataNameValues();
+    internal static string get_Discovery_MetadataContainsValueWithInvalidType();
+    internal static string get_Discovery_ReservedMetadataNameUsed();
+    internal static string get_ExportDefinitionNotOnThisComposablePart();
+    internal static string get_ExportFactory_TooManyGenericParameters();
+    internal static string get_ExportNotValidOnIndexers();
+    internal static string get_ImportDefinitionNotOnThisComposablePart();
+    internal static string get_ImportEngine_ComposeTookTooManyIterations();
+    internal static string get_ImportEngine_InvalidStateForRecomposition();
+    internal static string get_ImportEngine_PartCannotActivate();
+    internal static string get_ImportEngine_PartCannotGetExportedValue();
+    internal static string get_ImportEngine_PartCannotSetImport();
+    internal static string get_ImportEngine_PartCycle();
+    internal static string get_ImportEngine_PreventedByExistingImport();
+    internal static string get_ImportNotSetOnPart();
+    internal static string get_ImportNotValidOnIndexers();
+    internal static string get_InternalExceptionMessage();
+    internal static string get_InvalidArgument_ReflectionContext();
+    internal static string get_InvalidMetadataValue();
+    internal static string get_InvalidMetadataView();
+    internal static string get_InvalidOperation_DefinitionCannotBeRecomposed();
+    internal static string get_InvalidOperation_GetExportedValueBeforePrereqImportSet();
+    internal static string get_InvalidOperationReentrantCompose();
+    internal static string get_InvalidPartCreationPolicyOnImport();
+    internal static string get_InvalidPartCreationPolicyOnPart();
+    internal static string get_InvalidSetterOnMetadataField();
+    internal static string get_LazyMemberInfo_AccessorsNull();
+    internal static string get_LazyMemberInfo_InvalidAccessorOnSimpleMember();
+    internal static string get_LazyMemberinfo_InvalidEventAccessors_AccessorType();
+    internal static string get_LazyMemberInfo_InvalidEventAccessors_Cardinality();
+    internal static string get_LazyMemberinfo_InvalidPropertyAccessors_AccessorType();
+    internal static string get_LazyMemberInfo_InvalidPropertyAccessors_Cardinality();
+    internal static string get_LazyMemberInfo_NoAccessors();
+    internal static string get_LazyServices_LazyResolvesToNull();
+    internal static string get_MetadataItemNotSupported();
+    internal static string get_NotImplemented_NotOverriddenByDerived();
+    internal static string get_NotSupportedCatalogChanges();
+    internal static string get_NotSupportedInterfaceMetadataView();
+    internal static string get_NotSupportedReadOnlyDictionary();
+    internal static string get_ObjectAlreadyInitialized();
+    internal static string get_ObjectMustBeInitialized();
+    internal static string get_ReentrantCompose();
+    internal static string get_ReflectionContext_Requires_DefaultConstructor();
+    internal static string get_ReflectionContext_Type_Required();
+    internal static string get_ReflectionModel_ExportNotReadable();
+    internal static string get_ReflectionModel_ExportThrewException();
+    internal static string get_ReflectionModel_ImportCollectionAddThrewException();
+    internal static string get_ReflectionModel_ImportCollectionClearThrewException();
+    internal static string get_ReflectionModel_ImportCollectionConstructionThrewException();
+    internal static string get_ReflectionModel_ImportCollectionGetThrewException();
+    internal static string get_ReflectionModel_ImportCollectionIsReadOnlyThrewException();
+    internal static string get_ReflectionModel_ImportCollectionNotWritable();
+    internal static string get_ReflectionModel_ImportCollectionNull();
+    internal static string get_ReflectionModel_ImportManyOnParameterCanOnlyBeAssigned();
+    internal static string get_ReflectionModel_ImportNotAssignableFromExport();
+    internal static string get_ReflectionModel_ImportNotWritable();
+    internal static string get_ReflectionModel_ImportThrewException();
+    internal static string get_ReflectionModel_InvalidExportDefinition();
+    internal static string get_ReflectionModel_InvalidImportDefinition();
+    internal static string get_ReflectionModel_InvalidMemberImportDefinition();
+    internal static string get_ReflectionModel_InvalidParameterImportDefinition();
+    internal static string get_ReflectionModel_InvalidPartDefinition();
+    internal static string get_ReflectionModel_PartConstructorMissing();
+    internal static string get_ReflectionModel_PartConstructorThrewException();
+    internal static string get_ReflectionModel_PartOnImportsSatisfiedThrewException();
+    internal static string get_TypeCatalog_DisplayNameFormat();
+    internal static string get_TypeCatalog_Empty();
+}
+internal class Microsoft.Internal.WriteLock : ValueType {
+    private Lock _lock;
+    private int _isDisposed;
+    public WriteLock(Lock lock);
+    public sealed virtual void Dispose();
+}
+internal class System.ComponentModel.Composition.AttributedModel.AttributedExportDefinition : ExportDefinition {
+    private AttributedPartCreationInfo _partCreationInfo;
+    private MemberInfo _member;
+    private ExportAttribute _exportAttribute;
+    private Type _typeIdentityType;
+    private IDictionary`2<string, object> _metadata;
+    public IDictionary`2<string, object> Metadata { get; }
+    public AttributedExportDefinition(AttributedPartCreationInfo partCreationInfo, MemberInfo member, ExportAttribute exportAttribute, Type typeIdentityType, string contractName);
+    public virtual IDictionary`2<string, object> get_Metadata();
+}
+internal static class System.ComponentModel.Composition.AttributedModel.AttributedModelDiscovery : object {
+    public static ComposablePartDefinition CreatePartDefinitionIfDiscoverable(Type type, ICompositionElement origin);
+    public static ReflectionComposablePartDefinition CreatePartDefinition(Type type, PartCreationPolicyAttribute partCreationPolicy, bool ignoreConstructorImports, ICompositionElement origin);
+    public static ReflectionComposablePart CreatePart(object attributedPart);
+    public static ReflectionComposablePart CreatePart(object attributedPart, ReflectionContext reflectionContext);
+    public static ReflectionComposablePart CreatePart(ComposablePartDefinition partDefinition, object attributedPart);
+    public static ReflectionParameterImportDefinition CreateParameterImportDefinition(ParameterInfo parameter, ICompositionElement origin);
+    public static ReflectionMemberImportDefinition CreateMemberImportDefinition(MemberInfo member, ICompositionElement origin);
+    private static IAttributedImport GetAttributedImport(ReflectionItem item, ICustomAttributeProvider attributeProvider);
+}
+internal class System.ComponentModel.Composition.AttributedModel.AttributedPartCreationInfo : object {
+    private Type _type;
+    private bool _ignoreConstructorImports;
+    private ICompositionElement _origin;
+    private PartCreationPolicyAttribute _partCreationPolicy;
+    private ConstructorInfo _constructor;
+    private IEnumerable`1<ExportDefinition> _exports;
+    private IEnumerable`1<ImportDefinition> _imports;
+    private HashSet`1<string> _contractNamesOnNonInterfaces;
+    public bool IsDisposalRequired { get; }
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    private CreationPolicy CreationPolicy { get; }
+    public AttributedPartCreationInfo(Type type, PartCreationPolicyAttribute partCreationPolicy, bool ignoreConstructorImports, ICompositionElement origin);
+    public sealed virtual Type GetPartType();
+    public sealed virtual Lazy`1<Type> GetLazyPartType();
+    public sealed virtual ConstructorInfo GetConstructor();
+    public sealed virtual IDictionary`2<string, object> GetMetadata();
+    public sealed virtual IEnumerable`1<ExportDefinition> GetExports();
+    public sealed virtual IEnumerable`1<ImportDefinition> GetImports();
+    public sealed virtual bool get_IsDisposalRequired();
+    public bool IsPartDiscoverable();
+    private bool HasExports();
+    private bool AllExportsHaveMatchingArity();
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+    public virtual string ToString();
+    private string GetDisplayName();
+    private CreationPolicy get_CreationPolicy();
+    private static ConstructorInfo SelectPartConstructor(Type type);
+    private void DiscoverExportsAndImports();
+    private IEnumerable`1<ExportDefinition> GetExportDefinitions();
+    private AttributedExportDefinition CreateExportDefinition(MemberInfo member, ExportAttribute exportAttribute);
+    [IteratorStateMachineAttribute("System.ComponentModel.Composition.AttributedModel.AttributedPartCreationInfo/<GetExportMembers>d__32")]
+private IEnumerable`1<MemberInfo> GetExportMembers(Type type);
+    [IteratorStateMachineAttribute("System.ComponentModel.Composition.AttributedModel.AttributedPartCreationInfo/<GetInheritedExports>d__33")]
+private IEnumerable`1<Type> GetInheritedExports(Type type);
+    private static bool IsExport(ICustomAttributeProvider attributeProvider);
+    private static bool IsInheritedExport(ICustomAttributeProvider attributedProvider);
+    private IEnumerable`1<ImportDefinition> GetImportDefinitions();
+    [IteratorStateMachineAttribute("System.ComponentModel.Composition.AttributedModel.AttributedPartCreationInfo/<GetImportMembers>d__37")]
+private IEnumerable`1<MemberInfo> GetImportMembers(Type type);
+    [IteratorStateMachineAttribute("System.ComponentModel.Composition.AttributedModel.AttributedPartCreationInfo/<GetDeclaredOnlyImportMembers>d__38")]
+private IEnumerable`1<MemberInfo> GetDeclaredOnlyImportMembers(Type type);
+    private static bool IsImport(ICustomAttributeProvider attributeProvider);
+}
+[ExtensionAttribute]
+public static class System.ComponentModel.Composition.AttributedModelServices : object {
+    public static TMetadataView GetMetadataView(IDictionary`2<string, object> metadata);
+    public static ComposablePart CreatePart(object attributedPart);
+    public static ComposablePart CreatePart(object attributedPart, ReflectionContext reflectionContext);
+    public static ComposablePart CreatePart(ComposablePartDefinition partDefinition, object attributedPart);
+    public static ComposablePartDefinition CreatePartDefinition(Type type, ICompositionElement origin);
+    public static ComposablePartDefinition CreatePartDefinition(Type type, ICompositionElement origin, bool ensureIsDiscoverable);
+    public static string GetTypeIdentity(Type type);
+    public static string GetTypeIdentity(MethodInfo method);
+    public static string GetContractName(Type type);
+    [ExtensionAttribute]
+public static ComposablePart AddExportedValue(CompositionBatch batch, T exportedValue);
+    [ExtensionAttribute]
+public static void ComposeExportedValue(CompositionContainer container, T exportedValue);
+    [ExtensionAttribute]
+public static ComposablePart AddExportedValue(CompositionBatch batch, string contractName, T exportedValue);
+    [ExtensionAttribute]
+public static void ComposeExportedValue(CompositionContainer container, string contractName, T exportedValue);
+    [ExtensionAttribute]
+public static ComposablePart AddPart(CompositionBatch batch, object attributedPart);
+    [ExtensionAttribute]
+public static void ComposeParts(CompositionContainer container, Object[] attributedParts);
+    [ExtensionAttribute]
+public static ComposablePart SatisfyImportsOnce(ICompositionService compositionService, object attributedPart);
+    [ExtensionAttribute]
+public static ComposablePart SatisfyImportsOnce(ICompositionService compositionService, object attributedPart, ReflectionContext reflectionContext);
+    [ExtensionAttribute]
+public static bool Exports(ComposablePartDefinition part, Type contractType);
+    [ExtensionAttribute]
+public static bool Exports(ComposablePartDefinition part);
+    [ExtensionAttribute]
+public static bool Imports(ComposablePartDefinition part, Type contractType);
+    [ExtensionAttribute]
+public static bool Imports(ComposablePartDefinition part);
+    [ExtensionAttribute]
+public static bool Imports(ComposablePartDefinition part, Type contractType, ImportCardinality importCardinality);
+    [ExtensionAttribute]
+public static bool Imports(ComposablePartDefinition part, ImportCardinality importCardinality);
+}
+[AttributeUsageAttribute("1")]
+public class System.ComponentModel.Composition.CatalogReflectionContextAttribute : Attribute {
+    private Type _reflectionContextType;
+    public CatalogReflectionContextAttribute(Type reflectionContextType);
+    public ReflectionContext CreateReflectionContext();
+}
+public class System.ComponentModel.Composition.ChangeRejectedException : CompositionException {
+    public string Message { get; }
+    public ChangeRejectedException(string message);
+    public ChangeRejectedException(string message, Exception innerException);
+    public ChangeRejectedException(IEnumerable`1<CompositionError> errors);
+    public virtual string get_Message();
+}
+public class System.ComponentModel.Composition.CompositionContractMismatchException : Exception {
+    public CompositionContractMismatchException(string message);
+    public CompositionContractMismatchException(string message, Exception innerException);
+    [SecuritySafeCriticalAttribute]
+protected CompositionContractMismatchException(SerializationInfo info, StreamingContext context);
+}
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.CompositionErrorDebuggerProxy")]
+public class System.ComponentModel.Composition.CompositionError : object {
+    private CompositionErrorId _id;
+    private string _description;
+    private Exception _exception;
+    private ICompositionElement _element;
+    public ICompositionElement Element { get; }
+    public string Description { get; }
+    public Exception Exception { get; }
+    internal CompositionErrorId Id { get; }
+    internal Exception InnerException { get; }
+    public CompositionError(string message);
+    public CompositionError(string message, ICompositionElement element);
+    public CompositionError(string message, Exception exception);
+    public CompositionError(string message, ICompositionElement element, Exception exception);
+    internal CompositionError(CompositionErrorId id, string description, ICompositionElement element, Exception exception);
+    public ICompositionElement get_Element();
+    public string get_Description();
+    public Exception get_Exception();
+    internal CompositionErrorId get_Id();
+    internal Exception get_InnerException();
+    public virtual string ToString();
+    internal static CompositionError Create(CompositionErrorId id, string format, Object[] parameters);
+    internal static CompositionError Create(CompositionErrorId id, ICompositionElement element, string format, Object[] parameters);
+    internal static CompositionError Create(CompositionErrorId id, ICompositionElement element, Exception exception, string format, Object[] parameters);
+}
+internal class System.ComponentModel.Composition.CompositionErrorDebuggerProxy : object {
+    private CompositionError _error;
+    public string Description { get; }
+    public Exception Exception { get; }
+    public ICompositionElement Element { get; }
+    public CompositionErrorDebuggerProxy(CompositionError error);
+    public string get_Description();
+    public Exception get_Exception();
+    public ICompositionElement get_Element();
+}
+internal enum System.ComponentModel.Composition.CompositionErrorId : Enum {
+    public int value__;
+    public static CompositionErrorId Unknown;
+    public static CompositionErrorId InvalidExportMetadata;
+    public static CompositionErrorId ImportNotSetOnPart;
+    public static CompositionErrorId ImportEngine_ComposeTookTooManyIterations;
+    public static CompositionErrorId ImportEngine_ImportCardinalityMismatch;
+    public static CompositionErrorId ImportEngine_PartCycle;
+    public static CompositionErrorId ImportEngine_PartCannotSetImport;
+    public static CompositionErrorId ImportEngine_PartCannotGetExportedValue;
+    public static CompositionErrorId ImportEngine_PartCannotActivate;
+    public static CompositionErrorId ImportEngine_PreventedByExistingImport;
+    public static CompositionErrorId ImportEngine_InvalidStateForRecomposition;
+    public static CompositionErrorId ReflectionModel_ImportThrewException;
+    public static CompositionErrorId ReflectionModel_ImportNotAssignableFromExport;
+    public static CompositionErrorId ReflectionModel_ImportCollectionNull;
+    public static CompositionErrorId ReflectionModel_ImportCollectionNotWritable;
+    public static CompositionErrorId ReflectionModel_ImportCollectionConstructionThrewException;
+    public static CompositionErrorId ReflectionModel_ImportCollectionGetThrewException;
+    public static CompositionErrorId ReflectionModel_ImportCollectionIsReadOnlyThrewException;
+    public static CompositionErrorId ReflectionModel_ImportCollectionClearThrewException;
+    public static CompositionErrorId ReflectionModel_ImportCollectionAddThrewException;
+    public static CompositionErrorId ReflectionModel_ImportManyOnParameterCanOnlyBeAssigned;
+}
+[DebuggerDisplayAttribute("{Message}")]
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.CompositionExceptionDebuggerProxy")]
+public class System.ComponentModel.Composition.CompositionException : Exception {
+    private static string ErrorsKey;
+    private ReadOnlyCollection`1<CompositionError> _errors;
+    public ReadOnlyCollection`1<CompositionError> Errors { get; }
+    public string Message { get; }
+    public ReadOnlyCollection`1<Exception> RootCauses { get; }
+    public CompositionException(string message);
+    public CompositionException(string message, Exception innerException);
+    internal CompositionException(CompositionError error);
+    public CompositionException(IEnumerable`1<CompositionError> errors);
+    internal CompositionException(string message, Exception innerException, IEnumerable`1<CompositionError> errors);
+    public ReadOnlyCollection`1<CompositionError> get_Errors();
+    public virtual string get_Message();
+    private string BuildDefaultMessage();
+    private static void WriteHeader(StringBuilder writer, int errorsCount, int pathCount);
+    private static void WritePaths(StringBuilder writer, IEnumerable`1<IEnumerable`1<CompositionError>> paths);
+    private static void WritePath(StringBuilder writer, IEnumerable`1<CompositionError> path, int ordinal);
+    private static void WriteError(StringBuilder writer, CompositionError error);
+    private static void WriteElementGraph(StringBuilder writer, ICompositionElement element);
+    private static IEnumerable`1<IEnumerable`1<CompositionError>> CalculatePaths(CompositionException exception);
+    private static void VisitCompositionException(CompositionException exception, VisitContext context);
+    private static void VisitError(CompositionError error, VisitContext context);
+    private static void VisitException(Exception exception, VisitContext context);
+    [CompilerGeneratedAttribute]
+private void <.ctor>b__8_0(object exception, SafeSerializationEventArgs eventArgs);
+    public ReadOnlyCollection`1<Exception> get_RootCauses();
+}
+internal class System.ComponentModel.Composition.CompositionExceptionDebuggerProxy : object {
+    private CompositionException _exception;
+    public ReadOnlyCollection`1<Exception> Exceptions { get; }
+    public string Message { get; }
+    public ReadOnlyCollection`1<Exception> RootCauses { get; }
+    public CompositionExceptionDebuggerProxy(CompositionException exception);
+    public ReadOnlyCollection`1<Exception> get_Exceptions();
+    public string get_Message();
+    public ReadOnlyCollection`1<Exception> get_RootCauses();
+}
+internal class System.ComponentModel.Composition.CompositionResult : ValueType {
+    public static CompositionResult SucceededResult;
+    private IEnumerable`1<CompositionError> _errors;
+    public bool Succeeded { get; }
+    public IEnumerable`1<CompositionError> Errors { get; }
+    public CompositionResult(CompositionError[] errors);
+    public CompositionResult(IEnumerable`1<CompositionError> errors);
+    private static CompositionResult();
+    public bool get_Succeeded();
+    public IEnumerable`1<CompositionError> get_Errors();
+    public CompositionResult MergeResult(CompositionResult result);
+    public CompositionResult MergeError(CompositionError error);
+    public CompositionResult MergeErrors(IEnumerable`1<CompositionError> errors);
+    public CompositionResult`1<T> ToResult(T value);
+    public void ThrowOnErrors();
+    public void ThrowOnErrors(AtomicComposition atomicComposition);
+}
+internal class System.ComponentModel.Composition.CompositionResult`1 : ValueType {
+    private IEnumerable`1<CompositionError> _errors;
+    private T _value;
+    public bool Succeeded { get; }
+    public IEnumerable`1<CompositionError> Errors { get; }
+    public T Value { get; }
+    public CompositionResult`1(T value);
+    public CompositionResult`1(CompositionError[] errors);
+    public CompositionResult`1(IEnumerable`1<CompositionError> errors);
+    internal CompositionResult`1(T value, IEnumerable`1<CompositionError> errors);
+    public bool get_Succeeded();
+    public IEnumerable`1<CompositionError> get_Errors();
+    public T get_Value();
+    internal CompositionResult`1<TValue> ToResult();
+    internal CompositionResult ToResult();
+    private void ThrowOnErrors();
+}
+internal static class System.ComponentModel.Composition.ConstraintServices : object {
+    private static PropertyInfo _exportDefinitionContractNameProperty;
+    private static PropertyInfo _exportDefinitionMetadataProperty;
+    private static MethodInfo _metadataContainsKeyMethod;
+    private static MethodInfo _metadataItemMethod;
+    private static MethodInfo _metadataEqualsMethod;
+    private static MethodInfo _typeIsInstanceOfTypeMethod;
+    private static ConstraintServices();
+    public static Expression`1<Func`2<ExportDefinition, bool>> CreateConstraint(string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, CreationPolicy requiredCreationPolicy);
+    private static Expression CreateContractConstraintBody(string contractName, ParameterExpression parameter);
+    private static Expression CreateMetadataConstraintBody(IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ParameterExpression parameter);
+    private static Expression CreateCreationPolicyContraint(CreationPolicy policy, ParameterExpression parameter);
+    private static Expression CreateTypeIdentityContraint(string requiredTypeIdentity, ParameterExpression parameter);
+    private static Expression CreateMetadataContainsKeyExpression(ParameterExpression parameter, string constantKey);
+    private static Expression CreateMetadataOfTypeExpression(ParameterExpression parameter, string constantKey, Type constantType);
+    private static Expression CreateMetadataValueEqualsExpression(ParameterExpression parameter, object constantValue, string metadataName);
+    public static Expression`1<Func`2<ExportDefinition, bool>> CreatePartCreatorConstraint(Expression`1<Func`2<ExportDefinition, bool>> baseConstraint, ImportDefinition productImportDefinition);
+}
+internal static class System.ComponentModel.Composition.ContractNameServices : object {
+    private static char NamespaceSeparator;
+    private static char ArrayOpeningBracket;
+    private static char ArrayClosingBracket;
+    private static char ArraySeparator;
+    private static char PointerSymbol;
+    private static char ReferenceSymbol;
+    private static char GenericArityBackQuote;
+    private static char NestedClassSeparator;
+    private static char ContractNameGenericOpeningBracket;
+    private static char ContractNameGenericClosingBracket;
+    private static char ContractNameGenericArgumentSeparator;
+    private static char CustomModifiersSeparator;
+    private static char GenericFormatOpeningBracket;
+    private static char GenericFormatClosingBracket;
+    [ThreadStaticAttribute]
+private static Dictionary`2<Type, string> typeIdentityCache;
+    private static Dictionary`2<Type, string> TypeIdentityCache { get; }
+    private static Dictionary`2<Type, string> get_TypeIdentityCache();
+    internal static string GetTypeIdentity(Type type);
+    internal static string GetTypeIdentity(Type type, bool formatGenericName);
+    internal static string GetTypeIdentityFromMethod(MethodInfo method);
+    internal static string GetTypeIdentityFromMethod(MethodInfo method, bool formatGenericName);
+    private static void WriteTypeWithNamespace(StringBuilder typeName, Type type, bool formatGenericName);
+    private static void WriteType(StringBuilder typeName, Type type, bool formatGenericName);
+    private static void WriteNonGenericType(StringBuilder typeName, Type type, bool formatGenericName);
+    private static void WriteArrayType(StringBuilder typeName, Type type, bool formatGenericName);
+    private static void WritePointerType(StringBuilder typeName, Type type, bool formatGenericName);
+    private static void WriteByRefType(StringBuilder typeName, Type type, bool formatGenericName);
+    private static void WriteArrayTypeDimensions(StringBuilder typeName, Type type);
+    private static void WriteGenericType(StringBuilder typeName, Type type, bool isDefinition, Queue`1<Type> genericTypeArguments, bool formatGenericName);
+    private static void WriteGenericTypeName(StringBuilder typeName, Type type, bool isDefinition, Queue`1<Type> genericTypeArguments, bool formatGenericName);
+    private static void WriteTypeArgumentsString(StringBuilder typeName, int argumentsCount, bool isDefinition, Queue`1<Type> genericTypeArguments, bool formatGenericName);
+    private static void WriteTypeArgument(StringBuilder typeName, bool isDefinition, Type genericTypeArgument, bool formatGenericName);
+    internal static void WriteCustomModifiers(StringBuilder typeName, string customKeyword, Type[] types, bool formatGenericName);
+    private static Type FindArrayElementType(Type type);
+    private static string FindGenericTypeName(string genericName);
+    private static int GetGenericArity(Type type);
+}
+public enum System.ComponentModel.Composition.CreationPolicy : Enum {
+    public int value__;
+    public static CreationPolicy Any;
+    public static CreationPolicy Shared;
+    public static CreationPolicy NonShared;
+    public static CreationPolicy NewScope;
+}
+internal static class System.ComponentModel.Composition.Diagnostics.CompositionTrace : object {
+    internal static void PartDefinitionResurrected(ComposablePartDefinition definition);
+    internal static void PartDefinitionRejected(ComposablePartDefinition definition, ChangeRejectedException exception);
+    internal static void AssemblyLoadFailed(DirectoryCatalog catalog, string fileName, Exception exception);
+    internal static void DefinitionMarkedWithPartNotDiscoverableAttribute(Type type);
+    internal static void DefinitionMismatchedExportArity(Type type, MemberInfo member);
+    internal static void DefinitionContainsNoExports(Type type);
+    internal static void MemberMarkedWithMultipleImportAndImportMany(ReflectionItem item);
+}
+internal enum System.ComponentModel.Composition.Diagnostics.CompositionTraceId : Enum {
+    public ushort value__;
+    public static CompositionTraceId Rejection_DefinitionRejected;
+    public static CompositionTraceId Rejection_DefinitionResurrected;
+    public static CompositionTraceId Discovery_AssemblyLoadFailed;
+    public static CompositionTraceId Discovery_DefinitionMarkedWithPartNotDiscoverableAttribute;
+    public static CompositionTraceId Discovery_DefinitionMismatchedExportArity;
+    public static CompositionTraceId Discovery_DefinitionContainsNoExports;
+    public static CompositionTraceId Discovery_MemberMarkedWithMultipleImportAndImportMany;
+}
+internal static class System.ComponentModel.Composition.Diagnostics.CompositionTraceSource : object {
+    private static DebuggerTraceWriter Source;
+    public static bool CanWriteInformation { get; }
+    public static bool CanWriteWarning { get; }
+    public static bool CanWriteError { get; }
+    private static CompositionTraceSource();
+    public static bool get_CanWriteInformation();
+    public static bool get_CanWriteWarning();
+    public static bool get_CanWriteError();
+    public static void WriteInformation(CompositionTraceId traceId, string format, Object[] arguments);
+    public static void WriteWarning(CompositionTraceId traceId, string format, Object[] arguments);
+    public static void WriteError(CompositionTraceId traceId, string format, Object[] arguments);
+    private static void EnsureEnabled(bool condition);
+}
+internal class System.ComponentModel.Composition.Diagnostics.DebuggerTraceWriter : TraceWriter {
+    private static string SourceName;
+    public bool CanWriteInformation { get; }
+    public bool CanWriteWarning { get; }
+    public bool CanWriteError { get; }
+    private static DebuggerTraceWriter();
+    public virtual bool get_CanWriteInformation();
+    public virtual bool get_CanWriteWarning();
+    public virtual bool get_CanWriteError();
+    public virtual void WriteInformation(CompositionTraceId traceId, string format, Object[] arguments);
+    public virtual void WriteWarning(CompositionTraceId traceId, string format, Object[] arguments);
+    public virtual void WriteError(CompositionTraceId traceId, string format, Object[] arguments);
+    private static void WriteEvent(TraceEventType eventType, CompositionTraceId traceId, string format, Object[] arguments);
+    internal static string CreateLogMessage(TraceEventType eventType, CompositionTraceId traceId, string format, Object[] arguments);
+}
+internal abstract class System.ComponentModel.Composition.Diagnostics.TraceWriter : object {
+    public bool CanWriteInformation { get; }
+    public bool CanWriteWarning { get; }
+    public bool CanWriteError { get; }
+    public abstract virtual bool get_CanWriteInformation();
+    public abstract virtual bool get_CanWriteWarning();
+    public abstract virtual bool get_CanWriteError();
+    public abstract virtual void WriteInformation(CompositionTraceId traceId, string format, Object[] arguments);
+    public abstract virtual void WriteWarning(CompositionTraceId traceId, string format, Object[] arguments);
+    public abstract virtual void WriteError(CompositionTraceId traceId, string format, Object[] arguments);
+}
+internal static class System.ComponentModel.Composition.ErrorBuilder : object {
+    public static CompositionError PreventedByExistingImport(ComposablePart part, ImportDefinition import);
+    public static CompositionError InvalidStateForRecompposition(ComposablePart part);
+    public static CompositionError ComposeTookTooManyIterations(int maximumNumberOfCompositionIterations);
+    public static CompositionError CreateImportCardinalityMismatch(ImportCardinalityMismatchException exception, ImportDefinition definition);
+    public static CompositionError CreatePartCannotActivate(ComposablePart part, Exception innerException);
+    public static CompositionError CreatePartCannotSetImport(ComposablePart part, ImportDefinition definition, Exception innerException);
+    public static CompositionError CreateCannotGetExportedValue(ComposablePart part, ExportDefinition definition, Exception innerException);
+    public static CompositionError CreatePartCycle(ComposablePart part);
+}
+internal static class System.ComponentModel.Composition.ExceptionBuilder : object {
+    public static Exception CreateDiscoveryException(string messageFormat, String[] arguments);
+    public static ArgumentException CreateContainsNullElement(string parameterName);
+    public static ObjectDisposedException CreateObjectDisposed(object instance);
+    public static NotImplementedException CreateNotOverriddenByDerived(string memberName);
+    public static ArgumentException CreateExportDefinitionNotOnThisComposablePart(string parameterName);
+    public static ArgumentException CreateImportDefinitionNotOnThisComposablePart(string parameterName);
+    public static CompositionException CreateCannotGetExportedValue(ComposablePart part, ExportDefinition definition, Exception innerException);
+    public static ArgumentException CreateReflectionModelInvalidPartDefinition(string parameterName, Type partDefinitionType);
+    public static ArgumentException ExportFactory_TooManyGenericParameters(string typeName);
+    private static string Format(string format, String[] arguments);
+}
+[AttributeUsageAttribute("452")]
+public class System.ComponentModel.Composition.ExportAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <ContractName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Type <ContractType>k__BackingField;
+    public string ContractName { get; private set; }
+    public Type ContractType { get; private set; }
+    public ExportAttribute(Type contractType);
+    public ExportAttribute(string contractName);
+    public ExportAttribute(string contractName, Type contractType);
+    [CompilerGeneratedAttribute]
+public string get_ContractName();
+    [CompilerGeneratedAttribute]
+private void set_ContractName(string value);
+    [CompilerGeneratedAttribute]
+public Type get_ContractType();
+    [CompilerGeneratedAttribute]
+private void set_ContractType(Type value);
+}
+internal enum System.ComponentModel.Composition.ExportCardinalityCheckResult : Enum {
+    public int value__;
+    public static ExportCardinalityCheckResult Match;
+    public static ExportCardinalityCheckResult NoExports;
+    public static ExportCardinalityCheckResult TooManyExports;
+}
+public class System.ComponentModel.Composition.ExportFactory`1 : object {
+    private Func`1<Tuple`2<T, Action>> _exportLifetimeContextCreator;
+    public ExportFactory`1(Func`1<Tuple`2<T, Action>> exportLifetimeContextCreator);
+    public ExportLifetimeContext`1<T> CreateExport();
+    internal bool IncludeInScopedCatalog(ComposablePartDefinition composablePartDefinition);
+    protected virtual bool OnFilterScopedCatalog(ComposablePartDefinition composablePartDefinition);
+}
+public class System.ComponentModel.Composition.ExportFactory`2 : ExportFactory`1<T> {
+    private TMetadata _metadata;
+    public TMetadata Metadata { get; }
+    public ExportFactory`2(Func`1<Tuple`2<T, Action>> exportLifetimeContextCreator, TMetadata metadata);
+    public TMetadata get_Metadata();
+}
+public class System.ComponentModel.Composition.ExportLifetimeContext`1 : object {
+    private T _value;
+    private Action _disposeAction;
+    public T Value { get; }
+    public ExportLifetimeContext`1(T value, Action disposeAction);
+    public T get_Value();
+    public sealed virtual void Dispose();
+}
+[AttributeUsageAttribute("1476")]
+public class System.ComponentModel.Composition.ExportMetadataAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private object <Value>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <IsMultiple>k__BackingField;
+    public string Name { get; private set; }
+    public object Value { get; private set; }
+    public bool IsMultiple { get; public set; }
+    public ExportMetadataAttribute(string name, object value);
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+private void set_Name(string value);
+    [CompilerGeneratedAttribute]
+public object get_Value();
+    [CompilerGeneratedAttribute]
+private void set_Value(object value);
+    [CompilerGeneratedAttribute]
+public bool get_IsMultiple();
+    [CompilerGeneratedAttribute]
+public void set_IsMultiple(bool value);
+}
+internal static class System.ComponentModel.Composition.ExportServices : object {
+    private static MethodInfo _createStronglyTypedLazyOfTM;
+    private static MethodInfo _createStronglyTypedLazyOfT;
+    private static MethodInfo _createSemiStronglyTypedLazy;
+    internal static Type DefaultMetadataViewType;
+    internal static Type DefaultExportedValueType;
+    private static ExportServices();
+    internal static bool IsDefaultMetadataViewType(Type metadataViewType);
+    internal static bool IsDictionaryConstructorViewType(Type metadataViewType);
+    internal static Func`2<Export, object> CreateStronglyTypedLazyFactory(Type exportType, Type metadataViewType);
+    internal static Func`2<Export, Lazy`2<object, object>> CreateSemiStronglyTypedLazyFactory(Type exportType, Type metadataViewType);
+    internal static Lazy`2<T, M> CreateStronglyTypedLazyOfTM(Export export);
+    internal static Lazy`1<T> CreateStronglyTypedLazyOfT(Export export);
+    internal static Lazy`2<object, object> CreateSemiStronglyTypedLazy(Export export);
+    internal static T GetCastedExportedValue(Export export);
+    internal static T CastExportedValue(ICompositionElement element, object exportedValue);
+    internal static ExportCardinalityCheckResult CheckCardinality(ImportDefinition definition, IEnumerable`1<T> enumerable);
+    private static ExportCardinalityCheckResult MatchCardinality(EnumerableCardinality actualCardinality, ImportCardinality importCardinality);
+}
+public class System.ComponentModel.Composition.Hosting.AggregateCatalog : ComposablePartCatalog {
+    private ComposablePartCatalogCollection _catalogs;
+    private Int32 modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    public ICollection`1<ComposablePartCatalog> Catalogs { get; }
+    public AggregateCatalog(ComposablePartCatalog[] catalogs);
+    public AggregateCatalog(IEnumerable`1<ComposablePartCatalog> catalogs);
+    public sealed virtual void add_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    public sealed virtual void remove_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    public sealed virtual void add_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    public sealed virtual void remove_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    public virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    public ICollection`1<ComposablePartCatalog> get_Catalogs();
+    protected virtual void Dispose(bool disposing);
+    public virtual IEnumerator`1<ComposablePartDefinition> GetEnumerator();
+    protected virtual void OnChanged(ComposablePartCatalogChangeEventArgs e);
+    protected virtual void OnChanging(ComposablePartCatalogChangeEventArgs e);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+}
+public class System.ComponentModel.Composition.Hosting.AggregateExportProvider : ExportProvider {
+    private ReadOnlyCollection`1<ExportProvider> _readOnlyProviders;
+    private ExportProvider[] _providers;
+    private Int32 modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    public ReadOnlyCollection`1<ExportProvider> Providers { get; }
+    public AggregateExportProvider(ExportProvider[] providers);
+    public AggregateExportProvider(IEnumerable`1<ExportProvider> providers);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    public ReadOnlyCollection`1<ExportProvider> get_Providers();
+    protected virtual IEnumerable`1<Export> GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition);
+    private void OnExportChangedInternal(object sender, ExportsChangeEventArgs e);
+    private void OnExportChangingInternal(object sender, ExportsChangeEventArgs e);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+}
+public class System.ComponentModel.Composition.Hosting.ApplicationCatalog : ComposablePartCatalog {
+    private bool _isDisposed;
+    private AggregateCatalog modreq(System.Runtime.CompilerServices.IsVolatile) _innerCatalog;
+    private object _thisLock;
+    private ICompositionElement _definitionOrigin;
+    private ReflectionContext _reflectionContext;
+    private AggregateCatalog InnerCatalog { get; }
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    public ApplicationCatalog(ICompositionElement definitionOrigin);
+    public ApplicationCatalog(ReflectionContext reflectionContext);
+    public ApplicationCatalog(ReflectionContext reflectionContext, ICompositionElement definitionOrigin);
+    internal ComposablePartCatalog CreateCatalog(string location, string pattern);
+    private AggregateCatalog get_InnerCatalog();
+    protected virtual void Dispose(bool disposing);
+    public virtual IEnumerator`1<ComposablePartDefinition> GetEnumerator();
+    public virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+    private string GetDisplayName();
+    public virtual string ToString();
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+}
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.Hosting.AssemblyCatalogDebuggerProxy")]
+public class System.ComponentModel.Composition.Hosting.AssemblyCatalog : ComposablePartCatalog {
+    private object _thisLock;
+    private ICompositionElement _definitionOrigin;
+    private Assembly modreq(System.Runtime.CompilerServices.IsVolatile) _assembly;
+    private ComposablePartCatalog modreq(System.Runtime.CompilerServices.IsVolatile) _innerCatalog;
+    private int _isDisposed;
+    private ReflectionContext _reflectionContext;
+    private ComposablePartCatalog InnerCatalog { get; }
+    public Assembly Assembly { get; }
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    public AssemblyCatalog(string codeBase);
+    public AssemblyCatalog(string codeBase, ReflectionContext reflectionContext);
+    public AssemblyCatalog(string codeBase, ICompositionElement definitionOrigin);
+    public AssemblyCatalog(string codeBase, ReflectionContext reflectionContext, ICompositionElement definitionOrigin);
+    public AssemblyCatalog(Assembly assembly, ReflectionContext reflectionContext);
+    public AssemblyCatalog(Assembly assembly, ReflectionContext reflectionContext, ICompositionElement definitionOrigin);
+    public AssemblyCatalog(Assembly assembly);
+    public AssemblyCatalog(Assembly assembly, ICompositionElement definitionOrigin);
+    private void InitializeAssemblyCatalog(Assembly assembly);
+    public virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    private ComposablePartCatalog get_InnerCatalog();
+    public Assembly get_Assembly();
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+    public virtual string ToString();
+    protected virtual void Dispose(bool disposing);
+    public virtual IEnumerator`1<ComposablePartDefinition> GetEnumerator();
+    private void ThrowIfDisposed();
+    private string GetDisplayName();
+    private static Assembly LoadAssembly(string codeBase);
+}
+internal class System.ComponentModel.Composition.Hosting.AssemblyCatalogDebuggerProxy : object {
+    private AssemblyCatalog _catalog;
+    public Assembly Assembly { get; }
+    public ReadOnlyCollection`1<ComposablePartDefinition> Parts { get; }
+    public AssemblyCatalogDebuggerProxy(AssemblyCatalog catalog);
+    public Assembly get_Assembly();
+    public ReadOnlyCollection`1<ComposablePartDefinition> get_Parts();
+}
+public class System.ComponentModel.Composition.Hosting.AtomicComposition : object {
+    private AtomicComposition _outerAtomicComposition;
+    private KeyValuePair`2[] _values;
+    private int _valueCount;
+    private List`1<Action> _completeActionList;
+    private List`1<Action> _revertActionList;
+    private bool _isDisposed;
+    private bool _isCompleted;
+    private bool _containsInnerAtomicComposition;
+    unknown bool ContainsInnerAtomicComposition {private set; }
+    public AtomicComposition(AtomicComposition outerAtomicComposition);
+    public void SetValue(object key, object value);
+    public bool TryGetValue(object key, T& value);
+    public bool TryGetValue(object key, bool localAtomicCompositionOnly, T& value);
+    public void AddCompleteAction(Action completeAction);
+    public void AddRevertAction(Action revertAction);
+    public void Complete();
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    private void FinalComplete();
+    private void CopyComplete();
+    private void set_ContainsInnerAtomicComposition(bool value);
+    private bool TryGetValueInternal(object key, bool localAtomicCompositionOnly, T& value);
+    private void SetValueInternal(object key, object value);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfContainsInnerAtomicComposition();
+    [DebuggerStepThroughAttribute]
+private void ThrowIfCompleted();
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.Hosting.AtomicCompositionExtensions : object {
+    [ExtensionAttribute]
+internal static T GetValueAllowNull(AtomicComposition atomicComposition, T defaultResultAndKey);
+    [ExtensionAttribute]
+internal static T GetValueAllowNull(AtomicComposition atomicComposition, object key, T defaultResult);
+    [ExtensionAttribute]
+internal static void AddRevertActionAllowNull(AtomicComposition atomicComposition, Action action);
+    [ExtensionAttribute]
+internal static void AddCompleteActionAllowNull(AtomicComposition atomicComposition, Action action);
+}
+public class System.ComponentModel.Composition.Hosting.CatalogExportProvider : ExportProvider {
+    private CompositionLock _lock;
+    private Dictionary`2<ComposablePartDefinition, CatalogPart> _activatedParts;
+    private HashSet`1<ComposablePartDefinition> _rejectedParts;
+    private ConditionalWeakTable`2<object, List`1<ComposablePart>> _gcRoots;
+    private HashSet`1<IDisposable> _partsToDispose;
+    private ComposablePartCatalog _catalog;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isRunning;
+    private ExportProvider _sourceProvider;
+    private ImportEngine _importEngine;
+    private CompositionOptions _compositionOptions;
+    private ExportProvider _innerExportProvider;
+    public ComposablePartCatalog Catalog { get; }
+    public ExportProvider SourceProvider { get; public set; }
+    public CatalogExportProvider(ComposablePartCatalog catalog);
+    public CatalogExportProvider(ComposablePartCatalog catalog, bool isThreadSafe);
+    public CatalogExportProvider(ComposablePartCatalog catalog, CompositionOptions compositionOptions);
+    public ComposablePartCatalog get_Catalog();
+    public ExportProvider get_SourceProvider();
+    public void set_SourceProvider(ExportProvider value);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    protected virtual IEnumerable`1<Export> GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition);
+    private IEnumerable`1<Export> InternalGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition);
+    private Export CreateExport(ComposablePartDefinition partDefinition, ExportDefinition exportDefinition, bool isExportFactory, CreationPolicy importPolicy);
+    private void OnExportsChangingInternal(object sender, ExportsChangeEventArgs e);
+    private static ExportDefinition[] GetExportsFromPartDefinitions(IEnumerable`1<ComposablePartDefinition> partDefinitions);
+    private void OnCatalogChanging(object sender, ComposablePartCatalogChangeEventArgs e);
+    private CatalogPart GetComposablePart(ComposablePartDefinition partDefinition, bool isSharedPart);
+    private CatalogPart GetSharedPart(ComposablePartDefinition partDefinition);
+    private object GetExportedValue(CatalogPart part, ExportDefinition export, bool isSharedPart);
+    private void ReleasePart(object exportedValue, CatalogPart catalogPart, AtomicComposition atomicComposition);
+    private void PreventPartCollection(object exportedValue, ComposablePart part);
+    private void AllowPartCollection(object gcRoot);
+    private bool IsRejected(ComposablePartDefinition definition, AtomicComposition atomicComposition);
+    private bool DetermineRejection(ComposablePartDefinition definition, AtomicComposition parentAtomicComposition);
+    private void UpdateRejections(IEnumerable`1<ExportDefinition> changedExports, AtomicComposition atomicComposition);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+    [DebuggerStepThroughAttribute]
+private void EnsureCanRun();
+    [DebuggerStepThroughAttribute]
+private void EnsureRunning();
+    [DebuggerStepThroughAttribute]
+private void EnsureCanSet(T currentValue);
+    private Func`2<ComposablePartDefinition, AtomicCompositionQueryState> GetAtomicCompositionQuery(AtomicComposition atomicComposition);
+    private void UpdateAtomicCompositionQuery(AtomicComposition atomicComposition, Func`2<ComposablePartDefinition, bool> query, AtomicCompositionQueryState state);
+}
+[ExtensionAttribute]
+public static class System.ComponentModel.Composition.Hosting.CatalogExtensions : object {
+    [ExtensionAttribute]
+public static CompositionService CreateCompositionService(ComposablePartCatalog composablePartCatalog);
+}
+public class System.ComponentModel.Composition.Hosting.ComposablePartCatalogChangeEventArgs : EventArgs {
+    private IEnumerable`1<ComposablePartDefinition> _addedDefinitions;
+    private IEnumerable`1<ComposablePartDefinition> _removedDefinitions;
+    [CompilerGeneratedAttribute]
+private AtomicComposition <AtomicComposition>k__BackingField;
+    public IEnumerable`1<ComposablePartDefinition> AddedDefinitions { get; }
+    public IEnumerable`1<ComposablePartDefinition> RemovedDefinitions { get; }
+    public AtomicComposition AtomicComposition { get; private set; }
+    public ComposablePartCatalogChangeEventArgs(IEnumerable`1<ComposablePartDefinition> addedDefinitions, IEnumerable`1<ComposablePartDefinition> removedDefinitions, AtomicComposition atomicComposition);
+    public IEnumerable`1<ComposablePartDefinition> get_AddedDefinitions();
+    public IEnumerable`1<ComposablePartDefinition> get_RemovedDefinitions();
+    [CompilerGeneratedAttribute]
+public AtomicComposition get_AtomicComposition();
+    [CompilerGeneratedAttribute]
+private void set_AtomicComposition(AtomicComposition value);
+}
+internal class System.ComponentModel.Composition.Hosting.ComposablePartCatalogCollection : object {
+    private Lock _lock;
+    private Action`1<ComposablePartCatalogChangeEventArgs> _onChanged;
+    private Action`1<ComposablePartCatalogChangeEventArgs> _onChanging;
+    private List`1<ComposablePartCatalog> _catalogs;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isCopyNeeded;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    private bool _hasChanged;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ComposablePartCatalogChangeEventArgs> Changed;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ComposablePartCatalogChangeEventArgs> Changing;
+    public int Count { get; }
+    public bool IsReadOnly { get; }
+    internal bool HasChanged { get; }
+    public ComposablePartCatalogCollection(IEnumerable`1<ComposablePartCatalog> catalogs, Action`1<ComposablePartCatalogChangeEventArgs> onChanged, Action`1<ComposablePartCatalogChangeEventArgs> onChanging);
+    public sealed virtual void Add(ComposablePartCatalog item);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(ComposablePartCatalog item);
+    public sealed virtual void CopyTo(ComposablePartCatalog[] array, int arrayIndex);
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsReadOnly();
+    public sealed virtual bool Remove(ComposablePartCatalog item);
+    internal bool get_HasChanged();
+    public sealed virtual IEnumerator`1<ComposablePartCatalog> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    private void RaiseChangedEvent(Lazy`1<IEnumerable`1<ComposablePartDefinition>> addedDefinitions, Lazy`1<IEnumerable`1<ComposablePartDefinition>> removedDefinitions);
+    public void OnChanged(object sender, ComposablePartCatalogChangeEventArgs e);
+    private void RaiseChangingEvent(Lazy`1<IEnumerable`1<ComposablePartDefinition>> addedDefinitions, Lazy`1<IEnumerable`1<ComposablePartDefinition>> removedDefinitions, AtomicComposition atomicComposition);
+    public void OnChanging(object sender, ComposablePartCatalogChangeEventArgs e);
+    private void OnContainedCatalogChanged(object sender, ComposablePartCatalogChangeEventArgs e);
+    private void OnContainedCatalogChanging(object sender, ComposablePartCatalogChangeEventArgs e);
+    private void SubscribeToCatalogNotifications(ComposablePartCatalog catalog);
+    private void SubscribeToCatalogNotifications(IEnumerable`1<ComposablePartCatalog> catalogs);
+    private void UnsubscribeFromCatalogNotifications(ComposablePartCatalog catalog);
+    private void UnsubscribeFromCatalogNotifications(IEnumerable`1<ComposablePartCatalog> catalogs);
+    private void ThrowIfDisposed();
+}
+public class System.ComponentModel.Composition.Hosting.ComposablePartExportProvider : ExportProvider {
+    private List`1<ComposablePart> _parts;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isRunning;
+    private CompositionLock _lock;
+    private ExportProvider _sourceProvider;
+    private ImportEngine _importEngine;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _currentlyComposing;
+    private CompositionOptions _compositionOptions;
+    public ExportProvider SourceProvider { get; public set; }
+    private ImportEngine ImportEngine { get; }
+    public ComposablePartExportProvider(bool isThreadSafe);
+    public ComposablePartExportProvider(CompositionOptions compositionOptions);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    public ExportProvider get_SourceProvider();
+    public void set_SourceProvider(ExportProvider value);
+    private ImportEngine get_ImportEngine();
+    protected virtual IEnumerable`1<Export> GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition);
+    public void Compose(CompositionBatch batch);
+    private List`1<ComposablePart> GetUpdatedPartsList(CompositionBatch& batch);
+    private void Recompose(CompositionBatch batch, AtomicComposition atomicComposition);
+    private Export CreateExport(ComposablePart part, ExportDefinition export);
+    private object GetExportedValue(ComposablePart part, ExportDefinition export);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+    [DebuggerStepThroughAttribute]
+private void EnsureCanRun();
+    [DebuggerStepThroughAttribute]
+private void EnsureRunning();
+    [DebuggerStepThroughAttribute]
+private void EnsureCanSet(T currentValue);
+}
+public class System.ComponentModel.Composition.Hosting.CompositionBatch : object {
+    private object _lock;
+    private bool _copyNeededForAdd;
+    private bool _copyNeededForRemove;
+    private List`1<ComposablePart> _partsToAdd;
+    private ReadOnlyCollection`1<ComposablePart> _readOnlyPartsToAdd;
+    private List`1<ComposablePart> _partsToRemove;
+    private ReadOnlyCollection`1<ComposablePart> _readOnlyPartsToRemove;
+    public ReadOnlyCollection`1<ComposablePart> PartsToAdd { get; }
+    public ReadOnlyCollection`1<ComposablePart> PartsToRemove { get; }
+    public CompositionBatch(IEnumerable`1<ComposablePart> partsToAdd, IEnumerable`1<ComposablePart> partsToRemove);
+    public ReadOnlyCollection`1<ComposablePart> get_PartsToAdd();
+    public ReadOnlyCollection`1<ComposablePart> get_PartsToRemove();
+    public void AddPart(ComposablePart part);
+    public void RemovePart(ComposablePart part);
+    public ComposablePart AddExport(Export export);
+}
+public static class System.ComponentModel.Composition.Hosting.CompositionConstants : object {
+    private static string CompositionNamespace;
+    public static string PartCreationPolicyMetadataName;
+    public static string ImportSourceMetadataName;
+    public static string IsGenericPartMetadataName;
+    public static string GenericContractMetadataName;
+    public static string GenericParametersMetadataName;
+    public static string ExportTypeIdentityMetadataName;
+    internal static string GenericImportParametersOrderMetadataName;
+    internal static string GenericExportParametersOrderMetadataName;
+    internal static string GenericPartArityMetadataName;
+    internal static string GenericParameterConstraintsMetadataName;
+    internal static string GenericParameterAttributesMetadataName;
+    internal static string ProductDefinitionMetadataName;
+    internal static string PartCreatorContractName;
+    internal static string PartCreatorTypeIdentity;
+    private static CompositionConstants();
+}
+public class System.ComponentModel.Composition.Hosting.CompositionContainer : ExportProvider {
+    private CompositionOptions _compositionOptions;
+    private ImportEngine _importEngine;
+    private ComposablePartExportProvider _partExportProvider;
+    private ExportProvider _rootProvider;
+    private CatalogExportProvider _catalogExportProvider;
+    private AggregateExportProvider _localExportProvider;
+    private AggregateExportProvider _ancestorExportProvider;
+    private ReadOnlyCollection`1<ExportProvider> _providers;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    private object _lock;
+    private static ReadOnlyCollection`1<ExportProvider> EmptyProviders;
+    internal CompositionOptions CompositionOptions { get; }
+    public ComposablePartCatalog Catalog { get; }
+    internal CatalogExportProvider CatalogExportProvider { get; }
+    public ReadOnlyCollection`1<ExportProvider> Providers { get; }
+    public CompositionContainer(ExportProvider[] providers);
+    public CompositionContainer(CompositionOptions compositionOptions, ExportProvider[] providers);
+    public CompositionContainer(ComposablePartCatalog catalog, ExportProvider[] providers);
+    public CompositionContainer(ComposablePartCatalog catalog, bool isThreadSafe, ExportProvider[] providers);
+    public CompositionContainer(ComposablePartCatalog catalog, CompositionOptions compositionOptions, ExportProvider[] providers);
+    private static CompositionContainer();
+    internal CompositionOptions get_CompositionOptions();
+    public ComposablePartCatalog get_Catalog();
+    internal CatalogExportProvider get_CatalogExportProvider();
+    public ReadOnlyCollection`1<ExportProvider> get_Providers();
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    public void Compose(CompositionBatch batch);
+    public void ReleaseExport(Export export);
+    public void ReleaseExport(Lazy`1<T> export);
+    public void ReleaseExports(IEnumerable`1<Export> exports);
+    public void ReleaseExports(IEnumerable`1<Lazy`1<T>> exports);
+    public void ReleaseExports(IEnumerable`1<Lazy`2<T, TMetadataView>> exports);
+    public sealed virtual void SatisfyImportsOnce(ComposablePart part);
+    internal void OnExportsChangedInternal(object sender, ExportsChangeEventArgs e);
+    internal void OnExportsChangingInternal(object sender, ExportsChangeEventArgs e);
+    protected virtual IEnumerable`1<Export> GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+}
+internal class System.ComponentModel.Composition.Hosting.CompositionLock : object {
+    private Lock _stateLock;
+    private static object _compositionLock;
+    private int _isDisposed;
+    private bool _isThreadSafe;
+    private static EmptyLockHolder _EmptyLockHolder;
+    public bool IsThreadSafe { get; }
+    public CompositionLock(bool isThreadSafe);
+    private static CompositionLock();
+    public sealed virtual void Dispose();
+    public bool get_IsThreadSafe();
+    private void EnterCompositionLock();
+    private void ExitCompositionLock();
+    public IDisposable LockComposition();
+    public IDisposable LockStateForRead();
+    public IDisposable LockStateForWrite();
+}
+[FlagsAttribute]
+public enum System.ComponentModel.Composition.Hosting.CompositionOptions : Enum {
+    public int value__;
+    public static CompositionOptions Default;
+    public static CompositionOptions DisableSilentRejection;
+    public static CompositionOptions IsThreadSafe;
+    public static CompositionOptions ExportCompositionService;
+}
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.Hosting.CompositionScopeDefinitionDebuggerProxy")]
+public class System.ComponentModel.Composition.Hosting.CompositionScopeDefinition : ComposablePartCatalog {
+    private ComposablePartCatalog _catalog;
+    private IEnumerable`1<ExportDefinition> _publicSurface;
+    private IEnumerable`1<CompositionScopeDefinition> _children;
+    private Int32 modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ComposablePartCatalogChangeEventArgs> Changed;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ComposablePartCatalogChangeEventArgs> Changing;
+    public IEnumerable`1<CompositionScopeDefinition> Children { get; }
+    public IEnumerable`1<ExportDefinition> PublicSurface { get; }
+    public CompositionScopeDefinition(ComposablePartCatalog catalog, IEnumerable`1<CompositionScopeDefinition> children);
+    public CompositionScopeDefinition(ComposablePartCatalog catalog, IEnumerable`1<CompositionScopeDefinition> children, IEnumerable`1<ExportDefinition> publicSurface);
+    private void InitializeCompositionScopeDefinition(ComposablePartCatalog catalog, IEnumerable`1<CompositionScopeDefinition> children, IEnumerable`1<ExportDefinition> publicSurface);
+    protected virtual void Dispose(bool disposing);
+    public virtual IEnumerable`1<CompositionScopeDefinition> get_Children();
+    public virtual IEnumerable`1<ExportDefinition> get_PublicSurface();
+    public virtual IEnumerator`1<ComposablePartDefinition> GetEnumerator();
+    public virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    internal IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExportsFromPublicSurface(ImportDefinition definition);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    protected virtual void OnChanged(ComposablePartCatalogChangeEventArgs e);
+    protected virtual void OnChanging(ComposablePartCatalogChangeEventArgs e);
+    private void OnChangedInternal(object sender, ComposablePartCatalogChangeEventArgs e);
+    private void OnChangingInternal(object sender, ComposablePartCatalogChangeEventArgs e);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+}
+internal class System.ComponentModel.Composition.Hosting.CompositionScopeDefinitionDebuggerProxy : object {
+    private CompositionScopeDefinition _compositionScopeDefinition;
+    public ReadOnlyCollection`1<ComposablePartDefinition> Parts { get; }
+    public IEnumerable`1<ExportDefinition> PublicSurface { get; }
+    public IEnumerable`1<CompositionScopeDefinition> Children { get; }
+    public CompositionScopeDefinitionDebuggerProxy(CompositionScopeDefinition compositionScopeDefinition);
+    public ReadOnlyCollection`1<ComposablePartDefinition> get_Parts();
+    public IEnumerable`1<ExportDefinition> get_PublicSurface();
+    public virtual IEnumerable`1<CompositionScopeDefinition> get_Children();
+}
+public class System.ComponentModel.Composition.Hosting.CompositionService : object {
+    private CompositionContainer _compositionContainer;
+    private INotifyComposablePartCatalogChanged _notifyCatalog;
+    internal CompositionService(ComposablePartCatalog composablePartCatalog);
+    public sealed virtual void SatisfyImportsOnce(ComposablePart part);
+    public sealed virtual void Dispose();
+    private void OnCatalogChanging(object sender, ComposablePartCatalogChangeEventArgs e);
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.Hosting.CompositionServices : object {
+    internal static Type InheritedExportAttributeType;
+    internal static Type ExportAttributeType;
+    internal static Type AttributeType;
+    internal static Type ObjectType;
+    private static String[] reservedMetadataNames;
+    private static CompositionServices();
+    [ExtensionAttribute]
+internal static Type GetDefaultTypeFromMember(MemberInfo member);
+    [ExtensionAttribute]
+internal static Type AdjustSpecifiedTypeIdentityType(Type specifiedContractType, MemberInfo member);
+    [ExtensionAttribute]
+internal static Type AdjustSpecifiedTypeIdentityType(Type specifiedContractType, Type memberType);
+    private static string AdjustTypeIdentity(string originalTypeIdentity, Type typeIdentityType);
+    [ExtensionAttribute]
+internal static void GetContractInfoFromExport(MemberInfo member, ExportAttribute export, Type& typeIdentityType, String& contractName);
+    [ExtensionAttribute]
+internal static string GetTypeIdentityFromExport(MemberInfo member, Type typeIdentityType);
+    [ExtensionAttribute]
+private static Type GetTypeIdentityTypeFromExport(MemberInfo member, ExportAttribute export);
+    [ExtensionAttribute]
+internal static bool IsContractNameSameAsTypeIdentity(ExportAttribute export);
+    [ExtensionAttribute]
+internal static Type GetContractTypeFromImport(IAttributedImport import, ImportType importType);
+    [ExtensionAttribute]
+internal static string GetContractNameFromImport(IAttributedImport import, ImportType importType);
+    [ExtensionAttribute]
+internal static string GetTypeIdentityFromImport(IAttributedImport import, ImportType importType);
+    [ExtensionAttribute]
+internal static IDictionary`2<string, object> GetPartMetadataForType(Type type, CreationPolicy creationPolicy);
+    [ExtensionAttribute]
+internal static void TryExportMetadataForMember(MemberInfo member, IDictionary`2& dictionary);
+    [ExtensionAttribute]
+private static bool TryContributeMetadataValue(IDictionary`2<string, object> dictionary, string name, object value, Type valueType, bool allowsMultiple);
+    internal static IEnumerable`1<KeyValuePair`2<string, Type>> GetRequiredMetadata(Type metadataViewType);
+    internal static IDictionary`2<string, object> GetImportMetadata(ImportType importType, IAttributedImport attributedImport);
+    internal static IDictionary`2<string, object> GetImportMetadata(Type type, IAttributedImport attributedImport);
+    internal static object GetExportedValueFromComposedPart(ImportEngine engine, ComposablePart part, ExportDefinition definition);
+    [ExtensionAttribute]
+internal static bool IsRecomposable(ComposablePart part);
+    internal static CompositionResult TryInvoke(Action action);
+    internal static CompositionResult TryFire(EventHandler`1<TEventArgs> _delegate, object sender, TEventArgs e);
+    [ExtensionAttribute]
+internal static CreationPolicy GetRequiredCreationPolicy(ImportDefinition definition);
+    [ExtensionAttribute]
+internal static bool IsAtMostOne(ImportCardinality cardinality);
+    private static bool IsValidAttributeType(Type type);
+    private static bool IsValidAttributeType(Type type, bool arrayAllowed);
+}
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.Hosting.DirectoryCatalog/DirectoryCatalogDebuggerProxy")]
+public class System.ComponentModel.Composition.Hosting.DirectoryCatalog : ComposablePartCatalog {
+    private Lock _thisLock;
+    private ICompositionElement _definitionOrigin;
+    private ComposablePartCatalogCollection _catalogCollection;
+    private Dictionary`2<string, AssemblyCatalog> _assemblyCatalogs;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    private string _path;
+    private string _fullPath;
+    private string _searchPattern;
+    private ReadOnlyCollection`1<string> _loadedFiles;
+    private ReflectionContext _reflectionContext;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ComposablePartCatalogChangeEventArgs> Changed;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ComposablePartCatalogChangeEventArgs> Changing;
+    public string FullPath { get; }
+    public ReadOnlyCollection`1<string> LoadedFiles { get; }
+    public string Path { get; }
+    public string SearchPattern { get; }
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    public DirectoryCatalog(string path);
+    public DirectoryCatalog(string path, ReflectionContext reflectionContext);
+    public DirectoryCatalog(string path, ICompositionElement definitionOrigin);
+    public DirectoryCatalog(string path, ReflectionContext reflectionContext, ICompositionElement definitionOrigin);
+    public DirectoryCatalog(string path, string searchPattern);
+    public DirectoryCatalog(string path, string searchPattern, ICompositionElement definitionOrigin);
+    public DirectoryCatalog(string path, string searchPattern, ReflectionContext reflectionContext);
+    public DirectoryCatalog(string path, string searchPattern, ReflectionContext reflectionContext, ICompositionElement definitionOrigin);
+    public string get_FullPath();
+    public ReadOnlyCollection`1<string> get_LoadedFiles();
+    public string get_Path();
+    public string get_SearchPattern();
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    protected virtual void Dispose(bool disposing);
+    public virtual IEnumerator`1<ComposablePartDefinition> GetEnumerator();
+    public virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    protected virtual void OnChanged(ComposablePartCatalogChangeEventArgs e);
+    protected virtual void OnChanging(ComposablePartCatalogChangeEventArgs e);
+    public void Refresh();
+    public virtual string ToString();
+    private AssemblyCatalog CreateAssemblyCatalogGuarded(string assemblyFilePath);
+    private void DiffChanges(String[] beforeFiles, String[] afterFiles, List`1& catalogsToAdd, List`1& catalogsToRemove);
+    private string GetDisplayName();
+    private String[] GetFiles();
+    private static string GetFullPath(string path);
+    private void Initialize(string path, string searchPattern);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+}
+public abstract class System.ComponentModel.Composition.Hosting.ExportProvider : object {
+    private static Export[] EmptyExports;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ExportsChangeEventArgs> ExportsChanged;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ExportsChangeEventArgs> ExportsChanging;
+    private static ExportProvider();
+    public Lazy`1<T> GetExport();
+    public Lazy`1<T> GetExport(string contractName);
+    public Lazy`2<T, TMetadataView> GetExport();
+    public Lazy`2<T, TMetadataView> GetExport(string contractName);
+    public IEnumerable`1<Lazy`2<object, object>> GetExports(Type type, Type metadataViewType, string contractName);
+    public IEnumerable`1<Lazy`1<T>> GetExports();
+    public IEnumerable`1<Lazy`1<T>> GetExports(string contractName);
+    public IEnumerable`1<Lazy`2<T, TMetadataView>> GetExports();
+    public IEnumerable`1<Lazy`2<T, TMetadataView>> GetExports(string contractName);
+    public T GetExportedValue();
+    public T GetExportedValue(string contractName);
+    public T GetExportedValueOrDefault();
+    public T GetExportedValueOrDefault(string contractName);
+    public IEnumerable`1<T> GetExportedValues();
+    public IEnumerable`1<T> GetExportedValues(string contractName);
+    private IEnumerable`1<T> GetExportedValuesCore(string contractName);
+    private T GetExportedValueCore(string contractName, ImportCardinality cardinality);
+    private IEnumerable`1<Lazy`1<T>> GetExportsCore(string contractName);
+    private IEnumerable`1<Lazy`2<T, TMetadataView>> GetExportsCore(string contractName);
+    private Lazy`2<T, TMetadataView> GetExportCore(string contractName);
+    private Lazy`1<T> GetExportCore(string contractName);
+    private IEnumerable`1<Export> GetExportsCore(Type type, Type metadataViewType, string contractName, ImportCardinality cardinality);
+    private static ImportDefinition BuildImportDefinition(Type type, Type metadataViewType, string contractName, ImportCardinality cardinality);
+    [CompilerGeneratedAttribute]
+public void add_ExportsChanged(EventHandler`1<ExportsChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public void remove_ExportsChanged(EventHandler`1<ExportsChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public void add_ExportsChanging(EventHandler`1<ExportsChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public void remove_ExportsChanging(EventHandler`1<ExportsChangeEventArgs> value);
+    public IEnumerable`1<Export> GetExports(ImportDefinition definition);
+    public IEnumerable`1<Export> GetExports(ImportDefinition definition, AtomicComposition atomicComposition);
+    public bool TryGetExports(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports);
+    protected abstract virtual IEnumerable`1<Export> GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition);
+    protected virtual void OnExportsChanged(ExportsChangeEventArgs e);
+    protected virtual void OnExportsChanging(ExportsChangeEventArgs e);
+    private ExportCardinalityCheckResult TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports);
+}
+public class System.ComponentModel.Composition.Hosting.ExportsChangeEventArgs : EventArgs {
+    private IEnumerable`1<ExportDefinition> _addedExports;
+    private IEnumerable`1<ExportDefinition> _removedExports;
+    private IEnumerable`1<string> _changedContractNames;
+    [CompilerGeneratedAttribute]
+private AtomicComposition <AtomicComposition>k__BackingField;
+    public IEnumerable`1<ExportDefinition> AddedExports { get; }
+    public IEnumerable`1<ExportDefinition> RemovedExports { get; }
+    public IEnumerable`1<string> ChangedContractNames { get; }
+    public AtomicComposition AtomicComposition { get; private set; }
+    public ExportsChangeEventArgs(IEnumerable`1<ExportDefinition> addedExports, IEnumerable`1<ExportDefinition> removedExports, AtomicComposition atomicComposition);
+    public IEnumerable`1<ExportDefinition> get_AddedExports();
+    public IEnumerable`1<ExportDefinition> get_RemovedExports();
+    public IEnumerable`1<string> get_ChangedContractNames();
+    [CompilerGeneratedAttribute]
+public AtomicComposition get_AtomicComposition();
+    [CompilerGeneratedAttribute]
+private void set_AtomicComposition(AtomicComposition value);
+}
+public class System.ComponentModel.Composition.Hosting.FilteredCatalog : ComposablePartCatalog {
+    private Func`2<ComposablePartDefinition, bool> _filter;
+    private ComposablePartCatalog _innerCatalog;
+    private FilteredCatalog _complement;
+    private object _lock;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ComposablePartCatalogChangeEventArgs> Changed;
+    [CompilerGeneratedAttribute]
+private EventHandler`1<ComposablePartCatalogChangeEventArgs> Changing;
+    public FilteredCatalog Complement { get; }
+    public FilteredCatalog(ComposablePartCatalog catalog, Func`2<ComposablePartDefinition, bool> filter);
+    internal FilteredCatalog(ComposablePartCatalog catalog, Func`2<ComposablePartDefinition, bool> filter, FilteredCatalog complement);
+    public FilteredCatalog IncludeDependencies();
+    public FilteredCatalog IncludeDependencies(Func`2<ImportDefinition, bool> importFilter);
+    public FilteredCatalog IncludeDependents();
+    public FilteredCatalog IncludeDependents(Func`2<ImportDefinition, bool> importFilter);
+    private FilteredCatalog Traverse(IComposablePartCatalogTraversal traversal);
+    private static HashSet`1<ComposablePartDefinition> GetTraversalClosure(IEnumerable`1<ComposablePartDefinition> parts, IComposablePartCatalogTraversal traversal);
+    private static void GetTraversalClosure(IEnumerable`1<ComposablePartDefinition> parts, HashSet`1<ComposablePartDefinition> traversedParts, IComposablePartCatalogTraversal traversal);
+    private void FreezeInnerCatalog();
+    private void UnfreezeInnerCatalog();
+    private static void ThrowOnRecomposition(object sender, ComposablePartCatalogChangeEventArgs e);
+    protected virtual void Dispose(bool disposing);
+    public virtual IEnumerator`1<ComposablePartDefinition> GetEnumerator();
+    public FilteredCatalog get_Complement();
+    public virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    protected virtual void OnChanged(ComposablePartCatalogChangeEventArgs e);
+    protected virtual void OnChanging(ComposablePartCatalogChangeEventArgs e);
+    private void OnChangedInternal(object sender, ComposablePartCatalogChangeEventArgs e);
+    private void OnChangingInternal(object sender, ComposablePartCatalogChangeEventArgs e);
+    private ComposablePartCatalogChangeEventArgs ProcessEventArgs(ComposablePartCatalogChangeEventArgs e);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+    [CompilerGeneratedAttribute]
+private bool <get_Complement>b__23_0(ComposablePartDefinition p);
+}
+public class System.ComponentModel.Composition.Hosting.ImportEngine : object {
+    private static int MaximumNumberOfCompositionIterations;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    private ExportProvider _sourceProvider;
+    private Stack`1<PartManager> _recursionStateStack;
+    private ConditionalWeakTable`2<ComposablePart, PartManager> _partManagers;
+    private RecompositionManager _recompositionManager;
+    private CompositionLock _lock;
+    private CompositionOptions _compositionOptions;
+    public ImportEngine(ExportProvider sourceProvider);
+    public ImportEngine(ExportProvider sourceProvider, bool isThreadSafe);
+    public ImportEngine(ExportProvider sourceProvider, CompositionOptions compositionOptions);
+    public void PreviewImports(ComposablePart part, AtomicComposition atomicComposition);
+    public void SatisfyImports(ComposablePart part);
+    public sealed virtual void SatisfyImportsOnce(ComposablePart part);
+    public void ReleaseImports(ComposablePart part, AtomicComposition atomicComposition);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    private CompositionResult TryPreviewImportsStateMachine(PartManager partManager, ComposablePart part, AtomicComposition atomicComposition);
+    private CompositionResult TrySatisfyImportsStateMachine(PartManager partManager, ComposablePart part);
+    private CompositionResult TrySatisfyImports(PartManager partManager, ComposablePart part, bool shouldTrackImports);
+    private CompositionResult TrySatisfyImportSubset(PartManager partManager, IEnumerable`1<ImportDefinition> imports, AtomicComposition atomicComposition);
+    private void OnExportsChanging(object sender, ExportsChangeEventArgs e);
+    private CompositionResult TryRecomposeImports(PartManager partManager, IEnumerable`1<ExportDefinition> changedExports, AtomicComposition atomicComposition);
+    private CompositionResult TryRecomposeImport(PartManager partManager, bool partComposed, ImportDefinition import, AtomicComposition atomicComposition);
+    private void StartSatisfyingImports(PartManager partManager, AtomicComposition atomicComposition);
+    private void StopSatisfyingImports(PartManager partManager, AtomicComposition atomicComposition);
+    private PartManager GetPartManager(ComposablePart part, bool createIfNotpresent);
+    private EngineContext GetEngineContext(AtomicComposition atomicComposition);
+    private bool InPrerequisiteLoop();
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+    private static CompositionResult`1<IEnumerable`1<Export>> TryGetExports(ExportProvider provider, ComposablePart part, ImportDefinition definition, AtomicComposition atomicComposition);
+    internal static bool IsRequiredImportForPreview(ImportDefinition import);
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.Hosting.ImportSourceImportDefinitionHelpers : object {
+    [ExtensionAttribute]
+public static ImportDefinition RemoveImportSource(ImportDefinition definition);
+}
+public interface System.ComponentModel.Composition.Hosting.INotifyComposablePartCatalogChanged {
+    [CompilerGeneratedAttribute]
+public abstract virtual void add_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public abstract virtual void remove_Changed(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public abstract virtual void add_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+    [CompilerGeneratedAttribute]
+public abstract virtual void remove_Changing(EventHandler`1<ComposablePartCatalogChangeEventArgs> value);
+}
+[ExtensionAttribute]
+public static class System.ComponentModel.Composition.Hosting.ScopingExtensions : object {
+    [ExtensionAttribute]
+public static bool Exports(ComposablePartDefinition part, string contractName);
+    [ExtensionAttribute]
+public static bool Imports(ComposablePartDefinition part, string contractName);
+    [ExtensionAttribute]
+public static bool Imports(ComposablePartDefinition part, string contractName, ImportCardinality importCardinality);
+    [ExtensionAttribute]
+public static bool ContainsPartMetadataWithKey(ComposablePartDefinition part, string key);
+    [ExtensionAttribute]
+public static bool ContainsPartMetadata(ComposablePartDefinition part, string key, T value);
+    [ExtensionAttribute]
+public static FilteredCatalog Filter(ComposablePartCatalog catalog, Func`2<ComposablePartDefinition, bool> filter);
+}
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.Primitives.ComposablePartCatalogDebuggerProxy")]
+public class System.ComponentModel.Composition.Hosting.TypeCatalog : ComposablePartCatalog {
+    private object _thisLock;
+    private Type[] _types;
+    private List`1 modreq(System.Runtime.CompilerServices.IsVolatile) _parts;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    private ICompositionElement _definitionOrigin;
+    private Lazy`1<IDictionary`2<string, List`1<ComposablePartDefinition>>> _contractPartIndex;
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    private IEnumerable`1<ComposablePartDefinition> PartsInternal { get; }
+    public TypeCatalog(Type[] types);
+    public TypeCatalog(IEnumerable`1<Type> types);
+    public TypeCatalog(IEnumerable`1<Type> types, ICompositionElement definitionOrigin);
+    public TypeCatalog(IEnumerable`1<Type> types, ReflectionContext reflectionContext);
+    public TypeCatalog(IEnumerable`1<Type> types, ReflectionContext reflectionContext, ICompositionElement definitionOrigin);
+    private void InitializeTypeCatalog(IEnumerable`1<Type> types, ReflectionContext reflectionContext);
+    private void InitializeTypeCatalog(IEnumerable`1<Type> types);
+    public virtual IEnumerator`1<ComposablePartDefinition> GetEnumerator();
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+    private IEnumerable`1<ComposablePartDefinition> get_PartsInternal();
+    internal virtual IEnumerable`1<ComposablePartDefinition> GetCandidateParts(ImportDefinition definition);
+    private List`1<ComposablePartDefinition> GetCandidateParts(string contractName);
+    private IDictionary`2<string, List`1<ComposablePartDefinition>> CreateIndex();
+    public virtual string ToString();
+    protected virtual void Dispose(bool disposing);
+    private string GetDisplayName();
+    private string GetTypesDisplay();
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+}
+internal interface System.ComponentModel.Composition.IAttributedImport {
+    public string ContractName { get; }
+    public Type ContractType { get; }
+    public bool AllowRecomposition { get; }
+    public CreationPolicy RequiredCreationPolicy { get; }
+    public ImportCardinality Cardinality { get; }
+    public ImportSource Source { get; }
+    public abstract virtual string get_ContractName();
+    public abstract virtual Type get_ContractType();
+    public abstract virtual bool get_AllowRecomposition();
+    public abstract virtual CreationPolicy get_RequiredCreationPolicy();
+    public abstract virtual ImportCardinality get_Cardinality();
+    public abstract virtual ImportSource get_Source();
+}
+public interface System.ComponentModel.Composition.ICompositionService {
+    public abstract virtual void SatisfyImportsOnce(ComposablePart part);
+}
+[AttributeUsageAttribute("2432")]
+public class System.ComponentModel.Composition.ImportAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <ContractName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Type <ContractType>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <AllowDefault>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <AllowRecomposition>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CreationPolicy <RequiredCreationPolicy>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ImportSource <Source>k__BackingField;
+    public string ContractName { get; private set; }
+    public Type ContractType { get; private set; }
+    public bool AllowDefault { get; public set; }
+    public bool AllowRecomposition { get; public set; }
+    public CreationPolicy RequiredCreationPolicy { get; public set; }
+    public ImportSource Source { get; public set; }
+    private ImportCardinality System.ComponentModel.Composition.IAttributedImport.Cardinality { get; }
+    public ImportAttribute(Type contractType);
+    public ImportAttribute(string contractName);
+    public ImportAttribute(string contractName, Type contractType);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_ContractName();
+    [CompilerGeneratedAttribute]
+private void set_ContractName(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Type get_ContractType();
+    [CompilerGeneratedAttribute]
+private void set_ContractType(Type value);
+    [CompilerGeneratedAttribute]
+public bool get_AllowDefault();
+    [CompilerGeneratedAttribute]
+public void set_AllowDefault(bool value);
+    [CompilerGeneratedAttribute]
+public sealed virtual bool get_AllowRecomposition();
+    [CompilerGeneratedAttribute]
+public void set_AllowRecomposition(bool value);
+    [CompilerGeneratedAttribute]
+public sealed virtual CreationPolicy get_RequiredCreationPolicy();
+    [CompilerGeneratedAttribute]
+public void set_RequiredCreationPolicy(CreationPolicy value);
+    [CompilerGeneratedAttribute]
+public sealed virtual ImportSource get_Source();
+    [CompilerGeneratedAttribute]
+public void set_Source(ImportSource value);
+    private sealed virtual override ImportCardinality System.ComponentModel.Composition.IAttributedImport.get_Cardinality();
+}
+[DebuggerDisplayAttribute("{Message}")]
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.ImportCardinalityMismatchExceptionDebuggerProxy")]
+public class System.ComponentModel.Composition.ImportCardinalityMismatchException : Exception {
+    public ImportCardinalityMismatchException(string message);
+    public ImportCardinalityMismatchException(string message, Exception innerException);
+    [SecuritySafeCriticalAttribute]
+protected ImportCardinalityMismatchException(SerializationInfo info, StreamingContext context);
+}
+internal class System.ComponentModel.Composition.ImportCardinalityMismatchExceptionDebuggerProxy : object {
+    private ImportCardinalityMismatchException _exception;
+    public Exception InnerException { get; }
+    public string Message { get; }
+    public ImportCardinalityMismatchExceptionDebuggerProxy(ImportCardinalityMismatchException exception);
+    public Exception get_InnerException();
+    public string get_Message();
+}
+[AttributeUsageAttribute("32")]
+public class System.ComponentModel.Composition.ImportingConstructorAttribute : Attribute {
+}
+[AttributeUsageAttribute("2432")]
+public class System.ComponentModel.Composition.ImportManyAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <ContractName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Type <ContractType>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <AllowRecomposition>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CreationPolicy <RequiredCreationPolicy>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ImportSource <Source>k__BackingField;
+    public string ContractName { get; private set; }
+    public Type ContractType { get; private set; }
+    public bool AllowRecomposition { get; public set; }
+    public CreationPolicy RequiredCreationPolicy { get; public set; }
+    public ImportSource Source { get; public set; }
+    private ImportCardinality System.ComponentModel.Composition.IAttributedImport.Cardinality { get; }
+    public ImportManyAttribute(Type contractType);
+    public ImportManyAttribute(string contractName);
+    public ImportManyAttribute(string contractName, Type contractType);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_ContractName();
+    [CompilerGeneratedAttribute]
+private void set_ContractName(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Type get_ContractType();
+    [CompilerGeneratedAttribute]
+private void set_ContractType(Type value);
+    [CompilerGeneratedAttribute]
+public sealed virtual bool get_AllowRecomposition();
+    [CompilerGeneratedAttribute]
+public void set_AllowRecomposition(bool value);
+    [CompilerGeneratedAttribute]
+public sealed virtual CreationPolicy get_RequiredCreationPolicy();
+    [CompilerGeneratedAttribute]
+public void set_RequiredCreationPolicy(CreationPolicy value);
+    [CompilerGeneratedAttribute]
+public sealed virtual ImportSource get_Source();
+    [CompilerGeneratedAttribute]
+public void set_Source(ImportSource value);
+    private sealed virtual override ImportCardinality System.ComponentModel.Composition.IAttributedImport.get_Cardinality();
+}
+public enum System.ComponentModel.Composition.ImportSource : Enum {
+    public int value__;
+    public static ImportSource Any;
+    public static ImportSource Local;
+    public static ImportSource NonLocal;
+}
+[AttributeUsageAttribute("1028")]
+public class System.ComponentModel.Composition.InheritedExportAttribute : ExportAttribute {
+    public InheritedExportAttribute(Type contractType);
+    public InheritedExportAttribute(string contractName);
+    public InheritedExportAttribute(string contractName, Type contractType);
+}
+public interface System.ComponentModel.Composition.IPartImportsSatisfiedNotification {
+    public abstract virtual void OnImportsSatisfied();
+}
+[AttributeUsageAttribute("4")]
+public class System.ComponentModel.Composition.MetadataAttributeAttribute : Attribute {
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.MetadataServices : object {
+    public static IDictionary`2<string, object> EmptyMetadata;
+    private static MetadataServices();
+    [ExtensionAttribute]
+public static IDictionary`2<string, object> AsReadOnly(IDictionary`2<string, object> metadata);
+    [ExtensionAttribute]
+public static T GetValue(IDictionary`2<string, object> metadata, string key);
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.MetadataViewGenerator : object {
+    public static string MetadataViewType;
+    public static string MetadataItemKey;
+    public static string MetadataItemTargetType;
+    public static string MetadataItemSourceType;
+    public static string MetadataItemValue;
+    private static Lock _lock;
+    private static Dictionary`2<Type, Type> _proxies;
+    private static AssemblyName ProxyAssemblyName;
+    private static ModuleBuilder transparentProxyModuleBuilder;
+    private static Type[] CtorArgumentTypes;
+    private static MethodInfo _mdvDictionaryTryGet;
+    private static MethodInfo ObjectGetType;
+    private static MetadataViewGenerator();
+    private static AssemblyBuilder CreateProxyAssemblyBuilder(ConstructorInfo constructorInfo);
+    private static ModuleBuilder GetProxyModuleBuilder(bool requiresCritical);
+    public static Type GenerateView(Type viewType);
+    [ExtensionAttribute]
+private static void GenerateLocalAssignmentFromDefaultAttribute(ILGenerator IL, DefaultValueAttribute[] attrs, LocalBuilder local);
+    [ExtensionAttribute]
+private static void GenerateFieldAssignmentFromLocalValue(ILGenerator IL, LocalBuilder local, FieldBuilder field);
+    [ExtensionAttribute]
+private static void GenerateLocalAssignmentFromFlag(ILGenerator IL, LocalBuilder local, bool flag);
+    private static Type GenerateInterfaceViewProxyType(Type viewType);
+}
+[AttributeUsageAttribute("1024")]
+public class System.ComponentModel.Composition.MetadataViewImplementationAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private Type <ImplementationType>k__BackingField;
+    public Type ImplementationType { get; private set; }
+    public MetadataViewImplementationAttribute(Type implementationType);
+    [CompilerGeneratedAttribute]
+public Type get_ImplementationType();
+    [CompilerGeneratedAttribute]
+private void set_ImplementationType(Type value);
+}
+internal static class System.ComponentModel.Composition.MetadataViewProvider : object {
+    public static TMetadataView GetMetadataView(IDictionary`2<string, object> metadata);
+    public static bool IsViewTypeValid(Type metadataViewType);
+}
+[AttributeUsageAttribute("4")]
+public class System.ComponentModel.Composition.PartCreationPolicyAttribute : Attribute {
+    internal static PartCreationPolicyAttribute Default;
+    internal static PartCreationPolicyAttribute Shared;
+    [CompilerGeneratedAttribute]
+private CreationPolicy <CreationPolicy>k__BackingField;
+    public CreationPolicy CreationPolicy { get; private set; }
+    public PartCreationPolicyAttribute(CreationPolicy creationPolicy);
+    private static PartCreationPolicyAttribute();
+    [CompilerGeneratedAttribute]
+public CreationPolicy get_CreationPolicy();
+    [CompilerGeneratedAttribute]
+private void set_CreationPolicy(CreationPolicy value);
+}
+[AttributeUsageAttribute("4")]
+public class System.ComponentModel.Composition.PartMetadataAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private object <Value>k__BackingField;
+    public string Name { get; private set; }
+    public object Value { get; private set; }
+    public PartMetadataAttribute(string name, object value);
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+private void set_Name(string value);
+    [CompilerGeneratedAttribute]
+public object get_Value();
+    [CompilerGeneratedAttribute]
+private void set_Value(object value);
+}
+[AttributeUsageAttribute("4")]
+public class System.ComponentModel.Composition.PartNotDiscoverableAttribute : Attribute {
+}
+public abstract class System.ComponentModel.Composition.Primitives.ComposablePart : object {
+    public IEnumerable`1<ExportDefinition> ExportDefinitions { get; }
+    public IEnumerable`1<ImportDefinition> ImportDefinitions { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    public abstract virtual IEnumerable`1<ExportDefinition> get_ExportDefinitions();
+    public abstract virtual IEnumerable`1<ImportDefinition> get_ImportDefinitions();
+    public virtual IDictionary`2<string, object> get_Metadata();
+    public virtual void Activate();
+    public abstract virtual object GetExportedValue(ExportDefinition definition);
+    public abstract virtual void SetImport(ImportDefinition definition, IEnumerable`1<Export> exports);
+}
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.Primitives.ComposablePartCatalogDebuggerProxy")]
+public abstract class System.ComponentModel.Composition.Primitives.ComposablePartCatalog : object {
+    private bool _isDisposed;
+    private IQueryable`1 modreq(System.Runtime.CompilerServices.IsVolatile) _queryableParts;
+    private static List`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> _EmptyExportsList;
+    [EditorBrowsableAttribute("1")]
+public IQueryable`1<ComposablePartDefinition> Parts { get; }
+    private static ComposablePartCatalog();
+    public virtual IQueryable`1<ComposablePartDefinition> get_Parts();
+    public virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    internal virtual IEnumerable`1<ComposablePartDefinition> GetCandidateParts(ImportDefinition definition);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    [DebuggerStepThroughAttribute]
+private void ThrowIfDisposed();
+    public virtual IEnumerator`1<ComposablePartDefinition> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+}
+internal class System.ComponentModel.Composition.Primitives.ComposablePartCatalogDebuggerProxy : object {
+    private ComposablePartCatalog _catalog;
+    public ReadOnlyCollection`1<ComposablePartDefinition> Parts { get; }
+    public ComposablePartCatalogDebuggerProxy(ComposablePartCatalog catalog);
+    public ReadOnlyCollection`1<ComposablePartDefinition> get_Parts();
+}
+public abstract class System.ComponentModel.Composition.Primitives.ComposablePartDefinition : object {
+    internal static IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> _EmptyExports;
+    public IEnumerable`1<ExportDefinition> ExportDefinitions { get; }
+    public IEnumerable`1<ImportDefinition> ImportDefinitions { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    private static ComposablePartDefinition();
+    public abstract virtual IEnumerable`1<ExportDefinition> get_ExportDefinitions();
+    public abstract virtual IEnumerable`1<ImportDefinition> get_ImportDefinitions();
+    public virtual IDictionary`2<string, object> get_Metadata();
+    public abstract virtual ComposablePart CreatePart();
+    internal virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    internal virtual ComposablePartDefinition GetGenericPartDefinition();
+}
+[DebuggerDisplayAttribute("{Message}")]
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.Primitives.ComposablePartExceptionDebuggerProxy")]
+public class System.ComponentModel.Composition.Primitives.ComposablePartException : Exception {
+    private ICompositionElement _element;
+    public ICompositionElement Element { get; }
+    public ComposablePartException(string message);
+    public ComposablePartException(string message, ICompositionElement element);
+    public ComposablePartException(string message, Exception innerException);
+    public ComposablePartException(string message, ICompositionElement element, Exception innerException);
+    [SecuritySafeCriticalAttribute]
+protected ComposablePartException(SerializationInfo info, StreamingContext context);
+    public ICompositionElement get_Element();
+    [SecurityCriticalAttribute]
+public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+}
+internal class System.ComponentModel.Composition.Primitives.ComposablePartExceptionDebuggerProxy : object {
+    private ComposablePartException _exception;
+    public ICompositionElement Element { get; }
+    public Exception InnerException { get; }
+    public string Message { get; }
+    public ComposablePartExceptionDebuggerProxy(ComposablePartException exception);
+    public ICompositionElement get_Element();
+    public Exception get_InnerException();
+    public string get_Message();
+}
+[DebuggerTypeProxyAttribute("System.ComponentModel.Composition.Primitives.CompositionElementDebuggerProxy")]
+internal class System.ComponentModel.Composition.Primitives.CompositionElement : SerializableCompositionElement {
+    private static ICompositionElement UnknownOrigin;
+    private object _underlyingObject;
+    public object UnderlyingObject { get; }
+    public CompositionElement(object underlyingObject);
+    private static CompositionElement();
+    public object get_UnderlyingObject();
+}
+internal class System.ComponentModel.Composition.Primitives.CompositionElementDebuggerProxy : object {
+    private CompositionElement _element;
+    public string DisplayName { get; }
+    public ICompositionElement Origin { get; }
+    public object UnderlyingObject { get; }
+    public CompositionElementDebuggerProxy(CompositionElement element);
+    public string get_DisplayName();
+    public ICompositionElement get_Origin();
+    public object get_UnderlyingObject();
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.Primitives.CompositionElementExtensions : object {
+    [ExtensionAttribute]
+public static ICompositionElement ToSerializableElement(ICompositionElement element);
+    [ExtensionAttribute]
+public static ICompositionElement ToElement(Export export);
+    [ExtensionAttribute]
+public static ICompositionElement ToElement(ExportDefinition definition);
+    [ExtensionAttribute]
+public static ICompositionElement ToElement(ImportDefinition definition);
+    [ExtensionAttribute]
+public static ICompositionElement ToElement(ComposablePart part);
+    [ExtensionAttribute]
+public static ICompositionElement ToElement(ComposablePartDefinition definition);
+    [ExtensionAttribute]
+public static string GetDisplayName(ComposablePartDefinition definition);
+    [ExtensionAttribute]
+public static string GetDisplayName(ComposablePartCatalog catalog);
+    private static string GetDisplayNameCore(object value);
+    private static ICompositionElement ToElementCore(object value);
+}
+public class System.ComponentModel.Composition.Primitives.ContractBasedImportDefinition : ImportDefinition {
+    private IEnumerable`1<KeyValuePair`2<string, Type>> _requiredMetadata;
+    private Expression`1<Func`2<ExportDefinition, bool>> _constraint;
+    private CreationPolicy _requiredCreationPolicy;
+    private string _requiredTypeIdentity;
+    private bool _isRequiredMetadataValidated;
+    public string RequiredTypeIdentity { get; }
+    public IEnumerable`1<KeyValuePair`2<string, Type>> RequiredMetadata { get; }
+    public CreationPolicy RequiredCreationPolicy { get; }
+    public Expression`1<Func`2<ExportDefinition, bool>> Constraint { get; }
+    public ContractBasedImportDefinition(string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, bool isRecomposable, bool isPrerequisite, CreationPolicy requiredCreationPolicy);
+    public ContractBasedImportDefinition(string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, bool isRecomposable, bool isPrerequisite, CreationPolicy requiredCreationPolicy, IDictionary`2<string, object> metadata);
+    public virtual string get_RequiredTypeIdentity();
+    public virtual IEnumerable`1<KeyValuePair`2<string, Type>> get_RequiredMetadata();
+    private void ValidateRequiredMetadata();
+    public virtual CreationPolicy get_RequiredCreationPolicy();
+    public virtual Expression`1<Func`2<ExportDefinition, bool>> get_Constraint();
+    public virtual bool IsConstraintSatisfiedBy(ExportDefinition exportDefinition);
+    private bool MatchRequiredMatadata(ExportDefinition definition);
+    public virtual string ToString();
+}
+public class System.ComponentModel.Composition.Primitives.Export : object {
+    private ExportDefinition _definition;
+    private Func`1<object> _exportedValueGetter;
+    private static object _EmptyValue;
+    private Object modreq(System.Runtime.CompilerServices.IsVolatile) _exportedValue;
+    public ExportDefinition Definition { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    public object Value { get; }
+    public Export(string contractName, Func`1<object> exportedValueGetter);
+    public Export(string contractName, IDictionary`2<string, object> metadata, Func`1<object> exportedValueGetter);
+    public Export(ExportDefinition definition, Func`1<object> exportedValueGetter);
+    private static Export();
+    public virtual ExportDefinition get_Definition();
+    public IDictionary`2<string, object> get_Metadata();
+    public object get_Value();
+    protected virtual object GetExportedValueCore();
+}
+public class System.ComponentModel.Composition.Primitives.ExportDefinition : object {
+    private IDictionary`2<string, object> _metadata;
+    private string _contractName;
+    public string ContractName { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    public ExportDefinition(string contractName, IDictionary`2<string, object> metadata);
+    public virtual string get_ContractName();
+    public virtual IDictionary`2<string, object> get_Metadata();
+    public virtual string ToString();
+}
+public class System.ComponentModel.Composition.Primitives.ExportedDelegate : object {
+    private object _instance;
+    private MethodInfo _method;
+    public ExportedDelegate(object instance, MethodInfo method);
+    public virtual Delegate CreateDelegate(Type delegateType);
+    private Type CreateStandardDelegateType();
+}
+public interface System.ComponentModel.Composition.Primitives.ICompositionElement {
+    public string DisplayName { get; }
+    public ICompositionElement Origin { get; }
+    public abstract virtual string get_DisplayName();
+    public abstract virtual ICompositionElement get_Origin();
+}
+public enum System.ComponentModel.Composition.Primitives.ImportCardinality : Enum {
+    public int value__;
+    public static ImportCardinality ZeroOrOne;
+    public static ImportCardinality ExactlyOne;
+    public static ImportCardinality ZeroOrMore;
+}
+public class System.ComponentModel.Composition.Primitives.ImportDefinition : object {
+    internal static string EmptyContractName;
+    private Expression`1<Func`2<ExportDefinition, bool>> _constraint;
+    private ImportCardinality _cardinality;
+    private string _contractName;
+    private bool _isRecomposable;
+    private bool _isPrerequisite;
+    private Func`2<ExportDefinition, bool> _compiledConstraint;
+    private IDictionary`2<string, object> _metadata;
+    public string ContractName { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    public ImportCardinality Cardinality { get; }
+    public Expression`1<Func`2<ExportDefinition, bool>> Constraint { get; }
+    public bool IsPrerequisite { get; }
+    public bool IsRecomposable { get; }
+    public ImportDefinition(Expression`1<Func`2<ExportDefinition, bool>> constraint, string contractName, ImportCardinality cardinality, bool isRecomposable, bool isPrerequisite);
+    public ImportDefinition(Expression`1<Func`2<ExportDefinition, bool>> constraint, string contractName, ImportCardinality cardinality, bool isRecomposable, bool isPrerequisite, IDictionary`2<string, object> metadata);
+    internal ImportDefinition(string contractName, ImportCardinality cardinality, bool isRecomposable, bool isPrerequisite, IDictionary`2<string, object> metadata);
+    private static ImportDefinition();
+    public virtual string get_ContractName();
+    public virtual IDictionary`2<string, object> get_Metadata();
+    public virtual ImportCardinality get_Cardinality();
+    public virtual Expression`1<Func`2<ExportDefinition, bool>> get_Constraint();
+    public virtual bool get_IsPrerequisite();
+    public virtual bool get_IsRecomposable();
+    public virtual bool IsConstraintSatisfiedBy(ExportDefinition exportDefinition);
+    public virtual string ToString();
+}
+internal interface System.ComponentModel.Composition.Primitives.IPartCreatorImportDefinition {
+    public ContractBasedImportDefinition ProductImportDefinition { get; }
+    public abstract virtual ContractBasedImportDefinition get_ProductImportDefinition();
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.Primitives.PrimitivesServices : object {
+    [ExtensionAttribute]
+public static bool IsGeneric(ComposablePartDefinition part);
+    [ExtensionAttribute]
+public static ImportDefinition GetProductImportDefinition(ImportDefinition import);
+    [ExtensionAttribute]
+[IteratorStateMachineAttribute("System.ComponentModel.Composition.Primitives.PrimitivesServices/<GetCandidateContractNames>d__2")]
+internal static IEnumerable`1<string> GetCandidateContractNames(ImportDefinition import, ComposablePartDefinition part);
+    [ExtensionAttribute]
+internal static bool IsImportDependentOnPart(ImportDefinition import, ComposablePartDefinition part, ExportDefinition export, bool expandGenerics);
+    private static ImportDefinition TranslateImport(ImportDefinition import, ComposablePartDefinition part);
+}
+internal class System.ComponentModel.Composition.Primitives.SerializableCompositionElement : object {
+    private string _displayName;
+    private ICompositionElement _origin;
+    public string DisplayName { get; }
+    public ICompositionElement Origin { get; }
+    public SerializableCompositionElement(string displayName, ICompositionElement origin);
+    public sealed virtual string get_DisplayName();
+    public sealed virtual ICompositionElement get_Origin();
+    public virtual string ToString();
+    public static ICompositionElement FromICompositionElement(ICompositionElement element);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.DisposableReflectionComposablePart : ReflectionComposablePart {
+    private Int32 modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    public DisposableReflectionComposablePart(ReflectionComposablePartDefinition definition);
+    protected virtual void ReleaseInstanceIfNecessary(object instance);
+    protected virtual void EnsureRunning();
+    private sealed virtual override void System.IDisposable.Dispose();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ExportFactoryCreator : object {
+    private static MethodInfo _createStronglyTypedExportFactoryOfT;
+    private static MethodInfo _createStronglyTypedExportFactoryOfTM;
+    private Type _exportFactoryType;
+    public ExportFactoryCreator(Type exportFactoryType);
+    private static ExportFactoryCreator();
+    public Func`2<Export, object> CreateStronglyTypedExportFactoryFactory(Type exportType, Type metadataViewType);
+    private object CreateStronglyTypedExportFactoryOfT(Export export);
+    private object CreateStronglyTypedExportFactoryOfTM(Export export);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ExportingMember : object {
+    private ExportDefinition _definition;
+    private ReflectionMember _member;
+    private object _cachedValue;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isValueCached;
+    public bool RequiresInstance { get; }
+    public ExportDefinition Definition { get; }
+    public ExportingMember(ExportDefinition definition, ReflectionMember member);
+    public bool get_RequiresInstance();
+    public ExportDefinition get_Definition();
+    public object GetExportedValue(object instance, object lock);
+    private void EnsureReadable();
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.ReflectionModel.GenericServices : object {
+    [ExtensionAttribute]
+internal static IList`1<Type> GetPureGenericParameters(Type type);
+    [ExtensionAttribute]
+internal static int GetPureGenericArity(Type type);
+    private static void TraverseGenericType(Type type, Action`1<Type> onType);
+    public static Int32[] GetGenericParametersOrder(Type type);
+    public static string GetGenericName(string originalGenericName, Int32[] genericParametersOrder, int genericArity);
+    public static T[] Reorder(T[] original, Int32[] genericParametersOrder);
+    [ExtensionAttribute]
+public static IEnumerable`1<Type> CreateTypeSpecializations(Type[] types, Type[] specializationTypes);
+    [ExtensionAttribute]
+public static Type CreateTypeSpecialization(Type type, Type[] specializationTypes);
+    public static bool CanSpecialize(Type type, IEnumerable`1<Type> constraints, GenericParameterAttributes attributes);
+    public static bool CanSpecialize(Type type, IEnumerable`1<Type> constraintTypes);
+    public static bool CanSpecialize(Type type, GenericParameterAttributes attributes);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.GenericSpecializationPartCreationInfo : object {
+    private IReflectionPartCreationInfo _originalPartCreationInfo;
+    private ReflectionComposablePartDefinition _originalPart;
+    private Type[] _specialization;
+    private String[] _specializationIdentities;
+    private IEnumerable`1<ExportDefinition> _exports;
+    private IEnumerable`1<ImportDefinition> _imports;
+    private Lazy`1<Type> _lazyPartType;
+    private List`1<LazyMemberInfo> _members;
+    private List`1<Lazy`1<ParameterInfo>> _parameters;
+    private Dictionary`2<LazyMemberInfo, MemberInfo[]> _membersTable;
+    private Dictionary`2<Lazy`1<ParameterInfo>, ParameterInfo> _parametersTable;
+    private ConstructorInfo _constructor;
+    private object _lock;
+    public ReflectionComposablePartDefinition OriginalPart { get; }
+    public bool IsDisposalRequired { get; }
+    public string DisplayName { get; }
+    public ICompositionElement Origin { get; }
+    public GenericSpecializationPartCreationInfo(IReflectionPartCreationInfo originalPartCreationInfo, ReflectionComposablePartDefinition originalPart, Type[] specialization);
+    public ReflectionComposablePartDefinition get_OriginalPart();
+    public sealed virtual Type GetPartType();
+    public sealed virtual Lazy`1<Type> GetLazyPartType();
+    public sealed virtual ConstructorInfo GetConstructor();
+    public sealed virtual IDictionary`2<string, object> GetMetadata();
+    private MemberInfo[] GetAccessors(LazyMemberInfo originalLazyMember);
+    private ParameterInfo GetParameter(Lazy`1<ParameterInfo> originalParameter);
+    private void BuildTables();
+    private Dictionary`2<LazyMemberInfo, MemberInfo[]> BuildMembersTable(List`1<LazyMemberInfo> members);
+    private Dictionary`2<Lazy`1<ParameterInfo>, ParameterInfo> BuildParametersTable(List`1<Lazy`1<ParameterInfo>> parameters);
+    private List`1<ImportDefinition> PopulateImports(List`1<LazyMemberInfo> members, List`1<Lazy`1<ParameterInfo>> parameters);
+    private ImportDefinition TranslateImport(ReflectionImportDefinition reflectionImport, List`1<LazyMemberInfo> members, List`1<Lazy`1<ParameterInfo>> parameters);
+    private List`1<ExportDefinition> PopulateExports(List`1<LazyMemberInfo> members);
+    public ExportDefinition TranslateExpot(ReflectionMemberExportDefinition reflectionExport, List`1<LazyMemberInfo> members);
+    private string Translate(string originalValue, Int32[] genericParametersOrder);
+    private string Translate(string originalValue);
+    private IDictionary`2<string, object> TranslateImportMetadata(ContractBasedImportDefinition originalImport);
+    private IDictionary`2<string, object> TranslateExportMetadata(ReflectionMemberExportDefinition originalExport);
+    private void PopulateImportsAndExports();
+    public sealed virtual IEnumerable`1<ExportDefinition> GetExports();
+    public sealed virtual IEnumerable`1<ImportDefinition> GetImports();
+    public sealed virtual bool get_IsDisposalRequired();
+    public sealed virtual string get_DisplayName();
+    public sealed virtual ICompositionElement get_Origin();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static bool CanSpecialize(IDictionary`2<string, object> partMetadata, Type[] specialization);
+}
+internal abstract class System.ComponentModel.Composition.ReflectionModel.ImportingItem : object {
+    private ContractBasedImportDefinition _definition;
+    private ImportType _importType;
+    public ContractBasedImportDefinition Definition { get; }
+    public ImportType ImportType { get; }
+    protected ImportingItem(ContractBasedImportDefinition definition, ImportType importType);
+    public ContractBasedImportDefinition get_Definition();
+    public ImportType get_ImportType();
+    public object CastExportsToImportType(Export[] exports);
+    private object CastExportsToCollectionImportType(Export[] exports);
+    private object CastExportsToSingleImportType(Export[] exports);
+    private object CastSingleExportToImportType(Type type, Export export);
+    private object Cast(Type type, Export export);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ImportingMember : ImportingItem {
+    private ReflectionWritableMember _member;
+    public ImportingMember(ContractBasedImportDefinition definition, ReflectionWritableMember member, ImportType importType);
+    public void SetExportedValue(object instance, object value);
+    private bool RequiresCollectionNormalization();
+    private void SetSingleMemberValue(object instance, object value);
+    private void EnsureWritable();
+    private void SetCollectionMemberValue(object instance, IEnumerable values);
+    private ICollection`1<object> GetNormalizedCollection(Type itemType, object instance);
+    private void EnsureCollectionIsWritable(ICollection`1<object> collection);
+    private void PopulateCollection(ICollection`1<object> collection, IEnumerable values);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ImportingParameter : ImportingItem {
+    public ImportingParameter(ContractBasedImportDefinition definition, ImportType importType);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ImportType : object {
+    private static Type LazyOfTType;
+    private static Type LazyOfTMType;
+    private static Type ExportFactoryOfTType;
+    private static Type ExportFactoryOfTMType;
+    private Type _type;
+    private bool _isAssignableCollectionType;
+    private Type _contractType;
+    private Func`2<Export, object> _castSingleValue;
+    private bool _isOpenGeneric;
+    [CompilerGeneratedAttribute]
+private Type <ElementType>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <IsPartCreator>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Type <MetadataViewType>k__BackingField;
+    public bool IsAssignableCollectionType { get; }
+    public Type ElementType { get; private set; }
+    public Type ActualType { get; }
+    public bool IsPartCreator { get; private set; }
+    public Type ContractType { get; }
+    public Func`2<Export, object> CastExport { get; }
+    public Type MetadataViewType { get; private set; }
+    public ImportType(Type type, ImportCardinality cardinality);
+    private static ImportType();
+    public bool get_IsAssignableCollectionType();
+    [CompilerGeneratedAttribute]
+public Type get_ElementType();
+    [CompilerGeneratedAttribute]
+private void set_ElementType(Type value);
+    public Type get_ActualType();
+    [CompilerGeneratedAttribute]
+public bool get_IsPartCreator();
+    [CompilerGeneratedAttribute]
+private void set_IsPartCreator(bool value);
+    public Type get_ContractType();
+    public Func`2<Export, object> get_CastExport();
+    [CompilerGeneratedAttribute]
+public Type get_MetadataViewType();
+    [CompilerGeneratedAttribute]
+private void set_MetadataViewType(Type value);
+    private Type CheckForCollection(Type type);
+    private static bool IsGenericDescendentOf(Type type, Type baseGenericTypeDefinition);
+    public static bool IsDescendentOf(Type type, Type baseType);
+    private Type CheckForLazyAndPartCreator(Type type);
+    private static bool IsTypeAssignableCollectionType(Type type);
+}
+internal interface System.ComponentModel.Composition.ReflectionModel.IReflectionPartCreationInfo {
+    public bool IsDisposalRequired { get; }
+    public abstract virtual Type GetPartType();
+    public abstract virtual Lazy`1<Type> GetLazyPartType();
+    public abstract virtual ConstructorInfo GetConstructor();
+    public abstract virtual IDictionary`2<string, object> GetMetadata();
+    public abstract virtual IEnumerable`1<ExportDefinition> GetExports();
+    public abstract virtual IEnumerable`1<ImportDefinition> GetImports();
+    public abstract virtual bool get_IsDisposalRequired();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.LazyExportDefinition : ExportDefinition {
+    private Lazy`1<IDictionary`2<string, object>> _metadata;
+    public IDictionary`2<string, object> Metadata { get; }
+    public LazyExportDefinition(string contractName, Lazy`1<IDictionary`2<string, object>> metadata);
+    public virtual IDictionary`2<string, object> get_Metadata();
+}
+public class System.ComponentModel.Composition.ReflectionModel.LazyMemberInfo : ValueType {
+    private MemberTypes _memberType;
+    private MemberInfo[] _accessors;
+    private Func`1<MemberInfo[]> _accessorsCreator;
+    public MemberTypes MemberType { get; }
+    public LazyMemberInfo(MemberInfo member);
+    public LazyMemberInfo(MemberTypes memberType, MemberInfo[] accessors);
+    public LazyMemberInfo(MemberTypes memberType, Func`1<MemberInfo[]> accessorsCreator);
+    public MemberTypes get_MemberType();
+    public MemberInfo[] GetAccessors();
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public static bool op_Equality(LazyMemberInfo left, LazyMemberInfo right);
+    public static bool op_Inequality(LazyMemberInfo left, LazyMemberInfo right);
+    private static void EnsureSupportedMemberType(MemberTypes memberType, string argument);
+    private static bool AreAccessorsValid(MemberTypes memberType, MemberInfo[] accessors, String& errorMessage);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.PartCreatorExportDefinition : ExportDefinition {
+    private ExportDefinition _productDefinition;
+    private IDictionary`2<string, object> _metadata;
+    public string ContractName { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    public PartCreatorExportDefinition(ExportDefinition productDefinition);
+    public virtual string get_ContractName();
+    public virtual IDictionary`2<string, object> get_Metadata();
+    internal static bool IsProductConstraintSatisfiedBy(ImportDefinition productImportDefinition, ExportDefinition exportDefinition);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.PartCreatorMemberImportDefinition : ReflectionMemberImportDefinition {
+    private ContractBasedImportDefinition _productImportDefinition;
+    public ContractBasedImportDefinition ProductImportDefinition { get; }
+    public Expression`1<Func`2<ExportDefinition, bool>> Constraint { get; }
+    public PartCreatorMemberImportDefinition(LazyMemberInfo importingLazyMember, ICompositionElement origin, ContractBasedImportDefinition productImportDefinition);
+    public sealed virtual ContractBasedImportDefinition get_ProductImportDefinition();
+    public virtual bool IsConstraintSatisfiedBy(ExportDefinition exportDefinition);
+    public virtual Expression`1<Func`2<ExportDefinition, bool>> get_Constraint();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.PartCreatorParameterImportDefinition : ReflectionParameterImportDefinition {
+    private ContractBasedImportDefinition _productImportDefinition;
+    public ContractBasedImportDefinition ProductImportDefinition { get; }
+    public Expression`1<Func`2<ExportDefinition, bool>> Constraint { get; }
+    public PartCreatorParameterImportDefinition(Lazy`1<ParameterInfo> importingLazyParameter, ICompositionElement origin, ContractBasedImportDefinition productImportDefinition);
+    public sealed virtual ContractBasedImportDefinition get_ProductImportDefinition();
+    public virtual bool IsConstraintSatisfiedBy(ExportDefinition exportDefinition);
+    public virtual Expression`1<Func`2<ExportDefinition, bool>> get_Constraint();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionComposablePart : ComposablePart {
+    private ReflectionComposablePartDefinition _definition;
+    private Dictionary`2<ImportDefinition, object> _importValues;
+    private Dictionary`2<ImportDefinition, ImportingItem> _importsCache;
+    private Dictionary`2<int, ExportingMember> _exportsCache;
+    private bool _invokeImportsSatisfied;
+    private bool _invokingImportsSatisfied;
+    private bool _initialCompositionComplete;
+    private Object modreq(System.Runtime.CompilerServices.IsVolatile) _cachedInstance;
+    private object _lock;
+    protected object CachedInstance { get; }
+    public ReflectionComposablePartDefinition Definition { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    public IEnumerable`1<ImportDefinition> ImportDefinitions { get; }
+    public IEnumerable`1<ExportDefinition> ExportDefinitions { get; }
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    public ReflectionComposablePart(ReflectionComposablePartDefinition definition);
+    public ReflectionComposablePart(ReflectionComposablePartDefinition definition, object attributedPart);
+    protected virtual void EnsureRunning();
+    protected void RequiresRunning();
+    protected virtual void ReleaseInstanceIfNecessary(object instance);
+    protected object get_CachedInstance();
+    public ReflectionComposablePartDefinition get_Definition();
+    public virtual IDictionary`2<string, object> get_Metadata();
+    public sealed virtual IEnumerable`1<ImportDefinition> get_ImportDefinitions();
+    public sealed virtual IEnumerable`1<ExportDefinition> get_ExportDefinitions();
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+    public virtual object GetExportedValue(ExportDefinition definition);
+    public virtual void SetImport(ImportDefinition definition, IEnumerable`1<Export> exports);
+    public virtual void Activate();
+    public virtual string ToString();
+    private object GetExportedValue(ExportingMember member);
+    private void SetImport(ImportingItem item, Export[] exports);
+    private object GetInstanceActivatingIfNeeded();
+    private Object[] GetConstructorArguments();
+    private bool RequiresActivation();
+    private void EnsureGettable();
+    private void EnsureSettable(ImportDefinition definition);
+    private static void EnsureCardinality(ImportDefinition definition, Export[] exports);
+    private object CreateInstance(ConstructorInfo constructor, Object[] arguments);
+    private void SetNonPrerequisiteImports();
+    private void SetPrerequisiteImports();
+    private void SetExportedValueForImport(ImportingItem import, ImportDefinition definition, object value);
+    private void UseImportedValues(IEnumerable`1<TImportDefinition> definitions, Action`3<ImportingItem, TImportDefinition, object> useImportValue, bool errorIfMissing);
+    private bool TryGetImportValue(ImportDefinition definition, Object& value);
+    private void NotifyImportSatisfied();
+    private ExportingMember GetExportingMemberFromDefinition(ExportDefinition definition);
+    private ImportingItem GetImportingItemFromDefinition(ImportDefinition definition);
+    private static ImportingItem GetImportingItem(ImportDefinition definition);
+    private static ExportingMember GetExportingMember(ExportDefinition definition);
+    private string GetDisplayName();
+    [CompilerGeneratedAttribute]
+private bool <RequiresActivation>b__36_0(ExportDefinition definition);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionComposablePartDefinition : ComposablePartDefinition {
+    private IReflectionPartCreationInfo _creationInfo;
+    private IEnumerable`1 modreq(System.Runtime.CompilerServices.IsVolatile) _imports;
+    private IEnumerable`1 modreq(System.Runtime.CompilerServices.IsVolatile) _exports;
+    private IDictionary`2 modreq(System.Runtime.CompilerServices.IsVolatile) _metadata;
+    private ConstructorInfo modreq(System.Runtime.CompilerServices.IsVolatile) _constructor;
+    private object _lock;
+    public IEnumerable`1<ExportDefinition> ExportDefinitions { get; }
+    public IEnumerable`1<ImportDefinition> ImportDefinitions { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    internal bool IsDisposalRequired { get; }
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    public ReflectionComposablePartDefinition(IReflectionPartCreationInfo creationInfo);
+    public Type GetPartType();
+    public Lazy`1<Type> GetLazyPartType();
+    public ConstructorInfo GetConstructor();
+    public virtual IEnumerable`1<ExportDefinition> get_ExportDefinitions();
+    public virtual IEnumerable`1<ImportDefinition> get_ImportDefinitions();
+    public virtual IDictionary`2<string, object> get_Metadata();
+    internal bool get_IsDisposalRequired();
+    public virtual ComposablePart CreatePart();
+    internal virtual ComposablePartDefinition GetGenericPartDefinition();
+    internal virtual IEnumerable`1<Tuple`2<ComposablePartDefinition, ExportDefinition>> GetExports(ImportDefinition definition);
+    [IteratorStateMachineAttribute("System.ComponentModel.Composition.ReflectionModel.ReflectionComposablePartDefinition/<GetCandidateParameters>d__21")]
+private IEnumerable`1<Type[]> GetCandidateParameters(Type[] genericParameters);
+    private static bool TryGetGenericTypeParameters(IEnumerable`1<object> genericParameters, Type[]& genericTypeParameters);
+    internal bool TryMakeGenericPartDefinition(Type[] genericTypeParameters, ComposablePartDefinition& genericPartDefinition);
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+}
+[ExtensionAttribute]
+internal static class System.ComponentModel.Composition.ReflectionModel.ReflectionExtensions : object {
+    [ExtensionAttribute]
+public static ReflectionMember ToReflectionMember(LazyMemberInfo lazyMember);
+    [ExtensionAttribute]
+public static LazyMemberInfo ToLazyMember(MemberInfo member);
+    [ExtensionAttribute]
+public static ReflectionWritableMember ToReflectionWriteableMember(LazyMemberInfo lazyMember);
+    [ExtensionAttribute]
+public static ReflectionProperty ToReflectionProperty(PropertyInfo property);
+    public static ReflectionProperty CreateReflectionProperty(MethodInfo getMethod, MethodInfo setMethod);
+    [ExtensionAttribute]
+public static ReflectionParameter ToReflectionParameter(ParameterInfo parameter);
+    [ExtensionAttribute]
+public static ReflectionMethod ToReflectionMethod(MethodInfo method);
+    [ExtensionAttribute]
+public static ReflectionField ToReflectionField(FieldInfo field);
+    [ExtensionAttribute]
+public static ReflectionType ToReflectionType(Type type);
+    [ExtensionAttribute]
+public static ReflectionWritableMember ToReflectionWritableMember(MemberInfo member);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionField : ReflectionWritableMember {
+    private FieldInfo _field;
+    public FieldInfo UndelyingField { get; }
+    public MemberInfo UnderlyingMember { get; }
+    public bool CanRead { get; }
+    public bool CanWrite { get; }
+    public bool RequiresInstance { get; }
+    public Type ReturnType { get; }
+    public ReflectionItemType ItemType { get; }
+    public ReflectionField(FieldInfo field);
+    public FieldInfo get_UndelyingField();
+    public virtual MemberInfo get_UnderlyingMember();
+    public virtual bool get_CanRead();
+    public virtual bool get_CanWrite();
+    public virtual bool get_RequiresInstance();
+    public virtual Type get_ReturnType();
+    public virtual ReflectionItemType get_ItemType();
+    public virtual object GetValue(object instance);
+    public virtual void SetValue(object instance, object value);
+}
+internal abstract class System.ComponentModel.Composition.ReflectionModel.ReflectionImportDefinition : ContractBasedImportDefinition {
+    private ICompositionElement _origin;
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    public ReflectionImportDefinition(string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, bool isRecomposable, bool isPrerequisite, CreationPolicy requiredCreationPolicy, IDictionary`2<string, object> metadata, ICompositionElement origin);
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+    public abstract virtual ImportingItem ToImportingItem();
+    protected abstract virtual string GetDisplayName();
+}
+internal abstract class System.ComponentModel.Composition.ReflectionModel.ReflectionItem : object {
+    public string Name { get; }
+    public Type ReturnType { get; }
+    public ReflectionItemType ItemType { get; }
+    public abstract virtual string get_Name();
+    public abstract virtual string GetDisplayName();
+    public abstract virtual Type get_ReturnType();
+    public abstract virtual ReflectionItemType get_ItemType();
+}
+internal enum System.ComponentModel.Composition.ReflectionModel.ReflectionItemType : Enum {
+    public int value__;
+    public static ReflectionItemType Parameter;
+    public static ReflectionItemType Field;
+    public static ReflectionItemType Property;
+    public static ReflectionItemType Method;
+    public static ReflectionItemType Type;
+}
+internal abstract class System.ComponentModel.Composition.ReflectionModel.ReflectionMember : ReflectionItem {
+    public bool CanRead { get; }
+    public Type DeclaringType { get; }
+    public string Name { get; }
+    public bool RequiresInstance { get; }
+    public MemberInfo UnderlyingMember { get; }
+    public abstract virtual bool get_CanRead();
+    public Type get_DeclaringType();
+    public virtual string get_Name();
+    public virtual string GetDisplayName();
+    public abstract virtual bool get_RequiresInstance();
+    public abstract virtual MemberInfo get_UnderlyingMember();
+    public abstract virtual object GetValue(object instance);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionMemberExportDefinition : ExportDefinition {
+    private LazyMemberInfo _member;
+    private ExportDefinition _exportDefinition;
+    private ICompositionElement _origin;
+    private IDictionary`2<string, object> _metadata;
+    public string ContractName { get; }
+    public LazyMemberInfo ExportingLazyMember { get; }
+    public IDictionary`2<string, object> Metadata { get; }
+    private string System.ComponentModel.Composition.Primitives.ICompositionElement.DisplayName { get; }
+    private ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.Origin { get; }
+    public ReflectionMemberExportDefinition(LazyMemberInfo member, ExportDefinition exportDefinition, ICompositionElement origin);
+    public virtual string get_ContractName();
+    public LazyMemberInfo get_ExportingLazyMember();
+    public virtual IDictionary`2<string, object> get_Metadata();
+    private sealed virtual override string System.ComponentModel.Composition.Primitives.ICompositionElement.get_DisplayName();
+    private sealed virtual override ICompositionElement System.ComponentModel.Composition.Primitives.ICompositionElement.get_Origin();
+    public virtual string ToString();
+    public int GetIndex();
+    public ExportingMember ToExportingMember();
+    private ReflectionMember ToReflectionMember();
+    private string GetDisplayName();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionMemberImportDefinition : ReflectionImportDefinition {
+    private LazyMemberInfo _importingLazyMember;
+    public LazyMemberInfo ImportingLazyMember { get; }
+    public ReflectionMemberImportDefinition(LazyMemberInfo importingLazyMember, string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, bool isRecomposable, bool isPrerequisite, CreationPolicy requiredCreationPolicy, IDictionary`2<string, object> metadata, ICompositionElement origin);
+    public virtual ImportingItem ToImportingItem();
+    public LazyMemberInfo get_ImportingLazyMember();
+    protected virtual string GetDisplayName();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionMethod : ReflectionMember {
+    private MethodInfo _method;
+    public MethodInfo UnderlyingMethod { get; }
+    public MemberInfo UnderlyingMember { get; }
+    public bool CanRead { get; }
+    public bool RequiresInstance { get; }
+    public Type ReturnType { get; }
+    public ReflectionItemType ItemType { get; }
+    public ReflectionMethod(MethodInfo method);
+    public MethodInfo get_UnderlyingMethod();
+    public virtual MemberInfo get_UnderlyingMember();
+    public virtual bool get_CanRead();
+    public virtual bool get_RequiresInstance();
+    public virtual Type get_ReturnType();
+    public virtual ReflectionItemType get_ItemType();
+    public virtual object GetValue(object instance);
+    private static ExportedDelegate SafeCreateExportedDelegate(object instance, MethodInfo method);
+}
+public static class System.ComponentModel.Composition.ReflectionModel.ReflectionModelServices : object {
+    public static Lazy`1<Type> GetPartType(ComposablePartDefinition partDefinition);
+    public static bool IsDisposalRequired(ComposablePartDefinition partDefinition);
+    public static LazyMemberInfo GetExportingMember(ExportDefinition exportDefinition);
+    public static LazyMemberInfo GetImportingMember(ImportDefinition importDefinition);
+    public static Lazy`1<ParameterInfo> GetImportingParameter(ImportDefinition importDefinition);
+    public static bool IsImportingParameter(ImportDefinition importDefinition);
+    public static bool IsExportFactoryImportDefinition(ImportDefinition importDefinition);
+    public static ContractBasedImportDefinition GetExportFactoryProductImportDefinition(ImportDefinition importDefinition);
+    public static ComposablePartDefinition CreatePartDefinition(Lazy`1<Type> partType, bool isDisposalRequired, Lazy`1<IEnumerable`1<ImportDefinition>> imports, Lazy`1<IEnumerable`1<ExportDefinition>> exports, Lazy`1<IDictionary`2<string, object>> metadata, ICompositionElement origin);
+    public static ExportDefinition CreateExportDefinition(LazyMemberInfo exportingMember, string contractName, Lazy`1<IDictionary`2<string, object>> metadata, ICompositionElement origin);
+    public static ContractBasedImportDefinition CreateImportDefinition(LazyMemberInfo importingMember, string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, bool isRecomposable, CreationPolicy requiredCreationPolicy, ICompositionElement origin);
+    public static ContractBasedImportDefinition CreateImportDefinition(LazyMemberInfo importingMember, string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, bool isRecomposable, CreationPolicy requiredCreationPolicy, IDictionary`2<string, object> metadata, bool isExportFactory, ICompositionElement origin);
+    public static ContractBasedImportDefinition CreateImportDefinition(LazyMemberInfo importingMember, string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, bool isRecomposable, bool isPreRequisite, CreationPolicy requiredCreationPolicy, IDictionary`2<string, object> metadata, bool isExportFactory, ICompositionElement origin);
+    public static ContractBasedImportDefinition CreateImportDefinition(Lazy`1<ParameterInfo> parameter, string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, CreationPolicy requiredCreationPolicy, ICompositionElement origin);
+    public static ContractBasedImportDefinition CreateImportDefinition(Lazy`1<ParameterInfo> parameter, string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, CreationPolicy requiredCreationPolicy, IDictionary`2<string, object> metadata, bool isExportFactory, ICompositionElement origin);
+    public static bool TryMakeGenericPartDefinition(ComposablePartDefinition partDefinition, IEnumerable`1<Type> genericParameters, ComposablePartDefinition& specialization);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionParameter : ReflectionItem {
+    private ParameterInfo _parameter;
+    public ParameterInfo UnderlyingParameter { get; }
+    public string Name { get; }
+    public Type ReturnType { get; }
+    public ReflectionItemType ItemType { get; }
+    public ReflectionParameter(ParameterInfo parameter);
+    public ParameterInfo get_UnderlyingParameter();
+    public virtual string get_Name();
+    public virtual string GetDisplayName();
+    public virtual Type get_ReturnType();
+    public virtual ReflectionItemType get_ItemType();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionParameterImportDefinition : ReflectionImportDefinition {
+    private Lazy`1<ParameterInfo> _importingLazyParameter;
+    public Lazy`1<ParameterInfo> ImportingLazyParameter { get; }
+    public ReflectionParameterImportDefinition(Lazy`1<ParameterInfo> importingLazyParameter, string contractName, string requiredTypeIdentity, IEnumerable`1<KeyValuePair`2<string, Type>> requiredMetadata, ImportCardinality cardinality, CreationPolicy requiredCreationPolicy, IDictionary`2<string, object> metadata, ICompositionElement origin);
+    public virtual ImportingItem ToImportingItem();
+    public Lazy`1<ParameterInfo> get_ImportingLazyParameter();
+    protected virtual string GetDisplayName();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionPartCreationInfo : object {
+    private Lazy`1<Type> _partType;
+    private Lazy`1<IEnumerable`1<ImportDefinition>> _imports;
+    private Lazy`1<IEnumerable`1<ExportDefinition>> _exports;
+    private Lazy`1<IDictionary`2<string, object>> _metadata;
+    private ICompositionElement _origin;
+    private ConstructorInfo _constructor;
+    private bool _isDisposalRequired;
+    public bool IsDisposalRequired { get; }
+    public string DisplayName { get; }
+    public ICompositionElement Origin { get; }
+    public ReflectionPartCreationInfo(Lazy`1<Type> partType, bool isDisposalRequired, Lazy`1<IEnumerable`1<ImportDefinition>> imports, Lazy`1<IEnumerable`1<ExportDefinition>> exports, Lazy`1<IDictionary`2<string, object>> metadata, ICompositionElement origin);
+    public sealed virtual Type GetPartType();
+    public sealed virtual Lazy`1<Type> GetLazyPartType();
+    public sealed virtual ConstructorInfo GetConstructor();
+    public sealed virtual bool get_IsDisposalRequired();
+    public sealed virtual IDictionary`2<string, object> GetMetadata();
+    [IteratorStateMachineAttribute("System.ComponentModel.Composition.ReflectionModel.ReflectionPartCreationInfo/<GetExports>d__14")]
+public sealed virtual IEnumerable`1<ExportDefinition> GetExports();
+    [IteratorStateMachineAttribute("System.ComponentModel.Composition.ReflectionModel.ReflectionPartCreationInfo/<GetImports>d__15")]
+public sealed virtual IEnumerable`1<ImportDefinition> GetImports();
+    public sealed virtual string get_DisplayName();
+    public sealed virtual ICompositionElement get_Origin();
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionProperty : ReflectionWritableMember {
+    private MethodInfo _getMethod;
+    private MethodInfo _setMethod;
+    public MemberInfo UnderlyingMember { get; }
+    public bool CanRead { get; }
+    public bool CanWrite { get; }
+    public MethodInfo UnderlyingGetMethod { get; }
+    public MethodInfo UnderlyingSetMethod { get; }
+    public string Name { get; }
+    public bool RequiresInstance { get; }
+    public Type ReturnType { get; }
+    public ReflectionItemType ItemType { get; }
+    public ReflectionProperty(MethodInfo getMethod, MethodInfo setMethod);
+    public virtual MemberInfo get_UnderlyingMember();
+    public virtual bool get_CanRead();
+    public virtual bool get_CanWrite();
+    public MethodInfo get_UnderlyingGetMethod();
+    public MethodInfo get_UnderlyingSetMethod();
+    public virtual string get_Name();
+    public virtual string GetDisplayName();
+    public virtual bool get_RequiresInstance();
+    public virtual Type get_ReturnType();
+    public virtual ReflectionItemType get_ItemType();
+    public virtual object GetValue(object instance);
+    public virtual void SetValue(object instance, object value);
+}
+internal class System.ComponentModel.Composition.ReflectionModel.ReflectionType : ReflectionMember {
+    private Type _type;
+    public MemberInfo UnderlyingMember { get; }
+    public bool CanRead { get; }
+    public bool RequiresInstance { get; }
+    public Type ReturnType { get; }
+    public ReflectionItemType ItemType { get; }
+    public ReflectionType(Type type);
+    public virtual MemberInfo get_UnderlyingMember();
+    public virtual bool get_CanRead();
+    public virtual bool get_RequiresInstance();
+    public virtual Type get_ReturnType();
+    public virtual ReflectionItemType get_ItemType();
+    public virtual object GetValue(object instance);
+}
+internal abstract class System.ComponentModel.Composition.ReflectionModel.ReflectionWritableMember : ReflectionMember {
+    public bool CanWrite { get; }
+    public abstract virtual bool get_CanWrite();
+    public abstract virtual void SetValue(object instance, object value);
+}
+[ConditionalAttribute("NOT_FEATURE_LEGACYCOMPONENTMODEL")]
+internal class System.ComponentModel.LocalizableAttribute : Attribute {
+    public LocalizableAttribute(bool isLocalizable);
+}
+public class System.Lazy`2 : Lazy`1<T> {
+    private TMetadata _metadata;
+    public TMetadata Metadata { get; }
+    public Lazy`2(Func`1<T> valueFactory, TMetadata metadata);
+    public Lazy`2(TMetadata metadata);
+    public Lazy`2(TMetadata metadata, bool isThreadSafe);
+    public Lazy`2(Func`1<T> valueFactory, TMetadata metadata, bool isThreadSafe);
+    public Lazy`2(TMetadata metadata, LazyThreadSafetyMode mode);
+    public Lazy`2(Func`1<T> valueFactory, TMetadata metadata, LazyThreadSafetyMode mode);
+    public TMetadata get_Metadata();
+}
+internal class Unity.ThrowStub : ObjectDisposedException {
+    public static void ThrowNotSupportedException();
+}

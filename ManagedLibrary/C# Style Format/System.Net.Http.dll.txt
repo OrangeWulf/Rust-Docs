@@ -1,0 +1,2502 @@
+internal static class System.ByteArrayHelpers : object {
+    internal static bool EqualsOrdinalAsciiIgnoreCase(string left, ReadOnlySpan`1<byte> right);
+}
+internal class System.Net.Http.AuthenticationHelper : object {
+    private static string Qop;
+    private static string Auth;
+    private static string AuthInt;
+    private static string Nonce;
+    private static string NC;
+    private static string Realm;
+    private static string UserHash;
+    private static string Username;
+    private static string UsernameStar;
+    private static string Algorithm;
+    private static string Uri;
+    private static string Sha256;
+    private static string Md5;
+    private static string Sha256Sess;
+    private static string MD5Sess;
+    private static string CNonce;
+    private static string Opaque;
+    private static string Response;
+    private static string Stale;
+    private static Int32[] s_alphaNumChooser;
+    private static string BasicScheme;
+    private static string DigestScheme;
+    private static string NtlmScheme;
+    private static string NegotiateScheme;
+    private static AuthenticationHelper();
+    [AsyncStateMachineAttribute("System.Net.Http.AuthenticationHelper/<GetDigestTokenForCredential>d__20")]
+public static Task`1<string> GetDigestTokenForCredential(NetworkCredential credential, HttpRequestMessage request, DigestResponse digestResponse);
+    public static bool IsServerNonceStale(DigestResponse digestResponse);
+    private static string GetRandomAlphaNumericString();
+    private static string ComputeHash(string data, string algorithm);
+    private static Task`1<HttpResponseMessage> InnerSendAsync(HttpRequestMessage request, bool isProxyAuth, HttpConnectionPool pool, HttpConnection connection, CancellationToken cancellationToken);
+    private static bool ProxySupportsConnectionAuth(HttpResponseMessage response);
+    [AsyncStateMachineAttribute("System.Net.Http.AuthenticationHelper/<SendWithNtAuthAsync>d__27")]
+private static Task`1<HttpResponseMessage> SendWithNtAuthAsync(HttpRequestMessage request, Uri authUri, ICredentials credentials, bool isProxyAuth, HttpConnection connection, HttpConnectionPool connectionPool, CancellationToken cancellationToken);
+    public static Task`1<HttpResponseMessage> SendWithNtProxyAuthAsync(HttpRequestMessage request, Uri proxyUri, ICredentials proxyCredentials, HttpConnection connection, HttpConnectionPool connectionPool, CancellationToken cancellationToken);
+    public static Task`1<HttpResponseMessage> SendWithNtConnectionAuthAsync(HttpRequestMessage request, ICredentials credentials, HttpConnection connection, HttpConnectionPool connectionPool, CancellationToken cancellationToken);
+    private static bool TryGetChallengeDataForScheme(string scheme, HttpHeaderValueCollection`1<AuthenticationHeaderValue> authenticationHeaderValues, String& challengeData);
+    private static bool TryGetValidAuthenticationChallengeForScheme(string scheme, AuthenticationType authenticationType, Uri uri, ICredentials credentials, HttpHeaderValueCollection`1<AuthenticationHeaderValue> authenticationHeaderValues, AuthenticationChallenge& challenge);
+    private static bool TryGetAuthenticationChallenge(HttpResponseMessage response, bool isProxyAuth, Uri authUri, ICredentials credentials, AuthenticationChallenge& challenge);
+    private static bool TryGetRepeatedChallenge(HttpResponseMessage response, string scheme, bool isProxyAuth, String& challengeData);
+    private static bool IsAuthenticationChallenge(HttpResponseMessage response, bool isProxyAuth);
+    private static HttpHeaderValueCollection`1<AuthenticationHeaderValue> GetResponseAuthenticationHeaderValues(HttpResponseMessage response, bool isProxyAuth);
+    private static void SetRequestAuthenticationHeaderValue(HttpRequestMessage request, AuthenticationHeaderValue headerValue, bool isProxyAuth);
+    private static void SetBasicAuthToken(HttpRequestMessage request, NetworkCredential credential, bool isProxyAuth);
+    [AsyncStateMachineAttribute("System.Net.Http.AuthenticationHelper/<TrySetDigestAuthToken>d__44")]
+private static Task`1<bool> TrySetDigestAuthToken(HttpRequestMessage request, NetworkCredential credential, DigestResponse digestResponse, bool isProxyAuth);
+    private static Task`1<HttpResponseMessage> InnerSendAsync(HttpRequestMessage request, bool isProxyAuth, bool doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.AuthenticationHelper/<SendWithAuthAsync>d__46")]
+private static Task`1<HttpResponseMessage> SendWithAuthAsync(HttpRequestMessage request, Uri authUri, ICredentials credentials, bool preAuthenticate, bool isProxyAuth, bool doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken);
+    public static Task`1<HttpResponseMessage> SendWithProxyAuthAsync(HttpRequestMessage request, Uri proxyUri, ICredentials proxyCredentials, bool doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken);
+    public static Task`1<HttpResponseMessage> SendWithRequestAuthAsync(HttpRequestMessage request, ICredentials credentials, bool preAuthenticate, HttpConnectionPool pool, CancellationToken cancellationToken);
+}
+public class System.Net.Http.ByteArrayContent : HttpContent {
+    private Byte[] _content;
+    private int _offset;
+    private int _count;
+    public ByteArrayContent(Byte[] content);
+    public ByteArrayContent(Byte[] content, int offset, int count);
+    protected virtual Task SerializeToStreamAsync(Stream stream, TransportContext context);
+    protected internal virtual bool TryComputeLength(Int64& length);
+    protected virtual Task`1<Stream> CreateContentReadStreamAsync();
+    internal virtual Stream TryCreateContentReadStream();
+    internal MemoryStream CreateMemoryStreamForByteArray();
+}
+internal static class System.Net.Http.CancellationHelper : object {
+    private static string s_cancellationMessage;
+    private static CancellationHelper();
+    internal static bool ShouldWrapInOperationCanceledException(Exception exception, CancellationToken cancellationToken);
+    internal static Exception CreateOperationCanceledException(Exception innerException, CancellationToken cancellationToken);
+    private static void ThrowOperationCanceledException(Exception innerException, CancellationToken cancellationToken);
+    internal static void ThrowIfCancellationRequested(CancellationToken cancellationToken);
+}
+public enum System.Net.Http.ClientCertificateOption : Enum {
+    public int value__;
+    public static ClientCertificateOption Manual;
+    public static ClientCertificateOption Automatic;
+}
+internal static class System.Net.Http.ConnectHelper : object {
+    private static Segment<ConnectEventArgs> s_connectEventArgs;
+    private static ConnectHelper();
+    [AsyncStateMachineAttribute("System.Net.Http.ConnectHelper/<ConnectAsync>d__2")]
+public static ValueTask`1<ValueTuple`2<Socket, Stream>> ConnectAsync(string host, int port, CancellationToken cancellationToken);
+    public static ValueTask`1<SslStream> EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Stream stream, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.ConnectHelper/<EstablishSslConnectionAsyncCore>d__5")]
+private static ValueTask`1<SslStream> EstablishSslConnectionAsyncCore(Stream stream, SslClientAuthenticationOptions sslOptions, CancellationToken cancellationToken);
+}
+internal static class System.Net.Http.CookieHelper : object {
+    public static void ProcessReceivedCookies(HttpResponseMessage response, CookieContainer cookieContainer);
+}
+internal class System.Net.Http.DecompressionHandler : HttpMessageHandler {
+    private HttpMessageHandler _innerHandler;
+    private DecompressionMethods _decompressionMethods;
+    private static string s_gzip;
+    private static string s_deflate;
+    private static StringWithQualityHeaderValue s_gzipHeaderValue;
+    private static StringWithQualityHeaderValue s_deflateHeaderValue;
+    internal bool GZipEnabled { get; }
+    internal bool DeflateEnabled { get; }
+    public DecompressionHandler(DecompressionMethods decompressionMethods, HttpMessageHandler innerHandler);
+    private static DecompressionHandler();
+    internal bool get_GZipEnabled();
+    internal bool get_DeflateEnabled();
+    [AsyncStateMachineAttribute("System.Net.Http.DecompressionHandler/<SendAsync>d__11")]
+protected internal virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    protected virtual void Dispose(bool disposing);
+}
+public abstract class System.Net.Http.DelegatingHandler : HttpMessageHandler {
+    private HttpMessageHandler _innerHandler;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _operationStarted;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _disposed;
+    public HttpMessageHandler InnerHandler { get; public set; }
+    protected DelegatingHandler(HttpMessageHandler innerHandler);
+    public HttpMessageHandler get_InnerHandler();
+    public void set_InnerHandler(HttpMessageHandler value);
+    protected internal virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    protected virtual void Dispose(bool disposing);
+    private void CheckDisposed();
+    private void CheckDisposedOrStarted();
+    private void SetOperationStarted();
+}
+internal static class System.Net.Http.DiagnosticsHandlerLoggingStrings : object {
+    public static string DiagnosticListenerName;
+    public static string RequestWriteNameDeprecated;
+    public static string ResponseWriteNameDeprecated;
+    public static string ExceptionEventName;
+    public static string ActivityName;
+    public static string ActivityStartName;
+    public static string RequestIdHeaderName;
+    public static string CorrelationContextHeaderName;
+}
+public class System.Net.Http.FormUrlEncodedContent : ByteArrayContent {
+    public FormUrlEncodedContent(IEnumerable`1<KeyValuePair`2<string, string>> nameValueCollection);
+    private static Byte[] GetContentByteArray(IEnumerable`1<KeyValuePair`2<string, string>> nameValueCollection);
+    private static string Encode(string data);
+    internal virtual Stream TryCreateContentReadStream();
+}
+public class System.Net.Http.Headers.AuthenticationHeaderValue : object {
+    private string _scheme;
+    private string _parameter;
+    public string Scheme { get; }
+    public string Parameter { get; }
+    public AuthenticationHeaderValue(string scheme);
+    public AuthenticationHeaderValue(string scheme, string parameter);
+    private AuthenticationHeaderValue(AuthenticationHeaderValue source);
+    public string get_Scheme();
+    public string get_Parameter();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static AuthenticationHeaderValue Parse(string input);
+    public static bool TryParse(string input, AuthenticationHeaderValue& parsedValue);
+    internal static int GetAuthenticationLength(string input, int startIndex, Object& parsedValue);
+    private static bool TrySkipFirstBlob(string input, Int32& current, Int32& parameterEndIndex);
+    private static bool TryGetParametersEndIndex(string input, Int32& parseEndIndex, Int32& parameterEndIndex);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+internal abstract class System.Net.Http.Headers.BaseHeaderParser : HttpHeaderParser {
+    protected BaseHeaderParser(bool supportsMultipleValues);
+    protected abstract virtual int GetParsedValueLength(string value, int startIndex, object storeValue, Object& parsedValue);
+    public sealed virtual bool TryParseValue(string value, object storeValue, Int32& index, Object& parsedValue);
+}
+internal class System.Net.Http.Headers.ByteArrayHeaderParser : HttpHeaderParser {
+    internal static ByteArrayHeaderParser Parser;
+    private static ByteArrayHeaderParser();
+    public virtual string ToString(object value);
+    public virtual bool TryParseValue(string value, object storeValue, Int32& index, Object& parsedValue);
+}
+internal class System.Net.Http.Headers.CacheControlHeaderParser : BaseHeaderParser {
+    internal static CacheControlHeaderParser Parser;
+    private static CacheControlHeaderParser();
+    protected virtual int GetParsedValueLength(string value, int startIndex, object storeValue, Object& parsedValue);
+}
+public class System.Net.Http.Headers.CacheControlHeaderValue : object {
+    private static string maxAgeString;
+    private static string maxStaleString;
+    private static string minFreshString;
+    private static string mustRevalidateString;
+    private static string noCacheString;
+    private static string noStoreString;
+    private static string noTransformString;
+    private static string onlyIfCachedString;
+    private static string privateString;
+    private static string proxyRevalidateString;
+    private static string publicString;
+    private static string sharedMaxAgeString;
+    private static HttpHeaderParser s_nameValueListParser;
+    private static Action`1<string> s_checkIsValidToken;
+    private bool _noCache;
+    private ObjectCollection`1<string> _noCacheHeaders;
+    private bool _noStore;
+    private Nullable`1<TimeSpan> _maxAge;
+    private Nullable`1<TimeSpan> _sharedMaxAge;
+    private bool _maxStale;
+    private Nullable`1<TimeSpan> _maxStaleLimit;
+    private Nullable`1<TimeSpan> _minFresh;
+    private bool _noTransform;
+    private bool _onlyIfCached;
+    private bool _publicField;
+    private bool _privateField;
+    private ObjectCollection`1<string> _privateHeaders;
+    private bool _mustRevalidate;
+    private bool _proxyRevalidate;
+    private ObjectCollection`1<NameValueHeaderValue> _extensions;
+    public bool NoCache { get; public set; }
+    public ICollection`1<string> NoCacheHeaders { get; }
+    public bool NoStore { get; public set; }
+    public Nullable`1<TimeSpan> MaxAge { get; public set; }
+    public Nullable`1<TimeSpan> SharedMaxAge { get; public set; }
+    public bool MaxStale { get; public set; }
+    public Nullable`1<TimeSpan> MaxStaleLimit { get; public set; }
+    public Nullable`1<TimeSpan> MinFresh { get; public set; }
+    public bool NoTransform { get; public set; }
+    public bool OnlyIfCached { get; public set; }
+    public bool Public { get; public set; }
+    public bool Private { get; public set; }
+    public ICollection`1<string> PrivateHeaders { get; }
+    public bool MustRevalidate { get; public set; }
+    public bool ProxyRevalidate { get; public set; }
+    public ICollection`1<NameValueHeaderValue> Extensions { get; }
+    private CacheControlHeaderValue(CacheControlHeaderValue source);
+    private static CacheControlHeaderValue();
+    public bool get_NoCache();
+    public void set_NoCache(bool value);
+    public ICollection`1<string> get_NoCacheHeaders();
+    public bool get_NoStore();
+    public void set_NoStore(bool value);
+    public Nullable`1<TimeSpan> get_MaxAge();
+    public void set_MaxAge(Nullable`1<TimeSpan> value);
+    public Nullable`1<TimeSpan> get_SharedMaxAge();
+    public void set_SharedMaxAge(Nullable`1<TimeSpan> value);
+    public bool get_MaxStale();
+    public void set_MaxStale(bool value);
+    public Nullable`1<TimeSpan> get_MaxStaleLimit();
+    public void set_MaxStaleLimit(Nullable`1<TimeSpan> value);
+    public Nullable`1<TimeSpan> get_MinFresh();
+    public void set_MinFresh(Nullable`1<TimeSpan> value);
+    public bool get_NoTransform();
+    public void set_NoTransform(bool value);
+    public bool get_OnlyIfCached();
+    public void set_OnlyIfCached(bool value);
+    public bool get_Public();
+    public void set_Public(bool value);
+    public bool get_Private();
+    public void set_Private(bool value);
+    public ICollection`1<string> get_PrivateHeaders();
+    public bool get_MustRevalidate();
+    public void set_MustRevalidate(bool value);
+    public bool get_ProxyRevalidate();
+    public void set_ProxyRevalidate(bool value);
+    public ICollection`1<NameValueHeaderValue> get_Extensions();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static CacheControlHeaderValue Parse(string input);
+    public static bool TryParse(string input, CacheControlHeaderValue& parsedValue);
+    internal static int GetCacheControlLength(string input, int startIndex, CacheControlHeaderValue storeValue, CacheControlHeaderValue& parsedValue);
+    private static bool TrySetCacheControlValues(CacheControlHeaderValue cc, List`1<NameValueHeaderValue> nameValueList);
+    private static bool TrySetTokenOnlyValue(NameValueHeaderValue nameValue, Boolean& boolField);
+    private static bool TrySetOptionalTokenList(NameValueHeaderValue nameValue, Boolean& boolField, ObjectCollection`1& destination);
+    private static bool TrySetTimeSpan(NameValueHeaderValue nameValue, Nullable`1& timeSpan);
+    private static void AppendValueIfRequired(StringBuilder sb, bool appendValue, string value);
+    private static void AppendValueWithSeparatorIfRequired(StringBuilder sb, string value);
+    private static void AppendValues(StringBuilder sb, ObjectCollection`1<string> values);
+    private static void CheckIsValidToken(string item);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.ContentDispositionHeaderValue : object {
+    private static string fileName;
+    private static string name;
+    private static string fileNameStar;
+    private static string creationDate;
+    private static string modificationDate;
+    private static string readDate;
+    private static string size;
+    private ObjectCollection`1<NameValueHeaderValue> _parameters;
+    private string _dispositionType;
+    public string DispositionType { get; public set; }
+    public ICollection`1<NameValueHeaderValue> Parameters { get; }
+    public string Name { get; public set; }
+    public string FileName { get; public set; }
+    public string FileNameStar { get; public set; }
+    public Nullable`1<DateTimeOffset> CreationDate { get; public set; }
+    public Nullable`1<DateTimeOffset> ModificationDate { get; public set; }
+    public Nullable`1<DateTimeOffset> ReadDate { get; public set; }
+    public Nullable`1<long> Size { get; public set; }
+    protected ContentDispositionHeaderValue(ContentDispositionHeaderValue source);
+    public ContentDispositionHeaderValue(string dispositionType);
+    public string get_DispositionType();
+    public void set_DispositionType(string value);
+    public ICollection`1<NameValueHeaderValue> get_Parameters();
+    public string get_Name();
+    public void set_Name(string value);
+    public string get_FileName();
+    public void set_FileName(string value);
+    public string get_FileNameStar();
+    public void set_FileNameStar(string value);
+    public Nullable`1<DateTimeOffset> get_CreationDate();
+    public void set_CreationDate(Nullable`1<DateTimeOffset> value);
+    public Nullable`1<DateTimeOffset> get_ModificationDate();
+    public void set_ModificationDate(Nullable`1<DateTimeOffset> value);
+    public Nullable`1<DateTimeOffset> get_ReadDate();
+    public void set_ReadDate(Nullable`1<DateTimeOffset> value);
+    public Nullable`1<long> get_Size();
+    public void set_Size(Nullable`1<long> value);
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    private sealed virtual override object System.ICloneable.Clone();
+    public static ContentDispositionHeaderValue Parse(string input);
+    public static bool TryParse(string input, ContentDispositionHeaderValue& parsedValue);
+    internal static int GetDispositionTypeLength(string input, int startIndex, Object& parsedValue);
+    private static int GetDispositionTypeExpressionLength(string input, int startIndex, String& dispositionType);
+    private static void CheckDispositionTypeFormat(string dispositionType, string parameterName);
+    private Nullable`1<DateTimeOffset> GetDate(string parameter);
+    private void SetDate(string parameter, Nullable`1<DateTimeOffset> date);
+    private string GetName(string parameter);
+    private void SetName(string parameter, string value);
+    private static string EncodeAndQuoteMime(string input);
+    private static bool IsQuoted(string value);
+    private static string EncodeMime(string input);
+    private static bool TryDecodeMime(string input, String& output);
+    private static bool TryDecode5987(string input, String& output);
+}
+public class System.Net.Http.Headers.ContentRangeHeaderValue : object {
+    private string _unit;
+    private Nullable`1<long> _from;
+    private Nullable`1<long> _to;
+    private Nullable`1<long> _length;
+    public string Unit { get; public set; }
+    public Nullable`1<long> From { get; }
+    public Nullable`1<long> To { get; }
+    public Nullable`1<long> Length { get; }
+    public bool HasLength { get; }
+    public bool HasRange { get; }
+    public ContentRangeHeaderValue(long from, long to, long length);
+    public ContentRangeHeaderValue(long length);
+    public ContentRangeHeaderValue(long from, long to);
+    private ContentRangeHeaderValue(ContentRangeHeaderValue source);
+    public string get_Unit();
+    public void set_Unit(string value);
+    public Nullable`1<long> get_From();
+    public Nullable`1<long> get_To();
+    public Nullable`1<long> get_Length();
+    public bool get_HasLength();
+    public bool get_HasRange();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public virtual string ToString();
+    public static ContentRangeHeaderValue Parse(string input);
+    public static bool TryParse(string input, ContentRangeHeaderValue& parsedValue);
+    internal static int GetContentRangeLength(string input, int startIndex, Object& parsedValue);
+    private static bool TryGetLengthLength(string input, Int32& current, Int32& lengthLength);
+    private static bool TryGetRangeLength(string input, Int32& current, Int32& fromLength, Int32& toStartIndex, Int32& toLength);
+    private static bool TryCreateContentRange(string input, string unit, int fromStartIndex, int fromLength, int toStartIndex, int toLength, int lengthStartIndex, int lengthLength, Object& parsedValue);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+internal class System.Net.Http.Headers.DateHeaderParser : HttpHeaderParser {
+    internal static DateHeaderParser Parser;
+    private static DateHeaderParser();
+    public virtual string ToString(object value);
+    public virtual bool TryParseValue(string value, object storeValue, Int32& index, Object& parsedValue);
+}
+public class System.Net.Http.Headers.EntityTagHeaderValue : object {
+    private static EntityTagHeaderValue s_any;
+    private string _tag;
+    private bool _isWeak;
+    public string Tag { get; }
+    public bool IsWeak { get; }
+    public static EntityTagHeaderValue Any { get; }
+    public EntityTagHeaderValue(string tag);
+    public EntityTagHeaderValue(string tag, bool isWeak);
+    private EntityTagHeaderValue(EntityTagHeaderValue source);
+    public string get_Tag();
+    public bool get_IsWeak();
+    public static EntityTagHeaderValue get_Any();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static EntityTagHeaderValue Parse(string input);
+    public static bool TryParse(string input, EntityTagHeaderValue& parsedValue);
+    internal static int GetEntityTagLength(string input, int startIndex, EntityTagHeaderValue& parsedValue);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+internal class System.Net.Http.Headers.GenericHeaderParser : BaseHeaderParser {
+    internal static GenericHeaderParser HostParser;
+    internal static GenericHeaderParser TokenListParser;
+    internal static GenericHeaderParser SingleValueNameValueWithParametersParser;
+    internal static GenericHeaderParser MultipleValueNameValueWithParametersParser;
+    internal static GenericHeaderParser SingleValueNameValueParser;
+    internal static GenericHeaderParser MultipleValueNameValueParser;
+    internal static GenericHeaderParser MailAddressParser;
+    internal static GenericHeaderParser SingleValueProductParser;
+    internal static GenericHeaderParser MultipleValueProductParser;
+    internal static GenericHeaderParser RangeConditionParser;
+    internal static GenericHeaderParser SingleValueAuthenticationParser;
+    internal static GenericHeaderParser MultipleValueAuthenticationParser;
+    internal static GenericHeaderParser RangeParser;
+    internal static GenericHeaderParser RetryConditionParser;
+    internal static GenericHeaderParser ContentRangeParser;
+    internal static GenericHeaderParser ContentDispositionParser;
+    internal static GenericHeaderParser SingleValueStringWithQualityParser;
+    internal static GenericHeaderParser MultipleValueStringWithQualityParser;
+    internal static GenericHeaderParser SingleValueEntityTagParser;
+    internal static GenericHeaderParser MultipleValueEntityTagParser;
+    internal static GenericHeaderParser SingleValueViaParser;
+    internal static GenericHeaderParser MultipleValueViaParser;
+    internal static GenericHeaderParser SingleValueWarningParser;
+    internal static GenericHeaderParser MultipleValueWarningParser;
+    private GetParsedValueLengthDelegate _getParsedValueLength;
+    private IEqualityComparer _comparer;
+    public IEqualityComparer Comparer { get; }
+    private GenericHeaderParser(bool supportsMultipleValues, GetParsedValueLengthDelegate getParsedValueLength);
+    private GenericHeaderParser(bool supportsMultipleValues, GetParsedValueLengthDelegate getParsedValueLength, IEqualityComparer comparer);
+    private static GenericHeaderParser();
+    public virtual IEqualityComparer get_Comparer();
+    protected virtual int GetParsedValueLength(string value, int startIndex, object storeValue, Object& parsedValue);
+    private static int ParseNameValue(string value, int startIndex, Object& parsedValue);
+    private static int ParseProduct(string value, int startIndex, Object& parsedValue);
+    private static int ParseSingleEntityTag(string value, int startIndex, Object& parsedValue);
+    private static int ParseMultipleEntityTags(string value, int startIndex, Object& parsedValue);
+    private static int ParseMailAddress(string value, int startIndex, Object& parsedValue);
+    private static int ParseHost(string value, int startIndex, Object& parsedValue);
+    private static int ParseTokenList(string value, int startIndex, Object& parsedValue);
+}
+[IsReadOnlyAttribute]
+internal class System.Net.Http.Headers.HeaderDescriptor : ValueType {
+    private string _headerName;
+    private KnownHeader _knownHeader;
+    public string Name { get; }
+    public HttpHeaderParser Parser { get; }
+    public HttpHeaderType HeaderType { get; }
+    public KnownHeader KnownHeader { get; }
+    public HeaderDescriptor(KnownHeader knownHeader);
+    private HeaderDescriptor(string headerName);
+    public string get_Name();
+    public HttpHeaderParser get_Parser();
+    public HttpHeaderType get_HeaderType();
+    public KnownHeader get_KnownHeader();
+    public sealed virtual bool Equals(HeaderDescriptor other);
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public static bool op_Equality(HeaderDescriptor left, HeaderDescriptor right);
+    public static bool op_Inequality(HeaderDescriptor left, HeaderDescriptor right);
+    public static bool TryGet(string headerName, HeaderDescriptor& descriptor);
+    public static bool TryGet(ReadOnlySpan`1<byte> headerName, HeaderDescriptor& descriptor);
+    public HeaderDescriptor AsCustomHeader();
+    public string GetHeaderValue(ReadOnlySpan`1<byte> headerValue);
+}
+internal static class System.Net.Http.Headers.HeaderUtilities : object {
+    private static string qualityName;
+    internal static string ConnectionClose;
+    internal static TransferCodingHeaderValue TransferEncodingChunked;
+    internal static NameValueWithParametersHeaderValue ExpectContinue;
+    internal static string BytesUnit;
+    internal static Action`2<HttpHeaderValueCollection`1<string>, string> TokenValidator;
+    private static Char[] s_hexUpperChars;
+    private static HeaderUtilities();
+    internal static void SetQuality(ObjectCollection`1<NameValueHeaderValue> parameters, Nullable`1<double> value);
+    internal static bool ContainsNonAscii(string input);
+    internal static string Encode5987(string input);
+    private static void AddHexEscaped(byte c, StringBuilder destination);
+    internal static Nullable`1<double> GetQuality(ObjectCollection`1<NameValueHeaderValue> parameters);
+    internal static void CheckValidToken(string value, string parameterName);
+    internal static void CheckValidComment(string value, string parameterName);
+    internal static void CheckValidQuotedString(string value, string parameterName);
+    internal static bool AreEqualCollections(ObjectCollection`1<T> x, ObjectCollection`1<T> y);
+    internal static bool AreEqualCollections(ObjectCollection`1<T> x, ObjectCollection`1<T> y, IEqualityComparer`1<T> comparer);
+    internal static int GetNextNonEmptyOrWhitespaceIndex(string input, int startIndex, bool skipEmptyValues, Boolean& separatorFound);
+    internal static Nullable`1<DateTimeOffset> GetDateTimeOffsetValue(HeaderDescriptor descriptor, HttpHeaders store);
+    internal static Nullable`1<TimeSpan> GetTimeSpanValue(HeaderDescriptor descriptor, HttpHeaders store);
+    internal static bool TryParseInt32(string value, Int32& result);
+    internal static bool TryParseInt32(string value, int offset, int length, Int32& result);
+    internal static bool TryParseInt64(string value, int offset, int length, Int64& result);
+    internal static string DumpHeaders(HttpHeaders[] headers);
+    internal static bool IsValidEmailAddress(string value);
+    private static void ValidateToken(HttpHeaderValueCollection`1<string> collection, string value);
+}
+public class System.Net.Http.Headers.HttpContentHeaders : HttpHeaders {
+    private HttpContent _parent;
+    private bool _contentLengthSet;
+    private HttpHeaderValueCollection`1<string> _allow;
+    private HttpHeaderValueCollection`1<string> _contentEncoding;
+    private HttpHeaderValueCollection`1<string> _contentLanguage;
+    public ICollection`1<string> Allow { get; }
+    public ContentDispositionHeaderValue ContentDisposition { get; public set; }
+    public ICollection`1<string> ContentEncoding { get; }
+    public ICollection`1<string> ContentLanguage { get; }
+    public Nullable`1<long> ContentLength { get; public set; }
+    public Uri ContentLocation { get; public set; }
+    public Byte[] ContentMD5 { get; public set; }
+    public ContentRangeHeaderValue ContentRange { get; public set; }
+    public MediaTypeHeaderValue ContentType { get; public set; }
+    public Nullable`1<DateTimeOffset> Expires { get; public set; }
+    public Nullable`1<DateTimeOffset> LastModified { get; public set; }
+    internal HttpContentHeaders(HttpContent parent);
+    public ICollection`1<string> get_Allow();
+    public ContentDispositionHeaderValue get_ContentDisposition();
+    public void set_ContentDisposition(ContentDispositionHeaderValue value);
+    public ICollection`1<string> get_ContentEncoding();
+    public ICollection`1<string> get_ContentLanguage();
+    public Nullable`1<long> get_ContentLength();
+    public void set_ContentLength(Nullable`1<long> value);
+    public Uri get_ContentLocation();
+    public void set_ContentLocation(Uri value);
+    public Byte[] get_ContentMD5();
+    public void set_ContentMD5(Byte[] value);
+    public ContentRangeHeaderValue get_ContentRange();
+    public void set_ContentRange(ContentRangeHeaderValue value);
+    public MediaTypeHeaderValue get_ContentType();
+    public void set_ContentType(MediaTypeHeaderValue value);
+    public Nullable`1<DateTimeOffset> get_Expires();
+    public void set_Expires(Nullable`1<DateTimeOffset> value);
+    public Nullable`1<DateTimeOffset> get_LastModified();
+    public void set_LastModified(Nullable`1<DateTimeOffset> value);
+}
+internal class System.Net.Http.Headers.HttpGeneralHeaders : object {
+    private HttpHeaderValueCollection`1<string> _connection;
+    private HttpHeaderValueCollection`1<string> _trailer;
+    private HttpHeaderValueCollection`1<TransferCodingHeaderValue> _transferEncoding;
+    private HttpHeaderValueCollection`1<ProductHeaderValue> _upgrade;
+    private HttpHeaderValueCollection`1<ViaHeaderValue> _via;
+    private HttpHeaderValueCollection`1<WarningHeaderValue> _warning;
+    private HttpHeaderValueCollection`1<NameValueHeaderValue> _pragma;
+    private HttpHeaders _parent;
+    private bool _transferEncodingChunkedSet;
+    private bool _connectionCloseSet;
+    public CacheControlHeaderValue CacheControl { get; public set; }
+    public HttpHeaderValueCollection`1<string> Connection { get; }
+    public Nullable`1<bool> ConnectionClose { get; public set; }
+    public Nullable`1<DateTimeOffset> Date { get; public set; }
+    public HttpHeaderValueCollection`1<NameValueHeaderValue> Pragma { get; }
+    public HttpHeaderValueCollection`1<string> Trailer { get; }
+    public HttpHeaderValueCollection`1<TransferCodingHeaderValue> TransferEncoding { get; }
+    public Nullable`1<bool> TransferEncodingChunked { get; public set; }
+    public HttpHeaderValueCollection`1<ProductHeaderValue> Upgrade { get; }
+    public HttpHeaderValueCollection`1<ViaHeaderValue> Via { get; }
+    public HttpHeaderValueCollection`1<WarningHeaderValue> Warning { get; }
+    private HttpHeaderValueCollection`1<string> ConnectionCore { get; }
+    private HttpHeaderValueCollection`1<TransferCodingHeaderValue> TransferEncodingCore { get; }
+    internal HttpGeneralHeaders(HttpHeaders parent);
+    public CacheControlHeaderValue get_CacheControl();
+    public void set_CacheControl(CacheControlHeaderValue value);
+    public HttpHeaderValueCollection`1<string> get_Connection();
+    public Nullable`1<bool> get_ConnectionClose();
+    public void set_ConnectionClose(Nullable`1<bool> value);
+    internal static Nullable`1<bool> GetConnectionClose(HttpHeaders parent, HttpGeneralHeaders headers);
+    public Nullable`1<DateTimeOffset> get_Date();
+    public void set_Date(Nullable`1<DateTimeOffset> value);
+    public HttpHeaderValueCollection`1<NameValueHeaderValue> get_Pragma();
+    public HttpHeaderValueCollection`1<string> get_Trailer();
+    public HttpHeaderValueCollection`1<TransferCodingHeaderValue> get_TransferEncoding();
+    internal static Nullable`1<bool> GetTransferEncodingChunked(HttpHeaders parent, HttpGeneralHeaders headers);
+    public Nullable`1<bool> get_TransferEncodingChunked();
+    public void set_TransferEncodingChunked(Nullable`1<bool> value);
+    public HttpHeaderValueCollection`1<ProductHeaderValue> get_Upgrade();
+    public HttpHeaderValueCollection`1<ViaHeaderValue> get_Via();
+    public HttpHeaderValueCollection`1<WarningHeaderValue> get_Warning();
+    private HttpHeaderValueCollection`1<string> get_ConnectionCore();
+    private HttpHeaderValueCollection`1<TransferCodingHeaderValue> get_TransferEncodingCore();
+    internal void AddSpecialsFrom(HttpGeneralHeaders sourceHeaders);
+}
+internal abstract class System.Net.Http.Headers.HttpHeaderParser : object {
+    internal static string DefaultSeparator;
+    private bool _supportsMultipleValues;
+    private string _separator;
+    public bool SupportsMultipleValues { get; }
+    public string Separator { get; }
+    public IEqualityComparer Comparer { get; }
+    protected HttpHeaderParser(bool supportsMultipleValues);
+    protected HttpHeaderParser(bool supportsMultipleValues, string separator);
+    public bool get_SupportsMultipleValues();
+    public string get_Separator();
+    public virtual IEqualityComparer get_Comparer();
+    public abstract virtual bool TryParseValue(string value, object storeValue, Int32& index, Object& parsedValue);
+    public object ParseValue(string value, object storeValue, Int32& index);
+    public virtual string ToString(object value);
+}
+public abstract class System.Net.Http.Headers.HttpHeaders : object {
+    private Dictionary`2<HeaderDescriptor, HeaderStoreItemInfo> _headerStore;
+    private HttpHeaderType _allowedHeaderTypes;
+    private HttpHeaderType _treatAsCustomHeaderTypes;
+    internal HttpHeaders(HttpHeaderType allowedHeaderTypes, HttpHeaderType treatAsCustomHeaderTypes);
+    public void Add(string name, string value);
+    internal void Add(HeaderDescriptor descriptor, string value);
+    public void Add(string name, IEnumerable`1<string> values);
+    internal void Add(HeaderDescriptor descriptor, IEnumerable`1<string> values);
+    public bool TryAddWithoutValidation(string name, string value);
+    internal bool TryAddWithoutValidation(HeaderDescriptor descriptor, string value);
+    public bool TryAddWithoutValidation(string name, IEnumerable`1<string> values);
+    internal bool TryAddWithoutValidation(HeaderDescriptor descriptor, IEnumerable`1<string> values);
+    public void Clear();
+    public bool Remove(string name);
+    public IEnumerable`1<string> GetValues(string name);
+    internal IEnumerable`1<string> GetValues(HeaderDescriptor descriptor);
+    public bool TryGetValues(string name, IEnumerable`1& values);
+    internal bool TryGetValues(HeaderDescriptor descriptor, IEnumerable`1& values);
+    public bool Contains(string name);
+    internal bool Contains(HeaderDescriptor descriptor);
+    public virtual string ToString();
+    [IteratorStateMachineAttribute("System.Net.Http.Headers.HttpHeaders/<GetHeaderStrings>d__23")]
+internal IEnumerable`1<KeyValuePair`2<string, string>> GetHeaderStrings();
+    internal string GetHeaderString(string name);
+    internal string GetHeaderString(HeaderDescriptor descriptor, object exclude);
+    private string GetHeaderString(HeaderDescriptor descriptor, HeaderStoreItemInfo info, object exclude);
+    public sealed virtual IEnumerator`1<KeyValuePair`2<string, IEnumerable`1<string>>> GetEnumerator();
+    [IteratorStateMachineAttribute("System.Net.Http.Headers.HttpHeaders/<GetEnumeratorCore>d__28")]
+private IEnumerator`1<KeyValuePair`2<string, IEnumerable`1<string>>> GetEnumeratorCore();
+    internal IEnumerable`1<KeyValuePair`2<HeaderDescriptor, String[]>> GetHeaderDescriptorsAndValues();
+    [IteratorStateMachineAttribute("System.Net.Http.Headers.HttpHeaders/<GetHeaderDescriptorsAndValuesCore>d__30")]
+private IEnumerable`1<KeyValuePair`2<HeaderDescriptor, String[]>> GetHeaderDescriptorsAndValuesCore();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    internal void AddParsedValue(HeaderDescriptor descriptor, object value);
+    internal void SetParsedValue(HeaderDescriptor descriptor, object value);
+    internal void SetOrRemoveParsedValue(HeaderDescriptor descriptor, object value);
+    internal bool Remove(HeaderDescriptor descriptor);
+    internal bool RemoveParsedValue(HeaderDescriptor descriptor, object value);
+    internal bool ContainsParsedValue(HeaderDescriptor descriptor, object value);
+    internal virtual void AddHeaders(HttpHeaders sourceHeaders);
+    private void AddHeaderInfo(HeaderDescriptor descriptor, HeaderStoreItemInfo sourceInfo);
+    private static void CloneAndAddValue(HeaderStoreItemInfo destinationInfo, object source);
+    private static object CloneStringHeaderInfoValues(object source);
+    private HeaderStoreItemInfo GetOrCreateHeaderInfo(HeaderDescriptor descriptor, bool parseRawValues);
+    private HeaderStoreItemInfo CreateAndAddHeaderToStore(HeaderDescriptor descriptor);
+    private void AddHeaderToStore(HeaderDescriptor descriptor, HeaderStoreItemInfo info);
+    private bool TryGetHeaderInfo(HeaderDescriptor descriptor, HeaderStoreItemInfo& info);
+    private bool TryGetAndParseHeaderInfo(HeaderDescriptor key, HeaderStoreItemInfo& info);
+    private bool ParseRawHeaderValues(HeaderDescriptor descriptor, HeaderStoreItemInfo info, bool removeEmptyHeader);
+    private static void ParseMultipleRawHeaderValues(HeaderDescriptor descriptor, HeaderStoreItemInfo info, List`1<string> rawValues);
+    private static void ParseSingleRawHeaderValue(HeaderDescriptor descriptor, HeaderStoreItemInfo info);
+    internal bool TryParseAndAddValue(HeaderDescriptor descriptor, string value);
+    private static bool TryParseAndAddRawHeaderValue(HeaderDescriptor descriptor, HeaderStoreItemInfo info, string value, bool addWhenInvalid);
+    private static void AddValue(HeaderStoreItemInfo info, object value, StoreLocation location);
+    private static void AddValueToStoreValue(object value, Object& currentStoreValue);
+    internal object GetParsedValues(HeaderDescriptor descriptor);
+    private void PrepareHeaderInfoForAdd(HeaderDescriptor descriptor, HeaderStoreItemInfo& info, Boolean& addToStore);
+    private void ParseAndAddValue(HeaderDescriptor descriptor, HeaderStoreItemInfo info, string value);
+    private HeaderDescriptor GetHeaderDescriptor(string name);
+    private bool TryGetHeaderDescriptor(string name, HeaderDescriptor& descriptor);
+    private static void CheckInvalidNewLine(string value);
+    private static bool ContainsInvalidNewLine(string value, string name);
+    private static String[] GetValuesAsStrings(HeaderDescriptor descriptor, HeaderStoreItemInfo info, object exclude);
+    private static int GetValueCount(HeaderStoreItemInfo info);
+    private static void UpdateValueCount(object valueStore, Int32& valueCount);
+    private static void ReadStoreValues(String[] values, object storeValue, HttpHeaderParser parser, T exclude, Int32& currentIndex);
+    private static bool ShouldAdd(object storeValue, HttpHeaderParser parser, T exclude);
+    private bool AreEqual(object value, object storeValue, IEqualityComparer comparer);
+}
+[FlagsAttribute]
+internal enum System.Net.Http.Headers.HttpHeaderType : Enum {
+    public byte value__;
+    public static HttpHeaderType General;
+    public static HttpHeaderType Request;
+    public static HttpHeaderType Response;
+    public static HttpHeaderType Content;
+    public static HttpHeaderType Custom;
+    public static HttpHeaderType All;
+    public static HttpHeaderType None;
+}
+public class System.Net.Http.Headers.HttpHeaderValueCollection`1 : object {
+    private HeaderDescriptor _descriptor;
+    private HttpHeaders _store;
+    private T _specialValue;
+    private Action`2<HttpHeaderValueCollection`1<T>, T> _validator;
+    public int Count { get; }
+    public bool IsReadOnly { get; }
+    internal bool IsSpecialValueSet { get; }
+    internal HttpHeaderValueCollection`1(HeaderDescriptor descriptor, HttpHeaders store);
+    internal HttpHeaderValueCollection`1(HeaderDescriptor descriptor, HttpHeaders store, Action`2<HttpHeaderValueCollection`1<T>, T> validator);
+    internal HttpHeaderValueCollection`1(HeaderDescriptor descriptor, HttpHeaders store, T specialValue);
+    internal HttpHeaderValueCollection`1(HeaderDescriptor descriptor, HttpHeaders store, T specialValue, Action`2<HttpHeaderValueCollection`1<T>, T> validator);
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsReadOnly();
+    internal bool get_IsSpecialValueSet();
+    public sealed virtual void Add(T item);
+    public void ParseAdd(string input);
+    public bool TryParseAdd(string input);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(T item);
+    public sealed virtual void CopyTo(T[] array, int arrayIndex);
+    public sealed virtual bool Remove(T item);
+    [IteratorStateMachineAttribute("System.Net.Http.Headers.HttpHeaderValueCollection`1/<GetEnumerator>d__21")]
+public sealed virtual IEnumerator`1<T> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public virtual string ToString();
+    internal void SetSpecialValue();
+    internal void RemoveSpecialValue();
+    private void CheckValue(T item);
+    private int GetCount();
+}
+public class System.Net.Http.Headers.HttpRequestHeaders : HttpHeaders {
+    private static int AcceptSlot;
+    private static int AcceptCharsetSlot;
+    private static int AcceptEncodingSlot;
+    private static int AcceptLanguageSlot;
+    private static int ExpectSlot;
+    private static int IfMatchSlot;
+    private static int IfNoneMatchSlot;
+    private static int TransferEncodingSlot;
+    private static int UserAgentSlot;
+    private static int NumCollectionsSlots;
+    private Object[] _specialCollectionsSlots;
+    private HttpGeneralHeaders _generalHeaders;
+    private bool _expectContinueSet;
+    public HttpHeaderValueCollection`1<MediaTypeWithQualityHeaderValue> Accept { get; }
+    public HttpHeaderValueCollection`1<StringWithQualityHeaderValue> AcceptCharset { get; }
+    public HttpHeaderValueCollection`1<StringWithQualityHeaderValue> AcceptEncoding { get; }
+    public HttpHeaderValueCollection`1<StringWithQualityHeaderValue> AcceptLanguage { get; }
+    public AuthenticationHeaderValue Authorization { get; public set; }
+    public HttpHeaderValueCollection`1<NameValueWithParametersHeaderValue> Expect { get; }
+    public Nullable`1<bool> ExpectContinue { get; public set; }
+    public string From { get; public set; }
+    public string Host { get; public set; }
+    public HttpHeaderValueCollection`1<EntityTagHeaderValue> IfMatch { get; }
+    public Nullable`1<DateTimeOffset> IfModifiedSince { get; public set; }
+    public HttpHeaderValueCollection`1<EntityTagHeaderValue> IfNoneMatch { get; }
+    public RangeConditionHeaderValue IfRange { get; public set; }
+    public Nullable`1<DateTimeOffset> IfUnmodifiedSince { get; public set; }
+    public Nullable`1<int> MaxForwards { get; public set; }
+    public AuthenticationHeaderValue ProxyAuthorization { get; public set; }
+    public RangeHeaderValue Range { get; public set; }
+    public Uri Referrer { get; public set; }
+    public HttpHeaderValueCollection`1<TransferCodingWithQualityHeaderValue> TE { get; }
+    public HttpHeaderValueCollection`1<ProductInfoHeaderValue> UserAgent { get; }
+    private HttpHeaderValueCollection`1<NameValueWithParametersHeaderValue> ExpectCore { get; }
+    public CacheControlHeaderValue CacheControl { get; public set; }
+    public HttpHeaderValueCollection`1<string> Connection { get; }
+    public Nullable`1<bool> ConnectionClose { get; public set; }
+    public Nullable`1<DateTimeOffset> Date { get; public set; }
+    public HttpHeaderValueCollection`1<NameValueHeaderValue> Pragma { get; }
+    public HttpHeaderValueCollection`1<string> Trailer { get; }
+    public HttpHeaderValueCollection`1<TransferCodingHeaderValue> TransferEncoding { get; }
+    public Nullable`1<bool> TransferEncodingChunked { get; public set; }
+    public HttpHeaderValueCollection`1<ProductHeaderValue> Upgrade { get; }
+    public HttpHeaderValueCollection`1<ViaHeaderValue> Via { get; }
+    public HttpHeaderValueCollection`1<WarningHeaderValue> Warning { get; }
+    private HttpGeneralHeaders GeneralHeaders { get; }
+    private T GetSpecializedCollection(int slot, Func`2<HttpRequestHeaders, T> creationFunc);
+    public HttpHeaderValueCollection`1<MediaTypeWithQualityHeaderValue> get_Accept();
+    public HttpHeaderValueCollection`1<StringWithQualityHeaderValue> get_AcceptCharset();
+    public HttpHeaderValueCollection`1<StringWithQualityHeaderValue> get_AcceptEncoding();
+    public HttpHeaderValueCollection`1<StringWithQualityHeaderValue> get_AcceptLanguage();
+    public AuthenticationHeaderValue get_Authorization();
+    public void set_Authorization(AuthenticationHeaderValue value);
+    public HttpHeaderValueCollection`1<NameValueWithParametersHeaderValue> get_Expect();
+    public Nullable`1<bool> get_ExpectContinue();
+    public void set_ExpectContinue(Nullable`1<bool> value);
+    public string get_From();
+    public void set_From(string value);
+    public string get_Host();
+    public void set_Host(string value);
+    public HttpHeaderValueCollection`1<EntityTagHeaderValue> get_IfMatch();
+    public Nullable`1<DateTimeOffset> get_IfModifiedSince();
+    public void set_IfModifiedSince(Nullable`1<DateTimeOffset> value);
+    public HttpHeaderValueCollection`1<EntityTagHeaderValue> get_IfNoneMatch();
+    public RangeConditionHeaderValue get_IfRange();
+    public void set_IfRange(RangeConditionHeaderValue value);
+    public Nullable`1<DateTimeOffset> get_IfUnmodifiedSince();
+    public void set_IfUnmodifiedSince(Nullable`1<DateTimeOffset> value);
+    public Nullable`1<int> get_MaxForwards();
+    public void set_MaxForwards(Nullable`1<int> value);
+    public AuthenticationHeaderValue get_ProxyAuthorization();
+    public void set_ProxyAuthorization(AuthenticationHeaderValue value);
+    public RangeHeaderValue get_Range();
+    public void set_Range(RangeHeaderValue value);
+    public Uri get_Referrer();
+    public void set_Referrer(Uri value);
+    public HttpHeaderValueCollection`1<TransferCodingWithQualityHeaderValue> get_TE();
+    public HttpHeaderValueCollection`1<ProductInfoHeaderValue> get_UserAgent();
+    private HttpHeaderValueCollection`1<NameValueWithParametersHeaderValue> get_ExpectCore();
+    public CacheControlHeaderValue get_CacheControl();
+    public void set_CacheControl(CacheControlHeaderValue value);
+    public HttpHeaderValueCollection`1<string> get_Connection();
+    public Nullable`1<bool> get_ConnectionClose();
+    public void set_ConnectionClose(Nullable`1<bool> value);
+    public Nullable`1<DateTimeOffset> get_Date();
+    public void set_Date(Nullable`1<DateTimeOffset> value);
+    public HttpHeaderValueCollection`1<NameValueHeaderValue> get_Pragma();
+    public HttpHeaderValueCollection`1<string> get_Trailer();
+    public HttpHeaderValueCollection`1<TransferCodingHeaderValue> get_TransferEncoding();
+    public Nullable`1<bool> get_TransferEncodingChunked();
+    public void set_TransferEncodingChunked(Nullable`1<bool> value);
+    public HttpHeaderValueCollection`1<ProductHeaderValue> get_Upgrade();
+    public HttpHeaderValueCollection`1<ViaHeaderValue> get_Via();
+    public HttpHeaderValueCollection`1<WarningHeaderValue> get_Warning();
+    internal virtual void AddHeaders(HttpHeaders sourceHeaders);
+    private HttpGeneralHeaders get_GeneralHeaders();
+}
+public class System.Net.Http.Headers.HttpResponseHeaders : HttpHeaders {
+    private static int AcceptRangesSlot;
+    private static int ProxyAuthenticateSlot;
+    private static int ServerSlot;
+    private static int VarySlot;
+    private static int WwwAuthenticateSlot;
+    private static int NumCollectionsSlots;
+    private Object[] _specialCollectionsSlots;
+    private HttpGeneralHeaders _generalHeaders;
+    public HttpHeaderValueCollection`1<string> AcceptRanges { get; }
+    public Nullable`1<TimeSpan> Age { get; public set; }
+    public EntityTagHeaderValue ETag { get; public set; }
+    public Uri Location { get; public set; }
+    public HttpHeaderValueCollection`1<AuthenticationHeaderValue> ProxyAuthenticate { get; }
+    public RetryConditionHeaderValue RetryAfter { get; public set; }
+    public HttpHeaderValueCollection`1<ProductInfoHeaderValue> Server { get; }
+    public HttpHeaderValueCollection`1<string> Vary { get; }
+    public HttpHeaderValueCollection`1<AuthenticationHeaderValue> WwwAuthenticate { get; }
+    public CacheControlHeaderValue CacheControl { get; public set; }
+    public HttpHeaderValueCollection`1<string> Connection { get; }
+    public Nullable`1<bool> ConnectionClose { get; public set; }
+    public Nullable`1<DateTimeOffset> Date { get; public set; }
+    public HttpHeaderValueCollection`1<NameValueHeaderValue> Pragma { get; }
+    public HttpHeaderValueCollection`1<string> Trailer { get; }
+    public HttpHeaderValueCollection`1<TransferCodingHeaderValue> TransferEncoding { get; }
+    public Nullable`1<bool> TransferEncodingChunked { get; public set; }
+    public HttpHeaderValueCollection`1<ProductHeaderValue> Upgrade { get; }
+    public HttpHeaderValueCollection`1<ViaHeaderValue> Via { get; }
+    public HttpHeaderValueCollection`1<WarningHeaderValue> Warning { get; }
+    private HttpGeneralHeaders GeneralHeaders { get; }
+    private T GetSpecializedCollection(int slot, Func`2<HttpResponseHeaders, T> creationFunc);
+    public HttpHeaderValueCollection`1<string> get_AcceptRanges();
+    public Nullable`1<TimeSpan> get_Age();
+    public void set_Age(Nullable`1<TimeSpan> value);
+    public EntityTagHeaderValue get_ETag();
+    public void set_ETag(EntityTagHeaderValue value);
+    public Uri get_Location();
+    public void set_Location(Uri value);
+    public HttpHeaderValueCollection`1<AuthenticationHeaderValue> get_ProxyAuthenticate();
+    public RetryConditionHeaderValue get_RetryAfter();
+    public void set_RetryAfter(RetryConditionHeaderValue value);
+    public HttpHeaderValueCollection`1<ProductInfoHeaderValue> get_Server();
+    public HttpHeaderValueCollection`1<string> get_Vary();
+    public HttpHeaderValueCollection`1<AuthenticationHeaderValue> get_WwwAuthenticate();
+    public CacheControlHeaderValue get_CacheControl();
+    public void set_CacheControl(CacheControlHeaderValue value);
+    public HttpHeaderValueCollection`1<string> get_Connection();
+    public Nullable`1<bool> get_ConnectionClose();
+    public void set_ConnectionClose(Nullable`1<bool> value);
+    public Nullable`1<DateTimeOffset> get_Date();
+    public void set_Date(Nullable`1<DateTimeOffset> value);
+    public HttpHeaderValueCollection`1<NameValueHeaderValue> get_Pragma();
+    public HttpHeaderValueCollection`1<string> get_Trailer();
+    public HttpHeaderValueCollection`1<TransferCodingHeaderValue> get_TransferEncoding();
+    public Nullable`1<bool> get_TransferEncodingChunked();
+    public void set_TransferEncodingChunked(Nullable`1<bool> value);
+    public HttpHeaderValueCollection`1<ProductHeaderValue> get_Upgrade();
+    public HttpHeaderValueCollection`1<ViaHeaderValue> get_Via();
+    public HttpHeaderValueCollection`1<WarningHeaderValue> get_Warning();
+    internal virtual void AddHeaders(HttpHeaders sourceHeaders);
+    private HttpGeneralHeaders get_GeneralHeaders();
+}
+internal class System.Net.Http.Headers.Int32NumberHeaderParser : BaseHeaderParser {
+    internal static Int32NumberHeaderParser Parser;
+    private static Int32NumberHeaderParser();
+    public virtual string ToString(object value);
+    protected virtual int GetParsedValueLength(string value, int startIndex, object storeValue, Object& parsedValue);
+}
+internal class System.Net.Http.Headers.Int64NumberHeaderParser : BaseHeaderParser {
+    internal static Int64NumberHeaderParser Parser;
+    private static Int64NumberHeaderParser();
+    public virtual string ToString(object value);
+    protected virtual int GetParsedValueLength(string value, int startIndex, object storeValue, Object& parsedValue);
+}
+internal class System.Net.Http.Headers.KnownHeader : object {
+    private string _name;
+    private HttpHeaderType _headerType;
+    private HttpHeaderParser _parser;
+    private String[] _knownValues;
+    private Byte[] _asciiBytesWithColonSpace;
+    public string Name { get; }
+    public HttpHeaderParser Parser { get; }
+    public HttpHeaderType HeaderType { get; }
+    public String[] KnownValues { get; }
+    public Byte[] AsciiBytesWithColonSpace { get; }
+    public HeaderDescriptor Descriptor { get; }
+    public KnownHeader(string name);
+    public KnownHeader(string name, HttpHeaderType headerType, HttpHeaderParser parser, String[] knownValues);
+    public string get_Name();
+    public HttpHeaderParser get_Parser();
+    public HttpHeaderType get_HeaderType();
+    public String[] get_KnownValues();
+    public Byte[] get_AsciiBytesWithColonSpace();
+    public HeaderDescriptor get_Descriptor();
+}
+internal static class System.Net.Http.Headers.KnownHeaders : object {
+    public static KnownHeader Accept;
+    public static KnownHeader AcceptCharset;
+    public static KnownHeader AcceptEncoding;
+    public static KnownHeader AcceptLanguage;
+    public static KnownHeader AcceptPatch;
+    public static KnownHeader AcceptRanges;
+    public static KnownHeader AccessControlAllowCredentials;
+    public static KnownHeader AccessControlAllowHeaders;
+    public static KnownHeader AccessControlAllowMethods;
+    public static KnownHeader AccessControlAllowOrigin;
+    public static KnownHeader AccessControlExposeHeaders;
+    public static KnownHeader AccessControlMaxAge;
+    public static KnownHeader Age;
+    public static KnownHeader Allow;
+    public static KnownHeader AltSvc;
+    public static KnownHeader Authorization;
+    public static KnownHeader CacheControl;
+    public static KnownHeader Connection;
+    public static KnownHeader ContentDisposition;
+    public static KnownHeader ContentEncoding;
+    public static KnownHeader ContentLanguage;
+    public static KnownHeader ContentLength;
+    public static KnownHeader ContentLocation;
+    public static KnownHeader ContentMD5;
+    public static KnownHeader ContentRange;
+    public static KnownHeader ContentSecurityPolicy;
+    public static KnownHeader ContentType;
+    public static KnownHeader Cookie;
+    public static KnownHeader Cookie2;
+    public static KnownHeader Date;
+    public static KnownHeader ETag;
+    public static KnownHeader Expect;
+    public static KnownHeader Expires;
+    public static KnownHeader From;
+    public static KnownHeader Host;
+    public static KnownHeader IfMatch;
+    public static KnownHeader IfModifiedSince;
+    public static KnownHeader IfNoneMatch;
+    public static KnownHeader IfRange;
+    public static KnownHeader IfUnmodifiedSince;
+    public static KnownHeader KeepAlive;
+    public static KnownHeader LastModified;
+    public static KnownHeader Link;
+    public static KnownHeader Location;
+    public static KnownHeader MaxForwards;
+    public static KnownHeader Origin;
+    public static KnownHeader P3P;
+    public static KnownHeader Pragma;
+    public static KnownHeader ProxyAuthenticate;
+    public static KnownHeader ProxyAuthorization;
+    public static KnownHeader ProxyConnection;
+    public static KnownHeader ProxySupport;
+    public static KnownHeader PublicKeyPins;
+    public static KnownHeader Range;
+    public static KnownHeader Referer;
+    public static KnownHeader RetryAfter;
+    public static KnownHeader SecWebSocketAccept;
+    public static KnownHeader SecWebSocketExtensions;
+    public static KnownHeader SecWebSocketKey;
+    public static KnownHeader SecWebSocketProtocol;
+    public static KnownHeader SecWebSocketVersion;
+    public static KnownHeader Server;
+    public static KnownHeader SetCookie;
+    public static KnownHeader SetCookie2;
+    public static KnownHeader StrictTransportSecurity;
+    public static KnownHeader TE;
+    public static KnownHeader TSV;
+    public static KnownHeader Trailer;
+    public static KnownHeader TransferEncoding;
+    public static KnownHeader Upgrade;
+    public static KnownHeader UpgradeInsecureRequests;
+    public static KnownHeader UserAgent;
+    public static KnownHeader Vary;
+    public static KnownHeader Via;
+    public static KnownHeader WWWAuthenticate;
+    public static KnownHeader Warning;
+    public static KnownHeader XAspNetVersion;
+    public static KnownHeader XContentDuration;
+    public static KnownHeader XContentTypeOptions;
+    public static KnownHeader XFrameOptions;
+    public static KnownHeader XMSEdgeRef;
+    public static KnownHeader XPoweredBy;
+    public static KnownHeader XRequestID;
+    public static KnownHeader XUACompatible;
+    private static KnownHeaders();
+    private static KnownHeader GetCandidate(T key);
+    internal static KnownHeader TryGetKnownHeader(string name);
+    internal static KnownHeader TryGetKnownHeader(ReadOnlySpan`1<byte> name);
+}
+internal class System.Net.Http.Headers.MediaTypeHeaderParser : BaseHeaderParser {
+    private bool _supportsMultipleValues;
+    private Func`1<MediaTypeHeaderValue> _mediaTypeCreator;
+    internal static MediaTypeHeaderParser SingleValueParser;
+    internal static MediaTypeHeaderParser SingleValueWithQualityParser;
+    internal static MediaTypeHeaderParser MultipleValuesParser;
+    private MediaTypeHeaderParser(bool supportsMultipleValues, Func`1<MediaTypeHeaderValue> mediaTypeCreator);
+    private static MediaTypeHeaderParser();
+    protected virtual int GetParsedValueLength(string value, int startIndex, object storeValue, Object& parsedValue);
+    private static MediaTypeHeaderValue CreateMediaType();
+    private static MediaTypeHeaderValue CreateMediaTypeWithQuality();
+}
+public class System.Net.Http.Headers.MediaTypeHeaderValue : object {
+    private static string charSet;
+    private ObjectCollection`1<NameValueHeaderValue> _parameters;
+    private string _mediaType;
+    public string CharSet { get; public set; }
+    public ICollection`1<NameValueHeaderValue> Parameters { get; }
+    public string MediaType { get; public set; }
+    protected MediaTypeHeaderValue(MediaTypeHeaderValue source);
+    public MediaTypeHeaderValue(string mediaType);
+    public string get_CharSet();
+    public void set_CharSet(string value);
+    public ICollection`1<NameValueHeaderValue> get_Parameters();
+    public string get_MediaType();
+    public void set_MediaType(string value);
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static MediaTypeHeaderValue Parse(string input);
+    public static bool TryParse(string input, MediaTypeHeaderValue& parsedValue);
+    internal static int GetMediaTypeLength(string input, int startIndex, Func`1<MediaTypeHeaderValue> mediaTypeCreator, MediaTypeHeaderValue& parsedValue);
+    private static int GetMediaTypeExpressionLength(string input, int startIndex, String& mediaType);
+    private static void CheckMediaTypeFormat(string mediaType, string parameterName);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.MediaTypeWithQualityHeaderValue : MediaTypeHeaderValue {
+    public Nullable`1<double> Quality { get; public set; }
+    public MediaTypeWithQualityHeaderValue(string mediaType);
+    public MediaTypeWithQualityHeaderValue(string mediaType, double quality);
+    private MediaTypeWithQualityHeaderValue(MediaTypeWithQualityHeaderValue source);
+    public Nullable`1<double> get_Quality();
+    public void set_Quality(Nullable`1<double> value);
+    private sealed virtual override object System.ICloneable.Clone();
+    public static MediaTypeWithQualityHeaderValue Parse(string input);
+    public static bool TryParse(string input, MediaTypeWithQualityHeaderValue& parsedValue);
+}
+public class System.Net.Http.Headers.NameValueHeaderValue : object {
+    private static Func`1<NameValueHeaderValue> s_defaultNameValueCreator;
+    private string _name;
+    private string _value;
+    public string Name { get; }
+    public string Value { get; public set; }
+    public NameValueHeaderValue(string name);
+    public NameValueHeaderValue(string name, string value);
+    protected NameValueHeaderValue(NameValueHeaderValue source);
+    private static NameValueHeaderValue();
+    public string get_Name();
+    public string get_Value();
+    public void set_Value(string value);
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public static NameValueHeaderValue Parse(string input);
+    public static bool TryParse(string input, NameValueHeaderValue& parsedValue);
+    public virtual string ToString();
+    private void AddToStringBuilder(StringBuilder sb);
+    internal static void ToString(ObjectCollection`1<NameValueHeaderValue> values, char separator, bool leadingSeparator, StringBuilder destination);
+    internal static int GetHashCode(ObjectCollection`1<NameValueHeaderValue> values);
+    internal static int GetNameValueLength(string input, int startIndex, NameValueHeaderValue& parsedValue);
+    internal static int GetNameValueLength(string input, int startIndex, Func`1<NameValueHeaderValue> nameValueCreator, NameValueHeaderValue& parsedValue);
+    internal static int GetNameValueListLength(string input, int startIndex, char delimiter, ObjectCollection`1<NameValueHeaderValue> nameValueCollection);
+    internal static NameValueHeaderValue Find(ObjectCollection`1<NameValueHeaderValue> values, string name);
+    internal static int GetValueLength(string input, int startIndex);
+    private static void CheckNameValueFormat(string name, string value);
+    private static void CheckValueFormat(string value);
+    private static NameValueHeaderValue CreateNameValue();
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.NameValueWithParametersHeaderValue : NameValueHeaderValue {
+    private static Func`1<NameValueHeaderValue> s_nameValueCreator;
+    private ObjectCollection`1<NameValueHeaderValue> _parameters;
+    public ICollection`1<NameValueHeaderValue> Parameters { get; }
+    public NameValueWithParametersHeaderValue(string name);
+    public NameValueWithParametersHeaderValue(string name, string value);
+    protected NameValueWithParametersHeaderValue(NameValueWithParametersHeaderValue source);
+    private static NameValueWithParametersHeaderValue();
+    public ICollection`1<NameValueHeaderValue> get_Parameters();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public virtual string ToString();
+    public static NameValueWithParametersHeaderValue Parse(string input);
+    public static bool TryParse(string input, NameValueWithParametersHeaderValue& parsedValue);
+    internal static int GetNameValueWithParametersLength(string input, int startIndex, Object& parsedValue);
+    private static NameValueHeaderValue CreateNameValue();
+    private sealed virtual override object System.ICloneable.Clone();
+}
+internal class System.Net.Http.Headers.ObjectCollection`1 : Collection`1<T> {
+    private static Action`1<T> s_defaultValidator;
+    private Action`1<T> _validator;
+    public ObjectCollection`1(Action`1<T> validator);
+    private static ObjectCollection`1();
+    public Enumerator<T> GetEnumerator();
+    protected virtual void InsertItem(int index, T item);
+    protected virtual void SetItem(int index, T item);
+    private static void CheckNotNull(T item);
+}
+public class System.Net.Http.Headers.ProductHeaderValue : object {
+    private string _name;
+    private string _version;
+    public string Name { get; }
+    public string Version { get; }
+    public ProductHeaderValue(string name);
+    public ProductHeaderValue(string name, string version);
+    private ProductHeaderValue(ProductHeaderValue source);
+    public string get_Name();
+    public string get_Version();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static ProductHeaderValue Parse(string input);
+    public static bool TryParse(string input, ProductHeaderValue& parsedValue);
+    internal static int GetProductLength(string input, int startIndex, ProductHeaderValue& parsedValue);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+internal class System.Net.Http.Headers.ProductInfoHeaderParser : HttpHeaderParser {
+    private static string separator;
+    internal static ProductInfoHeaderParser SingleValueParser;
+    internal static ProductInfoHeaderParser MultipleValueParser;
+    private ProductInfoHeaderParser(bool supportsMultipleValues);
+    private static ProductInfoHeaderParser();
+    public virtual bool TryParseValue(string value, object storeValue, Int32& index, Object& parsedValue);
+}
+public class System.Net.Http.Headers.ProductInfoHeaderValue : object {
+    private ProductHeaderValue _product;
+    private string _comment;
+    public ProductHeaderValue Product { get; }
+    public string Comment { get; }
+    public ProductInfoHeaderValue(string productName, string productVersion);
+    public ProductInfoHeaderValue(ProductHeaderValue product);
+    public ProductInfoHeaderValue(string comment);
+    private ProductInfoHeaderValue(ProductInfoHeaderValue source);
+    public ProductHeaderValue get_Product();
+    public string get_Comment();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static ProductInfoHeaderValue Parse(string input);
+    public static bool TryParse(string input, ProductInfoHeaderValue& parsedValue);
+    internal static int GetProductInfoLength(string input, int startIndex, ProductInfoHeaderValue& parsedValue);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.RangeConditionHeaderValue : object {
+    private Nullable`1<DateTimeOffset> _date;
+    private EntityTagHeaderValue _entityTag;
+    public Nullable`1<DateTimeOffset> Date { get; }
+    public EntityTagHeaderValue EntityTag { get; }
+    public RangeConditionHeaderValue(DateTimeOffset date);
+    public RangeConditionHeaderValue(EntityTagHeaderValue entityTag);
+    public RangeConditionHeaderValue(string entityTag);
+    private RangeConditionHeaderValue(RangeConditionHeaderValue source);
+    public Nullable`1<DateTimeOffset> get_Date();
+    public EntityTagHeaderValue get_EntityTag();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static RangeConditionHeaderValue Parse(string input);
+    public static bool TryParse(string input, RangeConditionHeaderValue& parsedValue);
+    internal static int GetRangeConditionLength(string input, int startIndex, Object& parsedValue);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.RangeHeaderValue : object {
+    private string _unit;
+    private ObjectCollection`1<RangeItemHeaderValue> _ranges;
+    public string Unit { get; public set; }
+    public ICollection`1<RangeItemHeaderValue> Ranges { get; }
+    public RangeHeaderValue(Nullable`1<long> from, Nullable`1<long> to);
+    private RangeHeaderValue(RangeHeaderValue source);
+    public string get_Unit();
+    public void set_Unit(string value);
+    public ICollection`1<RangeItemHeaderValue> get_Ranges();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static RangeHeaderValue Parse(string input);
+    public static bool TryParse(string input, RangeHeaderValue& parsedValue);
+    internal static int GetRangeLength(string input, int startIndex, Object& parsedValue);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.RangeItemHeaderValue : object {
+    private Nullable`1<long> _from;
+    private Nullable`1<long> _to;
+    public Nullable`1<long> From { get; }
+    public Nullable`1<long> To { get; }
+    public RangeItemHeaderValue(Nullable`1<long> from, Nullable`1<long> to);
+    private RangeItemHeaderValue(RangeItemHeaderValue source);
+    public Nullable`1<long> get_From();
+    public Nullable`1<long> get_To();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    internal static int GetRangeItemListLength(string input, int startIndex, ICollection`1<RangeItemHeaderValue> rangeCollection);
+    internal static int GetRangeItemLength(string input, int startIndex, RangeItemHeaderValue& parsedValue);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.RetryConditionHeaderValue : object {
+    private Nullable`1<DateTimeOffset> _date;
+    private Nullable`1<TimeSpan> _delta;
+    public Nullable`1<DateTimeOffset> Date { get; }
+    public Nullable`1<TimeSpan> Delta { get; }
+    public RetryConditionHeaderValue(DateTimeOffset date);
+    public RetryConditionHeaderValue(TimeSpan delta);
+    private RetryConditionHeaderValue(RetryConditionHeaderValue source);
+    public Nullable`1<DateTimeOffset> get_Date();
+    public Nullable`1<TimeSpan> get_Delta();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static RetryConditionHeaderValue Parse(string input);
+    public static bool TryParse(string input, RetryConditionHeaderValue& parsedValue);
+    internal static int GetRetryConditionLength(string input, int startIndex, Object& parsedValue);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.StringWithQualityHeaderValue : object {
+    private string _value;
+    private Nullable`1<double> _quality;
+    public string Value { get; }
+    public Nullable`1<double> Quality { get; }
+    public StringWithQualityHeaderValue(string value);
+    public StringWithQualityHeaderValue(string value, double quality);
+    private StringWithQualityHeaderValue(StringWithQualityHeaderValue source);
+    public string get_Value();
+    public Nullable`1<double> get_Quality();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static StringWithQualityHeaderValue Parse(string input);
+    public static bool TryParse(string input, StringWithQualityHeaderValue& parsedValue);
+    internal static int GetStringWithQualityLength(string input, int startIndex, Object& parsedValue);
+    private static bool TryReadQuality(string input, StringWithQualityHeaderValue result, Int32& index);
+    private sealed virtual override object System.ICloneable.Clone();
+}
+internal class System.Net.Http.Headers.TimeSpanHeaderParser : BaseHeaderParser {
+    internal static TimeSpanHeaderParser Parser;
+    private static TimeSpanHeaderParser();
+    public virtual string ToString(object value);
+    protected virtual int GetParsedValueLength(string value, int startIndex, object storeValue, Object& parsedValue);
+}
+internal class System.Net.Http.Headers.TransferCodingHeaderParser : BaseHeaderParser {
+    private Func`1<TransferCodingHeaderValue> _transferCodingCreator;
+    internal static TransferCodingHeaderParser SingleValueParser;
+    internal static TransferCodingHeaderParser MultipleValueParser;
+    internal static TransferCodingHeaderParser SingleValueWithQualityParser;
+    internal static TransferCodingHeaderParser MultipleValueWithQualityParser;
+    private TransferCodingHeaderParser(bool supportsMultipleValues, Func`1<TransferCodingHeaderValue> transferCodingCreator);
+    private static TransferCodingHeaderParser();
+    protected virtual int GetParsedValueLength(string value, int startIndex, object storeValue, Object& parsedValue);
+    private static TransferCodingHeaderValue CreateTransferCoding();
+    private static TransferCodingHeaderValue CreateTransferCodingWithQuality();
+}
+public class System.Net.Http.Headers.TransferCodingHeaderValue : object {
+    private ObjectCollection`1<NameValueHeaderValue> _parameters;
+    private string _value;
+    public string Value { get; }
+    public ICollection`1<NameValueHeaderValue> Parameters { get; }
+    protected TransferCodingHeaderValue(TransferCodingHeaderValue source);
+    public TransferCodingHeaderValue(string value);
+    public string get_Value();
+    public ICollection`1<NameValueHeaderValue> get_Parameters();
+    public static TransferCodingHeaderValue Parse(string input);
+    public static bool TryParse(string input, TransferCodingHeaderValue& parsedValue);
+    internal static int GetTransferCodingLength(string input, int startIndex, Func`1<TransferCodingHeaderValue> transferCodingCreator, TransferCodingHeaderValue& parsedValue);
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    private sealed virtual override object System.ICloneable.Clone();
+}
+public class System.Net.Http.Headers.TransferCodingWithQualityHeaderValue : TransferCodingHeaderValue {
+    public Nullable`1<double> Quality { get; public set; }
+    public TransferCodingWithQualityHeaderValue(string value);
+    public TransferCodingWithQualityHeaderValue(string value, double quality);
+    private TransferCodingWithQualityHeaderValue(TransferCodingWithQualityHeaderValue source);
+    public Nullable`1<double> get_Quality();
+    public void set_Quality(Nullable`1<double> value);
+    private sealed virtual override object System.ICloneable.Clone();
+    public static TransferCodingWithQualityHeaderValue Parse(string input);
+    public static bool TryParse(string input, TransferCodingWithQualityHeaderValue& parsedValue);
+}
+internal class System.Net.Http.Headers.UriHeaderParser : HttpHeaderParser {
+    private UriKind _uriKind;
+    internal static UriHeaderParser RelativeOrAbsoluteUriParser;
+    private UriHeaderParser(UriKind uriKind);
+    private static UriHeaderParser();
+    public virtual bool TryParseValue(string value, object storeValue, Int32& index, Object& parsedValue);
+    internal static string DecodeUtf8FromString(string input);
+    public virtual string ToString(object value);
+}
+public class System.Net.Http.Headers.ViaHeaderValue : object {
+    private string _protocolName;
+    private string _protocolVersion;
+    private string _receivedBy;
+    private string _comment;
+    public string ProtocolName { get; }
+    public string ProtocolVersion { get; }
+    public string ReceivedBy { get; }
+    public string Comment { get; }
+    public ViaHeaderValue(string protocolVersion, string receivedBy);
+    public ViaHeaderValue(string protocolVersion, string receivedBy, string protocolName);
+    public ViaHeaderValue(string protocolVersion, string receivedBy, string protocolName, string comment);
+    private ViaHeaderValue(ViaHeaderValue source);
+    public string get_ProtocolName();
+    public string get_ProtocolVersion();
+    public string get_ReceivedBy();
+    public string get_Comment();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static ViaHeaderValue Parse(string input);
+    public static bool TryParse(string input, ViaHeaderValue& parsedValue);
+    internal static int GetViaLength(string input, int startIndex, Object& parsedValue);
+    private static int GetProtocolEndIndex(string input, int startIndex, String& protocolName, String& protocolVersion);
+    private sealed virtual override object System.ICloneable.Clone();
+    private static void CheckReceivedBy(string receivedBy);
+}
+public class System.Net.Http.Headers.WarningHeaderValue : object {
+    private int _code;
+    private string _agent;
+    private string _text;
+    private Nullable`1<DateTimeOffset> _date;
+    public int Code { get; }
+    public string Agent { get; }
+    public string Text { get; }
+    public Nullable`1<DateTimeOffset> Date { get; }
+    public WarningHeaderValue(int code, string agent, string text);
+    public WarningHeaderValue(int code, string agent, string text, DateTimeOffset date);
+    private WarningHeaderValue(WarningHeaderValue source);
+    public int get_Code();
+    public string get_Agent();
+    public string get_Text();
+    public Nullable`1<DateTimeOffset> get_Date();
+    public virtual string ToString();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static WarningHeaderValue Parse(string input);
+    public static bool TryParse(string input, WarningHeaderValue& parsedValue);
+    internal static int GetWarningLength(string input, int startIndex, Object& parsedValue);
+    private static bool TryReadAgent(string input, int startIndex, Int32& current, String& agent);
+    private static bool TryReadCode(string input, Int32& current, Int32& code);
+    private static bool TryReadDate(string input, Int32& current, Nullable`1& date);
+    private sealed virtual override object System.ICloneable.Clone();
+    private static void CheckCode(int code);
+    private static void CheckAgent(string agent);
+}
+internal class System.Net.Http.HttpAuthenticatedConnectionHandler : HttpMessageHandler {
+    private HttpConnectionPoolManager _poolManager;
+    public HttpAuthenticatedConnectionHandler(HttpConnectionPoolManager poolManager);
+    protected internal virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    protected virtual void Dispose(bool disposing);
+}
+public class System.Net.Http.HttpClient : HttpMessageInvoker {
+    private static TimeSpan s_defaultTimeout;
+    private static TimeSpan s_maxTimeout;
+    private static TimeSpan s_infiniteTimeout;
+    private static HttpCompletionOption defaultCompletionOption;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _operationStarted;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _disposed;
+    private CancellationTokenSource _pendingRequestsCts;
+    private HttpRequestHeaders _defaultRequestHeaders;
+    private Uri _baseAddress;
+    private TimeSpan _timeout;
+    private int _maxResponseContentBufferSize;
+    public HttpRequestHeaders DefaultRequestHeaders { get; }
+    public Uri BaseAddress { get; public set; }
+    public TimeSpan Timeout { get; public set; }
+    public long MaxResponseContentBufferSize { get; public set; }
+    public HttpClient(HttpMessageHandler handler);
+    public HttpClient(HttpMessageHandler handler, bool disposeHandler);
+    private static HttpClient();
+    public HttpRequestHeaders get_DefaultRequestHeaders();
+    public Uri get_BaseAddress();
+    public void set_BaseAddress(Uri value);
+    public TimeSpan get_Timeout();
+    public void set_Timeout(TimeSpan value);
+    public long get_MaxResponseContentBufferSize();
+    public void set_MaxResponseContentBufferSize(long value);
+    public Task`1<string> GetStringAsync(string requestUri);
+    public Task`1<string> GetStringAsync(Uri requestUri);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpClient/<GetStringAsyncCore>d__27")]
+private Task`1<string> GetStringAsyncCore(Task`1<HttpResponseMessage> getTask);
+    public Task`1<Byte[]> GetByteArrayAsync(string requestUri);
+    public Task`1<Byte[]> GetByteArrayAsync(Uri requestUri);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpClient/<GetByteArrayAsyncCore>d__30")]
+private Task`1<Byte[]> GetByteArrayAsyncCore(Task`1<HttpResponseMessage> getTask);
+    public Task`1<Stream> GetStreamAsync(string requestUri);
+    public Task`1<Stream> GetStreamAsync(Uri requestUri);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpClient/<FinishGetStreamAsync>d__33")]
+private Task`1<Stream> FinishGetStreamAsync(Task`1<HttpResponseMessage> getTask);
+    public Task`1<HttpResponseMessage> GetAsync(string requestUri);
+    public Task`1<HttpResponseMessage> GetAsync(Uri requestUri);
+    public Task`1<HttpResponseMessage> GetAsync(string requestUri, HttpCompletionOption completionOption);
+    public Task`1<HttpResponseMessage> GetAsync(Uri requestUri, HttpCompletionOption completionOption);
+    public Task`1<HttpResponseMessage> GetAsync(string requestUri, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> GetAsync(Uri requestUri, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> GetAsync(string requestUri, HttpCompletionOption completionOption, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> GetAsync(Uri requestUri, HttpCompletionOption completionOption, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> PostAsync(string requestUri, HttpContent content);
+    public Task`1<HttpResponseMessage> PostAsync(Uri requestUri, HttpContent content);
+    public Task`1<HttpResponseMessage> PostAsync(string requestUri, HttpContent content, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> PostAsync(Uri requestUri, HttpContent content, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> PutAsync(string requestUri, HttpContent content);
+    public Task`1<HttpResponseMessage> PutAsync(Uri requestUri, HttpContent content);
+    public Task`1<HttpResponseMessage> PutAsync(string requestUri, HttpContent content, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> PutAsync(Uri requestUri, HttpContent content, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> PatchAsync(string requestUri, HttpContent content);
+    public Task`1<HttpResponseMessage> PatchAsync(Uri requestUri, HttpContent content);
+    public Task`1<HttpResponseMessage> PatchAsync(string requestUri, HttpContent content, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> PatchAsync(Uri requestUri, HttpContent content, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> DeleteAsync(string requestUri);
+    public Task`1<HttpResponseMessage> DeleteAsync(Uri requestUri);
+    public Task`1<HttpResponseMessage> DeleteAsync(string requestUri, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> DeleteAsync(Uri requestUri, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request);
+    public virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, HttpCompletionOption completionOption);
+    public Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpClient/<FinishSendAsyncBuffered>d__62")]
+private Task`1<HttpResponseMessage> FinishSendAsyncBuffered(Task`1<HttpResponseMessage> sendTask, HttpRequestMessage request, CancellationTokenSource cts, bool disposeCts);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpClient/<FinishSendAsyncUnbuffered>d__63")]
+private Task`1<HttpResponseMessage> FinishSendAsyncUnbuffered(Task`1<HttpResponseMessage> sendTask, HttpRequestMessage request, CancellationTokenSource cts, bool disposeCts);
+    private void HandleFinishSendAsyncError(Exception e, CancellationTokenSource cts);
+    private void HandleFinishSendAsyncCleanup(CancellationTokenSource cts, bool disposeCts);
+    public void CancelPendingRequests();
+    protected virtual void Dispose(bool disposing);
+    private void SetOperationStarted();
+    private void CheckDisposedOrStarted();
+    private void CheckDisposed();
+    private static void CheckRequestMessage(HttpRequestMessage request);
+    private void PrepareRequestMessage(HttpRequestMessage request);
+    private static void CheckBaseAddress(Uri baseAddress, string parameterName);
+    private Uri CreateUri(string uri);
+    private static HttpMessageHandler CreateDefaultHandler();
+}
+public class System.Net.Http.HttpClientHandler : HttpMessageHandler {
+    private static string SocketsHttpHandlerEnvironmentVariableSettingName;
+    private static string SocketsHttpHandlerAppCtxSettingName;
+    [CompilerGeneratedAttribute]
+private static Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> <DangerousAcceptAnyServerCertificateValidator>k__BackingField;
+    private IMonoHttpClientHandler _delegatingHandler;
+    private ClientCertificateOption _clientCertificateOptions;
+    private static bool UseSocketsHttpHandler { get; }
+    public static Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> DangerousAcceptAnyServerCertificateValidator { get; }
+    public bool SupportsAutomaticDecompression { get; }
+    public bool SupportsProxy { get; }
+    public bool SupportsRedirectConfiguration { get; }
+    public bool UseCookies { get; public set; }
+    public CookieContainer CookieContainer { get; public set; }
+    public ClientCertificateOption ClientCertificateOptions { get; public set; }
+    public X509CertificateCollection ClientCertificates { get; }
+    public Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> ServerCertificateCustomValidationCallback { get; public set; }
+    public bool CheckCertificateRevocationList { get; public set; }
+    public SslProtocols SslProtocols { get; public set; }
+    public DecompressionMethods AutomaticDecompression { get; public set; }
+    public bool UseProxy { get; public set; }
+    public IWebProxy Proxy { get; public set; }
+    public ICredentials DefaultProxyCredentials { get; public set; }
+    public bool PreAuthenticate { get; public set; }
+    public bool UseDefaultCredentials { get; public set; }
+    public ICredentials Credentials { get; public set; }
+    public bool AllowAutoRedirect { get; public set; }
+    public int MaxAutomaticRedirections { get; public set; }
+    public int MaxConnectionsPerServer { get; public set; }
+    public int MaxResponseHeadersLength { get; public set; }
+    public long MaxRequestContentBufferSize { get; public set; }
+    public IDictionary`2<string, object> Properties { get; }
+    internal HttpClientHandler(IMonoHttpClientHandler handler);
+    private static HttpClientHandler();
+    private static bool get_UseSocketsHttpHandler();
+    [CompilerGeneratedAttribute]
+public static Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> get_DangerousAcceptAnyServerCertificateValidator();
+    private static IMonoHttpClientHandler CreateDefaultHandler();
+    protected virtual void Dispose(bool disposing);
+    public virtual bool get_SupportsAutomaticDecompression();
+    public virtual bool get_SupportsProxy();
+    public virtual bool get_SupportsRedirectConfiguration();
+    public bool get_UseCookies();
+    public void set_UseCookies(bool value);
+    public CookieContainer get_CookieContainer();
+    public void set_CookieContainer(CookieContainer value);
+    private void ThrowForModifiedManagedSslOptionsIfStarted();
+    public ClientCertificateOption get_ClientCertificateOptions();
+    public void set_ClientCertificateOptions(ClientCertificateOption value);
+    public X509CertificateCollection get_ClientCertificates();
+    public Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> get_ServerCertificateCustomValidationCallback();
+    public void set_ServerCertificateCustomValidationCallback(Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> value);
+    public bool get_CheckCertificateRevocationList();
+    public void set_CheckCertificateRevocationList(bool value);
+    public SslProtocols get_SslProtocols();
+    public void set_SslProtocols(SslProtocols value);
+    public DecompressionMethods get_AutomaticDecompression();
+    public void set_AutomaticDecompression(DecompressionMethods value);
+    public bool get_UseProxy();
+    public void set_UseProxy(bool value);
+    public IWebProxy get_Proxy();
+    public void set_Proxy(IWebProxy value);
+    public ICredentials get_DefaultProxyCredentials();
+    public void set_DefaultProxyCredentials(ICredentials value);
+    public bool get_PreAuthenticate();
+    public void set_PreAuthenticate(bool value);
+    public bool get_UseDefaultCredentials();
+    public void set_UseDefaultCredentials(bool value);
+    public ICredentials get_Credentials();
+    public void set_Credentials(ICredentials value);
+    public bool get_AllowAutoRedirect();
+    public void set_AllowAutoRedirect(bool value);
+    public int get_MaxAutomaticRedirections();
+    public void set_MaxAutomaticRedirections(int value);
+    public int get_MaxConnectionsPerServer();
+    public void set_MaxConnectionsPerServer(int value);
+    public int get_MaxResponseHeadersLength();
+    public void set_MaxResponseHeadersLength(int value);
+    public long get_MaxRequestContentBufferSize();
+    public void set_MaxRequestContentBufferSize(long value);
+    public IDictionary`2<string, object> get_Properties();
+    internal void SetWebRequestTimeout(TimeSpan timeout);
+    protected internal virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    [CompilerGeneratedAttribute]
+private X509Certificate <set_ClientCertificateOptions>b__28_0(object sender, string targetHost, X509CertificateCollection localCertificates, X509Certificate remoteCertificate, String[] acceptableIssuers);
+}
+public enum System.Net.Http.HttpCompletionOption : Enum {
+    public int value__;
+    public static HttpCompletionOption ResponseContentRead;
+    public static HttpCompletionOption ResponseHeadersRead;
+}
+internal class System.Net.Http.HttpConnection : object {
+    private static int InitialReadBufferSize;
+    private static int InitialWriteBufferSize;
+    private static int Expect100ErrorSendThreshold;
+    private static Byte[] s_contentLength0NewlineAsciiBytes;
+    private static Byte[] s_spaceHttp10NewlineAsciiBytes;
+    private static Byte[] s_spaceHttp11NewlineAsciiBytes;
+    private static Byte[] s_httpSchemeAndDelimiter;
+    private static Byte[] s_http1DotBytes;
+    private static ulong s_http10Bytes;
+    private static ulong s_http11Bytes;
+    private HttpConnectionPool _pool;
+    private Socket _socket;
+    private Stream _stream;
+    private TransportContext _transportContext;
+    private WeakReference`1<HttpConnection> _weakThisRef;
+    private HttpRequestMessage _currentRequest;
+    private Byte[] _writeBuffer;
+    private int _writeOffset;
+    private int _allowedReadLineBytes;
+    private Nullable`1<ValueTask`1<int>> _readAheadTask;
+    private int _readAheadTaskLock;
+    private Byte[] _readBuffer;
+    private int _readOffset;
+    private int _readLength;
+    private bool _inUse;
+    private bool _canRetry;
+    private bool _connectionClose;
+    private int _disposed;
+    [CompilerGeneratedAttribute]
+private DateTimeOffset <CreationTime>k__BackingField;
+    public bool IsNewConnection { get; }
+    public bool CanRetry { get; }
+    public DateTimeOffset CreationTime { get; }
+    public TransportContext TransportContext { get; }
+    public HttpConnectionKind Kind { get; }
+    private int ReadBufferSize { get; }
+    private ReadOnlyMemory`1<byte> RemainingBuffer { get; }
+    public HttpConnection(HttpConnectionPool pool, Socket socket, Stream stream, TransportContext transportContext);
+    private static HttpConnection();
+    public sealed virtual void Dispose();
+    protected void Dispose(bool disposing);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<IgnoreExceptionsAsync>d__37")]
+private static Task IgnoreExceptionsAsync(ValueTask`1<int> task);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<LogExceptionsAsync>d__38")]
+private Task LogExceptionsAsync(Task task);
+    public bool PollRead();
+    public bool EnsureReadAheadAndPollRead();
+    private Nullable`1<ValueTask`1<int>> ConsumeReadAheadTask();
+    public bool get_IsNewConnection();
+    public bool get_CanRetry();
+    [CompilerGeneratedAttribute]
+public DateTimeOffset get_CreationTime();
+    public TransportContext get_TransportContext();
+    public HttpConnectionKind get_Kind();
+    private int get_ReadBufferSize();
+    private ReadOnlyMemory`1<byte> get_RemainingBuffer();
+    private void ConsumeFromRemainingBuffer(int bytesToConsume);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<WriteHeadersAsync>d__58")]
+private Task WriteHeadersAsync(HttpHeaders headers, string cookiesFromContainer);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<WriteHostHeaderAsync>d__59")]
+private Task WriteHostHeaderAsync(Uri uri);
+    private Task WriteDecimalInt32Async(int value);
+    private Task WriteHexInt32Async(int value);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<SendAsyncCore>d__62")]
+public Task`1<HttpResponseMessage> SendAsyncCore(HttpRequestMessage request, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    private HttpContentWriteStream CreateRequestContentStream(HttpRequestMessage request);
+    private CancellationTokenRegistration RegisterCancellation(CancellationToken cancellationToken);
+    private static bool LineIsEmpty(ArraySegment`1<byte> line);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<SendRequestContentAsync>d__67")]
+private Task SendRequestContentAsync(HttpRequestMessage request, HttpContentWriteStream stream, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<SendRequestContentWithExpect100ContinueAsync>d__68")]
+private Task SendRequestContentWithExpect100ContinueAsync(HttpRequestMessage request, Task`1<bool> allowExpect100ToContinueTask, HttpContentWriteStream stream, Timer expect100Timer, CancellationToken cancellationToken);
+    private static void ParseStatusLine(ArraySegment`1<byte> line, HttpResponseMessage response);
+    private static void ParseStatusLine(Span`1<byte> line, HttpResponseMessage response);
+    private static void ParseHeaderNameValue(ArraySegment`1<byte> line, HttpResponseMessage response);
+    private static void ParseHeaderNameValue(Span`1<byte> line, HttpResponseMessage response);
+    private static bool IsDigit(byte c);
+    private void WriteToBuffer(ReadOnlyMemory`1<byte> source);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<WriteAsync>d__75")]
+private Task WriteAsync(ReadOnlyMemory`1<byte> source);
+    private ValueTask WriteWithoutBufferingAsync(ReadOnlyMemory`1<byte> source);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<FlushThenWriteWithoutBufferingAsync>d__77")]
+private Task FlushThenWriteWithoutBufferingAsync(ReadOnlyMemory`1<byte> source);
+    private Task WriteByteAsync(byte b);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<WriteByteSlowAsync>d__79")]
+private Task WriteByteSlowAsync(byte b);
+    private Task WriteTwoBytesAsync(byte b1, byte b2);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<WriteTwoBytesSlowAsync>d__81")]
+private Task WriteTwoBytesSlowAsync(byte b1, byte b2);
+    private Task WriteBytesAsync(Byte[] bytes);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<WriteBytesSlowAsync>d__83")]
+private Task WriteBytesSlowAsync(Byte[] bytes);
+    private Task WriteStringAsync(string s);
+    private Task WriteAsciiStringAsync(string s);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<WriteStringAsyncSlow>d__86")]
+private Task WriteStringAsyncSlow(string s);
+    private ValueTask FlushAsync();
+    private ValueTask WriteToStreamAsync(ReadOnlyMemory`1<byte> source);
+    private bool TryReadNextLine(ReadOnlySpan`1& line);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<ReadNextResponseHeaderLineAsync>d__90")]
+private ValueTask`1<ArraySegment`1<byte>> ReadNextResponseHeaderLineAsync(bool foldedHeadersAllowed);
+    private void ThrowIfExceededAllowedReadLineBytes();
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<FillAsync>d__92")]
+private Task FillAsync();
+    private void ReadFromBuffer(Span`1<byte> buffer);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<ReadAsync>d__94")]
+private ValueTask`1<int> ReadAsync(Memory`1<byte> destination);
+    private ValueTask`1<int> ReadBufferedAsync(Memory`1<byte> destination);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<ReadBufferedAsyncCore>d__96")]
+private ValueTask`1<int> ReadBufferedAsyncCore(Memory`1<byte> destination);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<CopyFromBufferAsync>d__97")]
+private Task CopyFromBufferAsync(Stream destination, int count, CancellationToken cancellationToken);
+    private Task CopyToUntilEofAsync(Stream destination, int bufferSize, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<CopyToUntilEofWithExistingBufferedDataAsync>d__99")]
+private Task CopyToUntilEofWithExistingBufferedDataAsync(Stream destination, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<CopyToExactLengthAsync>d__100")]
+private Task CopyToExactLengthAsync(Stream destination, ulong length, CancellationToken cancellationToken);
+    public void Acquire();
+    public void Release();
+    private void CompleteResponse();
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnection/<DrainResponseAsync>d__104")]
+public Task DrainResponseAsync(HttpResponseMessage response);
+    private void ReturnConnectionToPool();
+    private static bool EqualsOrdinal(string left, Span`1<byte> right);
+    public sealed virtual string ToString();
+    private static void ThrowInvalidHttpResponse();
+    private static void ThrowInvalidHttpResponse(Exception innerException);
+    internal void Trace(string message, string memberName);
+}
+internal class System.Net.Http.HttpConnectionHandler : HttpMessageHandler {
+    private HttpConnectionPoolManager _poolManager;
+    public HttpConnectionHandler(HttpConnectionPoolManager poolManager);
+    protected internal virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    protected virtual void Dispose(bool disposing);
+}
+internal enum System.Net.Http.HttpConnectionKind : Enum {
+    public byte value__;
+    public static HttpConnectionKind Http;
+    public static HttpConnectionKind Https;
+    public static HttpConnectionKind Proxy;
+    public static HttpConnectionKind ProxyTunnel;
+    public static HttpConnectionKind SslProxyTunnel;
+    public static HttpConnectionKind ProxyConnect;
+}
+internal class System.Net.Http.HttpConnectionPool : object {
+    private static bool s_isWindows7Or2008R2;
+    private HttpConnectionPoolManager _poolManager;
+    private HttpConnectionKind _kind;
+    private string _host;
+    private int _port;
+    private Uri _proxyUri;
+    private List`1<CachedConnection> _idleConnections;
+    private int _maxConnections;
+    private Byte[] _hostHeaderValueBytes;
+    private SslClientAuthenticationOptions _sslOptions;
+    private ConnectionWaiter _waitersHead;
+    private ConnectionWaiter _waitersTail;
+    private int _associatedConnectionCount;
+    private bool _usedSinceLastCleanup;
+    private bool _disposed;
+    private static int DefaultHttpPort;
+    private static int DefaultHttpsPort;
+    [CompilerGeneratedAttribute]
+private CredentialCache <PreAuthCredentials>k__BackingField;
+    public HttpConnectionSettings Settings { get; }
+    public bool IsSecure { get; }
+    public HttpConnectionKind Kind { get; }
+    public bool AnyProxyKind { get; }
+    public Uri ProxyUri { get; }
+    public ICredentials ProxyCredentials { get; }
+    public Byte[] HostHeaderValueBytes { get; }
+    public CredentialCache PreAuthCredentials { get; }
+    private object SyncObj { get; }
+    public HttpConnectionPool(HttpConnectionPoolManager poolManager, HttpConnectionKind kind, string host, int port, string sslHostName, Uri proxyUri, int maxConnections);
+    private static HttpConnectionPool();
+    private static SslClientAuthenticationOptions ConstructSslOptions(HttpConnectionPoolManager poolManager, string sslHostName);
+    public HttpConnectionSettings get_Settings();
+    public bool get_IsSecure();
+    public HttpConnectionKind get_Kind();
+    public bool get_AnyProxyKind();
+    public Uri get_ProxyUri();
+    public ICredentials get_ProxyCredentials();
+    public Byte[] get_HostHeaderValueBytes();
+    [CompilerGeneratedAttribute]
+public CredentialCache get_PreAuthCredentials();
+    private object get_SyncObj();
+    private ValueTask`1<ValueTuple`2<HttpConnection, HttpResponseMessage>> GetConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnectionPool/<SendWithRetryAsync>d__39")]
+public Task`1<HttpResponseMessage> SendWithRetryAsync(HttpRequestMessage request, bool doRequestAuth, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnectionPool/<SendWithNtConnectionAuthAsync>d__40")]
+private Task`1<HttpResponseMessage> SendWithNtConnectionAuthAsync(HttpConnection connection, HttpRequestMessage request, bool doRequestAuth, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> SendWithNtProxyAuthAsync(HttpConnection connection, HttpRequestMessage request, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> SendWithProxyAuthAsync(HttpRequestMessage request, bool doRequestAuth, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, bool doRequestAuth, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnectionPool/<CreateConnectionAsync>d__44")]
+internal ValueTask`1<ValueTuple`2<HttpConnection, HttpResponseMessage>> CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnectionPool/<EstablishProxyTunnel>d__45")]
+private ValueTask`1<ValueTuple`2<Stream, HttpResponseMessage>> EstablishProxyTunnel(CancellationToken cancellationToken);
+    private void EnqueueWaiter(ConnectionWaiter waiter);
+    private ConnectionWaiter DequeueWaiter();
+    private bool RemoveWaiterForCancellation(ConnectionWaiter waiter);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpConnectionPool/<WaitForCreatedConnectionAsync>d__49")]
+private ValueTask`1<ValueTuple`2<HttpConnection, HttpResponseMessage>> WaitForCreatedConnectionAsync(ValueTask`1<ValueTuple`2<HttpConnection, HttpResponseMessage>> creationTask);
+    public void IncrementConnectionCount();
+    private void IncrementConnectionCountNoLock();
+    public void DecrementConnectionCount();
+    public void ReturnConnection(HttpConnection connection);
+    public sealed virtual void Dispose();
+    public bool CleanCacheAndDisposeIfUnused();
+    private static bool GetIsWindows7Or2008R2();
+    public virtual string ToString();
+    private void Trace(string message, string memberName);
+}
+internal class System.Net.Http.HttpConnectionPoolManager : object {
+    private TimeSpan _cleanPoolTimeout;
+    private ConcurrentDictionary`2<HttpConnectionKey, HttpConnectionPool> _pools;
+    private Timer _cleaningTimer;
+    private int _maxConnectionsPerServer;
+    private bool _avoidStoringConnections;
+    private HttpConnectionSettings _settings;
+    private IWebProxy _proxy;
+    private ICredentials _proxyCredentials;
+    private bool _timerIsRunning;
+    private object SyncObj { get; }
+    public HttpConnectionSettings Settings { get; }
+    public ICredentials ProxyCredentials { get; }
+    public bool AvoidStoringConnections { get; }
+    public HttpConnectionPoolManager(HttpConnectionSettings settings);
+    private object get_SyncObj();
+    public HttpConnectionSettings get_Settings();
+    public ICredentials get_ProxyCredentials();
+    public bool get_AvoidStoringConnections();
+    private static string ParseHostNameFromHeader(string hostHeader);
+    private static HttpConnectionKey GetConnectionKey(HttpRequestMessage request, Uri proxyUri, bool isProxyConnect);
+    public Task`1<HttpResponseMessage> SendAsyncCore(HttpRequestMessage request, Uri proxyUri, bool doRequestAuth, bool isProxyConnect, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> SendProxyConnectAsync(HttpRequestMessage request, Uri proxyUri, CancellationToken cancellationToken);
+    public Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, bool doRequestAuth, CancellationToken cancellationToken);
+    public sealed virtual void Dispose();
+    private void SetCleaningTimer(TimeSpan timeout);
+    private void RemoveStalePools();
+}
+internal class System.Net.Http.HttpConnectionSettings : object {
+    internal DecompressionMethods _automaticDecompression;
+    internal bool _useCookies;
+    internal CookieContainer _cookieContainer;
+    internal bool _useProxy;
+    internal IWebProxy _proxy;
+    internal ICredentials _defaultProxyCredentials;
+    internal bool _preAuthenticate;
+    internal ICredentials _credentials;
+    internal bool _allowAutoRedirect;
+    internal int _maxAutomaticRedirections;
+    internal int _maxConnectionsPerServer;
+    internal int _maxResponseDrainSize;
+    internal TimeSpan _maxResponseDrainTime;
+    internal int _maxResponseHeadersLength;
+    internal TimeSpan _pooledConnectionLifetime;
+    internal TimeSpan _pooledConnectionIdleTimeout;
+    internal TimeSpan _expect100ContinueTimeout;
+    internal TimeSpan _connectTimeout;
+    internal SslClientAuthenticationOptions _sslOptions;
+    internal IDictionary`2<string, object> _properties;
+    public HttpConnectionSettings Clone();
+}
+internal class System.Net.Http.HttpConnectionWithFinalizer : HttpConnection {
+    public HttpConnectionWithFinalizer(HttpConnectionPool pool, Socket socket, Stream stream, TransportContext transportContext);
+    protected virtual override void Finalize();
+}
+public abstract class System.Net.Http.HttpContent : object {
+    private HttpContentHeaders _headers;
+    private MemoryStream _bufferedContent;
+    private object _contentReadStream;
+    private bool _disposed;
+    private bool _canCalculateLength;
+    internal static int MaxBufferSize;
+    internal static Encoding DefaultStringEncoding;
+    private static int UTF8CodePage;
+    private static int UTF8PreambleLength;
+    private static byte UTF8PreambleByte0;
+    private static byte UTF8PreambleByte1;
+    private static byte UTF8PreambleByte2;
+    private static int UTF8PreambleFirst2Bytes;
+    private static int UTF32CodePage;
+    private static int UTF32PreambleLength;
+    private static byte UTF32PreambleByte0;
+    private static byte UTF32PreambleByte1;
+    private static byte UTF32PreambleByte2;
+    private static byte UTF32PreambleByte3;
+    private static int UTF32OrUnicodePreambleFirst2Bytes;
+    private static int UnicodeCodePage;
+    private static int UnicodePreambleLength;
+    private static byte UnicodePreambleByte0;
+    private static byte UnicodePreambleByte1;
+    private static int BigEndianUnicodeCodePage;
+    private static int BigEndianUnicodePreambleLength;
+    private static byte BigEndianUnicodePreambleByte0;
+    private static byte BigEndianUnicodePreambleByte1;
+    private static int BigEndianUnicodePreambleFirst2Bytes;
+    public HttpContentHeaders Headers { get; }
+    private bool IsBuffered { get; }
+    private static HttpContent();
+    public HttpContentHeaders get_Headers();
+    private bool get_IsBuffered();
+    internal void SetBuffer(Byte[] buffer, int offset, int count);
+    internal bool TryGetBuffer(ArraySegment`1& buffer);
+    public Task`1<string> ReadAsStringAsync();
+    private string ReadBufferedContentAsString();
+    internal static string ReadBufferAsString(ArraySegment`1<byte> buffer, HttpContentHeaders headers);
+    public Task`1<Byte[]> ReadAsByteArrayAsync();
+    internal Byte[] ReadBufferedContentAsByteArray();
+    public Task`1<Stream> ReadAsStreamAsync();
+    internal Stream TryReadAsStream();
+    protected abstract virtual Task SerializeToStreamAsync(Stream stream, TransportContext context);
+    internal virtual Task SerializeToStreamAsync(Stream stream, TransportContext context, CancellationToken cancellationToken);
+    public Task CopyToAsync(Stream stream, TransportContext context);
+    internal Task CopyToAsync(Stream stream, TransportContext context, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpContent/<CopyToAsyncCore>d__47")]
+private static Task CopyToAsyncCore(ValueTask copyTask);
+    public Task CopyToAsync(Stream stream);
+    public Task LoadIntoBufferAsync();
+    public Task LoadIntoBufferAsync(long maxBufferSize);
+    internal Task LoadIntoBufferAsync(long maxBufferSize, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpContent/<LoadIntoBufferAsyncCore>d__52")]
+private Task LoadIntoBufferAsyncCore(Task serializeToStreamTask, MemoryStream tempBuffer);
+    protected virtual Task`1<Stream> CreateContentReadStreamAsync();
+    internal virtual Stream TryCreateContentReadStream();
+    protected internal abstract virtual bool TryComputeLength(Int64& length);
+    internal Nullable`1<long> GetComputedOrBufferLength();
+    private MemoryStream CreateMemoryStream(long maxBufferSize, Exception& error);
+    protected virtual void Dispose(bool disposing);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    private void CheckTaskNotNull(Task task);
+    private static bool StreamCopyExceptionNeedsWrapping(Exception e);
+    private static Exception GetStreamCopyException(Exception originalException);
+    private static int GetPreambleLength(ArraySegment`1<byte> buffer, Encoding encoding);
+    private static bool TryDetectEncoding(ArraySegment`1<byte> buffer, Encoding& encoding, Int32& preambleLength);
+    private static bool BufferHasPrefix(ArraySegment`1<byte> buffer, Byte[] prefix);
+    [AsyncStateMachineAttribute("System.Net.Http.HttpContent/<WaitAndReturnAsync>d__67`2")]
+private static Task`1<TResult> WaitAndReturnAsync(Task waitTask, TState state, Func`2<TState, TResult> returnFunc);
+    private static Exception CreateOverCapacityException(int maxBufferSize);
+}
+internal abstract class System.Net.Http.HttpContentDuplexStream : HttpContentStream {
+    public bool CanRead { get; }
+    public bool CanWrite { get; }
+    public HttpContentDuplexStream(HttpConnection connection);
+    public sealed virtual bool get_CanRead();
+    public sealed virtual bool get_CanWrite();
+    public sealed virtual void Flush();
+    public sealed virtual int Read(Byte[] buffer, int offset, int count);
+    public sealed virtual Task`1<int> ReadAsync(Byte[] buffer, int offset, int count, CancellationToken cancellationToken);
+    public sealed virtual void Write(Byte[] buffer, int offset, int count);
+    public sealed virtual Task WriteAsync(Byte[] buffer, int offset, int count, CancellationToken cancellationToken);
+    public sealed virtual void CopyTo(Stream destination, int bufferSize);
+}
+internal abstract class System.Net.Http.HttpContentStream : Stream {
+    protected HttpConnection _connection;
+    public bool CanSeek { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public HttpContentStream(HttpConnection connection);
+    protected virtual void Dispose(bool disposing);
+    public sealed virtual bool get_CanSeek();
+    public sealed virtual IAsyncResult BeginRead(Byte[] buffer, int offset, int count, AsyncCallback callback, object state);
+    public sealed virtual int EndRead(IAsyncResult asyncResult);
+    public sealed virtual IAsyncResult BeginWrite(Byte[] buffer, int offset, int count, AsyncCallback callback, object state);
+    public sealed virtual void EndWrite(IAsyncResult asyncResult);
+    public sealed virtual long Seek(long offset, SeekOrigin origin);
+    public sealed virtual void SetLength(long value);
+    public sealed virtual long get_Length();
+    public sealed virtual long get_Position();
+    public sealed virtual void set_Position(long value);
+    protected static void ValidateBufferArgs(Byte[] buffer, int offset, int count);
+    protected static void ValidateCopyToArgs(Stream source, Stream destination, int bufferSize);
+}
+internal class System.Net.Http.HttpEnvironmentProxy : object {
+    private static string EnvAllProxyUC;
+    private static string EnvAllProxyLC;
+    private static string EnvHttpProxyLC;
+    private static string EnvHttpsProxyLC;
+    private static string EnvHttpsProxyUC;
+    private static string EnvNoProxyLC;
+    private Uri _httpProxyUri;
+    private Uri _httpsProxyUri;
+    private String[] _bypass;
+    private ICredentials _credentials;
+    public ICredentials Credentials { get; public set; }
+    private HttpEnvironmentProxy(Uri httpProxy, Uri httpsProxy, string bypassList);
+    public static bool TryCreate(IWebProxy& proxy);
+    private static Uri GetUriFromString(string value);
+    private bool IsMatchInBypassList(Uri input);
+    public sealed virtual Uri GetProxy(Uri uri);
+    public sealed virtual bool IsBypassed(Uri uri);
+    public sealed virtual ICredentials get_Credentials();
+    public sealed virtual void set_Credentials(ICredentials value);
+}
+internal class System.Net.Http.HttpEnvironmentProxyCredentials : object {
+    private NetworkCredential _httpCred;
+    private NetworkCredential _httpsCred;
+    private Uri _httpProxy;
+    private Uri _httpsProxy;
+    public HttpEnvironmentProxyCredentials(Uri httpProxy, NetworkCredential httpCred, Uri httpsProxy, NetworkCredential httpsCred);
+    public sealed virtual NetworkCredential GetCredential(Uri uri, string authType);
+    public static HttpEnvironmentProxyCredentials TryCreate(Uri httpProxy, Uri httpsProxy);
+    private static NetworkCredential GetCredentialsFromString(string value);
+}
+internal static class System.Net.Http.HttpHandlerDefaults : object {
+    public static int DefaultMaxAutomaticRedirections;
+    public static int DefaultMaxConnectionsPerServer;
+    public static int DefaultMaxResponseDrainSize;
+    public static TimeSpan DefaultResponseDrainTimeout;
+    public static int DefaultMaxResponseHeadersLength;
+    public static DecompressionMethods DefaultAutomaticDecompression;
+    public static bool DefaultAutomaticRedirection;
+    public static bool DefaultUseCookies;
+    public static bool DefaultPreAuthenticate;
+    public static ClientCertificateOption DefaultClientCertificateOption;
+    public static bool DefaultUseProxy;
+    public static bool DefaultUseDefaultCredentials;
+    public static bool DefaultCheckCertificateRevocationList;
+    public static TimeSpan DefaultPooledConnectionLifetime;
+    public static TimeSpan DefaultPooledConnectionIdleTimeout;
+    public static TimeSpan DefaultExpect100ContinueTimeout;
+    public static TimeSpan DefaultConnectTimeout;
+    private static HttpHandlerDefaults();
+}
+public abstract class System.Net.Http.HttpMessageHandler : object {
+    protected internal abstract virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    protected virtual void Dispose(bool disposing);
+    public sealed virtual void Dispose();
+}
+public class System.Net.Http.HttpMessageInvoker : object {
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _disposed;
+    private bool _disposeHandler;
+    private HttpMessageHandler _handler;
+    public HttpMessageInvoker(HttpMessageHandler handler);
+    public HttpMessageInvoker(HttpMessageHandler handler, bool disposeHandler);
+    public virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    private void CheckDisposed();
+}
+public class System.Net.Http.HttpMethod : object {
+    private string _method;
+    private int _hashcode;
+    private static HttpMethod s_getMethod;
+    private static HttpMethod s_putMethod;
+    private static HttpMethod s_postMethod;
+    private static HttpMethod s_deleteMethod;
+    private static HttpMethod s_headMethod;
+    private static HttpMethod s_optionsMethod;
+    private static HttpMethod s_traceMethod;
+    private static HttpMethod s_patchMethod;
+    private static HttpMethod s_connectMethod;
+    private static Dictionary`2<HttpMethod, HttpMethod> s_knownMethods;
+    public static HttpMethod Get { get; }
+    public static HttpMethod Put { get; }
+    public static HttpMethod Post { get; }
+    public static HttpMethod Delete { get; }
+    public static HttpMethod Head { get; }
+    public static HttpMethod Options { get; }
+    public static HttpMethod Trace { get; }
+    public static HttpMethod Patch { get; }
+    internal static HttpMethod Connect { get; }
+    public string Method { get; }
+    public HttpMethod(string method);
+    private static HttpMethod();
+    public static HttpMethod get_Get();
+    public static HttpMethod get_Put();
+    public static HttpMethod get_Post();
+    public static HttpMethod get_Delete();
+    public static HttpMethod get_Head();
+    public static HttpMethod get_Options();
+    public static HttpMethod get_Trace();
+    public static HttpMethod get_Patch();
+    internal static HttpMethod get_Connect();
+    public string get_Method();
+    public sealed virtual bool Equals(HttpMethod other);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public virtual string ToString();
+    public static bool op_Equality(HttpMethod left, HttpMethod right);
+    public static bool op_Inequality(HttpMethod left, HttpMethod right);
+    internal static HttpMethod Normalize(HttpMethod method);
+}
+internal enum System.Net.Http.HttpParseResult : Enum {
+    public int value__;
+    public static HttpParseResult Parsed;
+    public static HttpParseResult NotParsed;
+    public static HttpParseResult InvalidFormat;
+}
+public class System.Net.Http.HttpRequestException : Exception {
+    public HttpRequestException(string message);
+    public HttpRequestException(string message, Exception inner);
+}
+public class System.Net.Http.HttpRequestMessage : object {
+    private static int MessageNotYetSent;
+    private static int MessageAlreadySent;
+    private int _sendStatus;
+    private HttpMethod _method;
+    private Uri _requestUri;
+    private HttpRequestHeaders _headers;
+    private Version _version;
+    private HttpContent _content;
+    private bool _disposed;
+    private IDictionary`2<string, object> _properties;
+    public Version Version { get; public set; }
+    public HttpContent Content { get; public set; }
+    public HttpMethod Method { get; public set; }
+    public Uri RequestUri { get; public set; }
+    public HttpRequestHeaders Headers { get; }
+    internal bool HasHeaders { get; }
+    public IDictionary`2<string, object> Properties { get; }
+    public HttpRequestMessage(HttpMethod method, Uri requestUri);
+    public HttpRequestMessage(HttpMethod method, string requestUri);
+    public Version get_Version();
+    public void set_Version(Version value);
+    public HttpContent get_Content();
+    public void set_Content(HttpContent value);
+    public HttpMethod get_Method();
+    public void set_Method(HttpMethod value);
+    public Uri get_RequestUri();
+    public void set_RequestUri(Uri value);
+    public HttpRequestHeaders get_Headers();
+    internal bool get_HasHeaders();
+    public IDictionary`2<string, object> get_Properties();
+    public virtual string ToString();
+    private void InitializeValues(HttpMethod method, Uri requestUri);
+    internal bool MarkAsSent();
+    protected virtual void Dispose(bool disposing);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    private static bool IsAllowedAbsoluteUri(Uri uri);
+}
+public class System.Net.Http.HttpResponseMessage : object {
+    private static HttpStatusCode defaultStatusCode;
+    private HttpStatusCode _statusCode;
+    private HttpResponseHeaders _headers;
+    private HttpResponseHeaders _trailingHeaders;
+    private string _reasonPhrase;
+    private HttpRequestMessage _requestMessage;
+    private Version _version;
+    private HttpContent _content;
+    private bool _disposed;
+    public Version Version { get; public set; }
+    public HttpContent Content { get; public set; }
+    public HttpStatusCode StatusCode { get; public set; }
+    public string ReasonPhrase { get; public set; }
+    public HttpResponseHeaders Headers { get; }
+    public HttpRequestMessage RequestMessage { get; public set; }
+    public bool IsSuccessStatusCode { get; }
+    public HttpResponseHeaders TrailingHeaders { get; }
+    public HttpResponseMessage(HttpStatusCode statusCode);
+    public Version get_Version();
+    public void set_Version(Version value);
+    internal void SetVersionWithoutValidation(Version value);
+    public HttpContent get_Content();
+    public void set_Content(HttpContent value);
+    public HttpStatusCode get_StatusCode();
+    public void set_StatusCode(HttpStatusCode value);
+    internal void SetStatusCodeWithoutValidation(HttpStatusCode value);
+    public string get_ReasonPhrase();
+    public void set_ReasonPhrase(string value);
+    internal void SetReasonPhraseWithoutValidation(string value);
+    public HttpResponseHeaders get_Headers();
+    public HttpRequestMessage get_RequestMessage();
+    public void set_RequestMessage(HttpRequestMessage value);
+    public bool get_IsSuccessStatusCode();
+    public HttpResponseMessage EnsureSuccessStatusCode();
+    public virtual string ToString();
+    private bool ContainsNewLineCharacter(string value);
+    public HttpResponseHeaders get_TrailingHeaders();
+    protected virtual void Dispose(bool disposing);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+}
+internal static class System.Net.Http.HttpRuleParser : object {
+    private static Boolean[] s_tokenChars;
+    private static int maxNestedCount;
+    private static String[] s_dateFormats;
+    internal static char CR;
+    internal static char LF;
+    internal static int MaxInt64Digits;
+    internal static int MaxInt32Digits;
+    internal static Encoding DefaultHttpEncoding;
+    private static HttpRuleParser();
+    private static Boolean[] CreateTokenChars();
+    internal static bool IsTokenChar(char character);
+    internal static int GetTokenLength(string input, int startIndex);
+    internal static bool IsToken(string input);
+    internal static bool IsToken(ReadOnlySpan`1<byte> input);
+    internal static string GetTokenString(ReadOnlySpan`1<byte> input);
+    internal static int GetWhitespaceLength(string input, int startIndex);
+    internal static bool ContainsInvalidNewLine(string value);
+    internal static bool ContainsInvalidNewLine(string value, int startIndex);
+    internal static int GetNumberLength(string input, int startIndex, bool allowDecimal);
+    internal static int GetHostLength(string input, int startIndex, bool allowToken, String& host);
+    internal static HttpParseResult GetCommentLength(string input, int startIndex, Int32& length);
+    internal static HttpParseResult GetQuotedStringLength(string input, int startIndex, Int32& length);
+    internal static HttpParseResult GetQuotedPairLength(string input, int startIndex, Int32& length);
+    internal static string DateToString(DateTimeOffset dateTime);
+    internal static bool TryStringToDate(string input, DateTimeOffset& result);
+    private static HttpParseResult GetExpressionLength(string input, int startIndex, char openChar, char closeChar, bool supportsNesting, Int32& nestedCount, Int32& length);
+    private static bool IsValidHostName(string host);
+}
+[ExtensionAttribute]
+internal static class System.Net.Http.HttpUtilities : object {
+    internal static Version DefaultRequestVersion { get; }
+    internal static Version DefaultResponseVersion { get; }
+    internal static Version get_DefaultRequestVersion();
+    internal static Version get_DefaultResponseVersion();
+    internal static bool IsHttpUri(Uri uri);
+    internal static bool IsSupportedScheme(string scheme);
+    internal static bool IsSupportedNonSecureScheme(string scheme);
+    internal static bool IsSupportedSecureScheme(string scheme);
+    internal static bool IsNonSecureWebSocketScheme(string scheme);
+    internal static bool IsSecureWebSocketScheme(string scheme);
+    [ExtensionAttribute]
+internal static Task ContinueWithStandard(Task`1<T> task, object state, Action`2<Task`1<T>, object> continuation);
+}
+internal interface System.Net.Http.IMonoHttpClientHandler {
+    public bool SupportsAutomaticDecompression { get; }
+    public bool UseCookies { get; public set; }
+    public CookieContainer CookieContainer { get; public set; }
+    public SslClientAuthenticationOptions SslOptions { get; public set; }
+    public DecompressionMethods AutomaticDecompression { get; public set; }
+    public bool UseProxy { get; public set; }
+    public IWebProxy Proxy { get; public set; }
+    public ICredentials DefaultProxyCredentials { get; public set; }
+    public bool PreAuthenticate { get; public set; }
+    public ICredentials Credentials { get; public set; }
+    public bool AllowAutoRedirect { get; public set; }
+    public int MaxAutomaticRedirections { get; public set; }
+    public int MaxConnectionsPerServer { get; public set; }
+    public int MaxResponseHeadersLength { get; public set; }
+    public long MaxRequestContentBufferSize { get; public set; }
+    public IDictionary`2<string, object> Properties { get; }
+    public abstract virtual bool get_SupportsAutomaticDecompression();
+    public abstract virtual bool get_UseCookies();
+    public abstract virtual void set_UseCookies(bool value);
+    public abstract virtual CookieContainer get_CookieContainer();
+    public abstract virtual void set_CookieContainer(CookieContainer value);
+    public abstract virtual SslClientAuthenticationOptions get_SslOptions();
+    public abstract virtual void set_SslOptions(SslClientAuthenticationOptions value);
+    public abstract virtual DecompressionMethods get_AutomaticDecompression();
+    public abstract virtual void set_AutomaticDecompression(DecompressionMethods value);
+    public abstract virtual bool get_UseProxy();
+    public abstract virtual void set_UseProxy(bool value);
+    public abstract virtual IWebProxy get_Proxy();
+    public abstract virtual void set_Proxy(IWebProxy value);
+    public abstract virtual ICredentials get_DefaultProxyCredentials();
+    public abstract virtual void set_DefaultProxyCredentials(ICredentials value);
+    public abstract virtual bool get_PreAuthenticate();
+    public abstract virtual void set_PreAuthenticate(bool value);
+    public abstract virtual ICredentials get_Credentials();
+    public abstract virtual void set_Credentials(ICredentials value);
+    public abstract virtual bool get_AllowAutoRedirect();
+    public abstract virtual void set_AllowAutoRedirect(bool value);
+    public abstract virtual int get_MaxAutomaticRedirections();
+    public abstract virtual void set_MaxAutomaticRedirections(int value);
+    public abstract virtual int get_MaxConnectionsPerServer();
+    public abstract virtual void set_MaxConnectionsPerServer(int value);
+    public abstract virtual int get_MaxResponseHeadersLength();
+    public abstract virtual void set_MaxResponseHeadersLength(int value);
+    public abstract virtual long get_MaxRequestContentBufferSize();
+    public abstract virtual void set_MaxRequestContentBufferSize(long value);
+    public abstract virtual IDictionary`2<string, object> get_Properties();
+    public abstract virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    public abstract virtual void SetWebRequestTimeout(TimeSpan timeout);
+}
+public abstract class System.Net.Http.MessageProcessingHandler : DelegatingHandler {
+    protected MessageProcessingHandler(HttpMessageHandler innerHandler);
+    protected abstract virtual HttpRequestMessage ProcessRequest(HttpRequestMessage request, CancellationToken cancellationToken);
+    protected abstract virtual HttpResponseMessage ProcessResponse(HttpResponseMessage response, CancellationToken cancellationToken);
+    protected internal sealed virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    private static void HandleCanceledOperations(CancellationToken cancellationToken, TaskCompletionSource`1<HttpResponseMessage> tcs, OperationCanceledException e);
+}
+internal class System.Net.Http.MonoWebRequestHandler : object {
+    private static long groupCounter;
+    private bool allowAutoRedirect;
+    private DecompressionMethods automaticDecompression;
+    private CookieContainer cookieContainer;
+    private ICredentials credentials;
+    private int maxAutomaticRedirections;
+    private long maxRequestContentBufferSize;
+    private bool preAuthenticate;
+    private IWebProxy proxy;
+    private bool useCookies;
+    private bool useProxy;
+    private SslClientAuthenticationOptions sslOptions;
+    private bool allowPipelining;
+    private RequestCachePolicy cachePolicy;
+    private AuthenticationLevel authenticationLevel;
+    private TimeSpan continueTimeout;
+    private TokenImpersonationLevel impersonationLevel;
+    private int maxResponseHeadersLength;
+    private int readWriteTimeout;
+    private RemoteCertificateValidationCallback serverCertificateValidationCallback;
+    private bool unsafeAuthenticatedConnectionSharing;
+    private bool sentRequest;
+    private string connectionGroupName;
+    private Nullable`1<TimeSpan> timeout;
+    private bool disposed;
+    public bool AllowAutoRedirect { get; public set; }
+    public DecompressionMethods AutomaticDecompression { get; public set; }
+    public CookieContainer CookieContainer { get; public set; }
+    public ICredentials Credentials { get; public set; }
+    public int MaxAutomaticRedirections { get; public set; }
+    public long MaxRequestContentBufferSize { get; public set; }
+    public bool PreAuthenticate { get; public set; }
+    public IWebProxy Proxy { get; public set; }
+    public bool SupportsAutomaticDecompression { get; }
+    public bool SupportsProxy { get; }
+    public bool SupportsRedirectConfiguration { get; }
+    public bool UseCookies { get; public set; }
+    public bool UseProxy { get; public set; }
+    public bool AllowPipelining { get; public set; }
+    public RequestCachePolicy CachePolicy { get; public set; }
+    public AuthenticationLevel AuthenticationLevel { get; public set; }
+    [MonoTODOAttribute]
+public TimeSpan ContinueTimeout { get; public set; }
+    public TokenImpersonationLevel ImpersonationLevel { get; public set; }
+    public int MaxResponseHeadersLength { get; public set; }
+    public int ReadWriteTimeout { get; public set; }
+    public RemoteCertificateValidationCallback ServerCertificateValidationCallback { get; public set; }
+    public bool UnsafeAuthenticatedConnectionSharing { get; public set; }
+    public SslClientAuthenticationOptions SslOptions { get; public set; }
+    public ICredentials DefaultProxyCredentials { get; public set; }
+    public int MaxConnectionsPerServer { get; public set; }
+    public IDictionary`2<string, object> Properties { get; }
+    internal void EnsureModifiability();
+    public sealed virtual bool get_AllowAutoRedirect();
+    public sealed virtual void set_AllowAutoRedirect(bool value);
+    public sealed virtual DecompressionMethods get_AutomaticDecompression();
+    public sealed virtual void set_AutomaticDecompression(DecompressionMethods value);
+    public sealed virtual CookieContainer get_CookieContainer();
+    public sealed virtual void set_CookieContainer(CookieContainer value);
+    public sealed virtual ICredentials get_Credentials();
+    public sealed virtual void set_Credentials(ICredentials value);
+    public sealed virtual int get_MaxAutomaticRedirections();
+    public sealed virtual void set_MaxAutomaticRedirections(int value);
+    public sealed virtual long get_MaxRequestContentBufferSize();
+    public sealed virtual void set_MaxRequestContentBufferSize(long value);
+    public sealed virtual bool get_PreAuthenticate();
+    public sealed virtual void set_PreAuthenticate(bool value);
+    public sealed virtual IWebProxy get_Proxy();
+    public sealed virtual void set_Proxy(IWebProxy value);
+    public virtual bool get_SupportsAutomaticDecompression();
+    public virtual bool get_SupportsProxy();
+    public virtual bool get_SupportsRedirectConfiguration();
+    public sealed virtual bool get_UseCookies();
+    public sealed virtual void set_UseCookies(bool value);
+    public sealed virtual bool get_UseProxy();
+    public sealed virtual void set_UseProxy(bool value);
+    public bool get_AllowPipelining();
+    public void set_AllowPipelining(bool value);
+    public RequestCachePolicy get_CachePolicy();
+    public void set_CachePolicy(RequestCachePolicy value);
+    public AuthenticationLevel get_AuthenticationLevel();
+    public void set_AuthenticationLevel(AuthenticationLevel value);
+    public TimeSpan get_ContinueTimeout();
+    public void set_ContinueTimeout(TimeSpan value);
+    public TokenImpersonationLevel get_ImpersonationLevel();
+    public void set_ImpersonationLevel(TokenImpersonationLevel value);
+    public sealed virtual int get_MaxResponseHeadersLength();
+    public sealed virtual void set_MaxResponseHeadersLength(int value);
+    public int get_ReadWriteTimeout();
+    public void set_ReadWriteTimeout(int value);
+    public RemoteCertificateValidationCallback get_ServerCertificateValidationCallback();
+    public void set_ServerCertificateValidationCallback(RemoteCertificateValidationCallback value);
+    public bool get_UnsafeAuthenticatedConnectionSharing();
+    public void set_UnsafeAuthenticatedConnectionSharing(bool value);
+    public sealed virtual SslClientAuthenticationOptions get_SslOptions();
+    public sealed virtual void set_SslOptions(SslClientAuthenticationOptions value);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    private bool GetConnectionKeepAlive(HttpRequestHeaders headers);
+    internal virtual HttpWebRequest CreateWebRequest(HttpRequestMessage request);
+    private HttpResponseMessage CreateResponseMessage(HttpWebResponse wr, HttpRequestMessage requestMessage, CancellationToken cancellationToken);
+    private static bool MethodHasBody(HttpMethod method);
+    [AsyncStateMachineAttribute("System.Net.Http.MonoWebRequestHandler/<SendAsync>d__99")]
+public sealed virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    public sealed virtual ICredentials get_DefaultProxyCredentials();
+    public sealed virtual void set_DefaultProxyCredentials(ICredentials value);
+    public sealed virtual int get_MaxConnectionsPerServer();
+    public sealed virtual void set_MaxConnectionsPerServer(int value);
+    public sealed virtual IDictionary`2<string, object> get_Properties();
+    private sealed virtual override void System.Net.Http.IMonoHttpClientHandler.SetWebRequestTimeout(TimeSpan timeout);
+    [CompilerGeneratedAttribute]
+private X509Certificate <CreateWebRequest>b__96_0(string t, X509CertificateCollection lc, X509Certificate rc, String[] ai);
+}
+public class System.Net.Http.MultipartContent : HttpContent {
+    private static string CrLf;
+    private static int s_crlfLength;
+    private static int s_dashDashLength;
+    private static int s_colonSpaceLength;
+    private static int s_commaSpaceLength;
+    private List`1<HttpContent> _nestedContent;
+    private string _boundary;
+    public MultipartContent(string subtype);
+    public MultipartContent(string subtype, string boundary);
+    private static MultipartContent();
+    private static void ValidateBoundary(string boundary);
+    private static string GetDefaultBoundary();
+    public virtual void Add(HttpContent content);
+    protected virtual void Dispose(bool disposing);
+    public sealed virtual IEnumerator`1<HttpContent> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    [AsyncStateMachineAttribute("System.Net.Http.MultipartContent/<SerializeToStreamAsync>d__16")]
+protected virtual Task SerializeToStreamAsync(Stream stream, TransportContext context);
+    [AsyncStateMachineAttribute("System.Net.Http.MultipartContent/<CreateContentReadStreamAsync>d__17")]
+protected virtual Task`1<Stream> CreateContentReadStreamAsync();
+    private string SerializeHeadersToString(StringBuilder scratch, int contentIndex, HttpContent content);
+    private static ValueTask EncodeStringToStreamAsync(Stream stream, string input);
+    private static Stream EncodeStringToNewStream(string input);
+    protected internal virtual bool TryComputeLength(Int64& length);
+    private static int GetEncodedLength(string input);
+    [CompilerGeneratedAttribute]
+[DebuggerHiddenAttribute]
+private Task`1<Stream> <>n__0();
+}
+public class System.Net.Http.MultipartFormDataContent : MultipartContent {
+    private static string formData;
+    public MultipartFormDataContent(string boundary);
+    public virtual void Add(HttpContent content);
+    public void Add(HttpContent content, string name);
+    public void Add(HttpContent content, string name, string fileName);
+    private void AddInternal(HttpContent content, string name, string fileName);
+}
+internal static class System.Net.Http.PlatformHelper : object {
+    internal static bool IsContentHeader(string name);
+    internal static string GetSingleHeaderString(string name, IEnumerable`1<string> values);
+    internal static StreamContent CreateStreamContent(Stream stream, CancellationToken cancellationToken);
+}
+public class System.Net.Http.ReadOnlyMemoryContent : HttpContent {
+    private ReadOnlyMemory`1<byte> _content;
+    public ReadOnlyMemoryContent(ReadOnlyMemory`1<byte> content);
+    protected virtual Task SerializeToStreamAsync(Stream stream, TransportContext context);
+    internal virtual Task SerializeToStreamAsync(Stream stream, TransportContext context, CancellationToken cancellationToken);
+    protected internal virtual bool TryComputeLength(Int64& length);
+    protected virtual Task`1<Stream> CreateContentReadStreamAsync();
+    internal virtual Stream TryCreateContentReadStream();
+}
+internal class System.Net.Http.RedirectHandler : HttpMessageHandler {
+    private HttpMessageHandler _initialInnerHandler;
+    private HttpMessageHandler _redirectInnerHandler;
+    private int _maxAutomaticRedirections;
+    public RedirectHandler(int maxAutomaticRedirections, HttpMessageHandler initialInnerHandler, HttpMessageHandler redirectInnerHandler);
+    [AsyncStateMachineAttribute("System.Net.Http.RedirectHandler/<SendAsync>d__4")]
+protected internal virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    private Uri GetUriForRedirect(Uri requestUri, HttpResponseMessage response);
+    private static bool RequestRequiresForceGet(HttpStatusCode statusCode, HttpMethod requestMethod);
+    protected virtual void Dispose(bool disposing);
+}
+public class System.Net.Http.SocketsHttpHandler : HttpMessageHandler {
+    private HttpConnectionSettings _settings;
+    private HttpMessageHandler _handler;
+    private bool _disposed;
+    public bool UseCookies { get; public set; }
+    public CookieContainer CookieContainer { get; public set; }
+    public DecompressionMethods AutomaticDecompression { get; public set; }
+    public bool UseProxy { get; public set; }
+    public IWebProxy Proxy { get; public set; }
+    public ICredentials DefaultProxyCredentials { get; public set; }
+    public bool PreAuthenticate { get; public set; }
+    public ICredentials Credentials { get; public set; }
+    public bool AllowAutoRedirect { get; public set; }
+    public int MaxAutomaticRedirections { get; public set; }
+    public int MaxConnectionsPerServer { get; public set; }
+    public int MaxResponseDrainSize { get; public set; }
+    public TimeSpan ResponseDrainTimeout { get; public set; }
+    public int MaxResponseHeadersLength { get; public set; }
+    public SslClientAuthenticationOptions SslOptions { get; public set; }
+    public TimeSpan PooledConnectionLifetime { get; public set; }
+    public TimeSpan PooledConnectionIdleTimeout { get; public set; }
+    public TimeSpan ConnectTimeout { get; public set; }
+    public TimeSpan Expect100ContinueTimeout { get; public set; }
+    public IDictionary`2<string, object> Properties { get; }
+    private bool System.Net.Http.IMonoHttpClientHandler.SupportsAutomaticDecompression { get; }
+    private long System.Net.Http.IMonoHttpClientHandler.MaxRequestContentBufferSize { get; private set; }
+    private void CheckDisposed();
+    private void CheckDisposedOrStarted();
+    public sealed virtual bool get_UseCookies();
+    public sealed virtual void set_UseCookies(bool value);
+    public sealed virtual CookieContainer get_CookieContainer();
+    public sealed virtual void set_CookieContainer(CookieContainer value);
+    public sealed virtual DecompressionMethods get_AutomaticDecompression();
+    public sealed virtual void set_AutomaticDecompression(DecompressionMethods value);
+    public sealed virtual bool get_UseProxy();
+    public sealed virtual void set_UseProxy(bool value);
+    public sealed virtual IWebProxy get_Proxy();
+    public sealed virtual void set_Proxy(IWebProxy value);
+    public sealed virtual ICredentials get_DefaultProxyCredentials();
+    public sealed virtual void set_DefaultProxyCredentials(ICredentials value);
+    public sealed virtual bool get_PreAuthenticate();
+    public sealed virtual void set_PreAuthenticate(bool value);
+    public sealed virtual ICredentials get_Credentials();
+    public sealed virtual void set_Credentials(ICredentials value);
+    public sealed virtual bool get_AllowAutoRedirect();
+    public sealed virtual void set_AllowAutoRedirect(bool value);
+    public sealed virtual int get_MaxAutomaticRedirections();
+    public sealed virtual void set_MaxAutomaticRedirections(int value);
+    public sealed virtual int get_MaxConnectionsPerServer();
+    public sealed virtual void set_MaxConnectionsPerServer(int value);
+    public int get_MaxResponseDrainSize();
+    public void set_MaxResponseDrainSize(int value);
+    public TimeSpan get_ResponseDrainTimeout();
+    public void set_ResponseDrainTimeout(TimeSpan value);
+    public sealed virtual int get_MaxResponseHeadersLength();
+    public sealed virtual void set_MaxResponseHeadersLength(int value);
+    public sealed virtual SslClientAuthenticationOptions get_SslOptions();
+    public sealed virtual void set_SslOptions(SslClientAuthenticationOptions value);
+    public TimeSpan get_PooledConnectionLifetime();
+    public void set_PooledConnectionLifetime(TimeSpan value);
+    public TimeSpan get_PooledConnectionIdleTimeout();
+    public void set_PooledConnectionIdleTimeout(TimeSpan value);
+    public TimeSpan get_ConnectTimeout();
+    public void set_ConnectTimeout(TimeSpan value);
+    public TimeSpan get_Expect100ContinueTimeout();
+    public void set_Expect100ContinueTimeout(TimeSpan value);
+    public sealed virtual IDictionary`2<string, object> get_Properties();
+    protected virtual void Dispose(bool disposing);
+    private HttpMessageHandler SetupHandlerChain();
+    protected internal virtual Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+    private Exception ValidateAndNormalizeRequest(HttpRequestMessage request);
+    private sealed virtual override bool System.Net.Http.IMonoHttpClientHandler.get_SupportsAutomaticDecompression();
+    private sealed virtual override long System.Net.Http.IMonoHttpClientHandler.get_MaxRequestContentBufferSize();
+    private sealed virtual override void System.Net.Http.IMonoHttpClientHandler.set_MaxRequestContentBufferSize(long value);
+    private sealed virtual override void System.Net.Http.IMonoHttpClientHandler.SetWebRequestTimeout(TimeSpan timeout);
+    private sealed virtual override Task`1<HttpResponseMessage> System.Net.Http.IMonoHttpClientHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken);
+}
+public class System.Net.Http.StreamContent : HttpContent {
+    private Stream _content;
+    private int _bufferSize;
+    private bool _contentConsumed;
+    private long _start;
+    public StreamContent(Stream content);
+    public StreamContent(Stream content, int bufferSize);
+    private void InitializeContent(Stream content, int bufferSize);
+    protected virtual Task SerializeToStreamAsync(Stream stream, TransportContext context);
+    protected internal virtual bool TryComputeLength(Int64& length);
+    protected virtual void Dispose(bool disposing);
+    protected virtual Task`1<Stream> CreateContentReadStreamAsync();
+    internal virtual Stream TryCreateContentReadStream();
+    private void PrepareContent();
+}
+internal static class System.Net.Http.StreamToStreamCopy : object {
+    public static Task CopyAsync(Stream source, Stream destination, int bufferSize, bool disposeSource, CancellationToken cancellationToken);
+    private static Task DisposeSourceWhenCompleteAsync(Task task, Stream source);
+    private static void DisposeSource(Stream source);
+}
+[ExtensionAttribute]
+internal static class System.Net.Http.StringBuilderExtensions : object {
+    private static Char[] SpecialCharacters;
+    private static StringBuilderExtensions();
+    [ExtensionAttribute]
+public static void AppendKeyValue(StringBuilder sb, string key, string value, bool includeQuotes, bool includeComma);
+}
+public class System.Net.Http.StringContent : ByteArrayContent {
+    private static string DefaultMediaType;
+    public StringContent(string content);
+    public StringContent(string content, Encoding encoding);
+    public StringContent(string content, Encoding encoding, string mediaType);
+    private static Byte[] GetContentByteArray(string content, Encoding encoding);
+    internal virtual Stream TryCreateContentReadStream();
+}
+internal static class System.Net.Http.SystemProxyInfo : object {
+    public static IWebProxy ConstructSystemProxy();
+}
+internal class System.Net.NetEventSource : EventSource {
+    public static NetEventSource Log { get; }
+    public static bool IsEnabled { get; }
+    public static NetEventSource get_Log();
+    public static bool get_IsEnabled();
+    public static void Associate(Object[] args);
+    [NonEventAttribute]
+public static void Error(Object[] args);
+    public static void Enter(Object[] args);
+    public static void Exit(Object[] args);
+    public static void Info(Object[] args);
+    [NonEventAttribute]
+public static void UriBaseAddress(object obj, Uri baseAddress);
+    [NonEventAttribute]
+public static void ContentNull(object obj);
+    [NonEventAttribute]
+public static void ClientSendCompleted(HttpClient httpClient, HttpResponseMessage response, HttpRequestMessage request);
+    public void HeadersInvalidValue(string name, string rawValue);
+    public void HandlerMessage(int handlerId, int workerId, int requestId, string memberName, string message);
+}
+internal class Unity.ThrowStub : ObjectDisposedException {
+    public static void ThrowNotSupportedException();
+}

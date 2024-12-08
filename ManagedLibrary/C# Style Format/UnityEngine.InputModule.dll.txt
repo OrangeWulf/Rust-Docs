@@ -1,0 +1,82 @@
+internal class UnityEngineInternal.Input.NativeInputEvent : ValueType {
+    public static int structSize;
+    public NativeInputEventType type;
+    public ushort sizeInBytes;
+    public ushort deviceId;
+    public double time;
+    public int eventId;
+    public NativeInputEvent(NativeInputEventType type, int sizeInBytes, int deviceId, double time);
+}
+internal class UnityEngineInternal.Input.NativeInputEventBuffer : ValueType {
+    public static int structSize;
+    public Void* eventBuffer;
+    public int eventCount;
+    public int sizeInBytes;
+    public int capacityInBytes;
+}
+internal enum UnityEngineInternal.Input.NativeInputEventType : Enum {
+    public int value__;
+    public static NativeInputEventType DeviceRemoved;
+    public static NativeInputEventType DeviceConfigChanged;
+    public static NativeInputEventType Text;
+    public static NativeInputEventType State;
+    public static NativeInputEventType Delta;
+}
+[NativeHeaderAttribute("Modules/Input/Private/InputModuleBindings.h")]
+[NativeHeaderAttribute("Modules/Input/Private/InputInternal.h")]
+internal class UnityEngineInternal.Input.NativeInputSystem : object {
+    public static NativeUpdateCallback onUpdate;
+    public static Action`1<NativeInputUpdateType> onBeforeUpdate;
+    public static Func`2<NativeInputUpdateType, bool> onShouldRunUpdate;
+    private static Action`2<int, string> s_OnDeviceDiscoveredCallback;
+    public static Action`2<int, string> onDeviceDiscovered { get; public set; }
+    unknown static bool hasDeviceDiscoveredCallback {internal set; }
+    [NativePropertyAttribute]
+public static double currentTime { get; }
+    [NativePropertyAttribute]
+public static double currentTimeOffsetToRealtimeSinceStartup { get; }
+    [NativePropertyAttribute("AllowInputDeviceCreationFromEvents")]
+internal static bool allowInputDeviceCreationFromEvents { get; internal set; }
+    private static NativeInputSystem();
+    public static Action`2<int, string> get_onDeviceDiscovered();
+    public static void set_onDeviceDiscovered(Action`2<int, string> value);
+    [RequiredByNativeCodeAttribute]
+internal static void NotifyBeforeUpdate(NativeInputUpdateType updateType);
+    [RequiredByNativeCodeAttribute]
+internal static void NotifyUpdate(NativeInputUpdateType updateType, IntPtr eventBuffer);
+    [RequiredByNativeCodeAttribute]
+internal static void NotifyDeviceDiscovered(int deviceId, string deviceDescriptor);
+    [RequiredByNativeCodeAttribute]
+internal static void ShouldRunUpdate(NativeInputUpdateType updateType, Boolean& retval);
+    internal static void set_hasDeviceDiscoveredCallback(bool value);
+    public static double get_currentTime();
+    public static double get_currentTimeOffsetToRealtimeSinceStartup();
+    [FreeFunctionAttribute("AllocateInputDeviceId")]
+public static int AllocateDeviceId();
+    public static void QueueInputEvent(TInputEvent& inputEvent);
+    [NativeMethodAttribute]
+public static void QueueInputEvent(IntPtr inputEvent);
+    public static long IOCTL(int deviceId, int code, IntPtr data, int sizeInBytes);
+    public static void SetPollingFrequency(float hertz);
+    public static void Update(NativeInputUpdateType updateType);
+    internal static ulong GetBackgroundEventBufferSize();
+    [ObsoleteAttribute("This is not needed any longer.")]
+public static void SetUpdateMask(NativeInputUpdateType mask);
+    internal static bool get_allowInputDeviceCreationFromEvents();
+    internal static void set_allowInputDeviceCreationFromEvents(bool value);
+}
+[FlagsAttribute]
+internal enum UnityEngineInternal.Input.NativeInputUpdateType : Enum {
+    public int value__;
+    public static NativeInputUpdateType Dynamic;
+    public static NativeInputUpdateType Fixed;
+    public static NativeInputUpdateType BeforeRender;
+    public static NativeInputUpdateType Editor;
+    public static NativeInputUpdateType IgnoreFocus;
+}
+internal class UnityEngineInternal.Input.NativeUpdateCallback : MulticastDelegate {
+    public NativeUpdateCallback(object object, IntPtr method);
+    public virtual void Invoke(NativeInputUpdateType updateType, NativeInputEventBuffer* buffer);
+    public virtual IAsyncResult BeginInvoke(NativeInputUpdateType updateType, NativeInputEventBuffer* buffer, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}

@@ -1,0 +1,224 @@
+public class ClanChatEntry : ValueType {
+    public ulong SteamId;
+    public string Name;
+    public string Message;
+    public long Time;
+}
+public class ClanChatScrollback : ValueType {
+    public long ClanId;
+    public List`1<ClanChatEntry> Entries;
+}
+[FlagsAttribute]
+public enum ClanDataSource : Enum {
+    public int value__;
+    public static ClanDataSource Basic;
+    public static ClanDataSource Motd;
+    public static ClanDataSource Logo;
+    public static ClanDataSource Roles;
+    public static ClanDataSource Members;
+    public static ClanDataSource Invites;
+    public static ClanDataSource Score;
+    public static ClanDataSource All;
+}
+public class ClanInvitation : ValueType {
+    public long ClanId;
+    public ulong Recruiter;
+    public long Timestamp;
+}
+public class ClanInvite : ValueType {
+    public ulong SteamId;
+    public ulong Recruiter;
+    public long Timestamp;
+}
+public class ClanLeaderboardEntry : ValueType {
+    public long ClanId;
+    public string Name;
+    public long Score;
+}
+public class ClanLogEntry : ValueType {
+    public long Timestamp;
+    public string EventKey;
+    public string Arg1;
+    public string Arg2;
+    public string Arg3;
+    public string Arg4;
+}
+public class ClanLogs : ValueType {
+    public long ClanId;
+    public List`1<ClanLogEntry> Entries;
+}
+public class ClanMember : ValueType {
+    public ulong SteamId;
+    public int RoleId;
+    public long Joined;
+    public long LastSeen;
+    public string Notes;
+    public long NotesTimestamp;
+}
+public enum ClanResult : Enum {
+    public int value__;
+    public static ClanResult Fail;
+    public static ClanResult Success;
+    public static ClanResult Timeout;
+    public static ClanResult NoClan;
+    public static ClanResult NotFound;
+    public static ClanResult NoPermission;
+    public static ClanResult InvalidText;
+    public static ClanResult InvalidLogo;
+    public static ClanResult InvalidColor;
+    public static ClanResult DuplicateName;
+    public static ClanResult RoleNotEmpty;
+    public static ClanResult CannotSwapLeader;
+    public static ClanResult CannotDeleteLeader;
+    public static ClanResult CannotKickLeader;
+    public static ClanResult CannotDemoteLeader;
+    public static ClanResult AlreadyInAClan;
+    public static ClanResult CantModifyClanHere;
+    public static ClanResult ClanIsFull;
+}
+public class ClanRole : ValueType {
+    public int RoleId;
+    public int Rank;
+    public string Name;
+    public bool CanSetMotd;
+    public bool CanSetLogo;
+    public bool CanInvite;
+    public bool CanKick;
+    public bool CanPromote;
+    public bool CanDemote;
+    public bool CanSetPlayerNotes;
+    public bool CanAccessLogs;
+    public bool CanAccessScoreEvents;
+}
+public class ClanScoreEvent : ValueType {
+    public long Timestamp;
+    public ClanScoreEventType Type;
+    public int Score;
+    public int Multiplier;
+    public Nullable`1<ulong> SteamId;
+    public Nullable`1<ulong> OtherSteamId;
+    public Nullable`1<long> OtherClanId;
+    public string Arg1;
+    public string Arg2;
+}
+public class ClanScoreEvents : ValueType {
+    public long ClanId;
+    public List`1<ClanScoreEvent> ScoreEvents;
+}
+public enum ClanScoreEventType : Enum {
+    public int value__;
+    public static ClanScoreEventType Generic;
+    public static ClanScoreEventType ClanPlayerKilled;
+    public static ClanScoreEventType ClanPlayerDied;
+    public static ClanScoreEventType UnarmedPlayerKilled;
+    public static ClanScoreEventType DestroyedToolCupboard;
+    public static ClanScoreEventType HackedCrate;
+    public static ClanScoreEventType OpenedHackedCrate;
+    public static ClanScoreEventType DestroyedBradley;
+    public static ClanScoreEventType RanExcavator;
+    public static ClanScoreEventType ReachedCargoShip;
+    public static ClanScoreEventType LootedEliteCrate;
+    public static ClanScoreEventType Invalid;
+}
+public static class ClanUtility : object {
+    public static int LeaderRank;
+    public static long Timestamp();
+}
+public static class ClanValidator : object {
+    private static StringBuilder Builder;
+    private static ClanValidator();
+    public static bool ValidateClanName(string name, String& validated);
+    public static bool ValidateRoleName(string name, String& validated);
+    public static bool ValidateMotd(string motd, String& validated);
+    public static bool ValidatePlayerNote(string note, String& validated);
+    public static bool ValidateChatMessage(string message, String& validated);
+    private static string Normalize(string value, int maxLines);
+    private static bool ValidateLength(string value, int min, int max);
+    private static bool ValidateAlphanumericOnly(string value);
+}
+[IsReadOnlyAttribute]
+public class ClanValueResult`1 : ValueType {
+    public ClanResult Result;
+    private T _value;
+    public bool IsSuccess { get; }
+    public T Value { get; }
+    public ClanValueResult`1(ClanResult result);
+    public ClanValueResult`1(T value);
+    public bool get_IsSuccess();
+    public T get_Value();
+    public static ClanValueResult`1<T> op_Implicit(ClanResult result);
+    public static ClanValueResult`1<T> op_Implicit(T value);
+}
+public interface IClan {
+    public long ClanId { get; }
+    public string Name { get; }
+    public long Created { get; }
+    public ulong Creator { get; }
+    public string Motd { get; }
+    public long MotdTimestamp { get; }
+    public ulong MotdAuthor { get; }
+    public Byte[] Logo { get; }
+    public Color32 Color { get; }
+    public long Score { get; }
+    public IReadOnlyList`1<ClanRole> Roles { get; }
+    public IReadOnlyList`1<ClanMember> Members { get; }
+    public int MaxMemberCount { get; }
+    public IReadOnlyList`1<ClanInvite> Invites { get; }
+    public abstract virtual long get_ClanId();
+    public abstract virtual string get_Name();
+    public abstract virtual long get_Created();
+    public abstract virtual ulong get_Creator();
+    public abstract virtual string get_Motd();
+    public abstract virtual long get_MotdTimestamp();
+    public abstract virtual ulong get_MotdAuthor();
+    public abstract virtual Byte[] get_Logo();
+    public abstract virtual Color32 get_Color();
+    public abstract virtual long get_Score();
+    public abstract virtual IReadOnlyList`1<ClanRole> get_Roles();
+    public abstract virtual IReadOnlyList`1<ClanMember> get_Members();
+    public abstract virtual int get_MaxMemberCount();
+    public abstract virtual IReadOnlyList`1<ClanInvite> get_Invites();
+    public abstract virtual ValueTask RefreshIfStale();
+    public abstract virtual ValueTask`1<ClanValueResult`1<ClanLogs>> GetLogs(int limit, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> UpdateLastSeen(ulong steamId);
+    public abstract virtual ValueTask`1<ClanResult> SetMotd(string newMotd, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> SetLogo(Byte[] newLogo, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> SetColor(Color32 newColor, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> Invite(ulong steamId, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> CancelInvite(ulong steamId, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> AcceptInvite(ulong steamId);
+    public abstract virtual ValueTask`1<ClanResult> Kick(ulong steamId, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> SetPlayerRole(ulong steamId, int newRoleId, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> SetPlayerNotes(ulong steamId, string notes, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> CreateRole(ClanRole role, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> UpdateRole(ClanRole role, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> SwapRoleRanks(int roleIdA, int roleIdB, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> DeleteRole(int roleId, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> Disband(ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanValueResult`1<ClanScoreEvents>> GetScoreEvents(int limit, ulong bySteamId);
+    public abstract virtual ValueTask`1<ClanResult> AddScoreEvent(ClanScoreEvent scoreEvent);
+    public abstract virtual ValueTask`1<ClanValueResult`1<ClanChatScrollback>> GetChatScrollback();
+    public abstract virtual ValueTask`1<ClanResult> SendChatMessage(string name, string message, ulong bySteamId);
+}
+public interface IClanBackend {
+    public abstract virtual ValueTask Initialize(IClanChangeSink changeSink);
+    public abstract virtual ValueTask`1<ClanValueResult`1<IClan>> Get(long clanId);
+    public abstract virtual bool TryGet(long clanId, IClan& clan);
+    public abstract virtual ValueTask`1<ClanValueResult`1<IClan>> GetByMember(ulong steamId);
+    public abstract virtual ValueTask`1<ClanValueResult`1<IClan>> Create(ulong leaderSteamId, string name);
+    public abstract virtual ValueTask`1<ClanValueResult`1<List`1<ClanInvitation>>> ListInvitations(ulong steamId);
+    public abstract virtual ValueTask`1<ClanValueResult`1<List`1<ClanLeaderboardEntry>>> GetLeaderboard(int limit);
+}
+public interface IClanChangeSink {
+    public abstract virtual void ClanChanged(long clanId, ClanDataSource dataSources);
+    public abstract virtual void ClanDisbanded(long clanId);
+    public abstract virtual void InvitationCreated(ulong steamId, long clanId);
+    public abstract virtual void MembershipChanged(ulong steamId, Nullable`1<long> clanId);
+    public abstract virtual void ClanChatMessage(long clanId, ClanChatEntry entry);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

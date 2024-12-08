@@ -1,0 +1,3145 @@
+Сборка: Mono.Cecil.Pdb.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.ISymUnmanagedDocumentWriter
+Поля:
+Свойства:
+Методы:
+  void SetSource(UInt32 sourceSize, Byte[] source)
+  void SetCheckSum(Guid algorithmId, UInt32 checkSumSize, Byte[] checkSum)
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.ISymUnmanagedWriter2
+Поля:
+Свойства:
+Методы:
+  void DefineDocument(string url, Guid& langauge, Guid& languageVendor, Guid& documentType, ISymUnmanagedDocumentWriter& pRetVal)
+  void SetUserEntryPoint(int methodToken)
+  void OpenMethod(int methodToken)
+  void CloseMethod()
+  void OpenScope(int startOffset, Int32& pRetVal)
+  void CloseScope(int endOffset)
+  void SetScopeRange_Placeholder()
+  void DefineLocalVariable_Placeholder()
+  void DefineParameter_Placeholder()
+  void DefineField_Placeholder()
+  void DefineGlobalVariable_Placeholder()
+  void Close()
+  void SetSymAttribute(UInt32 parent, string name, UInt32 data, IntPtr signature)
+  void OpenNamespace(string name)
+  void CloseNamespace()
+  void UsingNamespace(string fullName)
+  void SetMethodSourceRange_Placeholder()
+  void Initialize(object emitter, string filename, IStream pIStream, bool fFullBuild)
+  void GetDebugInfo(ImageDebugDirectory& pIDD, int cData, Int32& pcData, Byte[] data)
+  void DefineSequencePoints(ISymUnmanagedDocumentWriter document, int spCount, Int32[] offsets, Int32[] lines, Int32[] columns, Int32[] endLines, Int32[] endColumns)
+  void RemapToken_Placeholder()
+  void Initialize2_Placeholder()
+  void DefineConstant_Placeholder()
+  void Abort_Placeholder()
+  void DefineLocalVariable2(string name, int attributes, int sigToken, int addrKind, int addr1, int addr2, int addr3, int startOffset, int endOffset)
+  void DefineGlobalVariable2_Placeholder()
+  void DefineConstant2(string name, object variant, int sigToken)
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.IMetaDataEmit
+Поля:
+Свойства:
+Методы:
+  void SetModuleProps(string szName)
+  void Save(string szFile, UInt32 dwSaveFlags)
+  void SaveToStream(IntPtr pIStream, UInt32 dwSaveFlags)
+  UInt32 GetSaveSize(UInt32 fSave)
+  UInt32 DefineTypeDef(IntPtr szTypeDef, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements)
+  UInt32 DefineNestedType(IntPtr szTypeDef, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements, UInt32 tdEncloser)
+  void SetHandler(object pUnk)
+  UInt32 DefineMethod(UInt32 td, IntPtr zName, UInt32 dwMethodFlags, IntPtr pvSigBlob, UInt32 cbSigBlob, UInt32 ulCodeRVA, UInt32 dwImplFlags)
+  void DefineMethodImpl(UInt32 td, UInt32 tkBody, UInt32 tkDecl)
+  UInt32 DefineTypeRefByName(UInt32 tkResolutionScope, IntPtr szName)
+  UInt32 DefineImportType(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport pImport, UInt32 tdImport, IntPtr pAssemEmit)
+  UInt32 DefineMemberRef(UInt32 tkImport, string szName, IntPtr pvSigBlob, UInt32 cbSigBlob)
+  UInt32 DefineImportMember(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport pImport, UInt32 mbMember, IntPtr pAssemEmit, UInt32 tkParent)
+  UInt32 DefineEvent(UInt32 td, string szEvent, UInt32 dwEventFlags, UInt32 tkEventType, UInt32 mdAddOn, UInt32 mdRemoveOn, UInt32 mdFire, IntPtr rmdOtherMethods)
+  void SetClassLayout(UInt32 td, UInt32 dwPackSize, IntPtr rFieldOffsets, UInt32 ulClassSize)
+  void DeleteClassLayout(UInt32 td)
+  void SetFieldMarshal(UInt32 tk, IntPtr pvNativeType, UInt32 cbNativeType)
+  void DeleteFieldMarshal(UInt32 tk)
+  UInt32 DefinePermissionSet(UInt32 tk, UInt32 dwAction, IntPtr pvPermission, UInt32 cbPermission)
+  void SetRVA(UInt32 md, UInt32 ulRVA)
+  UInt32 GetTokenFromSig(IntPtr pvSig, UInt32 cbSig)
+  UInt32 DefineModuleRef(string szName)
+  void SetParent(UInt32 mr, UInt32 tk)
+  UInt32 GetTokenFromTypeSpec(IntPtr pvSig, UInt32 cbSig)
+  void SaveToMemory(IntPtr pbData, UInt32 cbData)
+  UInt32 DefineUserString(string szString, UInt32 cchString)
+  void DeleteToken(UInt32 tkObj)
+  void SetMethodProps(UInt32 md, UInt32 dwMethodFlags, UInt32 ulCodeRVA, UInt32 dwImplFlags)
+  void SetTypeDefProps(UInt32 td, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements)
+  void SetEventProps(UInt32 ev, UInt32 dwEventFlags, UInt32 tkEventType, UInt32 mdAddOn, UInt32 mdRemoveOn, UInt32 mdFire, IntPtr rmdOtherMethods)
+  UInt32 SetPermissionSetProps(UInt32 tk, UInt32 dwAction, IntPtr pvPermission, UInt32 cbPermission)
+  void DefinePinvokeMap(UInt32 tk, UInt32 dwMappingFlags, string szImportName, UInt32 mrImportDLL)
+  void SetPinvokeMap(UInt32 tk, UInt32 dwMappingFlags, string szImportName, UInt32 mrImportDLL)
+  void DeletePinvokeMap(UInt32 tk)
+  UInt32 DefineCustomAttribute(UInt32 tkObj, UInt32 tkType, IntPtr pCustomAttribute, UInt32 cbCustomAttribute)
+  void SetCustomAttributeValue(UInt32 pcv, IntPtr pCustomAttribute, UInt32 cbCustomAttribute)
+  UInt32 DefineField(UInt32 td, string szName, UInt32 dwFieldFlags, IntPtr pvSigBlob, UInt32 cbSigBlob, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue)
+  UInt32 DefineProperty(UInt32 td, string szProperty, UInt32 dwPropFlags, IntPtr pvSig, UInt32 cbSig, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue, UInt32 mdSetter, UInt32 mdGetter, IntPtr rmdOtherMethods)
+  UInt32 DefineParam(UInt32 md, UInt32 ulParamSeq, string szName, UInt32 dwParamFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue)
+  void SetFieldProps(UInt32 fd, UInt32 dwFieldFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue)
+  void SetPropertyProps(UInt32 pr, UInt32 dwPropFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue, UInt32 mdSetter, UInt32 mdGetter, IntPtr rmdOtherMethods)
+  void SetParamProps(UInt32 pd, string szName, UInt32 dwParamFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue)
+  UInt32 DefineSecurityAttributeSet(UInt32 tkObj, IntPtr rSecAttrs, UInt32 cSecAttrs)
+  void ApplyEditAndContinue(object pImport)
+  UInt32 TranslateSigWithScope(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport import, IntPtr pbSigBlob, UInt32 cbSigBlob, IntPtr pAssemEmit, IMetaDataEmit emit, IntPtr pvTranslatedSig, UInt32 cbTranslatedSigMax)
+  void SetMethodImplFlags(UInt32 md, UInt32 dwImplFlags)
+  void SetFieldRVA(UInt32 fd, UInt32 ulRVA)
+  void Merge(IMetaDataImport pImport, IntPtr pHostMapToken, object pHandler)
+  void MergeEnd()
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.IMetaDataImport
+Поля:
+Свойства:
+Методы:
+  void CloseEnum(UInt32 hEnum)
+  UInt32 CountEnum(UInt32 hEnum)
+  void ResetEnum(UInt32 hEnum, UInt32 ulPos)
+  UInt32 EnumTypeDefs(UInt32& phEnum, UInt32[] rTypeDefs, UInt32 cMax)
+  UInt32 EnumInterfaceImpls(UInt32& phEnum, UInt32 td, UInt32[] rImpls, UInt32 cMax)
+  UInt32 EnumTypeRefs(UInt32& phEnum, UInt32[] rTypeRefs, UInt32 cMax)
+  UInt32 FindTypeDefByName(string szTypeDef, UInt32 tkEnclosingClass)
+  Guid GetScopeProps(StringBuilder szName, UInt32 cchName, UInt32& pchName)
+  UInt32 GetModuleFromScope()
+  UInt32 GetTypeDefProps(UInt32 td, Char* szTypeDef, UInt32 cchTypeDef, UInt32* pchTypeDef, UInt32* pdwTypeDefFlags, UInt32* ptkExtends)
+  UInt32 GetInterfaceImplProps(UInt32 iiImpl, UInt32& pClass)
+  UInt32 GetTypeRefProps(UInt32 tr, UInt32& ptkResolutionScope, StringBuilder szName, UInt32 cchName)
+  UInt32 ResolveTypeRef(UInt32 tr, Guid& riid, Object& ppIScope)
+  UInt32 EnumMembers(UInt32& phEnum, UInt32 cl, UInt32[] rMembers, UInt32 cMax)
+  UInt32 EnumMembersWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rMembers, UInt32 cMax)
+  UInt32 EnumMethods(UInt32& phEnum, UInt32 cl, IntPtr rMethods, UInt32 cMax)
+  UInt32 EnumMethodsWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rMethods, UInt32 cMax)
+  UInt32 EnumFields(UInt32& phEnum, UInt32 cl, IntPtr rFields, UInt32 cMax)
+  UInt32 EnumFieldsWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rFields, UInt32 cMax)
+  UInt32 EnumParams(UInt32& phEnum, UInt32 mb, UInt32[] rParams, UInt32 cMax)
+  UInt32 EnumMemberRefs(UInt32& phEnum, UInt32 tkParent, UInt32[] rMemberRefs, UInt32 cMax)
+  UInt32 EnumMethodImpls(UInt32& phEnum, UInt32 td, UInt32[] rMethodBody, UInt32[] rMethodDecl, UInt32 cMax)
+  UInt32 EnumPermissionSets(UInt32& phEnum, UInt32 tk, UInt32 dwActions, UInt32[] rPermission, UInt32 cMax)
+  UInt32 FindMember(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob)
+  UInt32 FindMethod(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob)
+  UInt32 FindField(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob)
+  UInt32 FindMemberRef(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob)
+  UInt32 GetMethodProps(UInt32 mb, UInt32* pClass, Char* szMethod, UInt32 cchMethod, UInt32* pchMethod, UInt32* pdwAttr, IntPtr ppvSigBlob, IntPtr pcbSigBlob, UInt32* pulCodeRVA, UInt32* pdwImplFlags)
+  UInt32 GetMemberRefProps(UInt32 mr, UInt32& ptk, StringBuilder szMember, UInt32 cchMember, UInt32& pchMember, IntPtr& ppvSigBlob)
+  UInt32 EnumProperties(UInt32& phEnum, UInt32 td, IntPtr rProperties, UInt32 cMax)
+  UInt32 EnumEvents(UInt32& phEnum, UInt32 td, IntPtr rEvents, UInt32 cMax)
+  UInt32 GetEventProps(UInt32 ev, UInt32& pClass, StringBuilder szEvent, UInt32 cchEvent, UInt32& pchEvent, UInt32& pdwEventFlags, UInt32& ptkEventType, UInt32& pmdAddOn, UInt32& pmdRemoveOn, UInt32& pmdFire, UInt32[] rmdOtherMethod, UInt32 cMax)
+  UInt32 EnumMethodSemantics(UInt32& phEnum, UInt32 mb, UInt32[] rEventProp, UInt32 cMax)
+  UInt32 GetMethodSemantics(UInt32 mb, UInt32 tkEventProp)
+  UInt32 GetClassLayout(UInt32 td, UInt32& pdwPackSize, IntPtr rFieldOffset, UInt32 cMax, UInt32& pcFieldOffset)
+  UInt32 GetFieldMarshal(UInt32 tk, IntPtr& ppvNativeType)
+  UInt32 GetRVA(UInt32 tk, UInt32& pulCodeRVA)
+  UInt32 GetPermissionSetProps(UInt32 pm, UInt32& pdwAction, IntPtr& ppvPermission)
+  UInt32 GetSigFromToken(UInt32 mdSig, IntPtr& ppvSig)
+  UInt32 GetModuleRefProps(UInt32 mur, StringBuilder szName, UInt32 cchName)
+  UInt32 EnumModuleRefs(UInt32& phEnum, UInt32[] rModuleRefs, UInt32 cmax)
+  UInt32 GetTypeSpecFromToken(UInt32 typespec, IntPtr& ppvSig)
+  UInt32 GetNameFromToken(UInt32 tk)
+  UInt32 EnumUnresolvedMethods(UInt32& phEnum, UInt32[] rMethods, UInt32 cMax)
+  UInt32 GetUserString(UInt32 stk, StringBuilder szString, UInt32 cchString)
+  UInt32 GetPinvokeMap(UInt32 tk, UInt32& pdwMappingFlags, StringBuilder szImportName, UInt32 cchImportName, UInt32& pchImportName)
+  UInt32 EnumSignatures(UInt32& phEnum, UInt32[] rSignatures, UInt32 cmax)
+  UInt32 EnumTypeSpecs(UInt32& phEnum, UInt32[] rTypeSpecs, UInt32 cmax)
+  UInt32 EnumUserStrings(UInt32& phEnum, UInt32[] rStrings, UInt32 cmax)
+  int GetParamForMethodIndex(UInt32 md, UInt32 ulParamSeq, UInt32& pParam)
+  UInt32 EnumCustomAttributes(UInt32& phEnum, UInt32 tk, UInt32 tkType, UInt32[] rCustomAttributes, UInt32 cMax)
+  UInt32 GetCustomAttributeProps(UInt32 cv, UInt32& ptkObj, UInt32& ptkType, IntPtr& ppBlob)
+  UInt32 FindTypeRef(UInt32 tkResolutionScope, string szName)
+  UInt32 GetMemberProps(UInt32 mb, UInt32& pClass, StringBuilder szMember, UInt32 cchMember, UInt32& pchMember, UInt32& pdwAttr, IntPtr& ppvSigBlob, UInt32& pcbSigBlob, UInt32& pulCodeRVA, UInt32& pdwImplFlags, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue)
+  UInt32 GetFieldProps(UInt32 mb, UInt32& pClass, StringBuilder szField, UInt32 cchField, UInt32& pchField, UInt32& pdwAttr, IntPtr& ppvSigBlob, UInt32& pcbSigBlob, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue)
+  UInt32 GetPropertyProps(UInt32 prop, UInt32& pClass, StringBuilder szProperty, UInt32 cchProperty, UInt32& pchProperty, UInt32& pdwPropFlags, IntPtr& ppvSig, UInt32& pbSig, UInt32& pdwCPlusTypeFlag, IntPtr& ppDefaultValue, UInt32& pcchDefaultValue, UInt32& pmdSetter, UInt32& pmdGetter, UInt32[] rmdOtherMethod, UInt32 cMax)
+  UInt32 GetParamProps(UInt32 tk, UInt32& pmd, UInt32& pulSequence, StringBuilder szName, UInt32 cchName, UInt32& pchName, UInt32& pdwAttr, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue)
+  UInt32 GetCustomAttributeByName(UInt32 tkObj, string szName, IntPtr& ppData)
+  bool IsValidToken(UInt32 tk)
+  UInt32 GetNestedClassProps(UInt32 tdNestedClass, UInt32* ptdEnclosingClass)
+  UInt32 GetNativeCallConvFromSig(IntPtr pvSig, UInt32 cbSig)
+  int IsGlobal(UInt32 pd)
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.ModuleMetadata
+Наследуется от: object
+Поля:
+  ModuleDefinition module
+  Dictionary`2<UInt32, TypeDefinition> types
+  Dictionary`2<UInt32, MethodDefinition> methods
+  UInt32 S_OK
+  UInt32 E_FAIL
+Свойства:
+Методы:
+  void .ctor(ModuleDefinition module)
+  bool TryGetType(UInt32 token, TypeDefinition& type)
+  bool TryGetMethod(UInt32 token, MethodDefinition& method)
+  void InitializeMetadata(ModuleDefinition module)
+  void InitializeMethods(TypeDefinition type)
+  void SetModuleProps(string szName)
+  void Save(string szFile, UInt32 dwSaveFlags)
+  void SaveToStream(IntPtr pIStream, UInt32 dwSaveFlags)
+  UInt32 GetSaveSize(UInt32 fSave)
+  UInt32 DefineTypeDef(IntPtr szTypeDef, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements)
+  UInt32 DefineNestedType(IntPtr szTypeDef, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements, UInt32 tdEncloser)
+  void SetHandler(object pUnk)
+  UInt32 DefineMethod(UInt32 td, IntPtr zName, UInt32 dwMethodFlags, IntPtr pvSigBlob, UInt32 cbSigBlob, UInt32 ulCodeRVA, UInt32 dwImplFlags)
+  void DefineMethodImpl(UInt32 td, UInt32 tkBody, UInt32 tkDecl)
+  UInt32 DefineTypeRefByName(UInt32 tkResolutionScope, IntPtr szName)
+  UInt32 DefineImportType(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport pImport, UInt32 tdImport, IntPtr pAssemEmit)
+  UInt32 DefineMemberRef(UInt32 tkImport, string szName, IntPtr pvSigBlob, UInt32 cbSigBlob)
+  UInt32 DefineImportMember(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport pImport, UInt32 mbMember, IntPtr pAssemEmit, UInt32 tkParent)
+  UInt32 DefineEvent(UInt32 td, string szEvent, UInt32 dwEventFlags, UInt32 tkEventType, UInt32 mdAddOn, UInt32 mdRemoveOn, UInt32 mdFire, IntPtr rmdOtherMethods)
+  void SetClassLayout(UInt32 td, UInt32 dwPackSize, IntPtr rFieldOffsets, UInt32 ulClassSize)
+  void DeleteClassLayout(UInt32 td)
+  void SetFieldMarshal(UInt32 tk, IntPtr pvNativeType, UInt32 cbNativeType)
+  void DeleteFieldMarshal(UInt32 tk)
+  UInt32 DefinePermissionSet(UInt32 tk, UInt32 dwAction, IntPtr pvPermission, UInt32 cbPermission)
+  void SetRVA(UInt32 md, UInt32 ulRVA)
+  UInt32 GetTokenFromSig(IntPtr pvSig, UInt32 cbSig)
+  UInt32 DefineModuleRef(string szName)
+  void SetParent(UInt32 mr, UInt32 tk)
+  UInt32 GetTokenFromTypeSpec(IntPtr pvSig, UInt32 cbSig)
+  void SaveToMemory(IntPtr pbData, UInt32 cbData)
+  UInt32 DefineUserString(string szString, UInt32 cchString)
+  void DeleteToken(UInt32 tkObj)
+  void SetMethodProps(UInt32 md, UInt32 dwMethodFlags, UInt32 ulCodeRVA, UInt32 dwImplFlags)
+  void SetTypeDefProps(UInt32 td, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements)
+  void SetEventProps(UInt32 ev, UInt32 dwEventFlags, UInt32 tkEventType, UInt32 mdAddOn, UInt32 mdRemoveOn, UInt32 mdFire, IntPtr rmdOtherMethods)
+  UInt32 SetPermissionSetProps(UInt32 tk, UInt32 dwAction, IntPtr pvPermission, UInt32 cbPermission)
+  void DefinePinvokeMap(UInt32 tk, UInt32 dwMappingFlags, string szImportName, UInt32 mrImportDLL)
+  void SetPinvokeMap(UInt32 tk, UInt32 dwMappingFlags, string szImportName, UInt32 mrImportDLL)
+  void DeletePinvokeMap(UInt32 tk)
+  UInt32 DefineCustomAttribute(UInt32 tkObj, UInt32 tkType, IntPtr pCustomAttribute, UInt32 cbCustomAttribute)
+  void SetCustomAttributeValue(UInt32 pcv, IntPtr pCustomAttribute, UInt32 cbCustomAttribute)
+  UInt32 DefineField(UInt32 td, string szName, UInt32 dwFieldFlags, IntPtr pvSigBlob, UInt32 cbSigBlob, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue)
+  UInt32 DefineProperty(UInt32 td, string szProperty, UInt32 dwPropFlags, IntPtr pvSig, UInt32 cbSig, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue, UInt32 mdSetter, UInt32 mdGetter, IntPtr rmdOtherMethods)
+  UInt32 DefineParam(UInt32 md, UInt32 ulParamSeq, string szName, UInt32 dwParamFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue)
+  void SetFieldProps(UInt32 fd, UInt32 dwFieldFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue)
+  void SetPropertyProps(UInt32 pr, UInt32 dwPropFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue, UInt32 mdSetter, UInt32 mdGetter, IntPtr rmdOtherMethods)
+  void SetParamProps(UInt32 pd, string szName, UInt32 dwParamFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue)
+  UInt32 DefineSecurityAttributeSet(UInt32 tkObj, IntPtr rSecAttrs, UInt32 cSecAttrs)
+  void ApplyEditAndContinue(object pImport)
+  UInt32 TranslateSigWithScope(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport import, IntPtr pbSigBlob, UInt32 cbSigBlob, IntPtr pAssemEmit, IMetaDataEmit emit, IntPtr pvTranslatedSig, UInt32 cbTranslatedSigMax)
+  void SetMethodImplFlags(UInt32 md, UInt32 dwImplFlags)
+  void SetFieldRVA(UInt32 fd, UInt32 ulRVA)
+  void Merge(IMetaDataImport pImport, IntPtr pHostMapToken, object pHandler)
+  void MergeEnd()
+  void CloseEnum(UInt32 hEnum)
+  UInt32 CountEnum(UInt32 hEnum)
+  void ResetEnum(UInt32 hEnum, UInt32 ulPos)
+  UInt32 EnumTypeDefs(UInt32& phEnum, UInt32[] rTypeDefs, UInt32 cMax)
+  UInt32 EnumInterfaceImpls(UInt32& phEnum, UInt32 td, UInt32[] rImpls, UInt32 cMax)
+  UInt32 EnumTypeRefs(UInt32& phEnum, UInt32[] rTypeRefs, UInt32 cMax)
+  UInt32 FindTypeDefByName(string szTypeDef, UInt32 tkEnclosingClass)
+  Guid GetScopeProps(StringBuilder szName, UInt32 cchName, UInt32& pchName)
+  UInt32 GetModuleFromScope()
+  UInt32 GetTypeDefProps(UInt32 td, Char* szTypeDef, UInt32 cchTypeDef, UInt32* pchTypeDef, UInt32* pdwTypeDefFlags, UInt32* ptkExtends)
+  UInt32 GetInterfaceImplProps(UInt32 iiImpl, UInt32& pClass)
+  UInt32 GetTypeRefProps(UInt32 tr, UInt32& ptkResolutionScope, StringBuilder szName, UInt32 cchName)
+  UInt32 ResolveTypeRef(UInt32 tr, Guid& riid, Object& ppIScope)
+  UInt32 EnumMembers(UInt32& phEnum, UInt32 cl, UInt32[] rMembers, UInt32 cMax)
+  UInt32 EnumMembersWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rMembers, UInt32 cMax)
+  UInt32 EnumMethods(UInt32& phEnum, UInt32 cl, IntPtr rMethods, UInt32 cMax)
+  UInt32 EnumMethodsWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rMethods, UInt32 cMax)
+  UInt32 EnumFields(UInt32& phEnum, UInt32 cl, IntPtr rFields, UInt32 cMax)
+  UInt32 EnumFieldsWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rFields, UInt32 cMax)
+  UInt32 EnumParams(UInt32& phEnum, UInt32 mb, UInt32[] rParams, UInt32 cMax)
+  UInt32 EnumMemberRefs(UInt32& phEnum, UInt32 tkParent, UInt32[] rMemberRefs, UInt32 cMax)
+  UInt32 EnumMethodImpls(UInt32& phEnum, UInt32 td, UInt32[] rMethodBody, UInt32[] rMethodDecl, UInt32 cMax)
+  UInt32 EnumPermissionSets(UInt32& phEnum, UInt32 tk, UInt32 dwActions, UInt32[] rPermission, UInt32 cMax)
+  UInt32 FindMember(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob)
+  UInt32 FindMethod(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob)
+  UInt32 FindField(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob)
+  UInt32 FindMemberRef(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob)
+  UInt32 GetMethodProps(UInt32 mb, UInt32* pClass, Char* szMethod, UInt32 cchMethod, UInt32* pchMethod, UInt32* pdwAttr, IntPtr ppvSigBlob, IntPtr pcbSigBlob, UInt32* pulCodeRVA, UInt32* pdwImplFlags)
+  void WriteNameBuffer(string name, Char* buffer, UInt32 bufferLength, UInt32* actualLength)
+  UInt32 GetMemberRefProps(UInt32 mr, UInt32& ptk, StringBuilder szMember, UInt32 cchMember, UInt32& pchMember, IntPtr& ppvSigBlob)
+  UInt32 EnumProperties(UInt32& phEnum, UInt32 td, IntPtr rProperties, UInt32 cMax)
+  UInt32 EnumEvents(UInt32& phEnum, UInt32 td, IntPtr rEvents, UInt32 cMax)
+  UInt32 GetEventProps(UInt32 ev, UInt32& pClass, StringBuilder szEvent, UInt32 cchEvent, UInt32& pchEvent, UInt32& pdwEventFlags, UInt32& ptkEventType, UInt32& pmdAddOn, UInt32& pmdRemoveOn, UInt32& pmdFire, UInt32[] rmdOtherMethod, UInt32 cMax)
+  UInt32 EnumMethodSemantics(UInt32& phEnum, UInt32 mb, UInt32[] rEventProp, UInt32 cMax)
+  UInt32 GetMethodSemantics(UInt32 mb, UInt32 tkEventProp)
+  UInt32 GetClassLayout(UInt32 td, UInt32& pdwPackSize, IntPtr rFieldOffset, UInt32 cMax, UInt32& pcFieldOffset)
+  UInt32 GetFieldMarshal(UInt32 tk, IntPtr& ppvNativeType)
+  UInt32 GetRVA(UInt32 tk, UInt32& pulCodeRVA)
+  UInt32 GetPermissionSetProps(UInt32 pm, UInt32& pdwAction, IntPtr& ppvPermission)
+  UInt32 GetSigFromToken(UInt32 mdSig, IntPtr& ppvSig)
+  UInt32 GetModuleRefProps(UInt32 mur, StringBuilder szName, UInt32 cchName)
+  UInt32 EnumModuleRefs(UInt32& phEnum, UInt32[] rModuleRefs, UInt32 cmax)
+  UInt32 GetTypeSpecFromToken(UInt32 typespec, IntPtr& ppvSig)
+  UInt32 GetNameFromToken(UInt32 tk)
+  UInt32 EnumUnresolvedMethods(UInt32& phEnum, UInt32[] rMethods, UInt32 cMax)
+  UInt32 GetUserString(UInt32 stk, StringBuilder szString, UInt32 cchString)
+  UInt32 GetPinvokeMap(UInt32 tk, UInt32& pdwMappingFlags, StringBuilder szImportName, UInt32 cchImportName, UInt32& pchImportName)
+  UInt32 EnumSignatures(UInt32& phEnum, UInt32[] rSignatures, UInt32 cmax)
+  UInt32 EnumTypeSpecs(UInt32& phEnum, UInt32[] rTypeSpecs, UInt32 cmax)
+  UInt32 EnumUserStrings(UInt32& phEnum, UInt32[] rStrings, UInt32 cmax)
+  int GetParamForMethodIndex(UInt32 md, UInt32 ulParamSeq, UInt32& pParam)
+  UInt32 EnumCustomAttributes(UInt32& phEnum, UInt32 tk, UInt32 tkType, UInt32[] rCustomAttributes, UInt32 cMax)
+  UInt32 GetCustomAttributeProps(UInt32 cv, UInt32& ptkObj, UInt32& ptkType, IntPtr& ppBlob)
+  UInt32 FindTypeRef(UInt32 tkResolutionScope, string szName)
+  UInt32 GetMemberProps(UInt32 mb, UInt32& pClass, StringBuilder szMember, UInt32 cchMember, UInt32& pchMember, UInt32& pdwAttr, IntPtr& ppvSigBlob, UInt32& pcbSigBlob, UInt32& pulCodeRVA, UInt32& pdwImplFlags, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue)
+  UInt32 GetFieldProps(UInt32 mb, UInt32& pClass, StringBuilder szField, UInt32 cchField, UInt32& pchField, UInt32& pdwAttr, IntPtr& ppvSigBlob, UInt32& pcbSigBlob, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue)
+  UInt32 GetPropertyProps(UInt32 prop, UInt32& pClass, StringBuilder szProperty, UInt32 cchProperty, UInt32& pchProperty, UInt32& pdwPropFlags, IntPtr& ppvSig, UInt32& pbSig, UInt32& pdwCPlusTypeFlag, IntPtr& ppDefaultValue, UInt32& pcchDefaultValue, UInt32& pmdSetter, UInt32& pmdGetter, UInt32[] rmdOtherMethod, UInt32 cMax)
+  UInt32 GetParamProps(UInt32 tk, UInt32& pmd, UInt32& pulSequence, StringBuilder szName, UInt32 cchName, UInt32& pchName, UInt32& pdwAttr, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue)
+  UInt32 GetCustomAttributeByName(UInt32 tkObj, string szName, IntPtr& ppData)
+  bool IsValidToken(UInt32 tk)
+  UInt32 GetNestedClassProps(UInt32 tdNestedClass, UInt32* ptdEnclosingClass)
+  UInt32 GetNativeCallConvFromSig(IntPtr pvSig, UInt32 cbSig)
+  int IsGlobal(UInt32 pd)
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.NativePdbReader
+Наследуется от: object
+Поля:
+  Disposable`1<Stream> pdb_file
+  Dictionary`2<string, Document> documents
+  Dictionary`2<UInt32, PdbFunction> functions
+  Dictionary`2<PdbScope, ImportDebugInformation> imports
+Свойства:
+Методы:
+  void .ctor(Disposable`1<Stream> file)
+  ISymbolWriterProvider GetWriterProvider()
+  bool ProcessDebugHeader(ImageDebugHeader header)
+  bool IsMatchingEntry(PdbInfo info, ImageDebugHeaderEntry entry)
+  int ReadInt32(Byte[] bytes, int start)
+  MethodDebugInformation Read(MethodDefinition method)
+  Collection`1<ScopeDebugInformation> ReadScopeAndLocals(PdbScope[] scopes, MethodDebugInformation info)
+  ScopeDebugInformation ReadScopeAndLocals(PdbScope scope, MethodDebugInformation info)
+  bool AddScope(Collection`1<ScopeDebugInformation> scopes, ScopeDebugInformation scope)
+  ImportDebugInformation GetImport(UInt32 token, ModuleDefinition module)
+  ImportDebugInformation GetImport(PdbScope scope, ModuleDefinition module)
+  void ReadSequencePoints(PdbFunction function, MethodDebugInformation info)
+  void ReadLines(PdbLines lines, MethodDebugInformation info)
+  void ReadLine(PdbLine line, Document document, MethodDebugInformation info)
+  Document GetDocument(PdbSource source)
+  void Dispose()
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.NativePdbWriter
+Наследуется от: object
+Поля:
+  ModuleDefinition module
+  MetadataBuilder metadata
+  SymWriter writer
+  Dictionary`2<string, SymDocumentWriter> documents
+  Dictionary`2<ImportDebugInformation, MetadataToken> import_info_to_parent
+Свойства:
+Методы:
+  void .ctor(ModuleDefinition module, SymWriter writer)
+  ISymbolReaderProvider GetReaderProvider()
+  ImageDebugHeader GetDebugHeader()
+  void Write(MethodDebugInformation info)
+  void DefineCustomMetadata(MethodDebugInformation info, MetadataToken import_parent)
+  void DefineAsyncCustomMetadata(MethodDebugInformation info)
+  void DefineScope(ScopeDebugInformation scope, MethodDebugInformation info, MetadataToken& import_parent)
+  void DefineSequencePoints(Collection`1<SequencePoint> sequence_points)
+  void DefineLocalVariable(VariableDebugInformation variable, int local_var_token, int start_offset, int end_offset)
+  void DefineConstant(ConstantDebugInformation constant)
+  SymDocumentWriter GetDocument(Document document)
+  void Dispose()
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.CustomMetadataType
+Наследуется от: Enum
+Поля:
+  byte value__
+  CustomMetadataType UsingInfo
+  CustomMetadataType ForwardInfo
+  CustomMetadataType IteratorScopes
+  CustomMetadataType ForwardIterator
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.CustomMetadataWriter
+Наследуется от: object
+Поля:
+  SymWriter sym_writer
+  MemoryStream stream
+  BinaryStreamWriter writer
+  int count
+  byte version
+Свойства:
+Методы:
+  void .ctor(SymWriter sym_writer)
+  void WriteUsingInfo(ImportDebugInformation import_info)
+  void WriteForwardInfo(MetadataToken import_parent)
+  void WriteIteratorScopes(StateMachineScopeDebugInformation state_machine, MethodDebugInformation debug_info)
+  void WriteForwardIterator(TypeReference type)
+  void Write(CustomMetadataType type, Action write)
+  void WriteCustomMetadata()
+  void Dispose()
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.NativePdbReaderProvider
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ISymbolReader GetSymbolReader(ModuleDefinition module, string fileName)
+  ISymbolReader GetSymbolReader(ModuleDefinition module, Stream symbolStream)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.PdbReaderProvider
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ISymbolReader GetSymbolReader(ModuleDefinition module, string fileName)
+  ISymbolReader GetSymbolReader(ModuleDefinition module, Stream symbolStream)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.NativePdbWriterProvider
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ISymbolWriter GetSymbolWriter(ModuleDefinition module, string fileName)
+  SymWriter CreateWriter(ModuleDefinition module, string pdb)
+  ISymbolWriter GetSymbolWriter(ModuleDefinition module, Stream symbolStream)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.PdbWriterProvider
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ISymbolWriter GetSymbolWriter(ModuleDefinition module, string fileName)
+  bool HasPortablePdbSymbols(ModuleDefinition module)
+  ISymbolWriter GetSymbolWriter(ModuleDefinition module, Stream symbolStream)
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.SymDocumentWriter
+Наследуется от: object
+Поля:
+  ISymUnmanagedDocumentWriter writer
+Свойства:
+  ISymUnmanagedDocumentWriter Writer
+Методы:
+  ISymUnmanagedDocumentWriter get_Writer()
+  void .ctor(ISymUnmanagedDocumentWriter writer)
+  void SetSource(Byte[] source)
+  void SetCheckSum(Guid hashAlgo, Byte[] checkSum)
+--------------------------------------------------
+Класс: Mono.Cecil.Pdb.SymWriter
+Наследуется от: object
+Поля:
+  Guid s_symUnmangedWriterIID
+  Guid s_CorSymWriter_SxS_ClassID
+  ISymUnmanagedWriter2 writer
+  Collection`1<ISymUnmanagedDocumentWriter> documents
+Свойства:
+Методы:
+  int CoCreateInstance(Guid& rclsid, object pUnkOuter, UInt32 dwClsContext, Guid& riid, Object& ppv)
+  void .ctor()
+  Byte[] GetDebugInfo(ImageDebugDirectory& idd)
+  void DefineLocalVariable2(string name, VariableAttributes attributes, int sigToken, int addr1, int addr2, int addr3, int startOffset, int endOffset)
+  void DefineConstant2(string name, object value, int sigToken)
+  void Close()
+  void CloseMethod()
+  void CloseNamespace()
+  void CloseScope(int endOffset)
+  SymDocumentWriter DefineDocument(string url, Guid language, Guid languageVendor, Guid documentType)
+  void DefineSequencePoints(SymDocumentWriter document, Int32[] offsets, Int32[] lines, Int32[] columns, Int32[] endLines, Int32[] endColumns)
+  void Initialize(object emitter, string filename, bool fFullBuild)
+  void SetUserEntryPoint(int methodToken)
+  void OpenMethod(int methodToken)
+  void OpenNamespace(string name)
+  int OpenScope(int startOffset)
+  void UsingNamespace(string fullName)
+  void DefineCustomMetadata(string name, Byte[] metadata)
+  void .cctor()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.BitAccess
+Наследуется от: object
+Поля:
+  Byte[] buffer
+  int offset
+Свойства:
+  Byte[] Buffer
+  int Position
+Методы:
+  void .ctor(int capacity)
+  void .ctor(Byte[] buffer)
+  Byte[] get_Buffer()
+  void FillBuffer(Stream stream, int capacity)
+  void Append(Stream stream, int count)
+  int get_Position()
+  void set_Position(int value)
+  void MinCapacity(int capacity)
+  void Align(int alignment)
+  void ReadInt16(Int16& value)
+  void ReadInt8(SByte& value)
+  void ReadInt32(Int32& value)
+  void ReadInt64(Int64& value)
+  void ReadUInt16(UInt16& value)
+  void ReadUInt8(Byte& value)
+  void ReadUInt32(UInt32& value)
+  void ReadUInt64(UInt64& value)
+  void ReadInt32(Int32[] values)
+  void ReadUInt32(UInt32[] values)
+  void ReadBytes(Byte[] bytes)
+  float ReadFloat()
+  double ReadDouble()
+  decimal ReadDecimal()
+  void ReadBString(String& value)
+  string ReadBString(int len)
+  void ReadCString(String& value)
+  void SkipCString(String& value)
+  void ReadGuid(Guid& guid)
+  string ReadString()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.BitSet
+Наследуется от: ValueType
+Поля:
+  int size
+  UInt32[] words
+Свойства:
+  bool IsEmpty
+Методы:
+  void .ctor(BitAccess bits)
+  bool IsSet(int index)
+  UInt32 GetBit(int index)
+  bool get_IsEmpty()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.FLOAT10
+Наследуется от: ValueType
+Поля:
+  byte Data_0
+  byte Data_1
+  byte Data_2
+  byte Data_3
+  byte Data_4
+  byte Data_5
+  byte Data_6
+  byte Data_7
+  byte Data_8
+  byte Data_9
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_SIGNATURE
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_SIGNATURE C6
+  CV_SIGNATURE C7
+  CV_SIGNATURE C11
+  CV_SIGNATURE C13
+  CV_SIGNATURE RESERVERD
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_prmode
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_prmode CV_TM_DIRECT
+  CV_prmode CV_TM_NPTR32
+  CV_prmode CV_TM_NPTR64
+  CV_prmode CV_TM_NPTR128
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_type
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_type CV_SPECIAL
+  CV_type CV_SIGNED
+  CV_type CV_UNSIGNED
+  CV_type CV_BOOLEAN
+  CV_type CV_REAL
+  CV_type CV_COMPLEX
+  CV_type CV_SPECIAL2
+  CV_type CV_INT
+  CV_type CV_CVRESERVED
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_special
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_special CV_SP_NOTYPE
+  CV_special CV_SP_ABS
+  CV_special CV_SP_SEGMENT
+  CV_special CV_SP_VOID
+  CV_special CV_SP_CURRENCY
+  CV_special CV_SP_NBASICSTR
+  CV_special CV_SP_FBASICSTR
+  CV_special CV_SP_NOTTRANS
+  CV_special CV_SP_HRESULT
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_special2
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_special2 CV_S2_BIT
+  CV_special2 CV_S2_PASCHAR
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_integral
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_integral CV_IN_1BYTE
+  CV_integral CV_IN_2BYTE
+  CV_integral CV_IN_4BYTE
+  CV_integral CV_IN_8BYTE
+  CV_integral CV_IN_16BYTE
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_real
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_real CV_RC_REAL32
+  CV_real CV_RC_REAL64
+  CV_real CV_RC_REAL80
+  CV_real CV_RC_REAL128
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_int
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_int CV_RI_CHAR
+  CV_int CV_RI_INT1
+  CV_int CV_RI_WCHAR
+  CV_int CV_RI_UINT1
+  CV_int CV_RI_INT2
+  CV_int CV_RI_UINT2
+  CV_int CV_RI_INT4
+  CV_int CV_RI_UINT4
+  CV_int CV_RI_INT8
+  CV_int CV_RI_UINT8
+  CV_int CV_RI_INT16
+  CV_int CV_RI_UINT16
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_PRIMITIVE_TYPE
+Наследуется от: ValueType
+Поля:
+  UInt32 CV_MMASK
+  UInt32 CV_TMASK
+  UInt32 CV_SMASK
+  int CV_MSHIFT
+  int CV_TSHIFT
+  int CV_SSHIFT
+  UInt32 CV_FIRST_NONPRIM
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.TYPE_ENUM
+Наследуется от: Enum
+Поля:
+  int value__
+  TYPE_ENUM T_NOTYPE
+  TYPE_ENUM T_ABS
+  TYPE_ENUM T_SEGMENT
+  TYPE_ENUM T_VOID
+  TYPE_ENUM T_HRESULT
+  TYPE_ENUM T_32PHRESULT
+  TYPE_ENUM T_64PHRESULT
+  TYPE_ENUM T_PVOID
+  TYPE_ENUM T_PFVOID
+  TYPE_ENUM T_PHVOID
+  TYPE_ENUM T_32PVOID
+  TYPE_ENUM T_64PVOID
+  TYPE_ENUM T_CURRENCY
+  TYPE_ENUM T_NOTTRANS
+  TYPE_ENUM T_BIT
+  TYPE_ENUM T_PASCHAR
+  TYPE_ENUM T_CHAR
+  TYPE_ENUM T_32PCHAR
+  TYPE_ENUM T_64PCHAR
+  TYPE_ENUM T_UCHAR
+  TYPE_ENUM T_32PUCHAR
+  TYPE_ENUM T_64PUCHAR
+  TYPE_ENUM T_RCHAR
+  TYPE_ENUM T_32PRCHAR
+  TYPE_ENUM T_64PRCHAR
+  TYPE_ENUM T_WCHAR
+  TYPE_ENUM T_32PWCHAR
+  TYPE_ENUM T_64PWCHAR
+  TYPE_ENUM T_INT1
+  TYPE_ENUM T_32PINT1
+  TYPE_ENUM T_64PINT1
+  TYPE_ENUM T_UINT1
+  TYPE_ENUM T_32PUINT1
+  TYPE_ENUM T_64PUINT1
+  TYPE_ENUM T_SHORT
+  TYPE_ENUM T_32PSHORT
+  TYPE_ENUM T_64PSHORT
+  TYPE_ENUM T_USHORT
+  TYPE_ENUM T_32PUSHORT
+  TYPE_ENUM T_64PUSHORT
+  TYPE_ENUM T_INT2
+  TYPE_ENUM T_32PINT2
+  TYPE_ENUM T_64PINT2
+  TYPE_ENUM T_UINT2
+  TYPE_ENUM T_32PUINT2
+  TYPE_ENUM T_64PUINT2
+  TYPE_ENUM T_LONG
+  TYPE_ENUM T_ULONG
+  TYPE_ENUM T_32PLONG
+  TYPE_ENUM T_32PULONG
+  TYPE_ENUM T_64PLONG
+  TYPE_ENUM T_64PULONG
+  TYPE_ENUM T_INT4
+  TYPE_ENUM T_32PINT4
+  TYPE_ENUM T_64PINT4
+  TYPE_ENUM T_UINT4
+  TYPE_ENUM T_32PUINT4
+  TYPE_ENUM T_64PUINT4
+  TYPE_ENUM T_QUAD
+  TYPE_ENUM T_32PQUAD
+  TYPE_ENUM T_64PQUAD
+  TYPE_ENUM T_UQUAD
+  TYPE_ENUM T_32PUQUAD
+  TYPE_ENUM T_64PUQUAD
+  TYPE_ENUM T_INT8
+  TYPE_ENUM T_32PINT8
+  TYPE_ENUM T_64PINT8
+  TYPE_ENUM T_UINT8
+  TYPE_ENUM T_32PUINT8
+  TYPE_ENUM T_64PUINT8
+  TYPE_ENUM T_OCT
+  TYPE_ENUM T_32POCT
+  TYPE_ENUM T_64POCT
+  TYPE_ENUM T_UOCT
+  TYPE_ENUM T_32PUOCT
+  TYPE_ENUM T_64PUOCT
+  TYPE_ENUM T_INT16
+  TYPE_ENUM T_32PINT16
+  TYPE_ENUM T_64PINT16
+  TYPE_ENUM T_UINT16
+  TYPE_ENUM T_32PUINT16
+  TYPE_ENUM T_64PUINT16
+  TYPE_ENUM T_REAL32
+  TYPE_ENUM T_32PREAL32
+  TYPE_ENUM T_64PREAL32
+  TYPE_ENUM T_REAL64
+  TYPE_ENUM T_32PREAL64
+  TYPE_ENUM T_64PREAL64
+  TYPE_ENUM T_REAL80
+  TYPE_ENUM T_32PREAL80
+  TYPE_ENUM T_64PREAL80
+  TYPE_ENUM T_REAL128
+  TYPE_ENUM T_32PREAL128
+  TYPE_ENUM T_64PREAL128
+  TYPE_ENUM T_CPLX32
+  TYPE_ENUM T_32PCPLX32
+  TYPE_ENUM T_64PCPLX32
+  TYPE_ENUM T_CPLX64
+  TYPE_ENUM T_32PCPLX64
+  TYPE_ENUM T_64PCPLX64
+  TYPE_ENUM T_CPLX80
+  TYPE_ENUM T_32PCPLX80
+  TYPE_ENUM T_64PCPLX80
+  TYPE_ENUM T_CPLX128
+  TYPE_ENUM T_32PCPLX128
+  TYPE_ENUM T_64PCPLX128
+  TYPE_ENUM T_BOOL08
+  TYPE_ENUM T_32PBOOL08
+  TYPE_ENUM T_64PBOOL08
+  TYPE_ENUM T_BOOL16
+  TYPE_ENUM T_32PBOOL16
+  TYPE_ENUM T_64PBOOL16
+  TYPE_ENUM T_BOOL32
+  TYPE_ENUM T_32PBOOL32
+  TYPE_ENUM T_64PBOOL32
+  TYPE_ENUM T_BOOL64
+  TYPE_ENUM T_32PBOOL64
+  TYPE_ENUM T_64PBOOL64
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LEAF
+Наследуется от: Enum
+Поля:
+  int value__
+  LEAF LF_VTSHAPE
+  LEAF LF_COBOL1
+  LEAF LF_LABEL
+  LEAF LF_NULL
+  LEAF LF_NOTTRAN
+  LEAF LF_ENDPRECOMP
+  LEAF LF_TYPESERVER_ST
+  LEAF LF_LIST
+  LEAF LF_REFSYM
+  LEAF LF_ENUMERATE_ST
+  LEAF LF_TI16_MAX
+  LEAF LF_MODIFIER
+  LEAF LF_POINTER
+  LEAF LF_ARRAY_ST
+  LEAF LF_CLASS_ST
+  LEAF LF_STRUCTURE_ST
+  LEAF LF_UNION_ST
+  LEAF LF_ENUM_ST
+  LEAF LF_PROCEDURE
+  LEAF LF_MFUNCTION
+  LEAF LF_COBOL0
+  LEAF LF_BARRAY
+  LEAF LF_DIMARRAY_ST
+  LEAF LF_VFTPATH
+  LEAF LF_PRECOMP_ST
+  LEAF LF_OEM
+  LEAF LF_ALIAS_ST
+  LEAF LF_OEM2
+  LEAF LF_SKIP
+  LEAF LF_ARGLIST
+  LEAF LF_DEFARG_ST
+  LEAF LF_FIELDLIST
+  LEAF LF_DERIVED
+  LEAF LF_BITFIELD
+  LEAF LF_METHODLIST
+  LEAF LF_DIMCONU
+  LEAF LF_DIMCONLU
+  LEAF LF_DIMVARU
+  LEAF LF_DIMVARLU
+  LEAF LF_BCLASS
+  LEAF LF_VBCLASS
+  LEAF LF_IVBCLASS
+  LEAF LF_FRIENDFCN_ST
+  LEAF LF_INDEX
+  LEAF LF_MEMBER_ST
+  LEAF LF_STMEMBER_ST
+  LEAF LF_METHOD_ST
+  LEAF LF_NESTTYPE_ST
+  LEAF LF_VFUNCTAB
+  LEAF LF_FRIENDCLS
+  LEAF LF_ONEMETHOD_ST
+  LEAF LF_VFUNCOFF
+  LEAF LF_NESTTYPEEX_ST
+  LEAF LF_MEMBERMODIFY_ST
+  LEAF LF_MANAGED_ST
+  LEAF LF_ST_MAX
+  LEAF LF_TYPESERVER
+  LEAF LF_ENUMERATE
+  LEAF LF_ARRAY
+  LEAF LF_CLASS
+  LEAF LF_STRUCTURE
+  LEAF LF_UNION
+  LEAF LF_ENUM
+  LEAF LF_DIMARRAY
+  LEAF LF_PRECOMP
+  LEAF LF_ALIAS
+  LEAF LF_DEFARG
+  LEAF LF_FRIENDFCN
+  LEAF LF_MEMBER
+  LEAF LF_STMEMBER
+  LEAF LF_METHOD
+  LEAF LF_NESTTYPE
+  LEAF LF_ONEMETHOD
+  LEAF LF_NESTTYPEEX
+  LEAF LF_MEMBERMODIFY
+  LEAF LF_MANAGED
+  LEAF LF_TYPESERVER2
+  LEAF LF_NUMERIC
+  LEAF LF_CHAR
+  LEAF LF_SHORT
+  LEAF LF_USHORT
+  LEAF LF_LONG
+  LEAF LF_ULONG
+  LEAF LF_REAL32
+  LEAF LF_REAL64
+  LEAF LF_REAL80
+  LEAF LF_REAL128
+  LEAF LF_QUADWORD
+  LEAF LF_UQUADWORD
+  LEAF LF_COMPLEX32
+  LEAF LF_COMPLEX64
+  LEAF LF_COMPLEX80
+  LEAF LF_COMPLEX128
+  LEAF LF_VARSTRING
+  LEAF LF_OCTWORD
+  LEAF LF_UOCTWORD
+  LEAF LF_DECIMAL
+  LEAF LF_DATE
+  LEAF LF_UTF8STRING
+  LEAF LF_PAD0
+  LEAF LF_PAD1
+  LEAF LF_PAD2
+  LEAF LF_PAD3
+  LEAF LF_PAD4
+  LEAF LF_PAD5
+  LEAF LF_PAD6
+  LEAF LF_PAD7
+  LEAF LF_PAD8
+  LEAF LF_PAD9
+  LEAF LF_PAD10
+  LEAF LF_PAD11
+  LEAF LF_PAD12
+  LEAF LF_PAD13
+  LEAF LF_PAD14
+  LEAF LF_PAD15
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_ptrtype
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_ptrtype CV_PTR_BASE_SEG
+  CV_ptrtype CV_PTR_BASE_VAL
+  CV_ptrtype CV_PTR_BASE_SEGVAL
+  CV_ptrtype CV_PTR_BASE_ADDR
+  CV_ptrtype CV_PTR_BASE_SEGADDR
+  CV_ptrtype CV_PTR_BASE_TYPE
+  CV_ptrtype CV_PTR_BASE_SELF
+  CV_ptrtype CV_PTR_NEAR32
+  CV_ptrtype CV_PTR_64
+  CV_ptrtype CV_PTR_UNUSEDPTR
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_ptrmode
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_ptrmode CV_PTR_MODE_PTR
+  CV_ptrmode CV_PTR_MODE_REF
+  CV_ptrmode CV_PTR_MODE_PMEM
+  CV_ptrmode CV_PTR_MODE_PMFUNC
+  CV_ptrmode CV_PTR_MODE_RESERVED
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_pmtype
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_pmtype CV_PMTYPE_Undef
+  CV_pmtype CV_PMTYPE_D_Single
+  CV_pmtype CV_PMTYPE_D_Multiple
+  CV_pmtype CV_PMTYPE_D_Virtual
+  CV_pmtype CV_PMTYPE_D_General
+  CV_pmtype CV_PMTYPE_F_Single
+  CV_pmtype CV_PMTYPE_F_Multiple
+  CV_pmtype CV_PMTYPE_F_Virtual
+  CV_pmtype CV_PMTYPE_F_General
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_methodprop
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_methodprop CV_MTvanilla
+  CV_methodprop CV_MTvirtual
+  CV_methodprop CV_MTstatic
+  CV_methodprop CV_MTfriend
+  CV_methodprop CV_MTintro
+  CV_methodprop CV_MTpurevirt
+  CV_methodprop CV_MTpureintro
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_VTS_desc
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_VTS_desc CV_VTS_near
+  CV_VTS_desc CV_VTS_far
+  CV_VTS_desc CV_VTS_thin
+  CV_VTS_desc CV_VTS_outer
+  CV_VTS_desc CV_VTS_meta
+  CV_VTS_desc CV_VTS_near32
+  CV_VTS_desc CV_VTS_far32
+  CV_VTS_desc CV_VTS_unused
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_LABEL_TYPE
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_LABEL_TYPE CV_LABEL_NEAR
+  CV_LABEL_TYPE CV_LABEL_FAR
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_modifier
+Наследуется от: Enum
+Поля:
+  ushort value__
+  CV_modifier MOD_const
+  CV_modifier MOD_volatile
+  CV_modifier MOD_unaligned
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_prop
+Наследуется от: Enum
+Поля:
+  ushort value__
+  CV_prop packed
+  CV_prop ctor
+  CV_prop ovlops
+  CV_prop isnested
+  CV_prop cnested
+  CV_prop opassign
+  CV_prop opcast
+  CV_prop fwdref
+  CV_prop scoped
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_fldattr
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_fldattr access
+  CV_fldattr mprop
+  CV_fldattr pseudo
+  CV_fldattr noinherit
+  CV_fldattr noconstruct
+  CV_fldattr compgenx
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.TYPTYPE
+Наследуется от: ValueType
+Поля:
+  ushort len
+  ushort leaf
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_PDMR32_NVVFCN
+Наследуется от: ValueType
+Поля:
+  int mdisp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_PDMR32_VBASE
+Наследуется от: ValueType
+Поля:
+  int mdisp
+  int pdisp
+  int vdisp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_PMFR32_NVSA
+Наследуется от: ValueType
+Поля:
+  UInt32 off
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_PMFR32_NVMA
+Наследуется от: ValueType
+Поля:
+  UInt32 off
+  int disp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_PMFR32_VBASE
+Наследуется от: ValueType
+Поля:
+  UInt32 off
+  int mdisp
+  int pdisp
+  int vdisp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafModifier
+Наследуется от: ValueType
+Поля:
+  UInt32 type
+  CV_modifier attr
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafPointerAttr
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  LeafPointerAttr ptrtype
+  LeafPointerAttr ptrmode
+  LeafPointerAttr isflat32
+  LeafPointerAttr isvolatile
+  LeafPointerAttr isconst
+  LeafPointerAttr isunaligned
+  LeafPointerAttr isrestrict
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafPointer
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafArray
+Наследуется от: ValueType
+Поля:
+  UInt32 elemtype
+  UInt32 idxtype
+  Byte[] data
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafClass
+Наследуется от: ValueType
+Поля:
+  ushort count
+  ushort property
+  UInt32 field
+  UInt32 derived
+  UInt32 vshape
+  Byte[] data
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafUnion
+Наследуется от: ValueType
+Поля:
+  ushort count
+  ushort property
+  UInt32 field
+  Byte[] data
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafAlias
+Наследуется от: ValueType
+Поля:
+  UInt32 utype
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafManaged
+Наследуется от: ValueType
+Поля:
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafEnum
+Наследуется от: ValueType
+Поля:
+  ushort count
+  ushort property
+  UInt32 utype
+  UInt32 field
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafProc
+Наследуется от: ValueType
+Поля:
+  UInt32 rvtype
+  byte calltype
+  byte reserved
+  ushort parmcount
+  UInt32 arglist
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafMFunc
+Наследуется от: ValueType
+Поля:
+  UInt32 rvtype
+  UInt32 classtype
+  UInt32 thistype
+  byte calltype
+  byte reserved
+  ushort parmcount
+  UInt32 arglist
+  int thisadjust
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafVTShape
+Наследуется от: ValueType
+Поля:
+  ushort count
+  Byte[] desc
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafCobol0
+Наследуется от: ValueType
+Поля:
+  UInt32 type
+  Byte[] data
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafCobol1
+Наследуется от: ValueType
+Поля:
+  Byte[] data
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafBArray
+Наследуется от: ValueType
+Поля:
+  UInt32 utype
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafLabel
+Наследуется от: ValueType
+Поля:
+  ushort mode
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafDimArray
+Наследуется от: ValueType
+Поля:
+  UInt32 utype
+  UInt32 diminfo
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafVFTPath
+Наследуется от: ValueType
+Поля:
+  UInt32 count
+  UInt32[] bases
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafPreComp
+Наследуется от: ValueType
+Поля:
+  UInt32 start
+  UInt32 count
+  UInt32 signature
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafEndPreComp
+Наследуется от: ValueType
+Поля:
+  UInt32 signature
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafOEM
+Наследуется от: ValueType
+Поля:
+  ushort cvOEM
+  ushort recOEM
+  UInt32 count
+  UInt32[] index
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.OEM_ID
+Наследуется от: Enum
+Поля:
+  int value__
+  OEM_ID OEM_MS_FORTRAN90
+  OEM_ID OEM_ODI
+  OEM_ID OEM_THOMSON_SOFTWARE
+  OEM_ID OEM_ODI_REC_BASELIST
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafOEM2
+Наследуется от: ValueType
+Поля:
+  Guid idOem
+  UInt32 count
+  UInt32[] index
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafTypeServer
+Наследуется от: ValueType
+Поля:
+  UInt32 signature
+  UInt32 age
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafTypeServer2
+Наследуется от: ValueType
+Поля:
+  Guid sig70
+  UInt32 age
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafSkip
+Наследуется от: ValueType
+Поля:
+  UInt32 type
+  Byte[] data
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafArgList
+Наследуется от: ValueType
+Поля:
+  UInt32 count
+  UInt32[] arg
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafDerived
+Наследуется от: ValueType
+Поля:
+  UInt32 count
+  UInt32[] drvdcls
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafDefArg
+Наследуется от: ValueType
+Поля:
+  UInt32 type
+  Byte[] expr
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafList
+Наследуется от: ValueType
+Поля:
+  Byte[] data
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafFieldList
+Наследуется от: ValueType
+Поля:
+  Char[] data
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.mlMethod
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  ushort pad0
+  UInt32 index
+  UInt32[] vbaseoff
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafMethodList
+Наследуется от: ValueType
+Поля:
+  Byte[] mList
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafBitfield
+Наследуется от: ValueType
+Поля:
+  UInt32 type
+  byte length
+  byte position
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafDimCon
+Наследуется от: ValueType
+Поля:
+  UInt32 typ
+  ushort rank
+  Byte[] dim
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafDimVar
+Наследуется от: ValueType
+Поля:
+  UInt32 rank
+  UInt32 typ
+  UInt32[] dim
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafRefSym
+Наследуется от: ValueType
+Поля:
+  Byte[] Sym
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafChar
+Наследуется от: ValueType
+Поля:
+  sbyte val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafShort
+Наследуется от: ValueType
+Поля:
+  short val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafUShort
+Наследуется от: ValueType
+Поля:
+  ushort val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafLong
+Наследуется от: ValueType
+Поля:
+  int val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafULong
+Наследуется от: ValueType
+Поля:
+  UInt32 val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafQuad
+Наследуется от: ValueType
+Поля:
+  long val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafUQuad
+Наследуется от: ValueType
+Поля:
+  ulong val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafOct
+Наследуется от: ValueType
+Поля:
+  ulong val0
+  ulong val1
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafUOct
+Наследуется от: ValueType
+Поля:
+  ulong val0
+  ulong val1
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafReal32
+Наследуется от: ValueType
+Поля:
+  float val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafReal64
+Наследуется от: ValueType
+Поля:
+  double val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafReal80
+Наследуется от: ValueType
+Поля:
+  FLOAT10 val
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafReal128
+Наследуется от: ValueType
+Поля:
+  ulong val0
+  ulong val1
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafCmplx32
+Наследуется от: ValueType
+Поля:
+  float val_real
+  float val_imag
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafCmplx64
+Наследуется от: ValueType
+Поля:
+  double val_real
+  double val_imag
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafCmplx80
+Наследуется от: ValueType
+Поля:
+  FLOAT10 val_real
+  FLOAT10 val_imag
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafCmplx128
+Наследуется от: ValueType
+Поля:
+  ulong val0_real
+  ulong val1_real
+  ulong val0_imag
+  ulong val1_imag
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafVarString
+Наследуется от: ValueType
+Поля:
+  ushort len
+  Byte[] value
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafIndex
+Наследуется от: ValueType
+Поля:
+  ushort pad0
+  UInt32 index
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafBClass
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  UInt32 index
+  Byte[] offset
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafVBClass
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  UInt32 index
+  UInt32 vbptr
+  Byte[] vbpoff
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafFriendCls
+Наследуется от: ValueType
+Поля:
+  ushort pad0
+  UInt32 index
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafFriendFcn
+Наследуется от: ValueType
+Поля:
+  ushort pad0
+  UInt32 index
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafMember
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  UInt32 index
+  Byte[] offset
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafSTMember
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  UInt32 index
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafVFuncTab
+Наследуется от: ValueType
+Поля:
+  ushort pad0
+  UInt32 type
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafVFuncOff
+Наследуется от: ValueType
+Поля:
+  ushort pad0
+  UInt32 type
+  int offset
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafMethod
+Наследуется от: ValueType
+Поля:
+  ushort count
+  UInt32 mList
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafOneMethod
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  UInt32 index
+  UInt32[] vbaseoff
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafEnumerate
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  Byte[] value
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafNestType
+Наследуется от: ValueType
+Поля:
+  ushort pad0
+  UInt32 index
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafNestTypeEx
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  UInt32 index
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafMemberModify
+Наследуется от: ValueType
+Поля:
+  ushort attr
+  UInt32 index
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LeafPad
+Наследуется от: ValueType
+Поля:
+  byte leaf
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.SYM
+Наследуется от: Enum
+Поля:
+  int value__
+  SYM S_END
+  SYM S_OEM
+  SYM S_REGISTER_ST
+  SYM S_CONSTANT_ST
+  SYM S_UDT_ST
+  SYM S_COBOLUDT_ST
+  SYM S_MANYREG_ST
+  SYM S_BPREL32_ST
+  SYM S_LDATA32_ST
+  SYM S_GDATA32_ST
+  SYM S_PUB32_ST
+  SYM S_LPROC32_ST
+  SYM S_GPROC32_ST
+  SYM S_VFTABLE32
+  SYM S_REGREL32_ST
+  SYM S_LTHREAD32_ST
+  SYM S_GTHREAD32_ST
+  SYM S_LPROCMIPS_ST
+  SYM S_GPROCMIPS_ST
+  SYM S_FRAMEPROC
+  SYM S_COMPILE2_ST
+  SYM S_MANYREG2_ST
+  SYM S_LPROCIA64_ST
+  SYM S_GPROCIA64_ST
+  SYM S_LOCALSLOT_ST
+  SYM S_PARAMSLOT_ST
+  SYM S_ANNOTATION
+  SYM S_GMANPROC_ST
+  SYM S_LMANPROC_ST
+  SYM S_RESERVED1
+  SYM S_RESERVED2
+  SYM S_RESERVED3
+  SYM S_RESERVED4
+  SYM S_LMANDATA_ST
+  SYM S_GMANDATA_ST
+  SYM S_MANFRAMEREL_ST
+  SYM S_MANREGISTER_ST
+  SYM S_MANSLOT_ST
+  SYM S_MANMANYREG_ST
+  SYM S_MANREGREL_ST
+  SYM S_MANMANYREG2_ST
+  SYM S_MANTYPREF
+  SYM S_UNAMESPACE_ST
+  SYM S_ST_MAX
+  SYM S_OBJNAME
+  SYM S_THUNK32
+  SYM S_BLOCK32
+  SYM S_WITH32
+  SYM S_LABEL32
+  SYM S_REGISTER
+  SYM S_CONSTANT
+  SYM S_UDT
+  SYM S_COBOLUDT
+  SYM S_MANYREG
+  SYM S_BPREL32
+  SYM S_LDATA32
+  SYM S_GDATA32
+  SYM S_PUB32
+  SYM S_LPROC32
+  SYM S_GPROC32
+  SYM S_REGREL32
+  SYM S_LTHREAD32
+  SYM S_GTHREAD32
+  SYM S_LPROCMIPS
+  SYM S_GPROCMIPS
+  SYM S_COMPILE2
+  SYM S_MANYREG2
+  SYM S_LPROCIA64
+  SYM S_GPROCIA64
+  SYM S_LOCALSLOT
+  SYM S_SLOT
+  SYM S_PARAMSLOT
+  SYM S_LMANDATA
+  SYM S_GMANDATA
+  SYM S_MANFRAMEREL
+  SYM S_MANREGISTER
+  SYM S_MANSLOT
+  SYM S_MANMANYREG
+  SYM S_MANREGREL
+  SYM S_MANMANYREG2
+  SYM S_UNAMESPACE
+  SYM S_PROCREF
+  SYM S_DATAREF
+  SYM S_LPROCREF
+  SYM S_ANNOTATIONREF
+  SYM S_TOKENREF
+  SYM S_GMANPROC
+  SYM S_LMANPROC
+  SYM S_TRAMPOLINE
+  SYM S_MANCONSTANT
+  SYM S_ATTR_FRAMEREL
+  SYM S_ATTR_REGISTER
+  SYM S_ATTR_REGREL
+  SYM S_ATTR_MANYREG
+  SYM S_SEPCODE
+  SYM S_LOCAL
+  SYM S_DEFRANGE
+  SYM S_DEFRANGE2
+  SYM S_SECTION
+  SYM S_COFFGROUP
+  SYM S_EXPORT
+  SYM S_CALLSITEINFO
+  SYM S_FRAMECOOKIE
+  SYM S_DISCARDED
+  SYM S_RECTYPE_MAX
+  SYM S_RECTYPE_LAST
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_CFL_DATA
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_CFL_DATA CV_CFL_DNEAR
+  CV_CFL_DATA CV_CFL_DFAR
+  CV_CFL_DATA CV_CFL_DHUGE
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_CFL_CODE
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_CFL_CODE CV_CFL_CNEAR
+  CV_CFL_CODE CV_CFL_CFAR
+  CV_CFL_CODE CV_CFL_CHUGE
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_CFL_FPKG
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_CFL_FPKG CV_CFL_NDP
+  CV_CFL_FPKG CV_CFL_EMU
+  CV_CFL_FPKG CV_CFL_ALT
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_PROCFLAGS
+Наследуется от: Enum
+Поля:
+  byte value__
+  CV_PROCFLAGS CV_PFLAG_NOFPO
+  CV_PROCFLAGS CV_PFLAG_INT
+  CV_PROCFLAGS CV_PFLAG_FAR
+  CV_PROCFLAGS CV_PFLAG_NEVER
+  CV_PROCFLAGS CV_PFLAG_NOTREACHED
+  CV_PROCFLAGS CV_PFLAG_CUST_CALL
+  CV_PROCFLAGS CV_PFLAG_NOINLINE
+  CV_PROCFLAGS CV_PFLAG_OPTDBGINFO
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_EXPROCFLAGS
+Наследуется от: ValueType
+Поля:
+  byte flags
+  byte reserved
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_LVARFLAGS
+Наследуется от: Enum
+Поля:
+  ushort value__
+  CV_LVARFLAGS fIsParam
+  CV_LVARFLAGS fAddrTaken
+  CV_LVARFLAGS fCompGenx
+  CV_LVARFLAGS fIsAggregate
+  CV_LVARFLAGS fIsAggregated
+  CV_LVARFLAGS fIsAliased
+  CV_LVARFLAGS fIsAlias
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_lvar_addr_range
+Наследуется от: ValueType
+Поля:
+  UInt32 offStart
+  ushort isectStart
+  UInt32 cbRange
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_GENERIC_STYLE
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_GENERIC_STYLE CV_GENERIC_VOID
+  CV_GENERIC_STYLE CV_GENERIC_REG
+  CV_GENERIC_STYLE CV_GENERIC_ICAN
+  CV_GENERIC_STYLE CV_GENERIC_ICAF
+  CV_GENERIC_STYLE CV_GENERIC_IRAN
+  CV_GENERIC_STYLE CV_GENERIC_IRAF
+  CV_GENERIC_STYLE CV_GENERIC_UNUSED
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_GENERIC_FLAG
+Наследуется от: Enum
+Поля:
+  ushort value__
+  CV_GENERIC_FLAG cstyle
+  CV_GENERIC_FLAG rsclean
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_SEPCODEFLAGS
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  CV_SEPCODEFLAGS fIsLexicalScope
+  CV_SEPCODEFLAGS fReturnsToParent
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.SYMTYPE
+Наследуется от: ValueType
+Поля:
+  ushort reclen
+  ushort rectyp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.RegSym
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  ushort reg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.AttrRegSym
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  UInt32 offCod
+  ushort segCod
+  ushort flags
+  ushort reg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ManyRegSym
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  byte count
+  Byte[] reg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ManyRegSym2
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  ushort count
+  UInt16[] reg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.AttrManyRegSym
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  UInt32 offCod
+  ushort segCod
+  ushort flags
+  byte count
+  Byte[] reg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.AttrManyRegSym2
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  UInt32 offCod
+  ushort segCod
+  ushort flags
+  ushort count
+  UInt16[] reg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ConstSym
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  ushort value
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.UdtSym
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ManyTypRef
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.SearchSym
+Наследуется от: ValueType
+Поля:
+  UInt32 startsym
+  ushort seg
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CFLAGSYM_FLAGS
+Наследуется от: Enum
+Поля:
+  ushort value__
+  CFLAGSYM_FLAGS pcode
+  CFLAGSYM_FLAGS floatprec
+  CFLAGSYM_FLAGS floatpkg
+  CFLAGSYM_FLAGS ambdata
+  CFLAGSYM_FLAGS ambcode
+  CFLAGSYM_FLAGS mode32
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CFlagSym
+Наследуется от: ValueType
+Поля:
+  byte machine
+  byte language
+  ushort flags
+  string ver
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.COMPILESYM_FLAGS
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  COMPILESYM_FLAGS iLanguage
+  COMPILESYM_FLAGS fEC
+  COMPILESYM_FLAGS fNoDbgInfo
+  COMPILESYM_FLAGS fLTCG
+  COMPILESYM_FLAGS fNoDataAlign
+  COMPILESYM_FLAGS fManagedPresent
+  COMPILESYM_FLAGS fSecurityChecks
+  COMPILESYM_FLAGS fHotPatch
+  COMPILESYM_FLAGS fCVTCIL
+  COMPILESYM_FLAGS fMSILModule
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CompileSym
+Наследуется от: ValueType
+Поля:
+  UInt32 flags
+  ushort machine
+  ushort verFEMajor
+  ushort verFEMinor
+  ushort verFEBuild
+  ushort verMajor
+  ushort verMinor
+  ushort verBuild
+  string verSt
+  String[] verArgs
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ObjNameSym
+Наследуется от: ValueType
+Поля:
+  UInt32 signature
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.EndArgSym
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ReturnSym
+Наследуется от: ValueType
+Поля:
+  CV_GENERIC_FLAG flags
+  byte style
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.EntryThisSym
+Наследуется от: ValueType
+Поля:
+  byte thissym
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.BpRelSym32
+Наследуется от: ValueType
+Поля:
+  int off
+  UInt32 typind
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.FrameRelSym
+Наследуется от: ValueType
+Поля:
+  int off
+  UInt32 typind
+  UInt32 offCod
+  ushort segCod
+  ushort flags
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.SlotSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 index
+  UInt32 typind
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.AttrSlotSym
+Наследуется от: ValueType
+Поля:
+  UInt32 index
+  UInt32 typind
+  UInt32 offCod
+  ushort segCod
+  ushort flags
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.AnnotationSym
+Наследуется от: ValueType
+Поля:
+  UInt32 off
+  ushort seg
+  ushort csz
+  String[] rgsz
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DatasSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  UInt32 off
+  ushort seg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_PUBSYMFLAGS
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  CV_PUBSYMFLAGS fNone
+  CV_PUBSYMFLAGS fCode
+  CV_PUBSYMFLAGS fFunction
+  CV_PUBSYMFLAGS fManaged
+  CV_PUBSYMFLAGS fMSIL
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PubSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 flags
+  UInt32 off
+  ushort seg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ProcSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 next
+  UInt32 len
+  UInt32 dbgStart
+  UInt32 dbgEnd
+  UInt32 typind
+  UInt32 off
+  ushort seg
+  byte flags
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ManProcSym
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 next
+  UInt32 len
+  UInt32 dbgStart
+  UInt32 dbgEnd
+  UInt32 token
+  UInt32 off
+  ushort seg
+  byte flags
+  ushort retReg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ManProcSymMips
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 next
+  UInt32 len
+  UInt32 dbgStart
+  UInt32 dbgEnd
+  UInt32 regSave
+  UInt32 fpSave
+  UInt32 intOff
+  UInt32 fpOff
+  UInt32 token
+  UInt32 off
+  ushort seg
+  byte retReg
+  byte frameReg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ThunkSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 next
+  UInt32 off
+  ushort seg
+  ushort len
+  byte ord
+  string name
+  Byte[] variant
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.TRAMP
+Наследуется от: Enum
+Поля:
+  int value__
+  TRAMP trampIncremental
+  TRAMP trampBranchIsland
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.TrampolineSym
+Наследуется от: ValueType
+Поля:
+  ushort trampType
+  ushort cbThunk
+  UInt32 offThunk
+  UInt32 offTarget
+  ushort sectThunk
+  ushort sectTarget
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LabelSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 off
+  ushort seg
+  byte flags
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.BlockSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 len
+  UInt32 off
+  ushort seg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.WithSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 len
+  UInt32 off
+  ushort seg
+  string expr
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.VpathSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 root
+  UInt32 path
+  UInt32 off
+  ushort seg
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.RegRel32
+Наследуется от: ValueType
+Поля:
+  UInt32 off
+  UInt32 typind
+  ushort reg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.AttrRegRel
+Наследуется от: ValueType
+Поля:
+  UInt32 off
+  UInt32 typind
+  ushort reg
+  UInt32 offCod
+  ushort segCod
+  ushort flags
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ThreadSym32
+Наследуется от: ValueType
+Поля:
+  UInt32 typind
+  UInt32 off
+  ushort seg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.Slink32
+Наследуется от: ValueType
+Поля:
+  UInt32 framesize
+  int off
+  ushort reg
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ProcSymMips
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 next
+  UInt32 len
+  UInt32 dbgStart
+  UInt32 dbgEnd
+  UInt32 regSave
+  UInt32 fpSave
+  UInt32 intOff
+  UInt32 fpOff
+  UInt32 typind
+  UInt32 off
+  ushort seg
+  byte retReg
+  byte frameReg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ProcSymIa64
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 next
+  UInt32 len
+  UInt32 dbgStart
+  UInt32 dbgEnd
+  UInt32 typind
+  UInt32 off
+  ushort seg
+  ushort retReg
+  byte flags
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.RefSym
+Наследуется от: ValueType
+Поля:
+  UInt32 sumName
+  UInt32 ibSym
+  ushort imod
+  ushort usFill
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.RefSym2
+Наследуется от: ValueType
+Поля:
+  UInt32 sumName
+  UInt32 ibSym
+  ushort imod
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.AlignSym
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.OemSymbol
+Наследуется от: ValueType
+Поля:
+  Guid idOem
+  UInt32 typind
+  Byte[] rgl
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.FRAMEPROCSYM_FLAGS
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  FRAMEPROCSYM_FLAGS fHasAlloca
+  FRAMEPROCSYM_FLAGS fHasSetJmp
+  FRAMEPROCSYM_FLAGS fHasLongJmp
+  FRAMEPROCSYM_FLAGS fHasInlAsm
+  FRAMEPROCSYM_FLAGS fHasEH
+  FRAMEPROCSYM_FLAGS fInlSpec
+  FRAMEPROCSYM_FLAGS fHasSEH
+  FRAMEPROCSYM_FLAGS fNaked
+  FRAMEPROCSYM_FLAGS fSecurityChecks
+  FRAMEPROCSYM_FLAGS fAsyncEH
+  FRAMEPROCSYM_FLAGS fGSNoStackOrdering
+  FRAMEPROCSYM_FLAGS fWasInlined
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.FrameProcSym
+Наследуется от: ValueType
+Поля:
+  UInt32 cbFrame
+  UInt32 cbPad
+  UInt32 offPad
+  UInt32 cbSaveRegs
+  UInt32 offExHdlr
+  ushort secExHdlr
+  UInt32 flags
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.UnamespaceSym
+Наследуется от: ValueType
+Поля:
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.SepCodSym
+Наследуется от: ValueType
+Поля:
+  UInt32 parent
+  UInt32 end
+  UInt32 length
+  UInt32 scf
+  UInt32 off
+  UInt32 offParent
+  ushort sec
+  ushort secParent
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.LocalSym
+Наследуется от: ValueType
+Поля:
+  UInt32 id
+  UInt32 typind
+  ushort flags
+  UInt32 idParent
+  UInt32 offParent
+  UInt32 expr
+  UInt32 pad0
+  UInt32 pad1
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DefRangeSym
+Наследуется от: ValueType
+Поля:
+  UInt32 id
+  UInt32 program
+  CV_lvar_addr_range range
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DefRangeSym2
+Наследуется от: ValueType
+Поля:
+  UInt32 id
+  UInt32 program
+  ushort count
+  CV_lvar_addr_range[] range
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.SectionSym
+Наследуется от: ValueType
+Поля:
+  ushort isec
+  byte align
+  byte bReserved
+  UInt32 rva
+  UInt32 cb
+  UInt32 characteristics
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CoffGroupSym
+Наследуется от: ValueType
+Поля:
+  UInt32 cb
+  UInt32 characteristics
+  UInt32 off
+  ushort seg
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.EXPORTSYM_FLAGS
+Наследуется от: Enum
+Поля:
+  ushort value__
+  EXPORTSYM_FLAGS fConstant
+  EXPORTSYM_FLAGS fData
+  EXPORTSYM_FLAGS fPrivate
+  EXPORTSYM_FLAGS fNoName
+  EXPORTSYM_FLAGS fOrdinal
+  EXPORTSYM_FLAGS fForwarder
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ExportSym
+Наследуется от: ValueType
+Поля:
+  ushort ordinal
+  ushort flags
+  string name
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CallsiteInfo
+Наследуется от: ValueType
+Поля:
+  int off
+  ushort ect
+  ushort pad0
+  UInt32 typind
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_cookietype
+Наследуется от: Enum
+Поля:
+  int value__
+  CV_cookietype CV_COOKIETYPE_COPY
+  CV_cookietype CV_COOKIETYPE_XOR_SP
+  CV_cookietype CV_COOKIETYPE_XOR_BP
+  CV_cookietype CV_COOKIETYPE_XOR_R13
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.FrameCookie
+Наследуется от: ValueType
+Поля:
+  int off
+  ushort reg
+  int cookietype
+  byte flags
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_DISCARDED
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  CV_DISCARDED CV_DISCARDED_UNKNOWN
+  CV_DISCARDED CV_DISCARDED_NOT_SELECTED
+  CV_DISCARDED CV_DISCARDED_NOT_REFERENCED
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DiscardedSym
+Наследуется от: ValueType
+Поля:
+  CV_DISCARDED iscarded
+  UInt32 fileid
+  UInt32 linenum
+  Byte[] data
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DEBUG_S_SUBSECTION_TYPE
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  DEBUG_S_SUBSECTION_TYPE DEBUG_S_IGNORE
+  DEBUG_S_SUBSECTION_TYPE DEBUG_S_SYMBOLS
+  DEBUG_S_SUBSECTION_TYPE DEBUG_S_LINES
+  DEBUG_S_SUBSECTION_TYPE DEBUG_S_STRINGTABLE
+  DEBUG_S_SUBSECTION_TYPE DEBUG_S_FILECHKSMS
+  DEBUG_S_SUBSECTION_TYPE DEBUG_S_FRAMEDATA
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_LINE_SUBSECTION_FLAGS
+Наследуется от: Enum
+Поля:
+  ushort value__
+  CV_LINE_SUBSECTION_FLAGS CV_LINES_HAVE_COLUMNS
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_LineSection
+Наследуется от: ValueType
+Поля:
+  UInt32 off
+  ushort sec
+  ushort flags
+  UInt32 cod
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_SourceFile
+Наследуется от: ValueType
+Поля:
+  UInt32 index
+  UInt32 count
+  UInt32 linsiz
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_Line_Flags
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  CV_Line_Flags linenumStart
+  CV_Line_Flags deltaLineEnd
+  CV_Line_Flags fStatement
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_Line
+Наследуется от: ValueType
+Поля:
+  UInt32 offset
+  UInt32 flags
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_Column
+Наследуется от: ValueType
+Поля:
+  ushort offColumnStart
+  ushort offColumnEnd
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_FILE_CHECKSUM_TYPE
+Наследуется от: Enum
+Поля:
+  byte value__
+  CV_FILE_CHECKSUM_TYPE None
+  CV_FILE_CHECKSUM_TYPE MD5
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.CV_FileCheckSum
+Наследуется от: ValueType
+Поля:
+  UInt32 name
+  byte len
+  byte type
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.FRAMEDATA_FLAGS
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  FRAMEDATA_FLAGS fHasSEH
+  FRAMEDATA_FLAGS fHasEH
+  FRAMEDATA_FLAGS fIsFunctionStart
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.FrameData
+Наследуется от: ValueType
+Поля:
+  UInt32 ulRvaStart
+  UInt32 cbBlock
+  UInt32 cbLocals
+  UInt32 cbParams
+  UInt32 cbStkMax
+  UInt32 frameFunc
+  ushort cbProlog
+  ushort cbSavedRegs
+  UInt32 flags
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.XFixupData
+Наследуется от: ValueType
+Поля:
+  ushort wType
+  ushort wExtra
+  UInt32 rva
+  UInt32 rvaTarget
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DEBUG_S_SUBSECTION
+Наследуется от: Enum
+Поля:
+  int value__
+  DEBUG_S_SUBSECTION SYMBOLS
+  DEBUG_S_SUBSECTION LINES
+  DEBUG_S_SUBSECTION STRINGTABLE
+  DEBUG_S_SUBSECTION FILECHKSMS
+  DEBUG_S_SUBSECTION FRAMEDATA
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DataStream
+Наследуется от: object
+Поля:
+  int contentSize
+  Int32[] pages
+Свойства:
+  int Length
+Методы:
+  void .ctor()
+  void .ctor(int contentSize, BitAccess bits, int count)
+  void Read(PdbReader reader, BitAccess bits)
+  void Read(PdbReader reader, int position, Byte[] bytes, int offset, int data)
+  int get_Length()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DbiDbgHdr
+Наследуется от: ValueType
+Поля:
+  ushort snFPO
+  ushort snException
+  ushort snFixup
+  ushort snOmapToSrc
+  ushort snOmapFromSrc
+  ushort snSectionHdr
+  ushort snTokenRidMap
+  ushort snXdata
+  ushort snPdata
+  ushort snNewFPO
+  ushort snSectionHdrOrig
+Свойства:
+Методы:
+  void .ctor(BitAccess bits)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DbiHeader
+Наследуется от: ValueType
+Поля:
+  int sig
+  int ver
+  int age
+  short gssymStream
+  ushort vers
+  short pssymStream
+  ushort pdbver
+  short symrecStream
+  ushort pdbver2
+  int gpmodiSize
+  int secconSize
+  int secmapSize
+  int filinfSize
+  int tsmapSize
+  int mfcIndex
+  int dbghdrSize
+  int ecinfoSize
+  ushort flags
+  ushort machine
+  int reserved
+Свойства:
+Методы:
+  void .ctor(BitAccess bits)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DbiModuleInfo
+Наследуется от: object
+Поля:
+  int opened
+  ushort flags
+  short stream
+  int cbSyms
+  int cbOldLines
+  int cbLines
+  short files
+  short pad1
+  UInt32 offsets
+  int niSource
+  int niCompiler
+  string moduleName
+  string objectName
+Свойства:
+Методы:
+  void .ctor(BitAccess bits, bool readStrings)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.DbiSecCon
+Наследуется от: ValueType
+Поля:
+  short section
+  short pad1
+  int offset
+  int size
+  UInt32 flags
+  short module
+  short pad2
+  UInt32 dataCrc
+  UInt32 relocCrc
+Свойства:
+Методы:
+  void .ctor(BitAccess bits)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.ILocalScope
+Поля:
+Свойства:
+  UInt32 Offset
+  UInt32 Length
+Методы:
+  UInt32 get_Offset()
+  UInt32 get_Length()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.INamespaceScope
+Поля:
+Свойства:
+  IEnumerable`1<IUsedNamespace> UsedNamespaces
+Методы:
+  IEnumerable`1<IUsedNamespace> get_UsedNamespaces()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.IUsedNamespace
+Поля:
+Свойства:
+  IName Alias
+  IName NamespaceName
+Методы:
+  IName get_Alias()
+  IName get_NamespaceName()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.IName
+Поля:
+Свойства:
+  int UniqueKey
+  int UniqueKeyIgnoringCase
+  string Value
+Методы:
+  int get_UniqueKey()
+  int get_UniqueKeyIgnoringCase()
+  string get_Value()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.IntHashTable
+Наследуется от: object
+Поля:
+  Int32[] primes
+  bucket[] buckets
+  int count
+  int occupancy
+  int loadsize
+  int loadFactorPerc
+  int version
+Свойства:
+  object Item
+Методы:
+  int GetPrime(int minSize)
+  void .ctor()
+  void .ctor(int capacity, int loadFactorPerc)
+  UInt32 InitHash(int key, int hashsize, UInt32& seed, UInt32& incr)
+  void Add(int key, object value)
+  object get_Item(int key)
+  void expand()
+  void rehash()
+  void rehash(int newsize)
+  void Insert(int key, object nvalue, bool add)
+  void putEntry(bucket[] newBuckets, int key, object nvalue, int hashcode)
+  void .cctor()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.MsfDirectory
+Наследуется от: object
+Поля:
+  DataStream[] streams
+Свойства:
+Методы:
+  void .ctor(PdbReader reader, PdbFileHeader head, BitAccess bits)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbConstant
+Наследуется от: object
+Поля:
+  string name
+  UInt32 token
+  object value
+Свойства:
+Методы:
+  void .ctor(string name, UInt32 token, object value)
+  void .ctor(BitAccess bits)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbDebugException
+Наследуется от: IOException
+Поля:
+Свойства:
+Методы:
+  void .ctor(string format, Object[] args)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbException
+Наследуется от: IOException
+Поля:
+Свойства:
+Методы:
+  void .ctor(string format, Object[] args)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbFile
+Наследуется от: object
+Поля:
+  Guid BasicLanguageGuid
+  Guid SymDocumentType_Text
+Свойства:
+Методы:
+  void .ctor()
+  void LoadInjectedSourceInformation(BitAccess bits, Guid& doctype, Guid& language, Guid& vendor, Guid& checksumAlgo, Byte[]& checksum)
+  Dictionary`2<string, int> LoadNameIndex(BitAccess bits, Int32& age, Guid& guid)
+  IntHashTable LoadNameStream(BitAccess bits)
+  int FindFunction(PdbFunction[] funcs, ushort sec, UInt32 off)
+  void LoadManagedLines(PdbFunction[] funcs, IntHashTable names, BitAccess bits, MsfDirectory dir, Dictionary`2<string, int> nameIndex, PdbReader reader, UInt32 limit, Dictionary`2<string, PdbSource> sourceCache)
+  void LoadFuncsFromDbiModule(BitAccess bits, DbiModuleInfo info, IntHashTable names, List`1<PdbFunction> funcList, bool readStrings, MsfDirectory dir, Dictionary`2<string, int> nameIndex, PdbReader reader, Dictionary`2<string, PdbSource> sourceCache)
+  void LoadDbiStream(BitAccess bits, DbiModuleInfo[]& modules, DbiDbgHdr& header, bool readStrings)
+  PdbInfo LoadFunctions(Stream read)
+  void LoadTokenToSourceInfo(BitAccess bits, DbiModuleInfo module, IntHashTable names, MsfDirectory dir, Dictionary`2<string, int> nameIndex, PdbReader reader, Dictionary`2<UInt32, PdbTokenLine> tokenToSourceMapping, Dictionary`2<string, PdbSource> sourceCache)
+  IntHashTable ReadSourceFileInfo(BitAccess bits, UInt32 limit, IntHashTable names, MsfDirectory dir, Dictionary`2<string, int> nameIndex, PdbReader reader, Dictionary`2<string, PdbSource> sourceCache)
+  void .cctor()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbFileHeader
+Наследуется от: object
+Поля:
+  Byte[] windowsPdbMagic
+  Byte[] magic
+  int pageSize
+  int freePageMap
+  int pagesUsed
+  int directorySize
+  int zero
+  Int32[] directoryRoot
+Свойства:
+Методы:
+  void .ctor(Stream reader, BitAccess bits)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbFunction
+Наследуется от: object
+Поля:
+  Guid msilMetaData
+  IComparer byAddress
+  IComparer byAddressAndToken
+  UInt32 token
+  UInt32 slotToken
+  UInt32 tokenOfMethodWhoseUsingInfoAppliesToThisMethod
+  UInt32 segment
+  UInt32 address
+  UInt32 length
+  PdbScope[] scopes
+  PdbSlot[] slots
+  PdbConstant[] constants
+  String[] usedNamespaces
+  PdbLines[] lines
+  UInt16[] usingCounts
+  IEnumerable`1<INamespaceScope> namespaceScopes
+  string iteratorClass
+  List`1<ILocalScope> iteratorScopes
+  PdbSynchronizationInformation synchronizationInformation
+  bool visualBasicScopesAdjusted
+Свойства:
+Методы:
+  string StripNamespace(string module)
+  void AdjustVisualBasicScopes()
+  void AdjustVisualBasicScopes(PdbScope[] scopes)
+  PdbFunction[] LoadManagedFunctions(BitAccess bits, UInt32 limit, bool readStrings)
+  void CountScopesAndSlots(BitAccess bits, UInt32 limit, Int32& constants, Int32& scopes, Int32& slots, Int32& usedNamespaces)
+  void .ctor()
+  void .ctor(ManProcSym proc, BitAccess bits)
+  void ReadMD2CustomMetadata(BitAccess bits)
+  void ReadCustomMetadata(BitAccess bits)
+  void ReadForwardIterator(BitAccess bits)
+  void ReadIteratorLocals(BitAccess bits)
+  void ReadForwardInfo(BitAccess bits)
+  void ReadUsingInfo(BitAccess bits)
+  void .cctor()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbSynchronizationInformation
+Наследуется от: object
+Поля:
+  UInt32 kickoffMethodToken
+  UInt32 generatedCatchHandlerIlOffset
+  PdbSynchronizationPoint[] synchronizationPoints
+Свойства:
+  UInt32 GeneratedCatchHandlerOffset
+Методы:
+  void .ctor(BitAccess bits)
+  UInt32 get_GeneratedCatchHandlerOffset()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbSynchronizationPoint
+Наследуется от: object
+Поля:
+  UInt32 synchronizeOffset
+  UInt32 continuationMethodToken
+  UInt32 continuationOffset
+Свойства:
+  UInt32 SynchronizeOffset
+  UInt32 ContinuationOffset
+Методы:
+  void .ctor(BitAccess bits)
+  UInt32 get_SynchronizeOffset()
+  UInt32 get_ContinuationOffset()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbInfo
+Наследуется от: object
+Поля:
+  PdbFunction[] Functions
+  Dictionary`2<UInt32, PdbTokenLine> TokenToSourceMapping
+  string SourceServerData
+  int Age
+  Guid Guid
+  Byte[] SourceLinkData
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbLine
+Наследуется от: ValueType
+Поля:
+  UInt32 offset
+  UInt32 lineBegin
+  UInt32 lineEnd
+  ushort colBegin
+  ushort colEnd
+Свойства:
+Методы:
+  void .ctor(UInt32 offset, UInt32 lineBegin, ushort colBegin, UInt32 lineEnd, ushort colEnd)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbLines
+Наследуется от: object
+Поля:
+  PdbSource file
+  PdbLine[] lines
+Свойства:
+Методы:
+  void .ctor(PdbSource file, UInt32 count)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbReader
+Наследуется от: object
+Поля:
+  int pageSize
+  Stream reader
+Свойства:
+Методы:
+  void .ctor(Stream reader, int pageSize)
+  void Seek(int page, int offset)
+  void Read(Byte[] bytes, int offset, int count)
+  int PagesFromSize(int size)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbScope
+Наследуется от: object
+Поля:
+  PdbConstant[] constants
+  PdbSlot[] slots
+  PdbScope[] scopes
+  String[] usedNamespaces
+  UInt32 address
+  UInt32 offset
+  UInt32 length
+Свойства:
+Методы:
+  void .ctor(UInt32 address, UInt32 offset, UInt32 length, PdbSlot[] slots, PdbConstant[] constants, String[] usedNamespaces)
+  void .ctor(UInt32 address, UInt32 length, PdbSlot[] slots, PdbConstant[] constants, String[] usedNamespaces)
+  void .ctor(UInt32 funcOffset, BlockSym32 block, BitAccess bits, UInt32& typind)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbSlot
+Наследуется от: object
+Поля:
+  UInt32 slot
+  UInt32 typeToken
+  string name
+  ushort flags
+Свойства:
+Методы:
+  void .ctor(UInt32 slot, UInt32 typeToken, string name, ushort flags)
+  void .ctor(BitAccess bits)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbSource
+Наследуется от: object
+Поля:
+  string name
+  Guid doctype
+  Guid language
+  Guid vendor
+  Guid checksumAlgorithm
+  Byte[] checksum
+Свойства:
+Методы:
+  void .ctor(string name, Guid doctype, Guid language, Guid vendor, Guid checksumAlgorithm, Byte[] checksum)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbTokenLine
+Наследуется от: object
+Поля:
+  UInt32 token
+  UInt32 file_id
+  UInt32 line
+  UInt32 column
+  UInt32 endLine
+  UInt32 endColumn
+  PdbSource sourceFile
+  PdbTokenLine nextLine
+Свойства:
+Методы:
+  void .ctor(UInt32 token, UInt32 file_id, UInt32 line, UInt32 column, UInt32 endLine, UInt32 endColumn)
+--------------------------------------------------
+Класс: Microsoft.Cci.Pdb.PdbIteratorScope
+Наследуется от: object
+Поля:
+  UInt32 offset
+  UInt32 length
+Свойства:
+  UInt32 Offset
+  UInt32 Length
+Методы:
+  void .ctor(UInt32 offset, UInt32 length)
+  UInt32 get_Offset()
+  UInt32 get_Length()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=32 5AED05C00AFE7BD291FD4D73F5200B7919E0D05C0D63DBCB4A210F74133093BD
+  __StaticArrayInitTypeSize=288 74BCD6ED20AF2231F2BB1CDE814C5F4FF48E54BAC46029EEF90DDF4A208E2B20
+Свойства:
+Методы:
+--------------------------------------------------

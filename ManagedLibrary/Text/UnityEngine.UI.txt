@@ -1,0 +1,3168 @@
+Сборка: UnityEngine.UI.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.UI.AnimationTriggers
+Наследуется от: object
+Поля:
+  string kDefaultNormalAnimName
+  string kDefaultHighlightedAnimName
+  string kDefaultPressedAnimName
+  string kDefaultSelectedAnimName
+  string kDefaultDisabledAnimName
+  string m_NormalTrigger
+  string m_HighlightedTrigger
+  string m_PressedTrigger
+  string m_SelectedTrigger
+  string m_DisabledTrigger
+Свойства:
+  string normalTrigger
+  string highlightedTrigger
+  string pressedTrigger
+  string selectedTrigger
+  string disabledTrigger
+Методы:
+  string get_normalTrigger()
+  void set_normalTrigger(string value)
+  string get_highlightedTrigger()
+  void set_highlightedTrigger(string value)
+  string get_pressedTrigger()
+  void set_pressedTrigger(string value)
+  string get_selectedTrigger()
+  void set_selectedTrigger(string value)
+  string get_disabledTrigger()
+  void set_disabledTrigger(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.Button
+Наследуется от: Selectable
+Поля:
+  ButtonClickedEvent m_OnClick
+Свойства:
+  ButtonClickedEvent onClick
+Методы:
+  void .ctor()
+  ButtonClickedEvent get_onClick()
+  void set_onClick(ButtonClickedEvent value)
+  void Press()
+  void OnPointerClick(PointerEventData eventData)
+  void OnSubmit(BaseEventData eventData)
+  IEnumerator OnFinishSubmit()
+--------------------------------------------------
+Класс: UnityEngine.UI.CanvasUpdate
+Наследуется от: Enum
+Поля:
+  int value__
+  CanvasUpdate Prelayout
+  CanvasUpdate Layout
+  CanvasUpdate PostLayout
+  CanvasUpdate PreRender
+  CanvasUpdate LatePreRender
+  CanvasUpdate MaxUpdateValue
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.UI.ICanvasElement
+Поля:
+Свойства:
+  Transform transform
+Методы:
+  void Rebuild(CanvasUpdate executing)
+  Transform get_transform()
+  void LayoutComplete()
+  void GraphicUpdateComplete()
+  bool IsDestroyed()
+--------------------------------------------------
+Класс: UnityEngine.UI.CanvasUpdateRegistry
+Наследуется от: object
+Поля:
+  CanvasUpdateRegistry s_Instance
+  bool m_PerformingLayoutUpdate
+  bool m_PerformingGraphicUpdate
+  IndexedSet`1<ICanvasElement> m_LayoutRebuildQueue
+  IndexedSet`1<ICanvasElement> m_GraphicRebuildQueue
+  Comparison`1<ICanvasElement> s_SortLayoutFunction
+Свойства:
+  CanvasUpdateRegistry instance
+Методы:
+  void .ctor()
+  CanvasUpdateRegistry get_instance()
+  bool ObjectValidForUpdate(ICanvasElement element)
+  void CleanInvalidItems()
+  void PerformUpdate()
+  int ParentCount(Transform child)
+  int SortLayoutList(ICanvasElement x, ICanvasElement y)
+  void RegisterCanvasElementForLayoutRebuild(ICanvasElement element)
+  bool TryRegisterCanvasElementForLayoutRebuild(ICanvasElement element)
+  bool InternalRegisterCanvasElementForLayoutRebuild(ICanvasElement element)
+  void RegisterCanvasElementForGraphicRebuild(ICanvasElement element)
+  bool TryRegisterCanvasElementForGraphicRebuild(ICanvasElement element)
+  bool InternalRegisterCanvasElementForGraphicRebuild(ICanvasElement element)
+  void UnRegisterCanvasElementForRebuild(ICanvasElement element)
+  void InternalUnRegisterCanvasElementForLayoutRebuild(ICanvasElement element)
+  void InternalUnRegisterCanvasElementForGraphicRebuild(ICanvasElement element)
+  bool IsRebuildingLayout()
+  bool IsRebuildingGraphics()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.ColorBlock
+Наследуется от: ValueType
+Поля:
+  Color m_NormalColor
+  Color m_HighlightedColor
+  Color m_PressedColor
+  Color m_SelectedColor
+  Color m_DisabledColor
+  float m_ColorMultiplier
+  float m_FadeDuration
+Свойства:
+  Color normalColor
+  Color highlightedColor
+  Color pressedColor
+  Color selectedColor
+  Color disabledColor
+  float colorMultiplier
+  float fadeDuration
+  ColorBlock defaultColorBlock
+Методы:
+  Color get_normalColor()
+  void set_normalColor(Color value)
+  Color get_highlightedColor()
+  void set_highlightedColor(Color value)
+  Color get_pressedColor()
+  void set_pressedColor(Color value)
+  Color get_selectedColor()
+  void set_selectedColor(Color value)
+  Color get_disabledColor()
+  void set_disabledColor(Color value)
+  float get_colorMultiplier()
+  void set_colorMultiplier(float value)
+  float get_fadeDuration()
+  void set_fadeDuration(float value)
+  ColorBlock get_defaultColorBlock()
+  bool Equals(object obj)
+  bool Equals(ColorBlock other)
+  bool op_Equality(ColorBlock point1, ColorBlock point2)
+  bool op_Inequality(ColorBlock point1, ColorBlock point2)
+  int GetHashCode()
+--------------------------------------------------
+Класс: UnityEngine.UI.ClipperRegistry
+Наследуется от: object
+Поля:
+  ClipperRegistry s_Instance
+  IndexedSet`1<IClipper> m_Clippers
+Свойства:
+  ClipperRegistry instance
+Методы:
+  void .ctor()
+  ClipperRegistry get_instance()
+  void Cull()
+  void Register(IClipper c)
+  void Unregister(IClipper c)
+--------------------------------------------------
+Класс: UnityEngine.UI.Clipping
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Rect FindCullAndClipWorldRect(List`1<RectMask2D> rectMaskParents, Boolean& validRect)
+--------------------------------------------------
+Класс: UnityEngine.UI.IClipper
+Поля:
+Свойства:
+Методы:
+  void PerformClipping()
+--------------------------------------------------
+Класс: UnityEngine.UI.IClippable
+Поля:
+Свойства:
+  GameObject gameObject
+  RectTransform rectTransform
+Методы:
+  GameObject get_gameObject()
+  void RecalculateClipping()
+  RectTransform get_rectTransform()
+  void Cull(Rect clipRect, bool validRect)
+  void SetClipRect(Rect value, bool validRect)
+--------------------------------------------------
+Класс: UnityEngine.UI.RectangularVertexClipper
+Наследуется от: object
+Поля:
+  Vector3[] m_WorldCorners
+  Vector3[] m_CanvasCorners
+Свойства:
+Методы:
+  Rect GetCanvasRect(RectTransform t, Canvas c)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.DefaultControls
+Наследуется от: object
+Поля:
+  IFactoryControls m_CurrentFactory
+  float kWidth
+  float kThickHeight
+  float kThinHeight
+  Vector2 s_ThickElementSize
+  Vector2 s_ThinElementSize
+  Vector2 s_ImageElementSize
+  Color s_DefaultSelectableColor
+  Color s_PanelColor
+  Color s_TextColor
+Свойства:
+  IFactoryControls factory
+Методы:
+  IFactoryControls get_factory()
+  GameObject CreateUIElementRoot(string name, Vector2 size, Type[] components)
+  GameObject CreateUIObject(string name, GameObject parent, Type[] components)
+  void SetDefaultTextValues(Text lbl)
+  void SetDefaultColorTransitionValues(Selectable slider)
+  void SetParentAndAlign(GameObject child, GameObject parent)
+  void SetLayerRecursively(GameObject go, int layer)
+  GameObject CreatePanel(Resources resources)
+  GameObject CreateButton(Resources resources)
+  GameObject CreateText(Resources resources)
+  GameObject CreateImage(Resources resources)
+  GameObject CreateRawImage(Resources resources)
+  GameObject CreateSlider(Resources resources)
+  GameObject CreateScrollbar(Resources resources)
+  GameObject CreateToggle(Resources resources)
+  GameObject CreateInputField(Resources resources)
+  GameObject CreateDropdown(Resources resources)
+  GameObject CreateScrollView(Resources resources)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.Dropdown
+Наследуется от: Selectable
+Поля:
+  RectTransform m_Template
+  Text m_CaptionText
+  Image m_CaptionImage
+  Text m_ItemText
+  Image m_ItemImage
+  int m_Value
+  OptionDataList m_Options
+  DropdownEvent m_OnValueChanged
+  float m_AlphaFadeSpeed
+  GameObject m_Dropdown
+  GameObject m_Blocker
+  List`1<DropdownItem> m_Items
+  TweenRunner`1<FloatTween> m_AlphaTweenRunner
+  bool validTemplate
+  OptionData s_NoOptionData
+Свойства:
+  RectTransform template
+  Text captionText
+  Image captionImage
+  Text itemText
+  Image itemImage
+  List`1<OptionData> options
+  DropdownEvent onValueChanged
+  float alphaFadeSpeed
+  int value
+Методы:
+  RectTransform get_template()
+  void set_template(RectTransform value)
+  Text get_captionText()
+  void set_captionText(Text value)
+  Image get_captionImage()
+  void set_captionImage(Image value)
+  Text get_itemText()
+  void set_itemText(Text value)
+  Image get_itemImage()
+  void set_itemImage(Image value)
+  List`1<OptionData> get_options()
+  void set_options(List`1<OptionData> value)
+  DropdownEvent get_onValueChanged()
+  void set_onValueChanged(DropdownEvent value)
+  float get_alphaFadeSpeed()
+  void set_alphaFadeSpeed(float value)
+  int get_value()
+  void set_value(int value)
+  void SetValueWithoutNotify(int input)
+  void Set(int value, bool sendCallback)
+  void .ctor()
+  void Awake()
+  void Start()
+  void OnDisable()
+  void RefreshShownValue()
+  void AddOptions(List`1<OptionData> options)
+  void AddOptions(List`1<string> options)
+  void AddOptions(List`1<Sprite> options)
+  void ClearOptions()
+  void SetupTemplate()
+  T GetOrAddComponent(GameObject go)
+  void OnPointerClick(PointerEventData eventData)
+  void OnSubmit(BaseEventData eventData)
+  void OnCancel(BaseEventData eventData)
+  void Show()
+  GameObject CreateBlocker(Canvas rootCanvas)
+  void DestroyBlocker(GameObject blocker)
+  GameObject CreateDropdownList(GameObject template)
+  void DestroyDropdownList(GameObject dropdownList)
+  DropdownItem CreateItem(DropdownItem itemTemplate)
+  void DestroyItem(DropdownItem item)
+  DropdownItem AddItem(OptionData data, bool selected, DropdownItem itemTemplate, List`1<DropdownItem> items)
+  void AlphaFadeList(float duration, float alpha)
+  void AlphaFadeList(float duration, float start, float end)
+  void SetAlpha(float alpha)
+  void Hide()
+  IEnumerator DelayedDestroyDropdownList(float delay)
+  void ImmediateDestroyDropdownList()
+  void OnSelectItem(Toggle toggle)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.FontData
+Наследуется от: object
+Поля:
+  Font m_Font
+  int m_FontSize
+  FontStyle m_FontStyle
+  bool m_BestFit
+  int m_MinSize
+  int m_MaxSize
+  TextAnchor m_Alignment
+  bool m_AlignByGeometry
+  bool m_RichText
+  HorizontalWrapMode m_HorizontalOverflow
+  VerticalWrapMode m_VerticalOverflow
+  float m_LineSpacing
+Свойства:
+  FontData defaultFontData
+  Font font
+  int fontSize
+  FontStyle fontStyle
+  bool bestFit
+  int minSize
+  int maxSize
+  TextAnchor alignment
+  bool alignByGeometry
+  bool richText
+  HorizontalWrapMode horizontalOverflow
+  VerticalWrapMode verticalOverflow
+  float lineSpacing
+Методы:
+  FontData get_defaultFontData()
+  Font get_font()
+  void set_font(Font value)
+  int get_fontSize()
+  void set_fontSize(int value)
+  FontStyle get_fontStyle()
+  void set_fontStyle(FontStyle value)
+  bool get_bestFit()
+  void set_bestFit(bool value)
+  int get_minSize()
+  void set_minSize(int value)
+  int get_maxSize()
+  void set_maxSize(int value)
+  TextAnchor get_alignment()
+  void set_alignment(TextAnchor value)
+  bool get_alignByGeometry()
+  void set_alignByGeometry(bool value)
+  bool get_richText()
+  void set_richText(bool value)
+  HorizontalWrapMode get_horizontalOverflow()
+  void set_horizontalOverflow(HorizontalWrapMode value)
+  VerticalWrapMode get_verticalOverflow()
+  void set_verticalOverflow(VerticalWrapMode value)
+  float get_lineSpacing()
+  void set_lineSpacing(float value)
+  void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize()
+  void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.FontUpdateTracker
+Наследуется от: object
+Поля:
+  Dictionary`2<Font, HashSet`1<Text>> m_Tracked
+Свойства:
+Методы:
+  void TrackText(Text t)
+  void RebuildForFont(Font f)
+  void UntrackText(Text t)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.Graphic
+Наследуется от: UIBehaviour
+Поля:
+  Material s_DefaultUI
+  Texture2D s_WhiteTexture
+  Material m_Material
+  Color m_Color
+  bool m_SkipLayoutUpdate
+  bool m_SkipMaterialUpdate
+  bool m_RaycastTarget
+  RectTransform m_RectTransform
+  CanvasRenderer m_CanvasRenderer
+  Canvas m_Canvas
+  bool m_VertsDirty
+  bool m_MaterialDirty
+  UnityAction m_OnDirtyLayoutCallback
+  UnityAction m_OnDirtyVertsCallback
+  UnityAction m_OnDirtyMaterialCallback
+  Mesh s_Mesh
+  VertexHelper s_VertexHelper
+  Mesh m_CachedMesh
+  Vector2[] m_CachedUvs
+  TweenRunner`1<ColorTween> m_ColorTweenRunner
+  bool <useLegacyMeshGeneration>k__BackingField
+Свойства:
+  Material defaultGraphicMaterial
+  Color color
+  bool raycastTarget
+  bool useLegacyMeshGeneration
+  int depth
+  RectTransform rectTransform
+  Canvas canvas
+  CanvasRenderer canvasRenderer
+  Material defaultMaterial
+  Material material
+  Material materialForRendering
+  Texture mainTexture
+  Mesh workerMesh
+Методы:
+  Material get_defaultGraphicMaterial()
+  Color get_color()
+  void set_color(Color value)
+  bool get_raycastTarget()
+  void set_raycastTarget(bool value)
+  bool get_useLegacyMeshGeneration()
+  void set_useLegacyMeshGeneration(bool value)
+  void .ctor()
+  void SetAllDirty()
+  void SetLayoutDirty()
+  void SetVerticesDirty()
+  void SetMaterialDirty()
+  void OnRectTransformDimensionsChange()
+  void OnBeforeTransformParentChanged()
+  void OnTransformParentChanged()
+  int get_depth()
+  RectTransform get_rectTransform()
+  Canvas get_canvas()
+  void CacheCanvas()
+  CanvasRenderer get_canvasRenderer()
+  Material get_defaultMaterial()
+  Material get_material()
+  void set_material(Material value)
+  Material get_materialForRendering()
+  Texture get_mainTexture()
+  void OnEnable()
+  void OnDisable()
+  void OnDestroy()
+  void OnCanvasHierarchyChanged()
+  void OnCullingChanged()
+  void Rebuild(CanvasUpdate update)
+  void LayoutComplete()
+  void GraphicUpdateComplete()
+  void UpdateMaterial()
+  void UpdateGeometry()
+  void DoMeshGeneration()
+  void DoLegacyMeshGeneration()
+  Mesh get_workerMesh()
+  void OnFillVBO(List`1<UIVertex> vbo)
+  void OnPopulateMesh(Mesh m)
+  void OnPopulateMesh(VertexHelper vh)
+  void OnDidApplyAnimationProperties()
+  void SetNativeSize()
+  bool Raycast(Vector2 sp, Camera eventCamera)
+  Vector2 PixelAdjustPoint(Vector2 point)
+  Rect GetPixelAdjustedRect()
+  void CrossFadeColor(Color targetColor, float duration, bool ignoreTimeScale, bool useAlpha)
+  void CrossFadeColor(Color targetColor, float duration, bool ignoreTimeScale, bool useAlpha, bool useRGB)
+  Color CreateColorFromAlpha(float alpha)
+  void CrossFadeAlpha(float alpha, float duration, bool ignoreTimeScale)
+  void RegisterDirtyLayoutCallback(UnityAction action)
+  void UnregisterDirtyLayoutCallback(UnityAction action)
+  void RegisterDirtyVerticesCallback(UnityAction action)
+  void UnregisterDirtyVerticesCallback(UnityAction action)
+  void RegisterDirtyMaterialCallback(UnityAction action)
+  void UnregisterDirtyMaterialCallback(UnityAction action)
+  void .cctor()
+  Transform UnityEngine.UI.ICanvasElement.get_transform()
+--------------------------------------------------
+Класс: UnityEngine.UI.GraphicRaycaster
+Наследуется от: BaseRaycaster
+Поля:
+  int kNoEventMaskSet
+  bool m_IgnoreReversedGraphics
+  BlockingObjects m_BlockingObjects
+  LayerMask m_BlockingMask
+  Canvas m_Canvas
+  List`1<Graphic> m_RaycastResults
+  List`1<Graphic> s_SortedGraphics
+Свойства:
+  int sortOrderPriority
+  int renderOrderPriority
+  bool ignoreReversedGraphics
+  BlockingObjects blockingObjects
+  Canvas canvas
+  Camera eventCamera
+Методы:
+  int get_sortOrderPriority()
+  int get_renderOrderPriority()
+  bool get_ignoreReversedGraphics()
+  void set_ignoreReversedGraphics(bool value)
+  BlockingObjects get_blockingObjects()
+  void set_blockingObjects(BlockingObjects value)
+  void .ctor()
+  Canvas get_canvas()
+  void Raycast(PointerEventData eventData, List`1<RaycastResult> resultAppendList)
+  Camera get_eventCamera()
+  void Raycast(Canvas canvas, Camera eventCamera, Vector2 pointerPosition, IList`1<Graphic> foundGraphics, List`1<Graphic> results)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.GraphicRegistry
+Наследуется от: object
+Поля:
+  GraphicRegistry s_Instance
+  Dictionary`2<Canvas, IndexedSet`1<Graphic>> m_Graphics
+  List`1<Graphic> s_EmptyList
+Свойства:
+  GraphicRegistry instance
+Методы:
+  void .ctor()
+  GraphicRegistry get_instance()
+  void RegisterGraphicForCanvas(Canvas c, Graphic graphic)
+  void UnregisterGraphicForCanvas(Canvas c, Graphic graphic)
+  IList`1<Graphic> GetGraphicsForCanvas(Canvas canvas)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.IGraphicEnabledDisabled
+Поля:
+Свойства:
+Методы:
+  void OnSiblingGraphicEnabledDisabled()
+--------------------------------------------------
+Класс: UnityEngine.UI.Image
+Наследуется от: MaskableGraphic
+Поля:
+  Material s_ETC1DefaultUI
+  Sprite m_Sprite
+  Sprite m_OverrideSprite
+  Type m_Type
+  bool m_PreserveAspect
+  bool m_FillCenter
+  FillMethod m_FillMethod
+  float m_FillAmount
+  bool m_FillClockwise
+  int m_FillOrigin
+  float m_AlphaHitTestMinimumThreshold
+  bool m_Tracked
+  bool m_UseSpriteMesh
+  float m_PixelsPerUnitMultiplier
+  float m_CachedReferencePixelsPerUnit
+  Vector2[] s_VertScratch
+  Vector2[] s_UVScratch
+  Vector3[] s_Xy
+  Vector3[] s_Uv
+  List`1<Image> m_TrackedTexturelessImages
+  bool s_Initialized
+Свойства:
+  Sprite sprite
+  Sprite overrideSprite
+  Sprite activeSprite
+  Type type
+  bool preserveAspect
+  bool fillCenter
+  FillMethod fillMethod
+  float fillAmount
+  bool fillClockwise
+  int fillOrigin
+  float eventAlphaThreshold
+  float alphaHitTestMinimumThreshold
+  bool useSpriteMesh
+  Material defaultETC1GraphicMaterial
+  Texture mainTexture
+  bool hasBorder
+  float pixelsPerUnitMultiplier
+  float pixelsPerUnit
+  float multipliedPixelsPerUnit
+  Material material
+  float minWidth
+  float preferredWidth
+  float flexibleWidth
+  float minHeight
+  float preferredHeight
+  float flexibleHeight
+  int layoutPriority
+Методы:
+  Sprite get_sprite()
+  void set_sprite(Sprite value)
+  void DisableSpriteOptimizations()
+  Sprite get_overrideSprite()
+  void set_overrideSprite(Sprite value)
+  Sprite get_activeSprite()
+  Type get_type()
+  void set_type(Type value)
+  bool get_preserveAspect()
+  void set_preserveAspect(bool value)
+  bool get_fillCenter()
+  void set_fillCenter(bool value)
+  FillMethod get_fillMethod()
+  void set_fillMethod(FillMethod value)
+  float get_fillAmount()
+  void set_fillAmount(float value)
+  bool get_fillClockwise()
+  void set_fillClockwise(bool value)
+  int get_fillOrigin()
+  void set_fillOrigin(int value)
+  float get_eventAlphaThreshold()
+  void set_eventAlphaThreshold(float value)
+  float get_alphaHitTestMinimumThreshold()
+  void set_alphaHitTestMinimumThreshold(float value)
+  bool get_useSpriteMesh()
+  void set_useSpriteMesh(bool value)
+  void .ctor()
+  Material get_defaultETC1GraphicMaterial()
+  Texture get_mainTexture()
+  bool get_hasBorder()
+  float get_pixelsPerUnitMultiplier()
+  void set_pixelsPerUnitMultiplier(float value)
+  float get_pixelsPerUnit()
+  float get_multipliedPixelsPerUnit()
+  Material get_material()
+  void set_material(Material value)
+  void OnBeforeSerialize()
+  void OnAfterDeserialize()
+  void PreserveSpriteAspectRatio(Rect& rect, Vector2 spriteSize)
+  Vector4 GetDrawingDimensions(bool shouldPreserveAspect)
+  void SetNativeSize()
+  void OnRectTransformDimensionsChange()
+  void OnTransformParentChanged()
+  void OnPopulateMesh(VertexHelper toFill)
+  void TrackSprite()
+  void OnEnable()
+  void OnDisable()
+  void UpdateMaterial()
+  void OnCanvasHierarchyChanged()
+  void GenerateSimpleSprite(VertexHelper vh, bool lPreserveAspect)
+  void GenerateSprite(VertexHelper vh, bool lPreserveAspect)
+  void GenerateSlicedSprite(VertexHelper toFill)
+  void GenerateTiledSprite(VertexHelper toFill)
+  void AddQuad(VertexHelper vertexHelper, Vector3[] quadPositions, Color32 color, Vector3[] quadUVs)
+  void AddQuad(VertexHelper vertexHelper, Vector2 posMin, Vector2 posMax, Color32 color, Vector2 uvMin, Vector2 uvMax)
+  Vector4 GetAdjustedBorders(Vector4 border, Rect adjustedRect)
+  void GenerateFilledSprite(VertexHelper toFill, bool preserveAspect)
+  bool RadialCut(Vector3[] xy, Vector3[] uv, float fill, bool invert, int corner)
+  void RadialCut(Vector3[] xy, float cos, float sin, bool invert, int corner)
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  float get_minWidth()
+  float get_preferredWidth()
+  float get_flexibleWidth()
+  float get_minHeight()
+  float get_preferredHeight()
+  float get_flexibleHeight()
+  int get_layoutPriority()
+  bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
+  Vector2 MapCoordinate(Vector2 local, Rect rect)
+  void RebuildImage(SpriteAtlas spriteAtlas)
+  void TrackImage(Image g)
+  void UnTrackImage(Image g)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.IMask
+Поля:
+Свойства:
+  RectTransform rectTransform
+Методы:
+  bool Enabled()
+  RectTransform get_rectTransform()
+--------------------------------------------------
+Класс: UnityEngine.UI.IMaskable
+Поля:
+Свойства:
+Методы:
+  void RecalculateMasking()
+--------------------------------------------------
+Класс: UnityEngine.UI.InputField
+Наследуется от: Selectable
+Поля:
+  TouchScreenKeyboard m_Keyboard
+  Char[] kSeparators
+  Text m_TextComponent
+  Graphic m_Placeholder
+  ContentType m_ContentType
+  InputType m_InputType
+  char m_AsteriskChar
+  TouchScreenKeyboardType m_KeyboardType
+  LineType m_LineType
+  bool m_HideMobileInput
+  CharacterValidation m_CharacterValidation
+  int m_CharacterLimit
+  SubmitEvent m_OnEndEdit
+  OnChangeEvent m_OnValueChanged
+  OnValidateInput m_OnValidateInput
+  Color m_CaretColor
+  bool m_CustomCaretColor
+  Color m_SelectionColor
+  string m_Text
+  float m_CaretBlinkRate
+  int m_CaretWidth
+  bool m_ReadOnly
+  int m_CaretPosition
+  int m_CaretSelectPosition
+  RectTransform caretRectTrans
+  UIVertex[] m_CursorVerts
+  TextGenerator m_InputTextCache
+  CanvasRenderer m_CachedInputRenderer
+  bool m_PreventFontCallback
+  Mesh m_Mesh
+  bool m_AllowInput
+  bool m_ShouldActivateNextUpdate
+  bool m_UpdateDrag
+  bool m_DragPositionOutOfBounds
+  float kHScrollSpeed
+  float kVScrollSpeed
+  bool m_CaretVisible
+  Coroutine m_BlinkCoroutine
+  float m_BlinkStartTime
+  int m_DrawStart
+  int m_DrawEnd
+  Coroutine m_DragCoroutine
+  string m_OriginalText
+  bool m_WasCanceled
+  bool m_HasDoneFocusTransition
+  WaitForSecondsRealtime m_WaitForSecondsRealtime
+  bool m_TouchKeyboardAllowsInPlaceEditing
+  string kEmailSpecialCharacters
+  Event m_ProcessingEvent
+  int k_MaxTextLength
+Свойства:
+  BaseInput input
+  string compositionString
+  Mesh mesh
+  TextGenerator cachedInputTextGenerator
+  bool shouldHideMobileInput
+  bool shouldActivateOnSelect
+  string text
+  bool isFocused
+  float caretBlinkRate
+  int caretWidth
+  Text textComponent
+  Graphic placeholder
+  Color caretColor
+  bool customCaretColor
+  Color selectionColor
+  SubmitEvent onEndEdit
+  OnChangeEvent onValueChange
+  OnChangeEvent onValueChanged
+  OnValidateInput onValidateInput
+  int characterLimit
+  ContentType contentType
+  LineType lineType
+  InputType inputType
+  TouchScreenKeyboard touchScreenKeyboard
+  TouchScreenKeyboardType keyboardType
+  CharacterValidation characterValidation
+  bool readOnly
+  bool multiLine
+  char asteriskChar
+  bool wasCanceled
+  int caretPositionInternal
+  int caretSelectPositionInternal
+  bool hasSelection
+  int caretPosition
+  int selectionAnchorPosition
+  int selectionFocusPosition
+  string clipboard
+  float minWidth
+  float preferredWidth
+  float flexibleWidth
+  float minHeight
+  float preferredHeight
+  float flexibleHeight
+  int layoutPriority
+Методы:
+  BaseInput get_input()
+  string get_compositionString()
+  void .ctor()
+  Mesh get_mesh()
+  TextGenerator get_cachedInputTextGenerator()
+  void set_shouldHideMobileInput(bool value)
+  bool get_shouldHideMobileInput()
+  bool get_shouldActivateOnSelect()
+  string get_text()
+  void set_text(string value)
+  void SetTextWithoutNotify(string input)
+  void SetText(string value, bool sendCallback)
+  bool get_isFocused()
+  float get_caretBlinkRate()
+  void set_caretBlinkRate(float value)
+  int get_caretWidth()
+  void set_caretWidth(int value)
+  Text get_textComponent()
+  void set_textComponent(Text value)
+  Graphic get_placeholder()
+  void set_placeholder(Graphic value)
+  Color get_caretColor()
+  void set_caretColor(Color value)
+  bool get_customCaretColor()
+  void set_customCaretColor(bool value)
+  Color get_selectionColor()
+  void set_selectionColor(Color value)
+  SubmitEvent get_onEndEdit()
+  void set_onEndEdit(SubmitEvent value)
+  OnChangeEvent get_onValueChange()
+  void set_onValueChange(OnChangeEvent value)
+  OnChangeEvent get_onValueChanged()
+  void set_onValueChanged(OnChangeEvent value)
+  OnValidateInput get_onValidateInput()
+  void set_onValidateInput(OnValidateInput value)
+  int get_characterLimit()
+  void set_characterLimit(int value)
+  ContentType get_contentType()
+  void set_contentType(ContentType value)
+  LineType get_lineType()
+  void set_lineType(LineType value)
+  InputType get_inputType()
+  void set_inputType(InputType value)
+  TouchScreenKeyboard get_touchScreenKeyboard()
+  TouchScreenKeyboardType get_keyboardType()
+  void set_keyboardType(TouchScreenKeyboardType value)
+  CharacterValidation get_characterValidation()
+  void set_characterValidation(CharacterValidation value)
+  bool get_readOnly()
+  void set_readOnly(bool value)
+  bool get_multiLine()
+  char get_asteriskChar()
+  void set_asteriskChar(char value)
+  bool get_wasCanceled()
+  void ClampPos(Int32& pos)
+  int get_caretPositionInternal()
+  void set_caretPositionInternal(int value)
+  int get_caretSelectPositionInternal()
+  void set_caretSelectPositionInternal(int value)
+  bool get_hasSelection()
+  int get_caretPosition()
+  void set_caretPosition(int value)
+  int get_selectionAnchorPosition()
+  void set_selectionAnchorPosition(int value)
+  int get_selectionFocusPosition()
+  void set_selectionFocusPosition(int value)
+  void OnEnable()
+  void OnDisable()
+  IEnumerator CaretBlink()
+  void SetCaretVisible()
+  void SetCaretActive()
+  void UpdateCaretMaterial()
+  void OnFocus()
+  void SelectAll()
+  void MoveTextEnd(bool shift)
+  void MoveTextStart(bool shift)
+  string get_clipboard()
+  void set_clipboard(string value)
+  bool InPlaceEditing()
+  void UpdateCaretFromKeyboard()
+  void LateUpdate()
+  Vector2 ScreenToLocal(Vector2 screen)
+  int GetUnclampedCharacterLineFromPosition(Vector2 pos, TextGenerator generator)
+  int GetCharacterIndexFromPosition(Vector2 pos)
+  bool MayDrag(PointerEventData eventData)
+  void OnBeginDrag(PointerEventData eventData)
+  void OnDrag(PointerEventData eventData)
+  IEnumerator MouseDragOutsideRect(PointerEventData eventData)
+  void OnEndDrag(PointerEventData eventData)
+  void OnPointerDown(PointerEventData eventData)
+  EditState KeyPressed(Event evt)
+  bool IsValidChar(char c)
+  void ProcessEvent(Event e)
+  void OnUpdateSelected(BaseEventData eventData)
+  string GetSelectedString()
+  int FindtNextWordBegin()
+  void MoveRight(bool shift, bool ctrl)
+  int FindtPrevWordBegin()
+  void MoveLeft(bool shift, bool ctrl)
+  int DetermineCharacterLine(int charPos, TextGenerator generator)
+  int LineUpCharacterPosition(int originalPos, bool goToFirstChar)
+  int LineDownCharacterPosition(int originalPos, bool goToLastChar)
+  void MoveDown(bool shift)
+  void MoveDown(bool shift, bool goToLastChar)
+  void MoveUp(bool shift)
+  void MoveUp(bool shift, bool goToFirstChar)
+  void Delete()
+  void ForwardSpace()
+  void Backspace()
+  void Insert(char c)
+  void UpdateTouchKeyboardFromEditChanges()
+  void SendOnValueChangedAndUpdateLabel()
+  void SendOnValueChanged()
+  void SendOnSubmit()
+  void Append(string input)
+  void Append(char input)
+  void UpdateLabel()
+  bool IsSelectionVisible()
+  int GetLineStartPosition(TextGenerator gen, int line)
+  int GetLineEndPosition(TextGenerator gen, int line)
+  void SetDrawRangeToContainCaretPosition(int caretPos)
+  void ForceLabelUpdate()
+  void MarkGeometryAsDirty()
+  void Rebuild(CanvasUpdate update)
+  void LayoutComplete()
+  void GraphicUpdateComplete()
+  void UpdateGeometry()
+  void AssignPositioningIfNeeded()
+  void OnFillVBO(Mesh vbo)
+  void GenerateCaret(VertexHelper vbo, Vector2 roundingOffset)
+  void CreateCursorVerts()
+  void GenerateHighlight(VertexHelper vbo, Vector2 roundingOffset)
+  char Validate(string text, int pos, char ch)
+  void ActivateInputField()
+  void ActivateInputFieldInternal()
+  void OnSelect(BaseEventData eventData)
+  void OnPointerClick(PointerEventData eventData)
+  void DeactivateInputField()
+  void OnDeselect(BaseEventData eventData)
+  void OnSubmit(BaseEventData eventData)
+  void EnforceContentType()
+  void EnforceTextHOverflow()
+  void SetToCustomIfContentTypeIsNot(ContentType[] allowedContentTypes)
+  void SetToCustom()
+  void DoStateTransition(SelectionState state, bool instant)
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  float get_minWidth()
+  float get_preferredWidth()
+  float get_flexibleWidth()
+  float get_minHeight()
+  float get_preferredHeight()
+  float get_flexibleHeight()
+  int get_layoutPriority()
+  void .cctor()
+  Transform UnityEngine.UI.ICanvasElement.get_transform()
+--------------------------------------------------
+Класс: UnityEngine.UI.AspectRatioFitter
+Наследуется от: UIBehaviour
+Поля:
+  AspectMode m_AspectMode
+  float m_AspectRatio
+  RectTransform m_Rect
+  bool m_DelayedSetDirty
+  DrivenRectTransformTracker m_Tracker
+Свойства:
+  AspectMode aspectMode
+  float aspectRatio
+  RectTransform rectTransform
+Методы:
+  AspectMode get_aspectMode()
+  void set_aspectMode(AspectMode value)
+  float get_aspectRatio()
+  void set_aspectRatio(float value)
+  RectTransform get_rectTransform()
+  void .ctor()
+  void OnEnable()
+  void OnDisable()
+  void Update()
+  void OnRectTransformDimensionsChange()
+  void UpdateRect()
+  float GetSizeDeltaToProduceSize(float size, int axis)
+  Vector2 GetParentSize()
+  void SetLayoutHorizontal()
+  void SetLayoutVertical()
+  void SetDirty()
+--------------------------------------------------
+Класс: UnityEngine.UI.CanvasScaler
+Наследуется от: UIBehaviour
+Поля:
+  ScaleMode m_UiScaleMode
+  float m_ReferencePixelsPerUnit
+  float m_ScaleFactor
+  Vector2 m_ReferenceResolution
+  ScreenMatchMode m_ScreenMatchMode
+  float m_MatchWidthOrHeight
+  float kLogBase
+  Unit m_PhysicalUnit
+  float m_FallbackScreenDPI
+  float m_DefaultSpriteDPI
+  float m_DynamicPixelsPerUnit
+  Canvas m_Canvas
+  float m_PrevScaleFactor
+  float m_PrevReferencePixelsPerUnit
+Свойства:
+  ScaleMode uiScaleMode
+  float referencePixelsPerUnit
+  float scaleFactor
+  Vector2 referenceResolution
+  ScreenMatchMode screenMatchMode
+  float matchWidthOrHeight
+  Unit physicalUnit
+  float fallbackScreenDPI
+  float defaultSpriteDPI
+  float dynamicPixelsPerUnit
+Методы:
+  ScaleMode get_uiScaleMode()
+  void set_uiScaleMode(ScaleMode value)
+  float get_referencePixelsPerUnit()
+  void set_referencePixelsPerUnit(float value)
+  float get_scaleFactor()
+  void set_scaleFactor(float value)
+  Vector2 get_referenceResolution()
+  void set_referenceResolution(Vector2 value)
+  ScreenMatchMode get_screenMatchMode()
+  void set_screenMatchMode(ScreenMatchMode value)
+  float get_matchWidthOrHeight()
+  void set_matchWidthOrHeight(float value)
+  Unit get_physicalUnit()
+  void set_physicalUnit(Unit value)
+  float get_fallbackScreenDPI()
+  void set_fallbackScreenDPI(float value)
+  float get_defaultSpriteDPI()
+  void set_defaultSpriteDPI(float value)
+  float get_dynamicPixelsPerUnit()
+  void set_dynamicPixelsPerUnit(float value)
+  void .ctor()
+  void OnEnable()
+  void OnDisable()
+  void Update()
+  void Handle()
+  void HandleWorldCanvas()
+  void HandleConstantPixelSize()
+  void HandleScaleWithScreenSize()
+  void HandleConstantPhysicalSize()
+  void SetScaleFactor(float scaleFactor)
+  void SetReferencePixelsPerUnit(float referencePixelsPerUnit)
+--------------------------------------------------
+Класс: UnityEngine.UI.ContentSizeFitter
+Наследуется от: UIBehaviour
+Поля:
+  FitMode m_HorizontalFit
+  FitMode m_VerticalFit
+  RectTransform m_Rect
+  DrivenRectTransformTracker m_Tracker
+Свойства:
+  FitMode horizontalFit
+  FitMode verticalFit
+  RectTransform rectTransform
+Методы:
+  FitMode get_horizontalFit()
+  void set_horizontalFit(FitMode value)
+  FitMode get_verticalFit()
+  void set_verticalFit(FitMode value)
+  RectTransform get_rectTransform()
+  void .ctor()
+  void OnEnable()
+  void OnDisable()
+  void OnRectTransformDimensionsChange()
+  void HandleSelfFittingAlongAxis(int axis)
+  void SetLayoutHorizontal()
+  void SetLayoutVertical()
+  void SetDirty()
+--------------------------------------------------
+Класс: UnityEngine.UI.GridLayoutGroup
+Наследуется от: LayoutGroup
+Поля:
+  Corner m_StartCorner
+  Axis m_StartAxis
+  Vector2 m_CellSize
+  Vector2 m_Spacing
+  Constraint m_Constraint
+  int m_ConstraintCount
+Свойства:
+  Corner startCorner
+  Axis startAxis
+  Vector2 cellSize
+  Vector2 spacing
+  Constraint constraint
+  int constraintCount
+Методы:
+  Corner get_startCorner()
+  void set_startCorner(Corner value)
+  Axis get_startAxis()
+  void set_startAxis(Axis value)
+  Vector2 get_cellSize()
+  void set_cellSize(Vector2 value)
+  Vector2 get_spacing()
+  void set_spacing(Vector2 value)
+  Constraint get_constraint()
+  void set_constraint(Constraint value)
+  int get_constraintCount()
+  void set_constraintCount(int value)
+  void .ctor()
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  void SetLayoutHorizontal()
+  void SetLayoutVertical()
+  void SetCellsAlongAxis(int axis)
+--------------------------------------------------
+Класс: UnityEngine.UI.HorizontalLayoutGroup
+Наследуется от: HorizontalOrVerticalLayoutGroup
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  void SetLayoutHorizontal()
+  void SetLayoutVertical()
+--------------------------------------------------
+Класс: UnityEngine.UI.HorizontalOrVerticalLayoutGroup
+Наследуется от: LayoutGroup
+Поля:
+  float m_Spacing
+  bool m_ChildForceExpandWidth
+  bool m_ChildForceExpandHeight
+  bool m_ChildControlWidth
+  bool m_ChildControlHeight
+  bool m_ChildScaleWidth
+  bool m_ChildScaleHeight
+Свойства:
+  float spacing
+  bool childForceExpandWidth
+  bool childForceExpandHeight
+  bool childControlWidth
+  bool childControlHeight
+  bool childScaleWidth
+  bool childScaleHeight
+Методы:
+  float get_spacing()
+  void set_spacing(float value)
+  bool get_childForceExpandWidth()
+  void set_childForceExpandWidth(bool value)
+  bool get_childForceExpandHeight()
+  void set_childForceExpandHeight(bool value)
+  bool get_childControlWidth()
+  void set_childControlWidth(bool value)
+  bool get_childControlHeight()
+  void set_childControlHeight(bool value)
+  bool get_childScaleWidth()
+  void set_childScaleWidth(bool value)
+  bool get_childScaleHeight()
+  void set_childScaleHeight(bool value)
+  void CalcAlongAxis(int axis, bool isVertical)
+  void SetChildrenAlongAxis(int axis, bool isVertical)
+  void GetChildSizes(RectTransform child, int axis, bool controlSize, bool childForceExpand, Single& min, Single& preferred, Single& flexible)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.ILayoutElement
+Поля:
+Свойства:
+  float minWidth
+  float preferredWidth
+  float flexibleWidth
+  float minHeight
+  float preferredHeight
+  float flexibleHeight
+  int layoutPriority
+Методы:
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  float get_minWidth()
+  float get_preferredWidth()
+  float get_flexibleWidth()
+  float get_minHeight()
+  float get_preferredHeight()
+  float get_flexibleHeight()
+  int get_layoutPriority()
+--------------------------------------------------
+Класс: UnityEngine.UI.ILayoutController
+Поля:
+Свойства:
+Методы:
+  void SetLayoutHorizontal()
+  void SetLayoutVertical()
+--------------------------------------------------
+Класс: UnityEngine.UI.ILayoutGroup
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.UI.ILayoutSelfController
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.UI.ILayoutIgnorer
+Поля:
+Свойства:
+  bool ignoreLayout
+Методы:
+  bool get_ignoreLayout()
+--------------------------------------------------
+Класс: UnityEngine.UI.LayoutElement
+Наследуется от: UIBehaviour
+Поля:
+  bool m_IgnoreLayout
+  float m_MinWidth
+  float m_MinHeight
+  float m_PreferredWidth
+  float m_PreferredHeight
+  float m_FlexibleWidth
+  float m_FlexibleHeight
+  int m_LayoutPriority
+Свойства:
+  bool ignoreLayout
+  float minWidth
+  float minHeight
+  float preferredWidth
+  float preferredHeight
+  float flexibleWidth
+  float flexibleHeight
+  int layoutPriority
+Методы:
+  bool get_ignoreLayout()
+  void set_ignoreLayout(bool value)
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  float get_minWidth()
+  void set_minWidth(float value)
+  float get_minHeight()
+  void set_minHeight(float value)
+  float get_preferredWidth()
+  void set_preferredWidth(float value)
+  float get_preferredHeight()
+  void set_preferredHeight(float value)
+  float get_flexibleWidth()
+  void set_flexibleWidth(float value)
+  float get_flexibleHeight()
+  void set_flexibleHeight(float value)
+  int get_layoutPriority()
+  void set_layoutPriority(int value)
+  void .ctor()
+  void OnEnable()
+  void OnTransformParentChanged()
+  void OnDisable()
+  void OnDidApplyAnimationProperties()
+  void OnBeforeTransformParentChanged()
+  void SetDirty()
+--------------------------------------------------
+Класс: UnityEngine.UI.LayoutGroup
+Наследуется от: UIBehaviour
+Поля:
+  RectOffset m_Padding
+  TextAnchor m_ChildAlignment
+  RectTransform m_Rect
+  DrivenRectTransformTracker m_Tracker
+  Vector2 m_TotalMinSize
+  Vector2 m_TotalPreferredSize
+  Vector2 m_TotalFlexibleSize
+  List`1<RectTransform> m_RectChildren
+Свойства:
+  RectOffset padding
+  TextAnchor childAlignment
+  RectTransform rectTransform
+  List`1<RectTransform> rectChildren
+  float minWidth
+  float preferredWidth
+  float flexibleWidth
+  float minHeight
+  float preferredHeight
+  float flexibleHeight
+  int layoutPriority
+  bool isRootLayoutGroup
+Методы:
+  RectOffset get_padding()
+  void set_padding(RectOffset value)
+  TextAnchor get_childAlignment()
+  void set_childAlignment(TextAnchor value)
+  RectTransform get_rectTransform()
+  List`1<RectTransform> get_rectChildren()
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  float get_minWidth()
+  float get_preferredWidth()
+  float get_flexibleWidth()
+  float get_minHeight()
+  float get_preferredHeight()
+  float get_flexibleHeight()
+  int get_layoutPriority()
+  void SetLayoutHorizontal()
+  void SetLayoutVertical()
+  void .ctor()
+  void OnEnable()
+  void OnDisable()
+  void OnDidApplyAnimationProperties()
+  float GetTotalMinSize(int axis)
+  float GetTotalPreferredSize(int axis)
+  float GetTotalFlexibleSize(int axis)
+  float GetStartOffset(int axis, float requiredSpaceWithoutPadding)
+  float GetAlignmentOnAxis(int axis)
+  void SetLayoutInputForAxis(float totalMin, float totalPreferred, float totalFlexible, int axis)
+  void SetChildAlongAxis(RectTransform rect, int axis, float pos)
+  void SetChildAlongAxisWithScale(RectTransform rect, int axis, float pos, float scaleFactor)
+  void SetChildAlongAxis(RectTransform rect, int axis, float pos, float size)
+  void SetChildAlongAxisWithScale(RectTransform rect, int axis, float pos, float size, float scaleFactor)
+  bool get_isRootLayoutGroup()
+  void OnRectTransformDimensionsChange()
+  void OnTransformChildrenChanged()
+  void SetProperty(T& currentValue, T newValue)
+  void SetDirty()
+  IEnumerator DelayedSetDirty(RectTransform rectTransform)
+--------------------------------------------------
+Класс: UnityEngine.UI.LayoutRebuilder
+Наследуется от: object
+Поля:
+  RectTransform m_ToRebuild
+  int m_CachedHashFromTransform
+  ObjectPool`1<LayoutRebuilder> s_Rebuilders
+Свойства:
+  Transform transform
+Методы:
+  void Initialize(RectTransform controller)
+  void Clear()
+  void .cctor()
+  void ReapplyDrivenProperties(RectTransform driven)
+  Transform get_transform()
+  bool IsDestroyed()
+  void StripDisabledBehavioursFromList(List`1<Component> components)
+  void ForceRebuildLayoutImmediate(RectTransform layoutRoot)
+  void Rebuild(CanvasUpdate executing)
+  void PerformLayoutControl(RectTransform rect, UnityAction`1<Component> action)
+  void PerformLayoutCalculation(RectTransform rect, UnityAction`1<Component> action)
+  void MarkLayoutForRebuild(RectTransform rect)
+  bool ValidController(RectTransform layoutRoot, List`1<Component> comps)
+  void MarkLayoutRootForRebuild(RectTransform controller)
+  void LayoutComplete()
+  void GraphicUpdateComplete()
+  int GetHashCode()
+  bool Equals(object obj)
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.LayoutUtility
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  float GetMinSize(RectTransform rect, int axis)
+  float GetPreferredSize(RectTransform rect, int axis)
+  float GetFlexibleSize(RectTransform rect, int axis)
+  float GetMinWidth(RectTransform rect)
+  float GetPreferredWidth(RectTransform rect)
+  float GetFlexibleWidth(RectTransform rect)
+  float GetMinHeight(RectTransform rect)
+  float GetPreferredHeight(RectTransform rect)
+  float GetFlexibleHeight(RectTransform rect)
+  float GetLayoutProperty(RectTransform rect, Func`2<ILayoutElement, float> property, float defaultValue)
+  float GetLayoutProperty(RectTransform rect, Func`2<ILayoutElement, float> property, float defaultValue, ILayoutElement& source)
+--------------------------------------------------
+Класс: UnityEngine.UI.VerticalLayoutGroup
+Наследуется от: HorizontalOrVerticalLayoutGroup
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  void SetLayoutHorizontal()
+  void SetLayoutVertical()
+--------------------------------------------------
+Класс: UnityEngine.UI.Mask
+Наследуется от: UIBehaviour
+Поля:
+  RectTransform m_RectTransform
+  bool m_ShowMaskGraphic
+  Graphic m_Graphic
+  Material m_MaskMaterial
+  Material m_UnmaskMaterial
+Свойства:
+  RectTransform rectTransform
+  bool showMaskGraphic
+  Graphic graphic
+Методы:
+  RectTransform get_rectTransform()
+  bool get_showMaskGraphic()
+  void set_showMaskGraphic(bool value)
+  Graphic get_graphic()
+  void .ctor()
+  bool MaskEnabled()
+  void OnSiblingGraphicEnabledDisabled()
+  void OnEnable()
+  void OnDisable()
+  bool IsRaycastLocationValid(Vector2 sp, Camera eventCamera)
+  Material GetModifiedMaterial(Material baseMaterial)
+--------------------------------------------------
+Класс: UnityEngine.UI.MaskableGraphic
+Наследуется от: Graphic
+Поля:
+  bool m_ShouldRecalculateStencil
+  Material m_MaskMaterial
+  RectMask2D m_ParentMask
+  bool m_Maskable
+  bool m_IncludeForMasking
+  CullStateChangedEvent m_OnCullStateChanged
+  bool m_ShouldRecalculate
+  int m_StencilValue
+  Vector3[] m_Corners
+Свойства:
+  CullStateChangedEvent onCullStateChanged
+  bool maskable
+  Rect rootCanvasRect
+Методы:
+  CullStateChangedEvent get_onCullStateChanged()
+  void set_onCullStateChanged(CullStateChangedEvent value)
+  bool get_maskable()
+  void set_maskable(bool value)
+  Material GetModifiedMaterial(Material baseMaterial)
+  void Cull(Rect clipRect, bool validRect)
+  void UpdateCull(bool cull)
+  void SetClipRect(Rect clipRect, bool validRect)
+  void OnEnable()
+  void OnDisable()
+  void OnTransformParentChanged()
+  void ParentMaskStateChanged()
+  void OnCanvasHierarchyChanged()
+  Rect get_rootCanvasRect()
+  void UpdateClipParent()
+  void RecalculateClipping()
+  void RecalculateMasking()
+  void .ctor()
+  GameObject UnityEngine.UI.IClippable.get_gameObject()
+--------------------------------------------------
+Класс: UnityEngine.UI.MaskUtilities
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Notify2DMaskStateChanged(Component mask)
+  void NotifyStencilStateChanged(Component mask)
+  Transform FindRootSortOverrideCanvas(Transform start)
+  int GetStencilDepth(Transform transform, Transform stopAfter)
+  bool IsDescendantOrSelf(Transform father, Transform child)
+  RectMask2D GetRectMaskForClippable(IClippable clippable)
+  void GetRectMasksForClip(RectMask2D clipper, List`1<RectMask2D> masks)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.IMaterialModifier
+Поля:
+Свойства:
+Методы:
+  Material GetModifiedMaterial(Material baseMaterial)
+--------------------------------------------------
+Класс: UnityEngine.UI.Misc
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Destroy(Object obj)
+  void DestroyImmediate(Object obj)
+--------------------------------------------------
+Класс: UnityEngine.UI.Navigation
+Наследуется от: ValueType
+Поля:
+  Mode m_Mode
+  Selectable m_SelectOnUp
+  Selectable m_SelectOnDown
+  Selectable m_SelectOnLeft
+  Selectable m_SelectOnRight
+Свойства:
+  Mode mode
+  Selectable selectOnUp
+  Selectable selectOnDown
+  Selectable selectOnLeft
+  Selectable selectOnRight
+  Navigation defaultNavigation
+Методы:
+  Mode get_mode()
+  void set_mode(Mode value)
+  Selectable get_selectOnUp()
+  void set_selectOnUp(Selectable value)
+  Selectable get_selectOnDown()
+  void set_selectOnDown(Selectable value)
+  Selectable get_selectOnLeft()
+  void set_selectOnLeft(Selectable value)
+  Selectable get_selectOnRight()
+  void set_selectOnRight(Selectable value)
+  Navigation get_defaultNavigation()
+  bool Equals(Navigation other)
+--------------------------------------------------
+Класс: UnityEngine.UI.RawImage
+Наследуется от: MaskableGraphic
+Поля:
+  Texture m_Texture
+  Rect m_UVRect
+Свойства:
+  Texture mainTexture
+  Texture texture
+  Rect uvRect
+Методы:
+  void .ctor()
+  Texture get_mainTexture()
+  Texture get_texture()
+  void set_texture(Texture value)
+  Rect get_uvRect()
+  void set_uvRect(Rect value)
+  void SetNativeSize()
+  void OnPopulateMesh(VertexHelper vh)
+  void OnDidApplyAnimationProperties()
+--------------------------------------------------
+Класс: UnityEngine.UI.RectMask2D
+Наследуется от: UIBehaviour
+Поля:
+  RectangularVertexClipper m_VertexClipper
+  RectTransform m_RectTransform
+  HashSet`1<MaskableGraphic> m_MaskableTargets
+  HashSet`1<IClippable> m_ClipTargets
+  bool m_ShouldRecalculateClipRects
+  List`1<RectMask2D> m_Clippers
+  Rect m_LastClipRectCanvasSpace
+  bool m_ForceClip
+  Canvas m_Canvas
+  Vector3[] m_Corners
+Свойства:
+  Canvas Canvas
+  Rect canvasRect
+  RectTransform rectTransform
+  Rect rootCanvasRect
+Методы:
+  Canvas get_Canvas()
+  Rect get_canvasRect()
+  RectTransform get_rectTransform()
+  void .ctor()
+  void OnEnable()
+  void OnDisable()
+  bool IsRaycastLocationValid(Vector2 sp, Camera eventCamera)
+  Rect get_rootCanvasRect()
+  void PerformClipping()
+  void AddClippable(IClippable clippable)
+  void RemoveClippable(IClippable clippable)
+  void OnTransformParentChanged()
+  void OnCanvasHierarchyChanged()
+--------------------------------------------------
+Класс: UnityEngine.UI.Scrollbar
+Наследуется от: Selectable
+Поля:
+  RectTransform m_HandleRect
+  Direction m_Direction
+  float m_Value
+  float m_Size
+  int m_NumberOfSteps
+  ScrollEvent m_OnValueChanged
+  RectTransform m_ContainerRect
+  Vector2 m_Offset
+  DrivenRectTransformTracker m_Tracker
+  Coroutine m_PointerDownRepeat
+  bool isPointerDownAndNotDragging
+  bool m_DelayedUpdateVisuals
+Свойства:
+  RectTransform handleRect
+  Direction direction
+  float value
+  float size
+  int numberOfSteps
+  ScrollEvent onValueChanged
+  float stepSize
+  Axis axis
+  bool reverseValue
+Методы:
+  RectTransform get_handleRect()
+  void set_handleRect(RectTransform value)
+  Direction get_direction()
+  void set_direction(Direction value)
+  void .ctor()
+  float get_value()
+  void set_value(float value)
+  void SetValueWithoutNotify(float input)
+  float get_size()
+  void set_size(float value)
+  int get_numberOfSteps()
+  void set_numberOfSteps(int value)
+  ScrollEvent get_onValueChanged()
+  void set_onValueChanged(ScrollEvent value)
+  float get_stepSize()
+  void Rebuild(CanvasUpdate executing)
+  void LayoutComplete()
+  void GraphicUpdateComplete()
+  void OnEnable()
+  void OnDisable()
+  void Update()
+  void UpdateCachedReferences()
+  void Set(float input, bool sendCallback)
+  void OnRectTransformDimensionsChange()
+  Axis get_axis()
+  bool get_reverseValue()
+  void UpdateVisuals()
+  void UpdateDrag(PointerEventData eventData)
+  void DoUpdateDrag(Vector2 handleCorner, float remainingSize)
+  bool MayDrag(PointerEventData eventData)
+  void OnBeginDrag(PointerEventData eventData)
+  void OnDrag(PointerEventData eventData)
+  void OnPointerDown(PointerEventData eventData)
+  IEnumerator ClickRepeat(PointerEventData eventData)
+  void OnPointerUp(PointerEventData eventData)
+  void OnMove(AxisEventData eventData)
+  Selectable FindSelectableOnLeft()
+  Selectable FindSelectableOnRight()
+  Selectable FindSelectableOnUp()
+  Selectable FindSelectableOnDown()
+  void OnInitializePotentialDrag(PointerEventData eventData)
+  void SetDirection(Direction direction, bool includeRectLayouts)
+  Transform UnityEngine.UI.ICanvasElement.get_transform()
+--------------------------------------------------
+Класс: UnityEngine.UI.ScrollRect
+Наследуется от: UIBehaviour
+Поля:
+  RectTransform m_Content
+  bool m_Horizontal
+  bool m_Vertical
+  MovementType m_MovementType
+  float m_Elasticity
+  bool m_Inertia
+  float m_DecelerationRate
+  float m_ScrollSensitivity
+  RectTransform m_Viewport
+  Scrollbar m_HorizontalScrollbar
+  Scrollbar m_VerticalScrollbar
+  ScrollbarVisibility m_HorizontalScrollbarVisibility
+  ScrollbarVisibility m_VerticalScrollbarVisibility
+  float m_HorizontalScrollbarSpacing
+  float m_VerticalScrollbarSpacing
+  ScrollRectEvent m_OnValueChanged
+  Vector2 m_PointerStartLocalCursor
+  Vector2 m_ContentStartPosition
+  RectTransform m_ViewRect
+  Bounds m_ContentBounds
+  Bounds m_ViewBounds
+  Vector2 m_Velocity
+  bool m_Dragging
+  bool m_Scrolling
+  Vector2 m_PrevPosition
+  Bounds m_PrevContentBounds
+  Bounds m_PrevViewBounds
+  bool m_HasRebuiltLayout
+  bool m_HSliderExpand
+  bool m_VSliderExpand
+  float m_HSliderHeight
+  float m_VSliderWidth
+  RectTransform m_Rect
+  RectTransform m_HorizontalScrollbarRect
+  RectTransform m_VerticalScrollbarRect
+  DrivenRectTransformTracker m_Tracker
+  Vector3[] m_Corners
+Свойства:
+  RectTransform content
+  bool horizontal
+  bool vertical
+  MovementType movementType
+  float elasticity
+  bool inertia
+  float decelerationRate
+  float scrollSensitivity
+  RectTransform viewport
+  Scrollbar horizontalScrollbar
+  Scrollbar verticalScrollbar
+  ScrollbarVisibility horizontalScrollbarVisibility
+  ScrollbarVisibility verticalScrollbarVisibility
+  float horizontalScrollbarSpacing
+  float verticalScrollbarSpacing
+  ScrollRectEvent onValueChanged
+  RectTransform viewRect
+  Vector2 velocity
+  RectTransform rectTransform
+  Vector2 normalizedPosition
+  float horizontalNormalizedPosition
+  float verticalNormalizedPosition
+  bool hScrollingNeeded
+  bool vScrollingNeeded
+  float minWidth
+  float preferredWidth
+  float flexibleWidth
+  float minHeight
+  float preferredHeight
+  float flexibleHeight
+  int layoutPriority
+Методы:
+  RectTransform get_content()
+  void set_content(RectTransform value)
+  bool get_horizontal()
+  void set_horizontal(bool value)
+  bool get_vertical()
+  void set_vertical(bool value)
+  MovementType get_movementType()
+  void set_movementType(MovementType value)
+  float get_elasticity()
+  void set_elasticity(float value)
+  bool get_inertia()
+  void set_inertia(bool value)
+  float get_decelerationRate()
+  void set_decelerationRate(float value)
+  float get_scrollSensitivity()
+  void set_scrollSensitivity(float value)
+  RectTransform get_viewport()
+  void set_viewport(RectTransform value)
+  Scrollbar get_horizontalScrollbar()
+  void set_horizontalScrollbar(Scrollbar value)
+  Scrollbar get_verticalScrollbar()
+  void set_verticalScrollbar(Scrollbar value)
+  ScrollbarVisibility get_horizontalScrollbarVisibility()
+  void set_horizontalScrollbarVisibility(ScrollbarVisibility value)
+  ScrollbarVisibility get_verticalScrollbarVisibility()
+  void set_verticalScrollbarVisibility(ScrollbarVisibility value)
+  float get_horizontalScrollbarSpacing()
+  void set_horizontalScrollbarSpacing(float value)
+  float get_verticalScrollbarSpacing()
+  void set_verticalScrollbarSpacing(float value)
+  ScrollRectEvent get_onValueChanged()
+  void set_onValueChanged(ScrollRectEvent value)
+  RectTransform get_viewRect()
+  Vector2 get_velocity()
+  void set_velocity(Vector2 value)
+  RectTransform get_rectTransform()
+  void .ctor()
+  void Rebuild(CanvasUpdate executing)
+  void LayoutComplete()
+  void GraphicUpdateComplete()
+  void UpdateCachedData()
+  void OnEnable()
+  void OnDisable()
+  bool IsActive()
+  void EnsureLayoutHasRebuilt()
+  void StopMovement()
+  void OnScroll(PointerEventData data)
+  void OnInitializePotentialDrag(PointerEventData eventData)
+  void OnBeginDrag(PointerEventData eventData)
+  void OnEndDrag(PointerEventData eventData)
+  void OnDrag(PointerEventData eventData)
+  void SetContentAnchoredPosition(Vector2 position)
+  void LateUpdate()
+  void UpdatePrevData()
+  void UpdateScrollbars(Vector2 offset)
+  Vector2 get_normalizedPosition()
+  void set_normalizedPosition(Vector2 value)
+  float get_horizontalNormalizedPosition()
+  void set_horizontalNormalizedPosition(float value)
+  float get_verticalNormalizedPosition()
+  void set_verticalNormalizedPosition(float value)
+  void SetHorizontalNormalizedPosition(float value)
+  void SetVerticalNormalizedPosition(float value)
+  void SetNormalizedPosition(float value, int axis)
+  float RubberDelta(float overStretching, float viewSize)
+  void OnRectTransformDimensionsChange()
+  bool get_hScrollingNeeded()
+  bool get_vScrollingNeeded()
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  float get_minWidth()
+  float get_preferredWidth()
+  float get_flexibleWidth()
+  float get_minHeight()
+  float get_preferredHeight()
+  float get_flexibleHeight()
+  int get_layoutPriority()
+  void SetLayoutHorizontal()
+  void SetLayoutVertical()
+  void UpdateScrollbarVisibility()
+  void UpdateOneScrollbarVisibility(bool xScrollingNeeded, bool xAxisEnabled, ScrollbarVisibility scrollbarVisibility, Scrollbar scrollbar)
+  void UpdateScrollbarLayout()
+  void UpdateBounds()
+  void AdjustBounds(Bounds& viewBounds, Vector2& contentPivot, Vector3& contentSize, Vector3& contentPos)
+  Bounds GetBounds()
+  Bounds InternalGetBounds(Vector3[] corners, Matrix4x4& viewWorldToLocalMatrix)
+  Vector2 CalculateOffset(Vector2 delta)
+  Vector2 InternalCalculateOffset(Bounds& viewBounds, Bounds& contentBounds, bool horizontal, bool vertical, MovementType movementType, Vector2& delta)
+  void SetDirty()
+  void SetDirtyCaching()
+  Transform UnityEngine.UI.ICanvasElement.get_transform()
+--------------------------------------------------
+Класс: UnityEngine.UI.Selectable
+Наследуется от: UIBehaviour
+Поля:
+  Selectable[] s_Selectables
+  int s_SelectableCount
+  bool s_IsDirty
+  Navigation m_Navigation
+  Transition m_Transition
+  ColorBlock m_Colors
+  SpriteState m_SpriteState
+  AnimationTriggers m_AnimationTriggers
+  bool m_Interactable
+  Graphic m_TargetGraphic
+  bool m_GroupsAllowInteraction
+  bool m_WillRemove
+  bool <isPointerInside>k__BackingField
+  bool <isPointerDown>k__BackingField
+  bool <hasSelection>k__BackingField
+  List`1<CanvasGroup> m_CanvasGroupCache
+Свойства:
+  Selectable[] allSelectablesArray
+  int allSelectableCount
+  List`1<Selectable> allSelectables
+  Navigation navigation
+  Transition transition
+  ColorBlock colors
+  SpriteState spriteState
+  AnimationTriggers animationTriggers
+  Graphic targetGraphic
+  bool interactable
+  bool isPointerInside
+  bool isPointerDown
+  bool hasSelection
+  Image image
+  Animator animator
+  SelectionState currentSelectionState
+Методы:
+  Selectable[] get_allSelectablesArray()
+  int get_allSelectableCount()
+  List`1<Selectable> get_allSelectables()
+  int AllSelectablesNoAlloc(Selectable[] selectables)
+  Navigation get_navigation()
+  void set_navigation(Navigation value)
+  Transition get_transition()
+  void set_transition(Transition value)
+  ColorBlock get_colors()
+  void set_colors(ColorBlock value)
+  SpriteState get_spriteState()
+  void set_spriteState(SpriteState value)
+  AnimationTriggers get_animationTriggers()
+  void set_animationTriggers(AnimationTriggers value)
+  Graphic get_targetGraphic()
+  void set_targetGraphic(Graphic value)
+  bool get_interactable()
+  void set_interactable(bool value)
+  bool get_isPointerInside()
+  void set_isPointerInside(bool value)
+  bool get_isPointerDown()
+  void set_isPointerDown(bool value)
+  bool get_hasSelection()
+  void set_hasSelection(bool value)
+  void .ctor()
+  Image get_image()
+  void set_image(Image value)
+  Animator get_animator()
+  void Awake()
+  void OnCanvasGroupChanged()
+  bool IsInteractable()
+  void OnDidApplyAnimationProperties()
+  void OnEnable()
+  void OnTransformParentChanged()
+  void OnSetProperty()
+  void OnDisable()
+  void RemoveInvalidSelectables()
+  SelectionState get_currentSelectionState()
+  void InstantClearState()
+  void DoStateTransition(SelectionState state, bool instant)
+  Selectable FindSelectable(Vector3 dir)
+  Vector3 GetPointOnRectEdge(RectTransform rect, Vector2 dir)
+  void Navigate(AxisEventData eventData, Selectable sel)
+  Selectable FindSelectableOnLeft()
+  Selectable FindSelectableOnRight()
+  Selectable FindSelectableOnUp()
+  Selectable FindSelectableOnDown()
+  void OnMove(AxisEventData eventData)
+  void StartColorTween(Color targetColor, bool instant)
+  void DoSpriteSwap(Sprite newSprite)
+  void TriggerAnimation(string triggername)
+  bool IsHighlighted()
+  bool IsPressed()
+  void EvaluateAndTransitionToSelectionState()
+  void OnPointerDown(PointerEventData eventData)
+  void OnPointerUp(PointerEventData eventData)
+  void OnPointerEnter(PointerEventData eventData)
+  void OnPointerExit(PointerEventData eventData)
+  void OnSelect(BaseEventData eventData)
+  void OnDeselect(BaseEventData eventData)
+  void Select()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.SetPropertyUtility
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool SetColor(Color& currentValue, Color newValue)
+  bool SetStruct(T& currentValue, T newValue)
+  bool SetClass(T& currentValue, T newValue)
+--------------------------------------------------
+Класс: UnityEngine.UI.Slider
+Наследуется от: Selectable
+Поля:
+  RectTransform m_FillRect
+  RectTransform m_HandleRect
+  Direction m_Direction
+  float m_MinValue
+  float m_MaxValue
+  bool m_WholeNumbers
+  float m_Value
+  SliderEvent m_OnValueChanged
+  Image m_FillImage
+  Transform m_FillTransform
+  RectTransform m_FillContainerRect
+  Transform m_HandleTransform
+  RectTransform m_HandleContainerRect
+  Vector2 m_Offset
+  DrivenRectTransformTracker m_Tracker
+  bool m_DelayedUpdateVisuals
+Свойства:
+  RectTransform fillRect
+  RectTransform handleRect
+  Direction direction
+  float minValue
+  float maxValue
+  bool wholeNumbers
+  float value
+  float normalizedValue
+  SliderEvent onValueChanged
+  float stepSize
+  Axis axis
+  bool reverseValue
+Методы:
+  RectTransform get_fillRect()
+  void set_fillRect(RectTransform value)
+  RectTransform get_handleRect()
+  void set_handleRect(RectTransform value)
+  Direction get_direction()
+  void set_direction(Direction value)
+  float get_minValue()
+  void set_minValue(float value)
+  float get_maxValue()
+  void set_maxValue(float value)
+  bool get_wholeNumbers()
+  void set_wholeNumbers(bool value)
+  float get_value()
+  void set_value(float value)
+  void SetValueWithoutNotify(float input)
+  float get_normalizedValue()
+  void set_normalizedValue(float value)
+  SliderEvent get_onValueChanged()
+  void set_onValueChanged(SliderEvent value)
+  float get_stepSize()
+  void .ctor()
+  void Rebuild(CanvasUpdate executing)
+  void LayoutComplete()
+  void GraphicUpdateComplete()
+  void OnEnable()
+  void OnDisable()
+  void Update()
+  void OnDidApplyAnimationProperties()
+  void UpdateCachedReferences()
+  float ClampValue(float input)
+  void Set(float input, bool sendCallback)
+  void OnRectTransformDimensionsChange()
+  Axis get_axis()
+  bool get_reverseValue()
+  void UpdateVisuals()
+  void UpdateDrag(PointerEventData eventData, Camera cam)
+  bool MayDrag(PointerEventData eventData)
+  void OnPointerDown(PointerEventData eventData)
+  void OnDrag(PointerEventData eventData)
+  void OnMove(AxisEventData eventData)
+  Selectable FindSelectableOnLeft()
+  Selectable FindSelectableOnRight()
+  Selectable FindSelectableOnUp()
+  Selectable FindSelectableOnDown()
+  void OnInitializePotentialDrag(PointerEventData eventData)
+  void SetDirection(Direction direction, bool includeRectLayouts)
+  Transform UnityEngine.UI.ICanvasElement.get_transform()
+--------------------------------------------------
+Класс: UnityEngine.UI.SpriteState
+Наследуется от: ValueType
+Поля:
+  Sprite m_HighlightedSprite
+  Sprite m_PressedSprite
+  Sprite m_SelectedSprite
+  Sprite m_DisabledSprite
+Свойства:
+  Sprite highlightedSprite
+  Sprite pressedSprite
+  Sprite selectedSprite
+  Sprite disabledSprite
+Методы:
+  Sprite get_highlightedSprite()
+  void set_highlightedSprite(Sprite value)
+  Sprite get_pressedSprite()
+  void set_pressedSprite(Sprite value)
+  Sprite get_selectedSprite()
+  void set_selectedSprite(Sprite value)
+  Sprite get_disabledSprite()
+  void set_disabledSprite(Sprite value)
+  bool Equals(SpriteState other)
+--------------------------------------------------
+Класс: UnityEngine.UI.StencilMaterial
+Наследуется от: object
+Поля:
+  List`1<MatEntry> m_List
+Свойства:
+Методы:
+  Material Add(Material baseMat, int stencilID)
+  Material Add(Material baseMat, int stencilID, StencilOp operation, CompareFunction compareFunction, ColorWriteMask colorWriteMask)
+  Material Add(Material baseMat, int stencilID, StencilOp operation, CompareFunction compareFunction, ColorWriteMask colorWriteMask, int readMask, int writeMask)
+  void Remove(Material customMat)
+  void ClearAll()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.Text
+Наследуется от: MaskableGraphic
+Поля:
+  FontData m_FontData
+  string m_Text
+  TextGenerator m_TextCache
+  TextGenerator m_TextCacheForLayout
+  Material s_DefaultText
+  bool m_DisableFontTextureRebuiltCallback
+  UIVertex[] m_TempVerts
+Свойства:
+  TextGenerator cachedTextGenerator
+  TextGenerator cachedTextGeneratorForLayout
+  Texture mainTexture
+  Font font
+  string text
+  bool supportRichText
+  bool resizeTextForBestFit
+  int resizeTextMinSize
+  int resizeTextMaxSize
+  TextAnchor alignment
+  bool alignByGeometry
+  int fontSize
+  HorizontalWrapMode horizontalOverflow
+  VerticalWrapMode verticalOverflow
+  float lineSpacing
+  FontStyle fontStyle
+  float pixelsPerUnit
+  float minWidth
+  float preferredWidth
+  float flexibleWidth
+  float minHeight
+  float preferredHeight
+  float flexibleHeight
+  int layoutPriority
+Методы:
+  void .ctor()
+  TextGenerator get_cachedTextGenerator()
+  TextGenerator get_cachedTextGeneratorForLayout()
+  Texture get_mainTexture()
+  void FontTextureChanged()
+  Font get_font()
+  void set_font(Font value)
+  string get_text()
+  void set_text(string value)
+  bool get_supportRichText()
+  void set_supportRichText(bool value)
+  bool get_resizeTextForBestFit()
+  void set_resizeTextForBestFit(bool value)
+  int get_resizeTextMinSize()
+  void set_resizeTextMinSize(int value)
+  int get_resizeTextMaxSize()
+  void set_resizeTextMaxSize(int value)
+  TextAnchor get_alignment()
+  void set_alignment(TextAnchor value)
+  bool get_alignByGeometry()
+  void set_alignByGeometry(bool value)
+  int get_fontSize()
+  void set_fontSize(int value)
+  HorizontalWrapMode get_horizontalOverflow()
+  void set_horizontalOverflow(HorizontalWrapMode value)
+  VerticalWrapMode get_verticalOverflow()
+  void set_verticalOverflow(VerticalWrapMode value)
+  float get_lineSpacing()
+  void set_lineSpacing(float value)
+  FontStyle get_fontStyle()
+  void set_fontStyle(FontStyle value)
+  float get_pixelsPerUnit()
+  void OnEnable()
+  void OnDisable()
+  void UpdateGeometry()
+  void AssignDefaultFont()
+  TextGenerationSettings GetGenerationSettings(Vector2 extents)
+  Vector2 GetTextAnchorPivot(TextAnchor anchor)
+  void OnPopulateMesh(VertexHelper toFill)
+  void CalculateLayoutInputHorizontal()
+  void CalculateLayoutInputVertical()
+  float get_minWidth()
+  float get_preferredWidth()
+  float get_flexibleWidth()
+  float get_minHeight()
+  float get_preferredHeight()
+  float get_flexibleHeight()
+  int get_layoutPriority()
+--------------------------------------------------
+Класс: UnityEngine.UI.Toggle
+Наследуется от: Selectable
+Поля:
+  ToggleTransition toggleTransition
+  Graphic graphic
+  ToggleGroup m_Group
+  ToggleEvent onValueChanged
+  bool m_IsOn
+Свойства:
+  ToggleGroup group
+  bool isOn
+Методы:
+  ToggleGroup get_group()
+  void set_group(ToggleGroup value)
+  void .ctor()
+  void Rebuild(CanvasUpdate executing)
+  void LayoutComplete()
+  void GraphicUpdateComplete()
+  void OnDestroy()
+  void OnEnable()
+  void OnDisable()
+  void OnDidApplyAnimationProperties()
+  void SetToggleGroup(ToggleGroup newGroup, bool setMemberValue)
+  bool get_isOn()
+  void set_isOn(bool value)
+  void SetIsOnWithoutNotify(bool value)
+  void Set(bool value, bool sendCallback)
+  void PlayEffect(bool instant)
+  void Start()
+  void InternalToggle()
+  void OnPointerClick(PointerEventData eventData)
+  void OnSubmit(BaseEventData eventData)
+  Transform UnityEngine.UI.ICanvasElement.get_transform()
+--------------------------------------------------
+Класс: UnityEngine.UI.ToggleGroup
+Наследуется от: UIBehaviour
+Поля:
+  bool m_AllowSwitchOff
+  List`1<Toggle> m_Toggles
+Свойства:
+  bool allowSwitchOff
+Методы:
+  bool get_allowSwitchOff()
+  void set_allowSwitchOff(bool value)
+  void .ctor()
+  void Start()
+  void ValidateToggleIsInGroup(Toggle toggle)
+  void NotifyToggleOn(Toggle toggle, bool sendCallback)
+  void UnregisterToggle(Toggle toggle)
+  void RegisterToggle(Toggle toggle)
+  void EnsureValidState()
+  bool AnyTogglesOn()
+  IEnumerable`1<Toggle> ActiveToggles()
+  void SetAllTogglesOff(bool sendCallback)
+--------------------------------------------------
+Класс: UnityEngine.UI.ListPool`1
+Наследуется от: object
+Поля:
+  ObjectPool`1<List`1<T>> s_ListPool
+Свойства:
+Методы:
+  void Clear(List`1<T> l)
+  List`1<T> Get()
+  void Release(List`1<T> toRelease)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.ObjectPool`1
+Наследуется от: object
+Поля:
+  Stack`1<T> m_Stack
+  UnityAction`1<T> m_ActionOnGet
+  UnityAction`1<T> m_ActionOnRelease
+  int <countAll>k__BackingField
+Свойства:
+  int countAll
+  int countActive
+  int countInactive
+Методы:
+  int get_countAll()
+  void set_countAll(int value)
+  int get_countActive()
+  int get_countInactive()
+  void .ctor(UnityAction`1<T> actionOnGet, UnityAction`1<T> actionOnRelease)
+  T Get()
+  void Release(T element)
+--------------------------------------------------
+Класс: UnityEngine.UI.ReflectionMethodsCache
+Наследуется от: object
+Поля:
+  Raycast3DCallback raycast3D
+  RaycastAllCallback raycast3DAll
+  Raycast2DCallback raycast2D
+  GetRayIntersectionAllCallback getRayIntersectionAll
+  GetRayIntersectionAllNonAllocCallback getRayIntersectionAllNonAlloc
+  GetRaycastNonAllocCallback getRaycastNonAlloc
+  ReflectionMethodsCache s_ReflectionMethodsCache
+Свойства:
+  ReflectionMethodsCache Singleton
+Методы:
+  void .ctor()
+  ReflectionMethodsCache get_Singleton()
+--------------------------------------------------
+Класс: UnityEngine.UI.VertexHelper
+Наследуется от: object
+Поля:
+  List`1<Vector3> m_Positions
+  List`1<Color32> m_Colors
+  List`1<Vector4> m_Uv0S
+  List`1<Vector4> m_Uv1S
+  List`1<Vector4> m_Uv2S
+  List`1<Vector4> m_Uv3S
+  List`1<Vector3> m_Normals
+  List`1<Vector4> m_Tangents
+  List`1<int> m_Indices
+  Vector4 s_DefaultTangent
+  Vector3 s_DefaultNormal
+  bool m_ListsInitalized
+Свойства:
+  int currentVertCount
+  int currentIndexCount
+Методы:
+  void .ctor()
+  void .ctor(Mesh m)
+  void InitializeListIfRequired()
+  void Dispose()
+  void Clear()
+  int get_currentVertCount()
+  int get_currentIndexCount()
+  void PopulateUIVertex(UIVertex& vertex, int i)
+  void SetUIVertex(UIVertex vertex, int i)
+  void FillMesh(Mesh mesh)
+  void AddVert(Vector3 position, Color32 color, Vector2 uv0, Vector2 uv1, Vector2 uv2, Vector2 uv3, Vector3 normal, Vector4 tangent)
+  void AddVert(Vector3 position, Color32 color, Vector2 uv0, Vector2 uv1, Vector3 normal, Vector4 tangent)
+  void AddVert(Vector3 position, Color32 color, Vector2 uv0)
+  void AddVert(UIVertex v)
+  void AddTriangle(int idx0, int idx1, int idx2)
+  void AddUIVertexQuad(UIVertex[] verts)
+  void AddUIVertexStream(List`1<UIVertex> verts, List`1<int> indices)
+  void AddUIVertexTriangleStream(List`1<UIVertex> verts)
+  void GetUIVertexStream(List`1<UIVertex> stream)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.BaseVertexEffect
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void ModifyVertices(List`1<UIVertex> vertices)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.BaseMeshEffect
+Наследуется от: UIBehaviour
+Поля:
+  Graphic m_Graphic
+Свойства:
+  Graphic graphic
+Методы:
+  Graphic get_graphic()
+  void OnEnable()
+  void OnDisable()
+  void OnDidApplyAnimationProperties()
+  void ModifyMesh(Mesh mesh)
+  void ModifyMesh(VertexHelper vh)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.IVertexModifier
+Поля:
+Свойства:
+Методы:
+  void ModifyVertices(List`1<UIVertex> verts)
+--------------------------------------------------
+Класс: UnityEngine.UI.IMeshModifier
+Поля:
+Свойства:
+Методы:
+  void ModifyMesh(Mesh mesh)
+  void ModifyMesh(VertexHelper verts)
+--------------------------------------------------
+Класс: UnityEngine.UI.Outline
+Наследуется от: Shadow
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void ModifyMesh(VertexHelper vh)
+--------------------------------------------------
+Класс: UnityEngine.UI.PositionAsUV1
+Наследуется от: BaseMeshEffect
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void ModifyMesh(VertexHelper vh)
+--------------------------------------------------
+Класс: UnityEngine.UI.Shadow
+Наследуется от: BaseMeshEffect
+Поля:
+  Color m_EffectColor
+  Vector2 m_EffectDistance
+  bool m_UseGraphicAlpha
+  float kMaxEffectDistance
+Свойства:
+  Color effectColor
+  Vector2 effectDistance
+  bool useGraphicAlpha
+Методы:
+  void .ctor()
+  Color get_effectColor()
+  void set_effectColor(Color value)
+  Vector2 get_effectDistance()
+  void set_effectDistance(Vector2 value)
+  bool get_useGraphicAlpha()
+  void set_useGraphicAlpha(bool value)
+  void ApplyShadowZeroAlloc(List`1<UIVertex> verts, Color32 color, int start, int end, float x, float y)
+  void ApplyShadow(List`1<UIVertex> verts, Color32 color, int start, int end, float x, float y)
+  void ModifyMesh(VertexHelper vh)
+--------------------------------------------------
+Класс: UnityEngine.UI.Collections.IndexedSet`1
+Наследуется от: object
+Поля:
+  List`1<T> m_List
+  Dictionary`2<T, int> m_Dictionary
+Свойства:
+  int Count
+  bool IsReadOnly
+  T Item
+Методы:
+  void Add(T item)
+  bool AddUnique(T item)
+  bool Remove(T item)
+  IEnumerator`1<T> GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  void Clear()
+  bool Contains(T item)
+  void CopyTo(T[] array, int arrayIndex)
+  int get_Count()
+  bool get_IsReadOnly()
+  int IndexOf(T item)
+  void Insert(int index, T item)
+  void RemoveAt(int index)
+  T get_Item(int index)
+  void set_Item(int index, T value)
+  void RemoveAll(Predicate`1<T> match)
+  void Sort(Comparison`1<T> sortLayoutFunction)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.UI.CoroutineTween.ITweenValue
+Поля:
+Свойства:
+  bool ignoreTimeScale
+  float duration
+Методы:
+  void TweenValue(float floatPercentage)
+  bool get_ignoreTimeScale()
+  float get_duration()
+  bool ValidTarget()
+--------------------------------------------------
+Класс: UnityEngine.UI.CoroutineTween.ColorTween
+Наследуется от: ValueType
+Поля:
+  ColorTweenCallback m_Target
+  Color m_StartColor
+  Color m_TargetColor
+  ColorTweenMode m_TweenMode
+  float m_Duration
+  bool m_IgnoreTimeScale
+Свойства:
+  Color startColor
+  Color targetColor
+  ColorTweenMode tweenMode
+  float duration
+  bool ignoreTimeScale
+Методы:
+  Color get_startColor()
+  void set_startColor(Color value)
+  Color get_targetColor()
+  void set_targetColor(Color value)
+  ColorTweenMode get_tweenMode()
+  void set_tweenMode(ColorTweenMode value)
+  float get_duration()
+  void set_duration(float value)
+  bool get_ignoreTimeScale()
+  void set_ignoreTimeScale(bool value)
+  void TweenValue(float floatPercentage)
+  void AddOnChangedCallback(UnityAction`1<Color> callback)
+  bool GetIgnoreTimescale()
+  float GetDuration()
+  bool ValidTarget()
+--------------------------------------------------
+Класс: UnityEngine.UI.CoroutineTween.FloatTween
+Наследуется от: ValueType
+Поля:
+  FloatTweenCallback m_Target
+  float m_StartValue
+  float m_TargetValue
+  float m_Duration
+  bool m_IgnoreTimeScale
+Свойства:
+  float startValue
+  float targetValue
+  float duration
+  bool ignoreTimeScale
+Методы:
+  float get_startValue()
+  void set_startValue(float value)
+  float get_targetValue()
+  void set_targetValue(float value)
+  float get_duration()
+  void set_duration(float value)
+  bool get_ignoreTimeScale()
+  void set_ignoreTimeScale(bool value)
+  void TweenValue(float floatPercentage)
+  void AddOnChangedCallback(UnityAction`1<float> callback)
+  bool GetIgnoreTimescale()
+  float GetDuration()
+  bool ValidTarget()
+--------------------------------------------------
+Класс: UnityEngine.UI.CoroutineTween.TweenRunner`1
+Наследуется от: object
+Поля:
+  MonoBehaviour m_CoroutineContainer
+  IEnumerator m_Tween
+Свойства:
+Методы:
+  IEnumerator Start(T tweenInfo)
+  void Init(MonoBehaviour coroutineContainer)
+  void StartTween(T info)
+  void StopTween()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.AxisEventData
+Наследуется от: BaseEventData
+Поля:
+  Vector2 <moveVector>k__BackingField
+  MoveDirection <moveDir>k__BackingField
+Свойства:
+  Vector2 moveVector
+  MoveDirection moveDir
+Методы:
+  Vector2 get_moveVector()
+  void set_moveVector(Vector2 value)
+  MoveDirection get_moveDir()
+  void set_moveDir(MoveDirection value)
+  void .ctor(EventSystem eventSystem)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.AbstractEventData
+Наследуется от: object
+Поля:
+  bool m_Used
+Свойства:
+  bool used
+Методы:
+  void Reset()
+  void Use()
+  bool get_used()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.BaseEventData
+Наследуется от: AbstractEventData
+Поля:
+  EventSystem m_EventSystem
+Свойства:
+  BaseInputModule currentInputModule
+  GameObject selectedObject
+Методы:
+  void .ctor(EventSystem eventSystem)
+  BaseInputModule get_currentInputModule()
+  GameObject get_selectedObject()
+  void set_selectedObject(GameObject value)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.PointerEventData
+Наследуется от: BaseEventData
+Поля:
+  GameObject <pointerEnter>k__BackingField
+  GameObject m_PointerPress
+  GameObject <lastPress>k__BackingField
+  GameObject <rawPointerPress>k__BackingField
+  GameObject <pointerDrag>k__BackingField
+  RaycastResult <pointerCurrentRaycast>k__BackingField
+  RaycastResult <pointerPressRaycast>k__BackingField
+  List`1<GameObject> hovered
+  bool <eligibleForClick>k__BackingField
+  int <pointerId>k__BackingField
+  Vector2 <position>k__BackingField
+  Vector2 <delta>k__BackingField
+  Vector2 <pressPosition>k__BackingField
+  Vector3 <worldPosition>k__BackingField
+  Vector3 <worldNormal>k__BackingField
+  float <clickTime>k__BackingField
+  int <clickCount>k__BackingField
+  Vector2 <scrollDelta>k__BackingField
+  bool <useDragThreshold>k__BackingField
+  bool <dragging>k__BackingField
+  InputButton <button>k__BackingField
+Свойства:
+  GameObject pointerEnter
+  GameObject lastPress
+  GameObject rawPointerPress
+  GameObject pointerDrag
+  RaycastResult pointerCurrentRaycast
+  RaycastResult pointerPressRaycast
+  bool eligibleForClick
+  int pointerId
+  Vector2 position
+  Vector2 delta
+  Vector2 pressPosition
+  Vector3 worldPosition
+  Vector3 worldNormal
+  float clickTime
+  int clickCount
+  Vector2 scrollDelta
+  bool useDragThreshold
+  bool dragging
+  InputButton button
+  Camera enterEventCamera
+  Camera pressEventCamera
+  GameObject pointerPress
+Методы:
+  GameObject get_pointerEnter()
+  void set_pointerEnter(GameObject value)
+  GameObject get_lastPress()
+  void set_lastPress(GameObject value)
+  GameObject get_rawPointerPress()
+  void set_rawPointerPress(GameObject value)
+  GameObject get_pointerDrag()
+  void set_pointerDrag(GameObject value)
+  RaycastResult get_pointerCurrentRaycast()
+  void set_pointerCurrentRaycast(RaycastResult value)
+  RaycastResult get_pointerPressRaycast()
+  void set_pointerPressRaycast(RaycastResult value)
+  bool get_eligibleForClick()
+  void set_eligibleForClick(bool value)
+  int get_pointerId()
+  void set_pointerId(int value)
+  Vector2 get_position()
+  void set_position(Vector2 value)
+  Vector2 get_delta()
+  void set_delta(Vector2 value)
+  Vector2 get_pressPosition()
+  void set_pressPosition(Vector2 value)
+  Vector3 get_worldPosition()
+  void set_worldPosition(Vector3 value)
+  Vector3 get_worldNormal()
+  void set_worldNormal(Vector3 value)
+  float get_clickTime()
+  void set_clickTime(float value)
+  int get_clickCount()
+  void set_clickCount(int value)
+  Vector2 get_scrollDelta()
+  void set_scrollDelta(Vector2 value)
+  bool get_useDragThreshold()
+  void set_useDragThreshold(bool value)
+  bool get_dragging()
+  void set_dragging(bool value)
+  InputButton get_button()
+  void set_button(InputButton value)
+  void .ctor(EventSystem eventSystem)
+  bool IsPointerMoving()
+  bool IsScrolling()
+  Camera get_enterEventCamera()
+  Camera get_pressEventCamera()
+  GameObject get_pointerPress()
+  void set_pointerPress(GameObject value)
+  string ToString()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.EventHandle
+Наследуется от: Enum
+Поля:
+  int value__
+  EventHandle Unused
+  EventHandle Used
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IEventSystemHandler
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IPointerEnterHandler
+Поля:
+Свойства:
+Методы:
+  void OnPointerEnter(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IPointerExitHandler
+Поля:
+Свойства:
+Методы:
+  void OnPointerExit(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IPointerDownHandler
+Поля:
+Свойства:
+Методы:
+  void OnPointerDown(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IPointerUpHandler
+Поля:
+Свойства:
+Методы:
+  void OnPointerUp(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IPointerClickHandler
+Поля:
+Свойства:
+Методы:
+  void OnPointerClick(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IBeginDragHandler
+Поля:
+Свойства:
+Методы:
+  void OnBeginDrag(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IInitializePotentialDragHandler
+Поля:
+Свойства:
+Методы:
+  void OnInitializePotentialDrag(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IDragHandler
+Поля:
+Свойства:
+Методы:
+  void OnDrag(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IEndDragHandler
+Поля:
+Свойства:
+Методы:
+  void OnEndDrag(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IDropHandler
+Поля:
+Свойства:
+Методы:
+  void OnDrop(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IScrollHandler
+Поля:
+Свойства:
+Методы:
+  void OnScroll(PointerEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IUpdateSelectedHandler
+Поля:
+Свойства:
+Методы:
+  void OnUpdateSelected(BaseEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.ISelectHandler
+Поля:
+Свойства:
+Методы:
+  void OnSelect(BaseEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IDeselectHandler
+Поля:
+Свойства:
+Методы:
+  void OnDeselect(BaseEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.IMoveHandler
+Поля:
+Свойства:
+Методы:
+  void OnMove(AxisEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.ISubmitHandler
+Поля:
+Свойства:
+Методы:
+  void OnSubmit(BaseEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.ICancelHandler
+Поля:
+Свойства:
+Методы:
+  void OnCancel(BaseEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.EventSystem
+Наследуется от: UIBehaviour
+Поля:
+  List`1<BaseInputModule> m_SystemInputModules
+  BaseInputModule m_CurrentInputModule
+  List`1<EventSystem> m_EventSystems
+  GameObject m_FirstSelected
+  bool m_sendNavigationEvents
+  int m_DragThreshold
+  GameObject m_CurrentSelected
+  bool m_HasFocus
+  bool m_SelectionGuard
+  BaseEventData m_DummyData
+  Comparison`1<RaycastResult> s_RaycastComparer
+Свойства:
+  EventSystem current
+  bool sendNavigationEvents
+  int pixelDragThreshold
+  BaseInputModule currentInputModule
+  GameObject firstSelectedGameObject
+  GameObject currentSelectedGameObject
+  GameObject lastSelectedGameObject
+  bool isFocused
+  bool alreadySelecting
+  BaseEventData baseEventDataCache
+Методы:
+  EventSystem get_current()
+  void set_current(EventSystem value)
+  bool get_sendNavigationEvents()
+  void set_sendNavigationEvents(bool value)
+  int get_pixelDragThreshold()
+  void set_pixelDragThreshold(int value)
+  BaseInputModule get_currentInputModule()
+  GameObject get_firstSelectedGameObject()
+  void set_firstSelectedGameObject(GameObject value)
+  GameObject get_currentSelectedGameObject()
+  GameObject get_lastSelectedGameObject()
+  bool get_isFocused()
+  void .ctor()
+  void UpdateModules()
+  bool get_alreadySelecting()
+  void SetSelectedGameObject(GameObject selected, BaseEventData pointer)
+  BaseEventData get_baseEventDataCache()
+  void SetSelectedGameObject(GameObject selected)
+  int RaycastComparer(RaycastResult lhs, RaycastResult rhs)
+  void RaycastAll(PointerEventData eventData, List`1<RaycastResult> raycastResults)
+  bool IsPointerOverGameObject()
+  bool IsPointerOverGameObject(int pointerId)
+  void OnEnable()
+  void OnDisable()
+  void TickModules()
+  void OnApplicationFocus(bool hasFocus)
+  void Update()
+  void ChangeEventModule(BaseInputModule module)
+  string ToString()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.EventTrigger
+Наследуется от: MonoBehaviour
+Поля:
+  List`1<Entry> m_Delegates
+Свойства:
+  List`1<Entry> delegates
+  List`1<Entry> triggers
+Методы:
+  List`1<Entry> get_delegates()
+  void set_delegates(List`1<Entry> value)
+  void .ctor()
+  List`1<Entry> get_triggers()
+  void set_triggers(List`1<Entry> value)
+  void Execute(EventTriggerType id, BaseEventData eventData)
+  void OnPointerEnter(PointerEventData eventData)
+  void OnPointerExit(PointerEventData eventData)
+  void OnDrag(PointerEventData eventData)
+  void OnDrop(PointerEventData eventData)
+  void OnPointerDown(PointerEventData eventData)
+  void OnPointerUp(PointerEventData eventData)
+  void OnPointerClick(PointerEventData eventData)
+  void OnSelect(BaseEventData eventData)
+  void OnDeselect(BaseEventData eventData)
+  void OnScroll(PointerEventData eventData)
+  void OnMove(AxisEventData eventData)
+  void OnUpdateSelected(BaseEventData eventData)
+  void OnInitializePotentialDrag(PointerEventData eventData)
+  void OnBeginDrag(PointerEventData eventData)
+  void OnEndDrag(PointerEventData eventData)
+  void OnSubmit(BaseEventData eventData)
+  void OnCancel(BaseEventData eventData)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.EventTriggerType
+Наследуется от: Enum
+Поля:
+  int value__
+  EventTriggerType PointerEnter
+  EventTriggerType PointerExit
+  EventTriggerType PointerDown
+  EventTriggerType PointerUp
+  EventTriggerType PointerClick
+  EventTriggerType Drag
+  EventTriggerType Drop
+  EventTriggerType Scroll
+  EventTriggerType UpdateSelected
+  EventTriggerType Select
+  EventTriggerType Deselect
+  EventTriggerType Move
+  EventTriggerType InitializePotentialDrag
+  EventTriggerType BeginDrag
+  EventTriggerType EndDrag
+  EventTriggerType Submit
+  EventTriggerType Cancel
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.ExecuteEvents
+Наследуется от: object
+Поля:
+  EventFunction`1<IPointerEnterHandler> s_PointerEnterHandler
+  EventFunction`1<IPointerExitHandler> s_PointerExitHandler
+  EventFunction`1<IPointerDownHandler> s_PointerDownHandler
+  EventFunction`1<IPointerUpHandler> s_PointerUpHandler
+  EventFunction`1<IPointerClickHandler> s_PointerClickHandler
+  EventFunction`1<IInitializePotentialDragHandler> s_InitializePotentialDragHandler
+  EventFunction`1<IBeginDragHandler> s_BeginDragHandler
+  EventFunction`1<IDragHandler> s_DragHandler
+  EventFunction`1<IEndDragHandler> s_EndDragHandler
+  EventFunction`1<IDropHandler> s_DropHandler
+  EventFunction`1<IScrollHandler> s_ScrollHandler
+  EventFunction`1<IUpdateSelectedHandler> s_UpdateSelectedHandler
+  EventFunction`1<ISelectHandler> s_SelectHandler
+  EventFunction`1<IDeselectHandler> s_DeselectHandler
+  EventFunction`1<IMoveHandler> s_MoveHandler
+  EventFunction`1<ISubmitHandler> s_SubmitHandler
+  EventFunction`1<ICancelHandler> s_CancelHandler
+  ObjectPool`1<List`1<IEventSystemHandler>> s_HandlerListPool
+  List`1<Transform> s_InternalTransformList
+Свойства:
+  EventFunction`1<IPointerEnterHandler> pointerEnterHandler
+  EventFunction`1<IPointerExitHandler> pointerExitHandler
+  EventFunction`1<IPointerDownHandler> pointerDownHandler
+  EventFunction`1<IPointerUpHandler> pointerUpHandler
+  EventFunction`1<IPointerClickHandler> pointerClickHandler
+  EventFunction`1<IInitializePotentialDragHandler> initializePotentialDrag
+  EventFunction`1<IBeginDragHandler> beginDragHandler
+  EventFunction`1<IDragHandler> dragHandler
+  EventFunction`1<IEndDragHandler> endDragHandler
+  EventFunction`1<IDropHandler> dropHandler
+  EventFunction`1<IScrollHandler> scrollHandler
+  EventFunction`1<IUpdateSelectedHandler> updateSelectedHandler
+  EventFunction`1<ISelectHandler> selectHandler
+  EventFunction`1<IDeselectHandler> deselectHandler
+  EventFunction`1<IMoveHandler> moveHandler
+  EventFunction`1<ISubmitHandler> submitHandler
+  EventFunction`1<ICancelHandler> cancelHandler
+Методы:
+  T ValidateEventData(BaseEventData data)
+  void Execute(IPointerEnterHandler handler, BaseEventData eventData)
+  void Execute(IPointerExitHandler handler, BaseEventData eventData)
+  void Execute(IPointerDownHandler handler, BaseEventData eventData)
+  void Execute(IPointerUpHandler handler, BaseEventData eventData)
+  void Execute(IPointerClickHandler handler, BaseEventData eventData)
+  void Execute(IInitializePotentialDragHandler handler, BaseEventData eventData)
+  void Execute(IBeginDragHandler handler, BaseEventData eventData)
+  void Execute(IDragHandler handler, BaseEventData eventData)
+  void Execute(IEndDragHandler handler, BaseEventData eventData)
+  void Execute(IDropHandler handler, BaseEventData eventData)
+  void Execute(IScrollHandler handler, BaseEventData eventData)
+  void Execute(IUpdateSelectedHandler handler, BaseEventData eventData)
+  void Execute(ISelectHandler handler, BaseEventData eventData)
+  void Execute(IDeselectHandler handler, BaseEventData eventData)
+  void Execute(IMoveHandler handler, BaseEventData eventData)
+  void Execute(ISubmitHandler handler, BaseEventData eventData)
+  void Execute(ICancelHandler handler, BaseEventData eventData)
+  EventFunction`1<IPointerEnterHandler> get_pointerEnterHandler()
+  EventFunction`1<IPointerExitHandler> get_pointerExitHandler()
+  EventFunction`1<IPointerDownHandler> get_pointerDownHandler()
+  EventFunction`1<IPointerUpHandler> get_pointerUpHandler()
+  EventFunction`1<IPointerClickHandler> get_pointerClickHandler()
+  EventFunction`1<IInitializePotentialDragHandler> get_initializePotentialDrag()
+  EventFunction`1<IBeginDragHandler> get_beginDragHandler()
+  EventFunction`1<IDragHandler> get_dragHandler()
+  EventFunction`1<IEndDragHandler> get_endDragHandler()
+  EventFunction`1<IDropHandler> get_dropHandler()
+  EventFunction`1<IScrollHandler> get_scrollHandler()
+  EventFunction`1<IUpdateSelectedHandler> get_updateSelectedHandler()
+  EventFunction`1<ISelectHandler> get_selectHandler()
+  EventFunction`1<IDeselectHandler> get_deselectHandler()
+  EventFunction`1<IMoveHandler> get_moveHandler()
+  EventFunction`1<ISubmitHandler> get_submitHandler()
+  EventFunction`1<ICancelHandler> get_cancelHandler()
+  void GetEventChain(GameObject root, IList`1<Transform> eventChain)
+  bool Execute(GameObject target, BaseEventData eventData, EventFunction`1<T> functor)
+  GameObject ExecuteHierarchy(GameObject root, BaseEventData eventData, EventFunction`1<T> callbackFunction)
+  bool ShouldSendToComponent(Component component)
+  void GetEventList(GameObject go, IList`1<IEventSystemHandler> results)
+  bool CanHandleEvent(GameObject go)
+  GameObject GetEventHandler(GameObject root)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.BaseInput
+Наследуется от: UIBehaviour
+Поля:
+Свойства:
+  string compositionString
+  IMECompositionMode imeCompositionMode
+  Vector2 compositionCursorPos
+  bool mousePresent
+  Vector2 mousePosition
+  Vector2 mouseScrollDelta
+  bool touchSupported
+  int touchCount
+Методы:
+  string get_compositionString()
+  IMECompositionMode get_imeCompositionMode()
+  void set_imeCompositionMode(IMECompositionMode value)
+  Vector2 get_compositionCursorPos()
+  void set_compositionCursorPos(Vector2 value)
+  bool get_mousePresent()
+  bool GetMouseButtonDown(int button)
+  bool GetMouseButtonUp(int button)
+  bool GetMouseButton(int button)
+  Vector2 get_mousePosition()
+  Vector2 get_mouseScrollDelta()
+  bool get_touchSupported()
+  int get_touchCount()
+  Touch GetTouch(int index)
+  float GetAxisRaw(string axisName)
+  bool GetButtonDown(string buttonName)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.BaseInputModule
+Наследуется от: UIBehaviour
+Поля:
+  List`1<RaycastResult> m_RaycastResultCache
+  AxisEventData m_AxisEventData
+  EventSystem m_EventSystem
+  BaseEventData m_BaseEventData
+  BaseInput m_InputOverride
+  BaseInput m_DefaultInput
+Свойства:
+  BaseInput input
+  BaseInput inputOverride
+  EventSystem eventSystem
+Методы:
+  BaseInput get_input()
+  BaseInput get_inputOverride()
+  void set_inputOverride(BaseInput value)
+  EventSystem get_eventSystem()
+  void OnEnable()
+  void OnDisable()
+  void Process()
+  RaycastResult FindFirstRaycast(List`1<RaycastResult> candidates)
+  MoveDirection DetermineMoveDirection(float x, float y)
+  MoveDirection DetermineMoveDirection(float x, float y, float deadZone)
+  GameObject FindCommonRoot(GameObject g1, GameObject g2)
+  void HandlePointerExitAndEnter(PointerEventData currentPointerData, GameObject newEnterTarget)
+  AxisEventData GetAxisEventData(float x, float y, float moveDeadZone)
+  BaseEventData GetBaseEventData()
+  bool IsPointerOverGameObject(int pointerId)
+  bool ShouldActivateModule()
+  void DeactivateModule()
+  void ActivateModule()
+  void UpdateModule()
+  bool IsModuleSupported()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.PointerInputModule
+Наследуется от: BaseInputModule
+Поля:
+  int kMouseLeftId
+  int kMouseRightId
+  int kMouseMiddleId
+  int kFakeTouchesId
+  Dictionary`2<int, PointerEventData> m_PointerData
+  MouseState m_MouseState
+Свойства:
+Методы:
+  bool GetPointerData(int id, PointerEventData& data, bool create)
+  void RemovePointerData(PointerEventData data)
+  PointerEventData GetTouchPointerEventData(Touch input, Boolean& pressed, Boolean& released)
+  void CopyFromTo(PointerEventData from, PointerEventData to)
+  FramePressState StateForMouseButton(int buttonId)
+  MouseState GetMousePointerEventData()
+  MouseState GetMousePointerEventData(int id)
+  PointerEventData GetLastPointerEventData(int id)
+  bool ShouldStartDrag(Vector2 pressPos, Vector2 currentPos, float threshold, bool useDragThreshold)
+  void ProcessMove(PointerEventData pointerEvent)
+  void ProcessDrag(PointerEventData pointerEvent)
+  bool IsPointerOverGameObject(int pointerId)
+  void ClearSelection()
+  string ToString()
+  void DeselectIfSelectionChanged(GameObject currentOverGo, BaseEventData pointerEvent)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.StandaloneInputModule
+Наследуется от: PointerInputModule
+Поля:
+  float m_PrevActionTime
+  Vector2 m_LastMoveVector
+  int m_ConsecutiveMoveCount
+  Vector2 m_LastMousePosition
+  Vector2 m_MousePosition
+  GameObject m_CurrentFocusedGameObject
+  PointerEventData m_InputPointerEvent
+  string m_HorizontalAxis
+  string m_VerticalAxis
+  string m_SubmitButton
+  string m_CancelButton
+  float m_InputActionsPerSecond
+  float m_RepeatDelay
+  bool m_ForceModuleActive
+Свойства:
+  InputMode inputMode
+  bool allowActivationOnMobileDevice
+  bool forceModuleActive
+  float inputActionsPerSecond
+  float repeatDelay
+  string horizontalAxis
+  string verticalAxis
+  string submitButton
+  string cancelButton
+Методы:
+  void .ctor()
+  InputMode get_inputMode()
+  bool get_allowActivationOnMobileDevice()
+  void set_allowActivationOnMobileDevice(bool value)
+  bool get_forceModuleActive()
+  void set_forceModuleActive(bool value)
+  float get_inputActionsPerSecond()
+  void set_inputActionsPerSecond(float value)
+  float get_repeatDelay()
+  void set_repeatDelay(float value)
+  string get_horizontalAxis()
+  void set_horizontalAxis(string value)
+  string get_verticalAxis()
+  void set_verticalAxis(string value)
+  string get_submitButton()
+  void set_submitButton(string value)
+  string get_cancelButton()
+  void set_cancelButton(string value)
+  bool ShouldIgnoreEventsOnNoFocus()
+  void UpdateModule()
+  void ReleaseMouse(PointerEventData pointerEvent, GameObject currentOverGo)
+  bool IsModuleSupported()
+  bool ShouldActivateModule()
+  void ActivateModule()
+  void DeactivateModule()
+  void Process()
+  bool ProcessTouchEvents()
+  void ProcessTouchPress(PointerEventData pointerEvent, bool pressed, bool released)
+  bool SendSubmitEventToSelectedObject()
+  Vector2 GetRawMoveVector()
+  bool SendMoveEventToSelectedObject()
+  void ProcessMouseEvent()
+  bool ForceAutoSelect()
+  void ProcessMouseEvent(int id)
+  bool SendUpdateEventToSelectedObject()
+  void ProcessMousePress(MouseButtonEventData data)
+  GameObject GetCurrentFocusedGameObject()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.TouchInputModule
+Наследуется от: PointerInputModule
+Поля:
+  Vector2 m_LastMousePosition
+  Vector2 m_MousePosition
+  PointerEventData m_InputPointerEvent
+  bool m_ForceModuleActive
+Свойства:
+  bool allowActivationOnStandalone
+  bool forceModuleActive
+Методы:
+  void .ctor()
+  bool get_allowActivationOnStandalone()
+  void set_allowActivationOnStandalone(bool value)
+  bool get_forceModuleActive()
+  void set_forceModuleActive(bool value)
+  void UpdateModule()
+  bool IsModuleSupported()
+  bool ShouldActivateModule()
+  bool UseFakeInput()
+  void Process()
+  void FakeTouches()
+  void ProcessTouchEvents()
+  void ProcessTouchPress(PointerEventData pointerEvent, bool pressed, bool released)
+  void DeactivateModule()
+  string ToString()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.MoveDirection
+Наследуется от: Enum
+Поля:
+  int value__
+  MoveDirection Left
+  MoveDirection Up
+  MoveDirection Right
+  MoveDirection Down
+  MoveDirection None
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.RaycasterManager
+Наследуется от: object
+Поля:
+  List`1<BaseRaycaster> s_Raycasters
+Свойства:
+Методы:
+  void AddRaycaster(BaseRaycaster baseRaycaster)
+  List`1<BaseRaycaster> GetRaycasters()
+  void RemoveRaycasters(BaseRaycaster baseRaycaster)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.BaseRaycaster
+Наследуется от: UIBehaviour
+Поля:
+  BaseRaycaster m_RootRaycaster
+Свойства:
+  Camera eventCamera
+  int priority
+  int sortOrderPriority
+  int renderOrderPriority
+  BaseRaycaster rootRaycaster
+Методы:
+  void Raycast(PointerEventData eventData, List`1<RaycastResult> resultAppendList)
+  Camera get_eventCamera()
+  int get_priority()
+  int get_sortOrderPriority()
+  int get_renderOrderPriority()
+  BaseRaycaster get_rootRaycaster()
+  string ToString()
+  void OnEnable()
+  void OnDisable()
+  void OnCanvasHierarchyChanged()
+  void OnTransformParentChanged()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.Physics2DRaycaster
+Наследуется от: PhysicsRaycaster
+Поля:
+  RaycastHit2D[] m_Hits
+Свойства:
+Методы:
+  void .ctor()
+  void Raycast(PointerEventData eventData, List`1<RaycastResult> resultAppendList)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.PhysicsRaycaster
+Наследуется от: BaseRaycaster
+Поля:
+  int kNoEventMaskSet
+  Camera m_EventCamera
+  LayerMask m_EventMask
+  int m_MaxRayIntersections
+  int m_LastMaxRayIntersections
+  RaycastHit[] m_Hits
+Свойства:
+  Camera eventCamera
+  int depth
+  int finalEventMask
+  LayerMask eventMask
+  int maxRayIntersections
+Методы:
+  void .ctor()
+  Camera get_eventCamera()
+  int get_depth()
+  int get_finalEventMask()
+  LayerMask get_eventMask()
+  void set_eventMask(LayerMask value)
+  int get_maxRayIntersections()
+  void set_maxRayIntersections(int value)
+  bool ComputeRayAndDistance(PointerEventData eventData, Ray& ray, Single& distanceToClipPlane)
+  void Raycast(PointerEventData eventData, List`1<RaycastResult> resultAppendList)
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.RaycastResult
+Наследуется от: ValueType
+Поля:
+  GameObject m_GameObject
+  BaseRaycaster module
+  float distance
+  float index
+  int depth
+  int sortingLayer
+  int sortingOrder
+  Vector3 worldPosition
+  Vector3 worldNormal
+  Vector2 screenPosition
+Свойства:
+  GameObject gameObject
+  bool isValid
+Методы:
+  GameObject get_gameObject()
+  void set_gameObject(GameObject value)
+  bool get_isValid()
+  void Clear()
+  string ToString()
+--------------------------------------------------
+Класс: UnityEngine.EventSystems.UIBehaviour
+Наследуется от: MonoBehaviour
+Поля:
+Свойства:
+Методы:
+  void Awake()
+  void OnEnable()
+  void Start()
+  void OnDisable()
+  void OnDestroy()
+  bool IsActive()
+  void OnRectTransformDimensionsChange()
+  void OnBeforeTransformParentChanged()
+  void OnTransformParentChanged()
+  void OnDidApplyAnimationProperties()
+  void OnCanvasGroupChanged()
+  void OnCanvasHierarchyChanged()
+  bool IsDestroyed()
+  void .ctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=12 1C3635C112D556F4C11A4FE6BDE6ED3F126C4B2B546811BDB64DE7BDED3A05CB
+Свойства:
+Методы:
+--------------------------------------------------

@@ -1,0 +1,420 @@
+Сборка: UnityEngine.VideoModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Experimental.Video.VideoClipPlayable
+Наследуется от: ValueType
+Поля:
+  PlayableHandle m_Handle
+Свойства:
+Методы:
+  VideoClipPlayable Create(PlayableGraph graph, VideoClip clip, bool looping)
+  PlayableHandle CreateHandle(PlayableGraph graph, VideoClip clip, bool looping)
+  void .ctor(PlayableHandle handle)
+  PlayableHandle GetHandle()
+  Playable op_Implicit(VideoClipPlayable playable)
+  VideoClipPlayable op_Explicit(Playable playable)
+  bool Equals(VideoClipPlayable other)
+  VideoClip GetClip()
+  void SetClip(VideoClip value)
+  bool GetLooped()
+  void SetLooped(bool value)
+  bool IsPlaying()
+  double GetStartDelay()
+  void SetStartDelay(double value)
+  double GetPauseDelay()
+  void GetPauseDelay(double value)
+  void Seek(double startTime, double startDelay)
+  void Seek(double startTime, double startDelay, double duration)
+  void ValidateStartDelayInternal(double startDelay)
+  VideoClip GetClipInternal(PlayableHandle& hdl)
+  void SetClipInternal(PlayableHandle& hdl, VideoClip clip)
+  bool GetLoopedInternal(PlayableHandle& hdl)
+  void SetLoopedInternal(PlayableHandle& hdl, bool looped)
+  bool GetIsPlayingInternal(PlayableHandle& hdl)
+  double GetStartDelayInternal(PlayableHandle& hdl)
+  void SetStartDelayInternal(PlayableHandle& hdl, double delay)
+  double GetPauseDelayInternal(PlayableHandle& hdl)
+  void SetPauseDelayInternal(PlayableHandle& hdl, double delay)
+  bool InternalCreateVideoClipPlayable(PlayableGraph& graph, VideoClip clip, bool looping, PlayableHandle& handle)
+  bool ValidateType(PlayableHandle& hdl)
+--------------------------------------------------
+Класс: UnityEngine.Experimental.Video.VideoPlayerExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  AudioSampleProvider GetAudioSampleProvider(VideoPlayer vp, ushort trackIndex)
+  UInt32 InternalGetAudioSampleProviderId(VideoPlayer vp, ushort trackIndex)
+--------------------------------------------------
+Класс: UnityEngine.Video.VideoClip
+Наследуется от: Object
+Поля:
+Свойства:
+  string originalPath
+  ulong frameCount
+  double frameRate
+  double length
+  UInt32 width
+  UInt32 height
+  UInt32 pixelAspectRatioNumerator
+  UInt32 pixelAspectRatioDenominator
+  bool sRGB
+  ushort audioTrackCount
+Методы:
+  void .ctor()
+  string get_originalPath()
+  ulong get_frameCount()
+  double get_frameRate()
+  double get_length()
+  UInt32 get_width()
+  UInt32 get_height()
+  UInt32 get_pixelAspectRatioNumerator()
+  UInt32 get_pixelAspectRatioDenominator()
+  bool get_sRGB()
+  ushort get_audioTrackCount()
+  ushort GetAudioChannelCount(ushort audioTrackIdx)
+  UInt32 GetAudioSampleRate(ushort audioTrackIdx)
+  string GetAudioLanguage(ushort audioTrackIdx)
+--------------------------------------------------
+Класс: UnityEngine.Video.VideoRenderMode
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoRenderMode CameraFarPlane
+  VideoRenderMode CameraNearPlane
+  VideoRenderMode RenderTexture
+  VideoRenderMode MaterialOverride
+  VideoRenderMode APIOnly
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Video.Video3DLayout
+Наследуется от: Enum
+Поля:
+  int value__
+  Video3DLayout No3D
+  Video3DLayout SideBySide3D
+  Video3DLayout OverUnder3D
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Video.VideoAspectRatio
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoAspectRatio NoScaling
+  VideoAspectRatio FitVertically
+  VideoAspectRatio FitHorizontally
+  VideoAspectRatio FitInside
+  VideoAspectRatio FitOutside
+  VideoAspectRatio Stretch
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Video.VideoTimeSource
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoTimeSource AudioDSPTimeSource
+  VideoTimeSource GameTimeSource
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Video.VideoTimeReference
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoTimeReference Freerun
+  VideoTimeReference InternalTime
+  VideoTimeReference ExternalTime
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Video.VideoSource
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoSource VideoClip
+  VideoSource Url
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Video.VideoAudioOutputMode
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoAudioOutputMode None
+  VideoAudioOutputMode AudioSource
+  VideoAudioOutputMode Direct
+  VideoAudioOutputMode APIOnly
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Video.VideoPlayer
+Наследуется от: Behaviour
+Поля:
+  EventHandler prepareCompleted
+  EventHandler loopPointReached
+  EventHandler started
+  EventHandler frameDropped
+  ErrorEventHandler errorReceived
+  EventHandler seekCompleted
+  TimeEventHandler clockResyncOccurred
+  FrameReadyEventHandler frameReady
+Свойства:
+  VideoSource source
+  string url
+  VideoClip clip
+  VideoRenderMode renderMode
+  Camera targetCamera
+  RenderTexture targetTexture
+  Renderer targetMaterialRenderer
+  string targetMaterialProperty
+  VideoAspectRatio aspectRatio
+  float targetCameraAlpha
+  Video3DLayout targetCamera3DLayout
+  Texture texture
+  bool isPrepared
+  bool waitForFirstFrame
+  bool playOnAwake
+  bool isPlaying
+  bool isPaused
+  bool canSetTime
+  double time
+  long frame
+  double clockTime
+  bool canStep
+  bool canSetPlaybackSpeed
+  float playbackSpeed
+  bool isLooping
+  bool canSetTimeSource
+  VideoTimeSource timeSource
+  VideoTimeReference timeReference
+  double externalReferenceTime
+  bool canSetSkipOnDrop
+  bool skipOnDrop
+  ulong frameCount
+  float frameRate
+  double length
+  UInt32 width
+  UInt32 height
+  UInt32 pixelAspectRatioNumerator
+  UInt32 pixelAspectRatioDenominator
+  ushort audioTrackCount
+  ushort controlledAudioTrackMaxCount
+  ushort controlledAudioTrackCount
+  VideoAudioOutputMode audioOutputMode
+  bool canSetDirectAudioVolume
+  bool sendFrameReadyEvents
+Методы:
+  VideoSource get_source()
+  void set_source(VideoSource value)
+  string get_url()
+  void set_url(string value)
+  VideoClip get_clip()
+  void set_clip(VideoClip value)
+  VideoRenderMode get_renderMode()
+  void set_renderMode(VideoRenderMode value)
+  Camera get_targetCamera()
+  void set_targetCamera(Camera value)
+  RenderTexture get_targetTexture()
+  void set_targetTexture(RenderTexture value)
+  Renderer get_targetMaterialRenderer()
+  void set_targetMaterialRenderer(Renderer value)
+  string get_targetMaterialProperty()
+  void set_targetMaterialProperty(string value)
+  VideoAspectRatio get_aspectRatio()
+  void set_aspectRatio(VideoAspectRatio value)
+  float get_targetCameraAlpha()
+  void set_targetCameraAlpha(float value)
+  Video3DLayout get_targetCamera3DLayout()
+  void set_targetCamera3DLayout(Video3DLayout value)
+  Texture get_texture()
+  void Prepare()
+  bool get_isPrepared()
+  bool get_waitForFirstFrame()
+  void set_waitForFirstFrame(bool value)
+  bool get_playOnAwake()
+  void set_playOnAwake(bool value)
+  void Play()
+  void Pause()
+  void Stop()
+  bool get_isPlaying()
+  bool get_isPaused()
+  bool get_canSetTime()
+  double get_time()
+  void set_time(double value)
+  long get_frame()
+  void set_frame(long value)
+  double get_clockTime()
+  bool get_canStep()
+  void StepForward()
+  bool get_canSetPlaybackSpeed()
+  float get_playbackSpeed()
+  void set_playbackSpeed(float value)
+  bool get_isLooping()
+  void set_isLooping(bool value)
+  bool get_canSetTimeSource()
+  VideoTimeSource get_timeSource()
+  void set_timeSource(VideoTimeSource value)
+  VideoTimeReference get_timeReference()
+  void set_timeReference(VideoTimeReference value)
+  double get_externalReferenceTime()
+  void set_externalReferenceTime(double value)
+  bool get_canSetSkipOnDrop()
+  bool get_skipOnDrop()
+  void set_skipOnDrop(bool value)
+  ulong get_frameCount()
+  float get_frameRate()
+  double get_length()
+  UInt32 get_width()
+  UInt32 get_height()
+  UInt32 get_pixelAspectRatioNumerator()
+  UInt32 get_pixelAspectRatioDenominator()
+  ushort get_audioTrackCount()
+  string GetAudioLanguageCode(ushort trackIndex)
+  ushort GetAudioChannelCount(ushort trackIndex)
+  UInt32 GetAudioSampleRate(ushort trackIndex)
+  ushort get_controlledAudioTrackMaxCount()
+  ushort get_controlledAudioTrackCount()
+  void set_controlledAudioTrackCount(ushort value)
+  ushort GetControlledAudioTrackCount()
+  void SetControlledAudioTrackCount(ushort value)
+  void EnableAudioTrack(ushort trackIndex, bool enabled)
+  bool IsAudioTrackEnabled(ushort trackIndex)
+  VideoAudioOutputMode get_audioOutputMode()
+  void set_audioOutputMode(VideoAudioOutputMode value)
+  bool get_canSetDirectAudioVolume()
+  float GetDirectAudioVolume(ushort trackIndex)
+  void SetDirectAudioVolume(ushort trackIndex, float volume)
+  bool GetDirectAudioMute(ushort trackIndex)
+  void SetDirectAudioMute(ushort trackIndex, bool mute)
+  AudioSource GetTargetAudioSource(ushort trackIndex)
+  void SetTargetAudioSource(ushort trackIndex, AudioSource source)
+  void add_prepareCompleted(EventHandler value)
+  void remove_prepareCompleted(EventHandler value)
+  void add_loopPointReached(EventHandler value)
+  void remove_loopPointReached(EventHandler value)
+  void add_started(EventHandler value)
+  void remove_started(EventHandler value)
+  void add_frameDropped(EventHandler value)
+  void remove_frameDropped(EventHandler value)
+  void add_errorReceived(ErrorEventHandler value)
+  void remove_errorReceived(ErrorEventHandler value)
+  void add_seekCompleted(EventHandler value)
+  void remove_seekCompleted(EventHandler value)
+  void add_clockResyncOccurred(TimeEventHandler value)
+  void remove_clockResyncOccurred(TimeEventHandler value)
+  bool get_sendFrameReadyEvents()
+  void set_sendFrameReadyEvents(bool value)
+  void add_frameReady(FrameReadyEventHandler value)
+  void remove_frameReady(FrameReadyEventHandler value)
+  void InvokePrepareCompletedCallback_Internal(VideoPlayer source)
+  void InvokeFrameReadyCallback_Internal(VideoPlayer source, long frameIdx)
+  void InvokeLoopPointReachedCallback_Internal(VideoPlayer source)
+  void InvokeStartedCallback_Internal(VideoPlayer source)
+  void InvokeFrameDroppedCallback_Internal(VideoPlayer source)
+  void InvokeErrorReceivedCallback_Internal(VideoPlayer source, string errorStr)
+  void InvokeSeekCompletedCallback_Internal(VideoPlayer source)
+  void InvokeClockResyncOccurredCallback_Internal(VideoPlayer source, double seconds)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngineInternal.Video.VideoError
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoError NoErr
+  VideoError OutOfMemoryErr
+  VideoError CantReadFile
+  VideoError CantWriteFile
+  VideoError BadParams
+  VideoError NoData
+  VideoError BadPermissions
+  VideoError DeviceNotAvailable
+  VideoError ResourceNotAvailable
+  VideoError NetworkErr
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngineInternal.Video.VideoPixelFormat
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoPixelFormat RGB
+  VideoPixelFormat RGBA
+  VideoPixelFormat YUV
+  VideoPixelFormat YUVA
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngineInternal.Video.VideoAlphaLayout
+Наследуется от: Enum
+Поля:
+  int value__
+  VideoAlphaLayout Native
+  VideoAlphaLayout Split
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngineInternal.Video.VideoPlayback
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+Методы:
+  void StartPlayback()
+  void PausePlayback()
+  void StopPlayback()
+  VideoError GetStatus()
+  bool IsReady()
+  bool IsPlaying()
+  void Step()
+  bool CanStep()
+  UInt32 GetWidth()
+  UInt32 GetHeight()
+  float GetFrameRate()
+  float GetDuration()
+  ulong GetFrameCount()
+  UInt32 GetPixelAspectRatioNumerator()
+  UInt32 GetPixelAspectRatioDenominator()
+  VideoPixelFormat GetPixelFormat()
+  bool CanNotSkipOnDrop()
+  void SetSkipOnDrop(bool skipOnDrop)
+  bool GetTexture(Texture texture, Int64& outputFrameNum)
+  void SeekToFrame(long frameIndex, Callback seekCompletedCallback)
+  void SeekToTime(double secs, Callback seekCompletedCallback)
+  float GetPlaybackSpeed()
+  void SetPlaybackSpeed(float value)
+  bool GetLoop()
+  void SetLoop(bool value)
+  void SetAdjustToLinearSpace(bool enable)
+  ushort GetAudioTrackCount()
+  ushort GetAudioChannelCount(ushort trackIdx)
+  UInt32 GetAudioSampleRate(ushort trackIdx)
+  void SetAudioTarget(ushort trackIdx, bool enabled, bool softwareOutput, AudioSource audioSource)
+  UInt32 GetAudioSampleProviderId(ushort trackIndex)
+  AudioSampleProvider GetAudioSampleProvider(ushort trackIndex)
+  bool PlatformSupportsH265()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngineInternal.Video.VideoPlaybackMgr
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+  ulong videoPlaybackCount
+Методы:
+  void .ctor()
+  void Dispose()
+  IntPtr Internal_Create()
+  void Internal_Destroy(IntPtr ptr)
+  VideoPlayback CreateVideoPlayback(string fileName, MessageCallback errorCallback, Callback readyCallback, Callback reachedEndCallback, bool splitAlpha)
+  void ReleaseVideoPlayback(VideoPlayback playback)
+  ulong get_videoPlaybackCount()
+  void Update()
+  void ProcessOSMainLoopMessagesForTesting()
+--------------------------------------------------

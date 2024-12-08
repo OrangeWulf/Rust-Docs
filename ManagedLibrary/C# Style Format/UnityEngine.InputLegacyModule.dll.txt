@@ -1,0 +1,474 @@
+public class UnityEngine.AccelerationEvent : ValueType {
+    internal float x;
+    internal float y;
+    internal float z;
+    internal float m_TimeDelta;
+    public Vector3 acceleration { get; }
+    public float deltaTime { get; }
+    public Vector3 get_acceleration();
+    public float get_deltaTime();
+}
+[NativeHeaderAttribute("Runtime/Camera/Camera.h")]
+internal class UnityEngine.CameraRaycastHelper : object {
+    [FreeFunctionAttribute("CameraScripting::RaycastTry")]
+internal static GameObject RaycastTry(Camera cam, Ray ray, float distance, int layerMask);
+    [FreeFunctionAttribute("CameraScripting::RaycastTry2D")]
+internal static GameObject RaycastTry2D(Camera cam, Ray ray, float distance, int layerMask);
+    private static GameObject RaycastTry_Injected(Camera cam, Ray& ray, float distance, int layerMask);
+    private static GameObject RaycastTry2D_Injected(Camera cam, Ray& ray, float distance, int layerMask);
+}
+public class UnityEngine.Compass : object {
+    public float magneticHeading { get; }
+    public float trueHeading { get; }
+    public float headingAccuracy { get; }
+    public Vector3 rawVector { get; }
+    public double timestamp { get; }
+    public bool enabled { get; public set; }
+    public float get_magneticHeading();
+    public float get_trueHeading();
+    public float get_headingAccuracy();
+    public Vector3 get_rawVector();
+    public double get_timestamp();
+    public bool get_enabled();
+    public void set_enabled(bool value);
+}
+public enum UnityEngine.DeviceOrientation : Enum {
+    public int value__;
+    public static DeviceOrientation Unknown;
+    public static DeviceOrientation Portrait;
+    public static DeviceOrientation PortraitUpsideDown;
+    public static DeviceOrientation LandscapeLeft;
+    public static DeviceOrientation LandscapeRight;
+    public static DeviceOrientation FaceUp;
+    public static DeviceOrientation FaceDown;
+}
+[NativeHeaderAttribute("Runtime/Input/GetInput.h")]
+public class UnityEngine.Gyroscope : object {
+    private int m_GyroIndex;
+    public Vector3 rotationRate { get; }
+    public Vector3 rotationRateUnbiased { get; }
+    public Vector3 gravity { get; }
+    public Vector3 userAcceleration { get; }
+    public Quaternion attitude { get; }
+    public bool enabled { get; public set; }
+    public float updateInterval { get; public set; }
+    internal Gyroscope(int index);
+    [FreeFunctionAttribute("GetGyroRotationRate")]
+private static Vector3 rotationRate_Internal(int idx);
+    [FreeFunctionAttribute("GetGyroRotationRateUnbiased")]
+private static Vector3 rotationRateUnbiased_Internal(int idx);
+    [FreeFunctionAttribute("GetGravity")]
+private static Vector3 gravity_Internal(int idx);
+    [FreeFunctionAttribute("GetUserAcceleration")]
+private static Vector3 userAcceleration_Internal(int idx);
+    [FreeFunctionAttribute("GetAttitude")]
+private static Quaternion attitude_Internal(int idx);
+    [FreeFunctionAttribute("IsGyroEnabled")]
+private static bool getEnabled_Internal(int idx);
+    [FreeFunctionAttribute("SetGyroEnabled")]
+private static void setEnabled_Internal(int idx, bool enabled);
+    [FreeFunctionAttribute("GetGyroUpdateInterval")]
+private static float getUpdateInterval_Internal(int idx);
+    [FreeFunctionAttribute("SetGyroUpdateInterval")]
+private static void setUpdateInterval_Internal(int idx, float interval);
+    public Vector3 get_rotationRate();
+    public Vector3 get_rotationRateUnbiased();
+    public Vector3 get_gravity();
+    public Vector3 get_userAcceleration();
+    public Quaternion get_attitude();
+    public bool get_enabled();
+    public void set_enabled(bool value);
+    public float get_updateInterval();
+    public void set_updateInterval(float value);
+    private static void rotationRate_Internal_Injected(int idx, Vector3& ret);
+    private static void rotationRateUnbiased_Internal_Injected(int idx, Vector3& ret);
+    private static void gravity_Internal_Injected(int idx, Vector3& ret);
+    private static void userAcceleration_Internal_Injected(int idx, Vector3& ret);
+    private static void attitude_Internal_Injected(int idx, Quaternion& ret);
+}
+public enum UnityEngine.IMECompositionMode : Enum {
+    public int value__;
+    public static IMECompositionMode Auto;
+    public static IMECompositionMode On;
+    public static IMECompositionMode Off;
+}
+[NativeHeaderAttribute("Runtime/Input/InputBindings.h")]
+public class UnityEngine.Input : object {
+    private static LocationService locationServiceInstance;
+    private static Compass compassInstance;
+    private static Gyroscope s_MainGyro;
+    public static bool simulateMouseWithTouches { get; public set; }
+    [NativeThrowsAttribute]
+public static bool anyKey { get; }
+    [NativeThrowsAttribute]
+public static bool anyKeyDown { get; }
+    [NativeThrowsAttribute]
+public static string inputString { get; }
+    [NativeThrowsAttribute]
+public static Vector3 mousePosition { get; }
+    [NativeThrowsAttribute]
+public static Vector2 mouseScrollDelta { get; }
+    public static IMECompositionMode imeCompositionMode { get; public set; }
+    public static string compositionString { get; }
+    public static bool imeIsSelected { get; }
+    public static Vector2 compositionCursorPos { get; public set; }
+    [ObsoleteAttribute("eatKeyPressOnTextFieldFocus property is deprecated, and only provided to support legacy behavior.")]
+public static bool eatKeyPressOnTextFieldFocus { get; public set; }
+    public static bool mousePresent { get; }
+    public static int penEventCount { get; }
+    public static int touchCount { get; }
+    public static bool touchPressureSupported { get; }
+    public static bool stylusTouchSupported { get; }
+    public static bool touchSupported { get; }
+    public static bool multiTouchEnabled { get; public set; }
+    [ObsoleteAttribute("isGyroAvailable property is deprecated. Please use SystemInfo.supportsGyroscope instead.")]
+public static bool isGyroAvailable { get; }
+    public static DeviceOrientation deviceOrientation { get; }
+    public static Vector3 acceleration { get; }
+    public static bool compensateSensors { get; public set; }
+    public static int accelerationEventCount { get; }
+    public static bool backButtonLeavesApp { get; public set; }
+    public static LocationService location { get; }
+    public static Compass compass { get; }
+    public static Gyroscope gyro { get; }
+    public static Touch[] touches { get; }
+    public static AccelerationEvent[] accelerationEvents { get; }
+    public static float GetAxis(string axisName);
+    public static float GetAxisRaw(string axisName);
+    public static bool GetButton(string buttonName);
+    public static bool GetButtonDown(string buttonName);
+    public static bool GetButtonUp(string buttonName);
+    [NativeThrowsAttribute]
+private static bool GetKeyInt(KeyCode key);
+    [NativeThrowsAttribute]
+private static bool GetKeyUpInt(KeyCode key);
+    [NativeThrowsAttribute]
+private static bool GetKeyDownInt(KeyCode key);
+    [NativeThrowsAttribute]
+public static bool GetMouseButton(int button);
+    [NativeThrowsAttribute]
+public static bool GetMouseButtonDown(int button);
+    [NativeThrowsAttribute]
+public static bool GetMouseButtonUp(int button);
+    [FreeFunctionAttribute("ResetInput")]
+public static void ResetInputAxes();
+    public static bool IsJoystickPreconfigured(string joystickName);
+    [NativeThrowsAttribute]
+public static String[] GetJoystickNames();
+    [NativeThrowsAttribute]
+public static Touch GetTouch(int index);
+    [NativeThrowsAttribute]
+public static PenData GetPenEvent(int index);
+    [NativeThrowsAttribute]
+public static PenData GetLastPenContactEvent();
+    [NativeThrowsAttribute]
+public static void ResetPenEvents();
+    [NativeThrowsAttribute]
+public static void ClearLastPenContactEvent();
+    [NativeThrowsAttribute]
+public static AccelerationEvent GetAccelerationEvent(int index);
+    public static bool GetKey(KeyCode key);
+    public static bool GetKey(string name);
+    public static bool GetKeyUp(KeyCode key);
+    public static bool GetKeyUp(string name);
+    public static bool GetKeyDown(KeyCode key);
+    public static bool GetKeyDown(string name);
+    [ConditionalAttribute("UNITY_EDITOR")]
+internal static void SimulateTouch(Touch touch);
+    [ConditionalAttribute("UNITY_EDITOR")]
+[FreeFunctionAttribute("SimulateTouch")]
+[NativeConditionalAttribute("UNITY_EDITOR")]
+private static void SimulateTouchInternal(Touch touch, long timestamp);
+    public static bool get_simulateMouseWithTouches();
+    public static void set_simulateMouseWithTouches(bool value);
+    public static bool get_anyKey();
+    public static bool get_anyKeyDown();
+    public static string get_inputString();
+    public static Vector3 get_mousePosition();
+    public static Vector2 get_mouseScrollDelta();
+    public static IMECompositionMode get_imeCompositionMode();
+    public static void set_imeCompositionMode(IMECompositionMode value);
+    public static string get_compositionString();
+    public static bool get_imeIsSelected();
+    public static Vector2 get_compositionCursorPos();
+    public static void set_compositionCursorPos(Vector2 value);
+    public static bool get_eatKeyPressOnTextFieldFocus();
+    public static void set_eatKeyPressOnTextFieldFocus(bool value);
+    [FreeFunctionAttribute("GetMousePresent")]
+public static bool get_mousePresent();
+    [FreeFunctionAttribute("GetPenEventCount")]
+public static int get_penEventCount();
+    [FreeFunctionAttribute("GetTouchCount")]
+public static int get_touchCount();
+    [FreeFunctionAttribute("IsTouchPressureSupported")]
+public static bool get_touchPressureSupported();
+    [FreeFunctionAttribute("IsStylusTouchSupported")]
+public static bool get_stylusTouchSupported();
+    [FreeFunctionAttribute("IsTouchSupported")]
+public static bool get_touchSupported();
+    [FreeFunctionAttribute("IsMultiTouchEnabled")]
+public static bool get_multiTouchEnabled();
+    [FreeFunctionAttribute("SetMultiTouchEnabled")]
+public static void set_multiTouchEnabled(bool value);
+    [FreeFunctionAttribute("IsGyroAvailable")]
+public static bool get_isGyroAvailable();
+    [FreeFunctionAttribute("GetDeviceOrientation")]
+public static DeviceOrientation get_deviceOrientation();
+    [FreeFunctionAttribute("GetAcceleration")]
+public static Vector3 get_acceleration();
+    [FreeFunctionAttribute("IsCompensatingSensors")]
+public static bool get_compensateSensors();
+    [FreeFunctionAttribute("SetCompensatingSensors")]
+public static void set_compensateSensors(bool value);
+    [FreeFunctionAttribute("GetAccelerationCount")]
+public static int get_accelerationEventCount();
+    [FreeFunctionAttribute("GetBackButtonLeavesApp")]
+public static bool get_backButtonLeavesApp();
+    [FreeFunctionAttribute("SetBackButtonLeavesApp")]
+public static void set_backButtonLeavesApp(bool value);
+    public static LocationService get_location();
+    public static Compass get_compass();
+    [FreeFunctionAttribute("GetGyro")]
+private static int GetGyroInternal();
+    public static Gyroscope get_gyro();
+    public static Touch[] get_touches();
+    public static AccelerationEvent[] get_accelerationEvents();
+    internal static bool CheckDisabled();
+    private static void GetTouch_Injected(int index, Touch& ret);
+    private static void GetPenEvent_Injected(int index, PenData& ret);
+    private static void GetLastPenContactEvent_Injected(PenData& ret);
+    private static void GetAccelerationEvent_Injected(int index, AccelerationEvent& ret);
+    private static void SimulateTouchInternal_Injected(Touch& touch, long timestamp);
+    private static void get_mousePosition_Injected(Vector3& ret);
+    private static void get_mouseScrollDelta_Injected(Vector2& ret);
+    private static void get_compositionCursorPos_Injected(Vector2& ret);
+    private static void set_compositionCursorPos_Injected(Vector2& value);
+    private static void get_acceleration_Injected(Vector3& ret);
+}
+[NativeHeaderAttribute("Runtime/Input/InputBindings.h")]
+internal static class UnityEngine.Internal.InputUnsafeUtility : object {
+    [NativeThrowsAttribute]
+internal static bool GetKeyString(string name);
+    [NativeThrowsAttribute]
+[RequiredMemberAttribute]
+internal static bool GetKeyString__Unmanaged(Byte* name, int nameLen);
+    [NativeThrowsAttribute]
+internal static bool GetKeyUpString(string name);
+    [NativeThrowsAttribute]
+[RequiredMemberAttribute]
+internal static bool GetKeyUpString__Unmanaged(Byte* name, int nameLen);
+    [NativeThrowsAttribute]
+internal static bool GetKeyDownString(string name);
+    [NativeThrowsAttribute]
+[RequiredMemberAttribute]
+internal static bool GetKeyDownString__Unmanaged(Byte* name, int nameLen);
+    [NativeThrowsAttribute]
+internal static float GetAxis(string axisName);
+    [NativeThrowsAttribute]
+[RequiredMemberAttribute]
+internal static float GetAxis__Unmanaged(Byte* axisName, int axisNameLen);
+    [NativeThrowsAttribute]
+internal static float GetAxisRaw(string axisName);
+    [NativeThrowsAttribute]
+[RequiredMemberAttribute]
+internal static float GetAxisRaw__Unmanaged(Byte* axisName, int axisNameLen);
+    [NativeThrowsAttribute]
+internal static bool GetButton(string buttonName);
+    [NativeThrowsAttribute]
+[RequiredMemberAttribute]
+internal static bool GetButton__Unmanaged(Byte* buttonName, int buttonNameLen);
+    [NativeThrowsAttribute]
+internal static bool GetButtonDown(string buttonName);
+    [NativeThrowsAttribute]
+[RequiredMemberAttribute]
+internal static byte GetButtonDown__Unmanaged(Byte* buttonName, int buttonNameLen);
+    [NativeThrowsAttribute]
+internal static bool GetButtonUp(string buttonName);
+    [NativeThrowsAttribute]
+[RequiredMemberAttribute]
+internal static bool GetButtonUp__Unmanaged(Byte* buttonName, int buttonNameLen);
+    internal static bool IsJoystickPreconfigured(string joystickName);
+    [RequiredMemberAttribute]
+internal static bool IsJoystickPreconfigured__Unmanaged(Byte* joystickName, int joystickNameLen);
+}
+public class UnityEngine.LocationInfo : ValueType {
+    internal double m_Timestamp;
+    internal float m_Latitude;
+    internal float m_Longitude;
+    internal float m_Altitude;
+    internal float m_HorizontalAccuracy;
+    internal float m_VerticalAccuracy;
+    public float latitude { get; }
+    public float longitude { get; }
+    public float altitude { get; }
+    public float horizontalAccuracy { get; }
+    public float verticalAccuracy { get; }
+    public double timestamp { get; }
+    public float get_latitude();
+    public float get_longitude();
+    public float get_altitude();
+    public float get_horizontalAccuracy();
+    public float get_verticalAccuracy();
+    public double get_timestamp();
+}
+[NativeHeaderAttribute("Runtime/Input/LocationService.h")]
+[NativeHeaderAttribute("Runtime/Input/InputBindings.h")]
+public class UnityEngine.LocationService : object {
+    public bool isEnabledByUser { get; }
+    public LocationServiceStatus status { get; }
+    public LocationInfo lastData { get; }
+    [FreeFunctionAttribute("LocationService::IsServiceEnabledByUser")]
+internal static bool IsServiceEnabledByUser();
+    [FreeFunctionAttribute("LocationService::GetLocationStatus")]
+internal static LocationServiceStatus GetLocationStatus();
+    [FreeFunctionAttribute("LocationService::GetLastLocation")]
+internal static LocationInfo GetLastLocation();
+    [FreeFunctionAttribute("LocationService::SetDesiredAccuracy")]
+internal static void SetDesiredAccuracy(float value);
+    [FreeFunctionAttribute("LocationService::SetDistanceFilter")]
+internal static void SetDistanceFilter(float value);
+    [FreeFunctionAttribute("LocationService::StartUpdatingLocation")]
+internal static void StartUpdatingLocation();
+    [FreeFunctionAttribute("LocationService::StopUpdatingLocation")]
+internal static void StopUpdatingLocation();
+    [FreeFunctionAttribute("LocationService::GetLastHeading")]
+internal static HeadingInfo GetLastHeading();
+    [FreeFunctionAttribute("LocationService::IsHeadingUpdatesEnabled")]
+internal static bool IsHeadingUpdatesEnabled();
+    [FreeFunctionAttribute("LocationService::SetHeadingUpdatesEnabled")]
+internal static void SetHeadingUpdatesEnabled(bool value);
+    public bool get_isEnabledByUser();
+    public LocationServiceStatus get_status();
+    public LocationInfo get_lastData();
+    public void Start(float desiredAccuracyInMeters, float updateDistanceInMeters);
+    public void Start(float desiredAccuracyInMeters);
+    public void Start();
+    public void Stop();
+    private static void GetLastLocation_Injected(LocationInfo& ret);
+    private static void GetLastHeading_Injected(HeadingInfo& ret);
+}
+public enum UnityEngine.LocationServiceStatus : Enum {
+    public int value__;
+    public static LocationServiceStatus Stopped;
+    public static LocationServiceStatus Initializing;
+    public static LocationServiceStatus Running;
+    public static LocationServiceStatus Failed;
+}
+public class UnityEngine.PenData : ValueType {
+    public Vector2 position;
+    public Vector2 tilt;
+    public PenStatus penStatus;
+    public float twist;
+    public float pressure;
+    public PenEventType contactType;
+    public Vector2 deltaPos;
+}
+public enum UnityEngine.PenEventType : Enum {
+    public int value__;
+    public static PenEventType NoContact;
+    public static PenEventType PenDown;
+    public static PenEventType PenUp;
+}
+[FlagsAttribute]
+public enum UnityEngine.PenStatus : Enum {
+    public int value__;
+    public static PenStatus None;
+    public static PenStatus Contact;
+    public static PenStatus Barrel;
+    public static PenStatus Inverted;
+    public static PenStatus Eraser;
+}
+internal class UnityEngine.SendMouseEvents : object {
+    private static int m_HitIndexGUI;
+    private static int m_HitIndexPhysics3D;
+    private static int m_HitIndexPhysics2D;
+    private static bool s_MouseUsed;
+    private static HitInfo[] m_LastHit;
+    private static HitInfo[] m_MouseDownHit;
+    private static HitInfo[] m_CurrentHit;
+    private static Camera[] m_Cameras;
+    public static Func`1<KeyValuePair`2<int, Vector2>> s_GetMouseState;
+    private static Vector2 s_MousePosition;
+    private static bool s_MouseButtonPressedThisFrame;
+    private static bool s_MouseButtonIsPressed;
+    private static SendMouseEvents();
+    private static void UpdateMouse();
+    [RequiredByNativeCodeAttribute]
+private static void SetMouseMoved();
+    [RequiredByNativeCodeAttribute]
+private static void DoSendMouseEvents(int skipRTCameras);
+    private static void SendEvents(int i, HitInfo hit);
+}
+[NativeHeaderAttribute("Runtime/Input/InputBindings.h")]
+public class UnityEngine.Touch : ValueType {
+    private int m_FingerId;
+    private Vector2 m_Position;
+    private Vector2 m_RawPosition;
+    private Vector2 m_PositionDelta;
+    private float m_TimeDelta;
+    private int m_TapCount;
+    private TouchPhase m_Phase;
+    private TouchType m_Type;
+    private float m_Pressure;
+    private float m_maximumPossiblePressure;
+    private float m_Radius;
+    private float m_RadiusVariance;
+    private float m_AltitudeAngle;
+    private float m_AzimuthAngle;
+    public int fingerId { get; public set; }
+    public Vector2 position { get; public set; }
+    public Vector2 rawPosition { get; public set; }
+    public Vector2 deltaPosition { get; public set; }
+    public float deltaTime { get; public set; }
+    public int tapCount { get; public set; }
+    public TouchPhase phase { get; public set; }
+    public float pressure { get; public set; }
+    public float maximumPossiblePressure { get; public set; }
+    public TouchType type { get; public set; }
+    public float altitudeAngle { get; public set; }
+    public float azimuthAngle { get; public set; }
+    public float radius { get; public set; }
+    public float radiusVariance { get; public set; }
+    public int get_fingerId();
+    public void set_fingerId(int value);
+    public Vector2 get_position();
+    public void set_position(Vector2 value);
+    public Vector2 get_rawPosition();
+    public void set_rawPosition(Vector2 value);
+    public Vector2 get_deltaPosition();
+    public void set_deltaPosition(Vector2 value);
+    public float get_deltaTime();
+    public void set_deltaTime(float value);
+    public int get_tapCount();
+    public void set_tapCount(int value);
+    public TouchPhase get_phase();
+    public void set_phase(TouchPhase value);
+    public float get_pressure();
+    public void set_pressure(float value);
+    public float get_maximumPossiblePressure();
+    public void set_maximumPossiblePressure(float value);
+    public TouchType get_type();
+    public void set_type(TouchType value);
+    public float get_altitudeAngle();
+    public void set_altitudeAngle(float value);
+    public float get_azimuthAngle();
+    public void set_azimuthAngle(float value);
+    public float get_radius();
+    public void set_radius(float value);
+    public float get_radiusVariance();
+    public void set_radiusVariance(float value);
+}
+public enum UnityEngine.TouchPhase : Enum {
+    public int value__;
+    public static TouchPhase Began;
+    public static TouchPhase Moved;
+    public static TouchPhase Stationary;
+    public static TouchPhase Ended;
+    public static TouchPhase Canceled;
+}
+public enum UnityEngine.TouchType : Enum {
+    public int value__;
+    public static TouchType Direct;
+    public static TouchType Indirect;
+    public static TouchType Stylus;
+}

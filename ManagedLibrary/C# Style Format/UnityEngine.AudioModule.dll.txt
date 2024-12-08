@@ -1,0 +1,1106 @@
+[VisibleToOtherModulesAttribute]
+internal interface Unity.Audio.IHandle`1 {
+}
+[VisibleToOtherModulesAttribute]
+internal interface Unity.Audio.IValidatable {
+    public bool Valid { get; }
+    public abstract virtual bool get_Valid();
+}
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/Director/AudioClipPlayable.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/AudioClipPlayable.bindings.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AudioClipPlayableBindings", "2")]
+public class UnityEngine.Audio.AudioClipPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    internal AudioClipPlayable(PlayableHandle handle);
+    public static AudioClipPlayable Create(PlayableGraph graph, AudioClip clip, bool looping);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, AudioClip clip, bool looping);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AudioClipPlayable playable);
+    public static AudioClipPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AudioClipPlayable other);
+    public AudioClip GetClip();
+    public void SetClip(AudioClip value);
+    public bool GetLooped();
+    public void SetLooped(bool value);
+    internal float GetVolume();
+    internal void SetVolume(float value);
+    internal float GetStereoPan();
+    internal void SetStereoPan(float value);
+    internal float GetSpatialBlend();
+    internal void SetSpatialBlend(float value);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("IsPlaying() has been deprecated. Use IsChannelPlaying() instead (UnityUpgradable) -> IsChannelPlaying()", "True")]
+public bool IsPlaying();
+    public bool IsChannelPlaying();
+    public double GetStartDelay();
+    internal void SetStartDelay(double value);
+    public double GetPauseDelay();
+    internal void GetPauseDelay(double value);
+    public void Seek(double startTime, double startDelay);
+    public void Seek(double startTime, double startDelay, double duration);
+    [NativeThrowsAttribute]
+private static AudioClip GetClipInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetClipInternal(PlayableHandle& hdl, AudioClip clip);
+    [NativeThrowsAttribute]
+private static bool GetLoopedInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetLoopedInternal(PlayableHandle& hdl, bool looped);
+    [NativeThrowsAttribute]
+private static float GetVolumeInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetVolumeInternal(PlayableHandle& hdl, float volume);
+    [NativeThrowsAttribute]
+private static float GetStereoPanInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetStereoPanInternal(PlayableHandle& hdl, float stereoPan);
+    [NativeThrowsAttribute]
+private static float GetSpatialBlendInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetSpatialBlendInternal(PlayableHandle& hdl, float spatialBlend);
+    [NativeThrowsAttribute]
+private static bool GetIsChannelPlayingInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static double GetStartDelayInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetStartDelayInternal(PlayableHandle& hdl, double delay);
+    [NativeThrowsAttribute]
+private static double GetPauseDelayInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetPauseDelayInternal(PlayableHandle& hdl, double delay);
+    [NativeThrowsAttribute]
+private static bool InternalCreateAudioClipPlayable(PlayableGraph& graph, AudioClip clip, bool looping, PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static bool ValidateType(PlayableHandle& hdl);
+}
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/Audio.bindings.h")]
+internal class UnityEngine.Audio.AudioManagerTestProxy : object {
+    [NativeMethodAttribute]
+internal static bool ComputeAudibilityConsistency();
+}
+[ExcludeFromObjectFactoryAttribute]
+[ExcludeFromPresetAttribute]
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/AudioMixer.bindings.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/AudioMixer.h")]
+public class UnityEngine.Audio.AudioMixer : Object {
+    [NativePropertyAttribute]
+public AudioMixerGroup outputAudioMixerGroup { get; public set; }
+    [NativePropertyAttribute]
+public AudioMixerUpdateMode updateMode { get; public set; }
+    public AudioMixerGroup get_outputAudioMixerGroup();
+    public void set_outputAudioMixerGroup(AudioMixerGroup value);
+    [NativeMethodAttribute("FindSnapshotFromName")]
+public AudioMixerSnapshot FindSnapshot(string name);
+    [NativeMethodAttribute("AudioMixerBindings::FindMatchingGroups")]
+public AudioMixerGroup[] FindMatchingGroups(string subPath);
+    internal void TransitionToSnapshot(AudioMixerSnapshot snapshot, float timeToReach);
+    [NativeMethodAttribute("TransitionToSnapshot")]
+private void TransitionToSnapshotInternal(AudioMixerSnapshot snapshot, float timeToReach);
+    [NativeMethodAttribute("AudioMixerBindings::TransitionToSnapshots")]
+public void TransitionToSnapshots(AudioMixerSnapshot[] snapshots, Single[] weights, float timeToReach);
+    public AudioMixerUpdateMode get_updateMode();
+    public void set_updateMode(AudioMixerUpdateMode value);
+    [NativeMethodAttribute]
+public bool SetFloat(string name, float value);
+    [NativeMethodAttribute]
+public bool ClearFloat(string name);
+    [NativeMethodAttribute]
+public bool GetFloat(string name, Single& value);
+    [NativeMethodAttribute("AudioMixerBindings::GetAbsoluteAudibilityFromGroup")]
+internal float GetAbsoluteAudibilityFromGroup(AudioMixerGroup group);
+}
+[NativeHeaderAttribute("Modules/Audio/Public/AudioMixerGroup.h")]
+public class UnityEngine.Audio.AudioMixerGroup : Object {
+    [NativePropertyAttribute]
+public AudioMixer audioMixer { get; }
+    public AudioMixer get_audioMixer();
+}
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/AudioMixerPlayable.bindings.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/Director/AudioMixerPlayable.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AudioMixerPlayableBindings", "2")]
+public class UnityEngine.Audio.AudioMixerPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    internal AudioMixerPlayable(PlayableHandle handle);
+    public static AudioMixerPlayable Create(PlayableGraph graph, int inputCount, bool normalizeInputVolumes);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, int inputCount, bool normalizeInputVolumes);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AudioMixerPlayable playable);
+    public static AudioMixerPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AudioMixerPlayable other);
+    [NativeThrowsAttribute]
+private static bool CreateAudioMixerPlayableInternal(PlayableGraph& graph, bool normalizeInputVolumes, PlayableHandle& handle);
+}
+[NativeHeaderAttribute("Modules/Audio/Public/AudioMixerSnapshot.h")]
+public class UnityEngine.Audio.AudioMixerSnapshot : Object {
+    [NativePropertyAttribute]
+public AudioMixer audioMixer { get; }
+    public AudioMixer get_audioMixer();
+    public void TransitionTo(float timeToReach);
+}
+public enum UnityEngine.Audio.AudioMixerUpdateMode : Enum {
+    public int value__;
+    public static AudioMixerUpdateMode Normal;
+    public static AudioMixerUpdateMode UnscaledTime;
+}
+public static class UnityEngine.Audio.AudioPlayableBinding : object {
+    public static PlayableBinding Create(string name, Object key);
+    private static PlayableOutput CreateAudioOutput(PlayableGraph graph, string name);
+}
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/AudioPlayableGraphExtensions.bindings.h")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayableOutput.h")]
+[StaticAccessorAttribute("AudioPlayableGraphExtensionsBindings", "2")]
+internal static class UnityEngine.Audio.AudioPlayableGraphExtensions : object {
+    [NativeThrowsAttribute]
+internal static bool InternalCreateAudioOutput(PlayableGraph& graph, string name, PlayableOutputHandle& handle);
+}
+[NativeHeaderAttribute("Modules/Audio/Public/Director/AudioPlayableOutput.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/AudioSource.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/AudioPlayableOutput.bindings.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AudioPlayableOutputBindings", "2")]
+public class UnityEngine.Audio.AudioPlayableOutput : ValueType {
+    private PlayableOutputHandle m_Handle;
+    public static AudioPlayableOutput Null { get; }
+    internal AudioPlayableOutput(PlayableOutputHandle handle);
+    public static AudioPlayableOutput Create(PlayableGraph graph, string name, AudioSource target);
+    public static AudioPlayableOutput get_Null();
+    public sealed virtual PlayableOutputHandle GetHandle();
+    public static PlayableOutput op_Implicit(AudioPlayableOutput output);
+    public static AudioPlayableOutput op_Explicit(PlayableOutput output);
+    public AudioSource GetTarget();
+    public void SetTarget(AudioSource value);
+    public bool GetEvaluateOnSeek();
+    public void SetEvaluateOnSeek(bool value);
+    [NativeThrowsAttribute]
+private static AudioSource InternalGetTarget(PlayableOutputHandle& output);
+    [NativeThrowsAttribute]
+private static void InternalSetTarget(PlayableOutputHandle& output, AudioSource target);
+    [NativeThrowsAttribute]
+private static bool InternalGetEvaluateOnSeek(PlayableOutputHandle& output);
+    [NativeThrowsAttribute]
+private static void InternalSetEvaluateOnSeek(PlayableOutputHandle& output, bool value);
+}
+public class UnityEngine.AudioBehaviour : Behaviour {
+}
+[RequireComponent("UnityEngine.AudioBehaviour")]
+public class UnityEngine.AudioChorusFilter : Behaviour {
+    public float dryMix { get; public set; }
+    public float wetMix1 { get; public set; }
+    public float wetMix2 { get; public set; }
+    public float wetMix3 { get; public set; }
+    public float delay { get; public set; }
+    public float rate { get; public set; }
+    public float depth { get; public set; }
+    [ObsoleteAttribute("Warning! Feedback is deprecated. This property does nothing.")]
+public float feedback { get; public set; }
+    public float get_dryMix();
+    public void set_dryMix(float value);
+    public float get_wetMix1();
+    public void set_wetMix1(float value);
+    public float get_wetMix2();
+    public void set_wetMix2(float value);
+    public float get_wetMix3();
+    public void set_wetMix3(float value);
+    public float get_delay();
+    public void set_delay(float value);
+    public float get_rate();
+    public void set_rate(float value);
+    public float get_depth();
+    public void set_depth(float value);
+    public float get_feedback();
+    public void set_feedback(float value);
+}
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/Audio.bindings.h")]
+[StaticAccessorAttribute("AudioClipBindings", "2")]
+public class UnityEngine.AudioClip : Object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private PCMReaderCallback m_PCMReaderCallback;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private PCMSetPositionCallback m_PCMSetPositionCallback;
+    [NativePropertyAttribute("LengthSec")]
+public float length { get; }
+    [NativePropertyAttribute("SampleCount")]
+public int samples { get; }
+    [NativePropertyAttribute("ChannelCount")]
+public int channels { get; }
+    public int frequency { get; }
+    [ObsoleteAttribute("Use AudioClip.loadState instead to get more detailed information about the loading process.")]
+public bool isReadyToPlay { get; }
+    public AudioClipLoadType loadType { get; }
+    public bool preloadAudioData { get; }
+    public bool ambisonic { get; }
+    public bool loadInBackground { get; }
+    public AudioDataLoadState loadState { get; }
+    private static bool GetData(AudioClip clip, Single[] data, int numSamples, int samplesOffset);
+    private static bool SetData(AudioClip clip, Single[] data, int numsamples, int samplesOffset);
+    private static AudioClip Construct_Internal();
+    private string GetName();
+    private void CreateUserSound(string name, int lengthSamples, int channels, int frequency, bool stream);
+    public float get_length();
+    public int get_samples();
+    public int get_channels();
+    public int get_frequency();
+    [NativeNameAttribute("ReadyToPlay")]
+public bool get_isReadyToPlay();
+    public AudioClipLoadType get_loadType();
+    public bool LoadAudioData();
+    public bool UnloadAudioData();
+    public bool get_preloadAudioData();
+    public bool get_ambisonic();
+    public bool get_loadInBackground();
+    [NativeMethodAttribute]
+public AudioDataLoadState get_loadState();
+    public bool GetData(Single[] data, int offsetSamples);
+    public bool SetData(Single[] data, int offsetSamples);
+    [ObsoleteAttribute("The _3D argument of AudioClip is deprecated. Use the spatialBlend property of AudioSource instead to morph between 2D and 3D playback.")]
+public static AudioClip Create(string name, int lengthSamples, int channels, int frequency, bool _3D, bool stream);
+    [ObsoleteAttribute("The _3D argument of AudioClip is deprecated. Use the spatialBlend property of AudioSource instead to morph between 2D and 3D playback.")]
+public static AudioClip Create(string name, int lengthSamples, int channels, int frequency, bool _3D, bool stream, PCMReaderCallback pcmreadercallback);
+    [ObsoleteAttribute("The _3D argument of AudioClip is deprecated. Use the spatialBlend property of AudioSource instead to morph between 2D and 3D playback.")]
+public static AudioClip Create(string name, int lengthSamples, int channels, int frequency, bool _3D, bool stream, PCMReaderCallback pcmreadercallback, PCMSetPositionCallback pcmsetpositioncallback);
+    public static AudioClip Create(string name, int lengthSamples, int channels, int frequency, bool stream);
+    public static AudioClip Create(string name, int lengthSamples, int channels, int frequency, bool stream, PCMReaderCallback pcmreadercallback);
+    public static AudioClip Create(string name, int lengthSamples, int channels, int frequency, bool stream, PCMReaderCallback pcmreadercallback, PCMSetPositionCallback pcmsetpositioncallback);
+    [CompilerGeneratedAttribute]
+private void add_m_PCMReaderCallback(PCMReaderCallback value);
+    [CompilerGeneratedAttribute]
+private void remove_m_PCMReaderCallback(PCMReaderCallback value);
+    [CompilerGeneratedAttribute]
+private void add_m_PCMSetPositionCallback(PCMSetPositionCallback value);
+    [CompilerGeneratedAttribute]
+private void remove_m_PCMSetPositionCallback(PCMSetPositionCallback value);
+    [RequiredByNativeCodeAttribute]
+private void InvokePCMReaderCallback_Internal(Single[] data);
+    [RequiredByNativeCodeAttribute]
+private void InvokePCMSetPositionCallback_Internal(int position);
+}
+public enum UnityEngine.AudioClipLoadType : Enum {
+    public int value__;
+    public static AudioClipLoadType DecompressOnLoad;
+    public static AudioClipLoadType CompressedInMemory;
+    public static AudioClipLoadType Streaming;
+}
+public enum UnityEngine.AudioCompressionFormat : Enum {
+    public int value__;
+    public static AudioCompressionFormat PCM;
+    public static AudioCompressionFormat Vorbis;
+    public static AudioCompressionFormat ADPCM;
+    public static AudioCompressionFormat MP3;
+    public static AudioCompressionFormat VAG;
+    public static AudioCompressionFormat HEVAG;
+    public static AudioCompressionFormat XMA;
+    public static AudioCompressionFormat AAC;
+    public static AudioCompressionFormat GCADPCM;
+    public static AudioCompressionFormat ATRAC9;
+}
+public class UnityEngine.AudioConfiguration : ValueType {
+    public AudioSpeakerMode speakerMode;
+    public int dspBufferSize;
+    public int sampleRate;
+    public int numRealVoices;
+    public int numVirtualVoices;
+}
+public enum UnityEngine.AudioDataLoadState : Enum {
+    public int value__;
+    public static AudioDataLoadState Unloaded;
+    public static AudioDataLoadState Loading;
+    public static AudioDataLoadState Loaded;
+    public static AudioDataLoadState Failed;
+}
+[RequireComponent("UnityEngine.AudioBehaviour")]
+public class UnityEngine.AudioDistortionFilter : Behaviour {
+    public float distortionLevel { get; public set; }
+    public float get_distortionLevel();
+    public void set_distortionLevel(float value);
+}
+[RequireComponent("UnityEngine.AudioBehaviour")]
+public class UnityEngine.AudioEchoFilter : Behaviour {
+    public float delay { get; public set; }
+    public float decayRatio { get; public set; }
+    public float dryMix { get; public set; }
+    public float wetMix { get; public set; }
+    public float get_delay();
+    public void set_delay(float value);
+    public float get_decayRatio();
+    public void set_decayRatio(float value);
+    public float get_dryMix();
+    public void set_dryMix(float value);
+    public float get_wetMix();
+    public void set_wetMix(float value);
+}
+[RequireComponent("UnityEngine.AudioBehaviour")]
+public class UnityEngine.AudioHighPassFilter : Behaviour {
+    public float cutoffFrequency { get; public set; }
+    public float highpassResonanceQ { get; public set; }
+    public float get_cutoffFrequency();
+    public void set_cutoffFrequency(float value);
+    public float get_highpassResonanceQ();
+    public void set_highpassResonanceQ(float value);
+}
+[RequireComponent("UnityEngine.Transform")]
+[StaticAccessorAttribute("AudioListenerBindings", "2")]
+public class UnityEngine.AudioListener : AudioBehaviour {
+    public static float volume { get; public set; }
+    [NativePropertyAttribute("ListenerPause")]
+public static bool pause { get; public set; }
+    public AudioVelocityUpdateMode velocityUpdateMode { get; public set; }
+    [NativeThrowsAttribute]
+private static void GetOutputDataHelper(Single[] samples, int channel);
+    [NativeThrowsAttribute]
+private static void GetSpectrumDataHelper(Single[] samples, int channel, FFTWindow window);
+    public static float get_volume();
+    public static void set_volume(float value);
+    public static bool get_pause();
+    public static void set_pause(bool value);
+    public AudioVelocityUpdateMode get_velocityUpdateMode();
+    public void set_velocityUpdateMode(AudioVelocityUpdateMode value);
+    [ObsoleteAttribute("GetOutputData returning a float[] is deprecated, use GetOutputData and pass a pre allocated array instead.")]
+public static Single[] GetOutputData(int numSamples, int channel);
+    public static void GetOutputData(Single[] samples, int channel);
+    [ObsoleteAttribute("GetSpectrumData returning a float[] is deprecated, use GetSpectrumData and pass a pre allocated array instead.")]
+public static Single[] GetSpectrumData(int numSamples, int channel, FFTWindow window);
+    public static void GetSpectrumData(Single[] samples, int channel, FFTWindow window);
+}
+[RequireComponent("UnityEngine.AudioBehaviour")]
+public class UnityEngine.AudioLowPassFilter : Behaviour {
+    public AnimationCurve customCutoffCurve { get; public set; }
+    public float cutoffFrequency { get; public set; }
+    public float lowpassResonanceQ { get; public set; }
+    private AnimationCurve GetCustomLowpassLevelCurveCopy();
+    [NativeMethodAttribute]
+[NativeThrowsAttribute]
+private static void SetCustomLowpassLevelCurveHelper(AudioLowPassFilter source, AnimationCurve curve);
+    public AnimationCurve get_customCutoffCurve();
+    public void set_customCutoffCurve(AnimationCurve value);
+    public float get_cutoffFrequency();
+    public void set_cutoffFrequency(float value);
+    public float get_lowpassResonanceQ();
+    public void set_lowpassResonanceQ(float value);
+}
+[NativeTypeAttribute]
+public class UnityEngine.AudioRenderer : object {
+    public static bool Start();
+    public static bool Stop();
+    public static int GetSampleCountForCaptureFrame();
+    internal static bool AddMixerGroupSink(AudioMixerGroup mixerGroup, NativeArray`1<float> buffer, bool excludeFromMix);
+    public static bool Render(NativeArray`1<float> buffer);
+    internal static bool Internal_AudioRenderer_Start();
+    internal static bool Internal_AudioRenderer_Stop();
+    internal static int Internal_AudioRenderer_GetSampleCountForCaptureFrame();
+    internal static bool Internal_AudioRenderer_AddMixerGroupSink(AudioMixerGroup mixerGroup, Void* ptr, int length, bool excludeFromMix);
+    internal static bool Internal_AudioRenderer_Render(Void* ptr, int length);
+}
+[RequireComponent("UnityEngine.AudioBehaviour")]
+public class UnityEngine.AudioReverbFilter : Behaviour {
+    public AudioReverbPreset reverbPreset { get; public set; }
+    public float dryLevel { get; public set; }
+    public float room { get; public set; }
+    public float roomHF { get; public set; }
+    [ObsoleteAttribute("Warning! roomRolloffFactor is no longer supported.")]
+public float roomRolloffFactor { get; public set; }
+    public float decayTime { get; public set; }
+    public float decayHFRatio { get; public set; }
+    public float reflectionsLevel { get; public set; }
+    public float reflectionsDelay { get; public set; }
+    public float reverbLevel { get; public set; }
+    public float reverbDelay { get; public set; }
+    public float diffusion { get; public set; }
+    public float density { get; public set; }
+    public float hfReference { get; public set; }
+    public float roomLF { get; public set; }
+    public float lfReference { get; public set; }
+    public AudioReverbPreset get_reverbPreset();
+    public void set_reverbPreset(AudioReverbPreset value);
+    public float get_dryLevel();
+    public void set_dryLevel(float value);
+    public float get_room();
+    public void set_room(float value);
+    public float get_roomHF();
+    public void set_roomHF(float value);
+    public float get_roomRolloffFactor();
+    public void set_roomRolloffFactor(float value);
+    public float get_decayTime();
+    public void set_decayTime(float value);
+    public float get_decayHFRatio();
+    public void set_decayHFRatio(float value);
+    public float get_reflectionsLevel();
+    public void set_reflectionsLevel(float value);
+    public float get_reflectionsDelay();
+    public void set_reflectionsDelay(float value);
+    public float get_reverbLevel();
+    public void set_reverbLevel(float value);
+    public float get_reverbDelay();
+    public void set_reverbDelay(float value);
+    public float get_diffusion();
+    public void set_diffusion(float value);
+    public float get_density();
+    public void set_density(float value);
+    public float get_hfReference();
+    public void set_hfReference(float value);
+    public float get_roomLF();
+    public void set_roomLF(float value);
+    public float get_lfReference();
+    public void set_lfReference(float value);
+}
+public enum UnityEngine.AudioReverbPreset : Enum {
+    public int value__;
+    public static AudioReverbPreset Off;
+    public static AudioReverbPreset Generic;
+    public static AudioReverbPreset PaddedCell;
+    public static AudioReverbPreset Room;
+    public static AudioReverbPreset Bathroom;
+    public static AudioReverbPreset Livingroom;
+    public static AudioReverbPreset Stoneroom;
+    public static AudioReverbPreset Auditorium;
+    public static AudioReverbPreset Concerthall;
+    public static AudioReverbPreset Cave;
+    public static AudioReverbPreset Arena;
+    public static AudioReverbPreset Hangar;
+    public static AudioReverbPreset CarpetedHallway;
+    public static AudioReverbPreset Hallway;
+    public static AudioReverbPreset StoneCorridor;
+    public static AudioReverbPreset Alley;
+    public static AudioReverbPreset Forest;
+    public static AudioReverbPreset City;
+    public static AudioReverbPreset Mountains;
+    public static AudioReverbPreset Quarry;
+    public static AudioReverbPreset Plain;
+    public static AudioReverbPreset ParkingLot;
+    public static AudioReverbPreset SewerPipe;
+    public static AudioReverbPreset Underwater;
+    public static AudioReverbPreset Drugged;
+    public static AudioReverbPreset Dizzy;
+    public static AudioReverbPreset Psychotic;
+    public static AudioReverbPreset User;
+}
+[NativeHeaderAttribute("Modules/Audio/Public/AudioReverbZone.h")]
+[RequireComponent("UnityEngine.Transform")]
+public class UnityEngine.AudioReverbZone : Behaviour {
+    public float minDistance { get; public set; }
+    public float maxDistance { get; public set; }
+    public AudioReverbPreset reverbPreset { get; public set; }
+    public int room { get; public set; }
+    public int roomHF { get; public set; }
+    public int roomLF { get; public set; }
+    public float decayTime { get; public set; }
+    public float decayHFRatio { get; public set; }
+    public int reflections { get; public set; }
+    public float reflectionsDelay { get; public set; }
+    public int reverb { get; public set; }
+    public float reverbDelay { get; public set; }
+    public float HFReference { get; public set; }
+    public float LFReference { get; public set; }
+    [ObsoleteAttribute("Warning! roomRolloffFactor is no longer supported.")]
+public float roomRolloffFactor { get; public set; }
+    public float diffusion { get; public set; }
+    public float density { get; public set; }
+    public float get_minDistance();
+    public void set_minDistance(float value);
+    public float get_maxDistance();
+    public void set_maxDistance(float value);
+    public AudioReverbPreset get_reverbPreset();
+    public void set_reverbPreset(AudioReverbPreset value);
+    public int get_room();
+    public void set_room(int value);
+    public int get_roomHF();
+    public void set_roomHF(int value);
+    public int get_roomLF();
+    public void set_roomLF(int value);
+    public float get_decayTime();
+    public void set_decayTime(float value);
+    public float get_decayHFRatio();
+    public void set_decayHFRatio(float value);
+    public int get_reflections();
+    public void set_reflections(int value);
+    public float get_reflectionsDelay();
+    public void set_reflectionsDelay(float value);
+    public int get_reverb();
+    public void set_reverb(int value);
+    public float get_reverbDelay();
+    public void set_reverbDelay(float value);
+    public float get_HFReference();
+    public void set_HFReference(float value);
+    public float get_LFReference();
+    public void set_LFReference(float value);
+    public float get_roomRolloffFactor();
+    public void set_roomRolloffFactor(float value);
+    public float get_diffusion();
+    public void set_diffusion(float value);
+    public float get_density();
+    public void set_density(float value);
+}
+public enum UnityEngine.AudioRolloffMode : Enum {
+    public int value__;
+    public static AudioRolloffMode Logarithmic;
+    public static AudioRolloffMode Linear;
+    public static AudioRolloffMode Custom;
+}
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/Audio.bindings.h")]
+[StaticAccessorAttribute("GetAudioManager()", "0")]
+public class UnityEngine.AudioSettings : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static AudioConfigurationChangeHandler OnAudioConfigurationChanged;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action OnAudioSystemShuttingDown;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action OnAudioSystemStartedUp;
+    public static AudioSpeakerMode driverCapabilities { get; }
+    public static AudioSpeakerMode speakerMode { get; public set; }
+    internal static int profilerCaptureFlags { get; }
+    public static double dspTime { get; }
+    public static int outputSampleRate { get; public set; }
+    internal static bool unityAudioDisabled { get; internal set; }
+    private static AudioSpeakerMode GetSpeakerMode();
+    [NativeMethodAttribute]
+[NativeThrowsAttribute]
+private static bool SetConfiguration(AudioConfiguration config);
+    [NativeMethodAttribute]
+private static int GetSampleRate();
+    [NativeNameAttribute("GetSpeakerModeCaps")]
+public static AudioSpeakerMode get_driverCapabilities();
+    public static AudioSpeakerMode get_speakerMode();
+    public static void set_speakerMode(AudioSpeakerMode value);
+    internal static int get_profilerCaptureFlags();
+    [NativeMethodAttribute]
+public static double get_dspTime();
+    public static int get_outputSampleRate();
+    public static void set_outputSampleRate(int value);
+    [NativeMethodAttribute]
+public static void GetDSPBufferSize(Int32& bufferLength, Int32& numBuffers);
+    [ObsoleteAttribute("AudioSettings.SetDSPBufferSize is deprecated and has been replaced by audio project settings and the AudioSettings.GetConfiguration/AudioSettings.Reset API.")]
+public static void SetDSPBufferSize(int bufferLength, int numBuffers);
+    [NativeNameAttribute("GetCurrentSpatializerDefinitionName")]
+public static string GetSpatializerPluginName();
+    public static AudioConfiguration GetConfiguration();
+    public static bool Reset(AudioConfiguration config);
+    [CompilerGeneratedAttribute]
+public static void add_OnAudioConfigurationChanged(AudioConfigurationChangeHandler value);
+    [CompilerGeneratedAttribute]
+public static void remove_OnAudioConfigurationChanged(AudioConfigurationChangeHandler value);
+    [CompilerGeneratedAttribute]
+internal static void add_OnAudioSystemShuttingDown(Action value);
+    [CompilerGeneratedAttribute]
+internal static void remove_OnAudioSystemShuttingDown(Action value);
+    [CompilerGeneratedAttribute]
+internal static void add_OnAudioSystemStartedUp(Action value);
+    [CompilerGeneratedAttribute]
+internal static void remove_OnAudioSystemStartedUp(Action value);
+    [RequiredByNativeCodeAttribute]
+internal static void InvokeOnAudioConfigurationChanged(bool deviceWasChanged);
+    [RequiredByNativeCodeAttribute]
+internal static void InvokeOnAudioSystemShuttingDown();
+    [RequiredByNativeCodeAttribute]
+internal static void InvokeOnAudioSystemStartedUp();
+    [NativeNameAttribute("IsAudioDisabled")]
+internal static bool get_unityAudioDisabled();
+    [NativeNameAttribute("DisableAudio")]
+internal static void set_unityAudioDisabled(bool value);
+    [NativeMethodAttribute]
+internal static string GetAmbisonicDecoderPluginName();
+    private static bool SetConfiguration_Injected(AudioConfiguration& config);
+    private static void GetConfiguration_Injected(AudioConfiguration& ret);
+}
+[RequireComponent("UnityEngine.Transform")]
+[StaticAccessorAttribute("AudioSourceBindings", "2")]
+public class UnityEngine.AudioSource : AudioBehaviour {
+    public float volume { get; public set; }
+    public float pitch { get; public set; }
+    [NativePropertyAttribute("SecPosition")]
+public float time { get; public set; }
+    [NativePropertyAttribute("SamplePosition")]
+public int timeSamples { get; public set; }
+    [NativePropertyAttribute("AudioClip")]
+public AudioClip clip { get; public set; }
+    public AudioMixerGroup outputAudioMixerGroup { get; public set; }
+    public bool isPlaying { get; }
+    public bool isVirtual { get; }
+    public bool loop { get; public set; }
+    public bool ignoreListenerVolume { get; public set; }
+    public bool playOnAwake { get; public set; }
+    public bool ignoreListenerPause { get; public set; }
+    public AudioVelocityUpdateMode velocityUpdateMode { get; public set; }
+    [NativePropertyAttribute("StereoPan")]
+public float panStereo { get; public set; }
+    [NativePropertyAttribute("SpatialBlendMix")]
+public float spatialBlend { get; public set; }
+    public bool spatialize { get; public set; }
+    public bool spatializePostEffects { get; public set; }
+    public float reverbZoneMix { get; public set; }
+    public bool bypassEffects { get; public set; }
+    public bool bypassListenerEffects { get; public set; }
+    public bool bypassReverbZones { get; public set; }
+    public float dopplerLevel { get; public set; }
+    public float spread { get; public set; }
+    public int priority { get; public set; }
+    public bool mute { get; public set; }
+    public float minDistance { get; public set; }
+    public float maxDistance { get; public set; }
+    public AudioRolloffMode rolloffMode { get; public set; }
+    [ObsoleteAttribute("minVolume is not supported anymore. Use min-, maxDistance and rolloffMode instead.", "True")]
+public float minVolume { get; public set; }
+    [ObsoleteAttribute("maxVolume is not supported anymore. Use min-, maxDistance and rolloffMode instead.", "True")]
+public float maxVolume { get; public set; }
+    [ObsoleteAttribute("rolloffFactor is not supported anymore. Use min-, maxDistance and rolloffMode instead.", "True")]
+public float rolloffFactor { get; public set; }
+    private static float GetPitch(AudioSource source);
+    private static void SetPitch(AudioSource source, float pitch);
+    private static void PlayHelper(AudioSource source, ulong delay);
+    private void Play(double delay);
+    private static void PlayOneShotHelper(AudioSource source, AudioClip clip, float volumeScale);
+    private void Stop(bool stopOneShots);
+    [NativeThrowsAttribute]
+private static void SetCustomCurveHelper(AudioSource source, AudioSourceCurveType type, AnimationCurve curve);
+    private static AnimationCurve GetCustomCurveHelper(AudioSource source, AudioSourceCurveType type);
+    private static void GetOutputDataHelper(AudioSource source, Single[] samples, int channel);
+    [NativeThrowsAttribute]
+private static void GetSpectrumDataHelper(AudioSource source, Single[] samples, int channel, FFTWindow window);
+    public float get_volume();
+    public void set_volume(float value);
+    public float get_pitch();
+    public void set_pitch(float value);
+    public float get_time();
+    public void set_time(float value);
+    [NativeMethodAttribute]
+public int get_timeSamples();
+    [NativeMethodAttribute]
+public void set_timeSamples(int value);
+    public AudioClip get_clip();
+    public void set_clip(AudioClip value);
+    public AudioMixerGroup get_outputAudioMixerGroup();
+    public void set_outputAudioMixerGroup(AudioMixerGroup value);
+    [ExcludeFromDocsAttribute]
+public void Play();
+    public void Play(ulong delay);
+    public void PlayDelayed(float delay);
+    public void PlayScheduled(double time);
+    [ExcludeFromDocsAttribute]
+public void PlayOneShot(AudioClip clip);
+    public void PlayOneShot(AudioClip clip, float volumeScale);
+    public void SetScheduledStartTime(double time);
+    public void SetScheduledEndTime(double time);
+    public void Stop();
+    public void Pause();
+    public void UnPause();
+    [NativeNameAttribute("IsPlayingScripting")]
+public bool get_isPlaying();
+    [NativeNameAttribute("GetLastVirtualState")]
+public bool get_isVirtual();
+    [ExcludeFromDocsAttribute]
+public static void PlayClipAtPoint(AudioClip clip, Vector3 position);
+    public static void PlayClipAtPoint(AudioClip clip, Vector3 position, float volume);
+    public bool get_loop();
+    public void set_loop(bool value);
+    public bool get_ignoreListenerVolume();
+    public void set_ignoreListenerVolume(bool value);
+    public bool get_playOnAwake();
+    public void set_playOnAwake(bool value);
+    public bool get_ignoreListenerPause();
+    public void set_ignoreListenerPause(bool value);
+    public AudioVelocityUpdateMode get_velocityUpdateMode();
+    public void set_velocityUpdateMode(AudioVelocityUpdateMode value);
+    public float get_panStereo();
+    public void set_panStereo(float value);
+    public float get_spatialBlend();
+    public void set_spatialBlend(float value);
+    public bool get_spatialize();
+    public void set_spatialize(bool value);
+    public bool get_spatializePostEffects();
+    public void set_spatializePostEffects(bool value);
+    public void SetCustomCurve(AudioSourceCurveType type, AnimationCurve curve);
+    public AnimationCurve GetCustomCurve(AudioSourceCurveType type);
+    public float get_reverbZoneMix();
+    public void set_reverbZoneMix(float value);
+    public bool get_bypassEffects();
+    public void set_bypassEffects(bool value);
+    public bool get_bypassListenerEffects();
+    public void set_bypassListenerEffects(bool value);
+    public bool get_bypassReverbZones();
+    public void set_bypassReverbZones(bool value);
+    public float get_dopplerLevel();
+    public void set_dopplerLevel(float value);
+    public float get_spread();
+    public void set_spread(float value);
+    public int get_priority();
+    public void set_priority(int value);
+    public bool get_mute();
+    public void set_mute(bool value);
+    public float get_minDistance();
+    public void set_minDistance(float value);
+    public float get_maxDistance();
+    public void set_maxDistance(float value);
+    public AudioRolloffMode get_rolloffMode();
+    public void set_rolloffMode(AudioRolloffMode value);
+    [ObsoleteAttribute("GetOutputData returning a float[] is deprecated, use GetOutputData and pass a pre allocated array instead.")]
+public Single[] GetOutputData(int numSamples, int channel);
+    public void GetOutputData(Single[] samples, int channel);
+    [ObsoleteAttribute("GetSpectrumData returning a float[] is deprecated, use GetSpectrumData and pass a pre allocated array instead.")]
+public Single[] GetSpectrumData(int numSamples, int channel, FFTWindow window);
+    public void GetSpectrumData(Single[] samples, int channel, FFTWindow window);
+    public float get_minVolume();
+    public void set_minVolume(float value);
+    public float get_maxVolume();
+    public void set_maxVolume(float value);
+    public float get_rolloffFactor();
+    public void set_rolloffFactor(float value);
+    public bool SetSpatializerFloat(int index, float value);
+    public bool GetSpatializerFloat(int index, Single& value);
+    public bool GetAmbisonicDecoderFloat(int index, Single& value);
+    public bool SetAmbisonicDecoderFloat(int index, float value);
+}
+public enum UnityEngine.AudioSourceCurveType : Enum {
+    public int value__;
+    public static AudioSourceCurveType CustomRolloff;
+    public static AudioSourceCurveType SpatialBlend;
+    public static AudioSourceCurveType ReverbZoneMix;
+    public static AudioSourceCurveType Spread;
+}
+public enum UnityEngine.AudioSpeakerMode : Enum {
+    public int value__;
+    [ObsoleteAttribute("Raw speaker mode is not supported. Do not use.", "True")]
+public static AudioSpeakerMode Raw;
+    public static AudioSpeakerMode Mono;
+    public static AudioSpeakerMode Stereo;
+    public static AudioSpeakerMode Quad;
+    public static AudioSpeakerMode Surround;
+    public static AudioSpeakerMode Mode5point1;
+    public static AudioSpeakerMode Mode7point1;
+    public static AudioSpeakerMode Prologic;
+}
+public enum UnityEngine.AudioVelocityUpdateMode : Enum {
+    public int value__;
+    public static AudioVelocityUpdateMode Auto;
+    public static AudioVelocityUpdateMode Fixed;
+    public static AudioVelocityUpdateMode Dynamic;
+}
+[ExtensionAttribute]
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/AudioClipExtensions.bindings.h")]
+[NativeHeaderAttribute("AudioScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/AudioClip.h")]
+internal static class UnityEngine.Experimental.Audio.AudioClipExtensionsInternal : object {
+    [ExtensionAttribute]
+[NativeMethodAttribute]
+public static UInt32 Internal_CreateAudioClipSampleProvider(AudioClip audioClip, ulong start, long end, bool loop, bool allowDrop, bool loopPointIsStart);
+}
+[NativeTypeAttribute]
+[StaticAccessorAttribute("AudioSampleProviderBindings", "2")]
+public class UnityEngine.Experimental.Audio.AudioSampleProvider : object {
+    private ConsumeSampleFramesNativeFunction m_ConsumeSampleFramesNativeFunction;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private UInt32 <id>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ushort <trackIndex>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Object <owner>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ushort <channelCount>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private UInt32 <sampleRate>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private SampleFramesHandler sampleFramesAvailable;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private SampleFramesHandler sampleFramesOverflow;
+    public UInt32 id { get; private set; }
+    public ushort trackIndex { get; private set; }
+    public Object owner { get; private set; }
+    public bool valid { get; }
+    public ushort channelCount { get; private set; }
+    public UInt32 sampleRate { get; private set; }
+    public UInt32 maxSampleFrameCount { get; }
+    public UInt32 availableSampleFrameCount { get; }
+    public UInt32 freeSampleFrameCount { get; }
+    public UInt32 freeSampleFrameCountLowThreshold { get; public set; }
+    public bool enableSampleFramesAvailableEvents { get; public set; }
+    public bool enableSilencePadding { get; public set; }
+    public static ConsumeSampleFramesNativeFunction consumeSampleFramesNativeFunction { get; }
+    private AudioSampleProvider(UInt32 providerId, Object ownerObj, ushort trackIdx);
+    [VisibleToOtherModulesAttribute]
+internal static AudioSampleProvider Lookup(UInt32 providerId, Object ownerObj, ushort trackIndex);
+    internal static AudioSampleProvider Create(ushort channelCount, UInt32 sampleRate);
+    protected virtual override void Finalize();
+    public sealed virtual void Dispose();
+    [CompilerGeneratedAttribute]
+public UInt32 get_id();
+    [CompilerGeneratedAttribute]
+private void set_id(UInt32 value);
+    [CompilerGeneratedAttribute]
+public ushort get_trackIndex();
+    [CompilerGeneratedAttribute]
+private void set_trackIndex(ushort value);
+    [CompilerGeneratedAttribute]
+public Object get_owner();
+    [CompilerGeneratedAttribute]
+private void set_owner(Object value);
+    public bool get_valid();
+    [CompilerGeneratedAttribute]
+public ushort get_channelCount();
+    [CompilerGeneratedAttribute]
+private void set_channelCount(ushort value);
+    [CompilerGeneratedAttribute]
+public UInt32 get_sampleRate();
+    [CompilerGeneratedAttribute]
+private void set_sampleRate(UInt32 value);
+    public UInt32 get_maxSampleFrameCount();
+    public UInt32 get_availableSampleFrameCount();
+    public UInt32 get_freeSampleFrameCount();
+    public UInt32 get_freeSampleFrameCountLowThreshold();
+    public void set_freeSampleFrameCountLowThreshold(UInt32 value);
+    public bool get_enableSampleFramesAvailableEvents();
+    public void set_enableSampleFramesAvailableEvents(bool value);
+    public bool get_enableSilencePadding();
+    public void set_enableSilencePadding(bool value);
+    public UInt32 ConsumeSampleFrames(NativeArray`1<float> sampleFrames);
+    public static ConsumeSampleFramesNativeFunction get_consumeSampleFramesNativeFunction();
+    internal UInt32 QueueSampleFrames(NativeArray`1<float> sampleFrames);
+    [CompilerGeneratedAttribute]
+public void add_sampleFramesAvailable(SampleFramesHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_sampleFramesAvailable(SampleFramesHandler value);
+    [CompilerGeneratedAttribute]
+public void add_sampleFramesOverflow(SampleFramesHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_sampleFramesOverflow(SampleFramesHandler value);
+    public void SetSampleFramesAvailableNativeHandler(SampleFramesEventNativeFunction handler, IntPtr userData);
+    public void ClearSampleFramesAvailableNativeHandler();
+    public void SetSampleFramesOverflowNativeHandler(SampleFramesEventNativeFunction handler, IntPtr userData);
+    public void ClearSampleFramesOverflowNativeHandler();
+    [RequiredByNativeCodeAttribute]
+private void InvokeSampleFramesAvailable(int sampleFrameCount);
+    [RequiredByNativeCodeAttribute]
+private void InvokeSampleFramesOverflow(int droppedSampleFrameCount);
+    [NativeMethodAttribute]
+private static UInt32 InternalCreateSampleProvider(ushort channelCount, UInt32 sampleRate);
+    [NativeMethodAttribute]
+internal static void InternalRemove(UInt32 providerId);
+    [NativeMethodAttribute]
+private static void InternalGetFormatInfo(UInt32 providerId, UInt16& chCount, UInt32& sRate);
+    private static AudioSampleProvider InternalGetScriptingPtr(UInt32 providerId);
+    [NativeMethodAttribute]
+private static void InternalSetScriptingPtr(UInt32 providerId, AudioSampleProvider provider);
+    [NativeMethodAttribute]
+internal static bool InternalIsValid(UInt32 providerId);
+    [NativeMethodAttribute]
+private static UInt32 InternalGetMaxSampleFrameCount(UInt32 providerId);
+    [NativeMethodAttribute]
+private static UInt32 InternalGetAvailableSampleFrameCount(UInt32 providerId);
+    [NativeMethodAttribute]
+private static UInt32 InternalGetFreeSampleFrameCount(UInt32 providerId);
+    [NativeMethodAttribute]
+private static UInt32 InternalGetFreeSampleFrameCountLowThreshold(UInt32 providerId);
+    [NativeMethodAttribute]
+private static void InternalSetFreeSampleFrameCountLowThreshold(UInt32 providerId, UInt32 sampleFrameCount);
+    [NativeMethodAttribute]
+private static bool InternalGetEnableSampleFramesAvailableEvents(UInt32 providerId);
+    [NativeMethodAttribute]
+private static void InternalSetEnableSampleFramesAvailableEvents(UInt32 providerId, bool enable);
+    private static void InternalSetSampleFramesAvailableNativeHandler(UInt32 providerId, IntPtr handler, IntPtr userData);
+    private static void InternalClearSampleFramesAvailableNativeHandler(UInt32 providerId);
+    private static void InternalSetSampleFramesOverflowNativeHandler(UInt32 providerId, IntPtr handler, IntPtr userData);
+    private static void InternalClearSampleFramesOverflowNativeHandler(UInt32 providerId);
+    [NativeMethodAttribute]
+private static bool InternalGetEnableSilencePadding(UInt32 id);
+    [NativeMethodAttribute]
+private static void InternalSetEnableSilencePadding(UInt32 id, bool enabled);
+    [NativeMethodAttribute]
+private static IntPtr InternalGetConsumeSampleFramesNativeFunctionPtr();
+    [NativeMethodAttribute]
+private static UInt32 InternalQueueSampleFrames(UInt32 id, IntPtr interleavedSampleFrames, UInt32 sampleFrameCount);
+}
+[ExtensionAttribute]
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/AudioSampleProviderExtensions.bindings.h")]
+[StaticAccessorAttribute("AudioSampleProviderExtensionsBindings", "2")]
+internal static class UnityEngine.Experimental.Audio.AudioSampleProviderExtensionsInternal : object {
+    [ExtensionAttribute]
+public static float GetSpeed(AudioSampleProvider provider);
+    [NativeMethodAttribute]
+private static float InternalGetAudioSampleProviderSpeed(UInt32 providerId);
+}
+[ExtensionAttribute]
+[NativeHeaderAttribute("Modules/Audio/Public/ScriptBindings/AudioSourceExtensions.bindings.h")]
+[NativeHeaderAttribute("AudioScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/Audio/Public/AudioSource.h")]
+internal static class UnityEngine.Experimental.Audio.AudioSourceExtensionsInternal : object {
+    [ExtensionAttribute]
+public static void RegisterSampleProvider(AudioSource source, AudioSampleProvider provider);
+    [ExtensionAttribute]
+public static void UnregisterSampleProvider(AudioSource source, AudioSampleProvider provider);
+    [NativeMethodAttribute]
+private static void Internal_RegisterSampleProviderWithAudioSource(AudioSource source, UInt32 providerId);
+    [NativeMethodAttribute]
+private static void Internal_UnregisterSampleProviderFromAudioSource(AudioSource source, UInt32 providerId);
+}
+public enum UnityEngine.FFTWindow : Enum {
+    public int value__;
+    public static FFTWindow Rectangular;
+    public static FFTWindow Triangle;
+    public static FFTWindow Hamming;
+    public static FFTWindow Hanning;
+    public static FFTWindow Blackman;
+    public static FFTWindow BlackmanHarris;
+}
+[StaticAccessorAttribute("GetAudioManager()", "0")]
+public class UnityEngine.Microphone : object {
+    public static String[] devices { get; }
+    internal static bool isAnyDeviceRecording { get; }
+    [NativeMethodAttribute]
+private static int GetMicrophoneDeviceIDFromName(string name);
+    private static AudioClip StartRecord(int deviceID, bool loop, float lengthSec, int frequency);
+    private static void EndRecord(int deviceID);
+    private static bool IsRecording(int deviceID);
+    [NativeMethodAttribute]
+private static int GetRecordPosition(int deviceID);
+    private static void GetDeviceCaps(int deviceID, Int32& minFreq, Int32& maxFreq);
+    public static AudioClip Start(string deviceName, bool loop, int lengthSec, int frequency);
+    public static void End(string deviceName);
+    [NativeNameAttribute("GetRecordDevices")]
+public static String[] get_devices();
+    [NativeNameAttribute("IsAnyRecordDeviceActive")]
+internal static bool get_isAnyDeviceRecording();
+    public static bool IsRecording(string deviceName);
+    public static int GetPosition(string deviceName);
+    public static void GetDeviceCaps(string deviceName, Int32& minFreq, Int32& maxFreq);
+}
+[EditorBrowsableAttribute("1")]
+[ExcludeFromObjectFactoryAttribute]
+[ExcludeFromPresetAttribute]
+[ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public class UnityEngine.MovieTexture : Texture {
+    [ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public AudioClip audioClip { get; }
+    [ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public bool loop { get; public set; }
+    [ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public bool isPlaying { get; }
+    [ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public bool isReadyToPlay { get; }
+    [ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public float duration { get; }
+    private static void FeatureRemoved();
+    [ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public void Play();
+    [ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public void Stop();
+    [ObsoleteAttribute("MovieTexture is removed. Use VideoPlayer instead.", "True")]
+public void Pause();
+    public AudioClip get_audioClip();
+    public bool get_loop();
+    public void set_loop(bool value);
+    public bool get_isPlaying();
+    public bool get_isReadyToPlay();
+    public float get_duration();
+}
+[UsedByNativeCodeAttribute]
+public class UnityEngine.WebCamDevice : ValueType {
+    [NativeNameAttribute("name")]
+internal string m_Name;
+    [NativeNameAttribute("depthCameraName")]
+internal string m_DepthCameraName;
+    [NativeNameAttribute("flags")]
+internal int m_Flags;
+    [NativeNameAttribute("kind")]
+internal WebCamKind m_Kind;
+    [NativeNameAttribute("resolutions")]
+internal Resolution[] m_Resolutions;
+    public string name { get; }
+    public bool isFrontFacing { get; }
+    public WebCamKind kind { get; }
+    public string depthCameraName { get; }
+    public bool isAutoFocusPointSupported { get; }
+    public Resolution[] availableResolutions { get; }
+    public string get_name();
+    public bool get_isFrontFacing();
+    public WebCamKind get_kind();
+    public string get_depthCameraName();
+    public bool get_isAutoFocusPointSupported();
+    public Resolution[] get_availableResolutions();
+}
+public enum UnityEngine.WebCamFlags : Enum {
+    public int value__;
+    public static WebCamFlags FrontFacing;
+    public static WebCamFlags AutoFocusPointSupported;
+}
+public enum UnityEngine.WebCamKind : Enum {
+    public int value__;
+    public static WebCamKind WideAngle;
+    public static WebCamKind Telephoto;
+    public static WebCamKind ColorAndDepth;
+    public static WebCamKind UltraWideAngle;
+}
+[NativeHeaderAttribute("Runtime/Video/BaseWebCamTexture.h")]
+[NativeHeaderAttribute("Runtime/Video/ScriptBindings/WebCamTexture.bindings.h")]
+[NativeHeaderAttribute("AudioScriptingClasses.h")]
+public class UnityEngine.WebCamTexture : Texture {
+    public static WebCamDevice[] devices { get; }
+    public bool isPlaying { get; }
+    [NativeNameAttribute("Device")]
+public string deviceName { get; public set; }
+    public float requestedFPS { get; public set; }
+    public int requestedWidth { get; public set; }
+    public int requestedHeight { get; public set; }
+    public int videoRotationAngle { get; }
+    public bool videoVerticallyMirrored { get; }
+    public bool didUpdateThisFrame { get; }
+    public Nullable`1<Vector2> autoFocusPoint { get; public set; }
+    internal Vector2 internalAutoFocusPoint { get; internal set; }
+    public bool isDepth { get; }
+    public WebCamTexture(string deviceName, int requestedWidth, int requestedHeight, int requestedFPS);
+    public WebCamTexture(string deviceName, int requestedWidth, int requestedHeight);
+    public WebCamTexture(string deviceName);
+    public WebCamTexture(int requestedWidth, int requestedHeight, int requestedFPS);
+    public WebCamTexture(int requestedWidth, int requestedHeight);
+    [NativeNameAttribute("Internal_GetDevices")]
+[StaticAccessorAttribute("WebCamTextureBindings", "2")]
+public static WebCamDevice[] get_devices();
+    public void Play();
+    public void Pause();
+    public void Stop();
+    [NativeNameAttribute("IsPlaying")]
+public bool get_isPlaying();
+    public string get_deviceName();
+    public void set_deviceName(string value);
+    public float get_requestedFPS();
+    public void set_requestedFPS(float value);
+    public int get_requestedWidth();
+    public void set_requestedWidth(int value);
+    public int get_requestedHeight();
+    public void set_requestedHeight(int value);
+    public int get_videoRotationAngle();
+    [NativeNameAttribute("IsVideoVerticallyMirrored")]
+public bool get_videoVerticallyMirrored();
+    [NativeNameAttribute("DidUpdateThisFrame")]
+public bool get_didUpdateThisFrame();
+    [FreeFunctionAttribute("WebCamTextureBindings::Internal_GetPixel")]
+public Color GetPixel(int x, int y);
+    public Color[] GetPixels();
+    [FreeFunctionAttribute("WebCamTextureBindings::Internal_GetPixels")]
+public Color[] GetPixels(int x, int y, int blockWidth, int blockHeight);
+    [ExcludeFromDocsAttribute]
+public Color32[] GetPixels32();
+    [FreeFunctionAttribute("WebCamTextureBindings::Internal_GetPixels32")]
+public Color32[] GetPixels32(Color32[] colors);
+    public Nullable`1<Vector2> get_autoFocusPoint();
+    public void set_autoFocusPoint(Nullable`1<Vector2> value);
+    internal Vector2 get_internalAutoFocusPoint();
+    internal void set_internalAutoFocusPoint(Vector2 value);
+    public bool get_isDepth();
+    [StaticAccessorAttribute("WebCamTextureBindings", "2")]
+private static void Internal_CreateWebCamTexture(WebCamTexture self, string scriptingDevice, int requestedWidth, int requestedHeight, int maxFramerate);
+    private void GetPixel_Injected(int x, int y, Color& ret);
+    private void get_internalAutoFocusPoint_Injected(Vector2& ret);
+    private void set_internalAutoFocusPoint_Injected(Vector2& value);
+}

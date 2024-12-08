@@ -1,0 +1,275 @@
+public enum Unity.AI.Navigation.CollectObjects : Enum {
+    public int value__;
+    [InspectorNameAttribute("All Game Objects")]
+public static CollectObjects All;
+    [InspectorNameAttribute("Volume")]
+public static CollectObjects Volume;
+    [InspectorNameAttribute("Current Object Hierarchy")]
+public static CollectObjects Children;
+    [InspectorNameAttribute("NavMeshModifier Component Only")]
+public static CollectObjects MarkedWithModifier;
+}
+internal static class Unity.AI.Navigation.HelpUrls : object {
+    private static string Version;
+    private static string BaseUrl;
+    internal static string Manual;
+    internal static string Api;
+}
+[AddComponentMenu("Navigation/NavMeshLink", "33")]
+[DefaultExecutionOrder("-101")]
+[ExecuteAlways]
+[HelpURLAttribute("https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/NavMeshLink.html")]
+public class Unity.AI.Navigation.NavMeshLink : MonoBehaviour {
+    [SerializeField]
+private int m_AgentTypeID;
+    [SerializeField]
+private Vector3 m_StartPoint;
+    [SerializeField]
+private Vector3 m_EndPoint;
+    [SerializeField]
+private float m_Width;
+    [SerializeField]
+private int m_CostModifier;
+    [SerializeField]
+private bool m_Bidirectional;
+    [SerializeField]
+private bool m_AutoUpdatePosition;
+    [SerializeField]
+private int m_Area;
+    private NavMeshLinkInstance m_LinkInstance;
+    private Vector3 m_LastPosition;
+    private Quaternion m_LastRotation;
+    private static List`1<NavMeshLink> s_Tracked;
+    public int agentTypeID { get; public set; }
+    public Vector3 startPoint { get; public set; }
+    public Vector3 endPoint { get; public set; }
+    public float width { get; public set; }
+    public int costModifier { get; public set; }
+    public bool bidirectional { get; public set; }
+    public bool autoUpdate { get; public set; }
+    public int area { get; public set; }
+    private static NavMeshLink();
+    public int get_agentTypeID();
+    public void set_agentTypeID(int value);
+    public Vector3 get_startPoint();
+    public void set_startPoint(Vector3 value);
+    public Vector3 get_endPoint();
+    public void set_endPoint(Vector3 value);
+    public float get_width();
+    public void set_width(float value);
+    public int get_costModifier();
+    public void set_costModifier(int value);
+    public bool get_bidirectional();
+    public void set_bidirectional(bool value);
+    public bool get_autoUpdate();
+    public void set_autoUpdate(bool value);
+    public int get_area();
+    public void set_area(int value);
+    private void OnEnable();
+    private void OnDisable();
+    public void UpdateLink();
+    private static void AddTracking(NavMeshLink link);
+    private static void RemoveTracking(NavMeshLink link);
+    private void SetAutoUpdate(bool value);
+    private void AddLink();
+    private bool HasTransformChanged();
+    private void OnDidApplyAnimationProperties();
+    private static void UpdateTrackedInstances();
+}
+[AddComponentMenu("Navigation/NavMeshModifier", "32")]
+[ExecuteAlways]
+[HelpURLAttribute("https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/NavMeshModifier.html")]
+public class Unity.AI.Navigation.NavMeshModifier : MonoBehaviour {
+    [SerializeField]
+private bool m_OverrideArea;
+    [SerializeField]
+private int m_Area;
+    [SerializeField]
+private bool m_OverrideGenerateLinks;
+    [SerializeField]
+private bool m_GenerateLinks;
+    [SerializeField]
+private bool m_IgnoreFromBuild;
+    [SerializeField]
+private bool m_ApplyToChildren;
+    [SerializeField]
+private List`1<int> m_AffectedAgents;
+    private static List`1<NavMeshModifier> s_NavMeshModifiers;
+    public bool overrideArea { get; public set; }
+    public int area { get; public set; }
+    public bool overrideGenerateLinks { get; public set; }
+    public bool generateLinks { get; public set; }
+    public bool ignoreFromBuild { get; public set; }
+    public bool applyToChildren { get; public set; }
+    public static List`1<NavMeshModifier> activeModifiers { get; }
+    private static NavMeshModifier();
+    public bool get_overrideArea();
+    public void set_overrideArea(bool value);
+    public int get_area();
+    public void set_area(int value);
+    public bool get_overrideGenerateLinks();
+    public void set_overrideGenerateLinks(bool value);
+    public bool get_generateLinks();
+    public void set_generateLinks(bool value);
+    public bool get_ignoreFromBuild();
+    public void set_ignoreFromBuild(bool value);
+    public bool get_applyToChildren();
+    public void set_applyToChildren(bool value);
+    public static List`1<NavMeshModifier> get_activeModifiers();
+    private void OnEnable();
+    private void OnDisable();
+    public bool AffectsAgentType(int agentTypeID);
+}
+[AddComponentMenu("Navigation/NavMeshModifierVolume", "31")]
+[ExecuteAlways]
+[HelpURLAttribute("https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/NavMeshModifierVolume.html")]
+public class Unity.AI.Navigation.NavMeshModifierVolume : MonoBehaviour {
+    [SerializeField]
+private Vector3 m_Size;
+    [SerializeField]
+private Vector3 m_Center;
+    [SerializeField]
+private int m_Area;
+    [SerializeField]
+private List`1<int> m_AffectedAgents;
+    private static List`1<NavMeshModifierVolume> s_NavMeshModifiers;
+    public Vector3 size { get; public set; }
+    public Vector3 center { get; public set; }
+    public int area { get; public set; }
+    public static List`1<NavMeshModifierVolume> activeModifiers { get; }
+    private static NavMeshModifierVolume();
+    public Vector3 get_size();
+    public void set_size(Vector3 value);
+    public Vector3 get_center();
+    public void set_center(Vector3 value);
+    public int get_area();
+    public void set_area(int value);
+    public static List`1<NavMeshModifierVolume> get_activeModifiers();
+    private void OnEnable();
+    private void OnDisable();
+    public bool AffectsAgentType(int agentTypeID);
+    public void AddAgentType(int agentTypeID);
+    public void ClearAgentTypes();
+}
+[AddComponentMenu("Navigation/NavMeshSurface", "30")]
+[DefaultExecutionOrder("-102")]
+[ExecuteAlways]
+[HelpURLAttribute("https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/NavMeshSurface.html")]
+public class Unity.AI.Navigation.NavMeshSurface : MonoBehaviour {
+    [SerializeField]
+private int m_AgentTypeID;
+    [SerializeField]
+private CollectObjects m_CollectObjects;
+    [SerializeField]
+private Vector3 m_Size;
+    [SerializeField]
+private Vector3 m_Center;
+    [SerializeField]
+private LayerMask m_LayerMask;
+    [SerializeField]
+private NavMeshCollectGeometry m_UseGeometry;
+    [SerializeField]
+private int m_DefaultArea;
+    [SerializeField]
+private bool m_GenerateLinks;
+    [SerializeField]
+private bool m_IgnoreNavMeshAgent;
+    [SerializeField]
+private bool m_IgnoreNavMeshObstacle;
+    [SerializeField]
+private bool m_OverrideTileSize;
+    [SerializeField]
+private int m_TileSize;
+    [SerializeField]
+private bool m_OverrideVoxelSize;
+    [SerializeField]
+private float m_VoxelSize;
+    [SerializeField]
+private float m_MinRegionArea;
+    [FormerlySerializedAsAttribute("m_BakedNavMeshData")]
+[SerializeField]
+private NavMeshData m_NavMeshData;
+    [SerializeField]
+private bool m_BuildHeightMesh;
+    private NavMeshDataInstance m_NavMeshDataInstance;
+    private Vector3 m_LastPosition;
+    private Quaternion m_LastRotation;
+    private static List`1<NavMeshSurface> s_NavMeshSurfaces;
+    public int agentTypeID { get; public set; }
+    public CollectObjects collectObjects { get; public set; }
+    public Vector3 size { get; public set; }
+    public Vector3 center { get; public set; }
+    public LayerMask layerMask { get; public set; }
+    public NavMeshCollectGeometry useGeometry { get; public set; }
+    public int defaultArea { get; public set; }
+    public bool ignoreNavMeshAgent { get; public set; }
+    public bool ignoreNavMeshObstacle { get; public set; }
+    public bool overrideTileSize { get; public set; }
+    public int tileSize { get; public set; }
+    public bool overrideVoxelSize { get; public set; }
+    public float voxelSize { get; public set; }
+    public float minRegionArea { get; public set; }
+    public bool buildHeightMesh { get; public set; }
+    public NavMeshData navMeshData { get; public set; }
+    internal NavMeshDataInstance navMeshDataInstance { get; }
+    public static List`1<NavMeshSurface> activeSurfaces { get; }
+    private static NavMeshSurface();
+    public int get_agentTypeID();
+    public void set_agentTypeID(int value);
+    public CollectObjects get_collectObjects();
+    public void set_collectObjects(CollectObjects value);
+    public Vector3 get_size();
+    public void set_size(Vector3 value);
+    public Vector3 get_center();
+    public void set_center(Vector3 value);
+    public LayerMask get_layerMask();
+    public void set_layerMask(LayerMask value);
+    public NavMeshCollectGeometry get_useGeometry();
+    public void set_useGeometry(NavMeshCollectGeometry value);
+    public int get_defaultArea();
+    public void set_defaultArea(int value);
+    public bool get_ignoreNavMeshAgent();
+    public void set_ignoreNavMeshAgent(bool value);
+    public bool get_ignoreNavMeshObstacle();
+    public void set_ignoreNavMeshObstacle(bool value);
+    public bool get_overrideTileSize();
+    public void set_overrideTileSize(bool value);
+    public int get_tileSize();
+    public void set_tileSize(int value);
+    public bool get_overrideVoxelSize();
+    public void set_overrideVoxelSize(bool value);
+    public float get_voxelSize();
+    public void set_voxelSize(float value);
+    public float get_minRegionArea();
+    public void set_minRegionArea(float value);
+    public bool get_buildHeightMesh();
+    public void set_buildHeightMesh(bool value);
+    public NavMeshData get_navMeshData();
+    public void set_navMeshData(NavMeshData value);
+    internal NavMeshDataInstance get_navMeshDataInstance();
+    public static List`1<NavMeshSurface> get_activeSurfaces();
+    private Bounds GetInflatedBounds();
+    private void OnEnable();
+    private void OnDisable();
+    public void AddData();
+    public void RemoveData();
+    public NavMeshBuildSettings GetBuildSettings();
+    public void BuildNavMesh();
+    public AsyncOperation UpdateNavMesh(NavMeshData data);
+    private static void Register(NavMeshSurface surface);
+    private static void Unregister(NavMeshSurface surface);
+    private static void UpdateActive();
+    private void AppendModifierVolumes(List`1& sources);
+    private List`1<NavMeshBuildSource> CollectSources();
+    private static Vector3 Abs(Vector3 v);
+    private static Bounds GetWorldBounds(Matrix4x4 mat, Bounds bounds);
+    private Bounds CalculateWorldBounds(List`1<NavMeshBuildSource> sources);
+    private bool HasTransformChanged();
+    private void UpdateDataIfTransformChanged();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

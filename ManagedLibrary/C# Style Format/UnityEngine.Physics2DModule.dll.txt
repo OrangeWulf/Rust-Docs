@@ -1,0 +1,2303 @@
+[NativeHeaderAttribute("Modules/Physics2D/AnchoredJoint2D.h")]
+public class UnityEngine.AnchoredJoint2D : Joint2D {
+    public Vector2 anchor { get; public set; }
+    public Vector2 connectedAnchor { get; public set; }
+    public bool autoConfigureConnectedAnchor { get; public set; }
+    public Vector2 get_anchor();
+    public void set_anchor(Vector2 value);
+    public Vector2 get_connectedAnchor();
+    public void set_connectedAnchor(Vector2 value);
+    public bool get_autoConfigureConnectedAnchor();
+    public void set_autoConfigureConnectedAnchor(bool value);
+    private void get_anchor_Injected(Vector2& ret);
+    private void set_anchor_Injected(Vector2& value);
+    private void get_connectedAnchor_Injected(Vector2& ret);
+    private void set_connectedAnchor_Injected(Vector2& value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/AreaEffector2D.h")]
+public class UnityEngine.AreaEffector2D : Effector2D {
+    public float forceAngle { get; public set; }
+    public bool useGlobalAngle { get; public set; }
+    public float forceMagnitude { get; public set; }
+    public float forceVariation { get; public set; }
+    public float drag { get; public set; }
+    public float angularDrag { get; public set; }
+    public EffectorSelection2D forceTarget { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("AreaEffector2D.forceDirection has been deprecated. Use AreaEffector2D.forceAngle instead (UnityUpgradable) -> forceAngle", "True")]
+public float forceDirection { get; public set; }
+    public float get_forceAngle();
+    public void set_forceAngle(float value);
+    public bool get_useGlobalAngle();
+    public void set_useGlobalAngle(bool value);
+    public float get_forceMagnitude();
+    public void set_forceMagnitude(float value);
+    public float get_forceVariation();
+    public void set_forceVariation(float value);
+    public float get_drag();
+    public void set_drag(float value);
+    public float get_angularDrag();
+    public void set_angularDrag(float value);
+    public EffectorSelection2D get_forceTarget();
+    public void set_forceTarget(EffectorSelection2D value);
+    public float get_forceDirection();
+    public void set_forceDirection(float value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/BoxCollider2D.h")]
+public class UnityEngine.BoxCollider2D : Collider2D {
+    public Vector2 size { get; public set; }
+    public float edgeRadius { get; public set; }
+    public bool autoTiling { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("BoxCollider2D.center has been deprecated. Use BoxCollider2D.offset instead (UnityUpgradable) -> offset", "True")]
+public Vector2 center { get; public set; }
+    public Vector2 get_size();
+    public void set_size(Vector2 value);
+    public float get_edgeRadius();
+    public void set_edgeRadius(float value);
+    public bool get_autoTiling();
+    public void set_autoTiling(bool value);
+    public Vector2 get_center();
+    public void set_center(Vector2 value);
+    private void get_size_Injected(Vector2& ret);
+    private void set_size_Injected(Vector2& value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/BuoyancyEffector2D.h")]
+public class UnityEngine.BuoyancyEffector2D : Effector2D {
+    public float surfaceLevel { get; public set; }
+    public float density { get; public set; }
+    public float linearDrag { get; public set; }
+    public float angularDrag { get; public set; }
+    public float flowAngle { get; public set; }
+    public float flowMagnitude { get; public set; }
+    public float flowVariation { get; public set; }
+    public float get_surfaceLevel();
+    public void set_surfaceLevel(float value);
+    public float get_density();
+    public void set_density(float value);
+    public float get_linearDrag();
+    public void set_linearDrag(float value);
+    public float get_angularDrag();
+    public void set_angularDrag(float value);
+    public float get_flowAngle();
+    public void set_flowAngle(float value);
+    public float get_flowMagnitude();
+    public void set_flowMagnitude(float value);
+    public float get_flowVariation();
+    public void set_flowVariation(float value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/CapsuleCollider2D.h")]
+public class UnityEngine.CapsuleCollider2D : Collider2D {
+    public Vector2 size { get; public set; }
+    public CapsuleDirection2D direction { get; public set; }
+    public Vector2 get_size();
+    public void set_size(Vector2 value);
+    public CapsuleDirection2D get_direction();
+    public void set_direction(CapsuleDirection2D value);
+    private void get_size_Injected(Vector2& ret);
+    private void set_size_Injected(Vector2& value);
+}
+public enum UnityEngine.CapsuleDirection2D : Enum {
+    public int value__;
+    public static CapsuleDirection2D Vertical;
+    public static CapsuleDirection2D Horizontal;
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/CircleCollider2D.h")]
+public class UnityEngine.CircleCollider2D : Collider2D {
+    public float radius { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("CircleCollider2D.center has been deprecated. Use CircleCollider2D.offset instead (UnityUpgradable) -> offset", "True")]
+public Vector2 center { get; public set; }
+    public float get_radius();
+    public void set_radius(float value);
+    public Vector2 get_center();
+    public void set_center(Vector2 value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/Collider2D.h")]
+[RequireComponent("UnityEngine.Transform")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Collider2D : Behaviour {
+    public float density { get; public set; }
+    public bool isTrigger { get; public set; }
+    public bool usedByEffector { get; public set; }
+    public bool usedByComposite { get; public set; }
+    public CompositeCollider2D composite { get; }
+    public Vector2 offset { get; public set; }
+    public Rigidbody2D attachedRigidbody { get; }
+    public int shapeCount { get; }
+    public Bounds bounds { get; }
+    public ColliderErrorState2D errorState { get; }
+    internal bool compositeCapable { get; }
+    public PhysicsMaterial2D sharedMaterial { get; public set; }
+    public int layerOverridePriority { get; public set; }
+    public LayerMask excludeLayers { get; public set; }
+    public LayerMask includeLayers { get; public set; }
+    public LayerMask forceSendLayers { get; public set; }
+    public LayerMask forceReceiveLayers { get; public set; }
+    public LayerMask contactCaptureLayers { get; public set; }
+    public LayerMask callbackLayers { get; public set; }
+    public float friction { get; }
+    public float bounciness { get; }
+    public float get_density();
+    public void set_density(float value);
+    public bool get_isTrigger();
+    public void set_isTrigger(bool value);
+    public bool get_usedByEffector();
+    public void set_usedByEffector(bool value);
+    public bool get_usedByComposite();
+    public void set_usedByComposite(bool value);
+    public CompositeCollider2D get_composite();
+    public Vector2 get_offset();
+    public void set_offset(Vector2 value);
+    [NativeMethodAttribute("GetAttachedRigidbody_Binding")]
+public Rigidbody2D get_attachedRigidbody();
+    public int get_shapeCount();
+    [NativeMethodAttribute("CreateMesh_Binding")]
+public Mesh CreateMesh(bool useBodyPosition, bool useBodyRotation);
+    [NativeMethodAttribute("GetShapeHash_Binding")]
+public UInt32 GetShapeHash();
+    public int GetShapes(PhysicsShapeGroup2D physicsShapeGroup);
+    public int GetShapes(PhysicsShapeGroup2D physicsShapeGroup, int shapeIndex, int shapeCount);
+    [NativeMethodAttribute("GetShapes_Binding")]
+private int GetShapes_Internal(GroupState& physicsShapeGroupState, int shapeIndex, int shapeCount);
+    public Bounds get_bounds();
+    public ColliderErrorState2D get_errorState();
+    [NativeMethodAttribute("GetCompositeCapable_Binding")]
+internal bool get_compositeCapable();
+    [NativeMethodAttribute("GetMaterial")]
+public PhysicsMaterial2D get_sharedMaterial();
+    [NativeMethodAttribute("SetMaterial")]
+public void set_sharedMaterial(PhysicsMaterial2D value);
+    public int get_layerOverridePriority();
+    public void set_layerOverridePriority(int value);
+    public LayerMask get_excludeLayers();
+    public void set_excludeLayers(LayerMask value);
+    public LayerMask get_includeLayers();
+    public void set_includeLayers(LayerMask value);
+    public LayerMask get_forceSendLayers();
+    public void set_forceSendLayers(LayerMask value);
+    public LayerMask get_forceReceiveLayers();
+    public void set_forceReceiveLayers(LayerMask value);
+    public LayerMask get_contactCaptureLayers();
+    public void set_contactCaptureLayers(LayerMask value);
+    public LayerMask get_callbackLayers();
+    public void set_callbackLayers(LayerMask value);
+    public float get_friction();
+    public float get_bounciness();
+    public bool IsTouching(Collider2D collider);
+    public bool IsTouching(Collider2D collider, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("IsTouching")]
+private bool IsTouching_OtherColliderWithFilter(Collider2D collider, ContactFilter2D contactFilter);
+    public bool IsTouching(ContactFilter2D contactFilter);
+    [NativeMethodAttribute("IsTouching")]
+private bool IsTouching_AnyColliderWithFilter(ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public bool IsTouchingLayers();
+    public bool IsTouchingLayers(int layerMask);
+    public bool OverlapPoint(Vector2 point);
+    public ColliderDistance2D Distance(Collider2D collider);
+    public int OverlapCollider(ContactFilter2D contactFilter, Collider2D[] results);
+    public int OverlapCollider(ContactFilter2D contactFilter, List`1<Collider2D> results);
+    public int GetContacts(ContactPoint2D[] contacts);
+    public int GetContacts(List`1<ContactPoint2D> contacts);
+    public int GetContacts(ContactFilter2D contactFilter, ContactPoint2D[] contacts);
+    public int GetContacts(ContactFilter2D contactFilter, List`1<ContactPoint2D> contacts);
+    public int GetContacts(Collider2D[] colliders);
+    public int GetContacts(List`1<Collider2D> colliders);
+    public int GetContacts(ContactFilter2D contactFilter, Collider2D[] colliders);
+    public int GetContacts(ContactFilter2D contactFilter, List`1<Collider2D> colliders);
+    [ExcludeFromDocsAttribute]
+public int Cast(Vector2 direction, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public int Cast(Vector2 direction, RaycastHit2D[] results, float distance);
+    public int Cast(Vector2 direction, RaycastHit2D[] results, float distance, bool ignoreSiblingColliders);
+    [ExcludeFromDocsAttribute]
+public int Cast(Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public int Cast(Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance);
+    public int Cast(Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance, bool ignoreSiblingColliders);
+    [NativeMethodAttribute("CastArray_Binding")]
+private int CastArray_Internal(Vector2 direction, float distance, ContactFilter2D contactFilter, bool ignoreSiblingColliders, RaycastHit2D[] results);
+    public int Cast(Vector2 direction, ContactFilter2D contactFilter, List`1<RaycastHit2D> results, float distance, bool ignoreSiblingColliders);
+    [NativeMethodAttribute("CastList_Binding")]
+private int CastList_Internal(Vector2 direction, float distance, ContactFilter2D contactFilter, bool ignoreSiblingColliders, List`1<RaycastHit2D> results);
+    [ExcludeFromDocsAttribute]
+public int Raycast(Vector2 direction, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public int Raycast(Vector2 direction, RaycastHit2D[] results, float distance);
+    [ExcludeFromDocsAttribute]
+public int Raycast(Vector2 direction, RaycastHit2D[] results, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public int Raycast(Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth);
+    public int Raycast(Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public int Raycast(Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int Raycast(Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance);
+    [NativeMethodAttribute("RaycastArray_Binding")]
+private int RaycastArray_Internal(Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int Raycast(Vector2 direction, ContactFilter2D contactFilter, List`1<RaycastHit2D> results, float distance);
+    [NativeMethodAttribute("RaycastList_Binding")]
+private int RaycastList_Internal(Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    public Vector2 ClosestPoint(Vector2 position);
+    private void get_offset_Injected(Vector2& ret);
+    private void set_offset_Injected(Vector2& value);
+    private void get_bounds_Injected(Bounds& ret);
+    private void get_excludeLayers_Injected(LayerMask& ret);
+    private void set_excludeLayers_Injected(LayerMask& value);
+    private void get_includeLayers_Injected(LayerMask& ret);
+    private void set_includeLayers_Injected(LayerMask& value);
+    private void get_forceSendLayers_Injected(LayerMask& ret);
+    private void set_forceSendLayers_Injected(LayerMask& value);
+    private void get_forceReceiveLayers_Injected(LayerMask& ret);
+    private void set_forceReceiveLayers_Injected(LayerMask& value);
+    private void get_contactCaptureLayers_Injected(LayerMask& ret);
+    private void set_contactCaptureLayers_Injected(LayerMask& value);
+    private void get_callbackLayers_Injected(LayerMask& ret);
+    private void set_callbackLayers_Injected(LayerMask& value);
+    private bool IsTouching_OtherColliderWithFilter_Injected(Collider2D collider, ContactFilter2D& contactFilter);
+    private bool IsTouching_AnyColliderWithFilter_Injected(ContactFilter2D& contactFilter);
+    private bool OverlapPoint_Injected(Vector2& point);
+    private int CastArray_Internal_Injected(Vector2& direction, float distance, ContactFilter2D& contactFilter, bool ignoreSiblingColliders, RaycastHit2D[] results);
+    private int CastList_Internal_Injected(Vector2& direction, float distance, ContactFilter2D& contactFilter, bool ignoreSiblingColliders, List`1<RaycastHit2D> results);
+    private int RaycastArray_Internal_Injected(Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D[] results);
+    private int RaycastList_Internal_Injected(Vector2& direction, float distance, ContactFilter2D& contactFilter, List`1<RaycastHit2D> results);
+}
+public class UnityEngine.ColliderDistance2D : ValueType {
+    private Vector2 m_PointA;
+    private Vector2 m_PointB;
+    private Vector2 m_Normal;
+    private float m_Distance;
+    private int m_IsValid;
+    public Vector2 pointA { get; public set; }
+    public Vector2 pointB { get; public set; }
+    public Vector2 normal { get; }
+    public float distance { get; public set; }
+    public bool isOverlapped { get; }
+    public bool isValid { get; public set; }
+    public Vector2 get_pointA();
+    public void set_pointA(Vector2 value);
+    public Vector2 get_pointB();
+    public void set_pointB(Vector2 value);
+    public Vector2 get_normal();
+    public float get_distance();
+    public void set_distance(float value);
+    public bool get_isOverlapped();
+    public bool get_isValid();
+    public void set_isValid(bool value);
+}
+public enum UnityEngine.ColliderErrorState2D : Enum {
+    public int value__;
+    public static ColliderErrorState2D None;
+    public static ColliderErrorState2D NoShapes;
+    public static ColliderErrorState2D RemovedShapes;
+}
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Collision2D : object {
+    internal int m_Collider;
+    internal int m_OtherCollider;
+    internal int m_Rigidbody;
+    internal int m_OtherRigidbody;
+    internal Vector2 m_RelativeVelocity;
+    internal int m_Enabled;
+    internal int m_ContactCount;
+    internal ContactPoint2D[] m_ReusedContacts;
+    internal ContactPoint2D[] m_LegacyContacts;
+    public Collider2D collider { get; }
+    public Collider2D otherCollider { get; }
+    public Rigidbody2D rigidbody { get; }
+    public Rigidbody2D otherRigidbody { get; }
+    public Transform transform { get; }
+    public GameObject gameObject { get; }
+    public Vector2 relativeVelocity { get; }
+    public bool enabled { get; }
+    public ContactPoint2D[] contacts { get; }
+    public int contactCount { get; }
+    private ContactPoint2D[] GetContacts_Internal();
+    public Collider2D get_collider();
+    public Collider2D get_otherCollider();
+    public Rigidbody2D get_rigidbody();
+    public Rigidbody2D get_otherRigidbody();
+    public Transform get_transform();
+    public GameObject get_gameObject();
+    public Vector2 get_relativeVelocity();
+    public bool get_enabled();
+    public ContactPoint2D[] get_contacts();
+    public int get_contactCount();
+    public ContactPoint2D GetContact(int index);
+    public int GetContacts(ContactPoint2D[] contacts);
+    public int GetContacts(List`1<ContactPoint2D> contacts);
+}
+public enum UnityEngine.CollisionDetectionMode2D : Enum {
+    public int value__;
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Enum member CollisionDetectionMode2D.None has been deprecated. Use CollisionDetectionMode2D.Discrete instead (UnityUpgradable) -> Discrete", "True")]
+public static CollisionDetectionMode2D None;
+    public static CollisionDetectionMode2D Discrete;
+    public static CollisionDetectionMode2D Continuous;
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/CompositeCollider2D.h")]
+[RequireComponent("UnityEngine.Rigidbody2D")]
+public class UnityEngine.CompositeCollider2D : Collider2D {
+    public GeometryType geometryType { get; public set; }
+    public GenerationType generationType { get; public set; }
+    public bool useDelaunayMesh { get; public set; }
+    public float vertexDistance { get; public set; }
+    public float edgeRadius { get; public set; }
+    public float offsetDistance { get; public set; }
+    public int pathCount { get; }
+    public int pointCount { get; }
+    public GeometryType get_geometryType();
+    public void set_geometryType(GeometryType value);
+    public GenerationType get_generationType();
+    public void set_generationType(GenerationType value);
+    public bool get_useDelaunayMesh();
+    public void set_useDelaunayMesh(bool value);
+    public float get_vertexDistance();
+    public void set_vertexDistance(float value);
+    public float get_edgeRadius();
+    public void set_edgeRadius(float value);
+    public float get_offsetDistance();
+    public void set_offsetDistance(float value);
+    public void GenerateGeometry();
+    public int GetPathPointCount(int index);
+    [NativeMethodAttribute("GetPathPointCount_Binding")]
+private int GetPathPointCount_Internal(int index);
+    public int get_pathCount();
+    public int get_pointCount();
+    public int GetPath(int index, Vector2[] points);
+    [NativeMethodAttribute("GetPathArray_Binding")]
+private int GetPathArray_Internal(int index, Vector2[] points);
+    public int GetPath(int index, List`1<Vector2> points);
+    [NativeMethodAttribute("GetPathList_Binding")]
+private int GetPathList_Internal(int index, List`1<Vector2> points);
+}
+[NativeHeaderAttribute("Modules/Physics2D/ConstantForce2D.h")]
+[RequireComponent("UnityEngine.Rigidbody2D")]
+public class UnityEngine.ConstantForce2D : PhysicsUpdateBehaviour2D {
+    public Vector2 force { get; public set; }
+    public Vector2 relativeForce { get; public set; }
+    public float torque { get; public set; }
+    public Vector2 get_force();
+    public void set_force(Vector2 value);
+    public Vector2 get_relativeForce();
+    public void set_relativeForce(Vector2 value);
+    public float get_torque();
+    public void set_torque(float value);
+    private void get_force_Injected(Vector2& ret);
+    private void set_force_Injected(Vector2& value);
+    private void get_relativeForce_Injected(Vector2& ret);
+    private void set_relativeForce_Injected(Vector2& value);
+}
+[NativeClassAttribute("ContactFilter", "struct ContactFilter;")]
+[NativeHeaderAttribute("Modules/Physics2D/Public/Collider2D.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.ContactFilter2D : ValueType {
+    [NativeNameAttribute("m_UseTriggers")]
+public bool useTriggers;
+    [NativeNameAttribute("m_UseLayerMask")]
+public bool useLayerMask;
+    [NativeNameAttribute("m_UseDepth")]
+public bool useDepth;
+    [NativeNameAttribute("m_UseOutsideDepth")]
+public bool useOutsideDepth;
+    [NativeNameAttribute("m_UseNormalAngle")]
+public bool useNormalAngle;
+    [NativeNameAttribute("m_UseOutsideNormalAngle")]
+public bool useOutsideNormalAngle;
+    [NativeNameAttribute("m_LayerMask")]
+public LayerMask layerMask;
+    [NativeNameAttribute("m_MinDepth")]
+public float minDepth;
+    [NativeNameAttribute("m_MaxDepth")]
+public float maxDepth;
+    [NativeNameAttribute("m_MinNormalAngle")]
+public float minNormalAngle;
+    [NativeNameAttribute("m_MaxNormalAngle")]
+public float maxNormalAngle;
+    public static float NormalAngleUpperLimit;
+    public bool isFiltering { get; }
+    public ContactFilter2D NoFilter();
+    private void CheckConsistency();
+    public void ClearLayerMask();
+    public void SetLayerMask(LayerMask layerMask);
+    public void ClearDepth();
+    public void SetDepth(float minDepth, float maxDepth);
+    public void ClearNormalAngle();
+    public void SetNormalAngle(float minNormalAngle, float maxNormalAngle);
+    public bool get_isFiltering();
+    public bool IsFilteringTrigger(Collider2D collider);
+    public bool IsFilteringLayerMask(GameObject obj);
+    public bool IsFilteringDepth(GameObject obj);
+    public bool IsFilteringNormalAngle(Vector2 normal);
+    public bool IsFilteringNormalAngle(float angle);
+    private bool IsFilteringNormalAngleUsingAngle(float angle);
+    internal static ContactFilter2D CreateLegacyFilter(int layerMask, float minDepth, float maxDepth);
+    private static void CheckConsistency_Injected(ContactFilter2D& _unity_self);
+    private static bool IsFilteringNormalAngle_Injected(ContactFilter2D& _unity_self, Vector2& normal);
+    private static bool IsFilteringNormalAngleUsingAngle_Injected(ContactFilter2D& _unity_self, float angle);
+}
+[NativeClassAttribute("ScriptingContactPoint2D", "struct ScriptingContactPoint2D;")]
+[NativeHeaderAttribute("Modules/Physics2D/Public/PhysicsScripting2D.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.ContactPoint2D : ValueType {
+    [NativeNameAttribute("point")]
+private Vector2 m_Point;
+    [NativeNameAttribute("normal")]
+private Vector2 m_Normal;
+    [NativeNameAttribute("relativeVelocity")]
+private Vector2 m_RelativeVelocity;
+    [NativeNameAttribute("separation")]
+private float m_Separation;
+    [NativeNameAttribute("normalImpulse")]
+private float m_NormalImpulse;
+    [NativeNameAttribute("tangentImpulse")]
+private float m_TangentImpulse;
+    [NativeNameAttribute("collider")]
+private int m_Collider;
+    [NativeNameAttribute("otherCollider")]
+private int m_OtherCollider;
+    [NativeNameAttribute("rigidbody")]
+private int m_Rigidbody;
+    [NativeNameAttribute("otherRigidbody")]
+private int m_OtherRigidbody;
+    [NativeNameAttribute("enabled")]
+private int m_Enabled;
+    public Vector2 point { get; }
+    public Vector2 normal { get; }
+    public float separation { get; }
+    public float normalImpulse { get; }
+    public float tangentImpulse { get; }
+    public Vector2 relativeVelocity { get; }
+    public Collider2D collider { get; }
+    public Collider2D otherCollider { get; }
+    public Rigidbody2D rigidbody { get; }
+    public Rigidbody2D otherRigidbody { get; }
+    public bool enabled { get; }
+    public Vector2 get_point();
+    public Vector2 get_normal();
+    public float get_separation();
+    public float get_normalImpulse();
+    public float get_tangentImpulse();
+    public Vector2 get_relativeVelocity();
+    public Collider2D get_collider();
+    public Collider2D get_otherCollider();
+    public Rigidbody2D get_rigidbody();
+    public Rigidbody2D get_otherRigidbody();
+    public bool get_enabled();
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/CustomCollider2D.h")]
+public class UnityEngine.CustomCollider2D : Collider2D {
+    [NativeMethodAttribute("CustomShapeCount_Binding")]
+public int customShapeCount { get; }
+    [NativeMethodAttribute("CustomVertexCount_Binding")]
+public int customVertexCount { get; }
+    public int get_customShapeCount();
+    public int get_customVertexCount();
+    public int GetCustomShapes(PhysicsShapeGroup2D physicsShapeGroup);
+    public int GetCustomShapes(PhysicsShapeGroup2D physicsShapeGroup, int shapeIndex, int shapeCount);
+    [NativeMethodAttribute("GetCustomShapes_Binding")]
+private int GetCustomShapes_Internal(GroupState& physicsShapeGroupState, int shapeIndex, int shapeCount);
+    public int GetCustomShapes(NativeArray`1<PhysicsShape2D> shapes, NativeArray`1<Vector2> vertices);
+    [NativeMethodAttribute("GetCustomShapesAllNative_Binding")]
+private int GetCustomShapesNative_Internal(IntPtr shapesPtr, int shapeCount, IntPtr verticesPtr, int vertexCount);
+    public void SetCustomShapes(PhysicsShapeGroup2D physicsShapeGroup);
+    [NativeMethodAttribute("SetCustomShapesAll_Binding")]
+private void SetCustomShapesAll_Internal(GroupState& physicsShapeGroupState);
+    public void SetCustomShapes(NativeArray`1<PhysicsShape2D> shapes, NativeArray`1<Vector2> vertices);
+    [NativeMethodAttribute("SetCustomShapesAllNative_Binding")]
+private void SetCustomShapesNative_Internal(IntPtr shapesPtr, int shapeCount, IntPtr verticesPtr, int vertexCount);
+    public void SetCustomShape(PhysicsShapeGroup2D physicsShapeGroup, int srcShapeIndex, int dstShapeIndex);
+    [NativeMethodAttribute("SetCustomShape_Binding")]
+private void SetCustomShape_Internal(GroupState& physicsShapeGroupState, int srcShapeIndex, int dstShapeIndex);
+    public void SetCustomShape(NativeArray`1<PhysicsShape2D> shapes, NativeArray`1<Vector2> vertices, int srcShapeIndex, int dstShapeIndex);
+    [NativeMethodAttribute("SetCustomShapeNative_Binding")]
+private void SetCustomShapeNative_Internal(IntPtr shapesPtr, int shapeCount, IntPtr verticesPtr, int vertexCount, int srcShapeIndex, int dstShapeIndex);
+    public void ClearCustomShapes(int shapeIndex, int shapeCount);
+    [NativeMethodAttribute("ClearCustomShapes_Binding")]
+private void ClearCustomShapes_Internal(int shapeIndex, int shapeCount);
+    [NativeMethodAttribute("ClearCustomShapes_Binding")]
+public void ClearCustomShapes();
+}
+[NativeHeaderAttribute("Modules/Physics2D/DistanceJoint2D.h")]
+public class UnityEngine.DistanceJoint2D : AnchoredJoint2D {
+    public bool autoConfigureDistance { get; public set; }
+    public float distance { get; public set; }
+    public bool maxDistanceOnly { get; public set; }
+    public bool get_autoConfigureDistance();
+    public void set_autoConfigureDistance(bool value);
+    public float get_distance();
+    public void set_distance(float value);
+    public bool get_maxDistanceOnly();
+    public void set_maxDistanceOnly(bool value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/EdgeCollider2D.h")]
+public class UnityEngine.EdgeCollider2D : Collider2D {
+    public float edgeRadius { get; public set; }
+    public int edgeCount { get; }
+    public int pointCount { get; }
+    public Vector2[] points { get; public set; }
+    public bool useAdjacentStartPoint { get; public set; }
+    public bool useAdjacentEndPoint { get; public set; }
+    public Vector2 adjacentStartPoint { get; public set; }
+    public Vector2 adjacentEndPoint { get; public set; }
+    public void Reset();
+    public float get_edgeRadius();
+    public void set_edgeRadius(float value);
+    public int get_edgeCount();
+    public int get_pointCount();
+    public Vector2[] get_points();
+    public void set_points(Vector2[] value);
+    [NativeMethodAttribute("GetPoints_Binding")]
+public int GetPoints(List`1<Vector2> points);
+    [NativeMethodAttribute("SetPoints_Binding")]
+public bool SetPoints(List`1<Vector2> points);
+    public bool get_useAdjacentStartPoint();
+    public void set_useAdjacentStartPoint(bool value);
+    public bool get_useAdjacentEndPoint();
+    public void set_useAdjacentEndPoint(bool value);
+    public Vector2 get_adjacentStartPoint();
+    public void set_adjacentStartPoint(Vector2 value);
+    public Vector2 get_adjacentEndPoint();
+    public void set_adjacentEndPoint(Vector2 value);
+    private void get_adjacentStartPoint_Injected(Vector2& ret);
+    private void set_adjacentStartPoint_Injected(Vector2& value);
+    private void get_adjacentEndPoint_Injected(Vector2& ret);
+    private void set_adjacentEndPoint_Injected(Vector2& value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Effector2D.h")]
+public class UnityEngine.Effector2D : Behaviour {
+    public bool useColliderMask { get; public set; }
+    public int colliderMask { get; public set; }
+    internal bool requiresCollider { get; }
+    internal bool designedForTrigger { get; }
+    internal bool designedForNonTrigger { get; }
+    public bool get_useColliderMask();
+    public void set_useColliderMask(bool value);
+    public int get_colliderMask();
+    public void set_colliderMask(int value);
+    internal bool get_requiresCollider();
+    internal bool get_designedForTrigger();
+    internal bool get_designedForNonTrigger();
+}
+public enum UnityEngine.EffectorForceMode2D : Enum {
+    public int value__;
+    public static EffectorForceMode2D Constant;
+    public static EffectorForceMode2D InverseLinear;
+    public static EffectorForceMode2D InverseSquared;
+}
+public enum UnityEngine.EffectorSelection2D : Enum {
+    public int value__;
+    public static EffectorSelection2D Rigidbody;
+    public static EffectorSelection2D Collider;
+}
+[NativeHeaderAttribute("Modules/Physics2D/FixedJoint2D.h")]
+public class UnityEngine.FixedJoint2D : AnchoredJoint2D {
+    public float dampingRatio { get; public set; }
+    public float frequency { get; public set; }
+    public float referenceAngle { get; }
+    public float get_dampingRatio();
+    public void set_dampingRatio(float value);
+    public float get_frequency();
+    public void set_frequency(float value);
+    public float get_referenceAngle();
+}
+public enum UnityEngine.ForceMode2D : Enum {
+    public int value__;
+    public static ForceMode2D Force;
+    public static ForceMode2D Impulse;
+}
+[NativeHeaderAttribute("Modules/Physics2D/FrictionJoint2D.h")]
+public class UnityEngine.FrictionJoint2D : AnchoredJoint2D {
+    public float maxForce { get; public set; }
+    public float maxTorque { get; public set; }
+    public float get_maxForce();
+    public void set_maxForce(float value);
+    public float get_maxTorque();
+    public void set_maxTorque(float value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/HingeJoint2D.h")]
+public class UnityEngine.HingeJoint2D : AnchoredJoint2D {
+    public bool useMotor { get; public set; }
+    public bool useLimits { get; public set; }
+    public JointMotor2D motor { get; public set; }
+    public JointAngleLimits2D limits { get; public set; }
+    public JointLimitState2D limitState { get; }
+    public float referenceAngle { get; }
+    public float jointAngle { get; }
+    public float jointSpeed { get; }
+    public bool get_useMotor();
+    public void set_useMotor(bool value);
+    public bool get_useLimits();
+    public void set_useLimits(bool value);
+    public JointMotor2D get_motor();
+    public void set_motor(JointMotor2D value);
+    public JointAngleLimits2D get_limits();
+    public void set_limits(JointAngleLimits2D value);
+    public JointLimitState2D get_limitState();
+    public float get_referenceAngle();
+    public float get_jointAngle();
+    public float get_jointSpeed();
+    public float GetMotorTorque(float timeStep);
+    private void get_motor_Injected(JointMotor2D& ret);
+    private void set_motor_Injected(JointMotor2D& value);
+    private void get_limits_Injected(JointAngleLimits2D& ret);
+    private void set_limits_Injected(JointAngleLimits2D& value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Joint2D.h")]
+[RequireComponent("UnityEngine.Transform", "UnityEngine.Rigidbody2D")]
+public class UnityEngine.Joint2D : Behaviour {
+    public Rigidbody2D attachedRigidbody { get; }
+    public Rigidbody2D connectedBody { get; public set; }
+    public bool enableCollision { get; public set; }
+    public float breakForce { get; public set; }
+    public float breakTorque { get; public set; }
+    public JointBreakAction2D breakAction { get; public set; }
+    public Vector2 reactionForce { get; }
+    public float reactionTorque { get; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Joint2D.collideConnected has been deprecated. Use Joint2D.enableCollision instead (UnityUpgradable) -> enableCollision", "True")]
+public bool collideConnected { get; public set; }
+    public Rigidbody2D get_attachedRigidbody();
+    public Rigidbody2D get_connectedBody();
+    public void set_connectedBody(Rigidbody2D value);
+    public bool get_enableCollision();
+    public void set_enableCollision(bool value);
+    public float get_breakForce();
+    public void set_breakForce(float value);
+    public float get_breakTorque();
+    public void set_breakTorque(float value);
+    public JointBreakAction2D get_breakAction();
+    public void set_breakAction(JointBreakAction2D value);
+    [NativeMethodAttribute("GetReactionForceFixedTime")]
+public Vector2 get_reactionForce();
+    [NativeMethodAttribute("GetReactionTorqueFixedTime")]
+public float get_reactionTorque();
+    public Vector2 GetReactionForce(float timeStep);
+    public float GetReactionTorque(float timeStep);
+    public bool get_collideConnected();
+    public void set_collideConnected(bool value);
+    private void get_reactionForce_Injected(Vector2& ret);
+    private void GetReactionForce_Injected(float timeStep, Vector2& ret);
+}
+public class UnityEngine.JointAngleLimits2D : ValueType {
+    private float m_LowerAngle;
+    private float m_UpperAngle;
+    public float min { get; public set; }
+    public float max { get; public set; }
+    public float get_min();
+    public void set_min(float value);
+    public float get_max();
+    public void set_max(float value);
+}
+public enum UnityEngine.JointBreakAction2D : Enum {
+    public int value__;
+    public static JointBreakAction2D Ignore;
+    public static JointBreakAction2D CallbackOnly;
+    public static JointBreakAction2D Disable;
+    public static JointBreakAction2D Destroy;
+}
+public enum UnityEngine.JointLimitState2D : Enum {
+    public int value__;
+    public static JointLimitState2D Inactive;
+    public static JointLimitState2D LowerLimit;
+    public static JointLimitState2D UpperLimit;
+    public static JointLimitState2D EqualLimits;
+}
+public class UnityEngine.JointMotor2D : ValueType {
+    private float m_MotorSpeed;
+    private float m_MaximumMotorTorque;
+    public float motorSpeed { get; public set; }
+    public float maxMotorTorque { get; public set; }
+    public float get_motorSpeed();
+    public void set_motorSpeed(float value);
+    public float get_maxMotorTorque();
+    public void set_maxMotorTorque(float value);
+}
+public class UnityEngine.JointSuspension2D : ValueType {
+    private float m_DampingRatio;
+    private float m_Frequency;
+    private float m_Angle;
+    public float dampingRatio { get; public set; }
+    public float frequency { get; public set; }
+    public float angle { get; public set; }
+    public float get_dampingRatio();
+    public void set_dampingRatio(float value);
+    public float get_frequency();
+    public void set_frequency(float value);
+    public float get_angle();
+    public void set_angle(float value);
+}
+public class UnityEngine.JointTranslationLimits2D : ValueType {
+    private float m_LowerTranslation;
+    private float m_UpperTranslation;
+    public float min { get; public set; }
+    public float max { get; public set; }
+    public float get_min();
+    public void set_min(float value);
+    public float get_max();
+    public void set_max(float value);
+}
+[NativeHeaderAttribute("Physics2DScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/Physics2D/PhysicsManager2D.h")]
+[NativeHeaderAttribute("Physics2DScriptingClasses.h")]
+[StaticAccessorAttribute("GetPhysicsManager2D()", "1")]
+public class UnityEngine.Physics2D : object {
+    public static int IgnoreRaycastLayer;
+    public static int DefaultRaycastLayers;
+    public static int AllLayers;
+    public static int MaxPolygonShapeVertices;
+    private static List`1<Rigidbody2D> m_LastDisabledRigidbody2D;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static bool <alwaysShowColliders>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static bool <showCollidersFilled>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static bool <showColliderSleep>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static bool <showColliderContacts>k__BackingField;
+    public static PhysicsScene2D defaultPhysicsScene { get; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static int velocityIterations { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static int positionIterations { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static Vector2 gravity { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static bool queriesHitTriggers { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static bool queriesStartInColliders { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static bool callbacksOnDisable { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static bool reuseCollisionCallbacks { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static bool autoSyncTransforms { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static SimulationMode2D simulationMode { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static PhysicsJobOptions2D jobOptions { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float velocityThreshold { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float maxLinearCorrection { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float maxAngularCorrection { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float maxTranslationSpeed { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float maxRotationSpeed { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float defaultContactOffset { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float baumgarteScale { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float baumgarteTOIScale { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float timeToSleep { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float linearSleepTolerance { get; public set; }
+    [StaticAccessorAttribute("GetPhysics2DSettings()")]
+public static float angularSleepTolerance { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Physics2D.raycastsHitTriggers is deprecated. Use Physics2D.queriesHitTriggers instead. (UnityUpgradable) -> queriesHitTriggers", "True")]
+public static bool raycastsHitTriggers { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Physics2D.raycastsStartInColliders is deprecated. Use Physics2D.queriesStartInColliders instead. (UnityUpgradable) -> queriesStartInColliders", "True")]
+public static bool raycastsStartInColliders { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Physics2D.deleteStopsCallbacks is deprecated.(UnityUpgradable) -> changeStopsCallbacks", "True")]
+public static bool deleteStopsCallbacks { get; public set; }
+    [ObsoleteAttribute("Physics2D.changeStopsCallbacks is deprecated and will always return false.", "False")]
+public static bool changeStopsCallbacks { get; public set; }
+    [ObsoleteAttribute("Physics2D.minPenetrationForPenalty is deprecated. Use Physics2D.defaultContactOffset instead. (UnityUpgradable) -> defaultContactOffset", "False")]
+public static float minPenetrationForPenalty { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Physics2D.autoSimulation is deprecated. Use Physics2D.simulationMode instead.", "False")]
+public static bool autoSimulation { get; public set; }
+    [ObsoleteAttribute("Physics2D.colliderAwakeColor is deprecated. This options has been moved to 2D Preferences.", "True")]
+public static Color colliderAwakeColor { get; public set; }
+    [ObsoleteAttribute("Physics2D.colliderAsleepColor is deprecated. This options has been moved to 2D Preferences.", "True")]
+public static Color colliderAsleepColor { get; public set; }
+    [ObsoleteAttribute("Physics2D.colliderContactColor is deprecated. This options has been moved to 2D Preferences.", "True")]
+public static Color colliderContactColor { get; public set; }
+    [ObsoleteAttribute("Physics2D.colliderAABBColor is deprecated. All Physics 2D colors moved to Preferences. This is now known as 'Collider Bounds Color'.", "True")]
+public static Color colliderAABBColor { get; public set; }
+    [ObsoleteAttribute("Physics2D.contactArrowScale is deprecated. This options has been moved to 2D Preferences.", "True")]
+public static float contactArrowScale { get; public set; }
+    [ObsoleteAttribute("Physics2D.alwaysShowColliders is deprecated. It is no longer available in the Editor or Builds.", "True")]
+public static bool alwaysShowColliders { get; public set; }
+    [ObsoleteAttribute("Physics2D.showCollidersFilled is deprecated. It is no longer available in the Editor or Builds.", "True")]
+public static bool showCollidersFilled { get; public set; }
+    [ObsoleteAttribute("Physics2D.showColliderSleep is deprecated. It is no longer available in the Editor or Builds.", "True")]
+public static bool showColliderSleep { get; public set; }
+    [ObsoleteAttribute("Physics2D.showColliderContacts is deprecated. It is no longer available in the Editor or Builds.", "True")]
+public static bool showColliderContacts { get; public set; }
+    [ObsoleteAttribute("Physics2D.showColliderAABB is deprecated. It is no longer available in the Editor or Builds.", "True")]
+public static bool showColliderAABB { get; public set; }
+    private static Physics2D();
+    public static PhysicsScene2D get_defaultPhysicsScene();
+    public static int get_velocityIterations();
+    public static void set_velocityIterations(int value);
+    public static int get_positionIterations();
+    public static void set_positionIterations(int value);
+    public static Vector2 get_gravity();
+    public static void set_gravity(Vector2 value);
+    public static bool get_queriesHitTriggers();
+    public static void set_queriesHitTriggers(bool value);
+    public static bool get_queriesStartInColliders();
+    public static void set_queriesStartInColliders(bool value);
+    public static bool get_callbacksOnDisable();
+    public static void set_callbacksOnDisable(bool value);
+    public static bool get_reuseCollisionCallbacks();
+    public static void set_reuseCollisionCallbacks(bool value);
+    public static bool get_autoSyncTransforms();
+    public static void set_autoSyncTransforms(bool value);
+    public static SimulationMode2D get_simulationMode();
+    public static void set_simulationMode(SimulationMode2D value);
+    public static PhysicsJobOptions2D get_jobOptions();
+    public static void set_jobOptions(PhysicsJobOptions2D value);
+    public static float get_velocityThreshold();
+    public static void set_velocityThreshold(float value);
+    public static float get_maxLinearCorrection();
+    public static void set_maxLinearCorrection(float value);
+    public static float get_maxAngularCorrection();
+    public static void set_maxAngularCorrection(float value);
+    public static float get_maxTranslationSpeed();
+    public static void set_maxTranslationSpeed(float value);
+    public static float get_maxRotationSpeed();
+    public static void set_maxRotationSpeed(float value);
+    public static float get_defaultContactOffset();
+    public static void set_defaultContactOffset(float value);
+    public static float get_baumgarteScale();
+    public static void set_baumgarteScale(float value);
+    public static float get_baumgarteTOIScale();
+    public static void set_baumgarteTOIScale(float value);
+    public static float get_timeToSleep();
+    public static void set_timeToSleep(float value);
+    public static float get_linearSleepTolerance();
+    public static void set_linearSleepTolerance(float value);
+    public static float get_angularSleepTolerance();
+    public static void set_angularSleepTolerance(float value);
+    public static bool Simulate(float step);
+    [NativeMethodAttribute("Simulate_Binding")]
+internal static bool Simulate_Internal(PhysicsScene2D physicsScene, float step);
+    public static void SyncTransforms();
+    [ExcludeFromDocsAttribute]
+public static void IgnoreCollision(Collider2D collider1, Collider2D collider2);
+    [NativeMethodAttribute("IgnoreCollision_Binding")]
+[StaticAccessorAttribute("PhysicsScene2D", "2")]
+public static void IgnoreCollision(Collider2D collider1, Collider2D collider2, bool ignore);
+    [NativeMethodAttribute("GetIgnoreCollision_Binding")]
+[StaticAccessorAttribute("PhysicsScene2D", "2")]
+public static bool GetIgnoreCollision(Collider2D collider1, Collider2D collider2);
+    [ExcludeFromDocsAttribute]
+public static void IgnoreLayerCollision(int layer1, int layer2);
+    public static void IgnoreLayerCollision(int layer1, int layer2, bool ignore);
+    [NativeMethodAttribute("IgnoreLayerCollision")]
+[StaticAccessorAttribute("GetPhysics2DSettings()")]
+private static void IgnoreLayerCollision_Internal(int layer1, int layer2, bool ignore);
+    public static bool GetIgnoreLayerCollision(int layer1, int layer2);
+    [NativeMethodAttribute("GetIgnoreLayerCollision")]
+[StaticAccessorAttribute("GetPhysics2DSettings()")]
+private static bool GetIgnoreLayerCollision_Internal(int layer1, int layer2);
+    public static void SetLayerCollisionMask(int layer, int layerMask);
+    [NativeMethodAttribute("SetLayerCollisionMask")]
+[StaticAccessorAttribute("GetPhysics2DSettings()")]
+private static void SetLayerCollisionMask_Internal(int layer, int layerMask);
+    public static int GetLayerCollisionMask(int layer);
+    [NativeMethodAttribute("GetLayerCollisionMask")]
+[StaticAccessorAttribute("GetPhysics2DSettings()")]
+private static int GetLayerCollisionMask_Internal(int layer);
+    [StaticAccessorAttribute("PhysicsQuery2D", "2")]
+public static bool IsTouching(Collider2D collider1, Collider2D collider2);
+    public static bool IsTouching(Collider2D collider1, Collider2D collider2, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("IsTouching")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static bool IsTouching_TwoCollidersWithFilter(Collider2D collider1, Collider2D collider2, ContactFilter2D contactFilter);
+    public static bool IsTouching(Collider2D collider, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("IsTouching")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static bool IsTouching_SingleColliderWithFilter(Collider2D collider, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static bool IsTouchingLayers(Collider2D collider);
+    [StaticAccessorAttribute("PhysicsQuery2D", "2")]
+public static bool IsTouchingLayers(Collider2D collider, int layerMask);
+    public static ColliderDistance2D Distance(Collider2D colliderA, Collider2D colliderB);
+    [NativeMethodAttribute("Distance")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static ColliderDistance2D Distance_Internal(Collider2D colliderA, Collider2D colliderB);
+    public static Vector2 ClosestPoint(Vector2 position, Collider2D collider);
+    public static Vector2 ClosestPoint(Vector2 position, Rigidbody2D rigidbody);
+    [NativeMethodAttribute("ClosestPoint")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Vector2 ClosestPoint_Collider(Vector2 position, Collider2D collider);
+    [NativeMethodAttribute("ClosestPoint")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Vector2 ClosestPoint_Rigidbody(Vector2 position, Rigidbody2D rigidbody);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D Linecast(Vector2 start, Vector2 end);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D Linecast(Vector2 start, Vector2 end, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D Linecast(Vector2 start, Vector2 end, int layerMask, float minDepth);
+    public static RaycastHit2D Linecast(Vector2 start, Vector2 end, int layerMask, float minDepth, float maxDepth);
+    public static int Linecast(Vector2 start, Vector2 end, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public static int Linecast(Vector2 start, Vector2 end, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] LinecastAll(Vector2 start, Vector2 end);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] LinecastAll(Vector2 start, Vector2 end, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] LinecastAll(Vector2 start, Vector2 end, int layerMask, float minDepth);
+    public static RaycastHit2D[] LinecastAll(Vector2 start, Vector2 end, int layerMask, float minDepth, float maxDepth);
+    [NativeMethodAttribute("LinecastAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D[] LinecastAll_Internal(PhysicsScene2D physicsScene, Vector2 start, Vector2 end, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static int LinecastNonAlloc(Vector2 start, Vector2 end, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int LinecastNonAlloc(Vector2 start, Vector2 end, RaycastHit2D[] results, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int LinecastNonAlloc(Vector2 start, Vector2 end, RaycastHit2D[] results, int layerMask, float minDepth);
+    public static int LinecastNonAlloc(Vector2 start, Vector2 end, RaycastHit2D[] results, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D Raycast(Vector2 origin, Vector2 direction);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance);
+    [ExcludeFromDocsAttribute]
+[RequiredByNativeCodeAttribute]
+public static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance, int layerMask, float minDepth);
+    public static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static int Raycast(Vector2 origin, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public static int Raycast(Vector2 origin, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance);
+    public static int Raycast(Vector2 origin, Vector2 direction, ContactFilter2D contactFilter, List`1<RaycastHit2D> results, float distance);
+    [ExcludeFromDocsAttribute]
+public static int RaycastNonAlloc(Vector2 origin, Vector2 direction, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int RaycastNonAlloc(Vector2 origin, Vector2 direction, RaycastHit2D[] results, float distance);
+    [ExcludeFromDocsAttribute]
+public static int RaycastNonAlloc(Vector2 origin, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int RaycastNonAlloc(Vector2 origin, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth);
+    public static int RaycastNonAlloc(Vector2 origin, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] RaycastAll(Vector2 origin, Vector2 direction);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] RaycastAll(Vector2 origin, Vector2 direction, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] RaycastAll(Vector2 origin, Vector2 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] RaycastAll(Vector2 origin, Vector2 direction, float distance, int layerMask, float minDepth);
+    public static RaycastHit2D[] RaycastAll(Vector2 origin, Vector2 direction, float distance, int layerMask, float minDepth, float maxDepth);
+    [NativeMethodAttribute("RaycastAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D[] RaycastAll_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, int layerMask, float minDepth);
+    public static RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static int CircleCast(Vector2 origin, float radius, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public static int CircleCast(Vector2 origin, float radius, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance);
+    public static int CircleCast(Vector2 origin, float radius, Vector2 direction, ContactFilter2D contactFilter, List`1<RaycastHit2D> results, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] CircleCastAll(Vector2 origin, float radius, Vector2 direction);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] CircleCastAll(Vector2 origin, float radius, Vector2 direction, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] CircleCastAll(Vector2 origin, float radius, Vector2 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] CircleCastAll(Vector2 origin, float radius, Vector2 direction, float distance, int layerMask, float minDepth);
+    public static RaycastHit2D[] CircleCastAll(Vector2 origin, float radius, Vector2 direction, float distance, int layerMask, float minDepth, float maxDepth);
+    [NativeMethodAttribute("CircleCastAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D[] CircleCastAll_Internal(PhysicsScene2D physicsScene, Vector2 origin, float radius, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static int CircleCastNonAlloc(Vector2 origin, float radius, Vector2 direction, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int CircleCastNonAlloc(Vector2 origin, float radius, Vector2 direction, RaycastHit2D[] results, float distance);
+    [ExcludeFromDocsAttribute]
+public static int CircleCastNonAlloc(Vector2 origin, float radius, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int CircleCastNonAlloc(Vector2 origin, float radius, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth);
+    public static int CircleCastNonAlloc(Vector2 origin, float radius, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, int layerMask, float minDepth);
+    public static RaycastHit2D BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static int BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public static int BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance);
+    public static int BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, ContactFilter2D contactFilter, List`1<RaycastHit2D> results, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] BoxCastAll(Vector2 origin, Vector2 size, float angle, Vector2 direction);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] BoxCastAll(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] BoxCastAll(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] BoxCastAll(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, int layerMask, float minDepth);
+    public static RaycastHit2D[] BoxCastAll(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, int layerMask, float minDepth, float maxDepth);
+    [NativeMethodAttribute("BoxCastAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D[] BoxCastAll_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static int BoxCastNonAlloc(Vector2 origin, Vector2 size, float angle, Vector2 direction, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int BoxCastNonAlloc(Vector2 origin, Vector2 size, float angle, Vector2 direction, RaycastHit2D[] results, float distance);
+    [ExcludeFromDocsAttribute]
+public static int BoxCastNonAlloc(Vector2 origin, Vector2 size, float angle, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int BoxCastNonAlloc(Vector2 origin, Vector2 size, float angle, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth);
+    public static int BoxCastNonAlloc(Vector2 origin, Vector2 size, float angle, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, int layerMask, float minDepth);
+    public static RaycastHit2D CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static int CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public static int CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance);
+    public static int CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, ContactFilter2D contactFilter, List`1<RaycastHit2D> results, float distance);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] CapsuleCastAll(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] CapsuleCastAll(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance);
+    [NativeMethodAttribute("CapsuleCastAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D[] CapsuleCastAll_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] CapsuleCastAll(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] CapsuleCastAll(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, int layerMask, float minDepth);
+    public static RaycastHit2D[] CapsuleCastAll(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static int CapsuleCastNonAlloc(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int CapsuleCastNonAlloc(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, RaycastHit2D[] results, float distance);
+    [ExcludeFromDocsAttribute]
+public static int CapsuleCastNonAlloc(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int CapsuleCastNonAlloc(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth);
+    public static int CapsuleCastNonAlloc(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, RaycastHit2D[] results, float distance, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D GetRayIntersection(Ray ray);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D GetRayIntersection(Ray ray, float distance);
+    public static RaycastHit2D GetRayIntersection(Ray ray, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] GetRayIntersectionAll(Ray ray);
+    [ExcludeFromDocsAttribute]
+public static RaycastHit2D[] GetRayIntersectionAll(Ray ray, float distance);
+    [RequiredByNativeCodeAttribute]
+public static RaycastHit2D[] GetRayIntersectionAll(Ray ray, float distance, int layerMask);
+    [NativeMethodAttribute("GetRayIntersectionAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D[] GetRayIntersectionAll_Internal(PhysicsScene2D physicsScene, Vector3 origin, Vector3 direction, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int GetRayIntersectionNonAlloc(Ray ray, RaycastHit2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int GetRayIntersectionNonAlloc(Ray ray, RaycastHit2D[] results, float distance);
+    [RequiredByNativeCodeAttribute]
+public static int GetRayIntersectionNonAlloc(Ray ray, RaycastHit2D[] results, float distance, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapPoint(Vector2 point);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapPoint(Vector2 point, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapPoint(Vector2 point, int layerMask, float minDepth);
+    public static Collider2D OverlapPoint(Vector2 point, int layerMask, float minDepth, float maxDepth);
+    public static int OverlapPoint(Vector2 point, ContactFilter2D contactFilter, Collider2D[] results);
+    public static int OverlapPoint(Vector2 point, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapPointAll(Vector2 point);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapPointAll(Vector2 point, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapPointAll(Vector2 point, int layerMask, float minDepth);
+    public static Collider2D[] OverlapPointAll(Vector2 point, int layerMask, float minDepth, float maxDepth);
+    [NativeMethodAttribute("OverlapPointAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Collider2D[] OverlapPointAll_Internal(PhysicsScene2D physicsScene, Vector2 point, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static int OverlapPointNonAlloc(Vector2 point, Collider2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int OverlapPointNonAlloc(Vector2 point, Collider2D[] results, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int OverlapPointNonAlloc(Vector2 point, Collider2D[] results, int layerMask, float minDepth);
+    public static int OverlapPointNonAlloc(Vector2 point, Collider2D[] results, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapCircle(Vector2 point, float radius);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapCircle(Vector2 point, float radius, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapCircle(Vector2 point, float radius, int layerMask, float minDepth);
+    public static Collider2D OverlapCircle(Vector2 point, float radius, int layerMask, float minDepth, float maxDepth);
+    public static int OverlapCircle(Vector2 point, float radius, ContactFilter2D contactFilter, Collider2D[] results);
+    public static int OverlapCircle(Vector2 point, float radius, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapCircleAll(Vector2 point, float radius);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapCircleAll(Vector2 point, float radius, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapCircleAll(Vector2 point, float radius, int layerMask, float minDepth);
+    public static Collider2D[] OverlapCircleAll(Vector2 point, float radius, int layerMask, float minDepth, float maxDepth);
+    [NativeMethodAttribute("OverlapCircleAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Collider2D[] OverlapCircleAll_Internal(PhysicsScene2D physicsScene, Vector2 point, float radius, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static int OverlapCircleNonAlloc(Vector2 point, float radius, Collider2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int OverlapCircleNonAlloc(Vector2 point, float radius, Collider2D[] results, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int OverlapCircleNonAlloc(Vector2 point, float radius, Collider2D[] results, int layerMask, float minDepth);
+    public static int OverlapCircleNonAlloc(Vector2 point, float radius, Collider2D[] results, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapBox(Vector2 point, Vector2 size, float angle);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapBox(Vector2 point, Vector2 size, float angle, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapBox(Vector2 point, Vector2 size, float angle, int layerMask, float minDepth);
+    public static Collider2D OverlapBox(Vector2 point, Vector2 size, float angle, int layerMask, float minDepth, float maxDepth);
+    public static int OverlapBox(Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter, Collider2D[] results);
+    public static int OverlapBox(Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapBoxAll(Vector2 point, Vector2 size, float angle);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapBoxAll(Vector2 point, Vector2 size, float angle, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapBoxAll(Vector2 point, Vector2 size, float angle, int layerMask, float minDepth);
+    public static Collider2D[] OverlapBoxAll(Vector2 point, Vector2 size, float angle, int layerMask, float minDepth, float maxDepth);
+    [NativeMethodAttribute("OverlapBoxAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Collider2D[] OverlapBoxAll_Internal(PhysicsScene2D physicsScene, Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static int OverlapBoxNonAlloc(Vector2 point, Vector2 size, float angle, Collider2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int OverlapBoxNonAlloc(Vector2 point, Vector2 size, float angle, Collider2D[] results, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int OverlapBoxNonAlloc(Vector2 point, Vector2 size, float angle, Collider2D[] results, int layerMask, float minDepth);
+    public static int OverlapBoxNonAlloc(Vector2 point, Vector2 size, float angle, Collider2D[] results, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapArea(Vector2 pointA, Vector2 pointB);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapArea(Vector2 pointA, Vector2 pointB, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapArea(Vector2 pointA, Vector2 pointB, int layerMask, float minDepth);
+    public static Collider2D OverlapArea(Vector2 pointA, Vector2 pointB, int layerMask, float minDepth, float maxDepth);
+    public static int OverlapArea(Vector2 pointA, Vector2 pointB, ContactFilter2D contactFilter, Collider2D[] results);
+    public static int OverlapArea(Vector2 pointA, Vector2 pointB, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapAreaAll(Vector2 pointA, Vector2 pointB);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapAreaAll(Vector2 pointA, Vector2 pointB, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapAreaAll(Vector2 pointA, Vector2 pointB, int layerMask, float minDepth);
+    public static Collider2D[] OverlapAreaAll(Vector2 pointA, Vector2 pointB, int layerMask, float minDepth, float maxDepth);
+    private static Collider2D[] OverlapAreaAllToBox_Internal(Vector2 pointA, Vector2 pointB, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static int OverlapAreaNonAlloc(Vector2 pointA, Vector2 pointB, Collider2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int OverlapAreaNonAlloc(Vector2 pointA, Vector2 pointB, Collider2D[] results, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int OverlapAreaNonAlloc(Vector2 pointA, Vector2 pointB, Collider2D[] results, int layerMask, float minDepth);
+    public static int OverlapAreaNonAlloc(Vector2 pointA, Vector2 pointB, Collider2D[] results, int layerMask, float minDepth, float maxDepth);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, int layerMask, float minDepth);
+    public static Collider2D OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, int layerMask, float minDepth, float maxDepth);
+    public static int OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter, Collider2D[] results);
+    public static int OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapCapsuleAll(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapCapsuleAll(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static Collider2D[] OverlapCapsuleAll(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, int layerMask, float minDepth);
+    public static Collider2D[] OverlapCapsuleAll(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, int layerMask, float minDepth, float maxDepth);
+    [NativeMethodAttribute("OverlapCapsuleAll_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Collider2D[] OverlapCapsuleAll_Internal(PhysicsScene2D physicsScene, Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public static int OverlapCapsuleNonAlloc(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, Collider2D[] results);
+    [ExcludeFromDocsAttribute]
+public static int OverlapCapsuleNonAlloc(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, Collider2D[] results, int layerMask);
+    [ExcludeFromDocsAttribute]
+public static int OverlapCapsuleNonAlloc(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, Collider2D[] results, int layerMask, float minDepth);
+    public static int OverlapCapsuleNonAlloc(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, Collider2D[] results, int layerMask, float minDepth, float maxDepth);
+    public static int OverlapCollider(Collider2D collider, ContactFilter2D contactFilter, Collider2D[] results);
+    public static int OverlapCollider(Collider2D collider, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    public static int GetContacts(Collider2D collider1, Collider2D collider2, ContactFilter2D contactFilter, ContactPoint2D[] contacts);
+    public static int GetContacts(Collider2D collider, ContactPoint2D[] contacts);
+    public static int GetContacts(Collider2D collider, ContactFilter2D contactFilter, ContactPoint2D[] contacts);
+    public static int GetContacts(Collider2D collider, Collider2D[] colliders);
+    public static int GetContacts(Collider2D collider, ContactFilter2D contactFilter, Collider2D[] colliders);
+    public static int GetContacts(Rigidbody2D rigidbody, ContactPoint2D[] contacts);
+    public static int GetContacts(Rigidbody2D rigidbody, ContactFilter2D contactFilter, ContactPoint2D[] contacts);
+    public static int GetContacts(Rigidbody2D rigidbody, Collider2D[] colliders);
+    public static int GetContacts(Rigidbody2D rigidbody, ContactFilter2D contactFilter, Collider2D[] colliders);
+    [NativeMethodAttribute("GetColliderContactsArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetColliderContactsArray(Collider2D collider, ContactFilter2D contactFilter, ContactPoint2D[] results);
+    [NativeMethodAttribute("GetColliderColliderContactsArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetColliderColliderContactsArray(Collider2D collider1, Collider2D collider2, ContactFilter2D contactFilter, ContactPoint2D[] results);
+    [NativeMethodAttribute("GetRigidbodyContactsArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetRigidbodyContactsArray(Rigidbody2D rigidbody, ContactFilter2D contactFilter, ContactPoint2D[] results);
+    [NativeMethodAttribute("GetColliderContactsCollidersOnlyArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetColliderContactsCollidersOnlyArray(Collider2D collider, ContactFilter2D contactFilter, Collider2D[] results);
+    [NativeMethodAttribute("GetRigidbodyContactsCollidersOnlyArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetRigidbodyContactsCollidersOnlyArray(Rigidbody2D rigidbody, ContactFilter2D contactFilter, Collider2D[] results);
+    public static int GetContacts(Collider2D collider1, Collider2D collider2, ContactFilter2D contactFilter, List`1<ContactPoint2D> contacts);
+    public static int GetContacts(Collider2D collider, List`1<ContactPoint2D> contacts);
+    public static int GetContacts(Collider2D collider, ContactFilter2D contactFilter, List`1<ContactPoint2D> contacts);
+    public static int GetContacts(Collider2D collider, List`1<Collider2D> colliders);
+    public static int GetContacts(Collider2D collider, ContactFilter2D contactFilter, List`1<Collider2D> colliders);
+    public static int GetContacts(Rigidbody2D rigidbody, List`1<ContactPoint2D> contacts);
+    public static int GetContacts(Rigidbody2D rigidbody, ContactFilter2D contactFilter, List`1<ContactPoint2D> contacts);
+    public static int GetContacts(Rigidbody2D rigidbody, List`1<Collider2D> colliders);
+    public static int GetContacts(Rigidbody2D rigidbody, ContactFilter2D contactFilter, List`1<Collider2D> colliders);
+    [NativeMethodAttribute("GetColliderContactsList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetColliderContactsList(Collider2D collider, ContactFilter2D contactFilter, List`1<ContactPoint2D> results);
+    [NativeMethodAttribute("GetColliderColliderContactsList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetColliderColliderContactsList(Collider2D collider1, Collider2D collider2, ContactFilter2D contactFilter, List`1<ContactPoint2D> results);
+    [NativeMethodAttribute("GetRigidbodyContactsList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetRigidbodyContactsList(Rigidbody2D rigidbody, ContactFilter2D contactFilter, List`1<ContactPoint2D> results);
+    [NativeMethodAttribute("GetColliderContactsCollidersOnlyList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetColliderContactsCollidersOnlyList(Collider2D collider, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [NativeMethodAttribute("GetRigidbodyContactsCollidersOnlyList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetRigidbodyContactsCollidersOnlyList(Rigidbody2D rigidbody, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    internal static void SetEditorDragMovement(bool dragging, GameObject[] objs);
+    public static bool get_raycastsHitTriggers();
+    public static void set_raycastsHitTriggers(bool value);
+    public static bool get_raycastsStartInColliders();
+    public static void set_raycastsStartInColliders(bool value);
+    public static bool get_deleteStopsCallbacks();
+    public static void set_deleteStopsCallbacks(bool value);
+    public static bool get_changeStopsCallbacks();
+    public static void set_changeStopsCallbacks(bool value);
+    public static float get_minPenetrationForPenalty();
+    public static void set_minPenetrationForPenalty(float value);
+    public static bool get_autoSimulation();
+    public static void set_autoSimulation(bool value);
+    public static Color get_colliderAwakeColor();
+    public static void set_colliderAwakeColor(Color value);
+    public static Color get_colliderAsleepColor();
+    public static void set_colliderAsleepColor(Color value);
+    public static Color get_colliderContactColor();
+    public static void set_colliderContactColor(Color value);
+    public static Color get_colliderAABBColor();
+    public static void set_colliderAABBColor(Color value);
+    public static float get_contactArrowScale();
+    public static void set_contactArrowScale(float value);
+    [CompilerGeneratedAttribute]
+public static bool get_alwaysShowColliders();
+    [CompilerGeneratedAttribute]
+public static void set_alwaysShowColliders(bool value);
+    [CompilerGeneratedAttribute]
+public static bool get_showCollidersFilled();
+    [CompilerGeneratedAttribute]
+public static void set_showCollidersFilled(bool value);
+    [CompilerGeneratedAttribute]
+public static bool get_showColliderSleep();
+    [CompilerGeneratedAttribute]
+public static void set_showColliderSleep(bool value);
+    [CompilerGeneratedAttribute]
+public static bool get_showColliderContacts();
+    [CompilerGeneratedAttribute]
+public static void set_showColliderContacts(bool value);
+    public static bool get_showColliderAABB();
+    public static void set_showColliderAABB(bool value);
+    private static void get_gravity_Injected(Vector2& ret);
+    private static void set_gravity_Injected(Vector2& value);
+    private static void get_jobOptions_Injected(PhysicsJobOptions2D& ret);
+    private static void set_jobOptions_Injected(PhysicsJobOptions2D& value);
+    private static bool Simulate_Internal_Injected(PhysicsScene2D& physicsScene, float step);
+    private static bool IsTouching_TwoCollidersWithFilter_Injected(Collider2D collider1, Collider2D collider2, ContactFilter2D& contactFilter);
+    private static bool IsTouching_SingleColliderWithFilter_Injected(Collider2D collider, ContactFilter2D& contactFilter);
+    private static void Distance_Internal_Injected(Collider2D colliderA, Collider2D colliderB, ColliderDistance2D& ret);
+    private static void ClosestPoint_Collider_Injected(Vector2& position, Collider2D collider, Vector2& ret);
+    private static void ClosestPoint_Rigidbody_Injected(Vector2& position, Rigidbody2D rigidbody, Vector2& ret);
+    private static RaycastHit2D[] LinecastAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& start, Vector2& end, ContactFilter2D& contactFilter);
+    private static RaycastHit2D[] RaycastAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& direction, float distance, ContactFilter2D& contactFilter);
+    private static RaycastHit2D[] CircleCastAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, float radius, Vector2& direction, float distance, ContactFilter2D& contactFilter);
+    private static RaycastHit2D[] BoxCastAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& size, float angle, Vector2& direction, float distance, ContactFilter2D& contactFilter);
+    private static RaycastHit2D[] CapsuleCastAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& size, CapsuleDirection2D capsuleDirection, float angle, Vector2& direction, float distance, ContactFilter2D& contactFilter);
+    private static RaycastHit2D[] GetRayIntersectionAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector3& origin, Vector3& direction, float distance, int layerMask);
+    private static Collider2D[] OverlapPointAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, ContactFilter2D& contactFilter);
+    private static Collider2D[] OverlapCircleAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, float radius, ContactFilter2D& contactFilter);
+    private static Collider2D[] OverlapBoxAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, Vector2& size, float angle, ContactFilter2D& contactFilter);
+    private static Collider2D[] OverlapCapsuleAll_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, Vector2& size, CapsuleDirection2D direction, float angle, ContactFilter2D& contactFilter);
+    private static int GetColliderContactsArray_Injected(Collider2D collider, ContactFilter2D& contactFilter, ContactPoint2D[] results);
+    private static int GetColliderColliderContactsArray_Injected(Collider2D collider1, Collider2D collider2, ContactFilter2D& contactFilter, ContactPoint2D[] results);
+    private static int GetRigidbodyContactsArray_Injected(Rigidbody2D rigidbody, ContactFilter2D& contactFilter, ContactPoint2D[] results);
+    private static int GetColliderContactsCollidersOnlyArray_Injected(Collider2D collider, ContactFilter2D& contactFilter, Collider2D[] results);
+    private static int GetRigidbodyContactsCollidersOnlyArray_Injected(Rigidbody2D rigidbody, ContactFilter2D& contactFilter, Collider2D[] results);
+    private static int GetColliderContactsList_Injected(Collider2D collider, ContactFilter2D& contactFilter, List`1<ContactPoint2D> results);
+    private static int GetColliderColliderContactsList_Injected(Collider2D collider1, Collider2D collider2, ContactFilter2D& contactFilter, List`1<ContactPoint2D> results);
+    private static int GetRigidbodyContactsList_Injected(Rigidbody2D rigidbody, ContactFilter2D& contactFilter, List`1<ContactPoint2D> results);
+    private static int GetColliderContactsCollidersOnlyList_Injected(Collider2D collider, ContactFilter2D& contactFilter, List`1<Collider2D> results);
+    private static int GetRigidbodyContactsCollidersOnlyList_Injected(Rigidbody2D rigidbody, ContactFilter2D& contactFilter, List`1<Collider2D> results);
+}
+[NativeClassAttribute("PhysicsJobOptions2D", "struct PhysicsJobOptions2D;")]
+[NativeHeaderAttribute("Modules/Physics2D/Public/Physics2DSettings.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.PhysicsJobOptions2D : ValueType {
+    private bool m_UseMultithreading;
+    private bool m_UseConsistencySorting;
+    private int m_InterpolationPosesPerJob;
+    private int m_NewContactsPerJob;
+    private int m_CollideContactsPerJob;
+    private int m_ClearFlagsPerJob;
+    private int m_ClearBodyForcesPerJob;
+    private int m_SyncDiscreteFixturesPerJob;
+    private int m_SyncContinuousFixturesPerJob;
+    private int m_FindNearestContactsPerJob;
+    private int m_UpdateTriggerContactsPerJob;
+    private int m_IslandSolverCostThreshold;
+    private int m_IslandSolverBodyCostScale;
+    private int m_IslandSolverContactCostScale;
+    private int m_IslandSolverJointCostScale;
+    private int m_IslandSolverBodiesPerJob;
+    private int m_IslandSolverContactsPerJob;
+    public bool useMultithreading { get; public set; }
+    public bool useConsistencySorting { get; public set; }
+    public int interpolationPosesPerJob { get; public set; }
+    public int newContactsPerJob { get; public set; }
+    public int collideContactsPerJob { get; public set; }
+    public int clearFlagsPerJob { get; public set; }
+    public int clearBodyForcesPerJob { get; public set; }
+    public int syncDiscreteFixturesPerJob { get; public set; }
+    public int syncContinuousFixturesPerJob { get; public set; }
+    public int findNearestContactsPerJob { get; public set; }
+    public int updateTriggerContactsPerJob { get; public set; }
+    public int islandSolverCostThreshold { get; public set; }
+    public int islandSolverBodyCostScale { get; public set; }
+    public int islandSolverContactCostScale { get; public set; }
+    public int islandSolverJointCostScale { get; public set; }
+    public int islandSolverBodiesPerJob { get; public set; }
+    public int islandSolverContactsPerJob { get; public set; }
+    public bool get_useMultithreading();
+    public void set_useMultithreading(bool value);
+    public bool get_useConsistencySorting();
+    public void set_useConsistencySorting(bool value);
+    public int get_interpolationPosesPerJob();
+    public void set_interpolationPosesPerJob(int value);
+    public int get_newContactsPerJob();
+    public void set_newContactsPerJob(int value);
+    public int get_collideContactsPerJob();
+    public void set_collideContactsPerJob(int value);
+    public int get_clearFlagsPerJob();
+    public void set_clearFlagsPerJob(int value);
+    public int get_clearBodyForcesPerJob();
+    public void set_clearBodyForcesPerJob(int value);
+    public int get_syncDiscreteFixturesPerJob();
+    public void set_syncDiscreteFixturesPerJob(int value);
+    public int get_syncContinuousFixturesPerJob();
+    public void set_syncContinuousFixturesPerJob(int value);
+    public int get_findNearestContactsPerJob();
+    public void set_findNearestContactsPerJob(int value);
+    public int get_updateTriggerContactsPerJob();
+    public void set_updateTriggerContactsPerJob(int value);
+    public int get_islandSolverCostThreshold();
+    public void set_islandSolverCostThreshold(int value);
+    public int get_islandSolverBodyCostScale();
+    public void set_islandSolverBodyCostScale(int value);
+    public int get_islandSolverContactCostScale();
+    public void set_islandSolverContactCostScale(int value);
+    public int get_islandSolverJointCostScale();
+    public void set_islandSolverJointCostScale(int value);
+    public int get_islandSolverBodiesPerJob();
+    public void set_islandSolverBodiesPerJob(int value);
+    public int get_islandSolverContactsPerJob();
+    public void set_islandSolverContactsPerJob(int value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/PhysicsMaterial2D.h")]
+public class UnityEngine.PhysicsMaterial2D : Object {
+    public float bounciness { get; public set; }
+    public float friction { get; public set; }
+    public PhysicsMaterial2D(string name);
+    [NativeMethodAttribute("Create_Binding")]
+private static void Create_Internal(PhysicsMaterial2D scriptMaterial, string name);
+    public float get_bounciness();
+    public void set_bounciness(float value);
+    public float get_friction();
+    public void set_friction(float value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/PhysicsSceneHandle2D.h")]
+public class UnityEngine.PhysicsScene2D : ValueType {
+    private int m_Handle;
+    public virtual string ToString();
+    public static bool op_Equality(PhysicsScene2D lhs, PhysicsScene2D rhs);
+    public static bool op_Inequality(PhysicsScene2D lhs, PhysicsScene2D rhs);
+    public virtual int GetHashCode();
+    public virtual bool Equals(object other);
+    public sealed virtual bool Equals(PhysicsScene2D other);
+    public bool IsValid();
+    [NativeMethodAttribute("IsPhysicsSceneValid")]
+[StaticAccessorAttribute("GetPhysicsManager2D()", "1")]
+private static bool IsValid_Internal(PhysicsScene2D physicsScene);
+    public bool IsEmpty();
+    [NativeMethodAttribute("IsPhysicsWorldEmpty")]
+[StaticAccessorAttribute("GetPhysicsManager2D()", "1")]
+private static bool IsEmpty_Internal(PhysicsScene2D physicsScene);
+    public bool Simulate(float step);
+    public RaycastHit2D Linecast(Vector2 start, Vector2 end, int layerMask);
+    public RaycastHit2D Linecast(Vector2 start, Vector2 end, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("Linecast_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D Linecast_Internal(PhysicsScene2D physicsScene, Vector2 start, Vector2 end, ContactFilter2D contactFilter);
+    public int Linecast(Vector2 start, Vector2 end, RaycastHit2D[] results, int layerMask);
+    public int Linecast(Vector2 start, Vector2 end, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    [NativeMethodAttribute("LinecastArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int LinecastArray_Internal(PhysicsScene2D physicsScene, Vector2 start, Vector2 end, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int Linecast(Vector2 start, Vector2 end, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    [NativeMethodAttribute("LinecastList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int LinecastNonAllocList_Internal(PhysicsScene2D physicsScene, Vector2 start, Vector2 end, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    public RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance, int layerMask);
+    public RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("Raycast_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D Raycast_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    public int Raycast(Vector2 origin, Vector2 direction, float distance, RaycastHit2D[] results, int layerMask);
+    public int Raycast(Vector2 origin, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    [NativeMethodAttribute("RaycastArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int RaycastArray_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int Raycast(Vector2 origin, Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    [NativeMethodAttribute("RaycastList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int RaycastList_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    public RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, int layerMask);
+    public RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("CircleCast_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D CircleCast_Internal(PhysicsScene2D physicsScene, Vector2 origin, float radius, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    public int CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, RaycastHit2D[] results, int layerMask);
+    public int CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    [NativeMethodAttribute("CircleCastArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int CircleCastArray_Internal(PhysicsScene2D physicsScene, Vector2 origin, float radius, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    [NativeMethodAttribute("CircleCastList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int CircleCastList_Internal(PhysicsScene2D physicsScene, Vector2 origin, float radius, Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    public RaycastHit2D BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, int layerMask);
+    public RaycastHit2D BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("BoxCast_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D BoxCast_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    public int BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, RaycastHit2D[] results, int layerMask);
+    public int BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    [NativeMethodAttribute("BoxCastArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int BoxCastArray_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int BoxCast(Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    [NativeMethodAttribute("BoxCastList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int BoxCastList_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 size, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    public RaycastHit2D CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, int layerMask);
+    public RaycastHit2D CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("CapsuleCast_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D CapsuleCast_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter);
+    public int CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, RaycastHit2D[] results, int layerMask);
+    public int CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    [NativeMethodAttribute("CapsuleCastArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int CapsuleCastArray_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int CapsuleCast(Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    [NativeMethodAttribute("CapsuleCastList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int CapsuleCastList_Internal(PhysicsScene2D physicsScene, Vector2 origin, Vector2 size, CapsuleDirection2D capsuleDirection, float angle, Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    public RaycastHit2D GetRayIntersection(Ray ray, float distance, int layerMask);
+    [NativeMethodAttribute("GetRayIntersection_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static RaycastHit2D GetRayIntersection_Internal(PhysicsScene2D physicsScene, Vector3 origin, Vector3 direction, float distance, int layerMask);
+    public int GetRayIntersection(Ray ray, float distance, RaycastHit2D[] results, int layerMask);
+    [NativeMethodAttribute("GetRayIntersectionArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetRayIntersectionArray_Internal(PhysicsScene2D physicsScene, Vector3 origin, Vector3 direction, float distance, int layerMask, RaycastHit2D[] results);
+    [NativeMethodAttribute("GetRayIntersectionList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int GetRayIntersectionList_Internal(PhysicsScene2D physicsScene, Vector3 origin, Vector3 direction, float distance, int layerMask, List`1<RaycastHit2D> results);
+    public Collider2D OverlapPoint(Vector2 point, int layerMask);
+    public Collider2D OverlapPoint(Vector2 point, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("OverlapPoint_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Collider2D OverlapPoint_Internal(PhysicsScene2D physicsScene, Vector2 point, ContactFilter2D contactFilter);
+    public int OverlapPoint(Vector2 point, Collider2D[] results, int layerMask);
+    public int OverlapPoint(Vector2 point, ContactFilter2D contactFilter, Collider2D[] results);
+    [NativeMethodAttribute("OverlapPointArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapPointArray_Internal(PhysicsScene2D physicsScene, Vector2 point, ContactFilter2D contactFilter, Collider2D[] results);
+    public int OverlapPoint(Vector2 point, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [NativeMethodAttribute("OverlapPointList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapPointList_Internal(PhysicsScene2D physicsScene, Vector2 point, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    public Collider2D OverlapCircle(Vector2 point, float radius, int layerMask);
+    public Collider2D OverlapCircle(Vector2 point, float radius, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("OverlapCircle_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Collider2D OverlapCircle_Internal(PhysicsScene2D physicsScene, Vector2 point, float radius, ContactFilter2D contactFilter);
+    public int OverlapCircle(Vector2 point, float radius, Collider2D[] results, int layerMask);
+    public int OverlapCircle(Vector2 point, float radius, ContactFilter2D contactFilter, Collider2D[] results);
+    [NativeMethodAttribute("OverlapCircleArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapCircleArray_Internal(PhysicsScene2D physicsScene, Vector2 point, float radius, ContactFilter2D contactFilter, Collider2D[] results);
+    public int OverlapCircle(Vector2 point, float radius, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [NativeMethodAttribute("OverlapCircleList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapCircleList_Internal(PhysicsScene2D physicsScene, Vector2 point, float radius, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    public Collider2D OverlapBox(Vector2 point, Vector2 size, float angle, int layerMask);
+    public Collider2D OverlapBox(Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("OverlapBox_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Collider2D OverlapBox_Internal(PhysicsScene2D physicsScene, Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter);
+    public int OverlapBox(Vector2 point, Vector2 size, float angle, Collider2D[] results, int layerMask);
+    public int OverlapBox(Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter, Collider2D[] results);
+    [NativeMethodAttribute("OverlapBoxArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapBoxArray_Internal(PhysicsScene2D physicsScene, Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter, Collider2D[] results);
+    public int OverlapBox(Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [NativeMethodAttribute("OverlapBoxList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapBoxList_Internal(PhysicsScene2D physicsScene, Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    public Collider2D OverlapArea(Vector2 pointA, Vector2 pointB, int layerMask);
+    public Collider2D OverlapArea(Vector2 pointA, Vector2 pointB, ContactFilter2D contactFilter);
+    private Collider2D OverlapAreaToBoxArray_Internal(Vector2 pointA, Vector2 pointB, ContactFilter2D contactFilter);
+    public int OverlapArea(Vector2 pointA, Vector2 pointB, Collider2D[] results, int layerMask);
+    public int OverlapArea(Vector2 pointA, Vector2 pointB, ContactFilter2D contactFilter, Collider2D[] results);
+    private int OverlapAreaToBoxArray_Internal(Vector2 pointA, Vector2 pointB, ContactFilter2D contactFilter, Collider2D[] results);
+    public int OverlapArea(Vector2 pointA, Vector2 pointB, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    private int OverlapAreaToBoxList_Internal(Vector2 pointA, Vector2 pointB, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    public Collider2D OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, int layerMask);
+    public Collider2D OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("OverlapCapsule_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static Collider2D OverlapCapsule_Internal(PhysicsScene2D physicsScene, Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter);
+    public int OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, Collider2D[] results, int layerMask);
+    public int OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter, Collider2D[] results);
+    [NativeMethodAttribute("OverlapCapsuleArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapCapsuleArray_Internal(PhysicsScene2D physicsScene, Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter, Collider2D[] results);
+    public int OverlapCapsule(Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [NativeMethodAttribute("OverlapCapsuleList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapCapsuleList_Internal(PhysicsScene2D physicsScene, Vector2 point, Vector2 size, CapsuleDirection2D direction, float angle, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    public static int OverlapCollider(Collider2D collider, Collider2D[] results, int layerMask);
+    public static int OverlapCollider(Collider2D collider, ContactFilter2D contactFilter, Collider2D[] results);
+    [NativeMethodAttribute("OverlapColliderArray_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapColliderArray_Internal(Collider2D collider, ContactFilter2D contactFilter, Collider2D[] results);
+    public static int OverlapCollider(Collider2D collider, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [NativeMethodAttribute("OverlapColliderList_Binding")]
+[StaticAccessorAttribute("PhysicsQuery2D", "2")]
+private static int OverlapColliderList_Internal(Collider2D collider, ContactFilter2D contactFilter, List`1<Collider2D> results);
+    private static bool IsValid_Internal_Injected(PhysicsScene2D& physicsScene);
+    private static bool IsEmpty_Internal_Injected(PhysicsScene2D& physicsScene);
+    private static void Linecast_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& start, Vector2& end, ContactFilter2D& contactFilter, RaycastHit2D& ret);
+    private static int LinecastArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& start, Vector2& end, ContactFilter2D& contactFilter, RaycastHit2D[] results);
+    private static int LinecastNonAllocList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& start, Vector2& end, ContactFilter2D& contactFilter, List`1<RaycastHit2D> results);
+    private static void Raycast_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D& ret);
+    private static int RaycastArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D[] results);
+    private static int RaycastList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& direction, float distance, ContactFilter2D& contactFilter, List`1<RaycastHit2D> results);
+    private static void CircleCast_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, float radius, Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D& ret);
+    private static int CircleCastArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, float radius, Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D[] results);
+    private static int CircleCastList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, float radius, Vector2& direction, float distance, ContactFilter2D& contactFilter, List`1<RaycastHit2D> results);
+    private static void BoxCast_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& size, float angle, Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D& ret);
+    private static int BoxCastArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& size, float angle, Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D[] results);
+    private static int BoxCastList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& size, float angle, Vector2& direction, float distance, ContactFilter2D& contactFilter, List`1<RaycastHit2D> results);
+    private static void CapsuleCast_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& size, CapsuleDirection2D capsuleDirection, float angle, Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D& ret);
+    private static int CapsuleCastArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& size, CapsuleDirection2D capsuleDirection, float angle, Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D[] results);
+    private static int CapsuleCastList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& origin, Vector2& size, CapsuleDirection2D capsuleDirection, float angle, Vector2& direction, float distance, ContactFilter2D& contactFilter, List`1<RaycastHit2D> results);
+    private static void GetRayIntersection_Internal_Injected(PhysicsScene2D& physicsScene, Vector3& origin, Vector3& direction, float distance, int layerMask, RaycastHit2D& ret);
+    private static int GetRayIntersectionArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector3& origin, Vector3& direction, float distance, int layerMask, RaycastHit2D[] results);
+    private static int GetRayIntersectionList_Internal_Injected(PhysicsScene2D& physicsScene, Vector3& origin, Vector3& direction, float distance, int layerMask, List`1<RaycastHit2D> results);
+    private static Collider2D OverlapPoint_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, ContactFilter2D& contactFilter);
+    private static int OverlapPointArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, ContactFilter2D& contactFilter, Collider2D[] results);
+    private static int OverlapPointList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, ContactFilter2D& contactFilter, List`1<Collider2D> results);
+    private static Collider2D OverlapCircle_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, float radius, ContactFilter2D& contactFilter);
+    private static int OverlapCircleArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, float radius, ContactFilter2D& contactFilter, Collider2D[] results);
+    private static int OverlapCircleList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, float radius, ContactFilter2D& contactFilter, List`1<Collider2D> results);
+    private static Collider2D OverlapBox_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, Vector2& size, float angle, ContactFilter2D& contactFilter);
+    private static int OverlapBoxArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, Vector2& size, float angle, ContactFilter2D& contactFilter, Collider2D[] results);
+    private static int OverlapBoxList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, Vector2& size, float angle, ContactFilter2D& contactFilter, List`1<Collider2D> results);
+    private static Collider2D OverlapCapsule_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, Vector2& size, CapsuleDirection2D direction, float angle, ContactFilter2D& contactFilter);
+    private static int OverlapCapsuleArray_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, Vector2& size, CapsuleDirection2D direction, float angle, ContactFilter2D& contactFilter, Collider2D[] results);
+    private static int OverlapCapsuleList_Internal_Injected(PhysicsScene2D& physicsScene, Vector2& point, Vector2& size, CapsuleDirection2D direction, float angle, ContactFilter2D& contactFilter, List`1<Collider2D> results);
+    private static int OverlapColliderArray_Internal_Injected(Collider2D collider, ContactFilter2D& contactFilter, Collider2D[] results);
+    private static int OverlapColliderList_Internal_Injected(Collider2D collider, ContactFilter2D& contactFilter, List`1<Collider2D> results);
+}
+[ExtensionAttribute]
+public static class UnityEngine.PhysicsSceneExtensions2D : object {
+    [ExtensionAttribute]
+public static PhysicsScene2D GetPhysicsScene2D(Scene scene);
+    [NativeMethodAttribute("GetPhysicsSceneFromUnityScene")]
+[StaticAccessorAttribute("GetPhysicsManager2D()", "1")]
+private static PhysicsScene2D GetPhysicsScene_Internal(Scene scene);
+    private static void GetPhysicsScene_Internal_Injected(Scene& scene, PhysicsScene2D& ret);
+}
+[NativeHeaderAttribute]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.PhysicsShape2D : ValueType {
+    private PhysicsShapeType2D m_ShapeType;
+    private float m_Radius;
+    private int m_VertexStartIndex;
+    private int m_VertexCount;
+    private int m_UseAdjacentStart;
+    private int m_UseAdjacentEnd;
+    private Vector2 m_AdjacentStart;
+    private Vector2 m_AdjacentEnd;
+    public PhysicsShapeType2D shapeType { get; public set; }
+    public float radius { get; public set; }
+    public int vertexStartIndex { get; public set; }
+    public int vertexCount { get; public set; }
+    public bool useAdjacentStart { get; public set; }
+    public bool useAdjacentEnd { get; public set; }
+    public Vector2 adjacentStart { get; public set; }
+    public Vector2 adjacentEnd { get; public set; }
+    public PhysicsShapeType2D get_shapeType();
+    public void set_shapeType(PhysicsShapeType2D value);
+    public float get_radius();
+    public void set_radius(float value);
+    public int get_vertexStartIndex();
+    public void set_vertexStartIndex(int value);
+    public int get_vertexCount();
+    public void set_vertexCount(int value);
+    public bool get_useAdjacentStart();
+    public void set_useAdjacentStart(bool value);
+    public bool get_useAdjacentEnd();
+    public void set_useAdjacentEnd(bool value);
+    public Vector2 get_adjacentStart();
+    public void set_adjacentStart(Vector2 value);
+    public Vector2 get_adjacentEnd();
+    public void set_adjacentEnd(Vector2 value);
+}
+public class UnityEngine.PhysicsShapeGroup2D : object {
+    internal GroupState m_GroupState;
+    private static float MinVertexSeparation;
+    internal List`1<Vector2> groupVertices { get; }
+    internal List`1<PhysicsShape2D> groupShapes { get; }
+    public int shapeCount { get; }
+    public int vertexCount { get; }
+    public Matrix4x4 localToWorldMatrix { get; public set; }
+    public PhysicsShapeGroup2D(int shapeCapacity, int vertexCapacity);
+    internal List`1<Vector2> get_groupVertices();
+    internal List`1<PhysicsShape2D> get_groupShapes();
+    public int get_shapeCount();
+    public int get_vertexCount();
+    public Matrix4x4 get_localToWorldMatrix();
+    public void set_localToWorldMatrix(Matrix4x4 value);
+    public void Clear();
+    public void Add(PhysicsShapeGroup2D physicsShapeGroup);
+    public void GetShapeData(List`1<PhysicsShape2D> shapes, List`1<Vector2> vertices);
+    public void GetShapeData(NativeArray`1<PhysicsShape2D> shapes, NativeArray`1<Vector2> vertices);
+    public void GetShapeVertices(int shapeIndex, List`1<Vector2> vertices);
+    public Vector2 GetShapeVertex(int shapeIndex, int vertexIndex);
+    public void SetShapeVertex(int shapeIndex, int vertexIndex, Vector2 vertex);
+    public void SetShapeRadius(int shapeIndex, float radius);
+    public void SetShapeAdjacentVertices(int shapeIndex, bool useAdjacentStart, bool useAdjacentEnd, Vector2 adjacentStart, Vector2 adjacentEnd);
+    public void DeleteShape(int shapeIndex);
+    public PhysicsShape2D GetShape(int shapeIndex);
+    public int AddCircle(Vector2 center, float radius);
+    public int AddCapsule(Vector2 vertex0, Vector2 vertex1, float radius);
+    public int AddBox(Vector2 center, Vector2 size, float angle, float edgeRadius);
+    public int AddPolygon(List`1<Vector2> vertices);
+    public int AddEdges(List`1<Vector2> vertices, float edgeRadius);
+    public int AddEdges(List`1<Vector2> vertices, bool useAdjacentStart, bool useAdjacentEnd, Vector2 adjacentStart, Vector2 adjacentEnd, float edgeRadius);
+    [CompilerGeneratedAttribute]
+internal static Vector2 <AddBox>g__Rotate|28_0(float cos, float sin, Vector2 value);
+}
+public enum UnityEngine.PhysicsShapeType2D : Enum {
+    public int value__;
+    public static PhysicsShapeType2D Circle;
+    public static PhysicsShapeType2D Capsule;
+    public static PhysicsShapeType2D Polygon;
+    public static PhysicsShapeType2D Edges;
+}
+[NativeHeaderAttribute("Modules/Physics2D/PhysicsUpdateBehaviour2D.h")]
+public class UnityEngine.PhysicsUpdateBehaviour2D : Behaviour {
+}
+[NativeHeaderAttribute("Modules/Physics2D/PlatformEffector2D.h")]
+public class UnityEngine.PlatformEffector2D : Effector2D {
+    public bool useOneWay { get; public set; }
+    public bool useOneWayGrouping { get; public set; }
+    public bool useSideFriction { get; public set; }
+    public bool useSideBounce { get; public set; }
+    public float surfaceArc { get; public set; }
+    public float sideArc { get; public set; }
+    public float rotationalOffset { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("PlatformEffector2D.oneWay has been deprecated. Use PlatformEffector2D.useOneWay instead (UnityUpgradable) -> useOneWay", "True")]
+public bool oneWay { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("PlatformEffector2D.sideFriction has been deprecated. Use PlatformEffector2D.useSideFriction instead (UnityUpgradable) -> useSideFriction", "True")]
+public bool sideFriction { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("PlatformEffector2D.sideBounce has been deprecated. Use PlatformEffector2D.useSideBounce instead (UnityUpgradable) -> useSideBounce", "True")]
+public bool sideBounce { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("PlatformEffector2D.sideAngleVariance has been deprecated. Use PlatformEffector2D.sideArc instead (UnityUpgradable) -> sideArc", "True")]
+public float sideAngleVariance { get; public set; }
+    public bool get_useOneWay();
+    public void set_useOneWay(bool value);
+    public bool get_useOneWayGrouping();
+    public void set_useOneWayGrouping(bool value);
+    public bool get_useSideFriction();
+    public void set_useSideFriction(bool value);
+    public bool get_useSideBounce();
+    public void set_useSideBounce(bool value);
+    public float get_surfaceArc();
+    public void set_surfaceArc(float value);
+    public float get_sideArc();
+    public void set_sideArc(float value);
+    public float get_rotationalOffset();
+    public void set_rotationalOffset(float value);
+    public bool get_oneWay();
+    public void set_oneWay(bool value);
+    public bool get_sideFriction();
+    public void set_sideFriction(bool value);
+    public bool get_sideBounce();
+    public void set_sideBounce(bool value);
+    public float get_sideAngleVariance();
+    public void set_sideAngleVariance(float value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/PointEffector2D.h")]
+public class UnityEngine.PointEffector2D : Effector2D {
+    public float forceMagnitude { get; public set; }
+    public float forceVariation { get; public set; }
+    public float distanceScale { get; public set; }
+    public float drag { get; public set; }
+    public float angularDrag { get; public set; }
+    public EffectorSelection2D forceSource { get; public set; }
+    public EffectorSelection2D forceTarget { get; public set; }
+    public EffectorForceMode2D forceMode { get; public set; }
+    public float get_forceMagnitude();
+    public void set_forceMagnitude(float value);
+    public float get_forceVariation();
+    public void set_forceVariation(float value);
+    public float get_distanceScale();
+    public void set_distanceScale(float value);
+    public float get_drag();
+    public void set_drag(float value);
+    public float get_angularDrag();
+    public void set_angularDrag(float value);
+    public EffectorSelection2D get_forceSource();
+    public void set_forceSource(EffectorSelection2D value);
+    public EffectorSelection2D get_forceTarget();
+    public void set_forceTarget(EffectorSelection2D value);
+    public EffectorForceMode2D get_forceMode();
+    public void set_forceMode(EffectorForceMode2D value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/PolygonCollider2D.h")]
+public class UnityEngine.PolygonCollider2D : Collider2D {
+    public bool useDelaunayMesh { get; public set; }
+    public bool autoTiling { get; public set; }
+    public Vector2[] points { get; public set; }
+    public int pathCount { get; public set; }
+    public bool get_useDelaunayMesh();
+    public void set_useDelaunayMesh(bool value);
+    public bool get_autoTiling();
+    public void set_autoTiling(bool value);
+    [NativeMethodAttribute("GetPointCount")]
+public int GetTotalPointCount();
+    [NativeMethodAttribute("GetPoints_Binding")]
+public Vector2[] get_points();
+    [NativeMethodAttribute("SetPoints_Binding")]
+public void set_points(Vector2[] value);
+    public int get_pathCount();
+    public void set_pathCount(int value);
+    public Vector2[] GetPath(int index);
+    [NativeMethodAttribute("GetPath_Binding")]
+private Vector2[] GetPath_Internal(int index);
+    public void SetPath(int index, Vector2[] points);
+    [NativeMethodAttribute("SetPath_Binding")]
+private void SetPath_Internal(int index, Vector2[] points);
+    public int GetPath(int index, List`1<Vector2> points);
+    [NativeMethodAttribute("GetPathList_Binding")]
+private int GetPathList_Internal(int index, List`1<Vector2> points);
+    public void SetPath(int index, List`1<Vector2> points);
+    [NativeMethodAttribute("SetPathList_Binding")]
+private void SetPathList_Internal(int index, List`1<Vector2> points);
+    [ExcludeFromDocsAttribute]
+public void CreatePrimitive(int sides);
+    [ExcludeFromDocsAttribute]
+public void CreatePrimitive(int sides, Vector2 scale);
+    public void CreatePrimitive(int sides, Vector2 scale, Vector2 offset);
+    [NativeMethodAttribute("CreatePrimitive")]
+private void CreatePrimitive_Internal(int sides, Vector2 scale, Vector2 offset, bool autoRefresh);
+    private void CreatePrimitive_Internal_Injected(int sides, Vector2& scale, Vector2& offset, bool autoRefresh);
+}
+[NativeClassAttribute("RaycastHit2D", "struct RaycastHit2D;")]
+[NativeHeaderAttribute("Runtime/Interfaces/IPhysics2D.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.RaycastHit2D : ValueType {
+    [NativeNameAttribute("centroid")]
+private Vector2 m_Centroid;
+    [NativeNameAttribute("point")]
+private Vector2 m_Point;
+    [NativeNameAttribute("normal")]
+private Vector2 m_Normal;
+    [NativeNameAttribute("distance")]
+private float m_Distance;
+    [NativeNameAttribute("fraction")]
+private float m_Fraction;
+    [NativeNameAttribute("collider")]
+private int m_Collider;
+    public Vector2 centroid { get; public set; }
+    public Vector2 point { get; public set; }
+    public Vector2 normal { get; public set; }
+    public float distance { get; public set; }
+    public float fraction { get; public set; }
+    public Collider2D collider { get; }
+    public Rigidbody2D rigidbody { get; }
+    public Transform transform { get; }
+    public Vector2 get_centroid();
+    public void set_centroid(Vector2 value);
+    public Vector2 get_point();
+    public void set_point(Vector2 value);
+    public Vector2 get_normal();
+    public void set_normal(Vector2 value);
+    public float get_distance();
+    public void set_distance(float value);
+    public float get_fraction();
+    public void set_fraction(float value);
+    public Collider2D get_collider();
+    public Rigidbody2D get_rigidbody();
+    public Transform get_transform();
+    public static bool op_Implicit(RaycastHit2D hit);
+    public int CompareTo(RaycastHit2D other);
+}
+[NativeHeaderAttribute("Modules/Physics2D/RelativeJoint2D.h")]
+public class UnityEngine.RelativeJoint2D : Joint2D {
+    public float maxForce { get; public set; }
+    public float maxTorque { get; public set; }
+    public float correctionScale { get; public set; }
+    public bool autoConfigureOffset { get; public set; }
+    public Vector2 linearOffset { get; public set; }
+    public float angularOffset { get; public set; }
+    public Vector2 target { get; }
+    public float get_maxForce();
+    public void set_maxForce(float value);
+    public float get_maxTorque();
+    public void set_maxTorque(float value);
+    public float get_correctionScale();
+    public void set_correctionScale(float value);
+    public bool get_autoConfigureOffset();
+    public void set_autoConfigureOffset(bool value);
+    public Vector2 get_linearOffset();
+    public void set_linearOffset(Vector2 value);
+    public float get_angularOffset();
+    public void set_angularOffset(float value);
+    public Vector2 get_target();
+    private void get_linearOffset_Injected(Vector2& ret);
+    private void set_linearOffset_Injected(Vector2& value);
+    private void get_target_Injected(Vector2& ret);
+}
+[NativeHeaderAttribute("Modules/Physics2D/Public/Rigidbody2D.h")]
+[RequireComponent("UnityEngine.Transform")]
+public class UnityEngine.Rigidbody2D : Component {
+    public Vector2 position { get; public set; }
+    public float rotation { get; public set; }
+    public Vector2 velocity { get; public set; }
+    public float angularVelocity { get; public set; }
+    public bool useAutoMass { get; public set; }
+    public float mass { get; public set; }
+    [NativeMethodAttribute("Material")]
+public PhysicsMaterial2D sharedMaterial { get; public set; }
+    public Vector2 centerOfMass { get; public set; }
+    public Vector2 worldCenterOfMass { get; }
+    public float inertia { get; public set; }
+    public float drag { get; public set; }
+    public float angularDrag { get; public set; }
+    public float gravityScale { get; public set; }
+    public RigidbodyType2D bodyType { get; public set; }
+    public bool useFullKinematicContacts { get; public set; }
+    public bool isKinematic { get; public set; }
+    [NativeMethodAttribute("FreezeRotation")]
+[ObsoleteAttribute("'fixedAngle' is no longer supported. Use constraints instead.", "False")]
+public bool fixedAngle { get; public set; }
+    public bool freezeRotation { get; public set; }
+    public RigidbodyConstraints2D constraints { get; public set; }
+    public bool simulated { get; public set; }
+    public RigidbodyInterpolation2D interpolation { get; public set; }
+    public RigidbodySleepMode2D sleepMode { get; public set; }
+    public CollisionDetectionMode2D collisionDetectionMode { get; public set; }
+    public int attachedColliderCount { get; }
+    public Vector2 totalForce { get; public set; }
+    public float totalTorque { get; public set; }
+    public LayerMask excludeLayers { get; public set; }
+    public LayerMask includeLayers { get; public set; }
+    public Vector2 get_position();
+    public void set_position(Vector2 value);
+    public float get_rotation();
+    public void set_rotation(float value);
+    public void SetRotation(float angle);
+    [NativeMethodAttribute("SetRotation")]
+private void SetRotation_Angle(float angle);
+    public void SetRotation(Quaternion rotation);
+    [NativeMethodAttribute("SetRotation")]
+private void SetRotation_Quaternion(Quaternion rotation);
+    public void MovePosition(Vector2 position);
+    public void MoveRotation(float angle);
+    [NativeMethodAttribute("MoveRotation")]
+private void MoveRotation_Angle(float angle);
+    public void MoveRotation(Quaternion rotation);
+    [NativeMethodAttribute("MoveRotation")]
+private void MoveRotation_Quaternion(Quaternion rotation);
+    public Vector2 get_velocity();
+    public void set_velocity(Vector2 value);
+    public float get_angularVelocity();
+    public void set_angularVelocity(float value);
+    public bool get_useAutoMass();
+    public void set_useAutoMass(bool value);
+    public float get_mass();
+    public void set_mass(float value);
+    public PhysicsMaterial2D get_sharedMaterial();
+    public void set_sharedMaterial(PhysicsMaterial2D value);
+    public Vector2 get_centerOfMass();
+    public void set_centerOfMass(Vector2 value);
+    public Vector2 get_worldCenterOfMass();
+    public float get_inertia();
+    public void set_inertia(float value);
+    public float get_drag();
+    public void set_drag(float value);
+    public float get_angularDrag();
+    public void set_angularDrag(float value);
+    public float get_gravityScale();
+    public void set_gravityScale(float value);
+    public RigidbodyType2D get_bodyType();
+    [NativeMethodAttribute("SetBodyType_Binding")]
+public void set_bodyType(RigidbodyType2D value);
+    internal void SetDragBehaviour(bool dragged);
+    public bool get_useFullKinematicContacts();
+    public void set_useFullKinematicContacts(bool value);
+    public bool get_isKinematic();
+    public void set_isKinematic(bool value);
+    public bool get_fixedAngle();
+    public void set_fixedAngle(bool value);
+    public bool get_freezeRotation();
+    public void set_freezeRotation(bool value);
+    public RigidbodyConstraints2D get_constraints();
+    public void set_constraints(RigidbodyConstraints2D value);
+    public bool IsSleeping();
+    public bool IsAwake();
+    public void Sleep();
+    [NativeMethodAttribute("Wake")]
+public void WakeUp();
+    public bool get_simulated();
+    [NativeMethodAttribute("SetSimulated_Binding")]
+public void set_simulated(bool value);
+    public RigidbodyInterpolation2D get_interpolation();
+    public void set_interpolation(RigidbodyInterpolation2D value);
+    public RigidbodySleepMode2D get_sleepMode();
+    public void set_sleepMode(RigidbodySleepMode2D value);
+    public CollisionDetectionMode2D get_collisionDetectionMode();
+    public void set_collisionDetectionMode(CollisionDetectionMode2D value);
+    public int get_attachedColliderCount();
+    public Vector2 get_totalForce();
+    public void set_totalForce(Vector2 value);
+    public float get_totalTorque();
+    public void set_totalTorque(float value);
+    public LayerMask get_excludeLayers();
+    public void set_excludeLayers(LayerMask value);
+    public LayerMask get_includeLayers();
+    public void set_includeLayers(LayerMask value);
+    public bool IsTouching(Collider2D collider);
+    public bool IsTouching(Collider2D collider, ContactFilter2D contactFilter);
+    [NativeMethodAttribute("IsTouching")]
+private bool IsTouching_OtherColliderWithFilter_Internal(Collider2D collider, ContactFilter2D contactFilter);
+    public bool IsTouching(ContactFilter2D contactFilter);
+    [NativeMethodAttribute("IsTouching")]
+private bool IsTouching_AnyColliderWithFilter_Internal(ContactFilter2D contactFilter);
+    [ExcludeFromDocsAttribute]
+public bool IsTouchingLayers();
+    public bool IsTouchingLayers(int layerMask);
+    public bool OverlapPoint(Vector2 point);
+    public ColliderDistance2D Distance(Collider2D collider);
+    [NativeMethodAttribute("Distance")]
+private ColliderDistance2D Distance_Internal(Collider2D collider);
+    public Vector2 ClosestPoint(Vector2 position);
+    [ExcludeFromDocsAttribute]
+public void AddForce(Vector2 force);
+    public void AddForce(Vector2 force, ForceMode2D mode);
+    [ExcludeFromDocsAttribute]
+public void AddRelativeForce(Vector2 relativeForce);
+    public void AddRelativeForce(Vector2 relativeForce, ForceMode2D mode);
+    [ExcludeFromDocsAttribute]
+public void AddForceAtPosition(Vector2 force, Vector2 position);
+    public void AddForceAtPosition(Vector2 force, Vector2 position, ForceMode2D mode);
+    [ExcludeFromDocsAttribute]
+public void AddTorque(float torque);
+    public void AddTorque(float torque, ForceMode2D mode);
+    public Vector2 GetPoint(Vector2 point);
+    public Vector2 GetRelativePoint(Vector2 relativePoint);
+    public Vector2 GetVector(Vector2 vector);
+    public Vector2 GetRelativeVector(Vector2 relativeVector);
+    public Vector2 GetPointVelocity(Vector2 point);
+    public Vector2 GetRelativePointVelocity(Vector2 relativePoint);
+    public int OverlapCollider(ContactFilter2D contactFilter, Collider2D[] results);
+    [NativeMethodAttribute("OverlapColliderArray_Binding")]
+private int OverlapColliderArray_Internal(ContactFilter2D contactFilter, Collider2D[] results);
+    public int OverlapCollider(ContactFilter2D contactFilter, List`1<Collider2D> results);
+    [NativeMethodAttribute("OverlapColliderList_Binding")]
+private int OverlapColliderList_Internal(ContactFilter2D contactFilter, List`1<Collider2D> results);
+    public int GetContacts(ContactPoint2D[] contacts);
+    public int GetContacts(List`1<ContactPoint2D> contacts);
+    public int GetContacts(ContactFilter2D contactFilter, ContactPoint2D[] contacts);
+    public int GetContacts(ContactFilter2D contactFilter, List`1<ContactPoint2D> contacts);
+    public int GetContacts(Collider2D[] colliders);
+    public int GetContacts(List`1<Collider2D> colliders);
+    public int GetContacts(ContactFilter2D contactFilter, Collider2D[] colliders);
+    public int GetContacts(ContactFilter2D contactFilter, List`1<Collider2D> colliders);
+    public int GetAttachedColliders(Collider2D[] results);
+    [NativeMethodAttribute("GetAttachedCollidersArray_Binding")]
+private int GetAttachedCollidersArray_Internal(Collider2D[] results);
+    public int GetAttachedColliders(List`1<Collider2D> results);
+    [NativeMethodAttribute("GetAttachedCollidersList_Binding")]
+private int GetAttachedCollidersList_Internal(List`1<Collider2D> results);
+    [ExcludeFromDocsAttribute]
+public int Cast(Vector2 direction, RaycastHit2D[] results);
+    public int Cast(Vector2 direction, RaycastHit2D[] results, float distance);
+    [NativeMethodAttribute("CastArray_Binding")]
+private int CastArray_Internal(Vector2 direction, float distance, RaycastHit2D[] results);
+    public int Cast(Vector2 direction, List`1<RaycastHit2D> results, float distance);
+    [NativeMethodAttribute("CastList_Binding")]
+private int CastList_Internal(Vector2 direction, float distance, List`1<RaycastHit2D> results);
+    [ExcludeFromDocsAttribute]
+public int Cast(Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int Cast(Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance);
+    [NativeMethodAttribute("CastFilteredArray_Binding")]
+private int CastFilteredArray_Internal(Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results);
+    public int Cast(Vector2 direction, ContactFilter2D contactFilter, List`1<RaycastHit2D> results, float distance);
+    [NativeMethodAttribute("CastFilteredList_Binding")]
+private int CastFilteredList_Internal(Vector2 direction, float distance, ContactFilter2D contactFilter, List`1<RaycastHit2D> results);
+    public int GetShapes(PhysicsShapeGroup2D physicsShapeGroup);
+    [NativeMethodAttribute("GetShapes_Binding")]
+private int GetShapes_Internal(GroupState& physicsShapeGroupState);
+    private void get_position_Injected(Vector2& ret);
+    private void set_position_Injected(Vector2& value);
+    private void SetRotation_Quaternion_Injected(Quaternion& rotation);
+    private void MovePosition_Injected(Vector2& position);
+    private void MoveRotation_Quaternion_Injected(Quaternion& rotation);
+    private void get_velocity_Injected(Vector2& ret);
+    private void set_velocity_Injected(Vector2& value);
+    private void get_centerOfMass_Injected(Vector2& ret);
+    private void set_centerOfMass_Injected(Vector2& value);
+    private void get_worldCenterOfMass_Injected(Vector2& ret);
+    private void get_totalForce_Injected(Vector2& ret);
+    private void set_totalForce_Injected(Vector2& value);
+    private void get_excludeLayers_Injected(LayerMask& ret);
+    private void set_excludeLayers_Injected(LayerMask& value);
+    private void get_includeLayers_Injected(LayerMask& ret);
+    private void set_includeLayers_Injected(LayerMask& value);
+    private bool IsTouching_OtherColliderWithFilter_Internal_Injected(Collider2D collider, ContactFilter2D& contactFilter);
+    private bool IsTouching_AnyColliderWithFilter_Internal_Injected(ContactFilter2D& contactFilter);
+    private bool OverlapPoint_Injected(Vector2& point);
+    private void Distance_Internal_Injected(Collider2D collider, ColliderDistance2D& ret);
+    private void AddForce_Injected(Vector2& force, ForceMode2D mode);
+    private void AddRelativeForce_Injected(Vector2& relativeForce, ForceMode2D mode);
+    private void AddForceAtPosition_Injected(Vector2& force, Vector2& position, ForceMode2D mode);
+    private void GetPoint_Injected(Vector2& point, Vector2& ret);
+    private void GetRelativePoint_Injected(Vector2& relativePoint, Vector2& ret);
+    private void GetVector_Injected(Vector2& vector, Vector2& ret);
+    private void GetRelativeVector_Injected(Vector2& relativeVector, Vector2& ret);
+    private void GetPointVelocity_Injected(Vector2& point, Vector2& ret);
+    private void GetRelativePointVelocity_Injected(Vector2& relativePoint, Vector2& ret);
+    private int OverlapColliderArray_Internal_Injected(ContactFilter2D& contactFilter, Collider2D[] results);
+    private int OverlapColliderList_Internal_Injected(ContactFilter2D& contactFilter, List`1<Collider2D> results);
+    private int CastArray_Internal_Injected(Vector2& direction, float distance, RaycastHit2D[] results);
+    private int CastList_Internal_Injected(Vector2& direction, float distance, List`1<RaycastHit2D> results);
+    private int CastFilteredArray_Internal_Injected(Vector2& direction, float distance, ContactFilter2D& contactFilter, RaycastHit2D[] results);
+    private int CastFilteredList_Internal_Injected(Vector2& direction, float distance, ContactFilter2D& contactFilter, List`1<RaycastHit2D> results);
+}
+[FlagsAttribute]
+public enum UnityEngine.RigidbodyConstraints2D : Enum {
+    public int value__;
+    public static RigidbodyConstraints2D None;
+    public static RigidbodyConstraints2D FreezePositionX;
+    public static RigidbodyConstraints2D FreezePositionY;
+    public static RigidbodyConstraints2D FreezeRotation;
+    public static RigidbodyConstraints2D FreezePosition;
+    public static RigidbodyConstraints2D FreezeAll;
+}
+public enum UnityEngine.RigidbodyInterpolation2D : Enum {
+    public int value__;
+    public static RigidbodyInterpolation2D None;
+    public static RigidbodyInterpolation2D Interpolate;
+    public static RigidbodyInterpolation2D Extrapolate;
+}
+public enum UnityEngine.RigidbodySleepMode2D : Enum {
+    public int value__;
+    public static RigidbodySleepMode2D NeverSleep;
+    public static RigidbodySleepMode2D StartAwake;
+    public static RigidbodySleepMode2D StartAsleep;
+}
+public enum UnityEngine.RigidbodyType2D : Enum {
+    public int value__;
+    public static RigidbodyType2D Dynamic;
+    public static RigidbodyType2D Kinematic;
+    public static RigidbodyType2D Static;
+}
+public enum UnityEngine.SimulationMode2D : Enum {
+    public int value__;
+    public static SimulationMode2D FixedUpdate;
+    public static SimulationMode2D Update;
+    public static SimulationMode2D Script;
+}
+[NativeHeaderAttribute("Modules/Physics2D/SliderJoint2D.h")]
+public class UnityEngine.SliderJoint2D : AnchoredJoint2D {
+    public bool autoConfigureAngle { get; public set; }
+    public float angle { get; public set; }
+    public bool useMotor { get; public set; }
+    public bool useLimits { get; public set; }
+    public JointMotor2D motor { get; public set; }
+    public JointTranslationLimits2D limits { get; public set; }
+    public JointLimitState2D limitState { get; }
+    public float referenceAngle { get; }
+    public float jointTranslation { get; }
+    public float jointSpeed { get; }
+    public bool get_autoConfigureAngle();
+    public void set_autoConfigureAngle(bool value);
+    public float get_angle();
+    public void set_angle(float value);
+    public bool get_useMotor();
+    public void set_useMotor(bool value);
+    public bool get_useLimits();
+    public void set_useLimits(bool value);
+    public JointMotor2D get_motor();
+    public void set_motor(JointMotor2D value);
+    public JointTranslationLimits2D get_limits();
+    public void set_limits(JointTranslationLimits2D value);
+    public JointLimitState2D get_limitState();
+    public float get_referenceAngle();
+    public float get_jointTranslation();
+    public float get_jointSpeed();
+    public float GetMotorForce(float timeStep);
+    private void get_motor_Injected(JointMotor2D& ret);
+    private void set_motor_Injected(JointMotor2D& value);
+    private void get_limits_Injected(JointTranslationLimits2D& ret);
+    private void set_limits_Injected(JointTranslationLimits2D& value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/SpringJoint2D.h")]
+public class UnityEngine.SpringJoint2D : AnchoredJoint2D {
+    public bool autoConfigureDistance { get; public set; }
+    public float distance { get; public set; }
+    public float dampingRatio { get; public set; }
+    public float frequency { get; public set; }
+    public bool get_autoConfigureDistance();
+    public void set_autoConfigureDistance(bool value);
+    public float get_distance();
+    public void set_distance(float value);
+    public float get_dampingRatio();
+    public void set_dampingRatio(float value);
+    public float get_frequency();
+    public void set_frequency(float value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/SurfaceEffector2D.h")]
+public class UnityEngine.SurfaceEffector2D : Effector2D {
+    public float speed { get; public set; }
+    public float speedVariation { get; public set; }
+    public float forceScale { get; public set; }
+    public bool useContactForce { get; public set; }
+    public bool useFriction { get; public set; }
+    public bool useBounce { get; public set; }
+    public float get_speed();
+    public void set_speed(float value);
+    public float get_speedVariation();
+    public void set_speedVariation(float value);
+    public float get_forceScale();
+    public void set_forceScale(float value);
+    public bool get_useContactForce();
+    public void set_useContactForce(bool value);
+    public bool get_useFriction();
+    public void set_useFriction(bool value);
+    public bool get_useBounce();
+    public void set_useBounce(bool value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/TargetJoint2D.h")]
+public class UnityEngine.TargetJoint2D : Joint2D {
+    public Vector2 anchor { get; public set; }
+    public Vector2 target { get; public set; }
+    public bool autoConfigureTarget { get; public set; }
+    public float maxForce { get; public set; }
+    public float dampingRatio { get; public set; }
+    public float frequency { get; public set; }
+    public Vector2 get_anchor();
+    public void set_anchor(Vector2 value);
+    public Vector2 get_target();
+    public void set_target(Vector2 value);
+    public bool get_autoConfigureTarget();
+    public void set_autoConfigureTarget(bool value);
+    public float get_maxForce();
+    public void set_maxForce(float value);
+    public float get_dampingRatio();
+    public void set_dampingRatio(float value);
+    public float get_frequency();
+    public void set_frequency(float value);
+    private void get_anchor_Injected(Vector2& ret);
+    private void set_anchor_Injected(Vector2& value);
+    private void get_target_Injected(Vector2& ret);
+    private void set_target_Injected(Vector2& value);
+}
+[NativeHeaderAttribute("Modules/Physics2D/WheelJoint2D.h")]
+public class UnityEngine.WheelJoint2D : AnchoredJoint2D {
+    public JointSuspension2D suspension { get; public set; }
+    public bool useMotor { get; public set; }
+    public JointMotor2D motor { get; public set; }
+    public float jointTranslation { get; }
+    public float jointLinearSpeed { get; }
+    public float jointSpeed { get; }
+    public float jointAngle { get; }
+    public JointSuspension2D get_suspension();
+    public void set_suspension(JointSuspension2D value);
+    public bool get_useMotor();
+    public void set_useMotor(bool value);
+    public JointMotor2D get_motor();
+    public void set_motor(JointMotor2D value);
+    public float get_jointTranslation();
+    public float get_jointLinearSpeed();
+    [NativeMethodAttribute("GetJointAngularSpeed")]
+public float get_jointSpeed();
+    public float get_jointAngle();
+    public float GetMotorTorque(float timeStep);
+    private void get_suspension_Injected(JointSuspension2D& ret);
+    private void set_suspension_Injected(JointSuspension2D& value);
+    private void get_motor_Injected(JointMotor2D& ret);
+    private void set_motor_Injected(JointMotor2D& value);
+}

@@ -1,0 +1,673 @@
+[DisallowMultipleComponent]
+public abstract class Coffee.UIEffects.BaseMaterialEffect : BaseMeshEffect {
+    protected static Hash128 k_InvalidHash;
+    protected static List`1<UIVertex> s_TempVerts;
+    private static StringBuilder s_StringBuilder;
+    private Hash128 _effectMaterialHash;
+    [CompilerGeneratedAttribute]
+private int <parameterIndex>k__BackingField;
+    public int parameterIndex { get; public set; }
+    public ParameterTexture paramTex { get; }
+    private static BaseMaterialEffect();
+    [CompilerGeneratedAttribute]
+public sealed virtual int get_parameterIndex();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_parameterIndex(int value);
+    public virtual ParameterTexture get_paramTex();
+    public void SetMaterialDirty();
+    public virtual Hash128 GetMaterialHash(Material baseMaterial);
+    public sealed virtual Material GetModifiedMaterial(Material baseMaterial);
+    public virtual Material GetModifiedMaterial(Material baseMaterial, Graphic graphic);
+    public virtual void ModifyMaterial(Material newMaterial, Graphic graphic);
+    protected void SetShaderVariants(Material newMaterial, Object[] variants);
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+}
+[ExecuteAlways]
+[RequireComponent("UnityEngine.UI.Graphic")]
+[RequireComponent("UnityEngine.RectTransform")]
+public abstract class Coffee.UIEffects.BaseMeshEffect : UIBehaviour {
+    private RectTransform _rectTransform;
+    private Graphic _graphic;
+    private GraphicConnector _connector;
+    internal List`1<UISyncEffect> syncEffects;
+    protected GraphicConnector connector { get; }
+    public Graphic graphic { get; }
+    protected RectTransform rectTransform { get; }
+    protected GraphicConnector get_connector();
+    public Graphic get_graphic();
+    protected RectTransform get_rectTransform();
+    public virtual void ModifyMesh(Mesh mesh);
+    public virtual void ModifyMesh(VertexHelper vh);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+    protected virtual void SetVerticesDirty();
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    protected virtual void SetEffectParamsDirty();
+    protected virtual void OnDidApplyAnimationProperties();
+}
+public enum Coffee.UIEffects.BlurMode : Enum {
+    public int value__;
+    public static BlurMode None;
+    public static BlurMode FastBlur;
+    public static BlurMode MediumBlur;
+    public static BlurMode DetailBlur;
+}
+public enum Coffee.UIEffects.ColorMode : Enum {
+    public int value__;
+    public static ColorMode Multiply;
+    public static ColorMode Fill;
+    public static ColorMode Add;
+    public static ColorMode Subtract;
+}
+public enum Coffee.UIEffects.EffectArea : Enum {
+    public int value__;
+    public static EffectArea RectTransform;
+    public static EffectArea Fit;
+    public static EffectArea Character;
+}
+[ExtensionAttribute]
+public static class Coffee.UIEffects.EffectAreaExtensions : object {
+    private static Rect rectForCharacter;
+    private static Vector2[] splitedCharacterPosition;
+    private static EffectAreaExtensions();
+    [ExtensionAttribute]
+public static Rect GetEffectArea(EffectArea area, VertexHelper vh, Rect rectangle, float aspectRatio);
+    [ExtensionAttribute]
+public static void GetPositionFactor(EffectArea area, int index, Rect rect, Vector2 position, bool isText, bool isTMPro, Single& x, Single& y);
+    [ExtensionAttribute]
+public static void GetNormalizedFactor(EffectArea area, int index, Matrix2x3 matrix, Vector2 position, bool isText, Vector2& nomalizedPos);
+}
+public enum Coffee.UIEffects.EffectMode : Enum {
+    public int value__;
+    public static EffectMode None;
+    public static EffectMode Grayscale;
+    public static EffectMode Sepia;
+    public static EffectMode Nega;
+    public static EffectMode Pixel;
+}
+public class Coffee.UIEffects.GraphicConnector : object {
+    private static List`1<GraphicConnector> s_Connectors;
+    private static Dictionary`2<Type, GraphicConnector> s_ConnectorMap;
+    private static GraphicConnector s_EmptyConnector;
+    protected int priority { get; }
+    public AdditionalCanvasShaderChannels extraChannel { get; }
+    private static GraphicConnector();
+    [RuntimeInitializeOnLoadMethodAttribute("1")]
+private static void Init();
+    protected static void AddConnector(GraphicConnector connector);
+    public static GraphicConnector FindConnector(Graphic graphic);
+    protected virtual int get_priority();
+    public virtual AdditionalCanvasShaderChannels get_extraChannel();
+    protected virtual bool IsValid(Graphic graphic);
+    public virtual Shader FindShader(string shaderName);
+    public virtual void OnEnable(Graphic graphic);
+    public virtual void OnDisable(Graphic graphic);
+    public virtual void SetVerticesDirty(Graphic graphic);
+    public virtual void SetMaterialDirty(Graphic graphic);
+    public virtual void GetPositionFactor(EffectArea area, int index, Rect rect, Vector2 position, Single& x, Single& y);
+    public virtual bool IsText(Graphic graphic);
+    public virtual void SetExtraChannel(UIVertex& vertex, Vector2 value);
+    public virtual void GetNormalizedFactor(EffectArea area, int index, Matrix2x3 matrix, Vector2 position, Vector2& normalizedPos);
+}
+public interface Coffee.UIEffects.IParameterTexture {
+    public int parameterIndex { get; public set; }
+    public ParameterTexture paramTex { get; }
+    public abstract virtual int get_parameterIndex();
+    public abstract virtual void set_parameterIndex(int value);
+    public abstract virtual ParameterTexture get_paramTex();
+}
+public class Coffee.UIEffects.MaterialCache : object {
+    private static Dictionary`2<Hash128, MaterialEntry> materialMap;
+    private static MaterialCache();
+    public static Material Register(Material baseMaterial, Hash128 hash, Action`2<Material, Graphic> onModifyMaterial, Graphic graphic);
+    public static void Unregister(Hash128 hash);
+}
+public class Coffee.UIEffects.Matrix2x3 : ValueType {
+    public float m00;
+    public float m01;
+    public float m02;
+    public float m10;
+    public float m11;
+    public float m12;
+    public Matrix2x3(Rect rect, float cos, float sin);
+    public static Vector2 op_Multiply(Matrix2x3 m, Vector2 v);
+}
+public class Coffee.UIEffects.ParameterTexture : object {
+    private Texture2D _texture;
+    private bool _needUpload;
+    private int _propertyId;
+    private string _propertyName;
+    private int _channels;
+    private int _instanceLimit;
+    private Byte[] _data;
+    private Stack`1<int> _stack;
+    private static List`1<Action> updates;
+    public ParameterTexture(int channels, int instanceLimit, string propertyName);
+    public void Register(IParameterTexture target);
+    public void Unregister(IParameterTexture target);
+    public void SetData(IParameterTexture target, int channelId, byte value);
+    public void SetData(IParameterTexture target, int channelId, float value);
+    public void RegisterMaterial(Material mat);
+    public float GetNormalizedIndex(IParameterTexture target);
+    private void Initialize();
+    private void UpdateParameterTexture();
+}
+public enum Coffee.UIEffects.ShadowStyle : Enum {
+    public int value__;
+    public static ShadowStyle None;
+    public static ShadowStyle Shadow;
+    public static ShadowStyle Outline;
+    public static ShadowStyle Outline8;
+    public static ShadowStyle Shadow3;
+}
+[AddComponentMenu("UI/UIEffects/UIDissolve", "3")]
+public class Coffee.UIEffects.UIDissolve : BaseMaterialEffect {
+    private static UInt32 k_ShaderId;
+    private static ParameterTexture s_ParamTex;
+    private static int k_TransitionTexId;
+    private bool _lastKeepAspectRatio;
+    private EffectArea _lastEffectArea;
+    private static Texture _defaultTransitionTexture;
+    [FormerlySerializedAsAttribute("m_Location")]
+[RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Current location[0-1] for dissolve effect. 0 is not dissolved, 1 is completely dissolved.")]
+private float m_EffectFactor;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Edge width.")]
+private float m_Width;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Edge softness.")]
+private float m_Softness;
+    [ColorUsageAttribute("False")]
+[SerializeField]
+[TooltipAttribute("Edge color.")]
+private Color m_Color;
+    [SerializeField]
+[TooltipAttribute("Edge color effect mode.")]
+private ColorMode m_ColorMode;
+    [FormerlySerializedAsAttribute("m_NoiseTexture")]
+[SerializeField]
+[TooltipAttribute("Noise texture for dissolving (single channel texture).")]
+private Texture m_TransitionTexture;
+    [HeaderAttribute("Advanced Option")]
+[SerializeField]
+[TooltipAttribute("The area for effect.")]
+protected EffectArea m_EffectArea;
+    [SerializeField]
+[TooltipAttribute("Keep effect aspect ratio.")]
+private bool m_KeepAspectRatio;
+    public float effectFactor { get; public set; }
+    public float width { get; public set; }
+    public float softness { get; public set; }
+    public Color color { get; public set; }
+    public Texture transitionTexture { get; public set; }
+    private static Texture defaultTransitionTexture { get; }
+    public EffectArea effectArea { get; public set; }
+    public bool keepAspectRatio { get; public set; }
+    public ColorMode colorMode { get; public set; }
+    public ParameterTexture paramTex { get; }
+    private static UIDissolve();
+    public float get_effectFactor();
+    public void set_effectFactor(float value);
+    public float get_width();
+    public void set_width(float value);
+    public float get_softness();
+    public void set_softness(float value);
+    public Color get_color();
+    public void set_color(Color value);
+    public Texture get_transitionTexture();
+    public void set_transitionTexture(Texture value);
+    private static Texture get_defaultTransitionTexture();
+    public EffectArea get_effectArea();
+    public void set_effectArea(EffectArea value);
+    public bool get_keepAspectRatio();
+    public void set_keepAspectRatio(bool value);
+    public ColorMode get_colorMode();
+    public void set_colorMode(ColorMode value);
+    public virtual ParameterTexture get_paramTex();
+    public virtual Hash128 GetMaterialHash(Material material);
+    public virtual void ModifyMaterial(Material newMaterial, Graphic graphic);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+    protected virtual void SetEffectParamsDirty();
+    protected virtual void SetVerticesDirty();
+    protected virtual void OnDidApplyAnimationProperties();
+}
+[AddComponentMenu("UI/UIEffects/UIEffect", "1")]
+[DisallowMultipleComponent]
+[ExecuteAlways]
+[RequireComponent("UnityEngine.UI.Graphic")]
+public class Coffee.UIEffects.UIEffect : BaseMaterialEffect {
+    private static UInt32 k_ShaderId;
+    private static ParameterTexture s_ParamTex;
+    [FormerlySerializedAsAttribute("m_ToneLevel")]
+[RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Effect factor between 0(no effect) and 1(complete effect).")]
+private float m_EffectFactor;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Color effect factor between 0(no effect) and 1(complete effect).")]
+private float m_ColorFactor;
+    [FormerlySerializedAsAttribute("m_Blur")]
+[RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("How far is the blurring from the graphic.")]
+private float m_BlurFactor;
+    [FormerlySerializedAsAttribute("m_ToneMode")]
+[SerializeField]
+[TooltipAttribute("Effect mode")]
+private EffectMode m_EffectMode;
+    [SerializeField]
+[TooltipAttribute("Color effect mode")]
+private ColorMode m_ColorMode;
+    [SerializeField]
+[TooltipAttribute("Blur effect mode")]
+private BlurMode m_BlurMode;
+    [SerializeField]
+[TooltipAttribute("Advanced blurring remove common artifacts in the blur effect for uGUI.")]
+private bool m_AdvancedBlur;
+    public AdditionalCanvasShaderChannels uvMaskChannel { get; }
+    public float effectFactor { get; public set; }
+    public float colorFactor { get; public set; }
+    public float blurFactor { get; public set; }
+    public EffectMode effectMode { get; public set; }
+    public ColorMode colorMode { get; public set; }
+    public BlurMode blurMode { get; public set; }
+    public ParameterTexture paramTex { get; }
+    public bool advancedBlur { get; public set; }
+    private static UIEffect();
+    public AdditionalCanvasShaderChannels get_uvMaskChannel();
+    public float get_effectFactor();
+    public void set_effectFactor(float value);
+    public float get_colorFactor();
+    public void set_colorFactor(float value);
+    public float get_blurFactor();
+    public void set_blurFactor(float value);
+    public EffectMode get_effectMode();
+    public void set_effectMode(EffectMode value);
+    public ColorMode get_colorMode();
+    public void set_colorMode(ColorMode value);
+    public BlurMode get_blurMode();
+    public void set_blurMode(BlurMode value);
+    public virtual ParameterTexture get_paramTex();
+    public bool get_advancedBlur();
+    public void set_advancedBlur(bool value);
+    public virtual Hash128 GetMaterialHash(Material material);
+    public virtual void ModifyMaterial(Material newMaterial, Graphic graphic);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+    protected virtual void SetEffectParamsDirty();
+    private static void GetBounds(List`1<UIVertex> verts, int start, int count, Rect& posBounds, Rect& uvBounds, bool global);
+}
+[AddComponentMenu("UI/UIEffects/UIFlip", "102")]
+[DisallowMultipleComponent]
+public class Coffee.UIEffects.UIFlip : BaseMeshEffect {
+    [SerializeField]
+[TooltipAttribute("Flip horizontally.")]
+private bool m_Horizontal;
+    [SerializeField]
+[TooltipAttribute("Flip vertically.")]
+private bool m_Veritical;
+    public bool horizontal { get; public set; }
+    public bool vertical { get; public set; }
+    public bool get_horizontal();
+    public void set_horizontal(bool value);
+    public bool get_vertical();
+    public void set_vertical(bool value);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+}
+[AddComponentMenu("UI/UIEffects/UIGradient", "101")]
+[DisallowMultipleComponent]
+public class Coffee.UIEffects.UIGradient : BaseMeshEffect {
+    private static Vector2[] s_SplitedCharacterPosition;
+    [SerializeField]
+[TooltipAttribute("Gradient Direction.")]
+private Direction m_Direction;
+    [SerializeField]
+[TooltipAttribute("Color1: Top or Left.")]
+private Color m_Color1;
+    [SerializeField]
+[TooltipAttribute("Color2: Bottom or Right.")]
+private Color m_Color2;
+    [SerializeField]
+[TooltipAttribute("Color3: For diagonal.")]
+private Color m_Color3;
+    [SerializeField]
+[TooltipAttribute("Color4: For diagonal.")]
+private Color m_Color4;
+    [RangeAttribute("-180", "180")]
+[SerializeField]
+[TooltipAttribute("Gradient rotation.")]
+private float m_Rotation;
+    [RangeAttribute("-1", "1")]
+[SerializeField]
+[TooltipAttribute("Gradient offset for Horizontal, Vertical or Angle.")]
+private float m_Offset1;
+    [RangeAttribute("-1", "1")]
+[SerializeField]
+[TooltipAttribute("Gradient offset for Diagonal.")]
+private float m_Offset2;
+    [SerializeField]
+[TooltipAttribute("Gradient style for Text.")]
+private GradientStyle m_GradientStyle;
+    [SerializeField]
+[TooltipAttribute("Color space to correct color.")]
+private ColorSpace m_ColorSpace;
+    [SerializeField]
+[TooltipAttribute("Ignore aspect ratio.")]
+private bool m_IgnoreAspectRatio;
+    public Direction direction { get; public set; }
+    public Color color1 { get; public set; }
+    public Color color2 { get; public set; }
+    public Color color3 { get; public set; }
+    public Color color4 { get; public set; }
+    public float rotation { get; public set; }
+    public float offset { get; public set; }
+    public Vector2 offset2 { get; public set; }
+    public GradientStyle gradientStyle { get; public set; }
+    public ColorSpace colorSpace { get; public set; }
+    public bool ignoreAspectRatio { get; public set; }
+    private static UIGradient();
+    public Direction get_direction();
+    public void set_direction(Direction value);
+    public Color get_color1();
+    public void set_color1(Color value);
+    public Color get_color2();
+    public void set_color2(Color value);
+    public Color get_color3();
+    public void set_color3(Color value);
+    public Color get_color4();
+    public void set_color4(Color value);
+    public float get_rotation();
+    public void set_rotation(float value);
+    public float get_offset();
+    public void set_offset(float value);
+    public Vector2 get_offset2();
+    public void set_offset2(Vector2 value);
+    public GradientStyle get_gradientStyle();
+    public void set_gradientStyle(GradientStyle value);
+    public ColorSpace get_colorSpace();
+    public void set_colorSpace(ColorSpace value);
+    public bool get_ignoreAspectRatio();
+    public void set_ignoreAspectRatio(bool value);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+}
+[AddComponentMenu("UI/UIEffects/UIHsvModifier", "4")]
+public class Coffee.UIEffects.UIHsvModifier : BaseMaterialEffect {
+    private static UInt32 k_ShaderId;
+    private static ParameterTexture s_ParamTex;
+    [ColorUsageAttribute("False")]
+[HeaderAttribute("Target")]
+[SerializeField]
+[TooltipAttribute("Target color to affect hsv shift.")]
+private Color m_TargetColor;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Color range to affect hsv shift [0 ~ 1].")]
+private float m_Range;
+    [HeaderAttribute("Adjustment")]
+[RangeAttribute("-0,5", "0,5")]
+[SerializeField]
+[TooltipAttribute("Hue shift [-0.5 ~ 0.5].")]
+private float m_Hue;
+    [RangeAttribute("-0,5", "0,5")]
+[SerializeField]
+[TooltipAttribute("Saturation shift [-0.5 ~ 0.5].")]
+private float m_Saturation;
+    [RangeAttribute("-0,5", "0,5")]
+[SerializeField]
+[TooltipAttribute("Value shift [-0.5 ~ 0.5].")]
+private float m_Value;
+    public Color targetColor { get; public set; }
+    public float range { get; public set; }
+    public float saturation { get; public set; }
+    public float value { get; public set; }
+    public float hue { get; public set; }
+    public ParameterTexture paramTex { get; }
+    private static UIHsvModifier();
+    public Color get_targetColor();
+    public void set_targetColor(Color value);
+    public float get_range();
+    public void set_range(float value);
+    public float get_saturation();
+    public void set_saturation(float value);
+    public float get_value();
+    public void set_value(float value);
+    public float get_hue();
+    public void set_hue(float value);
+    public virtual ParameterTexture get_paramTex();
+    public virtual Hash128 GetMaterialHash(Material material);
+    public virtual void ModifyMaterial(Material newMaterial, Graphic graphic);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+    protected virtual void SetEffectParamsDirty();
+}
+[AddComponentMenu("UI/UIEffects/UIShadow", "100")]
+[RequireComponent("UnityEngine.UI.Graphic")]
+public class Coffee.UIEffects.UIShadow : BaseMeshEffect {
+    private static List`1<UIShadow> tmpShadows;
+    private static List`1<UIVertex> s_Verts;
+    private int _graphicVertexCount;
+    private UIEffect _uiEffect;
+    [FormerlySerializedAsAttribute("m_Blur")]
+[RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("How far is the blurring shadow from the graphic.")]
+private float m_BlurFactor;
+    [SerializeField]
+[TooltipAttribute("Shadow effect style.")]
+private ShadowStyle m_Style;
+    [SerializeField]
+private Color m_EffectColor;
+    [SerializeField]
+private Vector2 m_EffectDistance;
+    [SerializeField]
+private bool m_UseGraphicAlpha;
+    private static float kMaxEffectDistance;
+    [CompilerGeneratedAttribute]
+private int <parameterIndex>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ParameterTexture <paramTex>k__BackingField;
+    public Color effectColor { get; public set; }
+    public Vector2 effectDistance { get; public set; }
+    public bool useGraphicAlpha { get; public set; }
+    public float blurFactor { get; public set; }
+    public ShadowStyle style { get; public set; }
+    public int parameterIndex { get; public set; }
+    public ParameterTexture paramTex { get; private set; }
+    private static UIShadow();
+    public Color get_effectColor();
+    public void set_effectColor(Color value);
+    public Vector2 get_effectDistance();
+    public void set_effectDistance(Vector2 value);
+    public bool get_useGraphicAlpha();
+    public void set_useGraphicAlpha(bool value);
+    public float get_blurFactor();
+    public void set_blurFactor(float value);
+    public ShadowStyle get_style();
+    public void set_style(ShadowStyle value);
+    [CompilerGeneratedAttribute]
+public sealed virtual int get_parameterIndex();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_parameterIndex(int value);
+    [CompilerGeneratedAttribute]
+public sealed virtual ParameterTexture get_paramTex();
+    [CompilerGeneratedAttribute]
+private void set_paramTex(ParameterTexture value);
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+    private void ApplyShadow(List`1<UIVertex> verts, Color color, Int32& start, Int32& end, Vector2 distance, ShadowStyle style, bool alpha);
+    private void ApplyShadowZeroAlloc(List`1<UIVertex> verts, Color color, Int32& start, Int32& end, float x, float y, bool alpha);
+}
+[AddComponentMenu("UI/UIEffects/UIShiny", "2")]
+public class Coffee.UIEffects.UIShiny : BaseMaterialEffect {
+    private static UInt32 k_ShaderId;
+    private static ParameterTexture s_ParamTex;
+    private float _lastRotation;
+    private EffectArea _lastEffectArea;
+    [FormerlySerializedAsAttribute("m_Location")]
+[RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Location for shiny effect.")]
+private float m_EffectFactor;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Width for shiny effect.")]
+private float m_Width;
+    [RangeAttribute("-180", "180")]
+[SerializeField]
+[TooltipAttribute("Rotation for shiny effect.")]
+private float m_Rotation;
+    [RangeAttribute("0,01", "1")]
+[SerializeField]
+[TooltipAttribute("Softness for shiny effect.")]
+private float m_Softness;
+    [FormerlySerializedAsAttribute("m_Alpha")]
+[RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Brightness for shiny effect.")]
+private float m_Brightness;
+    [FormerlySerializedAsAttribute("m_Highlight")]
+[RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Gloss factor for shiny effect.")]
+private float m_Gloss;
+    [HeaderAttribute("Advanced Option")]
+[SerializeField]
+[TooltipAttribute("The area for effect.")]
+protected EffectArea m_EffectArea;
+    public float effectFactor { get; public set; }
+    public float width { get; public set; }
+    public float softness { get; public set; }
+    public float brightness { get; public set; }
+    public float gloss { get; public set; }
+    public float rotation { get; public set; }
+    public EffectArea effectArea { get; public set; }
+    public ParameterTexture paramTex { get; }
+    private static UIShiny();
+    public float get_effectFactor();
+    public void set_effectFactor(float value);
+    public float get_width();
+    public void set_width(float value);
+    public float get_softness();
+    public void set_softness(float value);
+    public float get_brightness();
+    public void set_brightness(float value);
+    public float get_gloss();
+    public void set_gloss(float value);
+    public float get_rotation();
+    public void set_rotation(float value);
+    public EffectArea get_effectArea();
+    public void set_effectArea(EffectArea value);
+    public virtual ParameterTexture get_paramTex();
+    public virtual Hash128 GetMaterialHash(Material material);
+    public virtual void ModifyMaterial(Material newMaterial, Graphic graphic);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+    protected virtual void SetEffectParamsDirty();
+    protected virtual void SetVerticesDirty();
+    protected virtual void OnDidApplyAnimationProperties();
+}
+[ExecuteAlways]
+public class Coffee.UIEffects.UISyncEffect : BaseMaterialEffect {
+    [SerializeField]
+[TooltipAttribute("The target effect to synchronize.")]
+private BaseMeshEffect m_TargetEffect;
+    public BaseMeshEffect targetEffect { get; public set; }
+    public BaseMeshEffect get_targetEffect();
+    public void set_targetEffect(BaseMeshEffect value);
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    public virtual Hash128 GetMaterialHash(Material baseMaterial);
+    public virtual void ModifyMaterial(Material newMaterial, Graphic graphic);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+}
+[AddComponentMenu("UI/UIEffects/UITransitionEffect", "5")]
+public class Coffee.UIEffects.UITransitionEffect : BaseMaterialEffect {
+    private static UInt32 k_ShaderId;
+    private static int k_TransitionTexId;
+    private static ParameterTexture s_ParamTex;
+    private bool _lastKeepAspectRatio;
+    private static Texture _defaultTransitionTexture;
+    [SerializeField]
+[TooltipAttribute("Effect mode.")]
+private EffectMode m_EffectMode;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Effect factor between 0(hidden) and 1(shown).")]
+private float m_EffectFactor;
+    [SerializeField]
+[TooltipAttribute("Transition texture (single channel texture).")]
+private Texture m_TransitionTexture;
+    [HeaderAttribute("Advanced Option")]
+[SerializeField]
+[TooltipAttribute("The area for effect.")]
+private EffectArea m_EffectArea;
+    [SerializeField]
+[TooltipAttribute("Keep effect aspect ratio.")]
+private bool m_KeepAspectRatio;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Dissolve edge width.")]
+private float m_DissolveWidth;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+[TooltipAttribute("Dissolve edge softness.")]
+private float m_DissolveSoftness;
+    [ColorUsageAttribute("False")]
+[SerializeField]
+[TooltipAttribute("Dissolve edge color.")]
+private Color m_DissolveColor;
+    [SerializeField]
+[TooltipAttribute("Disable the graphic's raycast target on hidden.")]
+private bool m_PassRayOnHidden;
+    public float effectFactor { get; public set; }
+    public Texture transitionTexture { get; public set; }
+    private static Texture defaultTransitionTexture { get; }
+    public EffectMode effectMode { get; public set; }
+    public bool keepAspectRatio { get; public set; }
+    public ParameterTexture paramTex { get; }
+    public float dissolveWidth { get; public set; }
+    public float dissolveSoftness { get; public set; }
+    public Color dissolveColor { get; public set; }
+    public bool passRayOnHidden { get; public set; }
+    private static UITransitionEffect();
+    public float get_effectFactor();
+    public void set_effectFactor(float value);
+    public Texture get_transitionTexture();
+    public void set_transitionTexture(Texture value);
+    private static Texture get_defaultTransitionTexture();
+    public EffectMode get_effectMode();
+    public void set_effectMode(EffectMode value);
+    public bool get_keepAspectRatio();
+    public void set_keepAspectRatio(bool value);
+    public virtual ParameterTexture get_paramTex();
+    public float get_dissolveWidth();
+    public void set_dissolveWidth(float value);
+    public float get_dissolveSoftness();
+    public void set_dissolveSoftness(float value);
+    public Color get_dissolveColor();
+    public void set_dissolveColor(Color value);
+    public bool get_passRayOnHidden();
+    public void set_passRayOnHidden(bool value);
+    public virtual Hash128 GetMaterialHash(Material material);
+    public virtual void ModifyMaterial(Material newMaterial, Graphic graphic);
+    public virtual void ModifyMesh(VertexHelper vh, Graphic graphic);
+    protected virtual void SetEffectParamsDirty();
+    protected virtual void SetVerticesDirty();
+    protected virtual void OnDidApplyAnimationProperties();
+}
+public static class Packer : object {
+    public static float ToFloat(float x, float y, float z, float w);
+    public static float ToFloat(Vector4 factor);
+    public static float ToFloat(float x, float y, float z);
+    public static float ToFloat(float x, float y);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

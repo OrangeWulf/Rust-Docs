@@ -1,0 +1,1093 @@
+Сборка: UnityEngine.UNETModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.NetworkTransport
+Наследуется от: object
+Поля:
+  int s_nextSceneId
+Свойства:
+  bool IsStarted
+Методы:
+  bool DoesEndPointUsePlatformProtocols(EndPoint endPoint)
+  int ConnectEndPoint(int hostId, EndPoint endPoint, int exceptionConnectionId, Byte& error)
+  void .ctor()
+  void Init()
+  void Init(GlobalConfig config)
+  void InitializeClass()
+  void InitializeClassWithConfig(GlobalConfigInternal config)
+  void Shutdown()
+  string GetAssetId(GameObject go)
+  void AddSceneId(int id)
+  int GetNextSceneId()
+  int AddHostWithSimulator(HostTopology topology, int minTimeout, int maxTimeout, int port, string ip)
+  int AddHostWithSimulator(HostTopology topology, int minTimeout, int maxTimeout, int port)
+  int AddHostWithSimulator(HostTopology topology, int minTimeout, int maxTimeout)
+  int AddHost(HostTopology topology, int port, string ip)
+  int AddHost(HostTopology topology, int port)
+  int AddHost(HostTopology topology)
+  int AddHostInternal(HostTopologyInternal topologyInt, string ip, int port, int minTimeout, int maxTimeout)
+  int AddWebsocketHost(HostTopology topology, int port, string ip)
+  int AddWebsocketHost(HostTopology topology, int port)
+  int AddWsHostInternal(HostTopologyInternal topologyInt, string ip, int port)
+  bool IsPortOpen(string ip, int port)
+  void ConnectAsNetworkHost(int hostId, string address, int port, NetworkID network, SourceID source, NodeID node, Byte& error)
+  void ConnectAsNetworkHostInternal(int hostId, string address, int port, ulong network, ulong source, ushort node, Byte& error)
+  void DisconnectNetworkHost(int hostId, Byte& error)
+  NetworkEventType ReceiveRelayEventFromHost(int hostId, Byte& error)
+  int ReceiveRelayEventFromHostInternal(int hostId, Byte& error)
+  int ConnectToNetworkPeer(int hostId, string address, int port, int exceptionConnectionId, int relaySlotId, NetworkID network, SourceID source, NodeID node, int bytesPerSec, float bucketSizeFactor, Byte& error)
+  int ConnectToNetworkPeer(int hostId, string address, int port, int exceptionConnectionId, int relaySlotId, NetworkID network, SourceID source, NodeID node, Byte& error)
+  int ConnectToNetworkPeerInternal(int hostId, string address, int port, int exceptionConnectionId, int relaySlotId, ulong network, ulong source, ushort node, int bytesPerSec, float bucketSizeFactor, Byte& error)
+  int GetCurrentIncomingMessageAmount()
+  int GetCurrentOutgoingMessageAmount()
+  int GetIncomingMessageQueueSize(int hostId, Byte& error)
+  int GetOutgoingMessageQueueSize(int hostId, Byte& error)
+  int GetCurrentRTT(int hostId, int connectionId, Byte& error)
+  int GetCurrentRtt(int hostId, int connectionId, Byte& error)
+  int GetIncomingPacketLossCount(int hostId, int connectionId, Byte& error)
+  int GetNetworkLostPacketNum(int hostId, int connectionId, Byte& error)
+  int GetIncomingPacketCount(int hostId, int connectionId, Byte& error)
+  int GetOutgoingPacketNetworkLossPercent(int hostId, int connectionId, Byte& error)
+  int GetOutgoingPacketOverflowLossPercent(int hostId, int connectionId, Byte& error)
+  int GetMaxAllowedBandwidth(int hostId, int connectionId, Byte& error)
+  int GetAckBufferCount(int hostId, int connectionId, Byte& error)
+  int GetIncomingPacketDropCountForAllHosts()
+  int GetIncomingPacketCountForAllHosts()
+  int GetOutgoingPacketCount()
+  int GetOutgoingPacketCountForHost(int hostId, Byte& error)
+  int GetOutgoingPacketCountForConnection(int hostId, int connectionId, Byte& error)
+  int GetOutgoingMessageCount()
+  int GetOutgoingMessageCountForHost(int hostId, Byte& error)
+  int GetOutgoingMessageCountForConnection(int hostId, int connectionId, Byte& error)
+  int GetOutgoingUserBytesCount()
+  int GetOutgoingUserBytesCountForHost(int hostId, Byte& error)
+  int GetOutgoingUserBytesCountForConnection(int hostId, int connectionId, Byte& error)
+  int GetOutgoingSystemBytesCount()
+  int GetOutgoingSystemBytesCountForHost(int hostId, Byte& error)
+  int GetOutgoingSystemBytesCountForConnection(int hostId, int connectionId, Byte& error)
+  int GetOutgoingFullBytesCount()
+  int GetOutgoingFullBytesCountForHost(int hostId, Byte& error)
+  int GetOutgoingFullBytesCountForConnection(int hostId, int connectionId, Byte& error)
+  int GetPacketSentRate(int hostId, int connectionId, Byte& error)
+  int GetPacketReceivedRate(int hostId, int connectionId, Byte& error)
+  int GetRemotePacketReceivedRate(int hostId, int connectionId, Byte& error)
+  int GetNetIOTimeuS()
+  string GetConnectionInfo(int hostId, int connectionId, Int32& port, UInt64& network, UInt16& dstNode, Byte& error)
+  void GetConnectionInfo(int hostId, int connectionId, String& address, Int32& port, NetworkID& network, NodeID& dstNode, Byte& error)
+  int GetNetworkTimestamp()
+  int GetRemoteDelayTimeMS(int hostId, int connectionId, int remoteTime, Byte& error)
+  bool StartSendMulticast(int hostId, int channelId, Byte[] buffer, int size, Byte& error)
+  bool StartSendMulticastInternal(int hostId, int channelId, Byte[] buffer, int size, Byte& error)
+  bool SendMulticast(int hostId, int connectionId, Byte& error)
+  bool FinishSendMulticast(int hostId, Byte& error)
+  int GetMaxPacketSize()
+  bool RemoveHost(int hostId)
+  bool get_IsStarted()
+  bool IsStartedInternal()
+  int Connect(int hostId, string address, int port, int exeptionConnectionId, Byte& error)
+  int ConnectWithSimulatorInternal(int hostId, string address, int port, int exeptionConnectionId, Byte& error, ConnectionSimulatorConfigInternal conf)
+  int ConnectWithSimulator(int hostId, string address, int port, int exeptionConnectionId, Byte& error, ConnectionSimulatorConfig conf)
+  bool Disconnect(int hostId, int connectionId, Byte& error)
+  int Internal_ConnectEndPoint(int hostId, Byte[] sockAddrStorage, int sockAddrStorageLen, int exceptionConnectionId, Byte& error)
+  bool Send(int hostId, int connectionId, int channelId, Byte[] buffer, int size, Byte& error)
+  bool SendWrapper(int hostId, int connectionId, int channelId, Byte[] buffer, int size, Byte& error)
+  bool QueueMessageForSending(int hostId, int connectionId, int channelId, Byte[] buffer, int size, Byte& error)
+  bool QueueMessageForSendingWrapper(int hostId, int connectionId, int channelId, Byte[] buffer, int size, Byte& error)
+  bool SendQueuedMessages(int hostId, int connectionId, Byte& error)
+  NetworkEventType Receive(Int32& hostId, Int32& connectionId, Int32& channelId, Byte[] buffer, int bufferSize, Int32& receivedSize, Byte& error)
+  int PopData(Int32& hostId, Int32& connectionId, Int32& channelId, Byte[] buffer, int bufferSize, Int32& receivedSize, Byte& error)
+  NetworkEventType ReceiveFromHost(int hostId, Int32& connectionId, Int32& channelId, Byte[] buffer, int bufferSize, Int32& receivedSize, Byte& error)
+  int PopDataFromHost(int hostId, Int32& connectionId, Int32& channelId, Byte[] buffer, int bufferSize, Int32& receivedSize, Byte& error)
+  void SetPacketStat(int direction, int packetStatId, int numMsgs, int numBytes)
+  void SetNetworkEventAvailableCallback(Action`1<int> callback)
+  void Cleanup()
+  void SetConnectionReadyForSendCallback(Action`2<int, int> callback)
+  bool NotifyWhenConnectionReadyForSend(int hostId, int connectionId, int notificationLevel, Byte& error)
+  int GetHostPort(int hostId)
+  bool StartBroadcastDiscoveryWithData(int hostId, int broadcastPort, int key, int version, int subversion, Byte[] buffer, int size, int timeout, Byte& error)
+  bool StartBroadcastDiscoveryWithoutData(int hostId, int broadcastPort, int key, int version, int subversion, int timeout, Byte& error)
+  bool StartBroadcastDiscovery(int hostId, int broadcastPort, int key, int version, int subversion, Byte[] buffer, int size, int timeout, Byte& error)
+  void StopBroadcastDiscovery()
+  bool IsBroadcastDiscoveryRunning()
+  void SetBroadcastCredentials(int hostId, int key, int version, int subversion, Byte& error)
+  string GetBroadcastConnectionInfo(int hostId, Int32& port, Byte& error)
+  void GetBroadcastConnectionInfo(int hostId, String& address, Int32& port, Byte& error)
+  void GetBroadcastConnectionMessage(int hostId, Byte[] buffer, int bufferSize, Int32& receivedSize, Byte& error)
+  void SetMulticastLock(bool enabled)
+  void GetBroadcastConnectionMessageInternal(int hostId, Byte[] buffer, int bufferSize, Int32& receivedSize, Byte& error)
+  void CheckTopology(HostTopology topology)
+  bool LoadEncryptionLibraryInternal(string libraryName)
+  bool LoadEncryptionLibrary(string libraryName)
+  void UnloadEncryptionLibraryInternal()
+  void UnloadEncryptionLibrary()
+  bool IsEncryptionActiveInternal()
+  bool IsEncryptionActive()
+  short GetEncryptionSafeMaxPacketSizeInternal(short maxPacketSize)
+  short GetEncryptionSafeMaxPacketSize(short maxPacketSize)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.NetworkEventType
+Наследуется от: Enum
+Поля:
+  int value__
+  NetworkEventType DataEvent
+  NetworkEventType ConnectEvent
+  NetworkEventType DisconnectEvent
+  NetworkEventType Nothing
+  NetworkEventType BroadcastEvent
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.QosType
+Наследуется от: Enum
+Поля:
+  int value__
+  QosType Unreliable
+  QosType UnreliableFragmented
+  QosType UnreliableSequenced
+  QosType Reliable
+  QosType ReliableFragmented
+  QosType ReliableSequenced
+  QosType StateUpdate
+  QosType ReliableStateUpdate
+  QosType AllCostDelivery
+  QosType UnreliableFragmentedSequenced
+  QosType ReliableFragmentedSequenced
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.NetworkError
+Наследуется от: Enum
+Поля:
+  int value__
+  NetworkError Ok
+  NetworkError WrongHost
+  NetworkError WrongConnection
+  NetworkError WrongChannel
+  NetworkError NoResources
+  NetworkError BadMessage
+  NetworkError Timeout
+  NetworkError MessageToLong
+  NetworkError WrongOperation
+  NetworkError VersionMismatch
+  NetworkError CRCMismatch
+  NetworkError DNSFailure
+  NetworkError UsageError
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.ReactorModel
+Наследуется от: Enum
+Поля:
+  int value__
+  ReactorModel SelectReactor
+  ReactorModel FixRateReactor
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.ConnectionAcksType
+Наследуется от: Enum
+Поля:
+  int value__
+  ConnectionAcksType Acks32
+  ConnectionAcksType Acks64
+  ConnectionAcksType Acks96
+  ConnectionAcksType Acks128
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.ChannelQOS
+Наследуется от: object
+Поля:
+  QosType m_Type
+  bool m_BelongsSharedOrderChannel
+Свойства:
+  QosType QOS
+  bool BelongsToSharedOrderChannel
+Методы:
+  void .ctor(QosType value)
+  void .ctor()
+  void .ctor(ChannelQOS channel)
+  QosType get_QOS()
+  bool get_BelongsToSharedOrderChannel()
+--------------------------------------------------
+Класс: UnityEngine.Networking.ConnectionConfig
+Наследуется от: object
+Поля:
+  int g_MinPacketSize
+  ushort m_PacketSize
+  ushort m_FragmentSize
+  UInt32 m_ResendTimeout
+  UInt32 m_DisconnectTimeout
+  UInt32 m_ConnectTimeout
+  UInt32 m_MinUpdateTimeout
+  UInt32 m_PingTimeout
+  UInt32 m_ReducedPingTimeout
+  UInt32 m_AllCostTimeout
+  byte m_NetworkDropThreshold
+  byte m_OverflowDropThreshold
+  byte m_MaxConnectionAttempt
+  UInt32 m_AckDelay
+  UInt32 m_SendDelay
+  ushort m_MaxCombinedReliableMessageSize
+  ushort m_MaxCombinedReliableMessageCount
+  ushort m_MaxSentMessageQueueSize
+  ConnectionAcksType m_AcksType
+  bool m_UsePlatformSpecificProtocols
+  UInt32 m_InitialBandwidth
+  float m_BandwidthPeakFactor
+  ushort m_WebSocketReceiveBufferMaxSize
+  UInt32 m_UdpSocketReceiveBufferMaxSize
+  string m_SSLCertFilePath
+  string m_SSLPrivateKeyFilePath
+  string m_SSLCAFilePath
+  List`1<ChannelQOS> m_Channels
+  List`1<List`1<byte>> m_SharedOrderChannels
+Свойства:
+  ushort PacketSize
+  ushort FragmentSize
+  UInt32 ResendTimeout
+  UInt32 DisconnectTimeout
+  UInt32 ConnectTimeout
+  UInt32 MinUpdateTimeout
+  UInt32 PingTimeout
+  UInt32 ReducedPingTimeout
+  UInt32 AllCostTimeout
+  byte NetworkDropThreshold
+  byte OverflowDropThreshold
+  byte MaxConnectionAttempt
+  UInt32 AckDelay
+  UInt32 SendDelay
+  ushort MaxCombinedReliableMessageSize
+  ushort MaxCombinedReliableMessageCount
+  ushort MaxSentMessageQueueSize
+  ConnectionAcksType AcksType
+  bool IsAcksLong
+  bool UsePlatformSpecificProtocols
+  UInt32 InitialBandwidth
+  float BandwidthPeakFactor
+  ushort WebSocketReceiveBufferMaxSize
+  UInt32 UdpSocketReceiveBufferMaxSize
+  string SSLCertFilePath
+  string SSLPrivateKeyFilePath
+  string SSLCAFilePath
+  int ChannelCount
+  int SharedOrderChannelCount
+  List`1<ChannelQOS> Channels
+Методы:
+  void .ctor()
+  void .ctor(ConnectionConfig config)
+  void Validate(ConnectionConfig config)
+  ushort get_PacketSize()
+  void set_PacketSize(ushort value)
+  ushort get_FragmentSize()
+  void set_FragmentSize(ushort value)
+  UInt32 get_ResendTimeout()
+  void set_ResendTimeout(UInt32 value)
+  UInt32 get_DisconnectTimeout()
+  void set_DisconnectTimeout(UInt32 value)
+  UInt32 get_ConnectTimeout()
+  void set_ConnectTimeout(UInt32 value)
+  UInt32 get_MinUpdateTimeout()
+  void set_MinUpdateTimeout(UInt32 value)
+  UInt32 get_PingTimeout()
+  void set_PingTimeout(UInt32 value)
+  UInt32 get_ReducedPingTimeout()
+  void set_ReducedPingTimeout(UInt32 value)
+  UInt32 get_AllCostTimeout()
+  void set_AllCostTimeout(UInt32 value)
+  byte get_NetworkDropThreshold()
+  void set_NetworkDropThreshold(byte value)
+  byte get_OverflowDropThreshold()
+  void set_OverflowDropThreshold(byte value)
+  byte get_MaxConnectionAttempt()
+  void set_MaxConnectionAttempt(byte value)
+  UInt32 get_AckDelay()
+  void set_AckDelay(UInt32 value)
+  UInt32 get_SendDelay()
+  void set_SendDelay(UInt32 value)
+  ushort get_MaxCombinedReliableMessageSize()
+  void set_MaxCombinedReliableMessageSize(ushort value)
+  ushort get_MaxCombinedReliableMessageCount()
+  void set_MaxCombinedReliableMessageCount(ushort value)
+  ushort get_MaxSentMessageQueueSize()
+  void set_MaxSentMessageQueueSize(ushort value)
+  ConnectionAcksType get_AcksType()
+  void set_AcksType(ConnectionAcksType value)
+  bool get_IsAcksLong()
+  void set_IsAcksLong(bool value)
+  bool get_UsePlatformSpecificProtocols()
+  void set_UsePlatformSpecificProtocols(bool value)
+  UInt32 get_InitialBandwidth()
+  void set_InitialBandwidth(UInt32 value)
+  float get_BandwidthPeakFactor()
+  void set_BandwidthPeakFactor(float value)
+  ushort get_WebSocketReceiveBufferMaxSize()
+  void set_WebSocketReceiveBufferMaxSize(ushort value)
+  UInt32 get_UdpSocketReceiveBufferMaxSize()
+  void set_UdpSocketReceiveBufferMaxSize(UInt32 value)
+  string get_SSLCertFilePath()
+  void set_SSLCertFilePath(string value)
+  string get_SSLPrivateKeyFilePath()
+  void set_SSLPrivateKeyFilePath(string value)
+  string get_SSLCAFilePath()
+  void set_SSLCAFilePath(string value)
+  int get_ChannelCount()
+  int get_SharedOrderChannelCount()
+  byte AddChannel(QosType value)
+  void MakeChannelsSharedOrder(List`1<byte> channelIndices)
+  QosType GetChannel(byte idx)
+  IList`1<byte> GetSharedOrderChannels(byte idx)
+  List`1<ChannelQOS> get_Channels()
+--------------------------------------------------
+Класс: UnityEngine.Networking.HostTopology
+Наследуется от: object
+Поля:
+  ConnectionConfig m_DefConfig
+  int m_MaxDefConnections
+  List`1<ConnectionConfig> m_SpecialConnections
+  ushort m_ReceivedMessagePoolSize
+  ushort m_SentMessagePoolSize
+  float m_MessagePoolSizeGrowthFactor
+Свойства:
+  ConnectionConfig DefaultConfig
+  int MaxDefaultConnections
+  int SpecialConnectionConfigsCount
+  List`1<ConnectionConfig> SpecialConnectionConfigs
+  ushort ReceivedMessagePoolSize
+  ushort SentMessagePoolSize
+  float MessagePoolSizeGrowthFactor
+Методы:
+  void .ctor(ConnectionConfig defaultConfig, int maxDefaultConnections)
+  void .ctor()
+  ConnectionConfig get_DefaultConfig()
+  int get_MaxDefaultConnections()
+  int get_SpecialConnectionConfigsCount()
+  List`1<ConnectionConfig> get_SpecialConnectionConfigs()
+  ConnectionConfig GetSpecialConnectionConfig(int i)
+  ushort get_ReceivedMessagePoolSize()
+  void set_ReceivedMessagePoolSize(ushort value)
+  ushort get_SentMessagePoolSize()
+  void set_SentMessagePoolSize(ushort value)
+  float get_MessagePoolSizeGrowthFactor()
+  void set_MessagePoolSizeGrowthFactor(float value)
+  int AddSpecialConnectionConfig(ConnectionConfig config)
+--------------------------------------------------
+Класс: UnityEngine.Networking.GlobalConfig
+Наследуется от: object
+Поля:
+  UInt32 g_MaxTimerTimeout
+  UInt32 g_MaxNetSimulatorTimeout
+  ushort g_MaxHosts
+  UInt32 m_ThreadAwakeTimeout
+  ReactorModel m_ReactorModel
+  ushort m_ReactorMaximumReceivedMessages
+  ushort m_ReactorMaximumSentMessages
+  ushort m_MaxPacketSize
+  ushort m_MaxHosts
+  byte m_ThreadPoolSize
+  UInt32 m_MinTimerTimeout
+  UInt32 m_MaxTimerTimeout
+  UInt32 m_MinNetSimulatorTimeout
+  UInt32 m_MaxNetSimulatorTimeout
+  Action`2<int, int> m_ConnectionReadyForSend
+  Action`1<int> m_NetworkEventAvailable
+Свойства:
+  UInt32 ThreadAwakeTimeout
+  ReactorModel ReactorModel
+  ushort ReactorMaximumReceivedMessages
+  ushort ReactorMaximumSentMessages
+  ushort MaxPacketSize
+  ushort MaxHosts
+  byte ThreadPoolSize
+  UInt32 MinTimerTimeout
+  UInt32 MaxTimerTimeout
+  UInt32 MinNetSimulatorTimeout
+  UInt32 MaxNetSimulatorTimeout
+  Action`1<int> NetworkEventAvailable
+  Action`2<int, int> ConnectionReadyForSend
+Методы:
+  void .ctor()
+  UInt32 get_ThreadAwakeTimeout()
+  void set_ThreadAwakeTimeout(UInt32 value)
+  ReactorModel get_ReactorModel()
+  void set_ReactorModel(ReactorModel value)
+  ushort get_ReactorMaximumReceivedMessages()
+  void set_ReactorMaximumReceivedMessages(ushort value)
+  ushort get_ReactorMaximumSentMessages()
+  void set_ReactorMaximumSentMessages(ushort value)
+  ushort get_MaxPacketSize()
+  void set_MaxPacketSize(ushort value)
+  ushort get_MaxHosts()
+  void set_MaxHosts(ushort value)
+  byte get_ThreadPoolSize()
+  void set_ThreadPoolSize(byte value)
+  UInt32 get_MinTimerTimeout()
+  void set_MinTimerTimeout(UInt32 value)
+  UInt32 get_MaxTimerTimeout()
+  void set_MaxTimerTimeout(UInt32 value)
+  UInt32 get_MinNetSimulatorTimeout()
+  void set_MinNetSimulatorTimeout(UInt32 value)
+  UInt32 get_MaxNetSimulatorTimeout()
+  void set_MaxNetSimulatorTimeout(UInt32 value)
+  Action`1<int> get_NetworkEventAvailable()
+  void set_NetworkEventAvailable(Action`1<int> value)
+  Action`2<int, int> get_ConnectionReadyForSend()
+  void set_ConnectionReadyForSend(Action`2<int, int> value)
+--------------------------------------------------
+Класс: UnityEngine.Networking.ConnectionSimulatorConfig
+Наследуется от: object
+Поля:
+  int m_OutMinDelay
+  int m_OutAvgDelay
+  int m_InMinDelay
+  int m_InAvgDelay
+  float m_PacketLossPercentage
+Свойства:
+Методы:
+  void .ctor(int outMinDelay, int outAvgDelay, int inMinDelay, int inAvgDelay, float packetLossPercentage)
+  void Dispose()
+  void Finalize()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Utility
+Наследуется от: object
+Поля:
+  Dictionary`2<NetworkID, NetworkAccessToken> s_dictTokens
+Свойства:
+  bool useRandomSourceID
+Методы:
+  bool get_useRandomSourceID()
+  void set_useRandomSourceID(bool value)
+  void .ctor()
+  SourceID GetSourceID()
+  void SetAppID(AppID newAppID)
+  AppID GetAppID()
+  void SetAccessTokenForNetwork(NetworkID netId, NetworkAccessToken accessToken)
+  NetworkAccessToken GetAccessTokenForNetwork(NetworkID netId)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.ConnectionConfigInternal
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+  ushort FragmentSize
+  UInt32 ResendTimeout
+  UInt32 DisconnectTimeout
+  UInt32 ConnectTimeout
+  UInt32 MinUpdateTimeout
+  UInt32 PingTimeout
+  UInt32 ReducedPingTimeout
+  UInt32 AllCostTimeout
+  byte NetworkDropThreshold
+  byte OverflowDropThreshold
+  byte MaxConnectionAttempt
+  UInt32 AckDelay
+  UInt32 SendDelay
+  ushort MaxCombinedReliableMessageSize
+  ushort MaxCombinedReliableMessageCount
+  ushort MaxSentMessageQueueSize
+  byte AcksType
+  bool UsePlatformSpecificProtocols
+  UInt32 InitialBandwidth
+  float BandwidthPeakFactor
+  ushort WebSocketReceiveBufferMaxSize
+  UInt32 UdpSocketReceiveBufferMaxSize
+Методы:
+  void .ctor(ConnectionConfig config)
+  void Dispose(bool disposing)
+  void Finalize()
+  void Dispose()
+  IntPtr InternalCreate()
+  void InternalDestroy(IntPtr ptr)
+  byte AddChannel(int value)
+  bool SetPacketSize(ushort value)
+  void set_FragmentSize(ushort value)
+  void set_ResendTimeout(UInt32 value)
+  void set_DisconnectTimeout(UInt32 value)
+  void set_ConnectTimeout(UInt32 value)
+  void set_MinUpdateTimeout(UInt32 value)
+  void set_PingTimeout(UInt32 value)
+  void set_ReducedPingTimeout(UInt32 value)
+  void set_AllCostTimeout(UInt32 value)
+  void set_NetworkDropThreshold(byte value)
+  void set_OverflowDropThreshold(byte value)
+  void set_MaxConnectionAttempt(byte value)
+  void set_AckDelay(UInt32 value)
+  void set_SendDelay(UInt32 value)
+  void set_MaxCombinedReliableMessageSize(ushort value)
+  void set_MaxCombinedReliableMessageCount(ushort value)
+  void set_MaxSentMessageQueueSize(ushort value)
+  void set_AcksType(byte value)
+  void set_UsePlatformSpecificProtocols(bool value)
+  void set_InitialBandwidth(UInt32 value)
+  void set_BandwidthPeakFactor(float value)
+  void set_WebSocketReceiveBufferMaxSize(ushort value)
+  void set_UdpSocketReceiveBufferMaxSize(UInt32 value)
+  int SetSSLCertFilePath(string value)
+  int SetSSLPrivateKeyFilePath(string value)
+  int SetSSLCAFilePath(string value)
+  bool MakeChannelsSharedOrder(Byte[] values)
+--------------------------------------------------
+Класс: UnityEngine.Networking.HostTopologyInternal
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+  ushort ReceivedMessagePoolSize
+  ushort SentMessagePoolSize
+  float MessagePoolSizeGrowthFactor
+Методы:
+  void .ctor(HostTopology topology)
+  void Dispose(bool disposing)
+  void Finalize()
+  void Dispose()
+  IntPtr InternalCreate(ConnectionConfigInternal config, int maxDefaultConnections)
+  void InternalDestroy(IntPtr ptr)
+  ushort AddSpecialConnectionConfig(ConnectionConfigInternal config)
+  void set_ReceivedMessagePoolSize(ushort value)
+  void set_SentMessagePoolSize(ushort value)
+  void set_MessagePoolSizeGrowthFactor(float value)
+--------------------------------------------------
+Класс: UnityEngine.Networking.ConnectionSimulatorConfigInternal
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+Методы:
+  void .ctor(ConnectionSimulatorConfig config)
+  void Dispose(bool disposing)
+  void Finalize()
+  void Dispose()
+  IntPtr InternalCreate(int outMinDelay, int outAvgDelay, int inMinDelay, int inAvgDelay, float packetLossPercentage)
+  void InternalDestroy(IntPtr ptr)
+--------------------------------------------------
+Класс: UnityEngine.Networking.GlobalConfigInternal
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+  UInt32 ThreadAwakeTimeout
+  byte ReactorModel
+  ushort ReactorMaximumReceivedMessages
+  ushort ReactorMaximumSentMessages
+  ushort MaxPacketSize
+  ushort MaxHosts
+  byte ThreadPoolSize
+  UInt32 MinTimerTimeout
+  UInt32 MaxTimerTimeout
+  UInt32 MinNetSimulatorTimeout
+  UInt32 MaxNetSimulatorTimeout
+Методы:
+  void .ctor(GlobalConfig config)
+  void Dispose(bool disposing)
+  void Finalize()
+  void Dispose()
+  IntPtr InternalCreate()
+  void InternalDestroy(IntPtr ptr)
+  void set_ThreadAwakeTimeout(UInt32 value)
+  void set_ReactorModel(byte value)
+  void set_ReactorMaximumReceivedMessages(ushort value)
+  void set_ReactorMaximumSentMessages(ushort value)
+  void set_MaxPacketSize(ushort value)
+  void set_MaxHosts(ushort value)
+  void set_ThreadPoolSize(byte value)
+  void set_MinTimerTimeout(UInt32 value)
+  void set_MaxTimerTimeout(UInt32 value)
+  void set_MinNetSimulatorTimeout(UInt32 value)
+  void set_MaxNetSimulatorTimeout(UInt32 value)
+--------------------------------------------------
+Класс: UnityEngine.Networking.Types.NetworkAccessLevel
+Наследуется от: Enum
+Поля:
+  ulong value__
+  NetworkAccessLevel Invalid
+  NetworkAccessLevel User
+  NetworkAccessLevel Owner
+  NetworkAccessLevel Admin
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.Types.AppID
+Наследуется от: Enum
+Поля:
+  ulong value__
+  AppID Invalid
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.Types.SourceID
+Наследуется от: Enum
+Поля:
+  ulong value__
+  SourceID Invalid
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.Types.NetworkID
+Наследуется от: Enum
+Поля:
+  ulong value__
+  NetworkID Invalid
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.Types.NodeID
+Наследуется от: Enum
+Поля:
+  ushort value__
+  NodeID Invalid
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.Types.HostPriority
+Наследуется от: Enum
+Поля:
+  int value__
+  HostPriority Invalid
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Networking.Types.NetworkAccessToken
+Наследуется от: object
+Поля:
+  int NETWORK_ACCESS_TOKEN_SIZE
+  Byte[] array
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(Byte[] array)
+  void .ctor(string strArray)
+  string GetByteString()
+  bool IsValid()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.MatchInfo
+Наследуется от: object
+Поля:
+  string <address>k__BackingField
+  int <port>k__BackingField
+  int <domain>k__BackingField
+  NetworkID <networkId>k__BackingField
+  NetworkAccessToken <accessToken>k__BackingField
+  NodeID <nodeId>k__BackingField
+  bool <usingRelay>k__BackingField
+Свойства:
+  string address
+  int port
+  int domain
+  NetworkID networkId
+  NetworkAccessToken accessToken
+  NodeID nodeId
+  bool usingRelay
+Методы:
+  string get_address()
+  void set_address(string value)
+  int get_port()
+  void set_port(int value)
+  int get_domain()
+  void set_domain(int value)
+  NetworkID get_networkId()
+  void set_networkId(NetworkID value)
+  NetworkAccessToken get_accessToken()
+  void set_accessToken(NetworkAccessToken value)
+  NodeID get_nodeId()
+  void set_nodeId(NodeID value)
+  bool get_usingRelay()
+  void set_usingRelay(bool value)
+  void .ctor()
+  void .ctor(CreateMatchResponse matchResponse)
+  void .ctor(JoinMatchResponse matchResponse)
+  string ToString()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.MatchInfoSnapshot
+Наследуется от: object
+Поля:
+  NetworkID <networkId>k__BackingField
+  NodeID <hostNodeId>k__BackingField
+  string <name>k__BackingField
+  int <averageEloScore>k__BackingField
+  int <maxSize>k__BackingField
+  int <currentSize>k__BackingField
+  bool <isPrivate>k__BackingField
+  Dictionary`2<string, long> <matchAttributes>k__BackingField
+  List`1<MatchInfoDirectConnectSnapshot> <directConnectInfos>k__BackingField
+Свойства:
+  NetworkID networkId
+  NodeID hostNodeId
+  string name
+  int averageEloScore
+  int maxSize
+  int currentSize
+  bool isPrivate
+  Dictionary`2<string, long> matchAttributes
+  List`1<MatchInfoDirectConnectSnapshot> directConnectInfos
+Методы:
+  NetworkID get_networkId()
+  void set_networkId(NetworkID value)
+  NodeID get_hostNodeId()
+  void set_hostNodeId(NodeID value)
+  string get_name()
+  void set_name(string value)
+  int get_averageEloScore()
+  void set_averageEloScore(int value)
+  int get_maxSize()
+  void set_maxSize(int value)
+  int get_currentSize()
+  void set_currentSize(int value)
+  bool get_isPrivate()
+  void set_isPrivate(bool value)
+  Dictionary`2<string, long> get_matchAttributes()
+  void set_matchAttributes(Dictionary`2<string, long> value)
+  List`1<MatchInfoDirectConnectSnapshot> get_directConnectInfos()
+  void set_directConnectInfos(List`1<MatchInfoDirectConnectSnapshot> value)
+  void .ctor()
+  void .ctor(MatchDesc matchDesc)
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.NetworkMatch
+Наследуется от: MonoBehaviour
+Поля:
+  Uri m_BaseUri
+Свойства:
+  Uri baseUri
+Методы:
+  Uri get_baseUri()
+  void set_baseUri(Uri value)
+  void SetProgramAppID(AppID programAppID)
+  Coroutine CreateMatch(string matchName, UInt32 matchSize, bool matchAdvertise, string matchPassword, string publicClientAddress, string privateClientAddress, int eloScoreForMatch, int requestDomain, DataResponseDelegate`1<MatchInfo> callback)
+  Coroutine CreateMatch(CreateMatchRequest req, DataResponseDelegate`1<MatchInfo> callback)
+  void OnMatchCreate(CreateMatchResponse response, DataResponseDelegate`1<MatchInfo> userCallback)
+  Coroutine JoinMatch(NetworkID netId, string matchPassword, string publicClientAddress, string privateClientAddress, int eloScoreForClient, int requestDomain, DataResponseDelegate`1<MatchInfo> callback)
+  Coroutine JoinMatch(JoinMatchRequest req, DataResponseDelegate`1<MatchInfo> callback)
+  void OnMatchJoined(JoinMatchResponse response, DataResponseDelegate`1<MatchInfo> userCallback)
+  Coroutine DestroyMatch(NetworkID netId, int requestDomain, BasicResponseDelegate callback)
+  Coroutine DestroyMatch(DestroyMatchRequest req, BasicResponseDelegate callback)
+  void OnMatchDestroyed(BasicResponse response, BasicResponseDelegate userCallback)
+  Coroutine DropConnection(NetworkID netId, NodeID dropNodeId, int requestDomain, BasicResponseDelegate callback)
+  Coroutine DropConnection(DropConnectionRequest req, BasicResponseDelegate callback)
+  void OnDropConnection(DropConnectionResponse response, BasicResponseDelegate userCallback)
+  Coroutine ListMatches(int startPageNumber, int resultPageSize, string matchNameFilter, bool filterOutPrivateMatchesFromResults, int eloScoreTarget, int requestDomain, DataResponseDelegate`1<List`1<MatchInfoSnapshot>> callback)
+  Coroutine ListMatches(ListMatchRequest req, DataResponseDelegate`1<List`1<MatchInfoSnapshot>> callback)
+  void OnMatchList(ListMatchResponse response, DataResponseDelegate`1<List`1<MatchInfoSnapshot>> userCallback)
+  Coroutine SetMatchAttributes(NetworkID networkId, bool isListed, int requestDomain, BasicResponseDelegate callback)
+  Coroutine SetMatchAttributes(SetMatchAttributesRequest req, BasicResponseDelegate callback)
+  void OnSetMatchAttributes(BasicResponse response, BasicResponseDelegate userCallback)
+  IEnumerator ProcessMatchResponse(UnityWebRequest client, InternalResponseDelegate`2<JSONRESPONSE, USERRESPONSEDELEGATETYPE> internalCallback, USERRESPONSEDELEGATETYPE userCallback)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.Request
+Наследуется от: object
+Поля:
+  int currentVersion
+  int <version>k__BackingField
+  SourceID <sourceId>k__BackingField
+  string <projectId>k__BackingField
+  AppID <appId>k__BackingField
+  string <accessTokenString>k__BackingField
+  int <domain>k__BackingField
+Свойства:
+  int version
+  SourceID sourceId
+  string projectId
+  AppID appId
+  string accessTokenString
+  int domain
+Методы:
+  int get_version()
+  void set_version(int value)
+  SourceID get_sourceId()
+  void set_sourceId(SourceID value)
+  string get_projectId()
+  void set_projectId(string value)
+  AppID get_appId()
+  void set_appId(AppID value)
+  string get_accessTokenString()
+  void set_accessTokenString(string value)
+  int get_domain()
+  void set_domain(int value)
+  bool IsValid()
+  string ToString()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.IResponse
+Поля:
+Свойства:
+Методы:
+  void SetSuccess()
+  void SetFailure(string info)
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.Response
+Наследуется от: object
+Поля:
+  bool success
+  string extendedInfo
+Свойства:
+Методы:
+  void SetSuccess()
+  void SetFailure(string info)
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.BasicResponse
+Наследуется от: Response
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.CreateMatchRequest
+Наследуется от: Request
+Поля:
+  string <name>k__BackingField
+  UInt32 <size>k__BackingField
+  string <publicAddress>k__BackingField
+  string <privateAddress>k__BackingField
+  int <eloScore>k__BackingField
+  bool <advertise>k__BackingField
+  string <password>k__BackingField
+  Dictionary`2<string, long> <matchAttributes>k__BackingField
+Свойства:
+  string name
+  UInt32 size
+  string publicAddress
+  string privateAddress
+  int eloScore
+  bool advertise
+  string password
+  Dictionary`2<string, long> matchAttributes
+Методы:
+  string get_name()
+  void set_name(string value)
+  UInt32 get_size()
+  void set_size(UInt32 value)
+  string get_publicAddress()
+  void set_publicAddress(string value)
+  string get_privateAddress()
+  void set_privateAddress(string value)
+  int get_eloScore()
+  void set_eloScore(int value)
+  bool get_advertise()
+  void set_advertise(bool value)
+  string get_password()
+  void set_password(string value)
+  Dictionary`2<string, long> get_matchAttributes()
+  void set_matchAttributes(Dictionary`2<string, long> value)
+  string ToString()
+  bool IsValid()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.CreateMatchResponse
+Наследуется от: BasicResponse
+Поля:
+  string address
+  int port
+  int domain
+  ulong networkId
+  string accessTokenString
+  NodeID nodeId
+  bool usingRelay
+Свойства:
+Методы:
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.JoinMatchRequest
+Наследуется от: Request
+Поля:
+  NetworkID <networkId>k__BackingField
+  string <publicAddress>k__BackingField
+  string <privateAddress>k__BackingField
+  int <eloScore>k__BackingField
+  string <password>k__BackingField
+Свойства:
+  NetworkID networkId
+  string publicAddress
+  string privateAddress
+  int eloScore
+  string password
+Методы:
+  NetworkID get_networkId()
+  void set_networkId(NetworkID value)
+  string get_publicAddress()
+  void set_publicAddress(string value)
+  string get_privateAddress()
+  void set_privateAddress(string value)
+  int get_eloScore()
+  void set_eloScore(int value)
+  string get_password()
+  void set_password(string value)
+  string ToString()
+  bool IsValid()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.JoinMatchResponse
+Наследуется от: BasicResponse
+Поля:
+  string address
+  int port
+  int domain
+  ulong networkId
+  string accessTokenString
+  NodeID nodeId
+  bool usingRelay
+Свойства:
+Методы:
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.DestroyMatchRequest
+Наследуется от: Request
+Поля:
+  NetworkID <networkId>k__BackingField
+Свойства:
+  NetworkID networkId
+Методы:
+  NetworkID get_networkId()
+  void set_networkId(NetworkID value)
+  string ToString()
+  bool IsValid()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.DropConnectionRequest
+Наследуется от: Request
+Поля:
+  NetworkID <networkId>k__BackingField
+  NodeID <nodeId>k__BackingField
+Свойства:
+  NetworkID networkId
+  NodeID nodeId
+Методы:
+  NetworkID get_networkId()
+  void set_networkId(NetworkID value)
+  NodeID get_nodeId()
+  void set_nodeId(NodeID value)
+  string ToString()
+  bool IsValid()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.DropConnectionResponse
+Наследуется от: Response
+Поля:
+  ulong networkId
+  NodeID nodeId
+Свойства:
+Методы:
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.ListMatchRequest
+Наследуется от: Request
+Поля:
+  int <pageSize>k__BackingField
+  int <pageNum>k__BackingField
+  string <nameFilter>k__BackingField
+  bool <filterOutPrivateMatches>k__BackingField
+  int <eloScore>k__BackingField
+  Dictionary`2<string, long> <matchAttributeFilterLessThan>k__BackingField
+  Dictionary`2<string, long> <matchAttributeFilterEqualTo>k__BackingField
+  Dictionary`2<string, long> <matchAttributeFilterGreaterThan>k__BackingField
+  bool includePasswordMatches
+Свойства:
+  int pageSize
+  int pageNum
+  string nameFilter
+  bool filterOutPrivateMatches
+  int eloScore
+  Dictionary`2<string, long> matchAttributeFilterLessThan
+  Dictionary`2<string, long> matchAttributeFilterEqualTo
+  Dictionary`2<string, long> matchAttributeFilterGreaterThan
+Методы:
+  int get_pageSize()
+  void set_pageSize(int value)
+  int get_pageNum()
+  void set_pageNum(int value)
+  string get_nameFilter()
+  void set_nameFilter(string value)
+  bool get_filterOutPrivateMatches()
+  void set_filterOutPrivateMatches(bool value)
+  int get_eloScore()
+  void set_eloScore(int value)
+  Dictionary`2<string, long> get_matchAttributeFilterLessThan()
+  void set_matchAttributeFilterLessThan(Dictionary`2<string, long> value)
+  Dictionary`2<string, long> get_matchAttributeFilterEqualTo()
+  void set_matchAttributeFilterEqualTo(Dictionary`2<string, long> value)
+  Dictionary`2<string, long> get_matchAttributeFilterGreaterThan()
+  void set_matchAttributeFilterGreaterThan(Dictionary`2<string, long> value)
+  string ToString()
+  bool IsValid()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.MatchDirectConnectInfo
+Наследуется от: object
+Поля:
+  NodeID nodeId
+  string publicAddress
+  string privateAddress
+  HostPriority hostPriority
+Свойства:
+Методы:
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.MatchDesc
+Наследуется от: object
+Поля:
+  ulong networkId
+  string name
+  int averageEloScore
+  int maxSize
+  int currentSize
+  bool isPrivate
+  Dictionary`2<string, long> matchAttributes
+  NodeID hostNodeId
+  List`1<MatchDirectConnectInfo> directConnectInfos
+Свойства:
+Методы:
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.ListMatchResponse
+Наследуется от: BasicResponse
+Поля:
+  List`1<MatchDesc> matches
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(List`1<MatchDesc> otherMatches)
+  string ToString()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.CreateOrJoinMatchRequest
+Наследуется от: CreateMatchRequest
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.Match.SetMatchAttributesRequest
+Наследуется от: Request
+Поля:
+  NetworkID <networkId>k__BackingField
+  bool <isListed>k__BackingField
+Свойства:
+  NetworkID networkId
+  bool isListed
+Методы:
+  NetworkID get_networkId()
+  void set_networkId(NetworkID value)
+  bool get_isListed()
+  void set_isListed(bool value)
+  string ToString()
+  bool IsValid()
+  void .ctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  int AD8DE0BDC215A2190D235D94698594B980EAE428E98B444A3C647B01175FDF43
+Свойства:
+Методы:
+--------------------------------------------------

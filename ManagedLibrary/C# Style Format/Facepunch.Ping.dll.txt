@@ -1,0 +1,172 @@
+public interface Facepunch.Ping.IPingEstimateResults {
+    public abstract virtual IPingRegionResult GetRegionByCode(StringView code);
+    public abstract virtual IEnumerable`1<IPingRegionResult> GetAllRegions();
+}
+public interface Facepunch.Ping.IPingRegion {
+    public string Location { get; }
+    public string Shortname { get; }
+    public string Code { get; }
+    public abstract virtual string get_Location();
+    public abstract virtual string get_Shortname();
+    public abstract virtual string get_Code();
+}
+[JsonModelAttribute]
+public interface Facepunch.Ping.IPingRegionResult {
+    public string RegionCode { get; }
+    public string RegionShortname { get; }
+    public int Ping { get; }
+    public abstract virtual string get_RegionCode();
+    public abstract virtual string get_RegionShortname();
+    public abstract virtual int get_Ping();
+}
+[JsonModelAttribute]
+public class Facepunch.Ping.PingAddress : object {
+    [CompilerGeneratedAttribute]
+private string <IP>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Location>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Shortname>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Code>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <Timeout>k__BackingField;
+    [JsonPropertyAttribute("ip")]
+public string IP { get; public set; }
+    [JsonPropertyAttribute("location")]
+public string Location { get; public set; }
+    [JsonPropertyAttribute("shortname")]
+public string Shortname { get; public set; }
+    [JsonPropertyAttribute("code")]
+public string Code { get; public set; }
+    public int Timeout { get; public set; }
+    [CompilerGeneratedAttribute]
+public string get_IP();
+    [CompilerGeneratedAttribute]
+public void set_IP(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Location();
+    [CompilerGeneratedAttribute]
+public void set_Location(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Shortname();
+    [CompilerGeneratedAttribute]
+public void set_Shortname(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Code();
+    [CompilerGeneratedAttribute]
+public void set_Code(string value);
+    [CompilerGeneratedAttribute]
+public int get_Timeout();
+    [CompilerGeneratedAttribute]
+public void set_Timeout(int value);
+}
+public static class Facepunch.Ping.PingEstimater : object {
+    private static string json;
+    private static PingManifest manifest;
+    private static UInt32 seed;
+    public static int numSamples;
+    public static bool parallel;
+    public static int refreshIntervalMinutes;
+    public static bool AutoRefresh;
+    public static bool enabled;
+    public static bool logging;
+    private static IPingRegion UnknownRegion;
+    private static Task updateRegionTask;
+    private static DateTime _cachedTime;
+    private static IPingRegion _cachedRegion;
+    private static IPingEstimateResults _pingResults;
+    public static bool IsEnabled { get; }
+    private static PingEstimater();
+    public static bool get_IsEnabled();
+    private static List`1<PingAddress> DownloadRegions();
+    private static void TryRefreshCache();
+    public static void ForceRefreshCache();
+    public static IPingRegion GetCachedClosestRegion();
+    public static Nullable`1<int> GetCachedPingForRegion(StringView regionCode);
+    public static IPingEstimateResults GetEstimateToAllRegions();
+    [AsyncStateMachineAttribute("Facepunch.Ping.PingEstimater/<CalculateClosestRegion>d__22")]
+private static Task CalculateClosestRegion();
+}
+internal class Facepunch.Ping.PingEstimateResults : object {
+    private Dictionary`2<StringView, PingRegionResult> regions;
+    public PingEstimateResults(IReadOnlyCollection`1<PingSample> samples);
+    public sealed virtual IPingRegionResult GetRegionByCode(StringView code);
+    public sealed virtual IEnumerable`1<IPingRegionResult> GetAllRegions();
+}
+[JsonModelAttribute]
+public class Facepunch.Ping.PingManifest : object {
+    [CompilerGeneratedAttribute]
+private List`1<PingAddress> <Addresses>k__BackingField;
+    [JsonPropertyAttribute("addresses")]
+public List`1<PingAddress> Addresses { get; public set; }
+    [CompilerGeneratedAttribute]
+public List`1<PingAddress> get_Addresses();
+    [CompilerGeneratedAttribute]
+public void set_Addresses(List`1<PingAddress> value);
+}
+[JsonModelAttribute]
+internal class Facepunch.Ping.PingRegionResult : object {
+    [CompilerGeneratedAttribute]
+private string <RegionCode>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <RegionShortname>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <Ping>k__BackingField;
+    public string RegionCode { get; public set; }
+    public string RegionShortname { get; public set; }
+    public int Ping { get; public set; }
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_RegionCode();
+    [CompilerGeneratedAttribute]
+public void set_RegionCode(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_RegionShortname();
+    [CompilerGeneratedAttribute]
+public void set_RegionShortname(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual int get_Ping();
+    [CompilerGeneratedAttribute]
+public void set_Ping(int value);
+}
+internal class PingSample : object {
+    [CompilerGeneratedAttribute]
+private PingAddress <Region>k__BackingField;
+    private List`1<int> _samples;
+    [CompilerGeneratedAttribute]
+private int <Value>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Ping <PingInstance>k__BackingField;
+    [CompilerGeneratedAttribute]
+private DateTime <Timestamp>k__BackingField;
+    public PingAddress Region { get; }
+    public IReadOnlyList`1<int> Samples { get; }
+    public int Value { get; public set; }
+    internal Ping PingInstance { get; internal set; }
+    internal DateTime Timestamp { get; internal set; }
+    public PingSample(PingAddress region);
+    [CompilerGeneratedAttribute]
+public PingAddress get_Region();
+    public IReadOnlyList`1<int> get_Samples();
+    [CompilerGeneratedAttribute]
+public int get_Value();
+    [CompilerGeneratedAttribute]
+public void set_Value(int value);
+    [CompilerGeneratedAttribute]
+internal Ping get_PingInstance();
+    [CompilerGeneratedAttribute]
+internal void set_PingInstance(Ping value);
+    [CompilerGeneratedAttribute]
+internal DateTime get_Timestamp();
+    [CompilerGeneratedAttribute]
+internal void set_Timestamp(DateTime value);
+    internal bool IsDone();
+    public void AddSample(int sample);
+    public sealed virtual int CompareTo(PingSample other);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

@@ -1,0 +1,122 @@
+public class AssetBundleBackend : FileSystemBackend {
+    private AssetBundle rootBundle;
+    private AssetBundleManifest manifest;
+    private Dictionary`2<string, AssetBundle> bundles;
+    private Dictionary`2<string, AssetBundle> files;
+    private string assetPath;
+    [CompilerGeneratedAttribute]
+private float <LoadProgress>k__BackingField;
+    public static bool Enabled { get; }
+    public float LoadProgress { get; private set; }
+    public static bool get_Enabled();
+    [CompilerGeneratedAttribute]
+public float get_LoadProgress();
+    [CompilerGeneratedAttribute]
+private void set_LoadProgress(float value);
+    public void Load(string assetRoot);
+    private AssetBundle LoadBundle(string bundleName);
+    public void BuildFileIndex();
+    public sealed virtual void Dispose();
+    public virtual List`1<string> UnloadBundles(string partialName);
+    protected virtual T LoadAsset(string filePath);
+    protected virtual LoadAssetsResult LoadAssetsAsync(List`1<string> filePaths, int maxConcurrency, int priority);
+    protected virtual String[] LoadAssetList(string folder, string search);
+    public virtual T[] LoadAllFromBundle(string bundleName, string editorSearch);
+    public virtual bool HasAsset(string path);
+}
+internal class AssetBundleLoadAssetsResult : LoadAssetsResult {
+    private AssetBundle _bundle;
+    private List`1<string> _filePaths;
+    private int _maxConcurrency;
+    private int _priority;
+    private List`1<AssetBundleRequest> _requests;
+    [TupleElementNamesAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+private List`1<ValueTuple`2<string, AssetBundleRequest>> _pendingRequests;
+    private int _index;
+    public int TotalCount { get; }
+    public bool keepWaiting { get; }
+    internal AssetBundleLoadAssetsResult(AssetBundle bundle, List`1<string> filePaths, int maxConcurrency, int priority);
+    public virtual int get_TotalCount();
+    public virtual bool get_keepWaiting();
+    private bool Update();
+    public virtual Dictionary`2<string, Object> GetResult();
+}
+public class AssetPreloadResult : CustomYieldInstruction {
+    private FileSystemBackend _backend;
+    private LoadAssetsResult _load;
+    private List`1<ValueTuple`2<string, Object>> _loaded;
+    private int _alreadyLoadedCount;
+    public int TotalCount { get; }
+    public int CompletedCount { get; }
+    [TupleElementNamesAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public IReadOnlyList`1<ValueTuple`2<string, Object>> Results { get; }
+    public bool keepWaiting { get; }
+    internal AssetPreloadResult(FileSystemBackend backend, LoadAssetsResult load, List`1<ValueTuple`2<string, Object>> loaded);
+    public int get_TotalCount();
+    public int get_CompletedCount();
+    public IReadOnlyList`1<ValueTuple`2<string, Object>> get_Results();
+    public virtual bool get_keepWaiting();
+    private void OnAssetLoaded(string path, Object obj);
+}
+internal class CompositeLoadAssetsResult : LoadAssetsResult {
+    private List`1<LoadAssetsResult> _loads;
+    public int TotalCount { get; }
+    public int CompletedCount { get; protected set; }
+    public bool keepWaiting { get; }
+    public CompositeLoadAssetsResult(List`1<LoadAssetsResult> loads);
+    public virtual int get_TotalCount();
+    public virtual int get_CompletedCount();
+    protected virtual void set_CompletedCount(int value);
+    public virtual bool get_keepWaiting();
+    public virtual Dictionary`2<string, Object> GetResult();
+    private void AssetLoadedHandler(string assetPath, Object obj);
+}
+public static class FileSystem : object {
+    public static bool LogDebug;
+    public static bool LogTime;
+    public static FileSystemBackend Backend;
+    public static GameObject[] LoadPrefabs(string folder);
+    public static GameObject LoadPrefab(string filePath);
+    public static String[] FindAll(string folder, string search);
+    public static T[] LoadAll(string folder, string search);
+    public static T[] LoadAllFromBundle(string bundleName, string editorSearch);
+    public static T Load(string filePath, bool complain);
+    public static AssetPreloadResult PreloadAssets(IEnumerable`1<string> filePaths, int maxConcurrency, int priority);
+}
+public abstract class FileSystemBackend : object {
+    public bool isError;
+    public string loadingError;
+    public Dictionary`2<string, Object> cache;
+    public GameObject[] LoadPrefabs(string folder);
+    public GameObject LoadPrefab(string filePath);
+    public String[] FindAll(string folder, string search);
+    public T[] LoadAll(string folder, string search);
+    public T Load(string filePath);
+    public AssetPreloadResult PreloadAssets(IEnumerable`1<string> filePaths, int maxConcurrency, int priority);
+    protected void LoadError(string err);
+    public virtual List`1<string> UnloadBundles(string partialName);
+    protected abstract virtual T LoadAsset(string filePath);
+    protected abstract virtual LoadAssetsResult LoadAssetsAsync(List`1<string> filePaths, int maxConcurrency, int priority);
+    protected abstract virtual String[] LoadAssetList(string folder, string search);
+    public abstract virtual T[] LoadAllFromBundle(string bundleName, string editorSearch);
+    public abstract virtual bool HasAsset(string path);
+}
+public abstract class LoadAssetsResult : CustomYieldInstruction {
+    [CompilerGeneratedAttribute]
+private int <CompletedCount>k__BackingField;
+    public AssetLoaded OnAssetLoaded;
+    public int TotalCount { get; }
+    public int CompletedCount { get; protected set; }
+    public abstract virtual int get_TotalCount();
+    [CompilerGeneratedAttribute]
+public virtual int get_CompletedCount();
+    [CompilerGeneratedAttribute]
+protected virtual void set_CompletedCount(int value);
+    public abstract virtual Dictionary`2<string, Object> GetResult();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

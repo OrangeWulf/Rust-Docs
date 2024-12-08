@@ -1,0 +1,296 @@
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+[NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+[NullableContextAttribute("1")]
+internal class System.ClientModel.Internal.ModelWriter : ModelWriter`1<object> {
+    public ModelWriter(IJsonModel`1<object> model, ModelReaderWriterOptions options);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+internal class System.ClientModel.Internal.ModelWriter`1 : object {
+    private IJsonModel`1<T> _model;
+    private ModelReaderWriterOptions _options;
+    private object _writeLock;
+    private object _readLock;
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+private SequenceBuilder modreq(System.Runtime.CompilerServices.IsVolatile) _sequenceBuilder;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _isDisposed;
+    private Int32 modreq(System.Runtime.CompilerServices.IsVolatile) _readCount;
+    [NullableAttribute("2")]
+private ManualResetEvent _readersFinished;
+    private ManualResetEvent ReadersFinished { get; }
+    public ModelWriter`1(IJsonModel`1<T> model, ModelReaderWriterOptions options);
+    private ManualResetEvent get_ReadersFinished();
+    private SequenceBuilder<T> GetSequenceBuilder();
+    internal void CopyTo(Stream stream, CancellationToken cancellation);
+    internal bool TryComputeLength(Int64& length);
+    [AsyncStateMachineAttribute("System.ClientModel.Internal.ModelWriter`1/<CopyToAsync>d__14")]
+internal Task CopyToAsync(Stream stream, CancellationToken cancellation);
+    public BinaryData ToBinaryData();
+    public sealed virtual void Dispose();
+    private void IncrementRead();
+    private void DecrementRead();
+}
+[NullableContextAttribute("1")]
+public interface System.ClientModel.Primitives.IJsonModel`1 {
+    public abstract virtual void Write(Utf8JsonWriter writer, ModelReaderWriterOptions options);
+    public abstract virtual T Create(Utf8JsonReader& reader, ModelReaderWriterOptions options);
+}
+[NullableContextAttribute("1")]
+public interface System.ClientModel.Primitives.IPersistableModel`1 {
+    public abstract virtual BinaryData Write(ModelReaderWriterOptions options);
+    public abstract virtual T Create(BinaryData data, ModelReaderWriterOptions options);
+    public abstract virtual string GetFormatFromOptions(ModelReaderWriterOptions options);
+}
+[NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+[NullableContextAttribute("1")]
+[RequiresUnreferencedCodeAttribute("The constructors of the type being deserialized are dynamically accessed and may be trimmed.")]
+internal class System.ClientModel.Primitives.JsonModelConverter : JsonConverter`1<IJsonModel`1<object>> {
+    [CompilerGeneratedAttribute]
+private ModelReaderWriterOptions <Options>k__BackingField;
+    public ModelReaderWriterOptions Options { get; }
+    public JsonModelConverter(ModelReaderWriterOptions options);
+    [CompilerGeneratedAttribute]
+public ModelReaderWriterOptions get_Options();
+    public virtual bool CanConvert(Type typeToConvert);
+    public virtual IJsonModel`1<object> Read(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options);
+    public virtual void Write(Utf8JsonWriter writer, IJsonModel`1<object> value, JsonSerializerOptions options);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public static class System.ClientModel.Primitives.ModelReaderWriter : object {
+    public static BinaryData Write(T model, ModelReaderWriterOptions options);
+    public static BinaryData Write(object model, ModelReaderWriterOptions options);
+    public static T Read(BinaryData data, ModelReaderWriterOptions options);
+    public static object Read(BinaryData data, Type returnType, ModelReaderWriterOptions options);
+    private static IPersistableModel`1<object> GetInstance(Type returnType);
+    private static IPersistableModel`1<T> GetInstance();
+    private static object GetObjectInstance(Type returnType);
+    private static bool IsJsonFormatRequested(IPersistableModel`1<T> model, ModelReaderWriterOptions options);
+    private static bool IsJsonFormatRequested(IPersistableModel`1<object> model, ModelReaderWriterOptions options);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.ClientModel.Primitives.ModelReaderWriterOptions : object {
+    [NullableAttribute("2")]
+private static ModelReaderWriterOptions s_jsonOptions;
+    [NullableAttribute("2")]
+private static ModelReaderWriterOptions s_xmlOptions;
+    [CompilerGeneratedAttribute]
+private string <Format>k__BackingField;
+    public static ModelReaderWriterOptions Json { get; }
+    public static ModelReaderWriterOptions Xml { get; }
+    public string Format { get; }
+    public ModelReaderWriterOptions(string format);
+    public static ModelReaderWriterOptions get_Json();
+    public static ModelReaderWriterOptions get_Xml();
+    [CompilerGeneratedAttribute]
+public string get_Format();
+}
+[AttributeUsageAttribute("4")]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.ClientModel.Primitives.PersistableModelProxyAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private Type <ProxyType>k__BackingField;
+    [DynamicallyAccessedMembersAttribute("7")]
+public Type ProxyType { get; }
+    public PersistableModelProxyAttribute(Type proxyType);
+    [CompilerGeneratedAttribute]
+public Type get_ProxyType();
+}
+[AttributeUsageAttribute("28108")]
+internal class System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private DynamicallyAccessedMemberTypes <MemberTypes>k__BackingField;
+    public DynamicallyAccessedMemberTypes MemberTypes { get; }
+    public DynamicallyAccessedMembersAttribute(DynamicallyAccessedMemberTypes memberTypes);
+    [CompilerGeneratedAttribute]
+public DynamicallyAccessedMemberTypes get_MemberTypes();
+}
+[FlagsAttribute]
+internal enum System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes : Enum {
+    public int value__;
+    public static DynamicallyAccessedMemberTypes None;
+    public static DynamicallyAccessedMemberTypes PublicParameterlessConstructor;
+    public static DynamicallyAccessedMemberTypes PublicConstructors;
+    public static DynamicallyAccessedMemberTypes NonPublicConstructors;
+    public static DynamicallyAccessedMemberTypes PublicMethods;
+    public static DynamicallyAccessedMemberTypes NonPublicMethods;
+    public static DynamicallyAccessedMemberTypes PublicFields;
+    public static DynamicallyAccessedMemberTypes NonPublicFields;
+    public static DynamicallyAccessedMemberTypes PublicNestedTypes;
+    public static DynamicallyAccessedMemberTypes NonPublicNestedTypes;
+    public static DynamicallyAccessedMemberTypes PublicProperties;
+    public static DynamicallyAccessedMemberTypes NonPublicProperties;
+    public static DynamicallyAccessedMemberTypes PublicEvents;
+    public static DynamicallyAccessedMemberTypes NonPublicEvents;
+    public static DynamicallyAccessedMemberTypes Interfaces;
+    public static DynamicallyAccessedMemberTypes All;
+}
+[AttributeUsageAttribute("352")]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+internal class System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <MemberSignature>k__BackingField;
+    [CompilerGeneratedAttribute]
+private DynamicallyAccessedMemberTypes <MemberTypes>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Type <Type>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <TypeName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <AssemblyName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Condition>k__BackingField;
+    public string MemberSignature { get; }
+    public DynamicallyAccessedMemberTypes MemberTypes { get; }
+    public Type Type { get; }
+    public string TypeName { get; }
+    public string AssemblyName { get; }
+    public string Condition { get; public set; }
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(string memberSignature);
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(string memberSignature, Type type);
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(string memberSignature, string typeName, string assemblyName);
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(DynamicallyAccessedMemberTypes memberTypes, Type type);
+    [NullableContextAttribute("1")]
+public DynamicDependencyAttribute(DynamicallyAccessedMemberTypes memberTypes, string typeName, string assemblyName);
+    [CompilerGeneratedAttribute]
+public string get_MemberSignature();
+    [CompilerGeneratedAttribute]
+public DynamicallyAccessedMemberTypes get_MemberTypes();
+    [CompilerGeneratedAttribute]
+public Type get_Type();
+    [CompilerGeneratedAttribute]
+public string get_TypeName();
+    [CompilerGeneratedAttribute]
+public string get_AssemblyName();
+    [CompilerGeneratedAttribute]
+public string get_Condition();
+    [CompilerGeneratedAttribute]
+public void set_Condition(string value);
+}
+[AttributeUsageAttribute("100")]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+internal class System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+[NullableAttribute("2")]
+private string <Url>k__BackingField;
+    public string Message { get; }
+    [NullableAttribute("2")]
+public string Url { get; public set; }
+    public RequiresDynamicCodeAttribute(string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public string get_Url();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public void set_Url(string value);
+}
+[AttributeUsageAttribute("100")]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+internal class System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+[NullableAttribute("2")]
+private string <Url>k__BackingField;
+    public string Message { get; }
+    [NullableAttribute("2")]
+public string Url { get; public set; }
+    public RequiresUnreferencedCodeAttribute(string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public string get_Url();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public void set_Url(string value);
+}
+[AttributeUsageAttribute("32767")]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+internal class System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <Category>k__BackingField;
+    [CompilerGeneratedAttribute]
+[NullableAttribute("1")]
+private string <CheckId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Scope>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Target>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <MessageId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Justification>k__BackingField;
+    [NullableAttribute("1")]
+public string Category { get; }
+    [NullableAttribute("1")]
+public string CheckId { get; }
+    public string Scope { get; public set; }
+    public string Target { get; public set; }
+    public string MessageId { get; public set; }
+    public string Justification { get; public set; }
+    [NullableContextAttribute("1")]
+public UnconditionalSuppressMessageAttribute(string category, string checkId);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_Category();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_CheckId();
+    [CompilerGeneratedAttribute]
+public string get_Scope();
+    [CompilerGeneratedAttribute]
+public void set_Scope(string value);
+    [CompilerGeneratedAttribute]
+public string get_Target();
+    [CompilerGeneratedAttribute]
+public void set_Target(string value);
+    [CompilerGeneratedAttribute]
+public string get_MessageId();
+    [CompilerGeneratedAttribute]
+public void set_MessageId(string value);
+    [CompilerGeneratedAttribute]
+public string get_Justification();
+    [CompilerGeneratedAttribute]
+public void set_Justification(string value);
+}
+[AttributeUsageAttribute("27524")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullableAttribute : Attribute {
+    public Byte[] NullableFlags;
+    public NullableAttribute(byte );
+    public NullableAttribute(Byte[] );
+}
+[AttributeUsageAttribute("5196")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullableContextAttribute : Attribute {
+    public byte Flag;
+    public NullableContextAttribute(byte );
+}
+[AttributeUsageAttribute("2")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.RefSafetyRulesAttribute : Attribute {
+    public int Version;
+    public RefSafetyRulesAttribute(int );
+}

@@ -1,0 +1,277 @@
+internal class Rust.Platform.Steam.IpListQuery : object {
+    private List`1<string> _ips;
+    private CancellationTokenSource _cts;
+    [TupleElementNamesAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+private List`1<ValueTuple`2<string, string>> _filters;
+    private Action`1<ServerInfo> _serverFoundHandler;
+    [CompilerGeneratedAttribute]
+private Action`1<ServerInfo> OnServerFound;
+    [CompilerGeneratedAttribute]
+private IReadOnlyList`1<ServerInfo> <Servers>k__BackingField;
+    public IReadOnlyList`1<ServerInfo> Servers { get; }
+    public IpListQuery(IEnumerable`1<string> list);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_OnServerFound(Action`1<ServerInfo> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_OnServerFound(Action`1<ServerInfo> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual IReadOnlyList`1<ServerInfo> get_Servers();
+    public sealed virtual void Dispose();
+    public sealed virtual void AddFilter(string key, string value);
+    [AsyncStateMachineAttribute("Rust.Platform.Steam.IpListQuery/<RunQueryAsync>d__13")]
+public sealed virtual Task RunQueryAsync(double timeoutSeconds);
+    [AsyncStateMachineAttribute("Rust.Platform.Steam.IpListQuery/<QueryServers>d__14")]
+private Task QueryServers(List`1<string> servers, List`1<ValueTuple`2<string, string>> filters, double timeoutSeconds);
+}
+public class Rust.Platform.Steam.SteamAchievement : object {
+    private Achievement _achievement;
+    public string Key { get; }
+    public bool IsUnlocked { get; }
+    internal SteamAchievement(Achievement achievement);
+    public sealed virtual string get_Key();
+    public sealed virtual bool get_IsUnlocked();
+    public sealed virtual void Unlock();
+}
+public class Rust.Platform.Steam.SteamAuthTicket : object {
+    private AuthTicket _ticket;
+    [CompilerGeneratedAttribute]
+private string <Token>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Byte[] <Data>k__BackingField;
+    public string Token { get; }
+    public Byte[] Data { get; }
+    internal SteamAuthTicket(AuthTicket ticket);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Token();
+    [CompilerGeneratedAttribute]
+public sealed virtual Byte[] get_Data();
+    public sealed virtual void Dispose();
+}
+public class Rust.Platform.Steam.SteamAuthTicketNullException : Exception {
+    public SteamAuthTicketNullException(string message);
+}
+public class Rust.Platform.Steam.SteamDownloadableContent : object {
+    [CompilerGeneratedAttribute]
+private int <AppId>k__BackingField;
+    public int AppId { get; }
+    public bool IsInstalled { get; }
+    public SteamDownloadableContent(int appId);
+    [CompilerGeneratedAttribute]
+public sealed virtual int get_AppId();
+    public sealed virtual bool get_IsInstalled();
+}
+public class Rust.Platform.Steam.SteamInventory : object {
+    [CompilerGeneratedAttribute]
+private InventoryResult <Value>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IReadOnlyList`1<IPlayerItem> <Items>k__BackingField;
+    public InventoryResult Value { get; }
+    public IReadOnlyList`1<IPlayerItem> Items { get; }
+    internal SteamInventory(InventoryResult inventory);
+    [CompilerGeneratedAttribute]
+public InventoryResult get_Value();
+    [CompilerGeneratedAttribute]
+public sealed virtual IReadOnlyList`1<IPlayerItem> get_Items();
+    public sealed virtual void Dispose();
+    public sealed virtual bool BelongsTo(ulong userId);
+    public sealed virtual Byte[] Serialize();
+}
+public class Rust.Platform.Steam.SteamItem : object {
+    public InventoryItem Value;
+    public ulong Id { get; }
+    public int DefinitionId { get; }
+    public int Quantity { get; }
+    public DateTimeOffset Acquired { get; }
+    public ulong WorkshopId { get; }
+    public string ItemShortName { get; }
+    public SteamItem(InventoryItem item);
+    public sealed virtual ulong get_Id();
+    public sealed virtual int get_DefinitionId();
+    public sealed virtual int get_Quantity();
+    public sealed virtual DateTimeOffset get_Acquired();
+    public sealed virtual ulong get_WorkshopId();
+    public sealed virtual string get_ItemShortName();
+    [AsyncStateMachineAttribute("Rust.Platform.Steam.SteamItem/<Consume>d__14")]
+public sealed virtual Task Consume();
+}
+public class Rust.Platform.Steam.SteamItemDefinition : object {
+    [CompilerGeneratedAttribute]
+private InventoryDef <Value>k__BackingField;
+    public InventoryDef Value { get; }
+    public int DefinitionId { get; }
+    public string Name { get; }
+    public string Description { get; }
+    public string Type { get; }
+    public string IconUrl { get; }
+    public int LocalPrice { get; }
+    public string LocalPriceFormatted { get; }
+    public string PriceCategory { get; }
+    public bool IsGenerator { get; }
+    public bool IsTradable { get; }
+    public bool IsMarketable { get; }
+    public string StoreTags { get; }
+    public DateTime Created { get; }
+    public DateTime Modified { get; }
+    public string ItemShortName { get; }
+    public ulong WorkshopId { get; }
+    public ulong WorkshopDownload { get; }
+    internal SteamItemDefinition(InventoryDef value);
+    [CompilerGeneratedAttribute]
+public InventoryDef get_Value();
+    public sealed virtual int get_DefinitionId();
+    public sealed virtual string get_Name();
+    public sealed virtual string get_Description();
+    public sealed virtual string get_Type();
+    public sealed virtual string get_IconUrl();
+    public sealed virtual int get_LocalPrice();
+    public sealed virtual string get_LocalPriceFormatted();
+    public sealed virtual string get_PriceCategory();
+    public sealed virtual bool get_IsGenerator();
+    public sealed virtual bool get_IsTradable();
+    public sealed virtual bool get_IsMarketable();
+    public sealed virtual string get_StoreTags();
+    public sealed virtual DateTime get_Created();
+    public sealed virtual DateTime get_Modified();
+    public sealed virtual string get_ItemShortName();
+    public sealed virtual ulong get_WorkshopId();
+    public sealed virtual ulong get_WorkshopDownload();
+    public sealed virtual IEnumerable`1<PlayerItemRecipe> GetRecipesContainingThis();
+    private static PlayerItemRecipe SteamToPlatformRecipe(InventoryRecipe recipe);
+    public sealed virtual bool Equals(IPlayerItemDefinition other);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+}
+public class Rust.Platform.Steam.SteamPlatform : object {
+    private IPlatformHooks _hooks;
+    private bool _initialized;
+    [CompilerGeneratedAttribute]
+private IReadOnlyList`1<IPlayerItemDefinition> <ItemDefinitions>k__BackingField;
+    public bool IsValid { get; }
+    public IReadOnlyList`1<IPlayerItemDefinition> ItemDefinitions { get; private set; }
+    public sealed virtual bool get_IsValid();
+    public sealed virtual bool Initialize(IPlatformHooks hooks);
+    public sealed virtual void Shutdown();
+    public sealed virtual void Update();
+    private static AuthResponse RemapAuthResponse(AuthResponse response);
+    private static void DebugPrintSteamCallback(CallbackType type, string content, bool isServer);
+    public sealed virtual bool PlayerOwnsDownloadableContent(ulong userId, int appId);
+    [CompilerGeneratedAttribute]
+public sealed virtual IReadOnlyList`1<IPlayerItemDefinition> get_ItemDefinitions();
+    [CompilerGeneratedAttribute]
+private void set_ItemDefinitions(IReadOnlyList`1<IPlayerItemDefinition> value);
+    public sealed virtual void RefreshItemDefinitions();
+    public sealed virtual IPlayerItemDefinition GetItemDefinition(int definitionId);
+    private void OnDefinitionsUpdated();
+    [AsyncStateMachineAttribute("Rust.Platform.Steam.SteamPlatform/<DeserializeInventory>d__17")]
+public sealed virtual Task`1<IPlayerInventory> DeserializeInventory(Byte[] data);
+    private void StartSteamServer();
+    private void OnSteamServersDisconnected(Result result);
+    private void OnSteamConnected();
+    private void OnSteamConnectionFailure(Result result, bool stilltrying);
+    public sealed virtual bool BeginPlayerSession(ulong userId, Byte[] authToken);
+    public sealed virtual void UpdatePlayerSession(ulong userId, string userName);
+    public sealed virtual void EndPlayerSession(ulong userId);
+    internal static ServerInfo ToPlatformServer(ServerInfo info);
+    internal static ServerInfo ToSteamServer(ServerInfo server);
+    [AsyncStateMachineAttribute("Rust.Platform.Steam.SteamPlatform/<LoadPlayerStats>d__27")]
+public sealed virtual Task`1<bool> LoadPlayerStats(ulong userId);
+    [AsyncStateMachineAttribute("Rust.Platform.Steam.SteamPlatform/<SavePlayerStats>d__28")]
+public sealed virtual Task`1<bool> SavePlayerStats(ulong userId);
+    public sealed virtual long GetPlayerStatInt(ulong userId, string key, long defaultValue);
+    public sealed virtual bool SetPlayerStatInt(ulong userId, string key, long value);
+    [CompilerGeneratedAttribute]
+private void <StartSteamServer>b__18_0(SteamId steamId, SteamId ownerSteamId, AuthResponse response);
+}
+public class Rust.Platform.Steam.SteamPlayer : object {
+    [CompilerGeneratedAttribute]
+private Friend <Value>k__BackingField;
+    public Friend Value { get; }
+    public ulong UserId { get; }
+    public string UserName { get; }
+    public bool IsOnline { get; }
+    public bool IsMe { get; }
+    public bool IsFriend { get; }
+    public bool IsPlayingThisGame { get; }
+    public string ServerEndpoint { get; }
+    public SteamPlayer(Friend value);
+    [CompilerGeneratedAttribute]
+public Friend get_Value();
+    public sealed virtual ulong get_UserId();
+    public sealed virtual string get_UserName();
+    public sealed virtual bool get_IsOnline();
+    public sealed virtual bool get_IsMe();
+    public sealed virtual bool get_IsFriend();
+    public sealed virtual bool get_IsPlayingThisGame();
+    public sealed virtual string get_ServerEndpoint();
+}
+public class Rust.Platform.Steam.SteamServerQuery : object {
+    [CompilerGeneratedAttribute]
+private ServerQuerySet <QuerySet>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Base <Query>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IReadOnlyList`1<ServerInfo> <Servers>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<ServerInfo> OnServerFound;
+    public ServerQuerySet QuerySet { get; }
+    public Base Query { get; private set; }
+    public IReadOnlyList`1<ServerInfo> Servers { get; }
+    public SteamServerQuery(ServerQuerySet set, Base query);
+    [CompilerGeneratedAttribute]
+public ServerQuerySet get_QuerySet();
+    [CompilerGeneratedAttribute]
+public Base get_Query();
+    [CompilerGeneratedAttribute]
+private void set_Query(Base value);
+    [CompilerGeneratedAttribute]
+public sealed virtual IReadOnlyList`1<ServerInfo> get_Servers();
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_OnServerFound(Action`1<ServerInfo> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_OnServerFound(Action`1<ServerInfo> value);
+    public sealed virtual void Dispose();
+    public sealed virtual void AddFilter(string key, string value);
+    [AsyncStateMachineAttribute("Rust.Platform.Steam.SteamServerQuery/<RunQueryAsync>d__16")]
+public sealed virtual Task RunQueryAsync(double timeoutInSeconds);
+}
+public static class Rust.Platform.Steam.SteamUtil : object {
+}
+public class Rust.Platform.Steam.SteamWorkshopContent : object {
+    [CompilerGeneratedAttribute]
+private Item <Value>k__BackingField;
+    public Item Value { get; }
+    public ulong WorkshopId { get; }
+    public string Title { get; }
+    public string Description { get; }
+    public IEnumerable`1<string> Tags { get; }
+    public string Url { get; }
+    public string PreviewImageUrl { get; }
+    public ulong OwnerId { get; }
+    public IPlayerInfo Owner { get; }
+    public bool IsInstalled { get; }
+    public bool IsDownloadPending { get; }
+    public bool IsDownloading { get; }
+    public string Directory { get; }
+    public SteamWorkshopContent(Item item);
+    [CompilerGeneratedAttribute]
+public Item get_Value();
+    public sealed virtual ulong get_WorkshopId();
+    public sealed virtual string get_Title();
+    public sealed virtual string get_Description();
+    public sealed virtual IEnumerable`1<string> get_Tags();
+    public sealed virtual string get_Url();
+    public sealed virtual string get_PreviewImageUrl();
+    public sealed virtual ulong get_OwnerId();
+    public sealed virtual IPlayerInfo get_Owner();
+    public sealed virtual bool get_IsInstalled();
+    public sealed virtual bool get_IsDownloadPending();
+    public sealed virtual bool get_IsDownloading();
+    public sealed virtual string get_Directory();
+    public sealed virtual bool Download();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

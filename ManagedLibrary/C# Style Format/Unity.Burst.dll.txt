@@ -1,0 +1,1113 @@
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.IsUnmanagedAttribute : Attribute {
+}
+[AttributeUsageAttribute("77")]
+public class Unity.Burst.BurstCompileAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private FloatMode <FloatMode>k__BackingField;
+    [CompilerGeneratedAttribute]
+private FloatPrecision <FloatPrecision>k__BackingField;
+    internal Nullable`1<bool> _compileSynchronously;
+    internal Nullable`1<bool> _debug;
+    internal Nullable`1<bool> _disableSafetyChecks;
+    internal Nullable`1<bool> _disableDirectCall;
+    [CompilerGeneratedAttribute]
+private OptimizeFor <OptimizeFor>k__BackingField;
+    [CompilerGeneratedAttribute]
+private String[] <Options>k__BackingField;
+    public FloatMode FloatMode { get; public set; }
+    public FloatPrecision FloatPrecision { get; public set; }
+    public bool CompileSynchronously { get; public set; }
+    public bool Debug { get; public set; }
+    public bool DisableSafetyChecks { get; public set; }
+    public bool DisableDirectCall { get; public set; }
+    public OptimizeFor OptimizeFor { get; public set; }
+    internal String[] Options { get; internal set; }
+    public BurstCompileAttribute(FloatPrecision floatPrecision, FloatMode floatMode);
+    internal BurstCompileAttribute(String[] options);
+    [CompilerGeneratedAttribute]
+public FloatMode get_FloatMode();
+    [CompilerGeneratedAttribute]
+public void set_FloatMode(FloatMode value);
+    [CompilerGeneratedAttribute]
+public FloatPrecision get_FloatPrecision();
+    [CompilerGeneratedAttribute]
+public void set_FloatPrecision(FloatPrecision value);
+    public bool get_CompileSynchronously();
+    public void set_CompileSynchronously(bool value);
+    public bool get_Debug();
+    public void set_Debug(bool value);
+    public bool get_DisableSafetyChecks();
+    public void set_DisableSafetyChecks(bool value);
+    public bool get_DisableDirectCall();
+    public void set_DisableDirectCall(bool value);
+    [CompilerGeneratedAttribute]
+public OptimizeFor get_OptimizeFor();
+    [CompilerGeneratedAttribute]
+public void set_OptimizeFor(OptimizeFor value);
+    [CompilerGeneratedAttribute]
+internal String[] get_Options();
+    [CompilerGeneratedAttribute]
+internal void set_Options(String[] value);
+}
+public static class Unity.Burst.BurstCompiler : object {
+    [ThreadStaticAttribute]
+private static CommandBuilder _cmdBuilder;
+    internal static bool _IsEnabled;
+    public static BurstCompilerOptions Options;
+    internal static Action OnCompileILPPMethod2;
+    private static MethodInfo DummyMethodInfo;
+    public static bool IsEnabled { get; }
+    private static BurstCompiler();
+    public static bool IsLoadAdditionalLibrarySupported();
+    private static CommandBuilder BeginCompilerCommand(string cmd);
+    public static bool get_IsEnabled();
+    public static void SetExecutionMode(BurstExecutionEnvironment mode);
+    public static BurstExecutionEnvironment GetExecutionMode();
+    internal static T CompileDelegate(T delegateMethod);
+    [ConditionalAttribute("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+private static void VerifyDelegateIsNotMulticast(T delegateMethod);
+    [ConditionalAttribute("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+private static void VerifyDelegateHasCorrectUnmanagedFunctionPointerAttribute(T delegateMethod);
+    [ObsoleteAttribute("This method will be removed in a future version of Burst")]
+public static IntPtr CompileILPPMethod(RuntimeMethodHandle burstMethodHandle, RuntimeMethodHandle managedMethodHandle, RuntimeTypeHandle delegateTypeHandle);
+    public static IntPtr CompileILPPMethod2(RuntimeMethodHandle burstMethodHandle);
+    [ObsoleteAttribute("This method will be removed in a future version of Burst")]
+public static Void* GetILPPMethodFunctionPointer(IntPtr ilppMethod);
+    public static Void* GetILPPMethodFunctionPointer2(IntPtr ilppMethod, RuntimeMethodHandle managedMethodHandle, RuntimeTypeHandle delegateTypeHandle);
+    [ObsoleteAttribute("This method will be removed in a future version of Burst")]
+public static Void* CompileUnsafeStaticMethod(RuntimeMethodHandle handle);
+    public static FunctionPointer`1<T> CompileFunctionPointer(T delegateMethod);
+    private static Void* Compile(object delegateObj, bool isFunctionPointer);
+    private static Void* Compile(object delegateObj, MethodInfo methodInfo, bool isFunctionPointer, bool isILPostProcessing);
+    internal static void Shutdown();
+    internal static void Cancel();
+    internal static bool IsCurrentCompilationDone();
+    internal static void Enable();
+    internal static void Disable();
+    internal static bool IsHostEditorArm();
+    internal static void TriggerUnsafeStaticMethodRecompilation();
+    internal static void TriggerRecompilation();
+    internal static void UnloadAdditionalLibraries();
+    internal static void InitialiseDebuggerHooks();
+    internal static bool IsApiAvailable(string apiName);
+    internal static int RequestSetProtocolVersion(int version);
+    internal static void Initialize(String[] assemblyFolders, String[] ignoreAssemblies);
+    internal static void NotifyCompilationStarted(String[] assemblyFolders, String[] ignoreAssemblies);
+    internal static void NotifyAssemblyCompilationNotRequired(string assemblyName);
+    internal static void NotifyAssemblyCompilationFinished(string assemblyName, String[] defines);
+    internal static void NotifyCompilationFinished();
+    internal static string AotCompilation(String[] assemblyFolders, String[] assemblyRoots, string options);
+    internal static void SetProfilerCallbacks();
+    private static string SendRawCommandToCompiler(string command);
+    private static string SendCommandToCompiler(string commandName, string commandArgs);
+    private static void DummyMethod();
+}
+public class Unity.Burst.BurstCompilerOptions : object {
+    private static string DisableCompilationArg;
+    private static string ForceSynchronousCompilationArg;
+    internal static string DefaultLibraryName;
+    internal static string BurstInitializeName;
+    internal static string BurstInitializeExternalsName;
+    internal static string BurstInitializeStaticsName;
+    internal static string OptionBurstcSwitch;
+    internal static string OptionGroup;
+    internal static string OptionPlatform;
+    internal static string OptionBackend;
+    internal static string OptionGlobalSafetyChecksSetting;
+    internal static string OptionDisableSafetyChecks;
+    internal static string OptionDisableOpt;
+    internal static string OptionFastMath;
+    internal static string OptionTarget;
+    internal static string OptionOptLevel;
+    internal static string OptionLogTimings;
+    internal static string OptionOptForSize;
+    internal static string OptionFloatPrecision;
+    internal static string OptionFloatMode;
+    internal static string OptionBranchProtection;
+    internal static string OptionDisableWarnings;
+    internal static string OptionAssemblyDefines;
+    internal static string OptionDump;
+    internal static string OptionFormat;
+    internal static string OptionDebugTrap;
+    internal static string OptionDisableVectors;
+    internal static string OptionDebug;
+    internal static string OptionDebugMode;
+    internal static string OptionStaticLinkage;
+    internal static string OptionJobMarshalling;
+    internal static string OptionTempDirectory;
+    internal static string OptionEnableDirectExternalLinking;
+    internal static string OptionLinkerOptions;
+    internal static string OptionEnableAutoLayoutFallbackCheck;
+    internal static string OptionGenerateLinkXml;
+    internal static string OptionMetaDataGeneration;
+    internal static string OptionDisableStringInterpolationInExceptionMessages;
+    internal static string OptionPlatformConfiguration;
+    internal static string OptionCacheDirectory;
+    internal static string OptionJitDisableFunctionCaching;
+    internal static string OptionJitDisableAssemblyCaching;
+    internal static string OptionJitEnableAssemblyCachingLogs;
+    internal static string OptionJitEnableSynchronousCompilation;
+    internal static string OptionJitCompilationPriority;
+    internal static string OptionJitIsForFunctionPointer;
+    internal static string OptionJitManagedFunctionPointer;
+    internal static string OptionJitManagedDelegateHandle;
+    internal static string OptionEnableInterpreter;
+    internal static string OptionAotAssemblyFolder;
+    internal static string OptionRootAssembly;
+    internal static string OptionIncludeRootAssemblyReferences;
+    internal static string OptionAotMethod;
+    internal static string OptionAotType;
+    internal static string OptionAotAssembly;
+    internal static string OptionAotOutputPath;
+    internal static string OptionAotKeepIntermediateFiles;
+    internal static string OptionAotNoLink;
+    internal static string OptionAotOnlyStaticMethods;
+    internal static string OptionMethodPrefix;
+    internal static string OptionAotNoNativeToolchain;
+    internal static string OptionAotEmitLlvmObjects;
+    internal static string OptionAotKeyFolder;
+    internal static string OptionAotDecodeFolder;
+    internal static string OptionVerbose;
+    internal static string OptionValidateExternalToolChain;
+    internal static string OptionCompilerThreads;
+    internal static string OptionChunkSize;
+    internal static string OptionPrintLogOnMissingPInvokeCallbackAttribute;
+    internal static string OptionOutputMode;
+    internal static string OptionAlwaysCreateOutput;
+    internal static string OptionAotPdbSearchPaths;
+    internal static string OptionSafetyChecks;
+    internal static string OptionLibraryOutputMode;
+    internal static string OptionCompilationId;
+    internal static string OptionTargetFramework;
+    internal static string OptionDiscardAssemblies;
+    internal static string OptionSaveExtraContext;
+    internal static string CompilerCommandShutdown;
+    internal static string CompilerCommandCancel;
+    internal static string CompilerCommandEnableCompiler;
+    internal static string CompilerCommandDisableCompiler;
+    internal static string CompilerCommandSetDefaultOptions;
+    internal static string CompilerCommandTriggerSetupRecompilation;
+    internal static string CompilerCommandIsCurrentCompilationDone;
+    internal static string CompilerCommandTriggerRecompilation;
+    internal static string CompilerCommandInitialize;
+    internal static string CompilerCommandDomainReload;
+    internal static string CompilerCommandVersionNotification;
+    internal static string CompilerCommandGetTargetCpuFromHost;
+    internal static string CompilerCommandSetProfileCallbacks;
+    internal static string CompilerCommandUnloadBurstNatives;
+    internal static string CompilerCommandIsNativeApiAvailable;
+    internal static string CompilerCommandILPPCompilation;
+    internal static string CompilerCommandIsArmTestEnv;
+    internal static string CompilerCommandNotifyAssemblyCompilationNotRequired;
+    internal static string CompilerCommandNotifyAssemblyCompilationFinished;
+    internal static string CompilerCommandNotifyCompilationStarted;
+    internal static string CompilerCommandNotifyCompilationFinished;
+    internal static string CompilerCommandAotCompilation;
+    internal static string CompilerCommandRequestInitialiseDebuggerCommmand;
+    internal static string CompilerCommandInitialiseDebuggerCommmand;
+    internal static string CompilerCommandRequestSetProtocolVersionEditor;
+    internal static string CompilerCommandSetProtocolVersionBurst;
+    internal static bool ForceDisableBurstCompilation;
+    private static bool ForceBurstCompilationSynchronously;
+    internal static bool IsSecondaryUnityProcess;
+    private bool _enableBurstCompilation;
+    private bool _enableBurstCompileSynchronously;
+    private bool _enableBurstSafetyChecks;
+    private bool _enableBurstTimings;
+    private bool _enableBurstDebug;
+    private bool _forceEnableBurstSafetyChecks;
+    [CompilerGeneratedAttribute]
+private bool <IsGlobal>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action <OptionsChanged>k__BackingField;
+    private bool IsGlobal { get; }
+    public bool IsEnabled { get; }
+    public bool EnableBurstCompilation { get; public set; }
+    public bool EnableBurstCompileSynchronously { get; public set; }
+    public bool EnableBurstSafetyChecks { get; public set; }
+    public bool ForceEnableBurstSafetyChecks { get; public set; }
+    public bool EnableBurstDebug { get; public set; }
+    [ObsoleteAttribute("This property is no longer used and will be removed in a future major release")]
+public bool DisableOptimizations { get; public set; }
+    [ObsoleteAttribute("This property is no longer used and will be removed in a future major release. Use the [BurstCompile(FloatMode = FloatMode.Fast)] on the method directly to enable this feature")]
+public bool EnableFastMath { get; public set; }
+    internal bool EnableBurstTimings { get; internal set; }
+    internal bool RequiresSynchronousCompilation { get; }
+    internal Action OptionsChanged { get; internal set; }
+    internal BurstCompilerOptions(bool isGlobal);
+    private static BurstCompilerOptions();
+    internal static string SerialiseCompilationOptionsSafe(String[] roots, String[] folders, string options);
+    internal static ValueTuple`3<String[], String[], string> DeserialiseCompilationOptionsSafe(string from);
+    [CompilerGeneratedAttribute]
+private bool get_IsGlobal();
+    public bool get_IsEnabled();
+    public bool get_EnableBurstCompilation();
+    public void set_EnableBurstCompilation(bool value);
+    public bool get_EnableBurstCompileSynchronously();
+    public void set_EnableBurstCompileSynchronously(bool value);
+    public bool get_EnableBurstSafetyChecks();
+    public void set_EnableBurstSafetyChecks(bool value);
+    public bool get_ForceEnableBurstSafetyChecks();
+    public void set_ForceEnableBurstSafetyChecks(bool value);
+    public bool get_EnableBurstDebug();
+    public void set_EnableBurstDebug(bool value);
+    public bool get_DisableOptimizations();
+    public void set_DisableOptimizations(bool value);
+    public bool get_EnableFastMath();
+    public void set_EnableFastMath(bool value);
+    internal bool get_EnableBurstTimings();
+    internal void set_EnableBurstTimings(bool value);
+    internal bool get_RequiresSynchronousCompilation();
+    [CompilerGeneratedAttribute]
+internal Action get_OptionsChanged();
+    [CompilerGeneratedAttribute]
+internal void set_OptionsChanged(Action value);
+    internal BurstCompilerOptions Clone();
+    private static bool TryGetAttribute(MemberInfo member, BurstCompileAttribute& attribute);
+    private static bool TryGetAttribute(Assembly assembly, BurstCompileAttribute& attribute);
+    private static BurstCompileAttribute GetBurstCompileAttribute(MemberInfo memberInfo);
+    internal static bool HasBurstCompileAttribute(MemberInfo member);
+    internal static void MergeAttributes(BurstCompileAttribute& memberAttribute, BurstCompileAttribute& assemblyAttribute);
+    internal bool TryGetOptions(MemberInfo member, String& flagsOut, bool isForILPostProcessing, bool isForCompilerClient);
+    internal string GetOptions(BurstCompileAttribute attr, bool isForILPostProcessing, bool isForCompilerClient);
+    private static void AddOption(StringBuilder builder, string option);
+    internal static string GetOption(string optionName, object value);
+    private void OnOptionsChanged();
+    private void MaybeTriggerRecompilation();
+    private static bool CheckIsSecondaryUnityProcess();
+}
+public enum Unity.Burst.BurstExecutionEnvironment : Enum {
+    public int value__;
+    public static BurstExecutionEnvironment Default;
+    public static BurstExecutionEnvironment NonDeterministic;
+    public static BurstExecutionEnvironment Deterministic;
+}
+public static class Unity.Burst.BurstRuntime : object {
+    public static int GetHashCode32();
+    public static int GetHashCode32(Type type);
+    public static long GetHashCode64();
+    public static long GetHashCode64(Type type);
+    internal static int HashStringWithFNV1A32(string text);
+    internal static long HashStringWithFNV1A64(string text);
+    public static bool LoadAdditionalLibrary(string pathToLibBurstGenerated);
+    internal static bool LoadAdditionalLibraryInternal(string pathToLibBurstGenerated);
+    [PreserveAttribute]
+internal static void RuntimeLog(Byte* message, int logType, Byte* fileName, int lineNumber);
+    internal static void Initialize();
+    [PreserveAttribute]
+internal static void PreventRequiredAttributeStrip();
+    [PreserveAttribute]
+internal static void Log(Byte* message, int logType, Byte* fileName, int lineNumber);
+    public static Byte* GetUTF8LiteralPointer(string str, Int32& byteCount);
+}
+internal static class Unity.Burst.BurstString : object {
+    private static Char[] SplitByColon;
+    private static Byte[] logTable;
+    private static UInt32[] g_PowerOf10_U32;
+    private static Byte[] InfinityString;
+    private static Byte[] NanString;
+    private static int SinglePrecision;
+    private static int DoublePrecision;
+    internal static int SingleNumberBufferLength;
+    internal static int DoubleNumberBufferLength;
+    private static int SinglePrecisionCustomFormat;
+    private static int DoublePrecisionCustomFormat;
+    private static BurstString();
+    [PreserveAttribute]
+public static void CopyFixedString(Byte* dest, int destLength, Byte* src, int srcLength);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, Byte* src, int srcLength, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, float value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, double value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, bool value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, char value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, byte value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, ushort value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, UInt32 value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, ulong value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, sbyte value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, short value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, int value, int formatOptionsRaw);
+    [PreserveAttribute]
+public static void Format(Byte* dest, Int32& destIndex, int destLength, long value, int formatOptionsRaw);
+    private static void ConvertUnsignedIntegerToString(Byte* dest, Int32& destIndex, int destLength, ulong value, FormatOptions options);
+    private static int GetLengthIntegerToString(long value, int basis, int zeroPadding);
+    private static void ConvertIntegerToString(Byte* dest, Int32& destIndex, int destLength, long value, FormatOptions options);
+    private static void FormatNumber(Byte* dest, Int32& destIndex, int destLength, NumberBuffer& number, int nMaxDigits, FormatOptions options);
+    private static void FormatDecimalOrHexadecimal(Byte* dest, Int32& destIndex, int destLength, NumberBuffer& number, int zeroPadding, bool outputPositiveSign);
+    private static byte ValueToIntegerChar(int value, bool uppercase);
+    private static void OptsSplit(string fullFormat, String& padding, String& format);
+    public static FormatOptions ParseFormatToFormatOptions(string fullFormat);
+    private static bool AlignRight(Byte* dest, Int32& destIndex, int destLength, int align, int length);
+    private static bool AlignLeft(Byte* dest, Int32& destIndex, int destLength, int align, int length);
+    private static int GetLengthForFormatGeneral(NumberBuffer& number, int nMaxDigits);
+    private static void FormatGeneral(Byte* dest, Int32& destIndex, int destLength, NumberBuffer& number, int nMaxDigits, byte expChar);
+    private static void RoundNumber(NumberBuffer& number, int pos, bool isCorrectlyRounded);
+    private static bool ShouldRoundUp(Byte* dig, int i, bool isCorrectlyRounded);
+    private static UInt32 LogBase2(UInt32 val);
+    private static int BigInt_Compare(tBigInt& lhs, tBigInt& rhs);
+    private static void BigInt_Add(tBigInt& pResult, tBigInt& lhs, tBigInt& rhs);
+    private static void BigInt_Add_internal(tBigInt& pResult, tBigInt& pLarge, tBigInt& pSmall);
+    private static void BigInt_Multiply(tBigInt& pResult, tBigInt& lhs, tBigInt& rhs);
+    private static void BigInt_Multiply_internal(tBigInt& pResult, tBigInt& pLarge, tBigInt& pSmall);
+    private static void BigInt_Multiply(tBigInt& pResult, tBigInt& lhs, UInt32 rhs);
+    private static void BigInt_Multiply2(tBigInt& pResult, tBigInt& input);
+    private static void BigInt_Multiply2(tBigInt& pResult);
+    private static void BigInt_Multiply10(tBigInt& pResult);
+    private static tBigInt g_PowerOf10_Big(int i);
+    private static void BigInt_Pow10(tBigInt& pResult, UInt32 exponent);
+    private static void BigInt_MultiplyPow10(tBigInt& pResult, tBigInt& input, UInt32 exponent);
+    private static void BigInt_Pow2(tBigInt& pResult, UInt32 exponent);
+    private static UInt32 BigInt_DivideWithRemainder_MaxQuotient9(tBigInt& pDividend, tBigInt& divisor);
+    private static void BigInt_ShiftLeft(tBigInt& pResult, UInt32 shift);
+    private static UInt32 Dragon4(ulong mantissa, int exponent, UInt32 mantissaHighBitIdx, bool hasUnequalMargins, CutoffMode cutoffMode, UInt32 cutoffNumber, Byte* pOutBuffer, UInt32 bufferSize, Int32& pOutExponent);
+    private static int FormatPositional(Byte* pOutBuffer, UInt32 bufferSize, ulong mantissa, int exponent, UInt32 mantissaHighBitIdx, bool hasUnequalMargins, int precision);
+    private static int FormatScientific(Byte* pOutBuffer, UInt32 bufferSize, ulong mantissa, int exponent, UInt32 mantissaHighBitIdx, bool hasUnequalMargins, int precision);
+    private static void FormatInfinityNaN(Byte* dest, Int32& destIndex, int destLength, ulong mantissa, bool isNegative, FormatOptions formatOptions);
+    private static void ConvertFloatToString(Byte* dest, Int32& destIndex, int destLength, float value, FormatOptions formatOptions);
+    private static void ConvertDoubleToString(Byte* dest, Int32& destIndex, int destLength, double value, FormatOptions formatOptions);
+}
+internal enum Unity.Burst.BurstTargetCpu : Enum {
+    public int value__;
+    public static BurstTargetCpu Auto;
+    public static BurstTargetCpu X86_SSE2;
+    public static BurstTargetCpu X86_SSE4;
+    public static BurstTargetCpu X64_SSE2;
+    public static BurstTargetCpu X64_SSE4;
+    public static BurstTargetCpu AVX;
+    public static BurstTargetCpu AVX2;
+    public static BurstTargetCpu WASM32;
+    public static BurstTargetCpu ARMV7A_NEON32;
+    public static BurstTargetCpu ARMV8A_AARCH64;
+    public static BurstTargetCpu THUMB2_NEON32;
+    public static BurstTargetCpu ARMV8A_AARCH64_HALFFP;
+    public static BurstTargetCpu ARMV9A;
+}
+internal enum Unity.Burst.CompilationPriority : Enum {
+    public int value__;
+    public static CompilationPriority EagerCompilationSynchronous;
+    public static CompilationPriority Asynchronous;
+    public static CompilationPriority ILPP;
+    public static CompilationPriority EagerCompilationAsynchronous;
+}
+public static class Unity.Burst.CompilerServices.Aliasing : object {
+    public static void ExpectAliased(Void* a, Void* b);
+    public static void ExpectAliased(A& a, B& b);
+    public static void ExpectAliased(Void* a, B& b);
+    public static void ExpectAliased(A& a, Void* b);
+    public static void ExpectNotAliased(Void* a, Void* b);
+    public static void ExpectNotAliased(A& a, B& b);
+    public static void ExpectNotAliased(Void* a, B& b);
+    public static void ExpectNotAliased(A& a, Void* b);
+}
+[AttributeUsageAttribute("10240")]
+public class Unity.Burst.CompilerServices.AssumeRangeAttribute : Attribute {
+    public AssumeRangeAttribute(long min, long max);
+    public AssumeRangeAttribute(ulong min, ulong max);
+}
+public static class Unity.Burst.CompilerServices.Constant : object {
+    public static bool IsConstantExpression(T t);
+    public static bool IsConstantExpression(Void* t);
+}
+public static class Unity.Burst.CompilerServices.Hint : object {
+    public static bool Likely(bool condition);
+    public static bool Unlikely(bool condition);
+    public static void Assume(bool condition);
+}
+[AttributeUsageAttribute("64")]
+public class Unity.Burst.CompilerServices.IgnoreWarningAttribute : Attribute {
+    public IgnoreWarningAttribute(int warning);
+}
+[AttributeUsageAttribute("64")]
+public class Unity.Burst.CompilerServices.SkipLocalsInitAttribute : Attribute {
+}
+internal enum Unity.Burst.DiagnosticId : Enum {
+    public int value__;
+    public static DiagnosticId ERR_InternalCompilerErrorInBackend;
+    public static DiagnosticId ERR_InternalCompilerErrorInFunction;
+    public static DiagnosticId ERR_InternalCompilerErrorInInstruction;
+    public static DiagnosticId ERR_OnlyStaticMethodsAllowed;
+    public static DiagnosticId ERR_UnableToAccessManagedMethod;
+    public static DiagnosticId ERR_UnableToFindInterfaceMethod;
+    public static DiagnosticId ERR_UnexpectedEmptyMethodBody;
+    public static DiagnosticId ERR_ManagedArgumentsNotSupported;
+    public static DiagnosticId ERR_CatchConstructionNotSupported;
+    public static DiagnosticId ERR_CatchAndFilterConstructionNotSupported;
+    public static DiagnosticId ERR_LdfldaWithFixedArrayExpected;
+    public static DiagnosticId ERR_PointerExpected;
+    public static DiagnosticId ERR_LoadingFieldFromManagedObjectNotSupported;
+    public static DiagnosticId ERR_LoadingFieldWithManagedTypeNotSupported;
+    public static DiagnosticId ERR_LoadingArgumentWithManagedTypeNotSupported;
+    public static DiagnosticId ERR_CallingBurstDiscardMethodWithReturnValueNotSupported;
+    public static DiagnosticId ERR_CallingManagedMethodNotSupported;
+    public static DiagnosticId ERR_InstructionUnboxNotSupported;
+    public static DiagnosticId ERR_InstructionBoxNotSupported;
+    public static DiagnosticId ERR_InstructionNewobjWithManagedTypeNotSupported;
+    public static DiagnosticId ERR_AccessingManagedArrayNotSupported;
+    public static DiagnosticId ERR_InstructionLdtokenFieldNotSupported;
+    public static DiagnosticId ERR_InstructionLdtokenMethodNotSupported;
+    public static DiagnosticId ERR_InstructionLdtokenTypeNotSupported;
+    public static DiagnosticId ERR_InstructionLdtokenNotSupported;
+    public static DiagnosticId ERR_InstructionLdvirtftnNotSupported;
+    public static DiagnosticId ERR_InstructionNewarrNotSupported;
+    public static DiagnosticId ERR_InstructionRethrowNotSupported;
+    public static DiagnosticId ERR_InstructionCastclassNotSupported;
+    public static DiagnosticId ERR_InstructionLdftnNotSupported;
+    public static DiagnosticId ERR_InstructionLdstrNotSupported;
+    public static DiagnosticId ERR_InstructionStsfldNotSupported;
+    public static DiagnosticId ERR_InstructionEndfilterNotSupported;
+    public static DiagnosticId ERR_InstructionEndfinallyNotSupported;
+    public static DiagnosticId ERR_InstructionLeaveNotSupported;
+    public static DiagnosticId ERR_InstructionNotSupported;
+    public static DiagnosticId ERR_LoadingFromStaticFieldNotSupported;
+    public static DiagnosticId ERR_LoadingFromNonReadonlyStaticFieldNotSupported;
+    public static DiagnosticId ERR_LoadingFromManagedStaticFieldNotSupported;
+    public static DiagnosticId ERR_LoadingFromManagedNonReadonlyStaticFieldNotSupported;
+    public static DiagnosticId ERR_InstructionStfldToManagedObjectNotSupported;
+    public static DiagnosticId ERR_InstructionLdlenNonConstantLengthNotSupported;
+    public static DiagnosticId ERR_StructWithAutoLayoutNotSupported;
+    public static DiagnosticId ERR_StructWithGenericParametersAndExplicitLayoutNotSupported;
+    public static DiagnosticId ERR_StructSizeNotSupported;
+    public static DiagnosticId ERR_StructZeroSizeNotSupported;
+    public static DiagnosticId ERR_MarshalAsOnFieldNotSupported;
+    public static DiagnosticId ERR_TypeNotSupported;
+    public static DiagnosticId ERR_RequiredTypeModifierNotSupported;
+    public static DiagnosticId ERR_ErrorWhileProcessingVariable;
+    public static DiagnosticId ERR_UnableToResolveType;
+    public static DiagnosticId ERR_UnableToResolveMethod;
+    public static DiagnosticId ERR_ConstructorNotSupported;
+    public static DiagnosticId ERR_FunctionPointerMethodMissingBurstCompileAttribute;
+    public static DiagnosticId ERR_FunctionPointerTypeMissingBurstCompileAttribute;
+    public static DiagnosticId ERR_FunctionPointerMethodAndTypeMissingBurstCompileAttribute;
+    public static DiagnosticId INF_FunctionPointerMethodAndTypeMissingMonoPInvokeCallbackAttribute;
+    public static DiagnosticId ERR_MarshalAsOnParameterNotSupported;
+    public static DiagnosticId ERR_MarshalAsOnReturnTypeNotSupported;
+    public static DiagnosticId ERR_TypeNotBlittableForFunctionPointer;
+    public static DiagnosticId ERR_StructByValueNotSupported;
+    public static DiagnosticId ERR_StructsWithNonUnicodeCharsNotSupported;
+    public static DiagnosticId ERR_VectorsByValueNotSupported;
+    public static DiagnosticId ERR_MissingExternBindings;
+    public static DiagnosticId ERR_MarshalAsNativeTypeOnReturnTypeNotSupported;
+    public static DiagnosticId ERR_AssertTypeNotSupported;
+    public static DiagnosticId ERR_StoringToReadOnlyFieldNotAllowed;
+    public static DiagnosticId ERR_StoringToFieldInReadOnlyParameterNotAllowed;
+    public static DiagnosticId ERR_StoringToReadOnlyParameterNotAllowed;
+    public static DiagnosticId ERR_TypeManagerStaticFieldNotCompatible;
+    public static DiagnosticId ERR_UnableToFindTypeIndexForTypeManagerType;
+    public static DiagnosticId ERR_UnableToFindFieldForTypeManager;
+    public static DiagnosticId ERR_CircularStaticConstructorUsage;
+    public static DiagnosticId ERR_ExternalInternalCallsInStaticConstructorsNotSupported;
+    public static DiagnosticId ERR_PlatformNotSupported;
+    public static DiagnosticId ERR_InitModuleVerificationError;
+    public static DiagnosticId ERR_ModuleVerificationError;
+    public static DiagnosticId ERR_UnableToFindTypeRequiredForTypeManager;
+    public static DiagnosticId ERR_UnexpectedIntegerTypesForBinaryOperation;
+    public static DiagnosticId ERR_BinaryOperationNotSupported;
+    public static DiagnosticId ERR_CalliWithThisNotSupported;
+    public static DiagnosticId ERR_CalliNonCCallingConventionNotSupported;
+    public static DiagnosticId ERR_StringLiteralTooBig;
+    public static DiagnosticId ERR_LdftnNonCCallingConventionNotSupported;
+    public static DiagnosticId ERR_UnableToCallMethodOnInterfaceObject;
+    public static DiagnosticId ERR_UnsupportedCpuDependentBranch;
+    public static DiagnosticId ERR_InstructionTargetCpuFeatureNotAllowedInThisBlock;
+    public static DiagnosticId ERR_AssumeRangeTypeMustBeInteger;
+    public static DiagnosticId ERR_AssumeRangeTypeMustBeSameSign;
+    public static DiagnosticId ERR_UnsupportedSpillTransform;
+    public static DiagnosticId ERR_UnsupportedSpillTransformTooManyUsers;
+    public static DiagnosticId ERR_MethodNotSupported;
+    public static DiagnosticId ERR_VectorsLoadFieldIsAddress;
+    public static DiagnosticId ERR_ConstantExpressionRequired;
+    public static DiagnosticId ERR_PointerArgumentsUnexpectedAliasing;
+    public static DiagnosticId ERR_LoopIntrinsicMustBeCalledInsideLoop;
+    public static DiagnosticId ERR_LoopUnexpectedAutoVectorization;
+    public static DiagnosticId WRN_LoopIntrinsicCalledButLoopOptimizedAway;
+    public static DiagnosticId ERR_AssertArgTypesDiffer;
+    public static DiagnosticId ERR_StringInternalCompilerFixedStringTooManyUsers;
+    public static DiagnosticId ERR_StringInvalidFormatMissingClosingBrace;
+    public static DiagnosticId ERR_StringInvalidIntegerForArgumentIndex;
+    public static DiagnosticId ERR_StringInvalidFormatForArgument;
+    public static DiagnosticId ERR_StringArgumentIndexOutOfRange;
+    public static DiagnosticId ERR_StringInvalidArgumentType;
+    public static DiagnosticId ERR_DebugLogNotSupported;
+    public static DiagnosticId ERR_StringInvalidNonLiteralFormat;
+    public static DiagnosticId ERR_StringInvalidStringFormatMethod;
+    public static DiagnosticId ERR_StringInvalidArgument;
+    public static DiagnosticId ERR_StringArrayInvalidArrayCreation;
+    public static DiagnosticId ERR_StringArrayInvalidArraySize;
+    public static DiagnosticId ERR_StringArrayInvalidControlFlow;
+    public static DiagnosticId ERR_StringArrayInvalidArrayIndex;
+    public static DiagnosticId ERR_StringArrayInvalidArrayIndexOutOfRange;
+    public static DiagnosticId ERR_UnmanagedStringMethodMissing;
+    public static DiagnosticId ERR_UnmanagedStringMethodInvalid;
+    public static DiagnosticId ERR_ManagedStaticConstructor;
+    public static DiagnosticId ERR_StaticConstantArrayInStaticConstructor;
+    public static DiagnosticId WRN_ExceptionThrownInNonSafetyCheckGuardedFunction;
+    public static DiagnosticId WRN_ACallToMethodHasBeenDiscarded;
+    public static DiagnosticId ERR_AccessingNestedManagedArrayNotSupported;
+    public static DiagnosticId ERR_LdobjFromANonPointerNonReference;
+    public static DiagnosticId ERR_StringLiteralRequired;
+    public static DiagnosticId ERR_MultiDimensionalArrayUnsupported;
+    public static DiagnosticId ERR_NonBlittableAndNonManagedSequentialStructNotSupported;
+    public static DiagnosticId ERR_VarArgFunctionNotSupported;
+}
+public enum Unity.Burst.FloatMode : Enum {
+    public int value__;
+    public static FloatMode Default;
+    public static FloatMode Strict;
+    public static FloatMode Deterministic;
+    public static FloatMode Fast;
+}
+public enum Unity.Burst.FloatPrecision : Enum {
+    public int value__;
+    public static FloatPrecision Standard;
+    public static FloatPrecision High;
+    public static FloatPrecision Medium;
+    public static FloatPrecision Low;
+}
+[IsReadOnlyAttribute]
+public class Unity.Burst.FunctionPointer`1 : ValueType {
+    [NativeDisableUnsafePtrRestrictionAttribute]
+private IntPtr _ptr;
+    public IntPtr Value { get; }
+    public T Invoke { get; }
+    public bool IsCreated { get; }
+    public FunctionPointer`1(IntPtr ptr);
+    public IntPtr get_Value();
+    [ConditionalAttribute("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+private void CheckIsCreated();
+    public T get_Invoke();
+    public bool get_IsCreated();
+    private sealed virtual override IFunctionPointer Unity.Burst.IFunctionPointer.FromIntPtr(IntPtr ptr);
+}
+internal enum Unity.Burst.GlobalSafetyChecksSettingKind : Enum {
+    public int value__;
+    public static GlobalSafetyChecksSettingKind Off;
+    public static GlobalSafetyChecksSettingKind On;
+    public static GlobalSafetyChecksSettingKind ForceOn;
+}
+public interface Unity.Burst.IFunctionPointer {
+    [ObsoleteAttribute("This method will be removed in a future version of Burst")]
+public abstract virtual IFunctionPointer FromIntPtr(IntPtr ptr);
+}
+public static class Unity.Burst.Intrinsics.Arm : object {
+}
+[AttributeUsageAttribute("64")]
+[PreserveAttribute]
+internal class Unity.Burst.Intrinsics.BurstTargetCpuAttribute : Attribute {
+    public BurstTargetCpu TargetCpu;
+    public BurstTargetCpuAttribute(BurstTargetCpu TargetCpu);
+}
+public static class Unity.Burst.Intrinsics.Common : object {
+    public static void Pause();
+    public static ulong umul128(ulong x, ulong y, UInt64& high);
+}
+[DebuggerTypeProxyAttribute("Unity.Burst.Intrinsics.V128DebugView")]
+public class Unity.Burst.Intrinsics.v128 : ValueType {
+    public byte Byte0;
+    public byte Byte1;
+    public byte Byte2;
+    public byte Byte3;
+    public byte Byte4;
+    public byte Byte5;
+    public byte Byte6;
+    public byte Byte7;
+    public byte Byte8;
+    public byte Byte9;
+    public byte Byte10;
+    public byte Byte11;
+    public byte Byte12;
+    public byte Byte13;
+    public byte Byte14;
+    public byte Byte15;
+    public sbyte SByte0;
+    public sbyte SByte1;
+    public sbyte SByte2;
+    public sbyte SByte3;
+    public sbyte SByte4;
+    public sbyte SByte5;
+    public sbyte SByte6;
+    public sbyte SByte7;
+    public sbyte SByte8;
+    public sbyte SByte9;
+    public sbyte SByte10;
+    public sbyte SByte11;
+    public sbyte SByte12;
+    public sbyte SByte13;
+    public sbyte SByte14;
+    public sbyte SByte15;
+    public ushort UShort0;
+    public ushort UShort1;
+    public ushort UShort2;
+    public ushort UShort3;
+    public ushort UShort4;
+    public ushort UShort5;
+    public ushort UShort6;
+    public ushort UShort7;
+    public short SShort0;
+    public short SShort1;
+    public short SShort2;
+    public short SShort3;
+    public short SShort4;
+    public short SShort5;
+    public short SShort6;
+    public short SShort7;
+    public UInt32 UInt0;
+    public UInt32 UInt1;
+    public UInt32 UInt2;
+    public UInt32 UInt3;
+    public int SInt0;
+    public int SInt1;
+    public int SInt2;
+    public int SInt3;
+    public ulong ULong0;
+    public ulong ULong1;
+    public long SLong0;
+    public long SLong1;
+    public float Float0;
+    public float Float1;
+    public float Float2;
+    public float Float3;
+    public double Double0;
+    public double Double1;
+    public v64 Lo64;
+    public v64 Hi64;
+    public v128(byte b);
+    public v128(byte a, byte b, byte c, byte d, byte e, byte f, byte g, byte h, byte i, byte j, byte k, byte l, byte m, byte n, byte o, byte p);
+    public v128(sbyte b);
+    public v128(sbyte a, sbyte b, sbyte c, sbyte d, sbyte e, sbyte f, sbyte g, sbyte h, sbyte i, sbyte j, sbyte k, sbyte l, sbyte m, sbyte n, sbyte o, sbyte p);
+    public v128(short v);
+    public v128(short a, short b, short c, short d, short e, short f, short g, short h);
+    public v128(ushort v);
+    public v128(ushort a, ushort b, ushort c, ushort d, ushort e, ushort f, ushort g, ushort h);
+    public v128(int v);
+    public v128(int a, int b, int c, int d);
+    public v128(UInt32 v);
+    public v128(UInt32 a, UInt32 b, UInt32 c, UInt32 d);
+    public v128(float f);
+    public v128(float a, float b, float c, float d);
+    public v128(double f);
+    public v128(double a, double b);
+    public v128(long f);
+    public v128(long a, long b);
+    public v128(ulong f);
+    public v128(ulong a, ulong b);
+    public v128(v64 lo, v64 hi);
+}
+internal class Unity.Burst.Intrinsics.V128DebugView : object {
+    private v128 m_Value;
+    [DebuggerBrowsableAttribute("2")]
+public Byte[] Byte { get; }
+    [DebuggerBrowsableAttribute("2")]
+public SByte[] SByte { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt16[] UShort { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int16[] SShort { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt32[] UInt { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int32[] SInt { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Single[] Float { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int64[] SLong { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt64[] ULong { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Double[] Double { get; }
+    public V128DebugView(v128 value);
+    public Byte[] get_Byte();
+    public SByte[] get_SByte();
+    public UInt16[] get_UShort();
+    public Int16[] get_SShort();
+    public UInt32[] get_UInt();
+    public Int32[] get_SInt();
+    public Single[] get_Float();
+    public Int64[] get_SLong();
+    public UInt64[] get_ULong();
+    public Double[] get_Double();
+}
+[DebuggerTypeProxyAttribute("Unity.Burst.Intrinsics.V256DebugView")]
+public class Unity.Burst.Intrinsics.v256 : ValueType {
+    public byte Byte0;
+    public byte Byte1;
+    public byte Byte2;
+    public byte Byte3;
+    public byte Byte4;
+    public byte Byte5;
+    public byte Byte6;
+    public byte Byte7;
+    public byte Byte8;
+    public byte Byte9;
+    public byte Byte10;
+    public byte Byte11;
+    public byte Byte12;
+    public byte Byte13;
+    public byte Byte14;
+    public byte Byte15;
+    public byte Byte16;
+    public byte Byte17;
+    public byte Byte18;
+    public byte Byte19;
+    public byte Byte20;
+    public byte Byte21;
+    public byte Byte22;
+    public byte Byte23;
+    public byte Byte24;
+    public byte Byte25;
+    public byte Byte26;
+    public byte Byte27;
+    public byte Byte28;
+    public byte Byte29;
+    public byte Byte30;
+    public byte Byte31;
+    public sbyte SByte0;
+    public sbyte SByte1;
+    public sbyte SByte2;
+    public sbyte SByte3;
+    public sbyte SByte4;
+    public sbyte SByte5;
+    public sbyte SByte6;
+    public sbyte SByte7;
+    public sbyte SByte8;
+    public sbyte SByte9;
+    public sbyte SByte10;
+    public sbyte SByte11;
+    public sbyte SByte12;
+    public sbyte SByte13;
+    public sbyte SByte14;
+    public sbyte SByte15;
+    public sbyte SByte16;
+    public sbyte SByte17;
+    public sbyte SByte18;
+    public sbyte SByte19;
+    public sbyte SByte20;
+    public sbyte SByte21;
+    public sbyte SByte22;
+    public sbyte SByte23;
+    public sbyte SByte24;
+    public sbyte SByte25;
+    public sbyte SByte26;
+    public sbyte SByte27;
+    public sbyte SByte28;
+    public sbyte SByte29;
+    public sbyte SByte30;
+    public sbyte SByte31;
+    public ushort UShort0;
+    public ushort UShort1;
+    public ushort UShort2;
+    public ushort UShort3;
+    public ushort UShort4;
+    public ushort UShort5;
+    public ushort UShort6;
+    public ushort UShort7;
+    public ushort UShort8;
+    public ushort UShort9;
+    public ushort UShort10;
+    public ushort UShort11;
+    public ushort UShort12;
+    public ushort UShort13;
+    public ushort UShort14;
+    public ushort UShort15;
+    public short SShort0;
+    public short SShort1;
+    public short SShort2;
+    public short SShort3;
+    public short SShort4;
+    public short SShort5;
+    public short SShort6;
+    public short SShort7;
+    public short SShort8;
+    public short SShort9;
+    public short SShort10;
+    public short SShort11;
+    public short SShort12;
+    public short SShort13;
+    public short SShort14;
+    public short SShort15;
+    public UInt32 UInt0;
+    public UInt32 UInt1;
+    public UInt32 UInt2;
+    public UInt32 UInt3;
+    public UInt32 UInt4;
+    public UInt32 UInt5;
+    public UInt32 UInt6;
+    public UInt32 UInt7;
+    public int SInt0;
+    public int SInt1;
+    public int SInt2;
+    public int SInt3;
+    public int SInt4;
+    public int SInt5;
+    public int SInt6;
+    public int SInt7;
+    public ulong ULong0;
+    public ulong ULong1;
+    public ulong ULong2;
+    public ulong ULong3;
+    public long SLong0;
+    public long SLong1;
+    public long SLong2;
+    public long SLong3;
+    public float Float0;
+    public float Float1;
+    public float Float2;
+    public float Float3;
+    public float Float4;
+    public float Float5;
+    public float Float6;
+    public float Float7;
+    public double Double0;
+    public double Double1;
+    public double Double2;
+    public double Double3;
+    public v128 Lo128;
+    public v128 Hi128;
+    public v256(byte b);
+    public v256(byte a, byte b, byte c, byte d, byte e, byte f, byte g, byte h, byte i, byte j, byte k, byte l, byte m, byte n, byte o, byte p, byte q, byte r, byte s, byte t, byte u, byte v, byte w, byte x, byte y, byte z, byte A, byte B, byte C, byte D, byte E, byte F);
+    public v256(sbyte b);
+    public v256(sbyte a, sbyte b, sbyte c, sbyte d, sbyte e, sbyte f, sbyte g, sbyte h, sbyte i, sbyte j, sbyte k, sbyte l, sbyte m, sbyte n, sbyte o, sbyte p, sbyte q, sbyte r, sbyte s, sbyte t, sbyte u, sbyte v, sbyte w, sbyte x, sbyte y, sbyte z, sbyte A, sbyte B, sbyte C, sbyte D, sbyte E, sbyte F);
+    public v256(short v);
+    public v256(short a, short b, short c, short d, short e, short f, short g, short h, short i, short j, short k, short l, short m, short n, short o, short p);
+    public v256(ushort v);
+    public v256(ushort a, ushort b, ushort c, ushort d, ushort e, ushort f, ushort g, ushort h, ushort i, ushort j, ushort k, ushort l, ushort m, ushort n, ushort o, ushort p);
+    public v256(int v);
+    public v256(int a, int b, int c, int d, int e, int f, int g, int h);
+    public v256(UInt32 v);
+    public v256(UInt32 a, UInt32 b, UInt32 c, UInt32 d, UInt32 e, UInt32 f, UInt32 g, UInt32 h);
+    public v256(float f);
+    public v256(float a, float b, float c, float d, float e, float f, float g, float h);
+    public v256(double f);
+    public v256(double a, double b, double c, double d);
+    public v256(long f);
+    public v256(long a, long b, long c, long d);
+    public v256(ulong f);
+    public v256(ulong a, ulong b, ulong c, ulong d);
+    public v256(v128 lo, v128 hi);
+}
+internal class Unity.Burst.Intrinsics.V256DebugView : object {
+    private v256 m_Value;
+    [DebuggerBrowsableAttribute("2")]
+public Byte[] Byte { get; }
+    [DebuggerBrowsableAttribute("2")]
+public SByte[] SByte { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt16[] UShort { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int16[] SShort { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt32[] UInt { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int32[] SInt { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Single[] Float { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int64[] SLong { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt64[] ULong { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Double[] Double { get; }
+    public V256DebugView(v256 value);
+    public Byte[] get_Byte();
+    public SByte[] get_SByte();
+    public UInt16[] get_UShort();
+    public Int16[] get_SShort();
+    public UInt32[] get_UInt();
+    public Int32[] get_SInt();
+    public Single[] get_Float();
+    public Int64[] get_SLong();
+    public UInt64[] get_ULong();
+    public Double[] get_Double();
+}
+[DebuggerTypeProxyAttribute("Unity.Burst.Intrinsics.V64DebugView")]
+public class Unity.Burst.Intrinsics.v64 : ValueType {
+    public byte Byte0;
+    public byte Byte1;
+    public byte Byte2;
+    public byte Byte3;
+    public byte Byte4;
+    public byte Byte5;
+    public byte Byte6;
+    public byte Byte7;
+    public sbyte SByte0;
+    public sbyte SByte1;
+    public sbyte SByte2;
+    public sbyte SByte3;
+    public sbyte SByte4;
+    public sbyte SByte5;
+    public sbyte SByte6;
+    public sbyte SByte7;
+    public ushort UShort0;
+    public ushort UShort1;
+    public ushort UShort2;
+    public ushort UShort3;
+    public short SShort0;
+    public short SShort1;
+    public short SShort2;
+    public short SShort3;
+    public UInt32 UInt0;
+    public UInt32 UInt1;
+    public int SInt0;
+    public int SInt1;
+    public ulong ULong0;
+    public long SLong0;
+    public float Float0;
+    public float Float1;
+    public double Double0;
+    public v64(byte b);
+    public v64(byte a, byte b, byte c, byte d, byte e, byte f, byte g, byte h);
+    public v64(sbyte b);
+    public v64(sbyte a, sbyte b, sbyte c, sbyte d, sbyte e, sbyte f, sbyte g, sbyte h);
+    public v64(short v);
+    public v64(short a, short b, short c, short d);
+    public v64(ushort v);
+    public v64(ushort a, ushort b, ushort c, ushort d);
+    public v64(int v);
+    public v64(int a, int b);
+    public v64(UInt32 v);
+    public v64(UInt32 a, UInt32 b);
+    public v64(float f);
+    public v64(float a, float b);
+    public v64(double a);
+    public v64(long a);
+    public v64(ulong a);
+}
+internal class Unity.Burst.Intrinsics.V64DebugView : object {
+    private v64 m_Value;
+    [DebuggerBrowsableAttribute("2")]
+public Byte[] Byte { get; }
+    [DebuggerBrowsableAttribute("2")]
+public SByte[] SByte { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt16[] UShort { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int16[] SShort { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt32[] UInt { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int32[] SInt { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Single[] Float { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Int64[] SLong { get; }
+    [DebuggerBrowsableAttribute("2")]
+public UInt64[] ULong { get; }
+    [DebuggerBrowsableAttribute("2")]
+public Double[] Double { get; }
+    public V64DebugView(v64 value);
+    public Byte[] get_Byte();
+    public SByte[] get_SByte();
+    public UInt16[] get_UShort();
+    public Int16[] get_SShort();
+    public UInt32[] get_UInt();
+    public Int32[] get_SInt();
+    public Single[] get_Float();
+    public Int64[] get_SLong();
+    public UInt64[] get_ULong();
+    public Double[] get_Double();
+}
+[BurstCompileAttribute]
+public static class Unity.Burst.Intrinsics.X86 : object {
+    public static MXCSRBits MXCSR { get; public set; }
+    private static v128 GenericCSharpLoad(Void* ptr);
+    private static void GenericCSharpStore(Void* ptr, v128 val);
+    private static sbyte Saturate_To_Int8(int val);
+    private static byte Saturate_To_UnsignedInt8(int val);
+    private static short Saturate_To_Int16(int val);
+    private static ushort Saturate_To_UnsignedInt16(int val);
+    private static bool IsNaN(UInt32 v);
+    private static bool IsNaN(ulong v);
+    private static void BurstIntrinsicSetCSRFromManaged(int _);
+    private static int BurstIntrinsicGetCSRFromManaged();
+    internal static int getcsr_raw();
+    internal static void setcsr_raw(int bits);
+    [BurstCompileAttribute]
+private static void DoSetCSRTrampoline(int bits);
+    [BurstCompileAttribute]
+private static int DoGetCSRTrampoline();
+    [BurstTargetCpuAttribute("3")]
+public static MXCSRBits get_MXCSR();
+    [BurstTargetCpuAttribute("3")]
+public static void set_MXCSR(MXCSRBits value);
+}
+[FlagsAttribute]
+internal enum Unity.Burst.NativeDumpFlags : Enum {
+    public int value__;
+    public static NativeDumpFlags None;
+    public static NativeDumpFlags IL;
+    public static NativeDumpFlags Unused;
+    public static NativeDumpFlags IR;
+    public static NativeDumpFlags IROptimized;
+    public static NativeDumpFlags Asm;
+    public static NativeDumpFlags Function;
+    public static NativeDumpFlags Analysis;
+    public static NativeDumpFlags IRPassAnalysis;
+    public static NativeDumpFlags ILPre;
+    public static NativeDumpFlags IRPerEntryPoint;
+    public static NativeDumpFlags All;
+}
+[AttributeUsageAttribute("10504")]
+public class Unity.Burst.NoAliasAttribute : Attribute {
+}
+public enum Unity.Burst.OptimizeFor : Enum {
+    public int value__;
+    public static OptimizeFor Default;
+    public static OptimizeFor Performance;
+    public static OptimizeFor Size;
+    public static OptimizeFor FastCompilation;
+    public static OptimizeFor Balanced;
+}
+internal static class Unity.Burst.SafeStringArrayHelper : object {
+    public static string SerialiseStringArraySafe(String[] array);
+    public static String[] DeserialiseStringArraySafe(string input);
+}
+internal static class Unity.Burst.SharedStatic : object {
+    [ConditionalAttribute("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+private static void CheckSizeOf(UInt32 sizeOf);
+    [ConditionalAttribute("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+private static void CheckResult(Void* result);
+    [PreserveAttribute]
+public static Void* GetOrCreateSharedStaticInternal(long getHashCode64, long getSubHashCode64, UInt32 sizeOf, UInt32 alignment);
+}
+[IsReadOnlyAttribute]
+public class Unity.Burst.SharedStatic`1 : ValueType {
+    private Void* _buffer;
+    private static UInt32 DefaultAlignment;
+    public T& Data { get; }
+    public Void* UnsafeDataPointer { get; }
+    private SharedStatic`1(Void* buffer);
+    public T& get_Data();
+    public Void* get_UnsafeDataPointer();
+    public static SharedStatic`1<T> GetOrCreate(UInt32 alignment);
+    public static SharedStatic`1<T> GetOrCreate(UInt32 alignment);
+    public static SharedStatic`1<T> GetOrCreateUnsafe(UInt32 alignment, long hashCode, long subHashCode);
+    public static SharedStatic`1<T> GetOrCreatePartiallyUnsafeWithHashCode(UInt32 alignment, long hashCode);
+    public static SharedStatic`1<T> GetOrCreatePartiallyUnsafeWithSubHashCode(UInt32 alignment, long subHashCode);
+    public static SharedStatic`1<T> GetOrCreate(Type contextType, UInt32 alignment);
+    public static SharedStatic`1<T> GetOrCreate(Type contextType, Type subContextType, UInt32 alignment);
+    [ConditionalAttribute("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+private static void CheckIf_T_IsUnmanagedOrThrow();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

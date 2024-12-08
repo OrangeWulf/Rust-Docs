@@ -1,0 +1,936 @@
+Сборка: 0Harmony.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Harmony.MethodType
+Наследуется от: Enum
+Поля:
+  int value__
+  MethodType Normal
+  MethodType Getter
+  MethodType Setter
+  MethodType Constructor
+  MethodType StaticConstructor
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Harmony.PropertyMethod
+Наследуется от: Enum
+Поля:
+  int value__
+  PropertyMethod Getter
+  PropertyMethod Setter
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Harmony.ArgumentType
+Наследуется от: Enum
+Поля:
+  int value__
+  ArgumentType Normal
+  ArgumentType Ref
+  ArgumentType Out
+  ArgumentType Pointer
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Harmony.HarmonyPatchType
+Наследуется от: Enum
+Поля:
+  int value__
+  HarmonyPatchType All
+  HarmonyPatchType Prefix
+  HarmonyPatchType Postfix
+  HarmonyPatchType Transpiler
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Harmony.HarmonyAttribute
+Наследуется от: Attribute
+Поля:
+  HarmonyMethod info
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyPatch
+Наследуется от: HarmonyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(Type declaringType)
+  void .ctor(Type declaringType, Type[] argumentTypes)
+  void .ctor(Type declaringType, string methodName)
+  void .ctor(Type declaringType, string methodName, Type[] argumentTypes)
+  void .ctor(Type declaringType, string methodName, Type[] argumentTypes, ArgumentType[] argumentVariations)
+  void .ctor(Type declaringType, MethodType methodType)
+  void .ctor(Type declaringType, MethodType methodType, Type[] argumentTypes)
+  void .ctor(Type declaringType, MethodType methodType, Type[] argumentTypes, ArgumentType[] argumentVariations)
+  void .ctor(Type declaringType, string propertyName, MethodType methodType)
+  void .ctor(string methodName)
+  void .ctor(string methodName, Type[] argumentTypes)
+  void .ctor(string methodName, Type[] argumentTypes, ArgumentType[] argumentVariations)
+  void .ctor(string propertyName, MethodType methodType)
+  void .ctor(MethodType methodType)
+  void .ctor(MethodType methodType, Type[] argumentTypes)
+  void .ctor(MethodType methodType, Type[] argumentTypes, ArgumentType[] argumentVariations)
+  void .ctor(Type[] argumentTypes)
+  void .ctor(Type[] argumentTypes, ArgumentType[] argumentVariations)
+  void .ctor(string propertyName, PropertyMethod type)
+  void ParseSpecialArguments(Type[] argumentTypes, ArgumentType[] argumentVariations)
+--------------------------------------------------
+Класс: Harmony.HarmonyPatchAll
+Наследуется от: HarmonyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyPriority
+Наследуется от: HarmonyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(int prioritiy)
+--------------------------------------------------
+Класс: Harmony.HarmonyBefore
+Наследуется от: HarmonyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(String[] before)
+--------------------------------------------------
+Класс: Harmony.HarmonyAfter
+Наследуется от: HarmonyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(String[] after)
+--------------------------------------------------
+Класс: Harmony.HarmonyPrepare
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyCleanup
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyTargetMethod
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyTargetMethods
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyPrefix
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyPostfix
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyTranspiler
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.HarmonyArgument
+Наследуется от: Attribute
+Поля:
+  string <OriginalName>k__BackingField
+  int <Index>k__BackingField
+  string <NewName>k__BackingField
+Свойства:
+  string OriginalName
+  int Index
+  string NewName
+Методы:
+  string get_OriginalName()
+  void set_OriginalName(string value)
+  int get_Index()
+  void set_Index(int value)
+  string get_NewName()
+  void set_NewName(string value)
+  void .ctor(string originalName)
+  void .ctor(int index)
+  void .ctor(string originalName, string newName)
+  void .ctor(int index, string name)
+--------------------------------------------------
+Класс: Harmony.UpgradeToLatestVersion
+Наследуется от: Attribute
+Поля:
+  int version
+Свойства:
+Методы:
+  void .ctor(int version)
+--------------------------------------------------
+Класс: Harmony.CodeInstruction
+Наследуется от: object
+Поля:
+  OpCode opcode
+  object operand
+  List`1<Label> labels
+  List`1<ExceptionBlock> blocks
+Свойства:
+Методы:
+  void .ctor(OpCode opcode, object operand)
+  void .ctor(CodeInstruction instruction)
+  CodeInstruction Clone()
+  CodeInstruction Clone(OpCode opcode)
+  CodeInstruction Clone(OpCode opcode, object operand)
+  string ToString()
+--------------------------------------------------
+Класс: Harmony.CodeTranspiler
+Наследуется от: object
+Поля:
+  IEnumerable`1<CodeInstruction> codeInstructions
+  List`1<MethodInfo> transpilers
+  Dictionary`2<OpCode, OpCode> allJumpCodes
+Свойства:
+Методы:
+  void .ctor(List`1<ILInstruction> ilInstructions)
+  void Add(MethodInfo transpiler)
+  object ConvertInstruction(Type type, object op, Dictionary`2& unassigned)
+  bool ShouldAddExceptionInfo(object op, int opIndex, List`1<object> originalInstructions, List`1<object> newInstructions, Dictionary`2<object, Dictionary`2<string, object>> unassignedValues)
+  IEnumerable ConvertInstructionsAndUnassignedValues(Type type, IEnumerable enumerable, Dictionary`2& unassignedValues)
+  IEnumerable ConvertToOurInstructions(IEnumerable instructions, List`1<object> originalInstructions, Dictionary`2<object, Dictionary`2<string, object>> unassignedValues)
+  IEnumerable ConvertToGeneralInstructions(MethodInfo transpiler, IEnumerable enumerable, Dictionary`2& unassignedValues)
+  List`1<object> GetTranspilerCallParameters(ILGenerator generator, MethodInfo transpiler, MethodBase method, IEnumerable instructions)
+  List`1<CodeInstruction> GetResult(ILGenerator generator, MethodBase method)
+  OpCode ReplaceShortJumps(OpCode opcode)
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.DelegateTypeFactory
+Наследуется от: object
+Поля:
+  ModuleBuilder module
+  int counter
+Свойства:
+Методы:
+  void .ctor()
+  Type CreateDelegateType(MethodInfo method)
+--------------------------------------------------
+Класс: Harmony.GetterHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  object Invoke(object source)
+  IAsyncResult BeginInvoke(object source, AsyncCallback callback, object object)
+  object EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Harmony.SetterHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object source, object value)
+  IAsyncResult BeginInvoke(object source, object value, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Harmony.InstantiationHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  object Invoke()
+  IAsyncResult BeginInvoke(AsyncCallback callback, object object)
+  object EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Harmony.FastAccess
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  InstantiationHandler CreateInstantiationHandler(Type type)
+  GetterHandler CreateGetterHandler(PropertyInfo propertyInfo)
+  GetterHandler CreateGetterHandler(FieldInfo fieldInfo)
+  GetterHandler CreateFieldGetter(Type type, String[] names)
+  SetterHandler CreateSetterHandler(PropertyInfo propertyInfo)
+  SetterHandler CreateSetterHandler(FieldInfo fieldInfo)
+  DynamicMethod CreateGetDynamicMethod(Type type)
+  DynamicMethod CreateSetDynamicMethod(Type type)
+  void BoxIfNeeded(Type type, ILGenerator generator)
+  void UnboxIfNeeded(Type type, ILGenerator generator)
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.FastInvokeHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  object Invoke(object target, Object[] paramters)
+  IAsyncResult BeginInvoke(object target, Object[] paramters, AsyncCallback callback, object object)
+  object EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Harmony.MethodInvoker
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  FastInvokeHandler GetHandler(DynamicMethod methodInfo, Module module)
+  FastInvokeHandler GetHandler(MethodInfo methodInfo)
+  FastInvokeHandler Handler(MethodInfo methodInfo, Module module, bool directBoxValueAccess)
+  void EmitCastToReference(ILGenerator il, Type type)
+  void EmitUnboxIfNeeded(ILGenerator il, Type type)
+  void EmitBoxIfNeeded(ILGenerator il, Type type)
+  void EmitFastInt(ILGenerator il, int value)
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.Patches
+Наследуется от: object
+Поля:
+  ReadOnlyCollection`1<Patch> Prefixes
+  ReadOnlyCollection`1<Patch> Postfixes
+  ReadOnlyCollection`1<Patch> Transpilers
+Свойства:
+  ReadOnlyCollection`1<string> Owners
+Методы:
+  ReadOnlyCollection`1<string> get_Owners()
+  void .ctor(Patch[] prefixes, Patch[] postfixes, Patch[] transpilers)
+--------------------------------------------------
+Класс: Harmony.HarmonyInstance
+Наследуется от: object
+Поля:
+  string id
+  bool DEBUG
+  bool selfPatchingDone
+Свойства:
+  string Id
+Методы:
+  string get_Id()
+  void .ctor(string id)
+  HarmonyInstance Create(string id)
+  MethodBase GetOutsideCaller()
+  void PatchAll()
+  void PatchAll(Assembly assembly)
+  DynamicMethod Patch(MethodBase original, HarmonyMethod prefix, HarmonyMethod postfix, HarmonyMethod transpiler)
+  void UnpatchAll(string harmonyID)
+  void Unpatch(MethodBase original, HarmonyPatchType type, string harmonyID)
+  void Unpatch(MethodBase original, MethodInfo patch)
+  bool HasAnyPatches(string harmonyID)
+  Patches GetPatchInfo(MethodBase method)
+  IEnumerable`1<MethodBase> GetPatchedMethods()
+  Dictionary`2<string, Version> VersionInfo(Version& currentVersion)
+  void .cctor()
+  void <PatchAll>b__9_0(Type type)
+--------------------------------------------------
+Класс: Harmony.HarmonyMethod
+Наследуется от: object
+Поля:
+  MethodInfo method
+  Type declaringType
+  string methodName
+  Nullable`1<MethodType> methodType
+  Type[] argumentTypes
+  int prioritiy
+  String[] before
+  String[] after
+Свойства:
+Методы:
+  void .ctor()
+  void ImportMethod(MethodInfo theMethod)
+  void .ctor(MethodInfo method)
+  void .ctor(Type type, string name, Type[] parameters)
+  List`1<string> HarmonyFields()
+  HarmonyMethod Merge(List`1<HarmonyMethod> attributes)
+  string ToString()
+--------------------------------------------------
+Класс: Harmony.HarmonyMethodExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void CopyTo(HarmonyMethod from, HarmonyMethod to)
+  HarmonyMethod Clone(HarmonyMethod original)
+  HarmonyMethod Merge(HarmonyMethod master, HarmonyMethod detail)
+  List`1<HarmonyMethod> GetHarmonyMethods(Type type)
+  List`1<HarmonyMethod> GetHarmonyMethods(MethodBase method)
+--------------------------------------------------
+Класс: Harmony.HarmonySharedState
+Наследуется от: object
+Поля:
+  string name
+  int internalVersion
+  int actualVersion
+Свойства:
+Методы:
+  Dictionary`2<MethodBase, Byte[]> GetState()
+  Assembly SharedStateAssembly()
+  PatchInfo GetPatchInfo(MethodBase method)
+  IEnumerable`1<MethodBase> GetPatchedMethods()
+  void UpdatePatchInfo(MethodBase method, PatchInfo patchInfo)
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.MethodPatcher
+Наследуется от: object
+Поля:
+  string INSTANCE_PARAM
+  string ORIGINAL_METHOD_PARAM
+  string RESULT_VAR
+  string STATE_VAR
+  string PARAM_INDEX_PREFIX
+  string INSTANCE_FIELD_PREFIX
+  bool DEBUG_METHOD_GENERATION_BY_DLL_CREATION
+  MethodInfo getMethodMethod
+Свойства:
+Методы:
+  DynamicMethod CreatePatchedMethod(MethodBase original, List`1<MethodInfo> prefixes, List`1<MethodInfo> postfixes, List`1<MethodInfo> transpilers)
+  DynamicMethod CreatePatchedMethod(MethodBase original, string harmonyInstanceID, List`1<MethodInfo> prefixes, List`1<MethodInfo> postfixes, List`1<MethodInfo> transpilers)
+  OpCode LoadIndOpCodeFor(Type type)
+  HarmonyArgument GetArgumentAttribute(ParameterInfo parameter)
+  HarmonyArgument[] GetArgumentAttributes(MethodInfo method)
+  HarmonyArgument[] GetArgumentAttributes(Type type)
+  string GetOriginalArgumentName(ParameterInfo parameter, String[] originalParameterNames)
+  string GetOriginalArgumentName(HarmonyArgument[] attributes, string name, String[] originalParameterNames)
+  string GetOriginalArgumentName(MethodInfo method, String[] originalParameterNames, string name)
+  int GetArgumentIndex(MethodInfo patch, String[] originalParameterNames, ParameterInfo patchParam)
+  void EmitCallParameter(ILGenerator il, MethodBase original, MethodInfo patch, Dictionary`2<string, LocalBuilder> variables, bool allowFirsParamPassthrough)
+  bool AddPrefixes(ILGenerator il, MethodBase original, List`1<MethodInfo> prefixes, Dictionary`2<string, LocalBuilder> variables, Label label)
+  void AddPostfixes(ILGenerator il, MethodBase original, List`1<MethodInfo> postfixes, Dictionary`2<string, LocalBuilder> variables, bool passthroughPatches)
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.PatchInfoSerialization
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Byte[] Serialize(PatchInfo patchInfo)
+  PatchInfo Deserialize(Byte[] bytes)
+  int PriorityComparer(object obj, int index, int priority, String[] before, String[] after)
+--------------------------------------------------
+Класс: Harmony.PatchInfo
+Наследуется от: object
+Поля:
+  Patch[] prefixes
+  Patch[] postfixes
+  Patch[] transpilers
+Свойства:
+Методы:
+  void .ctor()
+  void AddPrefix(MethodInfo patch, string owner, int priority, String[] before, String[] after)
+  void RemovePrefix(string owner)
+  void AddPostfix(MethodInfo patch, string owner, int priority, String[] before, String[] after)
+  void RemovePostfix(string owner)
+  void AddTranspiler(MethodInfo patch, string owner, int priority, String[] before, String[] after)
+  void RemoveTranspiler(string owner)
+  void RemovePatch(MethodInfo patch)
+--------------------------------------------------
+Класс: Harmony.Patch
+Наследуется от: object
+Поля:
+  int index
+  string owner
+  int priority
+  String[] before
+  String[] after
+  MethodInfo patch
+Свойства:
+Методы:
+  void .ctor(MethodInfo patch, int index, string owner, int priority, String[] before, String[] after)
+  MethodInfo GetMethod(MethodBase original)
+  bool Equals(object obj)
+  int CompareTo(object obj)
+  int GetHashCode()
+--------------------------------------------------
+Класс: Harmony.PatchFunctions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void AddPrefix(PatchInfo patchInfo, string owner, HarmonyMethod info)
+  void RemovePrefix(PatchInfo patchInfo, string owner)
+  void AddPostfix(PatchInfo patchInfo, string owner, HarmonyMethod info)
+  void RemovePostfix(PatchInfo patchInfo, string owner)
+  void AddTranspiler(PatchInfo patchInfo, string owner, HarmonyMethod info)
+  void RemoveTranspiler(PatchInfo patchInfo, string owner)
+  void RemovePatch(PatchInfo patchInfo, MethodInfo patch)
+  List`1<ILInstruction> GetInstructions(ILGenerator generator, MethodBase method)
+  List`1<MethodInfo> GetSortedPatchMethods(MethodBase original, Patch[] patches)
+  DynamicMethod UpdateWrapper(MethodBase original, PatchInfo patchInfo, string instanceID)
+--------------------------------------------------
+Класс: Harmony.PatchProcessor
+Наследуется от: object
+Поля:
+  object locker
+  HarmonyInstance instance
+  Type container
+  HarmonyMethod containerAttributes
+  List`1<MethodBase> originals
+  HarmonyMethod prefix
+  HarmonyMethod postfix
+  HarmonyMethod transpiler
+Свойства:
+Методы:
+  void .ctor(HarmonyInstance instance, Type type, HarmonyMethod attributes)
+  void .ctor(HarmonyInstance instance, List`1<MethodBase> originals, HarmonyMethod prefix, HarmonyMethod postfix, HarmonyMethod transpiler)
+  Patches GetPatchInfo(MethodBase method)
+  IEnumerable`1<MethodBase> AllPatchedMethods()
+  List`1<DynamicMethod> Patch()
+  void Unpatch(HarmonyPatchType type, string harmonyID)
+  void Unpatch(MethodInfo patch)
+  void PrepareType()
+  MethodBase GetOriginalMethod()
+  T RunMethod(T defaultIfNotExisting, Object[] parameters)
+  void RunMethod(Object[] parameters)
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.Priority
+Наследуется от: object
+Поля:
+  int Last
+  int VeryLow
+  int Low
+  int LowerThanNormal
+  int Normal
+  int HigherThanNormal
+  int High
+  int VeryHigh
+  int First
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Harmony.AccessCache
+Наследуется от: object
+Поля:
+  Dictionary`2<Type, Dictionary`2<string, FieldInfo>> fields
+  Dictionary`2<Type, Dictionary`2<string, PropertyInfo>> properties
+  Dictionary`2<Type, Dictionary`2<string, Dictionary`2<int, MethodBase>>> methods
+Свойства:
+Методы:
+  FieldInfo GetFieldInfo(Type type, string name)
+  PropertyInfo GetPropertyInfo(Type type, string name)
+  int CombinedHashCode(IEnumerable`1<object> objects)
+  MethodBase GetMethodInfo(Type type, string name, Type[] arguments)
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.AccessTools
+Наследуется от: object
+Поля:
+  BindingFlags all
+Свойства:
+Методы:
+  Type TypeByName(string name)
+  T FindIncludingBaseTypes(Type type, Func`2<Type, T> action)
+  T FindIncludingInnerTypes(Type type, Func`2<Type, T> action)
+  FieldInfo Field(Type type, string name)
+  FieldInfo Field(Type type, int idx)
+  PropertyInfo DeclaredProperty(Type type, string name)
+  PropertyInfo Property(Type type, string name)
+  MethodInfo DeclaredMethod(Type type, string name, Type[] parameters, Type[] generics)
+  MethodInfo Method(Type type, string name, Type[] parameters, Type[] generics)
+  MethodInfo Method(string typeColonMethodname, Type[] parameters, Type[] generics)
+  List`1<string> GetMethodNames(Type type)
+  List`1<string> GetMethodNames(object instance)
+  ConstructorInfo DeclaredConstructor(Type type, Type[] parameters)
+  ConstructorInfo Constructor(Type type, Type[] parameters)
+  List`1<ConstructorInfo> GetDeclaredConstructors(Type type)
+  List`1<MethodInfo> GetDeclaredMethods(Type type)
+  List`1<PropertyInfo> GetDeclaredProperties(Type type)
+  List`1<FieldInfo> GetDeclaredFields(Type type)
+  Type GetReturnedType(MethodBase method)
+  Type Inner(Type type, string name)
+  Type FirstInner(Type type, Func`2<Type, bool> predicate)
+  MethodInfo FirstMethod(Type type, Func`2<MethodInfo, bool> predicate)
+  ConstructorInfo FirstConstructor(Type type, Func`2<ConstructorInfo, bool> predicate)
+  PropertyInfo FirstProperty(Type type, Func`2<PropertyInfo, bool> predicate)
+  Type[] GetTypes(Object[] parameters)
+  List`1<string> GetFieldNames(Type type)
+  List`1<string> GetFieldNames(object instance)
+  List`1<string> GetPropertyNames(Type type)
+  List`1<string> GetPropertyNames(object instance)
+  FieldRef`2<T, U> FieldRefAccess(string fieldName)
+  U& FieldRefAccess(T instance, string fieldName)
+  void ThrowMissingMemberException(Type type, String[] names)
+  object GetDefaultValue(Type type)
+  object CreateInstance(Type type)
+  object MakeDeepCopy(object source, Type resultType, Func`4<string, Traverse, Traverse, object> processor, string pathRoot)
+  void MakeDeepCopy(object source, T& result, Func`4<string, Traverse, Traverse, object> processor, string pathRoot)
+  bool IsStruct(Type type)
+  bool IsClass(Type type)
+  bool IsValue(Type type)
+  bool IsVoid(Type type)
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.DynamicTools
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  DynamicMethod CreateDynamicMethod(MethodBase original, string suffix)
+  ILGenerator CreateSaveableMethod(MethodBase original, string suffix, AssemblyBuilder& assemblyBuilder, TypeBuilder& typeBuilder)
+  void SaveMethod(AssemblyBuilder assemblyBuilder, TypeBuilder typeBuilder)
+  LocalBuilder[] DeclareLocalVariables(MethodBase original, ILGenerator il, bool logOutput)
+  LocalBuilder DeclareLocalVariable(ILGenerator il, Type type)
+  void PrepareDynamicMethod(DynamicMethod method)
+--------------------------------------------------
+Класс: Harmony.GeneralExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string Join(IEnumerable`1<T> enumeration, Func`2<T, string> converter, string delimiter)
+  string Description(Type[] parameters)
+  string FullDescription(MethodBase method)
+  Type[] Types(ParameterInfo[] pinfo)
+  T GetValueSafe(Dictionary`2<S, T> dictionary, S key)
+  T GetTypedValue(Dictionary`2<string, object> dictionary, string key)
+--------------------------------------------------
+Класс: Harmony.CollectionExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Do(IEnumerable`1<T> sequence, Action`1<T> action)
+  void DoIf(IEnumerable`1<T> sequence, Func`2<T, bool> condition, Action`1<T> action)
+  IEnumerable`1<T> Add(IEnumerable`1<T> sequence, T item)
+  T[] AddRangeToArray(T[] sequence, T[] items)
+  T[] AddToArray(T[] sequence, T item)
+--------------------------------------------------
+Класс: Harmony.FileLog
+Наследуется от: object
+Поля:
+  string logPath
+  char indentChar
+  int indentLevel
+  List`1<string> buffer
+Свойства:
+Методы:
+  void .cctor()
+  string IndentString()
+  void ChangeIndent(int delta)
+  void LogBuffered(string str)
+  void FlushBuffer()
+  void Log(string str)
+  void Reset()
+  void LogBytes(long ptr, int len)
+--------------------------------------------------
+Класс: Harmony.PatchTools
+Наследуется от: object
+Поля:
+  Dictionary`2<object, object> objectReferences
+Свойства:
+Методы:
+  void RememberObject(object key, object value)
+  MethodInfo GetPatchMethod(Type patchType, string name, Type[] parameters)
+  void GetPatches(Type patchType, MethodInfo& prefix, MethodInfo& postfix, MethodInfo& transpiler)
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.SymbolExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  MethodInfo GetMethodInfo(Expression`1<Action> expression)
+  MethodInfo GetMethodInfo(Expression`1<Action`1<T>> expression)
+  MethodInfo GetMethodInfo(Expression`1<Func`2<T, TResult>> expression)
+  MethodInfo GetMethodInfo(LambdaExpression expression)
+--------------------------------------------------
+Класс: Harmony.Traverse`1
+Наследуется от: object
+Поля:
+  Traverse traverse
+Свойства:
+  T Value
+Методы:
+  void .ctor()
+  void .ctor(Traverse traverse)
+  T get_Value()
+  void set_Value(T value)
+--------------------------------------------------
+Класс: Harmony.Traverse
+Наследуется от: object
+Поля:
+  AccessCache Cache
+  Type _type
+  object _root
+  MemberInfo _info
+  MethodBase _method
+  Object[] _params
+  Action`2<Traverse, Traverse> CopyFields
+Свойства:
+Методы:
+  void .cctor()
+  Traverse Create(Type type)
+  Traverse Create()
+  Traverse Create(object root)
+  Traverse CreateWithType(string name)
+  void .ctor()
+  void .ctor(Type type)
+  void .ctor(object root)
+  void .ctor(object root, MemberInfo info, Object[] index)
+  void .ctor(object root, MethodInfo method, Object[] parameter)
+  object GetValue()
+  T GetValue()
+  object GetValue(Object[] arguments)
+  T GetValue(Object[] arguments)
+  Traverse SetValue(object value)
+  Type GetValueType()
+  Traverse Resolve()
+  Traverse Type(string name)
+  Traverse Field(string name)
+  Traverse`1<T> Field(string name)
+  List`1<string> Fields()
+  Traverse Property(string name, Object[] index)
+  Traverse`1<T> Property(string name, Object[] index)
+  List`1<string> Properties()
+  Traverse Method(string name, Object[] arguments)
+  Traverse Method(string name, Type[] paramTypes, Object[] arguments)
+  List`1<string> Methods()
+  bool FieldExists()
+  bool MethodExists()
+  bool TypeExists()
+  void IterateFields(object source, Action`1<Traverse> action)
+  void IterateFields(object source, object target, Action`2<Traverse, Traverse> action)
+  void IterateFields(object source, object target, Action`3<string, Traverse, Traverse> action)
+  void IterateProperties(object source, Action`1<Traverse> action)
+  void IterateProperties(object source, object target, Action`2<Traverse, Traverse> action)
+  void IterateProperties(object source, object target, Action`3<string, Traverse, Traverse> action)
+  string ToString()
+--------------------------------------------------
+Класс: Harmony.Transpilers
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IEnumerable`1<CodeInstruction> MethodReplacer(IEnumerable`1<CodeInstruction> instructions, MethodBase from, MethodBase to)
+  IEnumerable`1<CodeInstruction> DebugLogger(IEnumerable`1<CodeInstruction> instructions, string text)
+--------------------------------------------------
+Класс: Harmony.Tools.SelfPatching
+Наследуется от: object
+Поля:
+  int upgradeToLatestVersionFullNameHash
+Свойства:
+Методы:
+  int GetVersion(MethodBase method)
+  string MethodKey(MethodBase method)
+  bool IsHarmonyAssembly(Assembly assembly)
+  List`1<MethodBase> GetAllMethods(Assembly assembly)
+  string AssemblyInfo(Assembly assembly)
+  void PatchOldHarmonyMethods()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.ILCopying.ByteBuffer
+Наследуется от: object
+Поля:
+  Byte[] buffer
+  int position
+Свойства:
+Методы:
+  void .ctor(Byte[] buffer)
+  byte ReadByte()
+  Byte[] ReadBytes(int length)
+  short ReadInt16()
+  int ReadInt32()
+  long ReadInt64()
+  float ReadSingle()
+  double ReadDouble()
+  void CheckCanRead(int count)
+--------------------------------------------------
+Класс: Harmony.ILCopying.LeaveTry
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: Harmony.ILCopying.Emitter
+Наследуется от: object
+Поля:
+  GetterHandler codeLenGetter
+  GetterHandler localsGetter
+  GetterHandler localCountGetter
+Свойства:
+Методы:
+  string CodePos(ILGenerator il)
+  void LogIL(ILGenerator il, OpCode opCode, object argument)
+  void LogLocalVariable(ILGenerator il, LocalBuilder variable)
+  string FormatArgument(object argument)
+  void MarkLabel(ILGenerator il, Label label)
+  void MarkBlockBefore(ILGenerator il, ExceptionBlock block, Nullable`1& label)
+  void MarkBlockAfter(ILGenerator il, ExceptionBlock block)
+  void Emit(ILGenerator il, OpCode opcode)
+  void Emit(ILGenerator il, OpCode opcode, LocalBuilder local)
+  void Emit(ILGenerator il, OpCode opcode, FieldInfo field)
+  void Emit(ILGenerator il, OpCode opcode, Label[] labels)
+  void Emit(ILGenerator il, OpCode opcode, Label label)
+  void Emit(ILGenerator il, OpCode opcode, string str)
+  void Emit(ILGenerator il, OpCode opcode, float arg)
+  void Emit(ILGenerator il, OpCode opcode, byte arg)
+  void Emit(ILGenerator il, OpCode opcode, sbyte arg)
+  void Emit(ILGenerator il, OpCode opcode, double arg)
+  void Emit(ILGenerator il, OpCode opcode, int arg)
+  void Emit(ILGenerator il, OpCode opcode, MethodInfo meth)
+  void Emit(ILGenerator il, OpCode opcode, short arg)
+  void Emit(ILGenerator il, OpCode opcode, SignatureHelper signature)
+  void Emit(ILGenerator il, OpCode opcode, ConstructorInfo con)
+  void Emit(ILGenerator il, OpCode opcode, Type cls)
+  void Emit(ILGenerator il, OpCode opcode, long arg)
+  void EmitCall(ILGenerator il, OpCode opcode, MethodInfo methodInfo, Type[] optionalParameterTypes)
+  void EmitCalli(ILGenerator il, OpCode opcode, CallingConvention unmanagedCallConv, Type returnType, Type[] parameterTypes)
+  void EmitCalli(ILGenerator il, OpCode opcode, CallingConventions callingConvention, Type returnType, Type[] parameterTypes, Type[] optionalParameterTypes)
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.ILCopying.ExceptionBlockType
+Наследуется от: Enum
+Поля:
+  int value__
+  ExceptionBlockType BeginExceptionBlock
+  ExceptionBlockType BeginCatchBlock
+  ExceptionBlockType BeginExceptFilterBlock
+  ExceptionBlockType BeginFaultBlock
+  ExceptionBlockType BeginFinallyBlock
+  ExceptionBlockType EndExceptionBlock
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Harmony.ILCopying.ExceptionBlock
+Наследуется от: object
+Поля:
+  ExceptionBlockType blockType
+  Type catchType
+Свойства:
+Методы:
+  void .ctor(ExceptionBlockType blockType, Type catchType)
+--------------------------------------------------
+Класс: Harmony.ILCopying.ILInstruction
+Наследуется от: object
+Поля:
+  int offset
+  OpCode opcode
+  object operand
+  object argument
+  List`1<Label> labels
+  List`1<ExceptionBlock> blocks
+Свойства:
+Методы:
+  void .ctor(OpCode opcode, object operand)
+  CodeInstruction GetCodeInstruction()
+  int GetSize()
+  string ToString()
+  void AppendLabel(String& str, object argument)
+--------------------------------------------------
+Класс: Harmony.ILCopying.Protection
+Наследуется от: Enum
+Поля:
+  int value__
+  Protection PAGE_NOACCESS
+  Protection PAGE_READONLY
+  Protection PAGE_READWRITE
+  Protection PAGE_WRITECOPY
+  Protection PAGE_EXECUTE
+  Protection PAGE_EXECUTE_READ
+  Protection PAGE_EXECUTE_READWRITE
+  Protection PAGE_EXECUTE_WRITECOPY
+  Protection PAGE_GUARD
+  Protection PAGE_NOCACHE
+  Protection PAGE_WRITECOMBINE
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Harmony.ILCopying.Memory
+Наследуется от: object
+Поля:
+  HashSet`1<PlatformID> WindowsPlatformIDSet
+Свойства:
+  bool IsWindows
+Методы:
+  bool get_IsWindows()
+  bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, Protection flNewProtect, Protection& lpflOldProtect)
+  void UnprotectMemoryPage(long memory)
+  string DetourMethod(MethodBase original, MethodBase replacement)
+  string WriteJump(long memory, long destination)
+  RuntimeMethodHandle GetRuntimeMethodHandle(MethodBase method)
+  long GetMethodStart(MethodBase method, Exception& exception)
+  bool CompareBytes(long memory, Byte[] values)
+  byte ReadByte(long memory)
+  int ReadInt(long memory)
+  long ReadLong(long memory)
+  long WriteByte(long memory, byte value)
+  long WriteBytes(long memory, Byte[] values)
+  long WriteInt(long memory, int value)
+  long WriteLong(long memory, long value)
+  void .cctor()
+--------------------------------------------------
+Класс: Harmony.ILCopying.MethodCopier
+Наследуется от: object
+Поля:
+  MethodBodyReader reader
+  List`1<MethodInfo> transpilers
+Свойства:
+Методы:
+  void .ctor(MethodBase fromMethod, ILGenerator toILGenerator, LocalBuilder[] existingVariables)
+  void AddTranspiler(MethodInfo transpiler)
+  void Finalize(List`1<Label> endLabels, List`1<ExceptionBlock> endBlocks)
+--------------------------------------------------
+Класс: Harmony.ILCopying.MethodBodyReader
+Наследуется от: object
+Поля:
+  ILGenerator generator
+  MethodBase method
+  Module module
+  Type[] typeArguments
+  Type[] methodArguments
+  ByteBuffer ilBytes
+  ParameterInfo this_parameter
+  ParameterInfo[] parameters
+  IList`1<LocalVariableInfo> locals
+  IList`1<ExceptionHandlingClause> exceptions
+  List`1<ILInstruction> ilInstructions
+  LocalBuilder[] variables
+  Dictionary`2<OpCode, OpCode> shortJumps
+  OpCode[] one_byte_opcodes
+  OpCode[] two_bytes_opcodes
+  Dictionary`2<Type, MethodInfo> emitMethods
+Свойства:
+Методы:
+  List`1<ILInstruction> GetInstructions(ILGenerator generator, MethodBase method)
+  void .ctor(MethodBase method, ILGenerator generator)
+  void ReadInstructions()
+  void DeclareVariables(LocalBuilder[] existingVariables)
+  void ResolveBranches()
+  void ParseExceptions()
+  void FinalizeILCodes(List`1<MethodInfo> transpilers, List`1<Label> endLabels, List`1<ExceptionBlock> endBlocks)
+  void GetMemberInfoValue(MemberInfo info, Object& result)
+  void ReadOperand(ILInstruction instruction)
+  ILInstruction GetInstruction(int offset, bool isEndOfInstruction)
+  bool TargetsLocalVariable(OpCode opcode)
+  LocalVariableInfo GetLocalVariable(int index)
+  ParameterInfo GetParameter(int index)
+  OpCode ReadOpCode()
+  MethodInfo EmitMethodForType(Type type)
+  void .cctor()
+  LocalBuilder <DeclareVariables>b__15_0(LocalVariableInfo lvi)
+--------------------------------------------------

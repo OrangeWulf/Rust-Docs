@@ -1,0 +1,114 @@
+[MovedFromAttribute("UnityEngine.Experimental.U2D")]
+public class UnityEngine.U2D.AngleRangeInfo : ValueType {
+    public float start;
+    public float end;
+    public UInt32 order;
+    public Int32[] sprites;
+}
+[MovedFromAttribute("UnityEngine.Experimental.U2D")]
+public class UnityEngine.U2D.ShapeControlPoint : ValueType {
+    public Vector3 position;
+    public Vector3 leftTangent;
+    public Vector3 rightTangent;
+    public int mode;
+}
+internal enum UnityEngine.U2D.SpriteShapeDataType : Enum {
+    public int value__;
+    public static SpriteShapeDataType Index;
+    public static SpriteShapeDataType Segment;
+    public static SpriteShapeDataType BoundingBox;
+    public static SpriteShapeDataType ChannelVertex;
+    public static SpriteShapeDataType ChannelTexCoord0;
+    public static SpriteShapeDataType ChannelNormal;
+    public static SpriteShapeDataType ChannelTangent;
+    public static SpriteShapeDataType ChannelColor;
+    public static SpriteShapeDataType DataCount;
+}
+[MovedFromAttribute("UnityEngine.Experimental.U2D")]
+public class UnityEngine.U2D.SpriteShapeMetaData : ValueType {
+    public float height;
+    public float bevelCutoff;
+    public float bevelSize;
+    public UInt32 spriteIndex;
+    public bool corner;
+}
+[MovedFromAttribute("UnityEngine.Experimental.U2D")]
+public class UnityEngine.U2D.SpriteShapeParameters : ValueType {
+    public Matrix4x4 transform;
+    public Texture2D fillTexture;
+    public UInt32 fillScale;
+    public UInt32 splineDetail;
+    public float angleThreshold;
+    public float borderPivot;
+    public float bevelCutoff;
+    public float bevelSize;
+    public bool carpet;
+    public bool smartSprite;
+    public bool adaptiveUV;
+    public bool spriteBorders;
+    public bool stretchUV;
+}
+[MovedFromAttribute("UnityEngine.Experimental.U2D")]
+[NativeTypeAttribute]
+public class UnityEngine.U2D.SpriteShapeRenderer : Renderer {
+    public Color color { get; public set; }
+    public SpriteMaskInteraction maskInteraction { get; public set; }
+    public Color get_color();
+    public void set_color(Color value);
+    public SpriteMaskInteraction get_maskInteraction();
+    public void set_maskInteraction(SpriteMaskInteraction value);
+    public void Prepare(JobHandle handle, SpriteShapeParameters shapeParams, Sprite[] sprites);
+    private NativeArray`1<T> GetNativeDataArray(SpriteShapeDataType dataType);
+    private NativeSlice`1<T> GetChannelDataArray(SpriteShapeDataType dataType, VertexAttribute channel);
+    private void SetSegmentCount(int geomCount);
+    private void SetMeshDataCount(int vertexCount, int indexCount);
+    private void SetMeshChannelInfo(int vertexCount, int indexCount, int hotChannelMask);
+    private SpriteChannelInfo GetDataInfo(SpriteShapeDataType arrayType);
+    private SpriteChannelInfo GetChannelInfo(VertexAttribute channel);
+    public void SetLocalAABB(Bounds bounds);
+    public NativeArray`1<Bounds> GetBounds();
+    public NativeArray`1<SpriteShapeSegment> GetSegments(int dataSize);
+    public void GetChannels(int dataSize, NativeArray`1& indices, NativeSlice`1& vertices, NativeSlice`1& texcoords);
+    public void GetChannels(int dataSize, NativeArray`1& indices, NativeSlice`1& vertices, NativeSlice`1& texcoords, NativeSlice`1& colors);
+    public void GetChannels(int dataSize, NativeArray`1& indices, NativeSlice`1& vertices, NativeSlice`1& texcoords, NativeSlice`1& tangents);
+    public void GetChannels(int dataSize, NativeArray`1& indices, NativeSlice`1& vertices, NativeSlice`1& texcoords, NativeSlice`1& colors, NativeSlice`1& tangents);
+    public void GetChannels(int dataSize, NativeArray`1& indices, NativeSlice`1& vertices, NativeSlice`1& texcoords, NativeSlice`1& tangents, NativeSlice`1& normals);
+    public void GetChannels(int dataSize, NativeArray`1& indices, NativeSlice`1& vertices, NativeSlice`1& texcoords, NativeSlice`1& colors, NativeSlice`1& tangents, NativeSlice`1& normals);
+    private void get_color_Injected(Color& ret);
+    private void set_color_Injected(Color& value);
+    private void Prepare_Injected(JobHandle& handle, SpriteShapeParameters& shapeParams, Sprite[] sprites);
+    private void GetDataInfo_Injected(SpriteShapeDataType arrayType, SpriteChannelInfo& ret);
+    private void GetChannelInfo_Injected(VertexAttribute channel, SpriteChannelInfo& ret);
+    private void SetLocalAABB_Injected(Bounds& bounds);
+}
+[MovedFromAttribute("UnityEngine.Experimental.U2D")]
+public class UnityEngine.U2D.SpriteShapeSegment : ValueType {
+    private int m_GeomIndex;
+    private int m_IndexCount;
+    private int m_VertexCount;
+    private int m_SpriteIndex;
+    public int geomIndex { get; public set; }
+    public int indexCount { get; public set; }
+    public int vertexCount { get; public set; }
+    public int spriteIndex { get; public set; }
+    public int get_geomIndex();
+    public void set_geomIndex(int value);
+    public int get_indexCount();
+    public void set_indexCount(int value);
+    public int get_vertexCount();
+    public void set_vertexCount(int value);
+    public int get_spriteIndex();
+    public void set_spriteIndex(int value);
+}
+[MovedFromAttribute("UnityEngine.Experimental.U2D")]
+[NativeHeaderAttribute("Modules/SpriteShape/Public/SpriteShapeUtility.h")]
+public class UnityEngine.U2D.SpriteShapeUtility : object {
+    [FreeFunctionAttribute("SpriteShapeUtility::Generate")]
+[NativeThrowsAttribute]
+public static Int32[] Generate(Mesh mesh, SpriteShapeParameters shapeParams, ShapeControlPoint[] points, SpriteShapeMetaData[] metaData, AngleRangeInfo[] angleRange, Sprite[] sprites, Sprite[] corners);
+    [FreeFunctionAttribute("SpriteShapeUtility::GenerateSpriteShape")]
+[NativeThrowsAttribute]
+public static void GenerateSpriteShape(SpriteShapeRenderer renderer, SpriteShapeParameters shapeParams, ShapeControlPoint[] points, SpriteShapeMetaData[] metaData, AngleRangeInfo[] angleRange, Sprite[] sprites, Sprite[] corners);
+    private static Int32[] Generate_Injected(Mesh mesh, SpriteShapeParameters& shapeParams, ShapeControlPoint[] points, SpriteShapeMetaData[] metaData, AngleRangeInfo[] angleRange, Sprite[] sprites, Sprite[] corners);
+    private static void GenerateSpriteShape_Injected(SpriteShapeRenderer renderer, SpriteShapeParameters& shapeParams, ShapeControlPoint[] points, SpriteShapeMetaData[] metaData, AngleRangeInfo[] angleRange, Sprite[] sprites, Sprite[] corners);
+}

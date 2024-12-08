@@ -1,0 +1,1869 @@
+internal static class AssemblyRef : object {
+    internal static string SystemConfiguration;
+    internal static string System;
+    public static string EcmaPublicKey;
+    public static string FrameworkPublicKeyFull;
+    public static string FrameworkPublicKeyFull2;
+    public static string MicrosoftPublicKey;
+    public static string MicrosoftJScript;
+    public static string MicrosoftVSDesigner;
+    public static string SystemData;
+    public static string SystemDesign;
+    public static string SystemDrawing;
+    public static string SystemWeb;
+    public static string SystemWebExtensions;
+    public static string SystemWindowsForms;
+}
+internal static class Consts : object {
+    public static string MonoCorlibVersion;
+    public static string MonoVersion;
+    public static string MonoCompany;
+    public static string MonoProduct;
+    public static string MonoCopyright;
+    public static string FxVersion;
+    public static string FxFileVersion;
+    public static string EnvironmentVersion;
+    public static string VsVersion;
+    public static string VsFileVersion;
+    private static string PublicKeyToken;
+    public static string AssemblyI18N;
+    public static string AssemblyMicrosoft_JScript;
+    public static string AssemblyMicrosoft_VisualStudio;
+    public static string AssemblyMicrosoft_VisualStudio_Web;
+    public static string AssemblyMicrosoft_VSDesigner;
+    public static string AssemblyMono_Http;
+    public static string AssemblyMono_Posix;
+    public static string AssemblyMono_Security;
+    public static string AssemblyMono_Messaging_RabbitMQ;
+    public static string AssemblyCorlib;
+    public static string AssemblySystem;
+    public static string AssemblySystem_Data;
+    public static string AssemblySystem_Design;
+    public static string AssemblySystem_DirectoryServices;
+    public static string AssemblySystem_Drawing;
+    public static string AssemblySystem_Drawing_Design;
+    public static string AssemblySystem_Messaging;
+    public static string AssemblySystem_Security;
+    public static string AssemblySystem_ServiceProcess;
+    public static string AssemblySystem_Web;
+    public static string AssemblySystem_Windows_Forms;
+    public static string AssemblySystem_2_0;
+    public static string AssemblySystemCore_3_5;
+    public static string AssemblySystem_Core;
+    public static string WindowsBase_3_0;
+    public static string AssemblyWindowsBase;
+    public static string AssemblyPresentationCore_3_5;
+    public static string AssemblyPresentationCore_4_0;
+    public static string AssemblyPresentationFramework_3_5;
+    public static string AssemblySystemServiceModel_3_0;
+}
+internal static class SR : object {
+    internal static string GetString(string name, Object[] args);
+    internal static string GetString(CultureInfo culture, string name, Object[] args);
+    internal static string GetString(string name);
+    internal static string GetString(CultureInfo culture, string name);
+    internal static string Format(string resourceFormat, Object[] args);
+    internal static string Format(string resourceFormat, object p1);
+    internal static string Format(string resourceFormat, object p1, object p2);
+    internal static string Format(CultureInfo ci, string resourceFormat, object p1, object p2);
+    internal static string Format(string resourceFormat, object p1, object p2, object p3);
+    internal static string GetResourceString(string str);
+}
+internal abstract class System.Runtime.ActionItem : object {
+    private bool isScheduled;
+    private bool lowPriority;
+    public bool LowPriority { get; protected set; }
+    public bool get_LowPriority();
+    protected void set_LowPriority(bool value);
+    public static void Schedule(Action`1<object> callback, object state);
+    [SecuritySafeCriticalAttribute]
+public static void Schedule(Action`1<object> callback, object state, bool lowPriority);
+    [SecurityCriticalAttribute]
+protected abstract virtual void Invoke();
+    [SecurityCriticalAttribute]
+protected void Schedule();
+    [SecurityCriticalAttribute]
+protected void ScheduleWithoutContext();
+    [SecurityCriticalAttribute]
+private static void ScheduleCallback(Action`1<object> callback, object state, bool lowPriority);
+    [SecurityCriticalAttribute]
+private void ScheduleCallback(Action`1<object> callback);
+}
+internal static class System.Runtime.AssertHelper : object {
+    internal static void FireAssert(string message);
+}
+internal enum System.Runtime.AsyncCompletionResult : Enum {
+    public int value__;
+    public static AsyncCompletionResult Queued;
+    public static AsyncCompletionResult Completed;
+}
+internal abstract class System.Runtime.AsyncEventArgs : object {
+    private OperationState state;
+    private object asyncState;
+    private AsyncEventArgsCallback callback;
+    private Exception exception;
+    public Exception Exception { get; }
+    public object AsyncState { get; }
+    unknown OperationState State {private set; }
+    public sealed virtual Exception get_Exception();
+    public sealed virtual object get_AsyncState();
+    private void set_State(OperationState value);
+    public void Complete(bool completedSynchronously);
+    public virtual void Complete(bool completedSynchronously, Exception exception);
+    protected void SetAsyncState(AsyncEventArgsCallback callback, object state);
+}
+internal class System.Runtime.AsyncEventArgs`1 : AsyncEventArgs {
+    [CompilerGeneratedAttribute]
+private TArgument <Arguments>k__BackingField;
+    public TArgument Arguments { get; private set; }
+    [CompilerGeneratedAttribute]
+public TArgument get_Arguments();
+    [CompilerGeneratedAttribute]
+private void set_Arguments(TArgument value);
+    public virtual void Set(AsyncEventArgsCallback callback, TArgument arguments, object state);
+}
+internal class System.Runtime.AsyncEventArgs`2 : AsyncEventArgs`1<TArgument> {
+    [CompilerGeneratedAttribute]
+private TResult <Result>k__BackingField;
+    public TResult Result { get; public set; }
+    [CompilerGeneratedAttribute]
+public TResult get_Result();
+    [CompilerGeneratedAttribute]
+public void set_Result(TResult value);
+}
+internal class System.Runtime.AsyncEventArgsCallback : MulticastDelegate {
+    public AsyncEventArgsCallback(object object, IntPtr method);
+    public virtual void Invoke(IAsyncEventArgs eventArgs);
+    public virtual IAsyncResult BeginInvoke(IAsyncEventArgs eventArgs, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+internal abstract class System.Runtime.AsyncResult : object {
+    private static AsyncCallback asyncCompletionWrapperCallback;
+    private AsyncCallback callback;
+    private bool completedSynchronously;
+    private bool endCalled;
+    private Exception exception;
+    private bool isCompleted;
+    private AsyncCompletion nextAsyncCompletion;
+    private object state;
+    private Action beforePrepareAsyncCompletionAction;
+    private Func`2<IAsyncResult, bool> checkSyncValidationFunc;
+    private ManualResetEvent manualResetEvent;
+    private object thisLock;
+    [CompilerGeneratedAttribute]
+private Action`2<AsyncResult, Exception> <OnCompleting>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`2<AsyncCallback, IAsyncResult> <VirtualCallback>k__BackingField;
+    public object AsyncState { get; }
+    public WaitHandle AsyncWaitHandle { get; }
+    public bool CompletedSynchronously { get; }
+    public bool HasCallback { get; }
+    public bool IsCompleted { get; }
+    protected Action`2<AsyncResult, Exception> OnCompleting { get; protected set; }
+    private object ThisLock { get; }
+    protected Action`2<AsyncCallback, IAsyncResult> VirtualCallback { get; protected set; }
+    protected AsyncResult(AsyncCallback callback, object state);
+    public sealed virtual object get_AsyncState();
+    public sealed virtual WaitHandle get_AsyncWaitHandle();
+    public sealed virtual bool get_CompletedSynchronously();
+    public bool get_HasCallback();
+    public sealed virtual bool get_IsCompleted();
+    [CompilerGeneratedAttribute]
+protected Action`2<AsyncResult, Exception> get_OnCompleting();
+    [CompilerGeneratedAttribute]
+protected void set_OnCompleting(Action`2<AsyncResult, Exception> value);
+    private object get_ThisLock();
+    [CompilerGeneratedAttribute]
+protected Action`2<AsyncCallback, IAsyncResult> get_VirtualCallback();
+    [CompilerGeneratedAttribute]
+protected void set_VirtualCallback(Action`2<AsyncCallback, IAsyncResult> value);
+    protected void Complete(bool completedSynchronously);
+    protected void Complete(bool completedSynchronously, Exception exception);
+    private static void AsyncCompletionWrapperCallback(IAsyncResult result);
+    protected virtual bool OnContinueAsyncCompletion(IAsyncResult result);
+    protected void SetBeforePrepareAsyncCompletionAction(Action beforePrepareAsyncCompletionAction);
+    protected void SetCheckSyncValidationFunc(Func`2<IAsyncResult, bool> checkSyncValidationFunc);
+    protected AsyncCallback PrepareAsyncCompletion(AsyncCompletion callback);
+    protected bool CheckSyncContinue(IAsyncResult result);
+    protected bool SyncContinue(IAsyncResult result);
+    private bool TryContinueHelper(IAsyncResult result, AsyncCompletion& callback);
+    private AsyncCompletion GetNextCompletion();
+    protected static void ThrowInvalidAsyncResult(IAsyncResult result);
+    protected static void ThrowInvalidAsyncResult(string debugText);
+    protected static TAsyncResult End(IAsyncResult result);
+}
+internal class System.Runtime.AsyncWaitHandle : object {
+    private static Action`1<object> timerCompleteCallback;
+    private List`1<AsyncWaiter> asyncWaiters;
+    private bool isSignaled;
+    private EventResetMode resetMode;
+    private object syncObject;
+    private int syncWaiterCount;
+    public AsyncWaitHandle(EventResetMode resetMode);
+    public bool WaitAsync(Action`2<object, TimeoutException> callback, object state, TimeSpan timeout);
+    private static void OnTimerComplete(object state);
+    public bool Wait(TimeSpan timeout);
+    public void Set();
+    public void Reset();
+}
+internal class System.Runtime.BackoffTimeoutHelper : object {
+    private static int maxSkewMilliseconds;
+    private static long maxDriftTicks;
+    private static TimeSpan defaultInitialWaitTime;
+    private static TimeSpan defaultMaxWaitTime;
+    private DateTime deadline;
+    private TimeSpan maxWaitTime;
+    private TimeSpan waitTime;
+    private IOThreadTimer backoffTimer;
+    private Action`1<object> backoffCallback;
+    private object backoffState;
+    private Random random;
+    private TimeSpan originalTimeout;
+    public TimeSpan OriginalTimeout { get; }
+    internal BackoffTimeoutHelper(TimeSpan timeout);
+    internal BackoffTimeoutHelper(TimeSpan timeout, TimeSpan maxWaitTime);
+    internal BackoffTimeoutHelper(TimeSpan timeout, TimeSpan maxWaitTime, TimeSpan initialWaitTime);
+    private static BackoffTimeoutHelper();
+    public TimeSpan get_OriginalTimeout();
+    private void Reset(TimeSpan timeout, TimeSpan initialWaitTime);
+    public bool IsExpired();
+    public void WaitAndBackoff(Action`1<object> callback, object state);
+    public void WaitAndBackoff();
+    private TimeSpan WaitTimeWithDrift();
+    private void Backoff();
+}
+internal class System.Runtime.BufferedOutputStream : Stream {
+    private InternalBufferManager bufferManager;
+    private Byte[][] chunks;
+    private int chunkCount;
+    private Byte[] currentChunk;
+    private int currentChunkSize;
+    private int maxSize;
+    private int maxSizeQuota;
+    private int totalSize;
+    private bool callerReturnsBuffer;
+    private bool bufferReturned;
+    private bool initialized;
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public BufferedOutputStream(int initialSize, int maxSize, InternalBufferManager bufferManager);
+    public BufferedOutputStream(int maxSize);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public void Reinitialize(int initialSize, int maxSizeQuota, InternalBufferManager bufferManager);
+    public void Reinitialize(int initialSize, int maxSizeQuota, int effectiveMaxSize, InternalBufferManager bufferManager);
+    private void AllocNextChunk(int minimumChunkSize);
+    public virtual IAsyncResult BeginRead(Byte[] buffer, int offset, int size, AsyncCallback callback, object state);
+    public virtual int EndRead(IAsyncResult result);
+    public virtual IAsyncResult BeginWrite(Byte[] buffer, int offset, int size, AsyncCallback callback, object state);
+    public virtual void EndWrite(IAsyncResult result);
+    public void Clear();
+    public virtual void Close();
+    public virtual void Flush();
+    public virtual int Read(Byte[] buffer, int offset, int size);
+    public virtual int ReadByte();
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public MemoryStream ToMemoryStream();
+    public Byte[] ToArray(Int32& bufferSize);
+    public void Skip(int size);
+    public virtual void Write(Byte[] buffer, int offset, int size);
+    protected virtual Exception CreateQuotaExceededException(int maxSizeQuota);
+    private void WriteCore(Byte[] buffer, int offset, int size);
+    public virtual void WriteByte(byte value);
+}
+internal class System.Runtime.CallbackException : FatalException {
+    public CallbackException(string message, Exception innerException);
+    protected CallbackException(SerializationInfo info, StreamingContext context);
+}
+internal class System.Runtime.Collections.HopperCache : object {
+    private int hopperSize;
+    private bool weak;
+    private Hashtable outstandingHopper;
+    private Hashtable strongHopper;
+    private Hashtable limitedHopper;
+    private int promoting;
+    private LastHolder mruEntry;
+    public HopperCache(int hopperSize, bool weak);
+    public void Add(object key, object value);
+    public object GetValue(object syncObject, object key);
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Runtime.Collections.NullableKeyDictionary`2 : object {
+    private bool isNullKeyPresent;
+    private TValue nullKeyValue;
+    private IDictionary`2<TKey, TValue> innerDictionary;
+    public int Count { get; }
+    public bool IsReadOnly { get; }
+    public ICollection`1<TKey> Keys { get; }
+    public ICollection`1<TValue> Values { get; }
+    public TValue Item { get; public set; }
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsReadOnly();
+    public sealed virtual ICollection`1<TKey> get_Keys();
+    public sealed virtual ICollection`1<TValue> get_Values();
+    public sealed virtual TValue get_Item(TKey key);
+    public sealed virtual void set_Item(TKey key, TValue value);
+    public sealed virtual void Add(TKey key, TValue value);
+    public sealed virtual bool ContainsKey(TKey key);
+    public sealed virtual bool Remove(TKey key);
+    public sealed virtual bool TryGetValue(TKey key, TValue& value);
+    public sealed virtual void Add(KeyValuePair`2<TKey, TValue> item);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(KeyValuePair`2<TKey, TValue> item);
+    public sealed virtual void CopyTo(KeyValuePair`2[] array, int arrayIndex);
+    public sealed virtual bool Remove(KeyValuePair`2<TKey, TValue> item);
+    [IteratorStateMachineAttribute("System.Runtime.Collections.NullableKeyDictionary`2/<GetEnumerator>d__24")]
+public sealed virtual IEnumerator`1<KeyValuePair`2<TKey, TValue>> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+}
+internal class System.Runtime.Collections.ObjectCache`2 : object {
+    private static int timerThreshold;
+    private ObjectCacheSettings settings;
+    private Dictionary`2<TKey, Item<TKey, TValue>> cacheItems;
+    private bool idleTimeoutEnabled;
+    private bool leaseTimeoutEnabled;
+    private IOThreadTimer idleTimer;
+    private static Action`1<object> onIdle;
+    private bool disposed;
+    [CompilerGeneratedAttribute]
+private Action`1<TValue> <DisposeItemCallback>k__BackingField;
+    private object ThisLock { get; }
+    public Action`1<TValue> DisposeItemCallback { get; public set; }
+    public int Count { get; }
+    public ObjectCache`2(ObjectCacheSettings settings);
+    public ObjectCache`2(ObjectCacheSettings settings, IEqualityComparer`1<TKey> comparer);
+    private object get_ThisLock();
+    [CompilerGeneratedAttribute]
+public Action`1<TValue> get_DisposeItemCallback();
+    [CompilerGeneratedAttribute]
+public void set_DisposeItemCallback(Action`1<TValue> value);
+    public int get_Count();
+    public ObjectCacheItem`1<TValue> Add(TKey key, TValue value);
+    public ObjectCacheItem`1<TValue> Take(TKey key);
+    public ObjectCacheItem`1<TValue> Take(TKey key, Func`1<TValue> initializerDelegate);
+    private Item<TKey, TValue> InternalAdd(TKey key, TValue value);
+    private bool Return(TKey key, Item<TKey, TValue> cacheItem);
+    private void StartTimerIfNecessary();
+    private static void OnIdle(object state);
+    private static void Add(List`1& list, T item);
+    private bool ShouldPurgeItem(Item<TKey, TValue> cacheItem, DateTime now);
+    private void GatherExpiredItems(List`1& expiredItems, bool calledFromTimer);
+    private void PurgeCache(bool calledFromTimer);
+    public void Dispose();
+}
+internal abstract class System.Runtime.Collections.ObjectCacheItem`1 : object {
+    public T Value { get; }
+    public abstract virtual T get_Value();
+    public abstract virtual bool TryAddReference();
+    public abstract virtual void ReleaseReference();
+}
+internal class System.Runtime.Collections.ObjectCacheSettings : object {
+    private int cacheLimit;
+    private TimeSpan idleTimeout;
+    private TimeSpan leaseTimeout;
+    private int purgeFrequency;
+    private static int DefaultCacheLimit;
+    private static int DefaultPurgeFrequency;
+    private static TimeSpan DefaultIdleTimeout;
+    private static TimeSpan DefaultLeaseTimeout;
+    public int CacheLimit { get; public set; }
+    public TimeSpan IdleTimeout { get; public set; }
+    public TimeSpan LeaseTimeout { get; public set; }
+    public int PurgeFrequency { get; public set; }
+    private ObjectCacheSettings(ObjectCacheSettings other);
+    private static ObjectCacheSettings();
+    internal ObjectCacheSettings Clone();
+    public int get_CacheLimit();
+    public void set_CacheLimit(int value);
+    public TimeSpan get_IdleTimeout();
+    public void set_IdleTimeout(TimeSpan value);
+    public TimeSpan get_LeaseTimeout();
+    public void set_LeaseTimeout(TimeSpan value);
+    public int get_PurgeFrequency();
+    public void set_PurgeFrequency(int value);
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Runtime.Collections.OrderedDictionary`2 : object {
+    private OrderedDictionary privateDictionary;
+    public int Count { get; }
+    public bool IsReadOnly { get; }
+    public TValue Item { get; public set; }
+    public ICollection`1<TKey> Keys { get; }
+    public ICollection`1<TValue> Values { get; }
+    private bool System.Collections.IDictionary.IsFixedSize { get; }
+    private bool System.Collections.IDictionary.IsReadOnly { get; }
+    private ICollection System.Collections.IDictionary.Keys { get; }
+    private ICollection System.Collections.IDictionary.Values { get; }
+    private object System.Collections.IDictionary.Item { get; private set; }
+    private int System.Collections.ICollection.Count { get; }
+    private bool System.Collections.ICollection.IsSynchronized { get; }
+    private object System.Collections.ICollection.SyncRoot { get; }
+    public OrderedDictionary`2(IDictionary`2<TKey, TValue> dictionary);
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsReadOnly();
+    public sealed virtual TValue get_Item(TKey key);
+    public sealed virtual void set_Item(TKey key, TValue value);
+    public sealed virtual ICollection`1<TKey> get_Keys();
+    public sealed virtual ICollection`1<TValue> get_Values();
+    public sealed virtual void Add(KeyValuePair`2<TKey, TValue> item);
+    public sealed virtual void Add(TKey key, TValue value);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(KeyValuePair`2<TKey, TValue> item);
+    public sealed virtual bool ContainsKey(TKey key);
+    public sealed virtual void CopyTo(KeyValuePair`2[] array, int arrayIndex);
+    [IteratorStateMachineAttribute("System.Runtime.Collections.OrderedDictionary`2/<GetEnumerator>d__20")]
+public sealed virtual IEnumerator`1<KeyValuePair`2<TKey, TValue>> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public sealed virtual bool Remove(KeyValuePair`2<TKey, TValue> item);
+    public sealed virtual bool Remove(TKey key);
+    public sealed virtual bool TryGetValue(TKey key, TValue& value);
+    private sealed virtual override void System.Collections.IDictionary.Add(object key, object value);
+    private sealed virtual override void System.Collections.IDictionary.Clear();
+    private sealed virtual override bool System.Collections.IDictionary.Contains(object key);
+    private sealed virtual override IDictionaryEnumerator System.Collections.IDictionary.GetEnumerator();
+    private sealed virtual override bool System.Collections.IDictionary.get_IsFixedSize();
+    private sealed virtual override bool System.Collections.IDictionary.get_IsReadOnly();
+    private sealed virtual override ICollection System.Collections.IDictionary.get_Keys();
+    private sealed virtual override void System.Collections.IDictionary.Remove(object key);
+    private sealed virtual override ICollection System.Collections.IDictionary.get_Values();
+    private sealed virtual override object System.Collections.IDictionary.get_Item(object key);
+    private sealed virtual override void System.Collections.IDictionary.set_Item(object key, object value);
+    private sealed virtual override void System.Collections.ICollection.CopyTo(Array array, int index);
+    private sealed virtual override int System.Collections.ICollection.get_Count();
+    private sealed virtual override bool System.Collections.ICollection.get_IsSynchronized();
+    private sealed virtual override object System.Collections.ICollection.get_SyncRoot();
+}
+internal class System.Runtime.Collections.ValidatingCollection`1 : Collection`1<T> {
+    [CompilerGeneratedAttribute]
+private Action`1<T> <OnAddValidationCallback>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action <OnMutateValidationCallback>k__BackingField;
+    public Action`1<T> OnAddValidationCallback { get; public set; }
+    public Action OnMutateValidationCallback { get; public set; }
+    [CompilerGeneratedAttribute]
+public Action`1<T> get_OnAddValidationCallback();
+    [CompilerGeneratedAttribute]
+public void set_OnAddValidationCallback(Action`1<T> value);
+    [CompilerGeneratedAttribute]
+public Action get_OnMutateValidationCallback();
+    [CompilerGeneratedAttribute]
+public void set_OnMutateValidationCallback(Action value);
+    private void OnAdd(T item);
+    private void OnMutate();
+    protected virtual void ClearItems();
+    protected virtual void InsertItem(int index, T item);
+    protected virtual void RemoveItem(int index);
+    protected virtual void SetItem(int index, T item);
+}
+internal class System.Runtime.CompilerServices.FriendAccessAllowedAttribute : Attribute {
+}
+internal class System.Runtime.CompletedAsyncResult : AsyncResult {
+    public CompletedAsyncResult(AsyncCallback callback, object state);
+    public static void End(IAsyncResult result);
+}
+internal class System.Runtime.CompletedAsyncResult`1 : AsyncResult {
+    private T data;
+    public CompletedAsyncResult`1(T data, AsyncCallback callback, object state);
+    public static T End(IAsyncResult result);
+}
+internal class System.Runtime.CompletedAsyncResult`2 : AsyncResult {
+    private TResult resultData;
+    private TParameter parameter;
+    public CompletedAsyncResult`2(TResult resultData, TParameter parameter, AsyncCallback callback, object state);
+    public static TResult End(IAsyncResult result, TParameter& parameter);
+}
+internal enum System.Runtime.ComputerNameFormat : Enum {
+    public int value__;
+    public static ComputerNameFormat NetBIOS;
+    public static ComputerNameFormat DnsHostName;
+    public static ComputerNameFormat Dns;
+    public static ComputerNameFormat DnsFullyQualified;
+    public static ComputerNameFormat PhysicalNetBIOS;
+    public static ComputerNameFormat PhysicalDnsHostName;
+    public static ComputerNameFormat PhysicalDnsDomain;
+    public static ComputerNameFormat PhysicalDnsFullyQualified;
+}
+internal enum System.Runtime.Diagnostics.ActivityControl : Enum {
+    public UInt32 value__;
+    public static ActivityControl EVENT_ACTIVITY_CTRL_GET_ID;
+    public static ActivityControl EVENT_ACTIVITY_CTRL_SET_ID;
+    public static ActivityControl EVENT_ACTIVITY_CTRL_CREATE_ID;
+    public static ActivityControl EVENT_ACTIVITY_CTRL_GET_SET_ID;
+    public static ActivityControl EVENT_ACTIVITY_CTRL_CREATE_SET_ID;
+}
+internal abstract class System.Runtime.Diagnostics.DiagnosticsEventProvider : object {
+    [SecurityCriticalAttribute]
+private EtwEnableCallback etwCallback;
+    private long traceRegistrationHandle;
+    private byte currentTraceLevel;
+    private long anyKeywordMask;
+    private long allKeywordMask;
+    private bool isProviderEnabled;
+    private Guid providerId;
+    private int isDisposed;
+    [ThreadStaticAttribute]
+private static WriteEventErrorCode errorCode;
+    private static int basicTypeAllocationBufferSize;
+    private static int etwMaxNumberArguments;
+    private static int etwAPIMaxStringCount;
+    private static int maxEventDataDescriptors;
+    private static int traceEventMaximumSize;
+    private static int traceEventMaximumStringSize;
+    private static int WindowsVistaMajorNumber;
+    [SecurityCriticalAttribute]
+protected DiagnosticsEventProvider(Guid providerGuid);
+    [SecurityCriticalAttribute]
+private void EtwRegister();
+    public sealed virtual void Dispose();
+    [SecuritySafeCriticalAttribute]
+protected virtual void Dispose(bool disposing);
+    public virtual void Close();
+    protected virtual override void Finalize();
+    [SecurityCriticalAttribute]
+private void Deregister();
+    [SecurityCriticalAttribute]
+private void EtwEnableCallBack(Guid& sourceId, int isEnabled, byte setLevel, long anyKeyword, long allKeyword, Void* filterData, Void* callbackContext);
+    protected abstract virtual void OnControllerCommand();
+    public bool IsEnabled();
+    public bool IsEnabled(byte level, long keywords);
+    [SecurityCriticalAttribute]
+public bool IsEventEnabled(EventDescriptor& eventDescriptor);
+    public static WriteEventErrorCode GetLastWriteEventError();
+    private static void SetLastError(int error);
+    [SecurityCriticalAttribute]
+private static string EncodeObject(Object& data, EventData* dataDescriptor, Byte* dataBuffer);
+    [SecurityCriticalAttribute]
+public bool WriteMessageEvent(EventTraceActivity eventTraceActivity, string eventMessage, byte eventLevel, long eventKeywords);
+    [SecurityCriticalAttribute]
+public bool WriteMessageEvent(EventTraceActivity eventTraceActivity, string eventMessage);
+    [SecurityCriticalAttribute]
+public bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Object[] eventPayload);
+    [SecurityCriticalAttribute]
+public bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string data);
+    [SecurityCriticalAttribute]
+protected internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, int dataCount, IntPtr data);
+    [SecurityCriticalAttribute]
+public bool WriteTransferEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid relatedActivityId, Object[] eventPayload);
+    [SecurityCriticalAttribute]
+protected bool WriteTransferEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid relatedActivityId, int dataCount, IntPtr data);
+    [SecurityCriticalAttribute]
+public static void SetActivityId(Guid& id);
+}
+internal abstract class System.Runtime.Diagnostics.DiagnosticTraceBase : object {
+    protected static string DefaultTraceListenerName;
+    protected static string TraceRecordVersion;
+    protected static string AppDomainFriendlyName;
+    private static ushort TracingEventLogCategory;
+    private object thisLock;
+    private bool tracingEnabled;
+    private bool calledShutdown;
+    private bool haveListeners;
+    private SourceLevels level;
+    protected string TraceSourceName;
+    private TraceSource traceSource;
+    [SecurityCriticalAttribute]
+private string eventSourceName;
+    [CompilerGeneratedAttribute]
+private DateTime <LastFailure>k__BackingField;
+    protected DateTime LastFailure { get; protected set; }
+    public TraceSource TraceSource { get; public set; }
+    public bool HaveListeners { get; }
+    public SourceLevels Level { get; public set; }
+    protected string EventSourceName { get; protected set; }
+    public bool TracingEnabled { get; }
+    protected static string ProcessName { get; }
+    protected static int ProcessId { get; }
+    protected bool CalledShutdown { get; }
+    public static Guid ActivityId { get; public set; }
+    public DiagnosticTraceBase(string traceSourceName);
+    private static DiagnosticTraceBase();
+    [CompilerGeneratedAttribute]
+protected DateTime get_LastFailure();
+    [CompilerGeneratedAttribute]
+protected void set_LastFailure(DateTime value);
+    [SecurityCriticalAttribute]
+private static void UnsafeRemoveDefaultTraceListener(TraceSource traceSource);
+    public TraceSource get_TraceSource();
+    public void set_TraceSource(TraceSource value);
+    [SecuritySafeCriticalAttribute]
+protected void SetTraceSource(TraceSource traceSource);
+    public bool get_HaveListeners();
+    private SourceLevels FixLevel(SourceLevels level);
+    protected virtual void OnSetLevel(SourceLevels level);
+    [SecurityCriticalAttribute]
+private void SetLevel(SourceLevels level);
+    [SecurityCriticalAttribute]
+private void SetLevelThreadSafe(SourceLevels level);
+    public SourceLevels get_Level();
+    [SecurityCriticalAttribute]
+public void set_Level(SourceLevels value);
+    [SecuritySafeCriticalAttribute]
+protected string get_EventSourceName();
+    [SecurityCriticalAttribute]
+protected void set_EventSourceName(string value);
+    public bool get_TracingEnabled();
+    [SecuritySafeCriticalAttribute]
+protected static string get_ProcessName();
+    [SecuritySafeCriticalAttribute]
+protected static int get_ProcessId();
+    public virtual bool ShouldTrace(TraceEventLevel level);
+    public bool ShouldTrace(TraceEventType type);
+    public bool ShouldTraceToTraceSource(TraceEventLevel level);
+    public static string XmlEncode(string text);
+    [SecuritySafeCriticalAttribute]
+protected void AddDomainEventHandlersForCleanup();
+    private void ExitOrUnloadEventHandler(object sender, EventArgs e);
+    protected abstract virtual void OnUnhandledException(Exception exception);
+    protected void UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs args);
+    protected static string CreateSourceString(object source);
+    internal static string CreateDefaultSourceString(object source);
+    protected static void AddExceptionToTraceString(XmlWriter xml, Exception exception);
+    protected static string StackTraceString(Exception exception);
+    [SecuritySafeCriticalAttribute]
+protected void LogTraceFailure(string traceString, Exception exception);
+    protected abstract virtual void OnShutdownTracing();
+    private void ShutdownTracing();
+    protected bool get_CalledShutdown();
+    [SecuritySafeCriticalAttribute]
+public static Guid get_ActivityId();
+    [SecuritySafeCriticalAttribute]
+public static void set_ActivityId(Guid value);
+    protected static string LookupSeverity(TraceEventType type);
+    public abstract virtual bool IsEnabled();
+    public abstract virtual void TraceEventLogEvent(TraceEventType type, TraceRecord traceRecord);
+}
+internal class System.Runtime.Diagnostics.DiagnosticTraceSource : TraceSource {
+    private static string PropagateActivityValue;
+    internal bool PropagateActivity { get; internal set; }
+    internal DiagnosticTraceSource(string name);
+    protected virtual String[] GetSupportedAttributes();
+    internal bool get_PropagateActivity();
+    internal void set_PropagateActivity(bool value);
+}
+internal class System.Runtime.Diagnostics.DictionaryTraceRecord : TraceRecord {
+    private IDictionary dictionary;
+    internal string EventId { get; }
+    internal DictionaryTraceRecord(IDictionary dictionary);
+    internal virtual string get_EventId();
+    internal virtual void WriteTo(XmlWriter xml);
+}
+internal class System.Runtime.Diagnostics.EtwDiagnosticTrace : DiagnosticTraceBase {
+    private static int WindowsVistaMajorNumber;
+    private static string EventSourceVersion;
+    private static ushort TracingEventLogCategory;
+    private static int MaxExceptionStringLength;
+    private static int MaxExceptionDepth;
+    private static string DiagnosticTraceSource;
+    private static int XmlBracketsLength;
+    private static int XmlBracketsLengthForNullValue;
+    public static Guid ImmutableDefaultEtwProviderId;
+    [SecurityCriticalAttribute]
+private static Guid defaultEtwProviderId;
+    private static Hashtable etwProviderCache;
+    private static bool isVistaOrGreater;
+    private static Func`1<string> traceAnnotation;
+    [SecurityCriticalAttribute]
+private EtwProvider etwProvider;
+    private Guid etwProviderId;
+    [SecurityCriticalAttribute]
+private static EventDescriptor transferEventDescriptor;
+    public static Guid DefaultEtwProviderId { get; public set; }
+    public EtwProvider EtwProvider { get; }
+    public bool IsEtwProviderEnabled { get; }
+    public Action RefreshState { get; public set; }
+    public bool IsEnd2EndActivityTracingEnabled { get; }
+    private bool EtwTracingEnabled { get; }
+    [SecurityCriticalAttribute]
+private static EtwDiagnosticTrace();
+    [SecurityCriticalAttribute]
+public EtwDiagnosticTrace(string traceSourceName, Guid etwProviderId);
+    [SecuritySafeCriticalAttribute]
+public static Guid get_DefaultEtwProviderId();
+    [SecurityCriticalAttribute]
+public static void set_DefaultEtwProviderId(Guid value);
+    [SecurityCriticalAttribute]
+public EtwProvider get_EtwProvider();
+    [SecuritySafeCriticalAttribute]
+public bool get_IsEtwProviderEnabled();
+    [SecuritySafeCriticalAttribute]
+public Action get_RefreshState();
+    [SecuritySafeCriticalAttribute]
+public void set_RefreshState(Action value);
+    [SecuritySafeCriticalAttribute]
+public bool get_IsEnd2EndActivityTracingEnabled();
+    [SecuritySafeCriticalAttribute]
+private bool get_EtwTracingEnabled();
+    [SecuritySafeCriticalAttribute]
+public void SetEnd2EndActivityTracingEnabled(bool isEnd2EndTracingEnabled);
+    public void SetAnnotation(Func`1<string> annotation);
+    public virtual bool ShouldTrace(TraceEventLevel level);
+    [SecuritySafeCriticalAttribute]
+public bool ShouldTraceToEtw(TraceEventLevel level);
+    [SecuritySafeCriticalAttribute]
+public void Event(int eventId, TraceEventLevel traceEventLevel, TraceChannel channel, string description);
+    [SecurityCriticalAttribute]
+public void Event(EventDescriptor& eventDescriptor, string description);
+    public void SetAndTraceTransfer(Guid newId, bool emitTransfer);
+    [SecuritySafeCriticalAttribute]
+public void TraceTransfer(Guid newId);
+    [SecurityCriticalAttribute]
+public void WriteTraceSource(EventDescriptor& eventDescriptor, string description, TracePayload payload);
+    [SecurityCriticalAttribute]
+private static string BuildTrace(EventDescriptor& eventDescriptor, string description, TracePayload payload, string msdnTraceCode);
+    [SecurityCriticalAttribute]
+private static void GenerateLegacyTraceCode(EventDescriptor& eventDescriptor, String& msdnTraceCode, Int32& legacyEventId);
+    private static string GenerateMsdnTraceCode(string traceSource, string traceCodeString);
+    private static string LookupChannel(TraceChannel traceChannel);
+    public TracePayload GetSerializedPayload(object source, TraceRecord traceRecord, Exception exception);
+    public TracePayload GetSerializedPayload(object source, TraceRecord traceRecord, Exception exception, bool getServiceReference);
+    [SecuritySafeCriticalAttribute]
+public bool IsEtwEventEnabled(EventDescriptor& eventDescriptor);
+    [SecuritySafeCriticalAttribute]
+public bool IsEtwEventEnabled(EventDescriptor& eventDescriptor, bool fullCheck);
+    [SecuritySafeCriticalAttribute]
+private void CreateTraceSource();
+    [SecurityCriticalAttribute]
+private void CreateEtwProvider(Guid etwProviderId);
+    [SecurityCriticalAttribute]
+private static EventDescriptor GetEventDescriptor(int eventId, TraceChannel channel, TraceEventLevel traceEventLevel);
+    protected virtual void OnShutdownTracing();
+    private void ShutdownTraceSource();
+    [SecuritySafeCriticalAttribute]
+private void ShutdownEtwProvider();
+    public virtual bool IsEnabled();
+    public virtual void TraceEventLogEvent(TraceEventType type, TraceRecord traceRecord);
+    protected virtual void OnUnhandledException(Exception exception);
+    internal static string ExceptionToTraceString(Exception exception, int maxTraceStringLength);
+    private static void WriteExceptionToTraceString(XmlTextWriter xml, Exception exception, int remainingLength, int remainingAllowedRecursionDepth);
+    private static string GetInnerException(Exception exception, int remainingLength, int remainingAllowedRecursionDepth);
+    private static string GetExceptionData(Exception exception);
+    private static bool WriteStartElement(XmlTextWriter xml, string localName, Int32& remainingLength);
+    private static bool WriteXmlElementString(XmlTextWriter xml, string localName, string value, Int32& remainingLength);
+}
+internal class System.Runtime.Diagnostics.EtwProvider : DiagnosticsEventProvider {
+    private Action invokeControllerCallback;
+    private bool end2EndActivityTracingEnabled;
+    internal Action ControllerCallBack { get; internal set; }
+    internal bool IsEnd2EndActivityTracingEnabled { get; }
+    [SecurityCriticalAttribute]
+internal EtwProvider(Guid id);
+    internal Action get_ControllerCallBack();
+    internal void set_ControllerCallBack(Action value);
+    internal bool get_IsEnd2EndActivityTracingEnabled();
+    protected virtual void OnControllerCommand();
+    internal void SetEnd2EndActivityTracingEnabled(bool isEnd2EndActivityTracingEnabled);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid value1, string value2, string value3);
+    [SecurityCriticalAttribute]
+internal bool WriteTransferEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid relatedActivityId, string value1, string value2);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5, string value6);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5, string value6, string value7);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5, string value6, string value7, string value8);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5, string value6, string value7, string value8, string value9);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10, string value11);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10, string value11, string value12);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, string value2, string value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10, string value11, string value12, string value13);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, int value1);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, int value1, int value2);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, int value1, int value2, int value3);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, long value1);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, long value1, long value2);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, long value1, long value2, long value3);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid value1, long value2, long value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10, string value11, string value12, string value13, string value14, string value15);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid value1, long value2, long value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10, string value11, string value12, bool value13, string value14, string value15, string value16, string value17);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid value1, long value2, long value3, string value4, string value5, string value6, string value7, string value8, string value9);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid value1, long value2, long value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10, string value11);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid value1, long value2, long value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10, string value11, string value12, string value13);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid value1, long value2, long value3, string value4, string value5, string value6, string value7, string value8, string value9, string value10, string value11, string value12, string value13, string value14);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, Guid value1, long value2, long value3, string value4, Guid value5, string value6, string value7, string value8, string value9, string value10, string value11, string value12, string value13);
+    [SecurityCriticalAttribute]
+internal bool WriteEvent(EventDescriptor& eventDescriptor, EventTraceActivity eventTraceActivity, string value1, long value2, string value3, string value4);
+}
+internal class System.Runtime.Diagnostics.EventDescriptor : ValueType {
+    private ushort m_id;
+    private byte m_version;
+    private byte m_channel;
+    private byte m_level;
+    private byte m_opcode;
+    private ushort m_task;
+    private long m_keywords;
+    public int EventId { get; }
+    public byte Version { get; }
+    public byte Channel { get; }
+    public byte Level { get; }
+    public byte Opcode { get; }
+    public int Task { get; }
+    public long Keywords { get; }
+    public EventDescriptor(int id, byte version, byte channel, byte level, byte opcode, int task, long keywords);
+    public int get_EventId();
+    public byte get_Version();
+    public byte get_Channel();
+    public byte get_Level();
+    public byte get_Opcode();
+    public int get_Task();
+    public long get_Keywords();
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public bool Equals(EventDescriptor other);
+    public static bool op_Equality(EventDescriptor event1, EventDescriptor event2);
+    public static bool op_Inequality(EventDescriptor event1, EventDescriptor event2);
+}
+internal enum System.Runtime.Diagnostics.EventFacility : Enum {
+    public UInt32 value__;
+    public static EventFacility Tracing;
+    public static EventFacility ServiceModel;
+    public static EventFacility TransactionBridge;
+    public static EventFacility SMSvcHost;
+    public static EventFacility InfoCards;
+    public static EventFacility SecurityAudit;
+}
+internal enum System.Runtime.Diagnostics.EventLogCategory : Enum {
+    public ushort value__;
+    public static EventLogCategory ServiceAuthorization;
+    public static EventLogCategory MessageAuthentication;
+    public static EventLogCategory ObjectAccess;
+    public static EventLogCategory Tracing;
+    public static EventLogCategory WebHost;
+    public static EventLogCategory FailFast;
+    public static EventLogCategory MessageLogging;
+    public static EventLogCategory PerformanceCounter;
+    public static EventLogCategory Wmi;
+    public static EventLogCategory ComPlus;
+    public static EventLogCategory StateMachine;
+    public static EventLogCategory Wsat;
+    public static EventLogCategory SharingService;
+    public static EventLogCategory ListenerAdapter;
+}
+internal enum System.Runtime.Diagnostics.EventLogEventId : Enum {
+    public UInt32 value__;
+    public static EventLogEventId FailedToSetupTracing;
+    public static EventLogEventId FailedToInitializeTraceSource;
+    public static EventLogEventId FailFast;
+    public static EventLogEventId FailFastException;
+    public static EventLogEventId FailedToTraceEvent;
+    public static EventLogEventId FailedToTraceEventWithException;
+    public static EventLogEventId InvariantAssertionFailed;
+    public static EventLogEventId PiiLoggingOn;
+    public static EventLogEventId PiiLoggingNotAllowed;
+    public static EventLogEventId WebHostUnhandledException;
+    public static EventLogEventId WebHostHttpError;
+    public static EventLogEventId WebHostFailedToProcessRequest;
+    public static EventLogEventId WebHostFailedToListen;
+    public static EventLogEventId FailedToLogMessage;
+    public static EventLogEventId RemovedBadFilter;
+    public static EventLogEventId FailedToCreateMessageLoggingTraceSource;
+    public static EventLogEventId MessageLoggingOn;
+    public static EventLogEventId MessageLoggingOff;
+    public static EventLogEventId FailedToLoadPerformanceCounter;
+    public static EventLogEventId FailedToRemovePerformanceCounter;
+    public static EventLogEventId WmiGetObjectFailed;
+    public static EventLogEventId WmiPutInstanceFailed;
+    public static EventLogEventId WmiDeleteInstanceFailed;
+    public static EventLogEventId WmiCreateInstanceFailed;
+    public static EventLogEventId WmiExecQueryFailed;
+    public static EventLogEventId WmiExecMethodFailed;
+    public static EventLogEventId WmiRegistrationFailed;
+    public static EventLogEventId WmiUnregistrationFailed;
+    public static EventLogEventId WmiAdminTypeMismatch;
+    public static EventLogEventId WmiPropertyMissing;
+    public static EventLogEventId ComPlusServiceHostStartingServiceError;
+    public static EventLogEventId ComPlusDllHostInitializerStartingError;
+    public static EventLogEventId ComPlusTLBImportError;
+    public static EventLogEventId ComPlusInvokingMethodFailed;
+    public static EventLogEventId ComPlusInstanceCreationError;
+    public static EventLogEventId ComPlusInvokingMethodFailedMismatchedTransactions;
+    public static EventLogEventId WebHostNotLoggingInsufficientMemoryExceptionsOnActivationForNextTimeInterval;
+    public static EventLogEventId UnhandledStateMachineExceptionRecordDescription;
+    public static EventLogEventId FatalUnexpectedStateMachineEvent;
+    public static EventLogEventId ParticipantRecoveryLogEntryCorrupt;
+    public static EventLogEventId CoordinatorRecoveryLogEntryCorrupt;
+    public static EventLogEventId CoordinatorRecoveryLogEntryCreationFailure;
+    public static EventLogEventId ParticipantRecoveryLogEntryCreationFailure;
+    public static EventLogEventId ProtocolInitializationFailure;
+    public static EventLogEventId ProtocolStartFailure;
+    public static EventLogEventId ProtocolRecoveryBeginningFailure;
+    public static EventLogEventId ProtocolRecoveryCompleteFailure;
+    public static EventLogEventId TransactionBridgeRecoveryFailure;
+    public static EventLogEventId ProtocolStopFailure;
+    public static EventLogEventId NonFatalUnexpectedStateMachineEvent;
+    public static EventLogEventId PerformanceCounterInitializationFailure;
+    public static EventLogEventId ProtocolRecoveryComplete;
+    public static EventLogEventId ProtocolStopped;
+    public static EventLogEventId ThumbPrintNotFound;
+    public static EventLogEventId ThumbPrintNotValidated;
+    public static EventLogEventId SslNoPrivateKey;
+    public static EventLogEventId SslNoAccessiblePrivateKey;
+    public static EventLogEventId MissingNecessaryKeyUsage;
+    public static EventLogEventId MissingNecessaryEnhancedKeyUsage;
+    public static EventLogEventId StartErrorPublish;
+    public static EventLogEventId BindingError;
+    public static EventLogEventId LAFailedToListenForApp;
+    public static EventLogEventId UnknownListenerAdapterError;
+    public static EventLogEventId WasDisconnected;
+    public static EventLogEventId WasConnectionTimedout;
+    public static EventLogEventId ServiceStartFailed;
+    public static EventLogEventId MessageQueueDuplicatedSocketLeak;
+    public static EventLogEventId MessageQueueDuplicatedPipeLeak;
+    public static EventLogEventId SharingUnhandledException;
+    public static EventLogEventId ServiceAuthorizationSuccess;
+    public static EventLogEventId ServiceAuthorizationFailure;
+    public static EventLogEventId MessageAuthenticationSuccess;
+    public static EventLogEventId MessageAuthenticationFailure;
+    public static EventLogEventId SecurityNegotiationSuccess;
+    public static EventLogEventId SecurityNegotiationFailure;
+    public static EventLogEventId TransportAuthenticationSuccess;
+    public static EventLogEventId TransportAuthenticationFailure;
+    public static EventLogEventId ImpersonationSuccess;
+    public static EventLogEventId ImpersonationFailure;
+}
+internal class System.Runtime.Diagnostics.EventLogger : object {
+    private static int MaxEventLogsInPT;
+    [SecurityCriticalAttribute]
+private static int logCountForPT;
+    private static bool canLogEvent;
+    private DiagnosticTraceBase diagnosticTrace;
+    [SecurityCriticalAttribute]
+private string eventLogSourceName;
+    private bool isInPartialTrust;
+    [ObsoleteAttribute("For System.Runtime.dll use only. Call FxTrace.EventLog instead")]
+public EventLogger(string eventLogSourceName, DiagnosticTraceBase diagnosticTrace);
+    private static EventLogger();
+    [SecurityCriticalAttribute]
+public static EventLogger UnsafeCreateEventLogger(string eventLogSourceName, DiagnosticTraceBase diagnosticTrace);
+    [SecurityCriticalAttribute]
+public void UnsafeLogEvent(TraceEventType type, ushort eventLogCategory, UInt32 eventId, bool shouldTrace, String[] values);
+    public void LogEvent(TraceEventType type, ushort eventLogCategory, UInt32 eventId, bool shouldTrace, String[] values);
+    public void LogEvent(TraceEventType type, ushort eventLogCategory, UInt32 eventId, String[] values);
+    private static EventLogEntryType EventLogEntryTypeFromEventType(TraceEventType type);
+    [SecuritySafeCriticalAttribute]
+private void SafeLogEvent(TraceEventType type, ushort eventLogCategory, UInt32 eventId, bool shouldTrace, String[] values);
+    [SecuritySafeCriticalAttribute]
+private void SafeSetLogSourceName(string eventLogSourceName);
+    [SecurityCriticalAttribute]
+private void SetLogSourceName(string eventLogSourceName, DiagnosticTraceBase diagnosticTrace);
+    [SecuritySafeCriticalAttribute]
+private bool IsInPartialTrust();
+    [SecurityCriticalAttribute]
+private void UnsafeWriteEventLog(TraceEventType type, ushort eventLogCategory, UInt32 eventId, String[] logValues, Byte[] sidBA, GCHandle stringsRootHandle);
+    [SecurityCriticalAttribute]
+private string UnsafeGetProcessName();
+    [SecurityCriticalAttribute]
+private int UnsafeGetProcessId();
+    internal static string NormalizeEventLogParameter(string eventLogParameter);
+}
+internal enum System.Runtime.Diagnostics.EventSeverity : Enum {
+    public UInt32 value__;
+    public static EventSeverity Success;
+    public static EventSeverity Informational;
+    public static EventSeverity Warning;
+    public static EventSeverity Error;
+}
+internal class System.Runtime.Diagnostics.EventTraceActivity : object {
+    public Guid ActivityId;
+    private static EventTraceActivity empty;
+    public static EventTraceActivity Empty { get; }
+    public static string Name { get; }
+    public EventTraceActivity(bool setOnThread);
+    public EventTraceActivity(Guid guid, bool setOnThread);
+    public static EventTraceActivity get_Empty();
+    public static string get_Name();
+    [SecuritySafeCriticalAttribute]
+public static EventTraceActivity GetFromThreadOrCreate(bool clearIdOnThread);
+    [SecuritySafeCriticalAttribute]
+public static Guid GetActivityIdFromThread();
+    public void SetActivityId(Guid guid);
+    [SecuritySafeCriticalAttribute]
+private void SetActivityIdOnThread();
+}
+internal interface System.Runtime.Diagnostics.ITraceSourceStringProvider {
+    public abstract virtual string GetSourceString();
+}
+[AttributeUsageAttribute("256")]
+internal class System.Runtime.Diagnostics.PerformanceCounterNameAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    public string Name { get; public set; }
+    public PerformanceCounterNameAttribute(string name);
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+public void set_Name(string value);
+}
+internal class System.Runtime.Diagnostics.StringTraceRecord : TraceRecord {
+    private string elementName;
+    private string content;
+    internal string EventId { get; }
+    internal StringTraceRecord(string elementName, string content);
+    internal virtual string get_EventId();
+    internal virtual void WriteTo(XmlWriter writer);
+}
+internal class System.Runtime.Diagnostics.TraceRecord : object {
+    protected static string EventIdBase;
+    protected static string NamespaceSuffix;
+    internal string EventId { get; }
+    internal virtual string get_EventId();
+    internal virtual void WriteTo(XmlWriter writer);
+    protected string BuildEventId(string eventId);
+    protected string XmlEncode(string text);
+}
+internal static class System.Runtime.DiagnosticStrings : object {
+    internal static string AppDomain;
+    internal static string ChannelTag;
+    internal static string Description;
+    internal static string DataTag;
+    internal static string DataItemsTag;
+    internal static string DescriptionTag;
+    internal static string ExceptionTag;
+    internal static string ExceptionTypeTag;
+    internal static string ExceptionStringTag;
+    internal static string ExtendedDataTag;
+    internal static string InnerExceptionTag;
+    internal static string KeyTag;
+    internal static string MessageTag;
+    internal static string NamespaceTag;
+    internal static string NativeErrorCodeTag;
+    internal static string Separator;
+    internal static string SeverityTag;
+    internal static string SourceTag;
+    internal static string StackTraceTag;
+    internal static string Task;
+    internal static string TraceCodeTag;
+    internal static string TraceRecordTag;
+    internal static string ValueTag;
+}
+internal class System.Runtime.DuplicateDetector`1 : object {
+    private LinkedList`1<T> fifoList;
+    private Dictionary`2<T, LinkedListNode`1<T>> items;
+    private int capacity;
+    private object thisLock;
+    public DuplicateDetector`1(int capacity);
+    public bool AddIfNotDuplicate(T value);
+    private void Add(T value);
+    public bool Remove(T value);
+    public void Clear();
+}
+internal class System.Runtime.ExceptionTrace : object {
+    private static ushort FailFastEventLogCategory;
+    private string eventSourceName;
+    private EtwDiagnosticTrace diagnosticTrace;
+    public ExceptionTrace(string eventSourceName, EtwDiagnosticTrace diagnosticTrace);
+    public void AsInformation(Exception exception);
+    public void AsWarning(Exception exception);
+    public Exception AsError(Exception exception);
+    public Exception AsError(Exception exception, string eventSource);
+    public Exception AsError(TargetInvocationException targetInvocationException, string eventSource);
+    public Exception AsError(AggregateException aggregateException);
+    public Exception AsError(AggregateException aggregateException, string eventSource);
+    public ArgumentException Argument(string paramName, string message);
+    public ArgumentNullException ArgumentNull(string paramName);
+    public ArgumentNullException ArgumentNull(string paramName, string message);
+    public ArgumentException ArgumentNullOrEmpty(string paramName);
+    public ArgumentOutOfRangeException ArgumentOutOfRange(string paramName, object actualValue, string message);
+    public ObjectDisposedException ObjectDisposed(string message);
+    public void TraceUnhandledException(Exception exception);
+    public void TraceHandledException(Exception exception, TraceEventType traceEventType);
+    public void TraceEtwException(Exception exception, TraceEventType eventType);
+    private TException TraceException(TException exception);
+    [SecuritySafeCriticalAttribute]
+private TException TraceException(TException exception, string eventSource);
+    [SecuritySafeCriticalAttribute]
+private void BreakOnException(Exception exception);
+    internal void TraceFailFast(string message);
+    internal void TraceFailFast(string message, EventLogger logger);
+}
+internal class System.Runtime.FastAsyncCallback : MulticastDelegate {
+    public FastAsyncCallback(object object, IntPtr method);
+    public virtual void Invoke(object state, Exception asyncException);
+    public virtual IAsyncResult BeginInvoke(object state, Exception asyncException, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+internal class System.Runtime.FatalException : SystemException {
+    public FatalException(string message);
+    public FatalException(string message, Exception innerException);
+    protected FatalException(SerializationInfo info, StreamingContext context);
+}
+internal static class System.Runtime.Fx : object {
+    private static string defaultEventSource;
+    private static ExceptionTrace exceptionTrace;
+    private static EtwDiagnosticTrace diagnosticTrace;
+    [SecurityCriticalAttribute]
+private static ExceptionHandler asynchronousThreadExceptionHandler;
+    public static ExceptionTrace Exception { get; }
+    public static EtwDiagnosticTrace Trace { get; }
+    public static ExceptionHandler AsynchronousThreadExceptionHandler { get; public set; }
+    internal static bool AssertsFailFast { get; }
+    internal static Type[] BreakOnExceptionTypes { get; }
+    internal static bool FastDebug { get; }
+    internal static bool StealthDebugger { get; }
+    public static ExceptionTrace get_Exception();
+    public static EtwDiagnosticTrace get_Trace();
+    [SecuritySafeCriticalAttribute]
+private static EtwDiagnosticTrace InitializeTracing();
+    [ReliabilityContractAttribute("3", "2")]
+[SecuritySafeCriticalAttribute]
+public static ExceptionHandler get_AsynchronousThreadExceptionHandler();
+    [SecurityCriticalAttribute]
+public static void set_AsynchronousThreadExceptionHandler(ExceptionHandler value);
+    [ConditionalAttribute("DEBUG")]
+public static void Assert(bool condition, string description);
+    [ConditionalAttribute("DEBUG")]
+public static void Assert(string description);
+    public static void AssertAndThrow(bool condition, string description);
+    public static Exception AssertAndThrow(string description);
+    public static void AssertAndThrowFatal(bool condition, string description);
+    public static Exception AssertAndThrowFatal(string description);
+    public static void AssertAndFailFast(bool condition, string description);
+    [SecuritySafeCriticalAttribute]
+public static Exception AssertAndFailFast(string description);
+    public static bool IsFatal(Exception exception);
+    internal static bool get_AssertsFailFast();
+    internal static Type[] get_BreakOnExceptionTypes();
+    internal static bool get_FastDebug();
+    internal static bool get_StealthDebugger();
+    public static Action`1<T1> ThunkCallback(Action`1<T1> callback);
+    public static AsyncCallback ThunkCallback(AsyncCallback callback);
+    public static WaitCallback ThunkCallback(WaitCallback callback);
+    public static TimerCallback ThunkCallback(TimerCallback callback);
+    public static WaitOrTimerCallback ThunkCallback(WaitOrTimerCallback callback);
+    public static SendOrPostCallback ThunkCallback(SendOrPostCallback callback);
+    [SecurityCriticalAttribute]
+public static IOCompletionCallback ThunkCallback(IOCompletionCallback callback);
+    public static Guid CreateGuid(string guidString);
+    public static bool TryCreateGuid(string guidString, Guid& result);
+    public static Byte[] AllocateByteArray(int size);
+    public static Char[] AllocateCharArray(int size);
+    [ReliabilityContractAttribute("3", "2")]
+private static void TraceExceptionNoThrow(Exception exception);
+    [ReliabilityContractAttribute("3", "2")]
+private static bool HandleAtThreadBase(Exception exception);
+    private static void UpdateLevel(EtwDiagnosticTrace trace);
+    private static void UpdateLevel();
+}
+internal static class System.Runtime.FxCop : object {
+}
+internal static class System.Runtime.HashHelper : object {
+    public static Byte[] ComputeHash(Byte[] buffer);
+}
+internal interface System.Runtime.IAsyncEventArgs {
+    public object AsyncState { get; }
+    public Exception Exception { get; }
+    public abstract virtual object get_AsyncState();
+    public abstract virtual Exception get_Exception();
+}
+internal class System.Runtime.InputQueue`1 : object {
+    private static Action`1<object> completeOutstandingReadersCallback;
+    private static Action`1<object> completeWaitersFalseCallback;
+    private static Action`1<object> completeWaitersTrueCallback;
+    private static Action`1<object> onDispatchCallback;
+    private static Action`1<object> onInvokeDequeuedCallback;
+    private QueueState<T> queueState;
+    private ItemQueue<T> itemQueue;
+    private Queue`1<IQueueReader<T>> readerQueue;
+    private List`1<IQueueWaiter<T>> waiterList;
+    [CompilerGeneratedAttribute]
+private Action`1<T> <DisposeItemCallback>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Func`1<Action`2<AsyncCallback, IAsyncResult>> <AsyncCallbackGenerator>k__BackingField;
+    public int PendingCount { get; }
+    public Action`1<T> DisposeItemCallback { get; public set; }
+    private Func`1<Action`2<AsyncCallback, IAsyncResult>> AsyncCallbackGenerator { get; private set; }
+    private object ThisLock { get; }
+    public InputQueue`1(Func`1<Action`2<AsyncCallback, IAsyncResult>> asyncCallbackGenerator);
+    public int get_PendingCount();
+    [CompilerGeneratedAttribute]
+public Action`1<T> get_DisposeItemCallback();
+    [CompilerGeneratedAttribute]
+public void set_DisposeItemCallback(Action`1<T> value);
+    [CompilerGeneratedAttribute]
+private Func`1<Action`2<AsyncCallback, IAsyncResult>> get_AsyncCallbackGenerator();
+    [CompilerGeneratedAttribute]
+private void set_AsyncCallbackGenerator(Func`1<Action`2<AsyncCallback, IAsyncResult>> value);
+    private object get_ThisLock();
+    public IAsyncResult BeginDequeue(TimeSpan timeout, AsyncCallback callback, object state);
+    public IAsyncResult BeginWaitForItem(TimeSpan timeout, AsyncCallback callback, object state);
+    public void Close();
+    public T Dequeue(TimeSpan timeout);
+    public bool Dequeue(TimeSpan timeout, T& value);
+    public void Dispatch();
+    public bool EndDequeue(IAsyncResult result, T& value);
+    public T EndDequeue(IAsyncResult result);
+    public bool EndWaitForItem(IAsyncResult result);
+    public void EnqueueAndDispatch(T item);
+    public void EnqueueAndDispatch(T item, Action dequeuedCallback);
+    public void EnqueueAndDispatch(Exception exception, Action dequeuedCallback, bool canDispatchOnThisThread);
+    public void EnqueueAndDispatch(T item, Action dequeuedCallback, bool canDispatchOnThisThread);
+    public bool EnqueueWithoutDispatch(T item, Action dequeuedCallback);
+    public bool EnqueueWithoutDispatch(Exception exception, Action dequeuedCallback);
+    public void Shutdown();
+    public void Shutdown(Func`1<Exception> pendingExceptionGenerator);
+    public bool WaitForItem(TimeSpan timeout);
+    public sealed virtual void Dispose();
+    private void DisposeItem(Item<T> item);
+    private static void CompleteOutstandingReadersCallback(object state);
+    private static void CompleteWaiters(bool itemAvailable, IQueueWaiter[] waiters);
+    private static void CompleteWaitersFalseCallback(object state);
+    private static void CompleteWaitersLater(bool itemAvailable, IQueueWaiter[] waiters);
+    private static void CompleteWaitersTrueCallback(object state);
+    private static void InvokeDequeuedCallback(Action dequeuedCallback);
+    private static void InvokeDequeuedCallbackLater(Action dequeuedCallback);
+    private static void OnDispatchCallback(object state);
+    private static void OnInvokeDequeuedCallback(object state);
+    private void EnqueueAndDispatch(Item<T> item, bool canDispatchOnThisThread);
+    private bool EnqueueWithoutDispatch(Item<T> item);
+    private void GetWaiters(IQueueWaiter[]& waiters);
+    private bool RemoveReader(IQueueReader<T> reader);
+}
+internal abstract class System.Runtime.InternalBufferManager : object {
+    public abstract virtual Byte[] TakeBuffer(int bufferSize);
+    public abstract virtual void ReturnBuffer(Byte[] buffer);
+    public abstract virtual void Clear();
+    public static InternalBufferManager Create(long maxBufferPoolSize, int maxBufferSize);
+}
+internal static class System.Runtime.InternalSR : object {
+    public static string ActionItemIsAlreadyScheduled;
+    public static string AsyncCallbackThrewException;
+    public static string AsyncResultAlreadyEnded;
+    public static string BadCopyToArray;
+    public static string BufferIsNotRightSizeForBufferManager;
+    public static string DictionaryIsReadOnly;
+    public static string InvalidAsyncResult;
+    public static string InvalidAsyncResultImplementationGeneric;
+    public static string InvalidNullAsyncResult;
+    public static string InvalidSemaphoreExit;
+    public static string KeyCollectionUpdatesNotAllowed;
+    public static string KeyNotFoundInDictionary;
+    public static string MustCancelOldTimer;
+    public static string NullKeyAlreadyPresent;
+    public static string ReadNotSupported;
+    public static string SFxTaskNotStarted;
+    public static string SeekNotSupported;
+    public static string ThreadNeutralSemaphoreAborted;
+    public static string ValueCollectionUpdatesNotAllowed;
+    public static string ValueMustBeNonNegative;
+    public static string ArgumentNullOrEmpty(string paramName);
+    public static string AsyncEventArgsCompletedTwice(Type t);
+    public static string AsyncEventArgsCompletionPending(Type t);
+    public static string BufferAllocationFailed(int size);
+    public static string BufferedOutputStreamQuotaExceeded(int maxSizeQuota);
+    public static string CannotConvertObject(object source, Type t);
+    public static string EtwAPIMaxStringCountExceeded(object max);
+    public static string EtwMaxNumberArgumentsExceeded(object max);
+    public static string EtwRegistrationFailed(object arg);
+    public static string FailFastMessage(string description);
+    public static string InvalidAsyncResultImplementation(Type t);
+    public static string LockTimeoutExceptionMessage(object timeout);
+    public static string ShipAssertExceptionMessage(object description);
+    public static string TaskTimedOutError(object timeout);
+    public static string TimeoutInputQueueDequeue(object timeout);
+    public static string TimeoutMustBeNonNegative(object argumentName, object timeout);
+    public static string TimeoutMustBePositive(string argumentName, object timeout);
+    public static string TimeoutOnOperation(object timeout);
+    public static string AsyncResultCompletedTwice(Type t);
+}
+[SecurityCriticalAttribute]
+internal class System.Runtime.Interop.SafeEventLogWriteHandle : SafeHandleZeroOrMinusOneIsInvalid {
+    [SecurityCriticalAttribute]
+public static SafeEventLogWriteHandle RegisterEventSource(string uncServerName, string sourceName);
+    private static bool DeregisterEventSource(IntPtr hEventLog);
+    [SecurityCriticalAttribute]
+protected virtual bool ReleaseHandle();
+}
+[SuppressUnmanagedCodeSecurityAttribute]
+internal static class System.Runtime.Interop.UnsafeNativeMethods : object {
+    public static string KERNEL32;
+    public static string ADVAPI32;
+    public static int ERROR_INVALID_HANDLE;
+    public static int ERROR_MORE_DATA;
+    public static int ERROR_ARITHMETIC_OVERFLOW;
+    public static int ERROR_NOT_ENOUGH_MEMORY;
+    [SecurityCriticalAttribute]
+public static SafeWaitHandle CreateWaitableTimer(IntPtr mustBeZero, bool manualReset, string timerName);
+    [SecurityCriticalAttribute]
+public static bool SetWaitableTimer(SafeWaitHandle handle, Int64& dueTime, int period, IntPtr mustBeZero, IntPtr mustBeZeroAlso, bool resume);
+    [SecurityCriticalAttribute]
+public static int QueryPerformanceCounter(Int64& time);
+    [SecurityCriticalAttribute]
+public static UInt32 GetSystemTimeAdjustment(Int32& adjustment, UInt32& increment, UInt32& adjustmentDisabled);
+    [SecurityCriticalAttribute]
+private static void GetSystemTimeAsFileTime(FILETIME& time);
+    [SecurityCriticalAttribute]
+public static void GetSystemTimeAsFileTime(Int64& time);
+    [SecurityCriticalAttribute]
+private static bool GetComputerNameEx(ComputerNameFormat nameType, StringBuilder lpBuffer, Int32& size);
+    [SecurityCriticalAttribute]
+internal static string GetComputerName(ComputerNameFormat nameType);
+    [SecurityCriticalAttribute]
+internal static bool IsDebuggerPresent();
+    [SecurityCriticalAttribute]
+internal static void DebugBreak();
+    [SecurityCriticalAttribute]
+internal static void OutputDebugString(string lpOutputString);
+    [SecurityCriticalAttribute]
+internal static UInt32 EventRegister(Guid& providerId, EtwEnableCallback enableCallback, Void* callbackContext, Int64& registrationHandle);
+    [SecurityCriticalAttribute]
+internal static UInt32 EventUnregister(long registrationHandle);
+    [SecurityCriticalAttribute]
+internal static bool EventEnabled(long registrationHandle, EventDescriptor& eventDescriptor);
+    [SecurityCriticalAttribute]
+internal static UInt32 EventWrite(long registrationHandle, EventDescriptor& eventDescriptor, UInt32 userDataCount, EventData* userData);
+    [SecurityCriticalAttribute]
+internal static UInt32 EventWriteTransfer(long registrationHandle, EventDescriptor& eventDescriptor, Guid& activityId, Guid& relatedActivityId, UInt32 userDataCount, EventData* userData);
+    [SecurityCriticalAttribute]
+internal static UInt32 EventWriteString(long registrationHandle, byte level, long keywords, Char* message);
+    [SecurityCriticalAttribute]
+internal static UInt32 EventActivityIdControl(int ControlCode, Guid& ActivityId);
+    [SecurityCriticalAttribute]
+internal static bool ReportEvent(SafeHandle hEventLog, ushort type, ushort category, UInt32 eventID, Byte[] userSID, ushort numStrings, UInt32 dataLen, HandleRef strings, Byte[] rawData);
+    [SecurityCriticalAttribute]
+internal static SafeEventLogWriteHandle RegisterEventSource(string uncServerName, string sourceName);
+}
+internal class System.Runtime.IOThreadCancellationTokenSource : object {
+    private static Action`1<object> onCancel;
+    private TimeSpan timeout;
+    private CancellationTokenSource source;
+    private Nullable`1<CancellationToken> token;
+    private IOThreadTimer timer;
+    public CancellationToken Token { get; }
+    public IOThreadCancellationTokenSource(TimeSpan timeout);
+    public IOThreadCancellationTokenSource(int timeout);
+    private static IOThreadCancellationTokenSource();
+    public CancellationToken get_Token();
+    public sealed virtual void Dispose();
+    private static void OnCancel(object obj);
+    private void Cancel();
+}
+internal class System.Runtime.IOThreadScheduler : object {
+    private static int MaximumCapacity;
+    private static IOThreadScheduler current;
+    private ScheduledOverlapped overlapped;
+    [SecurityCriticalAttribute]
+private Slot[] slots;
+    [SecurityCriticalAttribute]
+private Slot[] slotsLowPri;
+    private int headTail;
+    private int headTailLowPri;
+    private int SlotMask { get; }
+    private int SlotMaskLowPri { get; }
+    [SecuritySafeCriticalAttribute]
+private IOThreadScheduler(int capacity, int capacityLowPri);
+    private static IOThreadScheduler();
+    [SecurityCriticalAttribute]
+public static void ScheduleCallbackNoFlow(Action`1<object> callback, object state);
+    [SecurityCriticalAttribute]
+public static void ScheduleCallbackLowPriNoFlow(Action`1<object> callback, object state);
+    [SecurityCriticalAttribute]
+private bool ScheduleCallbackHelper(Action`1<object> callback, object state);
+    [SecurityCriticalAttribute]
+private bool ScheduleCallbackLowPriHelper(Action`1<object> callback, object state);
+    [SecurityCriticalAttribute]
+private void CompletionCallback(Action`1& callback, Object& state);
+    [SecurityCriticalAttribute]
+private bool TryCoalesce(Action`1& callback, Object& state);
+    [SecurityCriticalAttribute]
+private int get_SlotMask();
+    [SecurityCriticalAttribute]
+private int get_SlotMaskLowPri();
+    protected virtual override void Finalize();
+    [SecuritySafeCriticalAttribute]
+private void Cleanup();
+}
+internal class System.Runtime.IOThreadTimer : object {
+    private static int maxSkewInMillisecondsDefault;
+    private static long systemTimeResolutionTicks;
+    private Action`1<object> callback;
+    private object callbackState;
+    private long dueTime;
+    private int index;
+    private long maxSkew;
+    private TimerGroup timerGroup;
+    public static long SystemTimeResolutionTicks { get; }
+    public IOThreadTimer(Action`1<object> callback, object callbackState, bool isTypicallyCanceledShortlyAfterBeingSet);
+    public IOThreadTimer(Action`1<object> callback, object callbackState, bool isTypicallyCanceledShortlyAfterBeingSet, int maxSkewInMilliseconds);
+    private static IOThreadTimer();
+    public static long get_SystemTimeResolutionTicks();
+    [SecuritySafeCriticalAttribute]
+private static long GetSystemTimeResolution();
+    public bool Cancel();
+    public void Set(TimeSpan timeFromNow);
+    public void Set(int millisecondsFromNow);
+    public void SetAt(long dueTime);
+}
+internal class System.Runtime.MruCache`2 : object {
+    private LinkedList`1<TKey> mruList;
+    private Dictionary`2<TKey, CacheEntry<TKey, TValue>> items;
+    private int lowWatermark;
+    private int highWatermark;
+    private CacheEntry<TKey, TValue> mruEntry;
+    public int Count { get; }
+    public MruCache`2(int watermark);
+    public MruCache`2(int lowWatermark, int highWatermark);
+    public MruCache`2(int lowWatermark, int highWatermark, IEqualityComparer`1<TKey> comparer);
+    public int get_Count();
+    public void Add(TKey key, TValue value);
+    public void Clear();
+    public bool Remove(TKey key);
+    protected virtual void OnSingleItemRemoved(TValue item);
+    protected virtual void OnItemAgedOutOfCache(TValue item);
+    public bool TryGetValue(TKey key, TValue& value);
+}
+internal class System.Runtime.NameGenerator : object {
+    private static NameGenerator nameGenerator;
+    private long id;
+    private string prefix;
+    private static NameGenerator();
+    public static string Next();
+}
+internal static class System.Runtime.PartialTrustHelpers : object {
+    [SecurityCriticalAttribute]
+private static Type aptca;
+    [SecurityCriticalAttribute]
+private static Boolean modreq(System.Runtime.CompilerServices.IsVolatile) checkedForFullTrust;
+    [SecurityCriticalAttribute]
+private static bool inFullTrust;
+    internal static bool ShouldFlowSecurityContext { get; }
+    internal static bool AppDomainFullyTrusted { get; }
+    [SecurityCriticalAttribute]
+internal static bool get_ShouldFlowSecurityContext();
+    [SecurityCriticalAttribute]
+internal static bool IsInFullTrust();
+    [SecurityCriticalAttribute]
+internal static bool IsTypeAptca(Type type);
+    [SecuritySafeCriticalAttribute]
+internal static void DemandForFullTrust();
+    [SecurityCriticalAttribute]
+private static bool IsAssemblyAptca(Assembly assembly);
+    [SecurityCriticalAttribute]
+private static bool IsAssemblySigned(Assembly assembly);
+    [SecurityCriticalAttribute]
+internal static bool CheckAppDomainPermissions(PermissionSet permissions);
+    [SecurityCriticalAttribute]
+internal static bool HasEtwPermissions();
+    [SecuritySafeCriticalAttribute]
+internal static bool get_AppDomainFullyTrusted();
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Runtime.ReadOnlyDictionaryInternal`2 : object {
+    private IDictionary`2<TKey, TValue> dictionary;
+    public int Count { get; }
+    public bool IsReadOnly { get; }
+    public ICollection`1<TKey> Keys { get; }
+    public ICollection`1<TValue> Values { get; }
+    public TValue Item { get; public set; }
+    public ReadOnlyDictionaryInternal`2(IDictionary`2<TKey, TValue> dictionary);
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsReadOnly();
+    public sealed virtual ICollection`1<TKey> get_Keys();
+    public sealed virtual ICollection`1<TValue> get_Values();
+    public sealed virtual TValue get_Item(TKey key);
+    public sealed virtual void set_Item(TKey key, TValue value);
+    public static IDictionary`2<TKey, TValue> Create(IDictionary`2<TKey, TValue> dictionary);
+    private Exception CreateReadOnlyException();
+    public sealed virtual void Add(TKey key, TValue value);
+    public sealed virtual void Add(KeyValuePair`2<TKey, TValue> item);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(KeyValuePair`2<TKey, TValue> item);
+    public sealed virtual bool ContainsKey(TKey key);
+    public sealed virtual void CopyTo(KeyValuePair`2[] array, int arrayIndex);
+    public sealed virtual IEnumerator`1<KeyValuePair`2<TKey, TValue>> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public sealed virtual bool Remove(TKey key);
+    public sealed virtual bool Remove(KeyValuePair`2<TKey, TValue> item);
+    public sealed virtual bool TryGetValue(TKey key, TValue& value);
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Runtime.ReadOnlyKeyedCollection`2 : ReadOnlyCollection`1<TValue> {
+    private KeyedCollection`2<TKey, TValue> innerCollection;
+    public TValue Item { get; }
+    public ReadOnlyKeyedCollection`2(KeyedCollection`2<TKey, TValue> innerCollection);
+    public TValue get_Item(TKey key);
+}
+internal abstract class System.Runtime.ScheduleActionItemAsyncResult : AsyncResult {
+    private static Action`1<object> doWork;
+    protected ScheduleActionItemAsyncResult(AsyncCallback callback, object state);
+    private static ScheduleActionItemAsyncResult();
+    protected void Schedule();
+    private static void DoWork(object state);
+    protected abstract virtual void OnDoWork();
+    public static void End(IAsyncResult result);
+}
+internal class System.Runtime.SignalGate : object {
+    private int state;
+    internal bool IsLocked { get; }
+    internal bool IsSignalled { get; }
+    internal bool get_IsLocked();
+    internal bool get_IsSignalled();
+    public bool Signal();
+    public bool Unlock();
+    private void ThrowInvalidSignalGateState();
+}
+internal class System.Runtime.SignalGate`1 : SignalGate {
+    private T result;
+    public bool Signal(T result);
+    public bool Unlock(T& result);
+}
+internal class System.Runtime.SynchronizedPool`1 : object {
+    private static int maxPendingEntries;
+    private static int maxPromotionFailures;
+    private static int maxReturnsBeforePromotion;
+    private static int maxThreadItemsPerProcessor;
+    private Entry[] entries;
+    private GlobalPool<T> globalPool;
+    private int maxCount;
+    private PendingEntry[] pending;
+    private int promotionFailures;
+    private object ThisLock { get; }
+    public SynchronizedPool`1(int maxCount);
+    private object get_ThisLock();
+    public void Clear();
+    private void HandlePromotionFailure(int thisThreadID);
+    private bool PromoteThread(int thisThreadID);
+    private void RecordReturnToGlobalPool(int thisThreadID);
+    private void RecordTakeFromGlobalPool(int thisThreadID);
+    public bool Return(T value);
+    private bool ReturnToPerThreadPool(int thisThreadID, T value);
+    private bool ReturnToGlobalPool(int thisThreadID, T value);
+    public T Take();
+    private T TakeFromPerThreadPool(int thisThreadID);
+    private T TakeFromGlobalPool(int thisThreadID);
+}
+[ExtensionAttribute]
+internal static class System.Runtime.TaskExtensions : object {
+    [ExtensionAttribute]
+public static IAsyncResult AsAsyncResult(Task`1<T> task, AsyncCallback callback, object state);
+    [ExtensionAttribute]
+public static IAsyncResult AsAsyncResult(Task task, AsyncCallback callback, object state);
+    [ExtensionAttribute]
+public static ConfiguredTaskAwaitable SuppressContextFlow(Task task);
+    [ExtensionAttribute]
+public static ConfiguredTaskAwaitable`1<T> SuppressContextFlow(Task`1<T> task);
+    [ExtensionAttribute]
+public static ConfiguredTaskAwaitable ContinueOnCapturedContextFlow(Task task);
+    [ExtensionAttribute]
+public static ConfiguredTaskAwaitable`1<T> ContinueOnCapturedContextFlow(Task`1<T> task);
+    [ExtensionAttribute]
+public static void Wait(Task task);
+    [ExtensionAttribute]
+public static bool Wait(Task task, int millisecondsTimeout);
+    [ExtensionAttribute]
+public static bool Wait(Task task, TimeSpan timeout);
+    [ExtensionAttribute]
+public static void Wait(Task task, TimeSpan timeout, Action`3<Exception, TimeSpan, string> exceptionConverter, string operationType);
+    [ExtensionAttribute]
+public static Task`1<TBase> Upcast(Task`1<TDerived> task);
+    [AsyncStateMachineAttribute("System.Runtime.TaskExtensions/<UpcastPrivate>d__11`2")]
+[ExtensionAttribute]
+private static Task`1<TBase> UpcastPrivate(Task`1<TDerived> task);
+}
+internal class System.Runtime.ThreadNeutralSemaphore : object {
+    private static Action`2<object, TimeoutException> enteredAsyncCallback;
+    private bool aborted;
+    private Func`1<Exception> abortedExceptionGenerator;
+    private int count;
+    private int maxCount;
+    private object ThisLock;
+    private Queue`1<AsyncWaitHandle> waiters;
+    private static Action`2<object, TimeoutException> EnteredAsyncCallback { get; }
+    private Queue`1<AsyncWaitHandle> Waiters { get; }
+    public ThreadNeutralSemaphore(int maxCount);
+    public ThreadNeutralSemaphore(int maxCount, Func`1<Exception> abortedExceptionGenerator);
+    private static Action`2<object, TimeoutException> get_EnteredAsyncCallback();
+    private Queue`1<AsyncWaitHandle> get_Waiters();
+    public bool EnterAsync(TimeSpan timeout, FastAsyncCallback callback, object state);
+    private static void OnEnteredAsync(object state, TimeoutException exception);
+    public bool TryEnter();
+    public void Enter(TimeSpan timeout);
+    public bool TryEnter(TimeSpan timeout);
+    internal static TimeoutException CreateEnterTimedOutException(TimeSpan timeout);
+    private Exception CreateObjectAbortedException();
+    private bool RemoveWaiter(AsyncWaitHandle waiter);
+    private AsyncWaitHandle EnterCore();
+    public int Exit();
+    public void Abort();
+}
+internal static class System.Runtime.Ticks : object {
+    public static long Now { get; }
+    [SecuritySafeCriticalAttribute]
+public static long get_Now();
+    public static long FromMilliseconds(int milliseconds);
+    public static int ToMilliseconds(long ticks);
+    public static long FromTimeSpan(TimeSpan duration);
+    public static TimeSpan ToTimeSpan(long ticks);
+    public static long Add(long firstTicks, long secondTicks);
+}
+internal class System.Runtime.TimeoutHelper : ValueType {
+    private DateTime deadline;
+    private bool deadlineSet;
+    private TimeSpan originalTimeout;
+    public static TimeSpan MaxWait;
+    public TimeSpan OriginalTimeout { get; }
+    public TimeoutHelper(TimeSpan timeout);
+    private static TimeoutHelper();
+    public TimeSpan get_OriginalTimeout();
+    public static bool IsTooLarge(TimeSpan timeout);
+    public static TimeSpan FromMilliseconds(int milliseconds);
+    public static int ToMilliseconds(TimeSpan timeout);
+    public static TimeSpan Min(TimeSpan val1, TimeSpan val2);
+    public static TimeSpan Add(TimeSpan timeout1, TimeSpan timeout2);
+    public static DateTime Add(DateTime time, TimeSpan timeout);
+    public static DateTime Subtract(DateTime time, TimeSpan timeout);
+    public static TimeSpan Divide(TimeSpan timeout, int factor);
+    public TimeSpan RemainingTime();
+    public TimeSpan ElapsedTime();
+    private void SetDeadline();
+    public static void ThrowIfNegativeArgument(TimeSpan timeout);
+    public static void ThrowIfNegativeArgument(TimeSpan timeout, string argumentName);
+    public static void ThrowIfNonPositiveArgument(TimeSpan timeout);
+    public static void ThrowIfNonPositiveArgument(TimeSpan timeout, string argumentName);
+    public static bool WaitOne(WaitHandle waitHandle, TimeSpan timeout);
+}
+internal enum System.Runtime.TraceChannel : Enum {
+    public int value__;
+    public static TraceChannel Admin;
+    public static TraceChannel Operational;
+    public static TraceChannel Analytic;
+    public static TraceChannel Debug;
+    public static TraceChannel Perf;
+    public static TraceChannel Application;
+}
+internal class System.Runtime.TraceCore : object {
+    private static ResourceManager resourceManager;
+    private static CultureInfo resourceCulture;
+    [SecurityCriticalAttribute]
+private static EventDescriptor[] eventDescriptors;
+    private static object syncLock;
+    private static Boolean modreq(System.Runtime.CompilerServices.IsVolatile) eventDescriptorsCreated;
+    private static ResourceManager ResourceManager { get; }
+    internal static CultureInfo Culture { get; internal set; }
+    private static TraceCore();
+    private static ResourceManager get_ResourceManager();
+    internal static CultureInfo get_Culture();
+    internal static void set_Culture(CultureInfo value);
+    internal static bool AppDomainUnloadIsEnabled(EtwDiagnosticTrace trace);
+    internal static void AppDomainUnload(EtwDiagnosticTrace trace, string appdomainName, string processName, string processId);
+    internal static bool HandledExceptionIsEnabled(EtwDiagnosticTrace trace);
+    internal static void HandledException(EtwDiagnosticTrace trace, string param0, Exception exception);
+    internal static bool ShipAssertExceptionMessageIsEnabled(EtwDiagnosticTrace trace);
+    internal static void ShipAssertExceptionMessage(EtwDiagnosticTrace trace, string param0);
+    internal static bool ThrowingExceptionIsEnabled(EtwDiagnosticTrace trace);
+    internal static void ThrowingException(EtwDiagnosticTrace trace, string param0, string param1, Exception exception);
+    internal static bool UnhandledExceptionIsEnabled(EtwDiagnosticTrace trace);
+    internal static void UnhandledException(EtwDiagnosticTrace trace, string param0, Exception exception);
+    internal static bool TraceCodeEventLogCriticalIsEnabled(EtwDiagnosticTrace trace);
+    internal static void TraceCodeEventLogCritical(EtwDiagnosticTrace trace, TraceRecord traceRecord);
+    internal static bool TraceCodeEventLogErrorIsEnabled(EtwDiagnosticTrace trace);
+    internal static void TraceCodeEventLogError(EtwDiagnosticTrace trace, TraceRecord traceRecord);
+    internal static bool TraceCodeEventLogInfoIsEnabled(EtwDiagnosticTrace trace);
+    internal static void TraceCodeEventLogInfo(EtwDiagnosticTrace trace, TraceRecord traceRecord);
+    internal static bool TraceCodeEventLogVerboseIsEnabled(EtwDiagnosticTrace trace);
+    internal static void TraceCodeEventLogVerbose(EtwDiagnosticTrace trace, TraceRecord traceRecord);
+    internal static bool TraceCodeEventLogWarningIsEnabled(EtwDiagnosticTrace trace);
+    internal static void TraceCodeEventLogWarning(EtwDiagnosticTrace trace, TraceRecord traceRecord);
+    internal static bool HandledExceptionWarningIsEnabled(EtwDiagnosticTrace trace);
+    internal static void HandledExceptionWarning(EtwDiagnosticTrace trace, string param0, Exception exception);
+    internal static bool BufferPoolAllocationIsEnabled(EtwDiagnosticTrace trace);
+    internal static void BufferPoolAllocation(EtwDiagnosticTrace trace, int Size);
+    internal static bool BufferPoolChangeQuotaIsEnabled(EtwDiagnosticTrace trace);
+    internal static void BufferPoolChangeQuota(EtwDiagnosticTrace trace, int PoolSize, int Delta);
+    internal static bool ActionItemScheduledIsEnabled(EtwDiagnosticTrace trace);
+    internal static void ActionItemScheduled(EtwDiagnosticTrace trace, EventTraceActivity eventTraceActivity);
+    internal static bool ActionItemCallbackInvokedIsEnabled(EtwDiagnosticTrace trace);
+    internal static void ActionItemCallbackInvoked(EtwDiagnosticTrace trace, EventTraceActivity eventTraceActivity);
+    internal static bool HandledExceptionErrorIsEnabled(EtwDiagnosticTrace trace);
+    internal static void HandledExceptionError(EtwDiagnosticTrace trace, string param0, Exception exception);
+    internal static bool HandledExceptionVerboseIsEnabled(EtwDiagnosticTrace trace);
+    internal static void HandledExceptionVerbose(EtwDiagnosticTrace trace, string param0, Exception exception);
+    internal static bool EtwUnhandledExceptionIsEnabled(EtwDiagnosticTrace trace);
+    internal static void EtwUnhandledException(EtwDiagnosticTrace trace, string param0, Exception exception);
+    internal static bool ThrowingEtwExceptionIsEnabled(EtwDiagnosticTrace trace);
+    internal static void ThrowingEtwException(EtwDiagnosticTrace trace, string param0, string param1, Exception exception);
+    internal static bool ThrowingEtwExceptionVerboseIsEnabled(EtwDiagnosticTrace trace);
+    internal static void ThrowingEtwExceptionVerbose(EtwDiagnosticTrace trace, string param0, string param1, Exception exception);
+    internal static bool ThrowingExceptionVerboseIsEnabled(EtwDiagnosticTrace trace);
+    internal static void ThrowingExceptionVerbose(EtwDiagnosticTrace trace, string param0, string param1, Exception exception);
+    [SecuritySafeCriticalAttribute]
+private static void CreateEventDescriptors();
+    private static void EnsureEventDescriptors();
+    [SecuritySafeCriticalAttribute]
+private static bool IsEtwEventEnabled(EtwDiagnosticTrace trace, int eventIndex);
+    [SecuritySafeCriticalAttribute]
+private static bool WriteEtwEvent(EtwDiagnosticTrace trace, int eventIndex, EventTraceActivity eventParam0, string eventParam1, string eventParam2, string eventParam3, string eventParam4);
+    [SecuritySafeCriticalAttribute]
+private static bool WriteEtwEvent(EtwDiagnosticTrace trace, int eventIndex, EventTraceActivity eventParam0, string eventParam1, string eventParam2, string eventParam3);
+    [SecuritySafeCriticalAttribute]
+private static bool WriteEtwEvent(EtwDiagnosticTrace trace, int eventIndex, EventTraceActivity eventParam0, string eventParam1, string eventParam2);
+    [SecuritySafeCriticalAttribute]
+private static bool WriteEtwEvent(EtwDiagnosticTrace trace, int eventIndex, EventTraceActivity eventParam0, int eventParam1, string eventParam2);
+    [SecuritySafeCriticalAttribute]
+private static bool WriteEtwEvent(EtwDiagnosticTrace trace, int eventIndex, EventTraceActivity eventParam0, int eventParam1, int eventParam2, string eventParam3);
+    [SecuritySafeCriticalAttribute]
+private static bool WriteEtwEvent(EtwDiagnosticTrace trace, int eventIndex, EventTraceActivity eventParam0, string eventParam1);
+    [SecuritySafeCriticalAttribute]
+private static void WriteTraceSource(EtwDiagnosticTrace trace, int eventIndex, string description, TracePayload payload);
+}
+internal enum System.Runtime.TraceEventLevel : Enum {
+    public int value__;
+    public static TraceEventLevel LogAlways;
+    public static TraceEventLevel Critical;
+    public static TraceEventLevel Error;
+    public static TraceEventLevel Warning;
+    public static TraceEventLevel Informational;
+    public static TraceEventLevel Verbose;
+}
+internal enum System.Runtime.TraceEventOpcode : Enum {
+    public int value__;
+    public static TraceEventOpcode Info;
+    public static TraceEventOpcode Start;
+    public static TraceEventOpcode Stop;
+    public static TraceEventOpcode Reply;
+    public static TraceEventOpcode Resume;
+    public static TraceEventOpcode Suspend;
+    public static TraceEventOpcode Send;
+    public static TraceEventOpcode Receive;
+}
+internal class System.Runtime.TraceLevelHelper : object {
+    private static TraceEventType[] EtwLevelToTraceEventType;
+    private static TraceLevelHelper();
+    internal static TraceEventType GetTraceEventType(byte level, byte opcode);
+    internal static TraceEventType GetTraceEventType(TraceEventLevel level);
+    internal static TraceEventType GetTraceEventType(byte level);
+    internal static string LookupSeverity(TraceEventLevel level, TraceEventOpcode opcode);
+}
+internal class System.Runtime.TracePayload : ValueType {
+    private string serializedException;
+    private string eventSource;
+    private string appDomainFriendlyName;
+    private string extendedData;
+    private string hostReference;
+    public string SerializedException { get; }
+    public string EventSource { get; }
+    public string AppDomainFriendlyName { get; }
+    public string ExtendedData { get; }
+    public string HostReference { get; }
+    public TracePayload(string serializedException, string eventSource, string appDomainFriendlyName, string extendedData, string hostReference);
+    public string get_SerializedException();
+    public string get_EventSource();
+    public string get_AppDomainFriendlyName();
+    public string get_ExtendedData();
+    public string get_HostReference();
+}
+internal abstract class System.Runtime.TypedAsyncResult`1 : AsyncResult {
+    private T data;
+    public T Data { get; }
+    public TypedAsyncResult`1(AsyncCallback callback, object state);
+    public T get_Data();
+    protected void Complete(T data, bool completedSynchronously);
+    public static T End(IAsyncResult result);
+}
+internal static class System.Runtime.TypeHelper : object {
+    public static Type ArrayType;
+    public static Type BoolType;
+    public static Type GenericCollectionType;
+    public static Type ByteType;
+    public static Type SByteType;
+    public static Type CharType;
+    public static Type ShortType;
+    public static Type UShortType;
+    public static Type IntType;
+    public static Type UIntType;
+    public static Type LongType;
+    public static Type ULongType;
+    public static Type FloatType;
+    public static Type DoubleType;
+    public static Type DecimalType;
+    public static Type ExceptionType;
+    public static Type NullableType;
+    public static Type ObjectType;
+    public static Type StringType;
+    public static Type TypeType;
+    public static Type VoidType;
+    private static TypeHelper();
+    public static bool AreTypesCompatible(object source, Type destinationType);
+    public static bool AreTypesCompatible(Type sourceType, Type destinationType);
+    public static bool AreReferenceTypesCompatible(Type sourceType, Type destinationType);
+    [IteratorStateMachineAttribute("System.Runtime.TypeHelper/<GetCompatibleTypes>d__24")]
+public static IEnumerable`1<Type> GetCompatibleTypes(IEnumerable`1<Type> enumerable, Type targetType);
+    public static bool ContainsCompatibleType(IEnumerable`1<Type> enumerable, Type targetType);
+    public static T Convert(object source);
+    public static IEnumerable`1<Type> GetImplementedTypes(Type type);
+    private static void GetImplementedTypesHelper(Type type, Dictionary`2<Type, object> typesEncountered);
+    private static bool IsImplicitNumericConversion(Type source, Type destination);
+    private static bool IsImplicitReferenceConversion(Type sourceType, Type destinationType);
+    private static bool IsImplicitBoxingConversion(Type sourceType, Type destinationType);
+    private static bool IsImplicitNullableConversion(Type sourceType, Type destinationType);
+    private static bool IsNullableType(Type type);
+    private static bool TryNumericConversion(object source, T& result);
+    public static object GetDefaultValueForType(Type type);
+    public static bool IsNullableValueType(Type type);
+    public static bool IsNonNullableValueType(Type type);
+    public static bool ShouldFilterProperty(PropertyDescriptor property, Attribute[] attributes);
+}
+internal static class System.Runtime.UrlUtility : object {
+    public static NameValueCollection ParseQueryString(string query);
+    public static NameValueCollection ParseQueryString(string query, Encoding encoding);
+    public static string UrlEncode(string str);
+    public static string UrlPathEncode(string str);
+    public static string UrlEncode(string str, Encoding encoding);
+    public static string UrlEncodeUnicode(string str);
+    private static string UrlEncodeUnicodeStringToStringInternal(string s, bool ignoreAscii);
+    private static string UrlEncodeNonAscii(string str, Encoding e);
+    private static string UrlEncodeSpaces(string str);
+    public static Byte[] UrlEncodeToBytes(string str, Encoding e);
+    public static string UrlDecode(string str, Encoding e);
+    private static Byte[] UrlEncodeBytesToBytesInternal(Byte[] bytes, int offset, int count, bool alwaysCreateReturnValue);
+    private static bool IsNonAsciiByte(byte b);
+    private static Byte[] UrlEncodeBytesToBytesInternalNonAscii(Byte[] bytes, int offset, int count, bool alwaysCreateReturnValue);
+    private static string UrlDecodeStringFromStringInternal(string s, Encoding e);
+    private static int HexToInt(char h);
+    private static char IntToHex(int n);
+    internal static bool IsSafe(char ch);
+}
+internal static class System.Runtime.WaitCallbackActionItem : object {
+    [CompilerGeneratedAttribute]
+private static bool <ShouldUseActivity>k__BackingField;
+    internal static bool ShouldUseActivity { get; internal set; }
+    [CompilerGeneratedAttribute]
+internal static bool get_ShouldUseActivity();
+    [CompilerGeneratedAttribute]
+internal static void set_ShouldUseActivity(bool value);
+}
+internal static class System.ServiceModel.Internals.LocalAppContextSwitches : object {
+    public static bool IncludeNullExceptionMessageInETWTrace;
+}

@@ -1,0 +1,765 @@
+Сборка: Facepunch.Network.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.CodeAnalysis.EmbeddedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Runtime.CompilerServices.IsUnmanagedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Network.Defines
+Наследуется от: object
+Поля:
+  byte lowestUserPacket
+  int packetHeaderSize
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Network.INetworkCryptography
+Поля:
+Свойства:
+Методы:
+  ArraySegment`1<byte> EncryptCopy(Connection connection, ArraySegment`1<byte> data)
+  ArraySegment`1<byte> DecryptCopy(Connection connection, ArraySegment`1<byte> data)
+  void Encrypt(Connection connection, ArraySegment`1& data)
+  void Decrypt(Connection connection, ArraySegment`1& data)
+--------------------------------------------------
+Класс: Network.BaseNetwork
+Наследуется от: object
+Поля:
+  ArrayPool`1<byte> ArrayPool
+  bool Multithreading
+  object readLock
+  object writeLock
+  object decryptLock
+  Stopwatch stopwatch
+  ConcurrentQueue`1<NetRead> readQueue
+  ConcurrentQueue`1<NetWrite> writeQueue
+  ConcurrentQueue`1<NetRead> decryptQueue
+  int readQueueSizeInBytes
+  int writeQueueSizeInBytes
+  int decryptQueueSizeInBytes
+  AutoResetEvent mainThreadReset
+  AutoResetEvent readThreadReset
+  AutoResetEvent writeThreadReset
+  AutoResetEvent decryptThreadReset
+  Thread readThread
+  Thread writeThread
+  Thread decryptThread
+  INetworkCryptography cryptography
+Свойства:
+  int MaxReceiveTimeValue
+  int MaxReadQueueLengthValue
+  int MaxWriteQueueLengthValue
+  int MaxDecryptQueueLengthValue
+  int MaxReadQueueBytesValue
+  int MaxWriteQueueBytesValue
+  int MaxDecryptQueueBytesValue
+  int MaxMainThreadWaitValue
+  int MaxReadThreadWaitValue
+  int MaxWriteThreadWaitValue
+  int MaxDecryptThreadWaitValue
+  int ReadQueueLength
+  int WriteQueueLength
+  int DecryptQueueLength
+  int ReadQueueBytes
+  int WriteQueueBytes
+  int DecryptQueueBytes
+Методы:
+  int get_MaxReceiveTimeValue()
+  int get_MaxReadQueueLengthValue()
+  int get_MaxWriteQueueLengthValue()
+  int get_MaxDecryptQueueLengthValue()
+  int get_MaxReadQueueBytesValue()
+  int get_MaxWriteQueueBytesValue()
+  int get_MaxDecryptQueueBytesValue()
+  int get_MaxMainThreadWaitValue()
+  int get_MaxReadThreadWaitValue()
+  int get_MaxWriteThreadWaitValue()
+  int get_MaxDecryptThreadWaitValue()
+  int get_ReadQueueLength()
+  int get_WriteQueueLength()
+  int get_DecryptQueueLength()
+  int get_ReadQueueBytes()
+  int get_WriteQueueBytes()
+  int get_DecryptQueueBytes()
+  void MultithreadingInit()
+  bool IsConnected()
+  bool Receive()
+  void EnqueueWrite(NetWrite write)
+  void EnqueueRead(NetRead read)
+  void EnqueueDecrypt(NetRead read)
+  void ProcessWrite(NetWrite write)
+  void ProcessRead(NetRead read)
+  void ProcessDecrypt(NetRead read)
+  void ReadThread()
+  void WriteThread()
+  void DecryptThread()
+  void ReadThreadCycle()
+  void WriteThreadCycle()
+  void DecryptThreadCycle()
+  void Cycle()
+  NetWrite StartWrite()
+  Message StartMessage(Type type, NetRead read)
+  void Decrypt(Connection connection, NetRead read)
+  ArraySegment`1<byte> Encrypt(Connection connection, NetWrite write)
+  void Record(Connection connection, Stream stream)
+  string GetDebug(Connection connection)
+  ulong GetStat(Connection connection, StatTypeLong type)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Network.IClientCallback
+Поля:
+Свойства:
+Методы:
+  void OnNetworkMessage(Message message)
+  void OnClientDisconnected(string reason)
+--------------------------------------------------
+Класс: Network.Client
+Наследуется от: BaseNetwork
+Поля:
+  int MaxReceiveTime
+  int MaxReadQueueLength
+  int MaxWriteQueueLength
+  int MaxDecryptQueueLength
+  int MaxReadQueueBytes
+  int MaxWriteQueueBytes
+  int MaxDecryptQueueBytes
+  int MaxMainThreadWait
+  int MaxReadThreadWait
+  int MaxWriteThreadWait
+  int MaxDecryptThreadWait
+  Connection <Connection>k__BackingField
+  bool <IsPlaying>k__BackingField
+  Manager visibility
+  string disconnectReason
+  string <ConnectedAddress>k__BackingField
+  int <ConnectedPort>k__BackingField
+  string <ServerName>k__BackingField
+  bool <IsOfficialServer>k__BackingField
+  Stats IncomingStats
+  IClientCallback callbackHandler
+Свойства:
+  int MaxReceiveTimeValue
+  int MaxReadQueueLengthValue
+  int MaxWriteQueueLengthValue
+  int MaxDecryptQueueLengthValue
+  int MaxReadQueueBytesValue
+  int MaxWriteQueueBytesValue
+  int MaxDecryptQueueBytesValue
+  int MaxMainThreadWaitValue
+  int MaxReadThreadWaitValue
+  int MaxWriteThreadWaitValue
+  int MaxDecryptThreadWaitValue
+  Connection Connection
+  bool IsPlaying
+  string ConnectedAddress
+  int ConnectedPort
+  string ServerName
+  bool IsOfficialServer
+  bool IsRecording
+  string RecordFilename
+  TimeSpan RecordTimeElapsed
+Методы:
+  int get_MaxReceiveTimeValue()
+  int get_MaxReadQueueLengthValue()
+  int get_MaxWriteQueueLengthValue()
+  int get_MaxDecryptQueueLengthValue()
+  int get_MaxReadQueueBytesValue()
+  int get_MaxWriteQueueBytesValue()
+  int get_MaxDecryptQueueBytesValue()
+  int get_MaxMainThreadWaitValue()
+  int get_MaxReadThreadWaitValue()
+  int get_MaxWriteThreadWaitValue()
+  int get_MaxDecryptThreadWaitValue()
+  Connection get_Connection()
+  void set_Connection(Connection value)
+  bool get_IsPlaying()
+  string get_ConnectedAddress()
+  void set_ConnectedAddress(string value)
+  int get_ConnectedPort()
+  void set_ConnectedPort(int value)
+  string get_ServerName()
+  void set_ServerName(string value)
+  bool get_IsOfficialServer()
+  void set_IsOfficialServer(bool value)
+  bool Connect(string strURL, int port)
+  void Flush()
+  void Disconnect(string reason, bool sendReasonToServer)
+  void OnDisconnected(string str)
+  Networkable CreateNetworkable(NetworkableId networkID, UInt32 networkGroup)
+  void DestroyNetworkable(Networkable& networkable)
+  void SetupNetworkable(Networkable net)
+  int GetLastPing()
+  bool get_IsRecording()
+  string get_RecordFilename()
+  TimeSpan get_RecordTimeElapsed()
+  bool StartRecording(string targetFilename, IDemoHeader header)
+  void StopRecording()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Network.IDemoHeader
+Поля:
+Свойства:
+  long Length
+Методы:
+  long get_Length()
+  void set_Length(long value)
+  void Write(BinaryWriter writer)
+--------------------------------------------------
+Класс: Network.Connection
+Наследуется от: object
+Поля:
+  object recordLock
+  MemoryStream reusableStream
+  MemoryStream recordStream
+  BinaryWriter recordWriter
+  Stopwatch recordTime
+  string recordFilename
+  IDemoHeader recordHeader
+  int MaxClientInfoSize
+  State state
+  bool active
+  bool connected
+  UInt32 authLevel
+  UInt32 encryptionLevel
+  bool trusted
+  bool rejected
+  string authStatus
+  Byte[] token
+  string anticheatId
+  string anticheatToken
+  bool hasRequestedWorld
+  bool globalNetworking
+  ulong guid
+  ulong userid
+  ulong ownerid
+  string username
+  string os
+  UInt32 protocol
+  TimeAverageValueData[] packetsPerSecond
+  double connectionTime
+  string ipaddress
+  MonoBehaviour player
+  Validation validate
+  ClientInfo info
+Свойства:
+  TimeSpan RecordTimeElapsed
+  string RecordFilename
+  int RecordFilesize
+  bool IsRecording
+  bool isAuthenticated
+Методы:
+  TimeSpan get_RecordTimeElapsed()
+  string get_RecordFilename()
+  int get_RecordFilesize()
+  bool StartRecording(string targetFilename, IDemoHeader header)
+  void StopRecording()
+  bool get_IsRecording()
+  void RecordPacket(byte packetId, IProto proto)
+  void RecordPacket(Stream stream)
+  string IPAddressWithoutPort()
+  void OnDisconnected()
+  bool get_isAuthenticated()
+  void ResetPacketsPerSecond()
+  void AddPacketsPerSecond(Type message)
+  void AddPacketsPerSecond(int index)
+  ulong GetPacketsPerSecond(Type message)
+  ulong GetPacketsPerSecond(int index)
+  float GetSecondsConnected()
+  bool IsDevelopmentBuild()
+  string ToString()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Network.TimeAverageValueData
+Наследуется от: ValueType
+Поля:
+  double refreshTime
+  ulong counterPrev
+  ulong counterNext
+Свойства:
+Методы:
+  ulong Calculate()
+  void Increment()
+  void Reset()
+--------------------------------------------------
+Класс: Network.TimeAverageValue
+Наследуется от: object
+Поля:
+  TimeAverageValueData data
+Свойства:
+Методы:
+  ulong Calculate()
+  void Increment()
+  void Reset()
+  void .ctor()
+--------------------------------------------------
+Класс: Network.TimeAverageValueLookup`1
+Наследуется от: object
+Поля:
+  Dictionary`2<T, TimeAverageValue> dict
+Свойства:
+Методы:
+  bool TryIncrement(T id, ulong limit)
+  void Increment(T id)
+  ulong Calculate(T id)
+  void Clear()
+  void .ctor()
+--------------------------------------------------
+Класс: Network.TimeEx
+Наследуется от: object
+Поля:
+  Stopwatch stopwatch
+Свойства:
+  double realtimeSinceStartup
+  double currentTimestamp
+Методы:
+  double get_realtimeSinceStartup()
+  double get_currentTimestamp()
+  void .cctor()
+--------------------------------------------------
+Класс: Network.DemoClient
+Наследуется от: Client
+Поля:
+  Reader demoFile
+Свойства:
+  bool IsPlaying
+  bool PlayingFinished
+Методы:
+  void .ctor(Reader demoFile)
+  void Dispose()
+  bool IsConnected()
+  bool get_IsPlaying()
+  bool get_PlayingFinished()
+  void UpdatePlayback(long frameTime)
+  bool PlaybackPacket()
+  void HandleMessage(IntPtr data, int size)
+--------------------------------------------------
+Класс: Network.Message
+Наследуется от: object
+Поля:
+  Boolean[] EncryptionPerType
+  Type type
+  BaseNetwork peer
+  NetRead read
+Свойства:
+  Connection connection
+Методы:
+  Connection get_connection()
+  void Clear()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Network.NetRead
+Наследуется от: Stream
+Поля:
+  Byte[] Data
+  int _length
+  int _position
+  ulong guid
+  string ipaddress
+  Connection connection
+  int bufferSize
+  Byte[] byteBuffer
+  Char[] charBuffer
+Свойства:
+  int Unread
+  bool CanRead
+  bool CanWrite
+  long Length
+  long Position
+  bool CanSeek
+Методы:
+  bool Init(IntPtr data, int length)
+  void EnterPool()
+  void LeavePool()
+  bool Start(ulong guid, string ipaddress, IntPtr data, int length)
+  bool Start(Connection connection, IntPtr data, int length)
+  bool Start(Connection connection, ulong guid, IntPtr data, int length)
+  bool Start(Connection connection, ulong guid, string ipaddress, IntPtr data, int length)
+  int get_Unread()
+  string String(int maxLength, bool variableLength)
+  string StringMultiLine(int maxLength, bool variableLength)
+  string StringInternal(int maxLength, bool allowNewLine, bool variableLength)
+  string StringRaw(int maxLength, bool variableLength)
+  bool TemporaryBytesWithSize(Byte[]& buffer, Int32& size)
+  NetworkableId EntityID()
+  ItemContainerId ItemContainerID()
+  ItemId ItemID()
+  UInt32 GroupID()
+  int BytesWithSize(Byte[] buffer, UInt32 maxLength, bool variableLength)
+  Byte[] BytesWithSize(UInt32 maxSize, bool variableLength)
+  ArraySegment`1<byte> PooledBytes(UInt32 maxSize, bool variableLength)
+  int ReadByte()
+  void EnsureCapacity(int spaceRequired)
+  bool get_CanRead()
+  bool get_CanWrite()
+  void SetLength(long value)
+  byte PacketID()
+  byte PeekPacketID()
+  bool Bool()
+  bool Bit()
+  byte UInt8()
+  ushort UInt16()
+  UInt32 UInt32()
+  ulong UInt64()
+  sbyte Int8()
+  short Int16()
+  int Int32()
+  long Int64()
+  float Float()
+  double Double()
+  UInt32 VarUInt32()
+  Vector3 Vector3()
+  Quaternion Quaternion()
+  Ray Ray()
+  Color Color()
+  Color32 Color32()
+  int Read(Byte[] buffer, int offset, int count)
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  bool get_CanSeek()
+  long Seek(long offset, SeekOrigin origin)
+  T Read()
+  T Peek()
+  void Flush()
+  void Write(Byte[] buffer, int offset, int count)
+  void WriteByte(byte value)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Network.SendMethod
+Наследуется от: Enum
+Поля:
+  int value__
+  SendMethod Reliable
+  SendMethod ReliableUnordered
+  SendMethod Unreliable
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Network.Priority
+Наследуется от: Enum
+Поля:
+  int value__
+  Priority Immediate
+  Priority Normal
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Network.NetworkHandler
+Поля:
+Свойства:
+Методы:
+  void OnNetworkSubscribersEnter(List`1<Connection> connections)
+  void OnNetworkSubscribersLeave(List`1<Connection> connections)
+  void OnNetworkGroupChange()
+  void OnNetworkGroupLeave(Group group)
+  void OnNetworkGroupEnter(Group group)
+--------------------------------------------------
+Класс: Network.Networkable
+Наследуется от: object
+Поля:
+  NetworkableId ID
+  Connection <connection>k__BackingField
+  Group group
+  Group secondaryGroup
+  Subscriber subscriber
+  NetworkHandler handler
+  bool updateSubscriptions
+  Server sv
+  Client cl
+Свойства:
+  Connection connection
+Методы:
+  Connection get_connection()
+  void set_connection(Connection value)
+  void Destroy()
+  void EnterPool()
+  void LeavePool()
+  void StartSubscriber()
+  void OnConnected(Connection c)
+  void OnDisconnected()
+  void CloseSubscriber()
+  bool UpdateGroups(Vector3 position)
+  bool SwitchGroup(Group newGroup)
+  void OnGroupTransition(Group oldGroup)
+  void OnSubscriptionChange()
+  bool SwitchSecondaryGroup(Group newGroup)
+  void AddVisibleFromNear(Group additionalGroup, List`1<Group> groupsVisible)
+  bool UpdateSubscriptions(int removeLimit, int addLimit)
+  bool UpdateHighPrioritySubscriptions()
+  void .ctor()
+--------------------------------------------------
+Класс: Network.NetWrite
+Наследуется от: Stream
+Поля:
+  MemoryStream stringBuffer
+  BaseNetwork peer
+  Byte[] Data
+  int _position
+  int _length
+  SendMethod method
+  sbyte channel
+  Priority priority
+  List`1<Connection> connections
+Свойства:
+  bool CanSeek
+  bool CanRead
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void EnterPool()
+  void LeavePool()
+  bool Start(BaseNetwork peer)
+  void Send(SendInfo info)
+  void SendImmediate(SendInfo info)
+  byte PeekPacketID()
+  void PacketID(Type val)
+  void UInt8(byte val)
+  void UInt16(ushort val)
+  void UInt32(UInt32 val)
+  void UInt64(ulong val)
+  void Int8(sbyte val)
+  void Int16(short val)
+  void Int32(int val)
+  void Int64(long val)
+  void Bool(bool val)
+  void Float(float val)
+  void Double(double val)
+  void Bytes(Byte[] val)
+  void VarUInt32(UInt32 val)
+  void WriteUInt32(UInt32 value, bool variableLength)
+  void String(string val, bool variableLength)
+  void Vector3(Vector3& obj)
+  void Quaternion(Quaternion& obj)
+  void Ray(Ray& obj)
+  void Color(Color& obj)
+  void Color32(Color32& obj)
+  void EntityID(NetworkableId id)
+  void ItemContainerID(ItemContainerId id)
+  void ItemID(ItemId id)
+  void GroupID(UInt32 id)
+  void BytesWithSize(MemoryStream val, bool variableLength)
+  void BytesWithSize(Byte[] b, bool variableLength)
+  void BytesWithSize(Byte[] b, int length, bool variableLength)
+  void Write(T& val)
+  void EnsureCapacity(int spaceRequired)
+  bool get_CanSeek()
+  bool get_CanRead()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  void Flush()
+  int Read(Byte[] buffer, int offset, int count)
+  int ReadByte()
+  void Write(Byte[] buffer, int offset, int count)
+  void WriteByte(byte value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Network.SendInfo
+Наследуется от: ValueType
+Поля:
+  SendMethod method
+  sbyte channel
+  Priority priority
+  List`1<Connection> connections
+  Connection connection
+Свойства:
+Методы:
+  void .ctor(List`1<Connection> connections)
+  void .ctor(Connection connection)
+--------------------------------------------------
+Класс: Network.IServerCallback
+Поля:
+Свойства:
+Методы:
+  void OnNetworkMessage(Message message)
+  void OnDisconnected(string reason, Connection connection)
+--------------------------------------------------
+Класс: Network.Server
+Наследуется от: BaseNetwork
+Поля:
+  ulong MaxPacketsPerSecond
+  int MaxConnectionsPerIP
+  int MaxReceiveTime
+  int MaxReadQueueLength
+  int MaxWriteQueueLength
+  int MaxDecryptQueueLength
+  int MaxReadQueueBytes
+  int MaxWriteQueueBytes
+  int MaxDecryptQueueBytes
+  int MaxMainThreadWait
+  int MaxReadThreadWait
+  int MaxWriteThreadWait
+  int MaxDecryptThreadWait
+  string ip
+  int port
+  bool compressionEnabled
+  bool logging
+  Manager visibility
+  IServerCallback callbackHandler
+  bool debug
+  ulong lastValueGiven
+  List`1<Connection> connections
+  Dictionary`2<ulong, Connection> connectionByGUID
+  Dictionary`2<string, List`1<Connection>> connectionsByIP
+Свойства:
+  int MaxReceiveTimeValue
+  int MaxReadQueueLengthValue
+  int MaxWriteQueueLengthValue
+  int MaxDecryptQueueLengthValue
+  int MaxReadQueueBytesValue
+  int MaxWriteQueueBytesValue
+  int MaxDecryptQueueBytesValue
+  int MaxMainThreadWaitValue
+  int MaxReadThreadWaitValue
+  int MaxWriteThreadWaitValue
+  int MaxDecryptThreadWaitValue
+  string ProtocolId
+Методы:
+  int get_MaxReceiveTimeValue()
+  int get_MaxReadQueueLengthValue()
+  int get_MaxWriteQueueLengthValue()
+  int get_MaxDecryptQueueLengthValue()
+  int get_MaxReadQueueBytesValue()
+  int get_MaxWriteQueueBytesValue()
+  int get_MaxDecryptQueueBytesValue()
+  int get_MaxMainThreadWaitValue()
+  int get_MaxReadThreadWaitValue()
+  int get_MaxWriteThreadWaitValue()
+  int get_MaxDecryptThreadWaitValue()
+  string get_ProtocolId()
+  void Reset()
+  bool Start()
+  void Stop(string shutdownMsg)
+  void Flush(Connection cn)
+  void Disconnect(Connection cn)
+  void Kick(Connection cn, string message, bool logfile)
+  ulong GetLastUIDGiven()
+  ulong TakeUID()
+  void ReturnUID(ulong uid)
+  void RegisterUID(ulong uid)
+  void ResetUIDs()
+  Networkable CreateNetworkable()
+  Networkable CreateNetworkable(NetworkableId uid)
+  void DestroyNetworkable(Networkable& networkable)
+  void OnDisconnected(string strReason, Connection cn)
+  Connection FindConnection(ulong guid)
+  void OnNewConnection(ulong guid, string ipaddress)
+  void OnNewConnection(Connection connection)
+  void RemoveConnection(Connection connection)
+  bool LimitConnectionsPerIP()
+  int GetAveragePing(Connection connection)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Network.Stats
+Наследуется от: object
+Поля:
+  bool Enabled
+  Node Building
+  Node Previous
+Свойства:
+Методы:
+  void .ctor()
+  void Add(string Category, string Object, long Bytes)
+  void Add(string Category, long Bytes)
+  void Flip()
+--------------------------------------------------
+Класс: Network.Visibility.Provider
+Поля:
+Свойства:
+Методы:
+  void OnGroupAdded(Group group)
+  bool IsInside(Group group, Vector3 vPos)
+  Group GetGroup(Vector3 vPos)
+  void GetVisibleFromFar(Group group, List`1<Group> groups)
+  void GetVisibleFromNear(Group group, List`1<Group> groups)
+--------------------------------------------------
+Класс: Network.Visibility.Subscriber
+Наследуется от: object
+Поля:
+  Manager manager
+  Connection connection
+  ListHashSet`1<Group> subscribed
+Свойства:
+Методы:
+  Group Subscribe(Group group)
+  Group Subscribe(UInt32 group)
+  bool IsSubscribed(Group group)
+  void UnsubscribeAll()
+  void Unsubscribe(Group group)
+  void Destroy()
+  void EnterPool()
+  void LeavePool()
+  void .ctor()
+--------------------------------------------------
+Класс: Network.Visibility.Group
+Наследуется от: object
+Поля:
+  Manager manager
+  UInt32 ID
+  Bounds bounds
+  ListHashSet`1<Networkable> networkables
+  List`1<Connection> subscribers
+Свойства:
+  bool isGlobal
+Методы:
+  bool get_isGlobal()
+  void .ctor(Manager m, UInt32 id)
+  void Dispose()
+  void Join(Networkable nw)
+  void Leave(Networkable nw)
+  void AddSubscriber(Connection cn)
+  void RemoveSubscriber(Connection cn)
+  bool HasSubscribers()
+  string ToString()
+--------------------------------------------------
+Класс: Network.Visibility.Manager
+Наследуется от: object
+Поля:
+  Dictionary`2<UInt32, Group> groups
+  Provider provider
+Свойства:
+Методы:
+  void Dispose()
+  void .ctor(Provider p)
+  Group TryGet(UInt32 ID)
+  Group Get(UInt32 ID)
+  Subscriber CreateSubscriber(Connection connection)
+  void DestroySubscriber(Subscriber& subscriber)
+  bool IsInside(Group group, Vector3 vPos)
+  Group GetGroup(Vector3 vPos)
+  void GetVisibleFromFar(Group center, List`1<Group> groups)
+  void GetVisibleFromNear(Group center, List`1<Group> groups)
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=27 3C67F71C5CAC391B4D8B716756D2BE77D66DD619F6A2DA7340DC7CAC70BD3C4B
+Свойства:
+Методы:
+--------------------------------------------------

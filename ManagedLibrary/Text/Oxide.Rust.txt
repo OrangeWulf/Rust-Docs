@@ -1,0 +1,980 @@
+Сборка: Oxide.Rust.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Oxide.Plugins.RustPlugin
+Наследуется от: CSharpPlugin
+Поля:
+  Command cmd
+  Rust rust
+  Item Item
+  Player Player
+  Server Server
+Свойства:
+Методы:
+  void HandleAddedToManager(PluginManager manager)
+  void base_OnPlayerConnected(BasePlayer player)
+  void base_OnPlayerDisconnected(BasePlayer player, string reason)
+  void AddOnlinePlayer(BasePlayer player)
+  void PrintToConsole(BasePlayer player, string format, Object[] args)
+  void PrintToConsole(string format, Object[] args)
+  void PrintToChat(BasePlayer player, string format, Object[] args)
+  void PrintToChat(string format, Object[] args)
+  void SendReply(Arg arg, string format, Object[] args)
+  void SendReply(BasePlayer player, string format, Object[] args)
+  void SendWarning(Arg arg, string format, Object[] args)
+  void SendError(Arg arg, string format, Object[] args)
+  void ForcePlayerPosition(BasePlayer player, Vector3 destination)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.RustCore
+Наследуется от: CSPlugin
+Поля:
+  Command cmdlib
+  Lang lang
+  Permission permission
+  Player Player
+  RustCovalenceProvider Covalence
+  PluginManager pluginManager
+  IServer Server
+  RustExtension Extension
+  bool serverInitialized
+  bool isPlayerTakingDamage
+  string ipPattern
+Свойства:
+  IEnumerable`1<string> RestrictedCommands
+Методы:
+  void GrantCommand(IPlayer player, string command, String[] args)
+  void GroupCommand(IPlayer player, string command, String[] args)
+  void LangCommand(IPlayer player, string command, String[] args)
+  void LoadCommand(IPlayer player, string command, String[] args)
+  void PluginsCommand(IPlayer player)
+  void ReloadCommand(IPlayer player, string command, String[] args)
+  void RevokeCommand(IPlayer player, string command, String[] args)
+  void ShowCommand(IPlayer player, string command, String[] args)
+  void UnloadCommand(IPlayer player, string command, String[] args)
+  void UserGroupCommand(IPlayer player, string command, String[] args)
+  void VersionCommand(IPlayer player)
+  void SaveCommand(IPlayer player)
+  void .ctor()
+  IEnumerable`1<string> get_RestrictedCommands()
+  bool PermissionsLoaded(IPlayer player)
+  void Init()
+  void OnPluginLoaded(Plugin plugin)
+  void IOnServerInitialized()
+  void OnServerSave()
+  void IOnServerShutdown()
+  void ParseCommand(string argstr, String& command, String[]& args)
+  BasePlayer FindPlayer(string nameOrIdOrIp)
+  BasePlayer FindPlayerByName(string name)
+  BasePlayer FindPlayerById(ulong id)
+  BasePlayer FindPlayerByIdString(string id)
+  object IOnBaseCombatEntityHurt(BaseCombatEntity entity, HitInfo hitInfo)
+  object IOnNpcTarget(BaseNpc npc, BaseEntity target)
+  void IOnEntitySaved(BaseNetworkable baseNetworkable, SaveInfo saveInfo)
+  object IOnLoseCondition(Item item, float amount)
+  object ICanPickupEntity(BasePlayer basePlayer, DoorCloser entity)
+  object IOnBasePlayerAttacked(BasePlayer basePlayer, HitInfo hitInfo)
+  object IOnBasePlayerHurt(BasePlayer basePlayer, HitInfo hitInfo)
+  void OnServerUserSet(ulong steamId, UserGroup group, string playerName, string reason, long expiry)
+  void OnServerUserRemove(ulong steamId)
+  object IOnUserApprove(Connection connection)
+  void IOnPlayerBanned(Connection connection, AuthResponse status)
+  object IOnPlayerChat(ulong playerId, string playerName, string message, ChatChannel channel, BasePlayer basePlayer)
+  void IOnPlayerCommand(BasePlayer basePlayer, string message)
+  void OnClientAuth(Connection connection)
+  void IOnPlayerConnected(BasePlayer basePlayer)
+  void OnPlayerDisconnected(BasePlayer basePlayer, string reason)
+  void OnPlayerSetInfo(Connection connection, string key, string val)
+  void OnPlayerKicked(BasePlayer basePlayer, string reason)
+  object OnPlayerRespawn(BasePlayer basePlayer)
+  void OnPlayerRespawned(BasePlayer basePlayer)
+  object IOnRconMessage(IPAddress ipAddress, string command)
+  object IOnRconInitialize()
+  object IOnRunCommandLine()
+  object IOnServerCommand(Arg arg)
+  void OnServerInformationUpdated()
+  object OnMapMarkerRemove(BasePlayer player, List`1<MapNote> mapMarker, int index)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.RustExtension
+Наследуется от: Extension
+Поля:
+  string OxideRustReleaseListUrl
+  Assembly Assembly
+  AssemblyName AssemblyName
+  VersionNumber AssemblyVersion
+  string AssemblyAuthors
+  WebClient WebClient
+  VersionNumber LatestExtVersion
+  String[] Filter
+Свойства:
+  bool IsGameExtension
+  string Name
+  string Author
+  VersionNumber Version
+  String[] DefaultReferences
+  String[] WhitelistAssemblies
+  String[] WhitelistNamespaces
+Методы:
+  bool get_IsGameExtension()
+  string get_Name()
+  string get_Author()
+  VersionNumber get_Version()
+  String[] get_DefaultReferences()
+  String[] get_WhitelistAssemblies()
+  String[] get_WhitelistNamespaces()
+  void .ctor(ExtensionManager manager)
+  void Load()
+  void LoadPluginWatchers(string directory)
+  void OnModLoad()
+  void GetLatestVersion(Action`2<VersionNumber, Exception> callback)
+  Task`1<VersionNumber> GetLatestExtensionVersion()
+  VersionNumber ParseVersionNumber(string versionString)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.RustPluginLoader
+Наследуется от: PluginLoader
+Поля:
+Свойства:
+  Type[] CorePlugins
+Методы:
+  Type[] get_CorePlugins()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiHelper
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string ToJson(List`1<CuiElement> elements, bool format)
+  List`1<CuiElement> FromJson(string json)
+  string GetGuid()
+  bool AddUi(BasePlayer player, List`1<CuiElement> elements)
+  bool AddUi(BasePlayer player, string json)
+  bool DestroyUi(BasePlayer player, string elem)
+  void SetColor(ICuiColor elem, Color color)
+  Color GetColor(ICuiColor elem)
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiElementContainer
+Наследуется от: List`1<CuiElement>
+Поля:
+Свойства:
+Методы:
+  string Add(CuiButton button, string parent, string name, string destroyUi)
+  string Add(CuiLabel label, string parent, string name, string destroyUi)
+  string Add(CuiPanel panel, string parent, string name, string destroyUi)
+  string ToJson()
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiButton
+Наследуется от: object
+Поля:
+  CuiButtonComponent <Button>k__BackingField
+  CuiRectTransformComponent <RectTransform>k__BackingField
+  CuiTextComponent <Text>k__BackingField
+  float <FadeOut>k__BackingField
+Свойства:
+  CuiButtonComponent Button
+  CuiRectTransformComponent RectTransform
+  CuiTextComponent Text
+  float FadeOut
+Методы:
+  CuiButtonComponent get_Button()
+  CuiRectTransformComponent get_RectTransform()
+  CuiTextComponent get_Text()
+  float get_FadeOut()
+  void set_FadeOut(float value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiPanel
+Наследуется от: object
+Поля:
+  CuiImageComponent <Image>k__BackingField
+  CuiRawImageComponent <RawImage>k__BackingField
+  CuiRectTransformComponent <RectTransform>k__BackingField
+  bool <CursorEnabled>k__BackingField
+  bool <KeyboardEnabled>k__BackingField
+  float <FadeOut>k__BackingField
+Свойства:
+  CuiImageComponent Image
+  CuiRawImageComponent RawImage
+  CuiRectTransformComponent RectTransform
+  bool CursorEnabled
+  bool KeyboardEnabled
+  float FadeOut
+Методы:
+  CuiImageComponent get_Image()
+  void set_Image(CuiImageComponent value)
+  CuiRawImageComponent get_RawImage()
+  void set_RawImage(CuiRawImageComponent value)
+  CuiRectTransformComponent get_RectTransform()
+  bool get_CursorEnabled()
+  void set_CursorEnabled(bool value)
+  bool get_KeyboardEnabled()
+  void set_KeyboardEnabled(bool value)
+  float get_FadeOut()
+  void set_FadeOut(float value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiLabel
+Наследуется от: object
+Поля:
+  CuiTextComponent <Text>k__BackingField
+  CuiRectTransformComponent <RectTransform>k__BackingField
+  float <FadeOut>k__BackingField
+Свойства:
+  CuiTextComponent Text
+  CuiRectTransformComponent RectTransform
+  float FadeOut
+Методы:
+  CuiTextComponent get_Text()
+  CuiRectTransformComponent get_RectTransform()
+  float get_FadeOut()
+  void set_FadeOut(float value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiElement
+Наследуется от: object
+Поля:
+  string <Name>k__BackingField
+  string <Parent>k__BackingField
+  string <DestroyUi>k__BackingField
+  List`1<ICuiComponent> <Components>k__BackingField
+  float <FadeOut>k__BackingField
+  bool <Update>k__BackingField
+Свойства:
+  string Name
+  string Parent
+  string DestroyUi
+  List`1<ICuiComponent> Components
+  float FadeOut
+  bool Update
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  string get_Parent()
+  void set_Parent(string value)
+  string get_DestroyUi()
+  void set_DestroyUi(string value)
+  List`1<ICuiComponent> get_Components()
+  float get_FadeOut()
+  void set_FadeOut(float value)
+  bool get_Update()
+  void set_Update(bool value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.ICuiComponent
+Поля:
+Свойства:
+  string Type
+Методы:
+  string get_Type()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.ICuiColor
+Поля:
+Свойства:
+  string Color
+Методы:
+  string get_Color()
+  void set_Color(string value)
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiTextComponent
+Наследуется от: object
+Поля:
+  string <Text>k__BackingField
+  int <FontSize>k__BackingField
+  string <Font>k__BackingField
+  TextAnchor <Align>k__BackingField
+  string <Color>k__BackingField
+  VerticalWrapMode <VerticalOverflow>k__BackingField
+  float <FadeIn>k__BackingField
+Свойства:
+  string Type
+  string Text
+  int FontSize
+  string Font
+  TextAnchor Align
+  string Color
+  VerticalWrapMode VerticalOverflow
+  float FadeIn
+Методы:
+  string get_Type()
+  string get_Text()
+  void set_Text(string value)
+  int get_FontSize()
+  void set_FontSize(int value)
+  string get_Font()
+  void set_Font(string value)
+  TextAnchor get_Align()
+  void set_Align(TextAnchor value)
+  string get_Color()
+  void set_Color(string value)
+  VerticalWrapMode get_VerticalOverflow()
+  void set_VerticalOverflow(VerticalWrapMode value)
+  float get_FadeIn()
+  void set_FadeIn(float value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiImageComponent
+Наследуется от: object
+Поля:
+  string <Sprite>k__BackingField
+  string <Material>k__BackingField
+  string <Color>k__BackingField
+  Type <ImageType>k__BackingField
+  string <Png>k__BackingField
+  float <FadeIn>k__BackingField
+  int <ItemId>k__BackingField
+  ulong <SkinId>k__BackingField
+Свойства:
+  string Type
+  string Sprite
+  string Material
+  string Color
+  Type ImageType
+  string Png
+  float FadeIn
+  int ItemId
+  ulong SkinId
+Методы:
+  string get_Type()
+  string get_Sprite()
+  void set_Sprite(string value)
+  string get_Material()
+  void set_Material(string value)
+  string get_Color()
+  void set_Color(string value)
+  Type get_ImageType()
+  void set_ImageType(Type value)
+  string get_Png()
+  void set_Png(string value)
+  float get_FadeIn()
+  void set_FadeIn(float value)
+  int get_ItemId()
+  void set_ItemId(int value)
+  ulong get_SkinId()
+  void set_SkinId(ulong value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiRawImageComponent
+Наследуется от: object
+Поля:
+  string <Sprite>k__BackingField
+  string <Color>k__BackingField
+  string <Material>k__BackingField
+  string <Url>k__BackingField
+  string <Png>k__BackingField
+  float <FadeIn>k__BackingField
+Свойства:
+  string Type
+  string Sprite
+  string Color
+  string Material
+  string Url
+  string Png
+  float FadeIn
+Методы:
+  string get_Type()
+  string get_Sprite()
+  void set_Sprite(string value)
+  string get_Color()
+  void set_Color(string value)
+  string get_Material()
+  void set_Material(string value)
+  string get_Url()
+  void set_Url(string value)
+  string get_Png()
+  void set_Png(string value)
+  float get_FadeIn()
+  void set_FadeIn(float value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiButtonComponent
+Наследуется от: object
+Поля:
+  string <Command>k__BackingField
+  string <Close>k__BackingField
+  string <Sprite>k__BackingField
+  string <Material>k__BackingField
+  string <Color>k__BackingField
+  Type <ImageType>k__BackingField
+  float <FadeIn>k__BackingField
+Свойства:
+  string Type
+  string Command
+  string Close
+  string Sprite
+  string Material
+  string Color
+  Type ImageType
+  float FadeIn
+Методы:
+  string get_Type()
+  string get_Command()
+  void set_Command(string value)
+  string get_Close()
+  void set_Close(string value)
+  string get_Sprite()
+  void set_Sprite(string value)
+  string get_Material()
+  void set_Material(string value)
+  string get_Color()
+  void set_Color(string value)
+  Type get_ImageType()
+  void set_ImageType(Type value)
+  float get_FadeIn()
+  void set_FadeIn(float value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiOutlineComponent
+Наследуется от: object
+Поля:
+  string <Color>k__BackingField
+  string <Distance>k__BackingField
+  bool <UseGraphicAlpha>k__BackingField
+Свойства:
+  string Type
+  string Color
+  string Distance
+  bool UseGraphicAlpha
+Методы:
+  string get_Type()
+  string get_Color()
+  void set_Color(string value)
+  string get_Distance()
+  void set_Distance(string value)
+  bool get_UseGraphicAlpha()
+  void set_UseGraphicAlpha(bool value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiInputFieldComponent
+Наследуется от: object
+Поля:
+  string <Text>k__BackingField
+  int <FontSize>k__BackingField
+  string <Font>k__BackingField
+  TextAnchor <Align>k__BackingField
+  string <Color>k__BackingField
+  int <CharsLimit>k__BackingField
+  string <Command>k__BackingField
+  bool <IsPassword>k__BackingField
+  bool <ReadOnly>k__BackingField
+  bool <NeedsKeyboard>k__BackingField
+  LineType <LineType>k__BackingField
+  bool <Autofocus>k__BackingField
+  bool <HudMenuInput>k__BackingField
+Свойства:
+  string Type
+  string Text
+  int FontSize
+  string Font
+  TextAnchor Align
+  string Color
+  int CharsLimit
+  string Command
+  bool IsPassword
+  bool ReadOnly
+  bool NeedsKeyboard
+  LineType LineType
+  bool Autofocus
+  bool HudMenuInput
+Методы:
+  string get_Type()
+  string get_Text()
+  void set_Text(string value)
+  int get_FontSize()
+  void set_FontSize(int value)
+  string get_Font()
+  void set_Font(string value)
+  TextAnchor get_Align()
+  void set_Align(TextAnchor value)
+  string get_Color()
+  void set_Color(string value)
+  int get_CharsLimit()
+  void set_CharsLimit(int value)
+  string get_Command()
+  void set_Command(string value)
+  bool get_IsPassword()
+  void set_IsPassword(bool value)
+  bool get_ReadOnly()
+  void set_ReadOnly(bool value)
+  bool get_NeedsKeyboard()
+  void set_NeedsKeyboard(bool value)
+  LineType get_LineType()
+  void set_LineType(LineType value)
+  bool get_Autofocus()
+  void set_Autofocus(bool value)
+  bool get_HudMenuInput()
+  void set_HudMenuInput(bool value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiCountdownComponent
+Наследуется от: object
+Поля:
+  int <EndTime>k__BackingField
+  int <StartTime>k__BackingField
+  int <Step>k__BackingField
+  string <Command>k__BackingField
+  float <FadeIn>k__BackingField
+Свойства:
+  string Type
+  int EndTime
+  int StartTime
+  int Step
+  string Command
+  float FadeIn
+Методы:
+  string get_Type()
+  int get_EndTime()
+  void set_EndTime(int value)
+  int get_StartTime()
+  void set_StartTime(int value)
+  int get_Step()
+  void set_Step(int value)
+  string get_Command()
+  void set_Command(string value)
+  float get_FadeIn()
+  void set_FadeIn(float value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiNeedsCursorComponent
+Наследуется от: object
+Поля:
+Свойства:
+  string Type
+Методы:
+  string get_Type()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiNeedsKeyboardComponent
+Наследуется от: object
+Поля:
+Свойства:
+  string Type
+Методы:
+  string get_Type()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.CuiRectTransformComponent
+Наследуется от: object
+Поля:
+  string <AnchorMin>k__BackingField
+  string <AnchorMax>k__BackingField
+  string <OffsetMin>k__BackingField
+  string <OffsetMax>k__BackingField
+Свойства:
+  string Type
+  string AnchorMin
+  string AnchorMax
+  string OffsetMin
+  string OffsetMax
+Методы:
+  string get_Type()
+  string get_AnchorMin()
+  void set_AnchorMin(string value)
+  string get_AnchorMax()
+  void set_AnchorMax(string value)
+  string get_OffsetMin()
+  void set_OffsetMin(string value)
+  string get_OffsetMax()
+  void set_OffsetMax(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Cui.ComponentConverter
+Наследуется от: JsonConverter
+Поля:
+Свойства:
+  bool CanWrite
+Методы:
+  void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+  object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+  bool CanConvert(Type objectType)
+  bool get_CanWrite()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Command
+Наследуется от: Library
+Поля:
+  Dictionary`2<string, ConsoleCommand> consoleCommands
+  Dictionary`2<string, ChatCommand> chatCommands
+  Dictionary`2<Plugin, Callback`2<Plugin, PluginManager>> pluginRemovedFromManager
+Свойства:
+Методы:
+  void .ctor()
+  void AddChatCommand(string name, Plugin plugin, string callback)
+  void AddChatCommand(string command, Plugin plugin, Action`3<BasePlayer, string, String[]> callback)
+  void AddConsoleCommand(string command, Plugin plugin, string callback)
+  void AddConsoleCommand(string command, Plugin plugin, Func`2<Arg, bool> callback)
+  void RemoveChatCommand(string command, Plugin plugin)
+  void RemoveConsoleCommand(string command, Plugin plugin)
+  void RemoveChatCommand(ChatCommand command)
+  void RemoveConsoleCommand(ConsoleCommand command)
+  bool HandleChatCommand(BasePlayer sender, string name, String[] args)
+  void plugin_OnRemovedFromManager(Plugin sender, PluginManager manager)
+  bool CanOverrideCommand(string command, string type)
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Item
+Наследуется от: Library
+Поля:
+  RustCovalenceProvider Covalence
+Свойства:
+Методы:
+  Item GetItem(int itemId)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Player
+Наследуется от: Library
+Поля:
+  string ipPattern
+  Permission permission
+Свойства:
+  ListHashSet`1<BasePlayer> Players
+  ListHashSet`1<BasePlayer> Sleepers
+Методы:
+  CultureInfo Language(BasePlayer player)
+  string Address(Connection connection)
+  string Address(BasePlayer player)
+  int Ping(Connection connection)
+  int Ping(BasePlayer player)
+  bool IsAdmin(ulong id)
+  bool IsAdmin(string id)
+  bool IsAdmin(BasePlayer player)
+  bool IsBanned(ulong id)
+  bool IsBanned(string id)
+  bool IsBanned(BasePlayer player)
+  bool IsConnected(BasePlayer player)
+  bool IsSleeping(ulong id)
+  bool IsSleeping(string id)
+  bool IsSleeping(BasePlayer player)
+  void Ban(ulong id, string reason)
+  void Ban(string id, string reason)
+  void Ban(BasePlayer player, string reason)
+  void Heal(BasePlayer player, float amount)
+  void Hurt(BasePlayer player, float amount)
+  void Kick(BasePlayer player, string reason)
+  void Kill(BasePlayer player)
+  void Rename(BasePlayer player, string name)
+  void Teleport(BasePlayer player, Vector3 destination)
+  void Teleport(BasePlayer player, BasePlayer target)
+  void Teleport(BasePlayer player, float x, float y, float z)
+  void Unban(ulong id)
+  void Unban(string id)
+  void Unban(BasePlayer player)
+  Vector3 Position(BasePlayer player)
+  BasePlayer Find(string nameOrIdOrIp)
+  BasePlayer FindById(string id)
+  BasePlayer FindById(ulong id)
+  ListHashSet`1<BasePlayer> get_Players()
+  ListHashSet`1<BasePlayer> get_Sleepers()
+  void Message(BasePlayer player, string message, string prefix, ulong userId, Object[] args)
+  void Message(BasePlayer player, string message, ulong userId)
+  void Reply(BasePlayer player, string message, string prefix, ulong userId, Object[] args)
+  void Reply(BasePlayer player, string message, ulong userId)
+  void Command(BasePlayer player, string command, Object[] args)
+  void DropItem(BasePlayer player, int itemId)
+  void DropItem(BasePlayer player, Item item)
+  void GiveItem(BasePlayer player, int itemId, int quantity)
+  void GiveItem(BasePlayer player, Item item, int quantity)
+  PlayerInventory Inventory(BasePlayer player)
+  void ClearInventory(BasePlayer player)
+  void ResetInventory(BasePlayer player)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Rust
+Наследуется от: Library
+Поля:
+  Player Player
+  Server Server
+Свойства:
+  bool IsGlobal
+Методы:
+  bool get_IsGlobal()
+  BindingFlags PrivateBindingFlag()
+  string QuoteSafe(string str)
+  void BroadcastChat(string name, string message, string userId)
+  void SendChatMessage(BasePlayer player, string name, string message, string userId)
+  void RunClientCommand(BasePlayer player, string command, Object[] args)
+  void RunServerCommand(string command, Object[] args)
+  string UserIDFromConnection(Connection connection)
+  Array UserIDsFromBuildingPrivlidge(BuildingPrivlidge priv)
+  string UserIDFromPlayer(BasePlayer player)
+  string OwnerIDFromEntity(BaseEntity entity)
+  BasePlayer FindPlayer(string nameOrIdOrIp)
+  BasePlayer FindPlayerByName(string name)
+  BasePlayer FindPlayerById(ulong id)
+  BasePlayer FindPlayerByIdString(string id)
+  void ForcePlayerPosition(BasePlayer player, float x, float y, float z)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Server
+Наследуется от: Library
+Поля:
+Свойства:
+Методы:
+  void Broadcast(string message, string prefix, ulong userId, Object[] args)
+  void Broadcast(string message, ulong userId)
+  void Command(string command, Object[] args)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Covalence.RustCommandSystem
+Наследуется от: object
+Поля:
+  Command cmdlib
+  RustConsolePlayer consolePlayer
+  CommandHandler commandHandler
+  IDictionary`2<string, RegisteredCommand> registeredCommands
+Свойства:
+Методы:
+  void .ctor()
+  bool CommandCallback(IPlayer caller, string cmd, String[] args)
+  void RegisterCommand(string command, Plugin plugin, CommandCallback callback)
+  void UnregisterCommand(string command, Plugin plugin)
+  bool HandleChatMessage(IPlayer player, string message)
+  bool CanOverrideCommand(string command)
+  String[] ExtractArgs(Arg arg)
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Covalence.RustConsolePlayer
+Наследуется от: object
+Поля:
+  float <Health>k__BackingField
+  float <MaxHealth>k__BackingField
+Свойства:
+  object Object
+  CommandType LastCommand
+  string Name
+  string Id
+  CultureInfo Language
+  string Address
+  int Ping
+  bool IsAdmin
+  bool IsBanned
+  bool IsConnected
+  bool IsSleeping
+  bool IsServer
+  TimeSpan BanTimeRemaining
+  float Health
+  float MaxHealth
+Методы:
+  object get_Object()
+  CommandType get_LastCommand()
+  void set_LastCommand(CommandType value)
+  string get_Name()
+  void set_Name(string value)
+  string get_Id()
+  CultureInfo get_Language()
+  string get_Address()
+  int get_Ping()
+  bool get_IsAdmin()
+  bool get_IsBanned()
+  bool get_IsConnected()
+  bool get_IsSleeping()
+  bool get_IsServer()
+  void Ban(string reason, TimeSpan duration)
+  TimeSpan get_BanTimeRemaining()
+  void Heal(float amount)
+  float get_Health()
+  void set_Health(float value)
+  void Hurt(float amount)
+  void Kick(string reason)
+  void Kill()
+  float get_MaxHealth()
+  void set_MaxHealth(float value)
+  void Rename(string name)
+  void Teleport(float x, float y, float z)
+  void Teleport(GenericPosition pos)
+  void Unban()
+  void Position(Single& x, Single& y, Single& z)
+  GenericPosition Position()
+  void Message(string message, string prefix, Object[] args)
+  void Message(string message)
+  void Reply(string message, string prefix, Object[] args)
+  void Reply(string message)
+  void Command(string command, Object[] args)
+  bool HasPermission(string perm)
+  void GrantPermission(string perm)
+  void RevokePermission(string perm)
+  bool BelongsToGroup(string group)
+  void AddToGroup(string group)
+  void RemoveFromGroup(string group)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Covalence.RustCovalenceProvider
+Наследуется от: object
+Поля:
+  RustCovalenceProvider <Instance>k__BackingField
+  RustPlayerManager <PlayerManager>k__BackingField
+  RustCommandSystem <CommandSystem>k__BackingField
+Свойства:
+  string GameName
+  UInt32 ClientAppId
+  UInt32 ServerAppId
+  RustCovalenceProvider Instance
+  RustPlayerManager PlayerManager
+  RustCommandSystem CommandSystem
+Методы:
+  string get_GameName()
+  UInt32 get_ClientAppId()
+  UInt32 get_ServerAppId()
+  RustCovalenceProvider get_Instance()
+  void set_Instance(RustCovalenceProvider value)
+  void .ctor()
+  RustPlayerManager get_PlayerManager()
+  void set_PlayerManager(RustPlayerManager value)
+  RustCommandSystem get_CommandSystem()
+  void set_CommandSystem(RustCommandSystem value)
+  IServer CreateServer()
+  IPlayerManager CreatePlayerManager()
+  ICommandSystem CreateCommandSystemProvider()
+  string FormatText(string text)
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Covalence.RustPlayer
+Наследуется от: object
+Поля:
+  Player libPlayer
+  Permission libPerms
+  BasePlayer player
+  ulong steamId
+  CommandType <LastCommand>k__BackingField
+  string <Name>k__BackingField
+  string <Id>k__BackingField
+Свойства:
+  object Object
+  CommandType LastCommand
+  string Name
+  string Id
+  CultureInfo Language
+  string Address
+  int Ping
+  bool IsAdmin
+  bool IsBanned
+  bool IsConnected
+  bool IsSleeping
+  bool IsServer
+  TimeSpan BanTimeRemaining
+  float Health
+  float MaxHealth
+Методы:
+  void .ctor(ulong id, string name)
+  void .ctor(BasePlayer player)
+  object get_Object()
+  CommandType get_LastCommand()
+  void set_LastCommand(CommandType value)
+  string get_Name()
+  void set_Name(string value)
+  string get_Id()
+  CultureInfo get_Language()
+  string get_Address()
+  int get_Ping()
+  bool get_IsAdmin()
+  bool get_IsBanned()
+  bool get_IsConnected()
+  bool get_IsSleeping()
+  bool get_IsServer()
+  void Ban(string reason, TimeSpan duration)
+  TimeSpan get_BanTimeRemaining()
+  void Heal(float amount)
+  float get_Health()
+  void set_Health(float value)
+  void Hurt(float amount)
+  void Kick(string reason)
+  void Kill()
+  float get_MaxHealth()
+  void set_MaxHealth(float value)
+  void Rename(string name)
+  void Teleport(float x, float y, float z)
+  void Teleport(GenericPosition pos)
+  void Unban()
+  void Position(Single& x, Single& y, Single& z)
+  GenericPosition Position()
+  void Message(string message, string prefix, Object[] args)
+  void Message(string message)
+  void Reply(string message, string prefix, Object[] args)
+  void Reply(string message)
+  void Command(string command, Object[] args)
+  bool HasPermission(string perm)
+  void GrantPermission(string perm)
+  void RevokePermission(string perm)
+  bool BelongsToGroup(string group)
+  void AddToGroup(string group)
+  void RemoveFromGroup(string group)
+  bool Equals(IPlayer other)
+  bool Equals(object obj)
+  int GetHashCode()
+  string ToString()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Covalence.RustPlayerManager
+Наследуется от: object
+Поля:
+  IDictionary`2<string, PlayerRecord> playerData
+  IDictionary`2<string, RustPlayer> allPlayers
+  IDictionary`2<string, RustPlayer> connectedPlayers
+Свойства:
+  IEnumerable`1<IPlayer> All
+  IEnumerable`1<IPlayer> Connected
+  IEnumerable`1<IPlayer> Sleeping
+Методы:
+  void Initialize()
+  void PlayerJoin(ulong userId, string name)
+  void PlayerConnected(BasePlayer player)
+  void PlayerDisconnected(BasePlayer player)
+  void SavePlayerData()
+  IEnumerable`1<IPlayer> get_All()
+  IEnumerable`1<IPlayer> get_Connected()
+  IEnumerable`1<IPlayer> get_Sleeping()
+  IPlayer FindPlayerById(string id)
+  IPlayer FindPlayerByObj(object obj)
+  IPlayer FindPlayer(string partialNameOrId)
+  IEnumerable`1<IPlayer> FindPlayers(string partialNameOrId)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Game.Rust.Libraries.Covalence.RustServer
+Наследуется от: object
+Поля:
+  Server Server
+  IPAddress address
+  IPAddress localAddress
+  SaveInfo <SaveInfo>k__BackingField
+Свойства:
+  string Name
+  IPAddress Address
+  IPAddress LocalAddress
+  ushort Port
+  string Version
+  string Protocol
+  CultureInfo Language
+  int Players
+  int MaxPlayers
+  DateTime Time
+  SaveInfo SaveInfo
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  IPAddress get_Address()
+  IPAddress get_LocalAddress()
+  ushort get_Port()
+  string get_Version()
+  string get_Protocol()
+  CultureInfo get_Language()
+  int get_Players()
+  int get_MaxPlayers()
+  void set_MaxPlayers(int value)
+  DateTime get_Time()
+  void set_Time(DateTime value)
+  SaveInfo get_SaveInfo()
+  void Ban(string id, string reason, TimeSpan duration)
+  TimeSpan BanTimeRemaining(string id)
+  bool IsBanned(string id)
+  void Save()
+  void Unban(string id)
+  void Broadcast(string message, string prefix, Object[] args)
+  void Broadcast(string message)
+  void Command(string command, Object[] args)
+  void .ctor()
+--------------------------------------------------

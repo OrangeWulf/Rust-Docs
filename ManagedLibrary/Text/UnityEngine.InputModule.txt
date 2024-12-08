@@ -1,0 +1,97 @@
+Сборка: UnityEngine.InputModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngineInternal.Input.NativeUpdateCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(NativeInputUpdateType updateType, NativeInputEventBuffer* buffer)
+  IAsyncResult BeginInvoke(NativeInputUpdateType updateType, NativeInputEventBuffer* buffer, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: UnityEngineInternal.Input.NativeInputEventType
+Наследуется от: Enum
+Поля:
+  int value__
+  NativeInputEventType DeviceRemoved
+  NativeInputEventType DeviceConfigChanged
+  NativeInputEventType Text
+  NativeInputEventType State
+  NativeInputEventType Delta
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngineInternal.Input.NativeInputEventBuffer
+Наследуется от: ValueType
+Поля:
+  int structSize
+  Void* eventBuffer
+  int eventCount
+  int sizeInBytes
+  int capacityInBytes
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngineInternal.Input.NativeInputEvent
+Наследуется от: ValueType
+Поля:
+  int structSize
+  NativeInputEventType type
+  ushort sizeInBytes
+  ushort deviceId
+  double time
+  int eventId
+Свойства:
+Методы:
+  void .ctor(NativeInputEventType type, int sizeInBytes, int deviceId, double time)
+--------------------------------------------------
+Класс: UnityEngineInternal.Input.NativeInputUpdateType
+Наследуется от: Enum
+Поля:
+  int value__
+  NativeInputUpdateType Dynamic
+  NativeInputUpdateType Fixed
+  NativeInputUpdateType BeforeRender
+  NativeInputUpdateType Editor
+  NativeInputUpdateType IgnoreFocus
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngineInternal.Input.NativeInputSystem
+Наследуется от: object
+Поля:
+  NativeUpdateCallback onUpdate
+  Action`1<NativeInputUpdateType> onBeforeUpdate
+  Func`2<NativeInputUpdateType, bool> onShouldRunUpdate
+  Action`2<int, string> s_OnDeviceDiscoveredCallback
+Свойства:
+  Action`2<int, string> onDeviceDiscovered
+  bool hasDeviceDiscoveredCallback
+  double currentTime
+  double currentTimeOffsetToRealtimeSinceStartup
+Методы:
+  Action`2<int, string> get_onDeviceDiscovered()
+  void set_onDeviceDiscovered(Action`2<int, string> value)
+  void .cctor()
+  void NotifyBeforeUpdate(NativeInputUpdateType updateType)
+  void NotifyUpdate(NativeInputUpdateType updateType, IntPtr eventBuffer)
+  void NotifyDeviceDiscovered(int deviceId, string deviceDescriptor)
+  void ShouldRunUpdate(NativeInputUpdateType updateType, Boolean& retval)
+  void set_hasDeviceDiscoveredCallback(bool value)
+  double get_currentTime()
+  double get_currentTimeOffsetToRealtimeSinceStartup()
+  int AllocateDeviceId()
+  void QueueInputEvent(TInputEvent& inputEvent)
+  void QueueInputEvent(IntPtr inputEvent)
+  long IOCTL(int deviceId, int code, IntPtr data, int sizeInBytes)
+  void SetPollingFrequency(float hertz)
+  void Update(NativeInputUpdateType updateType)
+  void SetUpdateMask(NativeInputUpdateType mask)
+  void .ctor()
+--------------------------------------------------

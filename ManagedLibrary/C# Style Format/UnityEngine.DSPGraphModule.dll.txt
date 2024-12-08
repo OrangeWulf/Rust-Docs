@@ -1,0 +1,173 @@
+[NativeTypeAttribute]
+internal class Unity.Audio.AudioMemoryManager : ValueType {
+    [NativeMethodAttribute]
+public static Void* Internal_AllocateAudioMemory(int size, int alignment);
+    [NativeMethodAttribute]
+public static void Internal_FreeAudioMemory(Void* memory);
+}
+[NativeTypeAttribute]
+internal class Unity.Audio.AudioOutputHookManager : ValueType {
+    [NativeMethodAttribute]
+public static void Internal_CreateAudioOutputHook(Handle& outputHook, Void* jobReflectionData, Void* jobData);
+    [NativeMethodAttribute]
+public static void Internal_DisposeAudioOutputHook(Handle& outputHook);
+}
+[NativeHeaderAttribute("Modules/DSPGraph/Public/DSPSampleProvider.bindings.h")]
+[NativeTypeAttribute]
+internal class Unity.Audio.DSPCommandBlockInternal : ValueType {
+    [NativeMethodAttribute]
+public static void Internal_CreateDSPNode(Handle& graph, Handle& block, Handle& node, Void* jobReflectionData, Void* jobMemory, Void* parameterDescriptionArray, int parameterCount, Void* sampleProviderDescriptionArray, int sampleProviderCount);
+    [NativeMethodAttribute]
+public static void Internal_SetFloat(Handle& graph, Handle& block, Handle& node, Void* jobReflectionData, UInt32 pIndex, float value, UInt32 interpolationLength);
+    [NativeMethodAttribute]
+public static void Internal_AddFloatKey(Handle& graph, Handle& block, Handle& node, Void* jobReflectionData, UInt32 pIndex, ulong dspClock, float value);
+    [NativeMethodAttribute]
+public static void Internal_SustainFloat(Handle& graph, Handle& block, Handle& node, Void* jobReflectionData, UInt32 pIndex, ulong dspClock);
+    [NativeMethodAttribute]
+public static void Internal_UpdateAudioJob(Handle& graph, Handle& block, Handle& node, Void* updateJobMem, Void* updateJobReflectionData, Void* nodeReflectionData);
+    [NativeMethodAttribute]
+public static void Internal_CreateUpdateRequest(Handle& graph, Handle& block, Handle& node, Handle& request, object callback, Void* updateJobMem, Void* updateJobReflectionData, Void* nodeReflectionData);
+    [NativeMethodAttribute]
+public static void Internal_ReleaseDSPNode(Handle& graph, Handle& block, Handle& node);
+    [NativeMethodAttribute]
+public static void Internal_Connect(Handle& graph, Handle& block, Handle& output, int outputPort, Handle& input, int inputPort, Handle& connection);
+    [NativeMethodAttribute]
+public static void Internal_Disconnect(Handle& graph, Handle& block, Handle& output, int outputPort, Handle& input, int inputPort);
+    [NativeMethodAttribute]
+public static void Internal_DisconnectByHandle(Handle& graph, Handle& block, Handle& connection);
+    [NativeMethodAttribute]
+public static void Internal_SetAttenuation(Handle& graph, Handle& block, Handle& connection, Void* value, byte dimension, UInt32 interpolationLength);
+    [NativeMethodAttribute]
+public static void Internal_AddAttenuationKey(Handle& graph, Handle& block, Handle& connection, ulong dspClock, Void* value, byte dimension);
+    [NativeMethodAttribute]
+public static void Internal_SustainAttenuation(Handle& graph, Handle& block, Handle& connection, ulong dspClock);
+    [NativeMethodAttribute]
+public static void Internal_AddInletPort(Handle& graph, Handle& block, Handle& node, int channelCount, int format);
+    [NativeMethodAttribute]
+public static void Internal_AddOutletPort(Handle& graph, Handle& block, Handle& node, int channelCount, int format);
+    [NativeMethodAttribute]
+public static void Internal_SetSampleProvider(Handle& graph, Handle& block, Handle& node, int item, int index, UInt32 audioSampleProviderId, bool destroyOnRemove);
+    [NativeMethodAttribute]
+public static void Internal_InsertSampleProvider(Handle& graph, Handle& block, Handle& node, int item, int index, UInt32 audioSampleProviderId, bool destroyOnRemove);
+    [NativeMethodAttribute]
+public static void Internal_RemoveSampleProvider(Handle& graph, Handle& block, Handle& node, int item, int index);
+    [NativeMethodAttribute]
+public static void Internal_Complete(Handle& graph, Handle& block);
+    [NativeMethodAttribute]
+public static void Internal_Cancel(Handle& graph, Handle& block);
+}
+internal class Unity.Audio.DSPGraphExecutionNode : ValueType {
+    public Void* ReflectionData;
+    public Void* JobStructData;
+    public Void* JobData;
+    public Void* ResourceContext;
+    public int FunctionIndex;
+    public int FenceIndex;
+    public int FenceCount;
+}
+[NativeTypeAttribute]
+internal class Unity.Audio.DSPGraphInternal : ValueType {
+    [NativeMethodAttribute]
+public static void Internal_CreateDSPGraph(Handle& graph, int outputFormat, UInt32 outputChannels, UInt32 dspBufferSize, UInt32 sampleRate);
+    [NativeMethodAttribute]
+public static void Internal_DisposeDSPGraph(Handle& graph);
+    [NativeMethodAttribute]
+public static void Internal_CreateDSPCommandBlock(Handle& graph, Handle& block);
+    [NativeMethodAttribute]
+public static UInt32 Internal_AddNodeEventHandler(Handle& graph, long eventTypeHashCode, object handler);
+    [NativeMethodAttribute]
+public static bool Internal_RemoveNodeEventHandler(Handle& graph, UInt32 handlerId);
+    [NativeMethodAttribute]
+public static void Internal_GetRootDSP(Handle& graph, Handle& root);
+    [NativeMethodAttribute]
+public static ulong Internal_GetDSPClock(Handle& graph);
+    [NativeMethodAttribute]
+public static void Internal_BeginMix(Handle& graph, int frameCount, int executionMode);
+    [NativeMethodAttribute]
+public static void Internal_ReadMix(Handle& graph, Void* buffer, int frameCount);
+    [NativeMethodAttribute]
+public static void Internal_Update(Handle& graph);
+    [NativeMethodAttribute]
+public static bool Internal_AssertMixerThread(Handle& graph);
+    [NativeMethodAttribute]
+public static bool Internal_AssertMainThread(Handle& graph);
+    [NativeMethodAttribute]
+public static Handle Internal_AllocateHandle(Handle& graph);
+    [NativeMethodAttribute]
+public static void Internal_InitializeJob(Void* jobStructData, Void* jobReflectionData, Void* resourceContext);
+    [NativeMethodAttribute]
+public static void Internal_ExecuteJob(Void* jobStructData, Void* jobReflectionData, Void* jobData, Void* resourceContext);
+    [NativeMethodAttribute]
+public static void Internal_ExecuteUpdateJob(Void* updateStructMemory, Void* updateReflectionData, Void* jobStructMemory, Void* jobReflectionData, Void* resourceContext, Handle& requestHandle, JobHandle& fence);
+    [NativeMethodAttribute]
+public static void Internal_DisposeJob(Void* jobStructData, Void* jobReflectionData, Void* resourceContext);
+    [NativeMethodAttribute]
+public static void Internal_ScheduleGraph(JobHandle inputDeps, Void* nodes, int nodeCount, Int32* childTable, Void* dependencies);
+    [NativeMethodAttribute]
+public static void Internal_SyncFenceNoWorkSteal(JobHandle handle);
+    private static void Internal_AllocateHandle_Injected(Handle& graph, Handle& ret);
+    private static void Internal_ScheduleGraph_Injected(JobHandle& inputDeps, Void* nodes, int nodeCount, Int32* childTable, Void* dependencies);
+    private static void Internal_SyncFenceNoWorkSteal_Injected(JobHandle& handle);
+}
+[NativeTypeAttribute]
+internal class Unity.Audio.DSPNodeUpdateRequestHandleInternal : ValueType {
+    [NativeMethodAttribute]
+public static Void* Internal_GetUpdateJobData(Handle& graph, Handle& requestHandle);
+    [NativeMethodAttribute]
+public static bool Internal_HasError(Handle& graph, Handle& requestHandle);
+    [NativeMethodAttribute]
+public static void Internal_GetDSPNode(Handle& graph, Handle& requestHandle, Handle& node);
+    [NativeMethodAttribute]
+public static void Internal_GetFence(Handle& graph, Handle& requestHandle, JobHandle& fence);
+    [NativeMethodAttribute]
+public static void Internal_Dispose(Handle& graph, Handle& requestHandle);
+}
+[NativeTypeAttribute]
+internal class Unity.Audio.DSPSampleProviderInternal : ValueType {
+    [NativeMethodAttribute]
+public static int Internal_ReadUInt8FromSampleProvider(Void* provider, int format, Void* buffer, int length);
+    [NativeMethodAttribute]
+public static int Internal_ReadSInt16FromSampleProvider(Void* provider, int format, Void* buffer, int length);
+    [NativeMethodAttribute]
+public static int Internal_ReadFloatFromSampleProvider(Void* provider, Void* buffer, int length);
+    [NativeMethodAttribute]
+public static ushort Internal_GetChannelCount(Void* provider);
+    [NativeMethodAttribute]
+public static UInt32 Internal_GetSampleRate(Void* provider);
+    [NativeMethodAttribute]
+public static int Internal_ReadUInt8FromSampleProviderById(UInt32 providerId, int format, Void* buffer, int length);
+    [NativeMethodAttribute]
+public static int Internal_ReadSInt16FromSampleProviderById(UInt32 providerId, int format, Void* buffer, int length);
+    [NativeMethodAttribute]
+public static int Internal_ReadFloatFromSampleProviderById(UInt32 providerId, Void* buffer, int length);
+    [NativeMethodAttribute]
+public static ushort Internal_GetChannelCountById(UInt32 providerId);
+    [NativeMethodAttribute]
+public static UInt32 Internal_GetSampleRateById(UInt32 providerId);
+}
+[NativeTypeAttribute]
+internal class Unity.Audio.ExecuteContextInternal : ValueType {
+    [NativeMethodAttribute]
+public static void Internal_PostEvent(Void* dspNodePtr, long eventTypeHashCode, Void* eventPtr, int eventSize);
+}
+[NativeTypeAttribute]
+internal class Unity.Audio.Handle : ValueType {
+    [NativeDisableUnsafePtrRestrictionAttribute]
+private IntPtr m_Node;
+    public int Version;
+    public Node* AtomicNode { get; public set; }
+    public int Id { get; public set; }
+    public bool Valid { get; }
+    public bool Alive { get; }
+    public Handle(Node* node);
+    public Node* get_AtomicNode();
+    public void set_AtomicNode(Node* value);
+    public int get_Id();
+    public void set_Id(int value);
+    public void FlushNode();
+    public sealed virtual bool Equals(Handle other);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public sealed virtual bool get_Valid();
+    public bool get_Alive();
+}

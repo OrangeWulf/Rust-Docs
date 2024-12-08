@@ -1,0 +1,366 @@
+Сборка: System.Configuration.Install.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Locale
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  string GetText(string msg)
+  string GetText(string fmt, Object[] args)
+--------------------------------------------------
+Класс: Consts
+Наследуется от: object
+Поля:
+  string MonoVersion
+  string MonoCompany
+  string MonoProduct
+  string MonoCopyright
+  string FxVersion
+  string VsVersion
+  string FxFileVersion
+  string VsFileVersion
+  string AssemblyI18N
+  string AssemblyMicrosoft_VisualStudio
+  string AssemblyMicrosoft_VisualStudio_Web
+  string AssemblyMicrosoft_VSDesigner
+  string AssemblyMono_Http
+  string AssemblyMono_Posix
+  string AssemblyMono_Security
+  string AssemblyMono_Messaging_RabbitMQ
+  string AssemblyCorlib
+  string AssemblySystem
+  string AssemblySystem_Data
+  string AssemblySystem_Design
+  string AssemblySystem_DirectoryServices
+  string AssemblySystem_Drawing
+  string AssemblySystem_Drawing_Design
+  string AssemblySystem_Messaging
+  string AssemblySystem_Security
+  string AssemblySystem_ServiceProcess
+  string AssemblySystem_Web
+  string AssemblySystem_Windows_Forms
+  string AssemblySystem_Core
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Configuration.Install.AssemblyInstaller
+Наследуется от: Installer
+Поля:
+  Assembly _assembly
+  String[] _commandLine
+  bool _useNewContext
+Свойства:
+  Assembly Assembly
+  String[] CommandLine
+  string HelpText
+  string Path
+  bool UseNewContext
+Методы:
+  void .ctor()
+  void .ctor(Assembly assembly, String[] commandLine)
+  void .ctor(string fileName, String[] commandLine)
+  void CheckIfInstallable(string assemblyName)
+  void Commit(IDictionary savedState)
+  void Install(IDictionary savedState)
+  void Rollback(IDictionary savedState)
+  void Uninstall(IDictionary savedState)
+  Assembly get_Assembly()
+  void set_Assembly(Assembly value)
+  String[] get_CommandLine()
+  void set_CommandLine(String[] value)
+  string get_HelpText()
+  string get_Path()
+  void set_Path(string value)
+  bool get_UseNewContext()
+  void set_UseNewContext(bool value)
+--------------------------------------------------
+Класс: System.Configuration.Install.IManagedInstaller
+Поля:
+Свойства:
+Методы:
+  int ManagedInstall(string commandLine, int hInstall)
+--------------------------------------------------
+Класс: System.Configuration.Install.Installer
+Наследуется от: Component
+Поля:
+  InstallContext context
+  string helptext
+  InstallerCollection installers
+  Installer parent
+  InstallEventHandler AfterInstall
+  InstallEventHandler AfterRollback
+  InstallEventHandler AfterUninstall
+  InstallEventHandler BeforeInstall
+  InstallEventHandler BeforeRollback
+  InstallEventHandler BeforeUninstall
+  InstallEventHandler Committed
+  InstallEventHandler Committing
+Свойства:
+  InstallContext Context
+  string HelpText
+  InstallerCollection Installers
+  Installer Parent
+Методы:
+  void .ctor()
+  void add_AfterInstall(InstallEventHandler value)
+  void remove_AfterInstall(InstallEventHandler value)
+  void add_AfterRollback(InstallEventHandler value)
+  void remove_AfterRollback(InstallEventHandler value)
+  void add_AfterUninstall(InstallEventHandler value)
+  void remove_AfterUninstall(InstallEventHandler value)
+  void add_BeforeInstall(InstallEventHandler value)
+  void remove_BeforeInstall(InstallEventHandler value)
+  void add_BeforeRollback(InstallEventHandler value)
+  void remove_BeforeRollback(InstallEventHandler value)
+  void add_BeforeUninstall(InstallEventHandler value)
+  void remove_BeforeUninstall(InstallEventHandler value)
+  void add_Committed(InstallEventHandler value)
+  void remove_Committed(InstallEventHandler value)
+  void add_Committing(InstallEventHandler value)
+  void remove_Committing(InstallEventHandler value)
+  InstallContext get_Context()
+  void set_Context(InstallContext value)
+  string get_HelpText()
+  InstallerCollection get_Installers()
+  Installer get_Parent()
+  void set_Parent(Installer value)
+  void Commit(IDictionary savedState)
+  void Install(IDictionary stateSaver)
+  void OnAfterInstall(IDictionary savedState)
+  void OnAfterRollback(IDictionary savedState)
+  void OnAfterUninstall(IDictionary savedState)
+  void OnBeforeInstall(IDictionary savedState)
+  void OnBeforeRollback(IDictionary savedState)
+  void OnBeforeUninstall(IDictionary savedState)
+  void OnCommitted(IDictionary savedState)
+  void OnCommitting(IDictionary savedState)
+  void Rollback(IDictionary savedState)
+  void Uninstall(IDictionary savedState)
+--------------------------------------------------
+Класс: System.Configuration.Install.InstallException
+Наследуется от: SystemException
+Поля:
+  Exception innerException
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(SerializationInfo info, StreamingContext context)
+  void .ctor(string message, Exception innerException)
+--------------------------------------------------
+Класс: System.Configuration.Install.ComponentInstaller
+Наследуется от: Installer
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void CopyFromComponent(IComponent component)
+  bool IsEquivalentInstaller(ComponentInstaller otherInstaller)
+--------------------------------------------------
+Класс: System.Configuration.Install.InstallContext
+Наследуется от: object
+Поля:
+  StringDictionary parameters
+  string log_file
+  bool log
+Свойства:
+  StringDictionary Parameters
+Методы:
+  void .ctor()
+  void .ctor(string logFilePath, String[] commandLine)
+  StringDictionary get_Parameters()
+  bool IsParameterTrue(string paramName)
+  void LogMessage(string message)
+  StringDictionary ParseCommandLine(String[] args)
+--------------------------------------------------
+Класс: System.Configuration.Install.InstallEventArgs
+Наследуется от: EventArgs
+Поля:
+  IDictionary savedstate
+Свойства:
+  IDictionary SavedState
+Методы:
+  void .ctor()
+  void .ctor(IDictionary savedState)
+  IDictionary get_SavedState()
+--------------------------------------------------
+Класс: System.Configuration.Install.InstallerCollection
+Наследуется от: CollectionBase
+Поля:
+  Installer owner
+Свойства:
+  Installer Item
+Методы:
+  void .ctor(Installer owner)
+  Installer get_Item(int index)
+  void set_Item(int index, Installer value)
+  int Add(Installer value)
+  void AddRange(Installer[] value)
+  void AddRange(InstallerCollection value)
+  bool Contains(Installer value)
+  void CopyTo(Installer[] array, int index)
+  int IndexOf(Installer value)
+  void Insert(int index, Installer value)
+  void OnInsert(int index, object value)
+  void OnRemove(int index, object value)
+  void OnSet(int index, object oldValue, object newValue)
+  void Remove(Installer value)
+--------------------------------------------------
+Класс: System.Configuration.Install.ManagedInstallerClass
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  int System.Configuration.Install.IManagedInstaller.ManagedInstall(string argString, int hInstall)
+  void InstallHelper(String[] args)
+--------------------------------------------------
+Класс: System.Configuration.Install.TransactedInstaller
+Наследуется от: Installer
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void Install(IDictionary savedState)
+  void Uninstall(IDictionary savedState)
+--------------------------------------------------
+Класс: System.Configuration.Install.UninstallAction
+Наследуется от: Enum
+Поля:
+  int value__
+  UninstallAction NoAction
+  UninstallAction Remove
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.MonoTODOAttribute
+Наследуется от: Attribute
+Поля:
+  string comment
+Свойства:
+  string Comment
+Методы:
+  void .ctor()
+  void .ctor(string comment)
+  string get_Comment()
+--------------------------------------------------
+Класс: System.MonoDocumentationNoteAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoExtensionAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoInternalNoteAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoLimitationAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoNotSupportedAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.Diagnostics.EventLogInstaller
+Наследуется от: ComponentInstaller
+Поля:
+  string _log
+  string _source
+  UninstallAction _uninstallAction
+  string _categoryResourceFile
+  string _messageResourceFile
+  string _parameterResourceFile
+Свойства:
+  int CategoryCount
+  string CategoryResourceFile
+  string MessageResourceFile
+  string ParameterResourceFile
+  string Log
+  string Source
+  UninstallAction UninstallAction
+Методы:
+  void .ctor()
+  int get_CategoryCount()
+  void set_CategoryCount(int value)
+  string get_CategoryResourceFile()
+  void set_CategoryResourceFile(string value)
+  string get_MessageResourceFile()
+  void set_MessageResourceFile(string value)
+  string get_ParameterResourceFile()
+  void set_ParameterResourceFile(string value)
+  void CopyFromComponent(IComponent component)
+  void Install(IDictionary stateSaver)
+  bool IsEquivalentInstaller(ComponentInstaller otherInstaller)
+  void Rollback(IDictionary savedState)
+  void Uninstall(IDictionary savedState)
+  string get_Log()
+  void set_Log(string value)
+  string get_Source()
+  void set_Source(string value)
+  UninstallAction get_UninstallAction()
+  void set_UninstallAction(UninstallAction value)
+--------------------------------------------------
+Класс: System.Diagnostics.PerformanceCounterInstaller
+Наследуется от: ComponentInstaller
+Поля:
+  string _categoryHelp
+  string _categoryName
+  CounterCreationDataCollection _counters
+  UninstallAction _uninstallAction
+  PerformanceCounterCategoryType _categoryType
+Свойства:
+  string CategoryHelp
+  string CategoryName
+  CounterCreationDataCollection Counters
+  UninstallAction UninstallAction
+  PerformanceCounterCategoryType CategoryType
+Методы:
+  void .ctor()
+  void CopyFromComponent(IComponent component)
+  void Install(IDictionary stateSaver)
+  void Rollback(IDictionary savedState)
+  void Uninstall(IDictionary savedState)
+  string get_CategoryHelp()
+  void set_CategoryHelp(string value)
+  string get_CategoryName()
+  void set_CategoryName(string value)
+  CounterCreationDataCollection get_Counters()
+  UninstallAction get_UninstallAction()
+  void set_UninstallAction(UninstallAction value)
+  PerformanceCounterCategoryType get_CategoryType()
+  void set_CategoryType(PerformanceCounterCategoryType value)
+--------------------------------------------------
+Класс: System.Configuration.Install.InstallEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, InstallEventArgs e)
+  IAsyncResult BeginInvoke(object sender, InstallEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------

@@ -1,0 +1,316 @@
+internal static class FxResources.System.Threading.Channels.SR : object {
+}
+internal class System.Collections.Concurrent.PaddingFor32 : ValueType {
+}
+internal static class System.Collections.Concurrent.PaddingHelpers : object {
+    internal static int CACHE_LINE_SIZE;
+}
+[DebuggerDisplayAttribute("Count = {Count}")]
+[DebuggerTypeProxyAttribute("System.Collections.Concurrent.SingleProducerSingleConsumerQueue`1/SingleProducerSingleConsumerQueue_DebugView")]
+internal class System.Collections.Concurrent.SingleProducerSingleConsumerQueue`1 : object {
+    private static int InitialSegmentSize;
+    private static int MaxSegmentSize;
+    private Segment modreq(System.Runtime.CompilerServices.IsVolatile) _head;
+    private Segment modreq(System.Runtime.CompilerServices.IsVolatile) _tail;
+    public bool IsEmpty { get; }
+    internal int Count { get; }
+    public void Enqueue(T item);
+    private void EnqueueSlow(T item, Segment& segment);
+    public bool TryDequeue(T& result);
+    private bool TryDequeueSlow(Segment& segment, T[]& array, T& result);
+    public bool get_IsEmpty();
+    [IteratorStateMachineAttribute("System.Collections.Concurrent.SingleProducerSingleConsumerQueue`1/<GetEnumerator>d__11")]
+public sealed virtual IEnumerator`1<T> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    internal int get_Count();
+}
+[DebuggerDisplayAttribute("Count = {_size}")]
+internal class System.Collections.Generic.Dequeue`1 : object {
+    private T[] _array;
+    private int _head;
+    private int _tail;
+    private int _size;
+    public int Count { get; }
+    public bool IsEmpty { get; }
+    public int get_Count();
+    public bool get_IsEmpty();
+    public void EnqueueTail(T item);
+    public T DequeueHead();
+    public T DequeueTail();
+    [IteratorStateMachineAttribute("System.Collections.Generic.Dequeue`1/<GetEnumerator>d__11")]
+public IEnumerator`1<T> GetEnumerator();
+    private void Grow();
+}
+[AttributeUsageAttribute("32767")]
+internal class System.Runtime.CompilerServices.__BlockReflectionAttribute : Attribute {
+}
+internal static class System.SR : object {
+    private static ResourceManager s_resourceManager;
+    [CompilerGeneratedAttribute]
+private static Type <ResourceType>k__BackingField;
+    private static ResourceManager ResourceManager { get; }
+    internal static Type ResourceType { get; }
+    internal static string ChannelClosedException_DefaultMessage { get; }
+    internal static string InvalidOperation_IncompleteAsyncOperation { get; }
+    internal static string InvalidOperation_MultipleContinuations { get; }
+    internal static string InvalidOperation_IncorrectToken { get; }
+    private static SR();
+    private static ResourceManager get_ResourceManager();
+    private static bool UsingResourceKeys();
+    internal static string GetResourceString(string resourceKey, string defaultString);
+    internal static string Format(string resourceFormat, Object[] args);
+    internal static string Format(string resourceFormat, object p1);
+    internal static string Format(string resourceFormat, object p1, object p2);
+    internal static string Format(string resourceFormat, object p1, object p2, object p3);
+    [CompilerGeneratedAttribute]
+internal static Type get_ResourceType();
+    internal static string get_ChannelClosedException_DefaultMessage();
+    internal static string get_InvalidOperation_IncompleteAsyncOperation();
+    internal static string get_InvalidOperation_MultipleContinuations();
+    internal static string get_InvalidOperation_IncorrectToken();
+}
+internal abstract class System.Threading.Channels.AsyncOperation : object {
+    protected static Action`1<object> s_availableSentinel;
+    protected static Action`1<object> s_completedSentinel;
+    private static AsyncOperation();
+    protected static void ThrowIncompleteOperationException();
+    protected static void ThrowMultipleContinuations();
+    protected static void ThrowIncorrectCurrentIdException();
+}
+internal class System.Threading.Channels.AsyncOperation`1 : AsyncOperation {
+    private CancellationTokenRegistration _registration;
+    private bool _pooled;
+    private bool _runContinuationsAsynchronously;
+    private Int32 modreq(System.Runtime.CompilerServices.IsVolatile) _completionReserved;
+    private TResult _result;
+    private ExceptionDispatchInfo _error;
+    private Action`1<object> _continuation;
+    private object _continuationState;
+    private object _schedulingContext;
+    private ExecutionContext _executionContext;
+    private short _currentId;
+    [CompilerGeneratedAttribute]
+private AsyncOperation`1<TResult> <Next>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CancellationToken <CancellationToken>k__BackingField;
+    public AsyncOperation`1<TResult> Next { get; public set; }
+    public CancellationToken CancellationToken { get; }
+    public ValueTask ValueTask { get; }
+    public ValueTask`1<TResult> ValueTaskOfT { get; }
+    internal bool IsCompleted { get; }
+    public AsyncOperation`1(bool runContinuationsAsynchronously, CancellationToken cancellationToken, bool pooled);
+    [CompilerGeneratedAttribute]
+public AsyncOperation`1<TResult> get_Next();
+    [CompilerGeneratedAttribute]
+public void set_Next(AsyncOperation`1<TResult> value);
+    [CompilerGeneratedAttribute]
+public CancellationToken get_CancellationToken();
+    public ValueTask get_ValueTask();
+    public ValueTask`1<TResult> get_ValueTaskOfT();
+    public sealed virtual ValueTaskSourceStatus GetStatus(short token);
+    internal bool get_IsCompleted();
+    public sealed virtual TResult GetResult(short token);
+    private sealed virtual override void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token);
+    public bool TryOwnAndReset();
+    public sealed virtual void OnCompleted(Action`1<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags);
+    public void UnregisterCancellation();
+    public bool TrySetResult(TResult item);
+    public bool TrySetException(Exception exception);
+    public bool TrySetCanceled(CancellationToken cancellationToken);
+    private bool TryReserveCompletionIfCancelable();
+    private void SignalCompletion();
+    private void SignalCompletionCore();
+    private void SetCompletionAndInvokeContinuation();
+}
+[DebuggerDisplayAttribute("Items={ItemsCountForDebugger}, Capacity={_bufferedCapacity}, Mode={_mode}, Closed={ChannelIsClosedForDebugger}")]
+[DebuggerTypeProxyAttribute("System.Threading.Channels.DebugEnumeratorDebugView`1")]
+internal class System.Threading.Channels.BoundedChannel`1 : Channel`1<T> {
+    private BoundedChannelFullMode _mode;
+    private TaskCompletionSource`1<VoidResult> _completion;
+    private int _bufferedCapacity;
+    private Dequeue`1<T> _items;
+    private Dequeue`1<AsyncOperation`1<T>> _blockedReaders;
+    private Dequeue`1<VoidAsyncOperationWithData`1<T>> _blockedWriters;
+    private AsyncOperation`1<bool> _waitingReadersTail;
+    private AsyncOperation`1<bool> _waitingWritersTail;
+    private bool _runContinuationsAsynchronously;
+    private Exception _doneWriting;
+    private object SyncObj { get; }
+    private int ItemsCountForDebugger { get; }
+    private bool ChannelIsClosedForDebugger { get; }
+    internal BoundedChannel`1(int bufferedCapacity, BoundedChannelFullMode mode, bool runContinuationsAsynchronously);
+    private object get_SyncObj();
+    [ConditionalAttribute("DEBUG")]
+private void AssertInvariants();
+    private int get_ItemsCountForDebugger();
+    private bool get_ChannelIsClosedForDebugger();
+    private sealed virtual override IEnumerator`1<T> System.Threading.Channels.IDebugEnumerable<T>.GetEnumerator();
+}
+public enum System.Threading.Channels.BoundedChannelFullMode : Enum {
+    public int value__;
+    public static BoundedChannelFullMode Wait;
+    public static BoundedChannelFullMode DropNewest;
+    public static BoundedChannelFullMode DropOldest;
+    public static BoundedChannelFullMode DropWrite;
+}
+public class System.Threading.Channels.BoundedChannelOptions : ChannelOptions {
+    private int _capacity;
+    private BoundedChannelFullMode _mode;
+    public int Capacity { get; public set; }
+    public BoundedChannelFullMode FullMode { get; public set; }
+    public BoundedChannelOptions(int capacity);
+    public int get_Capacity();
+    public void set_Capacity(int value);
+    public BoundedChannelFullMode get_FullMode();
+    public void set_FullMode(BoundedChannelFullMode value);
+}
+public static class System.Threading.Channels.Channel : object {
+    public static Channel`1<T> CreateUnbounded();
+    public static Channel`1<T> CreateUnbounded(UnboundedChannelOptions options);
+    public static Channel`1<T> CreateBounded(int capacity);
+    public static Channel`1<T> CreateBounded(BoundedChannelOptions options);
+}
+public abstract class System.Threading.Channels.Channel`1 : Channel`2<T, T> {
+}
+public abstract class System.Threading.Channels.Channel`2 : object {
+    [CompilerGeneratedAttribute]
+private ChannelReader`1<TRead> <Reader>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ChannelWriter`1<TWrite> <Writer>k__BackingField;
+    public ChannelReader`1<TRead> Reader { get; protected set; }
+    public ChannelWriter`1<TWrite> Writer { get; protected set; }
+    [CompilerGeneratedAttribute]
+public ChannelReader`1<TRead> get_Reader();
+    [CompilerGeneratedAttribute]
+protected void set_Reader(ChannelReader`1<TRead> value);
+    [CompilerGeneratedAttribute]
+public ChannelWriter`1<TWrite> get_Writer();
+    [CompilerGeneratedAttribute]
+protected void set_Writer(ChannelWriter`1<TWrite> value);
+    public static ChannelReader`1<TRead> op_Implicit(Channel`2<TWrite, TRead> channel);
+    public static ChannelWriter`1<TWrite> op_Implicit(Channel`2<TWrite, TRead> channel);
+}
+public class System.Threading.Channels.ChannelClosedException : InvalidOperationException {
+    public ChannelClosedException(string message);
+    public ChannelClosedException(Exception innerException);
+    public ChannelClosedException(string message, Exception innerException);
+}
+public abstract class System.Threading.Channels.ChannelOptions : object {
+    [CompilerGeneratedAttribute]
+private bool <SingleWriter>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <SingleReader>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <AllowSynchronousContinuations>k__BackingField;
+    public bool SingleWriter { get; public set; }
+    public bool SingleReader { get; public set; }
+    public bool AllowSynchronousContinuations { get; public set; }
+    [CompilerGeneratedAttribute]
+public bool get_SingleWriter();
+    [CompilerGeneratedAttribute]
+public void set_SingleWriter(bool value);
+    [CompilerGeneratedAttribute]
+public bool get_SingleReader();
+    [CompilerGeneratedAttribute]
+public void set_SingleReader(bool value);
+    [CompilerGeneratedAttribute]
+public bool get_AllowSynchronousContinuations();
+    [CompilerGeneratedAttribute]
+public void set_AllowSynchronousContinuations(bool value);
+}
+public abstract class System.Threading.Channels.ChannelReader`1 : object {
+    public Task Completion { get; }
+    public virtual Task get_Completion();
+    public abstract virtual bool TryRead(T& item);
+    public abstract virtual ValueTask`1<bool> WaitToReadAsync(CancellationToken cancellationToken);
+    public virtual ValueTask`1<T> ReadAsync(CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Threading.Channels.ChannelReader`1/<<ReadAsync>g__ReadAsyncCore|4_0>d")]
+[CompilerGeneratedAttribute]
+private ValueTask`1<T> <ReadAsync>g__ReadAsyncCore|4_0(CancellationToken ct);
+}
+internal static class System.Threading.Channels.ChannelUtilities : object {
+    internal static Exception s_doneWritingSentinel;
+    internal static Task`1<bool> s_trueTask;
+    internal static Task`1<bool> s_falseTask;
+    internal static Task s_neverCompletingTask;
+    private static ChannelUtilities();
+    internal static void Complete(TaskCompletionSource`1<VoidResult> tcs, Exception error);
+    internal static ValueTask`1<T> GetInvalidCompletionValueTask(Exception error);
+    internal static ValueTask`1<bool> QueueWaiter(AsyncOperation`1& tail, AsyncOperation`1<bool> waiter);
+    internal static void WakeUpWaiters(AsyncOperation`1& listTail, bool result, Exception error);
+    internal static void FailOperations(Dequeue`1<T> operations, Exception error);
+    internal static Exception CreateInvalidCompletionException(Exception inner);
+}
+public abstract class System.Threading.Channels.ChannelWriter`1 : object {
+    public virtual bool TryComplete(Exception error);
+    public abstract virtual bool TryWrite(T item);
+    public abstract virtual ValueTask`1<bool> WaitToWriteAsync(CancellationToken cancellationToken);
+    public virtual ValueTask WriteAsync(T item, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Threading.Channels.ChannelWriter`1/<WriteAsyncCore>d__4")]
+private Task WriteAsyncCore(T innerItem, CancellationToken ct);
+    public void Complete(Exception error);
+}
+internal class System.Threading.Channels.DebugEnumeratorDebugView`1 : object {
+    [CompilerGeneratedAttribute]
+private T[] <Items>k__BackingField;
+    [DebuggerBrowsableAttribute("3")]
+public T[] Items { get; }
+    public DebugEnumeratorDebugView`1(IDebugEnumerable`1<T> enumerable);
+    [CompilerGeneratedAttribute]
+public T[] get_Items();
+}
+internal interface System.Threading.Channels.IDebugEnumerable`1 {
+    public abstract virtual IEnumerator`1<T> GetEnumerator();
+}
+[DebuggerDisplayAttribute("Items={ItemsCountForDebugger}, Closed={ChannelIsClosedForDebugger}")]
+[DebuggerTypeProxyAttribute("System.Threading.Channels.DebugEnumeratorDebugView`1")]
+internal class System.Threading.Channels.SingleConsumerUnboundedChannel`1 : Channel`1<T> {
+    private TaskCompletionSource`1<VoidResult> _completion;
+    private SingleProducerSingleConsumerQueue`1<T> _items;
+    private bool _runContinuationsAsynchronously;
+    private Exception modreq(System.Runtime.CompilerServices.IsVolatile) _doneWriting;
+    private AsyncOperation`1<T> _blockedReader;
+    private AsyncOperation`1<bool> _waitingReader;
+    private object SyncObj { get; }
+    private int ItemsCountForDebugger { get; }
+    private bool ChannelIsClosedForDebugger { get; }
+    internal SingleConsumerUnboundedChannel`1(bool runContinuationsAsynchronously);
+    private object get_SyncObj();
+    private int get_ItemsCountForDebugger();
+    private bool get_ChannelIsClosedForDebugger();
+    private sealed virtual override IEnumerator`1<T> System.Threading.Channels.IDebugEnumerable<T>.GetEnumerator();
+}
+[DebuggerDisplayAttribute("Items={ItemsCountForDebugger}, Closed={ChannelIsClosedForDebugger}")]
+[DebuggerTypeProxyAttribute("System.Threading.Channels.DebugEnumeratorDebugView`1")]
+internal class System.Threading.Channels.UnboundedChannel`1 : Channel`1<T> {
+    private TaskCompletionSource`1<VoidResult> _completion;
+    private ConcurrentQueue`1<T> _items;
+    private Dequeue`1<AsyncOperation`1<T>> _blockedReaders;
+    private bool _runContinuationsAsynchronously;
+    private AsyncOperation`1<bool> _waitingReadersTail;
+    private Exception _doneWriting;
+    private object SyncObj { get; }
+    private int ItemsCountForDebugger { get; }
+    private bool ChannelIsClosedForDebugger { get; }
+    internal UnboundedChannel`1(bool runContinuationsAsynchronously);
+    private object get_SyncObj();
+    [ConditionalAttribute("DEBUG")]
+private void AssertInvariants();
+    private int get_ItemsCountForDebugger();
+    private bool get_ChannelIsClosedForDebugger();
+    private sealed virtual override IEnumerator`1<T> System.Threading.Channels.IDebugEnumerable<T>.GetEnumerator();
+}
+public class System.Threading.Channels.UnboundedChannelOptions : ChannelOptions {
+}
+internal class System.Threading.Channels.VoidAsyncOperationWithData`1 : AsyncOperation`1<VoidResult> {
+    [CompilerGeneratedAttribute]
+private TData <Item>k__BackingField;
+    public TData Item { get; public set; }
+    public VoidAsyncOperationWithData`1(bool runContinuationsAsynchronously, CancellationToken cancellationToken, bool pooled);
+    [CompilerGeneratedAttribute]
+public TData get_Item();
+    [CompilerGeneratedAttribute]
+public void set_Item(TData value);
+}
+internal class System.VoidResult : ValueType {
+}

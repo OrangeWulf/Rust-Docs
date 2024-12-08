@@ -1,0 +1,153 @@
+Сборка: Rust.Demo.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.Demo.Defines
+Наследуется от: object
+Поля:
+  string Ident
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.Demo.Indexer
+Наследуется от: object
+Поля:
+  List`1<Keyframe> keyframes
+  long LastPacketTime
+  long PacketCount
+  Dictionary`2<NetworkableId, Entity> currentEnts
+  long NextKeyframe
+  List`1<NetworkableId> Updated
+Свойства:
+  TimeSpan TotalLength
+  long Interval
+Методы:
+  TimeSpan get_TotalLength()
+  long get_Interval()
+  void .ctor(Reader reader)
+  void ProcessPacket(Packet packet)
+  void EntityUpdated(NetworkableId ent)
+  void EntityPosition(BinaryReader reader)
+  void RpcMessage(BinaryReader reader)
+  Keyframe LookupKeyframeForTime(long time)
+  Keyframe GetKeyframe(int index)
+  HashSet`1<NetworkableId> GetChangedEntities(long from, long to)
+  void EntityDestroy(BinaryReader reader)
+  void Entities(BinaryReader reader)
+  void TryCreateKeyframe(Packet packet)
+--------------------------------------------------
+Класс: Rust.Demo.MessageType
+Наследуется от: Enum
+Поля:
+  byte value__
+  MessageType Welcome
+  MessageType Auth
+  MessageType Approved
+  MessageType Ready
+  MessageType Entities
+  MessageType EntityDestroy
+  MessageType GroupChange
+  MessageType GroupDestroy
+  MessageType RPCMessage
+  MessageType EntityPosition
+  MessageType ConsoleMessage
+  MessageType ConsoleCommand
+  MessageType Effect
+  MessageType DisconnectReason
+  MessageType Tick
+  MessageType Message
+  MessageType RequestUserInformation
+  MessageType GiveUserInformation
+  MessageType GroupEnter
+  MessageType GroupLeave
+  MessageType VoiceData
+  MessageType EAC
+  MessageType EntityFlags
+  MessageType Last
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.Demo.Packet
+Наследуется от: ValueType
+Поля:
+  long Position
+  int Size
+  long Time
+  Byte[] Data
+Свойства:
+  bool isValid
+Методы:
+  bool get_isValid()
+--------------------------------------------------
+Класс: Rust.Demo.PlaybackStats
+Наследуется от: object
+Поля:
+  int Frames
+  int Packets
+  TimeSpan TotalTime
+  TimeSpan DemoLength
+Свойства:
+Методы:
+  void Reset()
+--------------------------------------------------
+Класс: Rust.Demo.Reader
+Наследуется от: object
+Поля:
+  Reader <Active>k__BackingField
+  Stream stream
+  BinaryReader reader
+  string <Name>k__BackingField
+  long <CurrentTime>k__BackingField
+  Indexer <Index>k__BackingField
+  DemoHeader <Header>k__BackingField
+  Action`2<Keyframe, HashSet`1<NetworkableId>> OnScrubToKeyframe
+  bool _isScrubbing
+  float realTimeLastScrub
+  long <startPosition>k__BackingField
+  bool <IsPaused>k__BackingField
+Свойства:
+  Reader Active
+  string Name
+  long CurrentTime
+  Indexer Index
+  DemoHeader Header
+  bool IsScrubbing
+  bool JustScrubbed
+  long startPosition
+  bool IsFinished
+  bool IsPaused
+Методы:
+  Reader get_Active()
+  void set_Active(Reader value)
+  string get_Name()
+  void set_Name(string value)
+  long get_CurrentTime()
+  void set_CurrentTime(long value)
+  Indexer get_Index()
+  void set_Index(Indexer value)
+  DemoHeader get_Header()
+  void set_Header(DemoHeader value)
+  bool get_IsScrubbing()
+  void set_IsScrubbing(bool value)
+  bool get_JustScrubbed()
+  long get_startPosition()
+  void set_startPosition(long value)
+  void Play()
+  void Pause()
+  void .ctor(string name, Stream stream)
+  void SetActive()
+  void JumpTo(long time)
+  void CreateIndex()
+  void ReadHeader()
+  bool get_IsFinished()
+  bool get_IsPaused()
+  void set_IsPaused(bool value)
+  Reader FromFile(string filename)
+  void Stop()
+  void Progress(long timeAmountMs)
+  void ResetToStart()
+  Packet ReadPacket()
+--------------------------------------------------

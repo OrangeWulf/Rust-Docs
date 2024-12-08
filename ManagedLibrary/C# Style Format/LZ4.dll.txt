@@ -1,0 +1,222 @@
+internal interface LZ4.ILZ4Service {
+    public string CodecName { get; }
+    public abstract virtual string get_CodecName();
+    public abstract virtual int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public abstract virtual int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public abstract virtual int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength);
+}
+public static class LZ4.LZ4Codec : object {
+    private static int WRAP_OFFSET_0;
+    private static int WRAP_OFFSET_4;
+    private static int WRAP_OFFSET_8;
+    private static int WRAP_LENGTH;
+    private static ILZ4Service Encoder;
+    private static ILZ4Service EncoderHC;
+    private static ILZ4Service Decoder;
+    private static ILZ4Service _service_MM32;
+    private static ILZ4Service _service_MM64;
+    private static ILZ4Service _service_CC32;
+    private static ILZ4Service _service_CC64;
+    private static ILZ4Service _service_N32;
+    private static ILZ4Service _service_N64;
+    private static ILZ4Service _service_S32;
+    private static ILZ4Service _service_S64;
+    public static string CodecName { get; }
+    private static LZ4Codec();
+    private static bool Has2010Runtime();
+    private static void InitializeLZ4mm();
+    private static void InitializeLZ4cc();
+    private static void InitializeLZ4n();
+    private static void InitializeLZ4s();
+    private static void SelectCodec(ILZ4Service& encoder, ILZ4Service& decoder, ILZ4Service& encoderHC);
+    private static ILZ4Service AutoTest(ILZ4Service service);
+    private static void Try(Action method);
+    private static T Try(Func`1<T> method, T defaultValue);
+    private static ILZ4Service TryService();
+    public static string get_CodecName();
+    public static int MaximumOutputLength(int inputLength);
+    public static int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public static Byte[] Encode(Byte[] input, int inputOffset, int inputLength);
+    public static int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public static Byte[] EncodeHC(Byte[] input, int inputOffset, int inputLength);
+    public static int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength);
+    public static Byte[] Decode(Byte[] input, int inputOffset, int inputLength, int outputLength);
+    private static void Poke4(Byte[] buffer, int offset, UInt32 value);
+    private static UInt32 Peek4(Byte[] buffer, int offset);
+    private static Byte[] Wrap(Byte[] inputBuffer, int inputOffset, int inputLength, bool highCompression);
+    public static Byte[] Wrap(Byte[] inputBuffer, int inputOffset, int inputLength);
+    public static Byte[] WrapHC(Byte[] inputBuffer, int inputOffset, int inputLength);
+    public static Byte[] Unwrap(Byte[] inputBuffer, int inputOffset);
+}
+public class LZ4.LZ4Stream : Stream {
+    private Stream _innerStream;
+    private LZ4StreamMode _compressionMode;
+    private bool _highCompression;
+    private bool _interactiveRead;
+    private bool _isolateInnerStream;
+    private int _blockSize;
+    private Byte[] _buffer;
+    private int _bufferLength;
+    private int _bufferOffset;
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    [ObsoleteAttribute("This constructor is obsolete")]
+public LZ4Stream(Stream innerStream, LZ4StreamMode compressionMode, bool highCompression, int blockSize, bool interactiveRead);
+    public LZ4Stream(Stream innerStream, LZ4StreamMode compressionMode, LZ4StreamFlags compressionFlags, int blockSize);
+    private static NotSupportedException NotSupported(string operationName);
+    private static EndOfStreamException EndOfStream();
+    private bool TryReadVarInt(UInt64& result);
+    private ulong ReadVarInt();
+    private int ReadBlock(Byte[] buffer, int offset, int length);
+    private void WriteVarInt(ulong value);
+    private void FlushCurrentChunk();
+    private bool AcquireNextChunk();
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual void Flush();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual int ReadByte();
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public virtual void WriteByte(byte value);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    protected virtual void Dispose(bool disposing);
+}
+[FlagsAttribute]
+public enum LZ4.LZ4StreamFlags : Enum {
+    public int value__;
+    public static LZ4StreamFlags None;
+    public static LZ4StreamFlags InteractiveRead;
+    public static LZ4StreamFlags HighCompression;
+    public static LZ4StreamFlags IsolateInnerStream;
+    public static LZ4StreamFlags Default;
+}
+public enum LZ4.LZ4StreamMode : Enum {
+    public int value__;
+    public static LZ4StreamMode Compress;
+    public static LZ4StreamMode Decompress;
+}
+internal class LZ4.Services.Safe32LZ4Service : object {
+    public string CodecName { get; }
+    public sealed virtual string get_CodecName();
+    public sealed virtual int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public sealed virtual int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength);
+    public sealed virtual int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+}
+internal class LZ4.Services.Safe64LZ4Service : object {
+    public string CodecName { get; }
+    public sealed virtual string get_CodecName();
+    public sealed virtual int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public sealed virtual int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength);
+    public sealed virtual int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+}
+internal class LZ4.Services.Unsafe32LZ4Service : object {
+    public string CodecName { get; }
+    public sealed virtual string get_CodecName();
+    public sealed virtual int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public sealed virtual int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength);
+    public sealed virtual int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+}
+internal class LZ4.Services.Unsafe64LZ4Service : object {
+    public string CodecName { get; }
+    public sealed virtual string get_CodecName();
+    public sealed virtual int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public sealed virtual int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength);
+    public sealed virtual int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+}
+public static class LZ4ps.LZ4Codec : object {
+    private static int MEMORY_USAGE;
+    private static int NOTCOMPRESSIBLE_DETECTIONLEVEL;
+    private static int BLOCK_COPY_LIMIT;
+    private static int MINMATCH;
+    private static int SKIPSTRENGTH;
+    private static int COPYLENGTH;
+    private static int LASTLITERALS;
+    private static int MFLIMIT;
+    private static int MINLENGTH;
+    private static int MAXD_LOG;
+    private static int MAXD;
+    private static int MAXD_MASK;
+    private static int MAX_DISTANCE;
+    private static int ML_BITS;
+    private static int ML_MASK;
+    private static int RUN_BITS;
+    private static int RUN_MASK;
+    private static int STEPSIZE_64;
+    private static int STEPSIZE_32;
+    private static int LZ4_64KLIMIT;
+    private static int HASH_LOG;
+    private static int HASH_TABLESIZE;
+    private static int HASH_ADJUST;
+    private static int HASH64K_LOG;
+    private static int HASH64K_TABLESIZE;
+    private static int HASH64K_ADJUST;
+    private static int HASHHC_LOG;
+    private static int HASHHC_TABLESIZE;
+    private static int HASHHC_ADJUST;
+    private static int MAX_NB_ATTEMPTS;
+    private static int OPTIMAL_ML;
+    private static Int32[] DECODER_TABLE_32;
+    private static Int32[] DECODER_TABLE_64;
+    private static Int32[] DEBRUIJN_TABLE_32;
+    private static Int32[] DEBRUIJN_TABLE_64;
+    private static LZ4Codec();
+    public static int MaximumOutputLength(int inputLength);
+    internal static void CheckArguments(Byte[] input, int inputOffset, Int32& inputLength, Byte[] output, int outputOffset, Int32& outputLength);
+    [ConditionalAttribute("DEBUG")]
+private static void Assert(bool condition, string errorMessage);
+    internal static void Poke2(Byte[] buffer, int offset, ushort value);
+    internal static ushort Peek2(Byte[] buffer, int offset);
+    internal static UInt32 Peek4(Byte[] buffer, int offset);
+    private static UInt32 Xor4(Byte[] buffer, int offset1, int offset2);
+    private static ulong Xor8(Byte[] buffer, int offset1, int offset2);
+    private static bool Equal2(Byte[] buffer, int offset1, int offset2);
+    private static bool Equal4(Byte[] buffer, int offset1, int offset2);
+    private static void Copy4(Byte[] buf, int src, int dst);
+    private static void Copy8(Byte[] buf, int src, int dst);
+    private static void BlockCopy(Byte[] src, int src_0, Byte[] dst, int dst_0, int len);
+    private static int WildCopy(Byte[] src, int src_0, Byte[] dst, int dst_0, int dst_end);
+    private static int SecureCopy(Byte[] buffer, int src, int dst, int dst_end);
+    public static int Encode32(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public static Byte[] Encode32(Byte[] input, int inputOffset, int inputLength);
+    public static int Encode64(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public static Byte[] Encode64(Byte[] input, int inputOffset, int inputLength);
+    public static int Decode32(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength);
+    public static Byte[] Decode32(Byte[] input, int inputOffset, int inputLength, int outputLength);
+    public static int Decode64(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength);
+    public static Byte[] Decode64(Byte[] input, int inputOffset, int inputLength, int outputLength);
+    private static LZ4HC_Data_Structure LZ4HC_Create(Byte[] src, int src_0, int src_len, Byte[] dst, int dst_0, int dst_len);
+    private static int LZ4_compressHC_32(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public static int Encode32HC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public static Byte[] Encode32HC(Byte[] input, int inputOffset, int inputLength);
+    private static int LZ4_compressHC_64(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public static int Encode64HC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength);
+    public static Byte[] Encode64HC(Byte[] input, int inputOffset, int inputLength);
+    private static int LZ4_compressCtx_safe32(Int32[] hash_table, Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen);
+    private static int LZ4_compress64kCtx_safe32(UInt16[] hash_table, Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen);
+    private static int LZ4_uncompress_safe32(Byte[] src, Byte[] dst, int src_0, int dst_0, int dst_len);
+    private static int LZ4_uncompress_unknownOutputSize_safe32(Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen);
+    private static void LZ4HC_Insert_32(LZ4HC_Data_Structure ctx, int src_p);
+    private static int LZ4HC_CommonLength_32(LZ4HC_Data_Structure ctx, int p1, int p2);
+    private static int LZ4HC_InsertAndFindBestMatch_32(LZ4HC_Data_Structure ctx, int src_p, Int32& src_match);
+    private static int LZ4HC_InsertAndGetWiderMatch_32(LZ4HC_Data_Structure ctx, int src_p, int startLimit, int longest, Int32& matchpos, Int32& startpos);
+    private static int LZ4_encodeSequence_32(LZ4HC_Data_Structure ctx, Int32& src_p, Int32& dst_p, Int32& src_anchor, int matchLength, int src_ref, int dst_end);
+    private static int LZ4_compressHCCtx_32(LZ4HC_Data_Structure ctx);
+    private static int LZ4_compressCtx_safe64(Int32[] hash_table, Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen);
+    private static int LZ4_compress64kCtx_safe64(UInt16[] hash_table, Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen);
+    private static int LZ4_uncompress_safe64(Byte[] src, Byte[] dst, int src_0, int dst_0, int dst_len);
+    private static int LZ4_uncompress_unknownOutputSize_safe64(Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen);
+    private static void LZ4HC_Insert_64(LZ4HC_Data_Structure ctx, int src_p);
+    private static int LZ4HC_CommonLength_64(LZ4HC_Data_Structure ctx, int p1, int p2);
+    private static int LZ4HC_InsertAndFindBestMatch_64(LZ4HC_Data_Structure ctx, int src_p, Int32& matchpos);
+    private static int LZ4HC_InsertAndGetWiderMatch_64(LZ4HC_Data_Structure ctx, int src_p, int startLimit, int longest, Int32& matchpos, Int32& startpos);
+    private static int LZ4_encodeSequence_64(LZ4HC_Data_Structure ctx, Int32& src_p, Int32& dst_p, Int32& src_anchor, int matchLength, int src_ref);
+    private static int LZ4_compressHCCtx_64(LZ4HC_Data_Structure ctx);
+}

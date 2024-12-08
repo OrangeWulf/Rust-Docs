@@ -1,0 +1,2973 @@
+Сборка: System.Data.SQLite.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.AssemblySourceIdAttribute
+Наследуется от: Attribute
+Поля:
+  string sourceId
+Свойства:
+  string SourceId
+Методы:
+  void .ctor(string value)
+  string get_SourceId()
+--------------------------------------------------
+Класс: System.Data.SQLite.AssemblySourceTimeStampAttribute
+Наследуется от: Attribute
+Поля:
+  string sourceTimeStamp
+Свойства:
+  string SourceTimeStamp
+Методы:
+  void .ctor(string value)
+  string get_SourceTimeStamp()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteLogCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr pUserData, int errorCode, IntPtr pMessage)
+  IAsyncResult BeginInvoke(IntPtr pUserData, int errorCode, IntPtr pMessage, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConvert
+Наследуется от: object
+Поля:
+  DbType FallbackDefaultDbType
+  string FullFormat
+  string FallbackDefaultTypeName
+  DateTime UnixEpoch
+  double OleAutomationEpochAsJulianDay
+  long MinimumJd
+  long MaximumJd
+  String[] _datetimeFormats
+  string _datetimeFormatUtc
+  string _datetimeFormatLocal
+  Encoding _utf8
+  SQLiteDateFormats _datetimeFormat
+  DateTimeKind _datetimeKind
+  string _datetimeFormatString
+  Type[] _affinitytotype
+  DbType[] _typetodbtype
+  Int32[] _dbtypetocolumnsize
+  Object[] _dbtypetonumericprecision
+  Object[] _dbtypetonumericscale
+  Type[] _dbtypeToType
+  TypeAffinity[] _typecodeAffinities
+  object _syncRoot
+  SQLiteDbTypeMap _typeNames
+Свойства:
+Методы:
+  void .ctor(SQLiteDateFormats fmt, DateTimeKind kind, string fmtString)
+  Byte[] ToUTF8(string sourceText)
+  Byte[] ToUTF8(DateTime dateTimeValue)
+  string ToString(IntPtr nativestring, int nativestringlen)
+  string UTF8ToString(IntPtr nativestring, int nativestringlen)
+  bool isValidJd(long jd)
+  long DoubleToJd(double julianDay)
+  double JdToDouble(long jd)
+  DateTime computeYMD(long jd, Nullable`1<DateTime> badValue)
+  DateTime computeHMS(long jd, Nullable`1<DateTime> badValue)
+  long computeJD(DateTime dateTime)
+  DateTime ToDateTime(string dateText)
+  DateTime ToDateTime(string dateText, SQLiteDateFormats format, DateTimeKind kind, string formatString)
+  DateTime ToDateTime(double julianDay)
+  DateTime ToDateTime(double julianDay, DateTimeKind kind)
+  DateTime ToDateTime(int seconds, DateTimeKind kind)
+  DateTime ToDateTime(long ticks, DateTimeKind kind)
+  double ToJulianDay(DateTime value)
+  long ToUnixEpoch(DateTime value)
+  string GetDateTimeKindFormat(DateTimeKind kind, string formatString)
+  string ToString(DateTime dateValue)
+  string ToString(DateTime dateValue, SQLiteDateFormats format, DateTimeKind kind, string formatString)
+  DateTime ToDateTime(IntPtr ptr, int len)
+  String[] Split(string source, char separator)
+  String[] NewSplit(string value, char separator, bool keepQuote, String& error)
+  string ToStringWithProvider(object obj, IFormatProvider provider)
+  bool ToBoolean(object obj, IFormatProvider provider, bool viaFramework)
+  bool ToBoolean(object source)
+  bool ToBoolean(string source)
+  Type SQLiteTypeToType(SQLiteType t)
+  DbType TypeToDbType(Type typ)
+  int DbTypeToColumnSize(DbType typ)
+  object DbTypeToNumericPrecision(DbType typ)
+  object DbTypeToNumericScale(DbType typ)
+  string GetDefaultTypeName(SQLiteConnection connection)
+  void DefaultTypeNameWarning(DbType dbType, SQLiteConnectionFlags flags, string typeName)
+  void DefaultDbTypeWarning(string typeName, SQLiteConnectionFlags flags, Nullable`1<DbType> dbType)
+  string DbTypeToTypeName(SQLiteConnection connection, DbType dbType, SQLiteConnectionFlags flags)
+  Type DbTypeToType(DbType typ)
+  TypeAffinity TypeToAffinity(Type typ)
+  SQLiteDbTypeMap GetSQLiteDbTypeMap()
+  bool IsStringDbType(DbType type)
+  string SettingValueToString(object value)
+  DbType GetDefaultDbType(SQLiteConnection connection)
+  bool LooksLikeNull(string text)
+  bool LooksLikeInt64(string text)
+  bool LooksLikeDouble(string text)
+  bool LooksLikeDateTime(SQLiteConvert convert, string text)
+  DbType TypeNameToDbType(SQLiteConnection connection, string typeName, SQLiteConnectionFlags flags)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteBase
+Наследуется от: SQLiteConvert
+Поля:
+  int COR_E_EXCEPTION
+  bool disposed
+  String[] _errorMessages
+Свойства:
+  string Version
+  int VersionNumber
+  long LastInsertRowId
+  int Changes
+  long MemoryUsed
+  long MemoryHighwater
+  bool OwnHandle
+  bool AutoCommit
+Методы:
+  void .ctor(SQLiteDateFormats fmt, DateTimeKind kind, string fmtString)
+  string get_Version()
+  int get_VersionNumber()
+  long get_LastInsertRowId()
+  int get_Changes()
+  long get_MemoryUsed()
+  long get_MemoryHighwater()
+  bool get_OwnHandle()
+  SQLiteErrorCode SetMemoryStatus(bool value)
+  SQLiteErrorCode ReleaseMemory()
+  SQLiteErrorCode Shutdown()
+  bool IsOpen()
+  void Open(string strFilename, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, int maxPoolSize, bool usePool)
+  void Close(bool canThrow)
+  void SetTimeout(int nTimeoutMS)
+  string GetLastError()
+  string GetLastError(string defValue)
+  void ClearPool()
+  int CountPool()
+  SQLiteStatement Prepare(SQLiteConnection cnn, string strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+  bool Step(SQLiteStatement stmt)
+  bool IsReadOnly(SQLiteStatement stmt)
+  SQLiteErrorCode Reset(SQLiteStatement stmt)
+  void Cancel()
+  void BindFunction(SQLiteFunctionAttribute functionAttribute, SQLiteFunction function, SQLiteConnectionFlags flags)
+  void Bind_Double(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, double value)
+  void Bind_Int32(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, int value)
+  void Bind_UInt32(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, UInt32 value)
+  void Bind_Int64(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, long value)
+  void Bind_UInt64(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, ulong value)
+  void Bind_Text(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, string value)
+  void Bind_Blob(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, Byte[] blobData)
+  void Bind_DateTime(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, DateTime dt)
+  void Bind_Null(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index)
+  int Bind_ParamCount(SQLiteStatement stmt, SQLiteConnectionFlags flags)
+  string Bind_ParamName(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index)
+  int Bind_ParamIndex(SQLiteStatement stmt, SQLiteConnectionFlags flags, string paramName)
+  int ColumnCount(SQLiteStatement stmt)
+  string ColumnName(SQLiteStatement stmt, int index)
+  TypeAffinity ColumnAffinity(SQLiteStatement stmt, int index)
+  string ColumnType(SQLiteStatement stmt, int index, TypeAffinity& nAffinity)
+  int ColumnIndex(SQLiteStatement stmt, string columnName)
+  string ColumnOriginalName(SQLiteStatement stmt, int index)
+  string ColumnDatabaseName(SQLiteStatement stmt, int index)
+  string ColumnTableName(SQLiteStatement stmt, int index)
+  void ColumnMetaData(string dataBase, string table, string column, String& dataType, String& collateSequence, Boolean& notNull, Boolean& primaryKey, Boolean& autoIncrement)
+  void GetIndexColumnExtendedInfo(string database, string index, string column, Int32& sortMode, Int32& onError, String& collationSequence)
+  double GetDouble(SQLiteStatement stmt, int index)
+  sbyte GetSByte(SQLiteStatement stmt, int index)
+  byte GetByte(SQLiteStatement stmt, int index)
+  short GetInt16(SQLiteStatement stmt, int index)
+  ushort GetUInt16(SQLiteStatement stmt, int index)
+  int GetInt32(SQLiteStatement stmt, int index)
+  UInt32 GetUInt32(SQLiteStatement stmt, int index)
+  long GetInt64(SQLiteStatement stmt, int index)
+  ulong GetUInt64(SQLiteStatement stmt, int index)
+  string GetText(SQLiteStatement stmt, int index)
+  long GetBytes(SQLiteStatement stmt, int index, int nDataoffset, Byte[] bDest, int nStart, int nLength)
+  long GetChars(SQLiteStatement stmt, int index, int nDataoffset, Char[] bDest, int nStart, int nLength)
+  DateTime GetDateTime(SQLiteStatement stmt, int index)
+  bool IsNull(SQLiteStatement stmt, int index)
+  void CreateCollation(string strCollation, SQLiteCollation func, SQLiteCollation func16)
+  void CreateFunction(string strFunction, int nArgs, bool needCollSeq, SQLiteCallback func, SQLiteCallback funcstep, SQLiteFinalCallback funcfinal)
+  CollationSequence GetCollationSequence(SQLiteFunction func, IntPtr context)
+  int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, string s1, string s2)
+  int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, Char[] c1, Char[] c2)
+  int AggregateCount(IntPtr context)
+  IntPtr AggregateContext(IntPtr context)
+  long GetParamValueBytes(IntPtr ptr, int nDataOffset, Byte[] bDest, int nStart, int nLength)
+  double GetParamValueDouble(IntPtr ptr)
+  int GetParamValueInt32(IntPtr ptr)
+  long GetParamValueInt64(IntPtr ptr)
+  string GetParamValueText(IntPtr ptr)
+  TypeAffinity GetParamValueType(IntPtr ptr)
+  void ReturnBlob(IntPtr context, Byte[] value)
+  void ReturnDouble(IntPtr context, double value)
+  void ReturnError(IntPtr context, string value)
+  void ReturnInt32(IntPtr context, int value)
+  void ReturnInt64(IntPtr context, long value)
+  void ReturnNull(IntPtr context)
+  void ReturnText(IntPtr context, string value)
+  void CreateModule(SQLiteModule module, SQLiteConnectionFlags flags)
+  void DisposeModule(SQLiteModule module, SQLiteConnectionFlags flags)
+  SQLiteErrorCode DeclareVirtualTable(SQLiteModule module, string strSql, String& error)
+  SQLiteErrorCode DeclareVirtualFunction(SQLiteModule module, int argumentCount, string name, String& error)
+  void SetLoadExtension(bool bOnOff)
+  void LoadExtension(string fileName, string procName)
+  void SetExtendedResultCodes(bool bOnOff)
+  SQLiteErrorCode ResultCode()
+  SQLiteErrorCode ExtendedResultCode()
+  void LogMessage(SQLiteErrorCode iErrCode, string zMessage)
+  void SetPassword(Byte[] passwordBytes)
+  void ChangePassword(Byte[] newPasswordBytes)
+  void SetAuthorizerHook(SQLiteAuthorizerCallback func)
+  void SetUpdateHook(SQLiteUpdateCallback func)
+  void SetCommitHook(SQLiteCommitCallback func)
+  void SetTraceCallback(SQLiteTraceCallback func)
+  void SetRollbackHook(SQLiteRollbackCallback func)
+  SQLiteErrorCode SetLogCallback(SQLiteLogCallback func)
+  bool IsInitialized()
+  int GetCursorForTable(SQLiteStatement stmt, int database, int rootPage)
+  long GetRowIdForCursor(SQLiteStatement stmt, int cursor)
+  object GetValue(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, SQLiteType typ)
+  bool get_AutoCommit()
+  SQLiteErrorCode FileControl(string zDbName, int op, IntPtr pArg)
+  SQLiteBackup InitializeBackup(SQLiteConnection destCnn, string destName, string sourceName)
+  bool StepBackup(SQLiteBackup backup, int nPage, Boolean& retry)
+  int RemainingBackup(SQLiteBackup backup)
+  int PageCountBackup(SQLiteBackup backup)
+  void FinishBackup(SQLiteBackup backup)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+  string FallbackGetErrorString(SQLiteErrorCode rc)
+  string GetLastError(SQLiteConnectionHandle hdl, IntPtr db)
+  void FinishBackup(SQLiteConnectionHandle hdl, IntPtr backup)
+  void FinalizeStatement(SQLiteConnectionHandle hdl, IntPtr stmt)
+  void CloseConnection(SQLiteConnectionHandle hdl, IntPtr db)
+  void CloseConnectionV2(SQLiteConnectionHandle hdl, IntPtr db)
+  bool ResetConnection(SQLiteConnectionHandle hdl, IntPtr db, bool canThrow)
+  bool IsAutocommit(SQLiteConnectionHandle hdl, IntPtr db)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLite3
+Наследуется от: SQLiteBase
+Поля:
+  string PublicKey
+  string DesignerVersion
+  object syncRoot
+  SQLiteConnectionHandle _sql
+  string _fileName
+  bool _usePool
+  int _poolVersion
+  bool _buildingSchema
+  List`1<SQLiteFunction> _functions
+  Dictionary`2<string, SQLiteModule> _modules
+  bool disposed
+  Nullable`1<bool> have_errstr
+  Nullable`1<bool> have_stmt_readonly
+  Nullable`1<bool> forceLogPrepare
+Свойства:
+  string Version
+  int VersionNumber
+  string DefineConstants
+  string SQLiteVersion
+  int SQLiteVersionNumber
+  string SQLiteSourceId
+  string SQLiteCompileOptions
+  string InteropVersion
+  string InteropSourceId
+  string InteropCompileOptions
+  bool AutoCommit
+  long LastInsertRowId
+  int Changes
+  long MemoryUsed
+  long StaticMemoryUsed
+  long MemoryHighwater
+  long StaticMemoryHighwater
+  bool OwnHandle
+Методы:
+  void .ctor(SQLiteDateFormats fmt, DateTimeKind kind, string fmtString, IntPtr db, string fileName, bool ownHandle)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void DisposeModules()
+  void Close(bool canThrow)
+  void Cancel()
+  void BindFunction(SQLiteFunctionAttribute functionAttribute, SQLiteFunction function, SQLiteConnectionFlags flags)
+  string get_Version()
+  int get_VersionNumber()
+  string get_DefineConstants()
+  string get_SQLiteVersion()
+  int get_SQLiteVersionNumber()
+  string get_SQLiteSourceId()
+  string get_SQLiteCompileOptions()
+  string get_InteropVersion()
+  string get_InteropSourceId()
+  string get_InteropCompileOptions()
+  bool get_AutoCommit()
+  long get_LastInsertRowId()
+  int get_Changes()
+  long get_MemoryUsed()
+  long get_StaticMemoryUsed()
+  long get_MemoryHighwater()
+  long get_StaticMemoryHighwater()
+  bool get_OwnHandle()
+  SQLiteErrorCode SetMemoryStatus(bool value)
+  SQLiteErrorCode StaticSetMemoryStatus(bool value)
+  SQLiteErrorCode ReleaseMemory()
+  SQLiteErrorCode StaticReleaseMemory(int nBytes, bool reset, bool compact, Int32& nFree, Boolean& resetOk, UInt32& nLargest)
+  SQLiteErrorCode Shutdown()
+  SQLiteErrorCode StaticShutdown(bool directories)
+  bool IsOpen()
+  void Open(string strFilename, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, int maxPoolSize, bool usePool)
+  void ClearPool()
+  int CountPool()
+  void SetTimeout(int nTimeoutMS)
+  bool Step(SQLiteStatement stmt)
+  string GetErrorString(SQLiteErrorCode rc)
+  bool IsReadOnly(SQLiteStatement stmt)
+  SQLiteErrorCode Reset(SQLiteStatement stmt)
+  string GetLastError()
+  string GetLastError(string defValue)
+  bool ForceLogPrepare()
+  SQLiteStatement Prepare(SQLiteConnection cnn, string strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+  void LogBind(SQLiteStatementHandle handle, int index)
+  void LogBind(SQLiteStatementHandle handle, int index, ValueType value)
+  string FormatDateTime(DateTime value)
+  void LogBind(SQLiteStatementHandle handle, int index, DateTime value)
+  void LogBind(SQLiteStatementHandle handle, int index, string value)
+  string ToHexadecimalString(Byte[] array)
+  void LogBind(SQLiteStatementHandle handle, int index, Byte[] value)
+  void Bind_Double(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, double value)
+  void Bind_Int32(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, int value)
+  void Bind_UInt32(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, UInt32 value)
+  void Bind_Int64(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, long value)
+  void Bind_UInt64(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, ulong value)
+  void Bind_Text(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, string value)
+  void Bind_DateTime(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, DateTime dt)
+  void Bind_Blob(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, Byte[] blobData)
+  void Bind_Null(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index)
+  int Bind_ParamCount(SQLiteStatement stmt, SQLiteConnectionFlags flags)
+  string Bind_ParamName(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index)
+  int Bind_ParamIndex(SQLiteStatement stmt, SQLiteConnectionFlags flags, string paramName)
+  int ColumnCount(SQLiteStatement stmt)
+  string ColumnName(SQLiteStatement stmt, int index)
+  TypeAffinity ColumnAffinity(SQLiteStatement stmt, int index)
+  string ColumnType(SQLiteStatement stmt, int index, TypeAffinity& nAffinity)
+  int ColumnIndex(SQLiteStatement stmt, string columnName)
+  string ColumnOriginalName(SQLiteStatement stmt, int index)
+  string ColumnDatabaseName(SQLiteStatement stmt, int index)
+  string ColumnTableName(SQLiteStatement stmt, int index)
+  void ColumnMetaData(string dataBase, string table, string column, String& dataType, String& collateSequence, Boolean& notNull, Boolean& primaryKey, Boolean& autoIncrement)
+  double GetDouble(SQLiteStatement stmt, int index)
+  sbyte GetSByte(SQLiteStatement stmt, int index)
+  byte GetByte(SQLiteStatement stmt, int index)
+  short GetInt16(SQLiteStatement stmt, int index)
+  ushort GetUInt16(SQLiteStatement stmt, int index)
+  int GetInt32(SQLiteStatement stmt, int index)
+  UInt32 GetUInt32(SQLiteStatement stmt, int index)
+  long GetInt64(SQLiteStatement stmt, int index)
+  ulong GetUInt64(SQLiteStatement stmt, int index)
+  string GetText(SQLiteStatement stmt, int index)
+  DateTime GetDateTime(SQLiteStatement stmt, int index)
+  long GetBytes(SQLiteStatement stmt, int index, int nDataOffset, Byte[] bDest, int nStart, int nLength)
+  long GetChars(SQLiteStatement stmt, int index, int nDataOffset, Char[] bDest, int nStart, int nLength)
+  bool IsNull(SQLiteStatement stmt, int index)
+  int AggregateCount(IntPtr context)
+  void CreateFunction(string strFunction, int nArgs, bool needCollSeq, SQLiteCallback func, SQLiteCallback funcstep, SQLiteFinalCallback funcfinal)
+  void CreateCollation(string strCollation, SQLiteCollation func, SQLiteCollation func16)
+  int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, string s1, string s2)
+  int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, Char[] c1, Char[] c2)
+  CollationSequence GetCollationSequence(SQLiteFunction func, IntPtr context)
+  long GetParamValueBytes(IntPtr p, int nDataOffset, Byte[] bDest, int nStart, int nLength)
+  double GetParamValueDouble(IntPtr ptr)
+  int GetParamValueInt32(IntPtr ptr)
+  long GetParamValueInt64(IntPtr ptr)
+  string GetParamValueText(IntPtr ptr)
+  TypeAffinity GetParamValueType(IntPtr ptr)
+  void ReturnBlob(IntPtr context, Byte[] value)
+  void ReturnDouble(IntPtr context, double value)
+  void ReturnError(IntPtr context, string value)
+  void ReturnInt32(IntPtr context, int value)
+  void ReturnInt64(IntPtr context, long value)
+  void ReturnNull(IntPtr context)
+  void ReturnText(IntPtr context, string value)
+  void CreateModule(SQLiteModule module, SQLiteConnectionFlags flags)
+  void DisposeModule(SQLiteModule module, SQLiteConnectionFlags flags)
+  IntPtr AggregateContext(IntPtr context)
+  SQLiteErrorCode DeclareVirtualTable(SQLiteModule module, string strSql, String& error)
+  SQLiteErrorCode DeclareVirtualFunction(SQLiteModule module, int argumentCount, string name, String& error)
+  void SetLoadExtension(bool bOnOff)
+  void LoadExtension(string fileName, string procName)
+  void SetExtendedResultCodes(bool bOnOff)
+  SQLiteErrorCode ResultCode()
+  SQLiteErrorCode ExtendedResultCode()
+  void LogMessage(SQLiteErrorCode iErrCode, string zMessage)
+  void StaticLogMessage(SQLiteErrorCode iErrCode, string zMessage)
+  void SetPassword(Byte[] passwordBytes)
+  void ChangePassword(Byte[] newPasswordBytes)
+  void SetAuthorizerHook(SQLiteAuthorizerCallback func)
+  void SetUpdateHook(SQLiteUpdateCallback func)
+  void SetCommitHook(SQLiteCommitCallback func)
+  void SetTraceCallback(SQLiteTraceCallback func)
+  void SetRollbackHook(SQLiteRollbackCallback func)
+  SQLiteErrorCode SetLogCallback(SQLiteLogCallback func)
+  SQLiteBackup InitializeBackup(SQLiteConnection destCnn, string destName, string sourceName)
+  bool StepBackup(SQLiteBackup backup, int nPage, Boolean& retry)
+  int RemainingBackup(SQLiteBackup backup)
+  int PageCountBackup(SQLiteBackup backup)
+  void FinishBackup(SQLiteBackup backup)
+  bool IsInitialized()
+  bool StaticIsInitialized()
+  object GetValue(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, SQLiteType typ)
+  int GetCursorForTable(SQLiteStatement stmt, int db, int rootPage)
+  long GetRowIdForCursor(SQLiteStatement stmt, int cursor)
+  void GetIndexColumnExtendedInfo(string database, string index, string column, Int32& sortMode, Int32& onError, String& collationSequence)
+  SQLiteErrorCode FileControl(string zDbName, int op, IntPtr pArg)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLite3_UTF16
+Наследуется от: SQLite3
+Поля:
+  bool disposed
+Свойства:
+Методы:
+  void .ctor(SQLiteDateFormats fmt, DateTimeKind kind, string fmtString, IntPtr db, string fileName, bool ownHandle)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  string ToString(IntPtr b, int nbytelen)
+  string UTF16ToString(IntPtr b, int nbytelen)
+  void Open(string strFilename, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, int maxPoolSize, bool usePool)
+  void Bind_DateTime(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, DateTime dt)
+  void Bind_Text(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, string value)
+  DateTime GetDateTime(SQLiteStatement stmt, int index)
+  string ColumnName(SQLiteStatement stmt, int index)
+  string GetText(SQLiteStatement stmt, int index)
+  string ColumnOriginalName(SQLiteStatement stmt, int index)
+  string ColumnDatabaseName(SQLiteStatement stmt, int index)
+  string ColumnTableName(SQLiteStatement stmt, int index)
+  string GetParamValueText(IntPtr ptr)
+  void ReturnError(IntPtr context, string value)
+  void ReturnText(IntPtr context, string value)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteBackup
+Наследуется от: object
+Поля:
+  SQLiteBase _sql
+  SQLiteBackupHandle _sqlite_backup
+  IntPtr _destDb
+  Byte[] _zDestName
+  IntPtr _sourceDb
+  Byte[] _zSourceName
+  SQLiteErrorCode _stepResult
+  bool disposed
+Свойства:
+Методы:
+  void .ctor(SQLiteBase sqlbase, SQLiteBackupHandle backup, IntPtr destDb, Byte[] zDestName, IntPtr sourceDb, Byte[] zSourceName)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+--------------------------------------------------
+Класс: System.Data.SQLite.ISQLiteSchemaExtensions
+Поля:
+Свойства:
+Методы:
+  void BuildTempSchema(SQLiteConnection connection)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteOpenFlagsEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteOpenFlagsEnum None
+  SQLiteOpenFlagsEnum ReadOnly
+  SQLiteOpenFlagsEnum ReadWrite
+  SQLiteOpenFlagsEnum Create
+  SQLiteOpenFlagsEnum Uri
+  SQLiteOpenFlagsEnum SharedCache
+  SQLiteOpenFlagsEnum Default
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConnectionFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteConnectionFlags None
+  SQLiteConnectionFlags LogPrepare
+  SQLiteConnectionFlags LogPreBind
+  SQLiteConnectionFlags LogBind
+  SQLiteConnectionFlags LogCallbackException
+  SQLiteConnectionFlags LogBackup
+  SQLiteConnectionFlags NoExtensionFunctions
+  SQLiteConnectionFlags BindUInt32AsInt64
+  SQLiteConnectionFlags BindAllAsText
+  SQLiteConnectionFlags GetAllAsText
+  SQLiteConnectionFlags NoLoadExtension
+  SQLiteConnectionFlags NoCreateModule
+  SQLiteConnectionFlags NoBindFunctions
+  SQLiteConnectionFlags NoLogModule
+  SQLiteConnectionFlags LogModuleError
+  SQLiteConnectionFlags LogModuleException
+  SQLiteConnectionFlags TraceWarning
+  SQLiteConnectionFlags ConvertInvariantText
+  SQLiteConnectionFlags BindInvariantText
+  SQLiteConnectionFlags NoConnectionPool
+  SQLiteConnectionFlags UseConnectionPool
+  SQLiteConnectionFlags UseConnectionTypes
+  SQLiteConnectionFlags NoGlobalTypes
+  SQLiteConnectionFlags StickyHasRows
+  SQLiteConnectionFlags StrictEnlistment
+  SQLiteConnectionFlags MapIsolationLevels
+  SQLiteConnectionFlags DetectTextAffinity
+  SQLiteConnectionFlags DetectStringType
+  SQLiteConnectionFlags NoConvertSettings
+  SQLiteConnectionFlags BindDateTimeWithKind
+  SQLiteConnectionFlags BindAndGetAllAsText
+  SQLiteConnectionFlags ConvertAndBindInvariantText
+  SQLiteConnectionFlags BindAndGetAllAsInvariantText
+  SQLiteConnectionFlags ConvertAndBindAndGetAllAsInvariantText
+  SQLiteConnectionFlags LogAll
+  SQLiteConnectionFlags Default
+  SQLiteConnectionFlags DefaultAndLogAll
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConfigOpsEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteConfigOpsEnum SQLITE_CONFIG_NONE
+  SQLiteConfigOpsEnum SQLITE_CONFIG_SINGLETHREAD
+  SQLiteConfigOpsEnum SQLITE_CONFIG_MULTITHREAD
+  SQLiteConfigOpsEnum SQLITE_CONFIG_SERIALIZED
+  SQLiteConfigOpsEnum SQLITE_CONFIG_MALLOC
+  SQLiteConfigOpsEnum SQLITE_CONFIG_GETMALLOC
+  SQLiteConfigOpsEnum SQLITE_CONFIG_SCRATCH
+  SQLiteConfigOpsEnum SQLITE_CONFIG_PAGECACHE
+  SQLiteConfigOpsEnum SQLITE_CONFIG_HEAP
+  SQLiteConfigOpsEnum SQLITE_CONFIG_MEMSTATUS
+  SQLiteConfigOpsEnum SQLITE_CONFIG_MUTEX
+  SQLiteConfigOpsEnum SQLITE_CONFIG_GETMUTEX
+  SQLiteConfigOpsEnum SQLITE_CONFIG_LOOKASIDE
+  SQLiteConfigOpsEnum SQLITE_CONFIG_PCACHE
+  SQLiteConfigOpsEnum SQLITE_CONFIG_GETPCACHE
+  SQLiteConfigOpsEnum SQLITE_CONFIG_LOG
+  SQLiteConfigOpsEnum SQLITE_CONFIG_URI
+  SQLiteConfigOpsEnum SQLITE_CONFIG_PCACHE2
+  SQLiteConfigOpsEnum SQLITE_CONFIG_GETPCACHE2
+  SQLiteConfigOpsEnum SQLITE_CONFIG_COVERING_INDEX_SCAN
+  SQLiteConfigOpsEnum SQLITE_CONFIG_SQLLOG
+  SQLiteConfigOpsEnum SQLITE_CONFIG_MMAP_SIZE
+  SQLiteConfigOpsEnum SQLITE_CONFIG_WIN32_HEAPSIZE
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteCommand
+Наследуется от: DbCommand
+Поля:
+  string DefaultConnectionString
+  string _commandText
+  SQLiteConnection _cnn
+  int _version
+  WeakReference _activeReader
+  int _commandTimeout
+  bool _designTimeVisible
+  UpdateRowSource _updateRowSource
+  SQLiteParameterCollection _parameterCollection
+  List`1<SQLiteStatement> _statementList
+  string _remainingText
+  SQLiteTransaction _transaction
+  bool disposed
+Свойства:
+  string CommandText
+  int CommandTimeout
+  CommandType CommandType
+  SQLiteConnection Connection
+  DbConnection DbConnection
+  SQLiteParameterCollection Parameters
+  DbParameterCollection DbParameterCollection
+  SQLiteTransaction Transaction
+  DbTransaction DbTransaction
+  UpdateRowSource UpdatedRowSource
+  bool DesignTimeVisible
+Методы:
+  void .ctor()
+  void .ctor(string commandText)
+  void .ctor(string commandText, SQLiteConnection connection)
+  void .ctor(SQLiteConnection connection)
+  void .ctor(SQLiteCommand source)
+  void .ctor(string commandText, SQLiteConnection connection, SQLiteTransaction transaction)
+  void Check(SQLiteCommand command)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  SQLiteConnectionFlags GetFlags(SQLiteCommand command)
+  void DisposeStatements()
+  void ClearCommands()
+  SQLiteStatement BuildNextCommand()
+  SQLiteStatement GetStatement(int index)
+  void Cancel()
+  string get_CommandText()
+  void set_CommandText(string value)
+  int get_CommandTimeout()
+  void set_CommandTimeout(int value)
+  CommandType get_CommandType()
+  void set_CommandType(CommandType value)
+  DbParameter CreateDbParameter()
+  SQLiteParameter CreateParameter()
+  SQLiteConnection get_Connection()
+  void set_Connection(SQLiteConnection value)
+  DbConnection get_DbConnection()
+  void set_DbConnection(DbConnection value)
+  SQLiteParameterCollection get_Parameters()
+  DbParameterCollection get_DbParameterCollection()
+  SQLiteTransaction get_Transaction()
+  void set_Transaction(SQLiteTransaction value)
+  DbTransaction get_DbTransaction()
+  void set_DbTransaction(DbTransaction value)
+  void InitializeForReader()
+  DbDataReader ExecuteDbDataReader(CommandBehavior behavior)
+  object Execute(string commandText, SQLiteExecuteType executeType, string connectionString, Object[] args)
+  object Execute(string commandText, SQLiteExecuteType executeType, CommandBehavior commandBehavior, string connectionString, Object[] args)
+  SQLiteDataReader ExecuteReader(CommandBehavior behavior)
+  SQLiteDataReader ExecuteReader()
+  void ClearDataReader()
+  int ExecuteNonQuery()
+  int ExecuteNonQuery(CommandBehavior behavior)
+  object ExecuteScalar()
+  object ExecuteScalar(CommandBehavior behavior)
+  void Prepare()
+  UpdateRowSource get_UpdatedRowSource()
+  void set_UpdatedRowSource(UpdateRowSource value)
+  bool get_DesignTimeVisible()
+  void set_DesignTimeVisible(bool value)
+  object Clone()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteCommandBuilder
+Наследуется от: DbCommandBuilder
+Поля:
+  bool disposed
+Свойства:
+  SQLiteDataAdapter DataAdapter
+  CatalogLocation CatalogLocation
+  string CatalogSeparator
+  string QuotePrefix
+  string QuoteSuffix
+  string SchemaSeparator
+Методы:
+  void .ctor()
+  void .ctor(SQLiteDataAdapter adp)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void ApplyParameterInfo(DbParameter parameter, DataRow row, StatementType statementType, bool whereClause)
+  string GetParameterName(string parameterName)
+  string GetParameterName(int parameterOrdinal)
+  string GetParameterPlaceholder(int parameterOrdinal)
+  void SetRowUpdatingHandler(DbDataAdapter adapter)
+  void RowUpdatingEventHandler(object sender, RowUpdatingEventArgs e)
+  SQLiteDataAdapter get_DataAdapter()
+  void set_DataAdapter(SQLiteDataAdapter value)
+  SQLiteCommand GetDeleteCommand()
+  SQLiteCommand GetDeleteCommand(bool useColumnsForParameterNames)
+  SQLiteCommand GetUpdateCommand()
+  SQLiteCommand GetUpdateCommand(bool useColumnsForParameterNames)
+  SQLiteCommand GetInsertCommand()
+  SQLiteCommand GetInsertCommand(bool useColumnsForParameterNames)
+  CatalogLocation get_CatalogLocation()
+  void set_CatalogLocation(CatalogLocation value)
+  string get_CatalogSeparator()
+  void set_CatalogSeparator(string value)
+  string get_QuotePrefix()
+  void set_QuotePrefix(string value)
+  string get_QuoteSuffix()
+  void set_QuoteSuffix(string value)
+  string QuoteIdentifier(string unquotedIdentifier)
+  string UnquoteIdentifier(string quotedIdentifier)
+  string get_SchemaSeparator()
+  void set_SchemaSeparator(string value)
+  DataTable GetSchemaTable(DbCommand sourceCommand)
+  bool HasSchemaPrimaryKey(DataTable schema)
+  void ResetIsUniqueSchemaColumn(DataTable schema)
+--------------------------------------------------
+Класс: System.Data.SQLite.ConnectionEventArgs
+Наследуется от: EventArgs
+Поля:
+  SQLiteConnectionEventType EventType
+  StateChangeEventArgs EventArgs
+  IDbTransaction Transaction
+  IDbCommand Command
+  IDataReader DataReader
+  CriticalHandle CriticalHandle
+  string Text
+  object Data
+Свойства:
+Методы:
+  void .ctor(SQLiteConnectionEventType eventType, StateChangeEventArgs eventArgs, IDbTransaction transaction, IDbCommand command, IDataReader dataReader, CriticalHandle criticalHandle, string text, object data)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConnectionEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, ConnectionEventArgs e)
+  IAsyncResult BeginInvoke(object sender, ConnectionEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConnection
+Наследуется от: DbConnection
+Поля:
+  DbType BadDbType
+  string DefaultBaseSchemaName
+  string MemoryFileName
+  IsolationLevel DeferredIsolationLevel
+  IsolationLevel ImmediateIsolationLevel
+  SQLiteConnectionFlags FallbackDefaultFlags
+  SQLiteSynchronousEnum DefaultSynchronous
+  SQLiteJournalModeEnum DefaultJournalMode
+  IsolationLevel DefaultIsolationLevel
+  SQLiteDateFormats DefaultDateTimeFormat
+  DateTimeKind DefaultDateTimeKind
+  string DefaultDateTimeFormatString
+  string DefaultDataSource
+  string DefaultUri
+  string DefaultFullUri
+  string DefaultHexPassword
+  string DefaultPassword
+  int DefaultVersion
+  int DefaultPageSize
+  int DefaultMaxPageCount
+  int DefaultCacheSize
+  int DefaultMaxPoolSize
+  int DefaultConnectionTimeout
+  bool DefaultNoSharedFlags
+  bool DefaultFailIfMissing
+  bool DefaultReadOnly
+  bool DefaultBinaryGUID
+  bool DefaultUseUTF16Encoding
+  bool DefaultToFullPath
+  bool DefaultPooling
+  bool DefaultLegacyFormat
+  bool DefaultForeignKeys
+  bool DefaultEnlist
+  bool DefaultSetDefaults
+  int DefaultPrepareRetries
+  int SQLITE_FCNTL_CHUNK_SIZE
+  int SQLITE_FCNTL_WIN32_AV_RETRY
+  string _dataDirectory
+  string _masterdb
+  string _tempmasterdb
+  Assembly _assembly
+  object _syncRoot
+  SQLiteConnectionEventHandler _handlers
+  SQLiteConnectionFlags _sharedFlags
+  int _versionNumber
+  ConnectionState _connectionState
+  string _connectionString
+  int _transactionLevel
+  bool _noDispose
+  bool _disposing
+  IsolationLevel _defaultIsolation
+  SQLiteEnlistment _enlistment
+  SQLiteDbTypeMap _typeNames
+  SQLiteBase _sql
+  string _dataSource
+  Byte[] _password
+  string _baseSchemaName
+  SQLiteConnectionFlags _flags
+  Dictionary`2<string, object> _cachedSettings
+  Nullable`1<DbType> _defaultDbType
+  string _defaultTypeName
+  int _defaultTimeout
+  int _prepareRetries
+  bool _parseViaFramework
+  bool _binaryGuid
+  int _version
+  SQLiteAuthorizerEventHandler _authorizerHandler
+  SQLiteUpdateEventHandler _updateHandler
+  SQLiteCommitHandler _commitHandler
+  SQLiteTraceEventHandler _traceHandler
+  EventHandler _rollbackHandler
+  SQLiteAuthorizerCallback _authorizerCallback
+  SQLiteUpdateCallback _updateCallback
+  SQLiteCommitCallback _commitCallback
+  SQLiteTraceCallback _traceCallback
+  SQLiteRollbackCallback _rollbackCallback
+  StateChangeEventHandler StateChange
+  bool disposed
+Свойства:
+  ISQLiteConnectionPool ConnectionPool
+  int PoolCount
+  string ConnectionString
+  string DataSource
+  string Database
+  int DefaultTimeout
+  int PrepareRetries
+  bool ParseViaFramework
+  SQLiteConnectionFlags Flags
+  Nullable`1<DbType> DefaultDbType
+  string DefaultTypeName
+  bool OwnHandle
+  string ServerVersion
+  long LastInsertRowId
+  int Changes
+  bool AutoCommit
+  long MemoryUsed
+  long MemoryHighwater
+  string DefineConstants
+  string SQLiteVersion
+  string SQLiteSourceId
+  string SQLiteCompileOptions
+  string InteropVersion
+  string InteropSourceId
+  string InteropCompileOptions
+  string ProviderVersion
+  string ProviderSourceId
+  SQLiteConnectionFlags DefaultFlags
+  SQLiteConnectionFlags SharedFlags
+  ConnectionState State
+  DbProviderFactory DbProviderFactory
+Методы:
+  void add__handlers(SQLiteConnectionEventHandler value)
+  void remove__handlers(SQLiteConnectionEventHandler value)
+  void add__authorizerHandler(SQLiteAuthorizerEventHandler value)
+  void remove__authorizerHandler(SQLiteAuthorizerEventHandler value)
+  void add__updateHandler(SQLiteUpdateEventHandler value)
+  void remove__updateHandler(SQLiteUpdateEventHandler value)
+  void add__commitHandler(SQLiteCommitHandler value)
+  void remove__commitHandler(SQLiteCommitHandler value)
+  void add__traceHandler(SQLiteTraceEventHandler value)
+  void remove__traceHandler(SQLiteTraceEventHandler value)
+  void add__rollbackHandler(EventHandler value)
+  void remove__rollbackHandler(EventHandler value)
+  void add_StateChange(StateChangeEventHandler value)
+  void remove_StateChange(StateChangeEventHandler value)
+  void .ctor()
+  void .ctor(string connectionString)
+  void .ctor(IntPtr db, string fileName, bool ownHandle)
+  void .ctor(string connectionString, bool parseViaFramework)
+  void .ctor(SQLiteConnection connection)
+  void OnChanged(SQLiteConnection connection, ConnectionEventArgs e)
+  void add_Changed(SQLiteConnectionEventHandler value)
+  void remove_Changed(SQLiteConnectionEventHandler value)
+  ISQLiteConnectionPool get_ConnectionPool()
+  void set_ConnectionPool(ISQLiteConnectionPool value)
+  object CreateHandle(IntPtr nativeHandle)
+  void BackupDatabase(SQLiteConnection destination, string destinationName, string sourceName, int pages, SQLiteBackupCallback callback, int retryMilliseconds)
+  int ClearCachedSettings()
+  bool TryGetCachedSetting(string name, string default, Object& value)
+  void SetCachedSetting(string name, object value)
+  int ClearTypeMappings()
+  Dictionary`2<string, object> GetTypeMappings()
+  int AddTypeMapping(string typeName, DbType dataType, bool primary)
+  void BindFunction(SQLiteFunctionAttribute functionAttribute, SQLiteFunction function)
+  void Check(SQLiteConnection connection)
+  SortedList`2<string, string> ParseConnectionString(string connectionString, bool parseViaFramework, bool allowNameOnly)
+  void SetupSQLiteBase(SortedList`2<string, string> opts)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  object Clone()
+  void CreateFile(string databaseFileName)
+  void OnStateChange(ConnectionState newState, StateChangeEventArgs& eventArgs)
+  IsolationLevel GetFallbackDefaultIsolationLevel()
+  IsolationLevel GetDefaultIsolationLevel()
+  SQLiteTransaction BeginTransaction(IsolationLevel isolationLevel, bool deferredLock)
+  SQLiteTransaction BeginTransaction(bool deferredLock)
+  SQLiteTransaction BeginTransaction(IsolationLevel isolationLevel)
+  SQLiteTransaction BeginTransaction()
+  DbTransaction BeginDbTransaction(IsolationLevel isolationLevel)
+  void ChangeDatabase(string databaseName)
+  void Close()
+  int get_PoolCount()
+  void ClearPool(SQLiteConnection connection)
+  void ClearAllPools()
+  string get_ConnectionString()
+  void set_ConnectionString(string value)
+  SQLiteCommand CreateCommand()
+  DbCommand CreateDbCommand()
+  string get_DataSource()
+  string get_Database()
+  string MapUriPath(string path)
+  SortedList`2<string, string> ParseConnectionString(string connectionString, bool allowNameOnly)
+  SortedList`2<string, string> ParseConnectionStringViaFramework(string connectionString, bool strict)
+  void EnlistTransaction(Transaction transaction)
+  string FindKey(SortedList`2<string, string> items, string key, string defValue)
+  object TryParseEnum(Type type, string value, bool ignoreCase)
+  bool TryParseByte(string value, NumberStyles style, Byte& result)
+  void EnableExtensions(bool enable)
+  void LoadExtension(string fileName)
+  void LoadExtension(string fileName, string procName)
+  void CreateModule(SQLiteModule module)
+  Byte[] FromHexString(string text)
+  string ToHexString(Byte[] array)
+  Byte[] FromHexString(string text, String& error)
+  bool GetDefaultPooling()
+  IsolationLevel GetEffectiveIsolationLevel(IsolationLevel isolationLevel)
+  void Open()
+  SQLiteConnection OpenAndReturn()
+  int get_DefaultTimeout()
+  void set_DefaultTimeout(int value)
+  int get_PrepareRetries()
+  void set_PrepareRetries(int value)
+  bool get_ParseViaFramework()
+  void set_ParseViaFramework(bool value)
+  SQLiteConnectionFlags get_Flags()
+  void set_Flags(SQLiteConnectionFlags value)
+  Nullable`1<DbType> get_DefaultDbType()
+  void set_DefaultDbType(Nullable`1<DbType> value)
+  string get_DefaultTypeName()
+  void set_DefaultTypeName(string value)
+  bool get_OwnHandle()
+  string get_ServerVersion()
+  long get_LastInsertRowId()
+  void Cancel()
+  int get_Changes()
+  bool get_AutoCommit()
+  long get_MemoryUsed()
+  long get_MemoryHighwater()
+  void GetMemoryStatistics(IDictionary`2& statistics)
+  void ReleaseMemory()
+  SQLiteErrorCode ReleaseMemory(int nBytes, bool reset, bool compact, Int32& nFree, Boolean& resetOk, UInt32& nLargest)
+  SQLiteErrorCode SetMemoryStatus(bool value)
+  string get_DefineConstants()
+  string get_SQLiteVersion()
+  string get_SQLiteSourceId()
+  string get_SQLiteCompileOptions()
+  string get_InteropVersion()
+  string get_InteropSourceId()
+  string get_InteropCompileOptions()
+  string get_ProviderVersion()
+  string get_ProviderSourceId()
+  SQLiteConnectionFlags get_DefaultFlags()
+  SQLiteConnectionFlags get_SharedFlags()
+  void set_SharedFlags(SQLiteConnectionFlags value)
+  ConnectionState get_State()
+  SQLiteErrorCode Shutdown()
+  void Shutdown(bool directories, bool noThrow)
+  void SetExtendedResultCodes(bool bOnOff)
+  SQLiteErrorCode ResultCode()
+  SQLiteErrorCode ExtendedResultCode()
+  void LogMessage(SQLiteErrorCode iErrCode, string zMessage)
+  void LogMessage(int iErrCode, string zMessage)
+  void ChangePassword(string newPassword)
+  void ChangePassword(Byte[] newPassword)
+  void SetPassword(string databasePassword)
+  void SetPassword(Byte[] databasePassword)
+  SQLiteErrorCode SetAvRetry(Int32& count, Int32& interval)
+  SQLiteErrorCode SetChunkSize(int size)
+  string UnwrapString(string value)
+  string ExpandFileName(string sourceFile, bool toFullPath)
+  DataTable GetSchema()
+  DataTable GetSchema(string collectionName)
+  DataTable GetSchema(string collectionName, String[] restrictionValues)
+  DataTable Schema_ReservedWords()
+  DataTable Schema_MetaDataCollections()
+  DataTable Schema_DataSourceInformation()
+  DataTable Schema_Columns(string strCatalog, string strTable, string strColumn)
+  DataTable Schema_Indexes(string strCatalog, string strTable, string strIndex)
+  DataTable Schema_Triggers(string catalog, string table, string triggerName)
+  DataTable Schema_Tables(string strCatalog, string strTable, string strType)
+  DataTable Schema_Views(string strCatalog, string strView)
+  DataTable Schema_Catalogs(string strCatalog)
+  DataTable Schema_DataTypes()
+  DataTable Schema_IndexColumns(string strCatalog, string strTable, string strIndex, string strColumn)
+  DataTable Schema_ViewColumns(string strCatalog, string strView, string strColumn)
+  DataTable Schema_ForeignKeys(string strCatalog, string strTable, string strKeyName)
+  void add_Authorize(SQLiteAuthorizerEventHandler value)
+  void remove_Authorize(SQLiteAuthorizerEventHandler value)
+  void add_Update(SQLiteUpdateEventHandler value)
+  void remove_Update(SQLiteUpdateEventHandler value)
+  SQLiteAuthorizerReturnCode AuthorizerCallback(IntPtr pUserData, SQLiteAuthorizerActionCode actionCode, IntPtr pArgument1, IntPtr pArgument2, IntPtr pDatabase, IntPtr pAuthContext)
+  void UpdateCallback(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid)
+  void add_Commit(SQLiteCommitHandler value)
+  void remove_Commit(SQLiteCommitHandler value)
+  void add_Trace(SQLiteTraceEventHandler value)
+  void remove_Trace(SQLiteTraceEventHandler value)
+  void TraceCallback(IntPtr puser, IntPtr statement)
+  void add_RollBack(EventHandler value)
+  void remove_RollBack(EventHandler value)
+  int CommitCallback(IntPtr parg)
+  void RollbackCallback(IntPtr parg)
+  DbProviderFactory get_DbProviderFactory()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SynchronizationModes
+Наследуется от: Enum
+Поля:
+  int value__
+  SynchronizationModes Normal
+  SynchronizationModes Full
+  SynchronizationModes Off
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteAuthorizerCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  SQLiteAuthorizerReturnCode Invoke(IntPtr pUserData, SQLiteAuthorizerActionCode actionCode, IntPtr pArgument1, IntPtr pArgument2, IntPtr pDatabase, IntPtr pAuthContext)
+  IAsyncResult BeginInvoke(IntPtr pUserData, SQLiteAuthorizerActionCode actionCode, IntPtr pArgument1, IntPtr pArgument2, IntPtr pDatabase, IntPtr pAuthContext, AsyncCallback callback, object object)
+  SQLiteAuthorizerReturnCode EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteUpdateCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid)
+  IAsyncResult BeginInvoke(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteCommitCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  int Invoke(IntPtr puser)
+  IAsyncResult BeginInvoke(IntPtr puser, AsyncCallback callback, object object)
+  int EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteTraceCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr puser, IntPtr statement)
+  IAsyncResult BeginInvoke(IntPtr puser, IntPtr statement, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteRollbackCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr puser)
+  IAsyncResult BeginInvoke(IntPtr puser, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteAuthorizerEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, AuthorizerEventArgs e)
+  IAsyncResult BeginInvoke(object sender, AuthorizerEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteCommitHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, CommitEventArgs e)
+  IAsyncResult BeginInvoke(object sender, CommitEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteUpdateEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, UpdateEventArgs e)
+  IAsyncResult BeginInvoke(object sender, UpdateEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteTraceEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, TraceEventArgs e)
+  IAsyncResult BeginInvoke(object sender, TraceEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteBackupCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  bool Invoke(SQLiteConnection source, string sourceName, SQLiteConnection destination, string destinationName, int pages, int remainingPages, int totalPages, bool retry)
+  IAsyncResult BeginInvoke(SQLiteConnection source, string sourceName, SQLiteConnection destination, string destinationName, int pages, int remainingPages, int totalPages, bool retry, AsyncCallback callback, object object)
+  bool EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.AuthorizerEventArgs
+Наследуется от: EventArgs
+Поля:
+  IntPtr UserData
+  SQLiteAuthorizerActionCode ActionCode
+  string Argument1
+  string Argument2
+  string Database
+  string Context
+  SQLiteAuthorizerReturnCode ReturnCode
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(IntPtr pUserData, SQLiteAuthorizerActionCode actionCode, string argument1, string argument2, string database, string context, SQLiteAuthorizerReturnCode returnCode)
+--------------------------------------------------
+Класс: System.Data.SQLite.UpdateEventType
+Наследуется от: Enum
+Поля:
+  int value__
+  UpdateEventType Delete
+  UpdateEventType Insert
+  UpdateEventType Update
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.UpdateEventArgs
+Наследуется от: EventArgs
+Поля:
+  string Database
+  string Table
+  UpdateEventType Event
+  long RowId
+Свойства:
+Методы:
+  void .ctor(string database, string table, UpdateEventType eventType, long rowid)
+--------------------------------------------------
+Класс: System.Data.SQLite.CommitEventArgs
+Наследуется от: EventArgs
+Поля:
+  bool AbortTransaction
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.TraceEventArgs
+Наследуется от: EventArgs
+Поля:
+  string Statement
+Свойства:
+Методы:
+  void .ctor(string statement)
+--------------------------------------------------
+Класс: System.Data.SQLite.ISQLiteConnectionPool
+Поля:
+Свойства:
+Методы:
+  void GetCounts(string fileName, Dictionary`2& counts, Int32& openCount, Int32& closeCount, Int32& totalCount)
+  void ClearPool(string fileName)
+  void ClearAllPools()
+  void Add(string fileName, object handle, int version)
+  object Remove(string fileName, int maxPoolSize, Int32& version)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConnectionPool
+Наследуется от: object
+Поля:
+  object _syncRoot
+  ISQLiteConnectionPool _connectionPool
+  SortedList`2<string, PoolQueue> _queueList
+  int _poolVersion
+  int _poolOpened
+  int _poolClosed
+Свойства:
+Методы:
+  void GetCounts(string fileName, Dictionary`2& counts, Int32& openCount, Int32& closeCount, Int32& totalCount)
+  void ClearPool(string fileName)
+  void ClearAllPools()
+  void Add(string fileName, SQLiteConnectionHandle handle, int version)
+  SQLiteConnectionHandle Remove(string fileName, int maxPoolSize, Int32& version)
+  ISQLiteConnectionPool GetConnectionPool()
+  void SetConnectionPool(ISQLiteConnectionPool connectionPool)
+  void ResizePool(PoolQueue queue, bool add)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConnectionStringBuilder
+Наследуется от: DbConnectionStringBuilder
+Поля:
+  Hashtable _properties
+Свойства:
+  int Version
+  SynchronizationModes SyncMode
+  bool UseUTF16Encoding
+  bool Pooling
+  bool BinaryGUID
+  string DataSource
+  string Uri
+  string FullUri
+  int DefaultTimeout
+  int PrepareRetries
+  bool Enlist
+  bool FailIfMissing
+  bool LegacyFormat
+  bool ReadOnly
+  string Password
+  Byte[] HexPassword
+  int PageSize
+  int MaxPageCount
+  int CacheSize
+  SQLiteDateFormats DateTimeFormat
+  DateTimeKind DateTimeKind
+  string DateTimeFormatString
+  string BaseSchemaName
+  SQLiteJournalModeEnum JournalMode
+  IsolationLevel DefaultIsolationLevel
+  DbType DefaultDbType
+  string DefaultTypeName
+  bool ForeignKeys
+  SQLiteConnectionFlags Flags
+  bool SetDefaults
+  bool ToFullPath
+  bool NoSharedFlags
+Методы:
+  void .ctor()
+  void .ctor(string connectionString)
+  void Initialize(string cnnString)
+  int get_Version()
+  void set_Version(int value)
+  SynchronizationModes get_SyncMode()
+  void set_SyncMode(SynchronizationModes value)
+  bool get_UseUTF16Encoding()
+  void set_UseUTF16Encoding(bool value)
+  bool get_Pooling()
+  void set_Pooling(bool value)
+  bool get_BinaryGUID()
+  void set_BinaryGUID(bool value)
+  string get_DataSource()
+  void set_DataSource(string value)
+  string get_Uri()
+  void set_Uri(string value)
+  string get_FullUri()
+  void set_FullUri(string value)
+  int get_DefaultTimeout()
+  void set_DefaultTimeout(int value)
+  int get_PrepareRetries()
+  void set_PrepareRetries(int value)
+  bool get_Enlist()
+  void set_Enlist(bool value)
+  bool get_FailIfMissing()
+  void set_FailIfMissing(bool value)
+  bool get_LegacyFormat()
+  void set_LegacyFormat(bool value)
+  bool get_ReadOnly()
+  void set_ReadOnly(bool value)
+  string get_Password()
+  void set_Password(string value)
+  Byte[] get_HexPassword()
+  void set_HexPassword(Byte[] value)
+  int get_PageSize()
+  void set_PageSize(int value)
+  int get_MaxPageCount()
+  void set_MaxPageCount(int value)
+  int get_CacheSize()
+  void set_CacheSize(int value)
+  SQLiteDateFormats get_DateTimeFormat()
+  void set_DateTimeFormat(SQLiteDateFormats value)
+  DateTimeKind get_DateTimeKind()
+  void set_DateTimeKind(DateTimeKind value)
+  string get_DateTimeFormatString()
+  void set_DateTimeFormatString(string value)
+  string get_BaseSchemaName()
+  void set_BaseSchemaName(string value)
+  SQLiteJournalModeEnum get_JournalMode()
+  void set_JournalMode(SQLiteJournalModeEnum value)
+  IsolationLevel get_DefaultIsolationLevel()
+  void set_DefaultIsolationLevel(IsolationLevel value)
+  DbType get_DefaultDbType()
+  void set_DefaultDbType(DbType value)
+  string get_DefaultTypeName()
+  void set_DefaultTypeName(string value)
+  bool get_ForeignKeys()
+  void set_ForeignKeys(bool value)
+  SQLiteConnectionFlags get_Flags()
+  void set_Flags(SQLiteConnectionFlags value)
+  bool get_SetDefaults()
+  void set_SetDefaults(bool value)
+  bool get_ToFullPath()
+  void set_ToFullPath(bool value)
+  bool get_NoSharedFlags()
+  void set_NoSharedFlags(bool value)
+  bool TryGetValue(string keyword, Object& value)
+  void FallbackGetProperties(Hashtable propertyList)
+--------------------------------------------------
+Класс: System.Data.SQLite.TypeAffinity
+Наследуется от: Enum
+Поля:
+  int value__
+  TypeAffinity Uninitialized
+  TypeAffinity Int64
+  TypeAffinity Double
+  TypeAffinity Text
+  TypeAffinity Blob
+  TypeAffinity Null
+  TypeAffinity DateTime
+  TypeAffinity None
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConnectionEventType
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteConnectionEventType Invalid
+  SQLiteConnectionEventType Unknown
+  SQLiteConnectionEventType Opening
+  SQLiteConnectionEventType ConnectionString
+  SQLiteConnectionEventType Opened
+  SQLiteConnectionEventType ChangeDatabase
+  SQLiteConnectionEventType NewTransaction
+  SQLiteConnectionEventType EnlistTransaction
+  SQLiteConnectionEventType NewCommand
+  SQLiteConnectionEventType NewDataReader
+  SQLiteConnectionEventType NewCriticalHandle
+  SQLiteConnectionEventType Closing
+  SQLiteConnectionEventType Closed
+  SQLiteConnectionEventType DisposingCommand
+  SQLiteConnectionEventType DisposingDataReader
+  SQLiteConnectionEventType ClosingDataReader
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteDateFormats
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteDateFormats Ticks
+  SQLiteDateFormats ISO8601
+  SQLiteDateFormats JulianDay
+  SQLiteDateFormats UnixEpoch
+  SQLiteDateFormats InvariantCulture
+  SQLiteDateFormats CurrentCulture
+  SQLiteDateFormats Default
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteJournalModeEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteJournalModeEnum Default
+  SQLiteJournalModeEnum Delete
+  SQLiteJournalModeEnum Persist
+  SQLiteJournalModeEnum Off
+  SQLiteJournalModeEnum Truncate
+  SQLiteJournalModeEnum Memory
+  SQLiteJournalModeEnum Wal
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteSynchronousEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteSynchronousEnum Default
+  SQLiteSynchronousEnum Off
+  SQLiteSynchronousEnum Normal
+  SQLiteSynchronousEnum Full
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteExecuteType
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteExecuteType None
+  SQLiteExecuteType NonQuery
+  SQLiteExecuteType Scalar
+  SQLiteExecuteType Reader
+  SQLiteExecuteType Default
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteAuthorizerActionCode
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteAuthorizerActionCode None
+  SQLiteAuthorizerActionCode Copy
+  SQLiteAuthorizerActionCode CreateIndex
+  SQLiteAuthorizerActionCode CreateTable
+  SQLiteAuthorizerActionCode CreateTempIndex
+  SQLiteAuthorizerActionCode CreateTempTable
+  SQLiteAuthorizerActionCode CreateTempTrigger
+  SQLiteAuthorizerActionCode CreateTempView
+  SQLiteAuthorizerActionCode CreateTrigger
+  SQLiteAuthorizerActionCode CreateView
+  SQLiteAuthorizerActionCode Delete
+  SQLiteAuthorizerActionCode DropIndex
+  SQLiteAuthorizerActionCode DropTable
+  SQLiteAuthorizerActionCode DropTempIndex
+  SQLiteAuthorizerActionCode DropTempTable
+  SQLiteAuthorizerActionCode DropTempTrigger
+  SQLiteAuthorizerActionCode DropTempView
+  SQLiteAuthorizerActionCode DropTrigger
+  SQLiteAuthorizerActionCode DropView
+  SQLiteAuthorizerActionCode Insert
+  SQLiteAuthorizerActionCode Pragma
+  SQLiteAuthorizerActionCode Read
+  SQLiteAuthorizerActionCode Select
+  SQLiteAuthorizerActionCode Transaction
+  SQLiteAuthorizerActionCode Update
+  SQLiteAuthorizerActionCode Attach
+  SQLiteAuthorizerActionCode Detach
+  SQLiteAuthorizerActionCode AlterTable
+  SQLiteAuthorizerActionCode Reindex
+  SQLiteAuthorizerActionCode Analyze
+  SQLiteAuthorizerActionCode CreateVtable
+  SQLiteAuthorizerActionCode DropVtable
+  SQLiteAuthorizerActionCode Function
+  SQLiteAuthorizerActionCode Savepoint
+  SQLiteAuthorizerActionCode Recursive
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteAuthorizerReturnCode
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteAuthorizerReturnCode Ok
+  SQLiteAuthorizerReturnCode Deny
+  SQLiteAuthorizerReturnCode Ignore
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteType
+Наследуется от: object
+Поля:
+  DbType Type
+  TypeAffinity Affinity
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(TypeAffinity affinity, DbType type)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteDbTypeMap
+Наследуется от: Dictionary`2<string, SQLiteDbTypeMapping>
+Поля:
+  Dictionary`2<DbType, SQLiteDbTypeMapping> reverse
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(IEnumerable`1<SQLiteDbTypeMapping> collection)
+  int Clear()
+  void Add(IEnumerable`1<SQLiteDbTypeMapping> collection)
+  void Add(SQLiteDbTypeMapping item)
+  bool ContainsKey(DbType key)
+  bool TryGetValue(DbType key, SQLiteDbTypeMapping& value)
+  bool Remove(DbType key)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteDbTypeMapping
+Наследуется от: object
+Поля:
+  string typeName
+  DbType dataType
+  bool primary
+Свойства:
+Методы:
+  void .ctor(string newTypeName, DbType newDataType, bool newPrimary)
+--------------------------------------------------
+Класс: System.Data.SQLite.TypeNameStringComparer
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool Equals(string left, string right)
+  int GetHashCode(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteDataAdapter
+Наследуется от: DbDataAdapter
+Поля:
+  bool disposeSelect
+  object _updatingEventPH
+  object _updatedEventPH
+  bool disposed
+Свойства:
+  SQLiteCommand SelectCommand
+  SQLiteCommand InsertCommand
+  SQLiteCommand UpdateCommand
+  SQLiteCommand DeleteCommand
+Методы:
+  void .ctor()
+  void .ctor(SQLiteCommand cmd)
+  void .ctor(string commandText, SQLiteConnection connection)
+  void .ctor(string commandText, string connectionString)
+  void .ctor(string commandText, string connectionString, bool parseViaFramework)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void add_RowUpdating(EventHandler`1<RowUpdatingEventArgs> value)
+  void remove_RowUpdating(EventHandler`1<RowUpdatingEventArgs> value)
+  Delegate FindBuilder(MulticastDelegate mcd)
+  void add_RowUpdated(EventHandler`1<RowUpdatedEventArgs> value)
+  void remove_RowUpdated(EventHandler`1<RowUpdatedEventArgs> value)
+  void OnRowUpdating(RowUpdatingEventArgs value)
+  void OnRowUpdated(RowUpdatedEventArgs value)
+  SQLiteCommand get_SelectCommand()
+  void set_SelectCommand(SQLiteCommand value)
+  SQLiteCommand get_InsertCommand()
+  void set_InsertCommand(SQLiteCommand value)
+  SQLiteCommand get_UpdateCommand()
+  void set_UpdateCommand(SQLiteCommand value)
+  SQLiteCommand get_DeleteCommand()
+  void set_DeleteCommand(SQLiteCommand value)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteDataReader
+Наследуется от: DbDataReader
+Поля:
+  SQLiteCommand _command
+  SQLiteConnectionFlags _flags
+  int _activeStatementIndex
+  SQLiteStatement _activeStatement
+  int _readingState
+  int _rowsAffected
+  int _fieldCount
+  int _stepCount
+  Dictionary`2<string, int> _fieldIndexes
+  SQLiteType[] _fieldTypeArray
+  CommandBehavior _commandBehavior
+  bool _disposeCommand
+  bool _throwOnDisposed
+  SQLiteKeyReader _keyInfo
+  int _version
+  string _baseSchemaName
+  bool disposed
+Свойства:
+  int Depth
+  int FieldCount
+  int StepCount
+  int PrivateVisibleFieldCount
+  int VisibleFieldCount
+  bool HasRows
+  bool IsClosed
+  int RecordsAffected
+  object Item
+  object Item
+Методы:
+  void .ctor(SQLiteCommand cmd, CommandBehavior behave)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Cancel()
+  void Close()
+  void CheckClosed()
+  void CheckValidRow()
+  IEnumerator GetEnumerator()
+  int get_Depth()
+  int get_FieldCount()
+  void RefreshFlags()
+  int get_StepCount()
+  int get_PrivateVisibleFieldCount()
+  int get_VisibleFieldCount()
+  void VerifyForGet()
+  TypeAffinity VerifyType(int i, DbType typ)
+  bool GetBoolean(int i)
+  byte GetByte(int i)
+  long GetBytes(int i, long fieldOffset, Byte[] buffer, int bufferoffset, int length)
+  char GetChar(int i)
+  long GetChars(int i, long fieldoffset, Char[] buffer, int bufferoffset, int length)
+  string GetDataTypeName(int i)
+  DateTime GetDateTime(int i)
+  decimal GetDecimal(int i)
+  double GetDouble(int i)
+  Type GetFieldType(int i)
+  float GetFloat(int i)
+  Guid GetGuid(int i)
+  short GetInt16(int i)
+  int GetInt32(int i)
+  long GetInt64(int i)
+  string GetName(int i)
+  int GetOrdinal(string name)
+  DataTable GetSchemaTable()
+  void GetStatementColumnParents(SQLiteBase sql, SQLiteStatement stmt, int fieldCount, Dictionary`2& parentToColumns, Dictionary`2& columnToParent)
+  int CountParents(Dictionary`2<ColumnParent, List`1<int>> parentToColumns)
+  DataTable GetSchemaTable(bool wantUniqueInfo, bool wantDefaultValue)
+  string GetString(int i)
+  object GetValue(int i)
+  int GetValues(Object[] values)
+  NameValueCollection GetValues()
+  bool get_HasRows()
+  bool get_IsClosed()
+  bool IsDBNull(int i)
+  bool NextResult()
+  SQLiteConnection GetConnection(SQLiteDataReader dataReader)
+  SQLiteType GetSQLiteType(SQLiteType oldType, string text)
+  SQLiteType GetSQLiteType(SQLiteConnectionFlags flags, int i)
+  bool Read()
+  int get_RecordsAffected()
+  object get_Item(string name)
+  object get_Item(int i)
+  void LoadKeyInfo()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteDefineConstants
+Наследуется от: object
+Поля:
+  IList`1<string> OptionList
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteException
+Наследуется от: DbException
+Поля:
+  SQLiteErrorCode _errorCode
+Свойства:
+  SQLiteErrorCode ResultCode
+  int ErrorCode
+Методы:
+  void .ctor(SerializationInfo info, StreamingContext context)
+  void .ctor(SQLiteErrorCode errorCode, string message)
+  void .ctor(string message)
+  void .ctor()
+  void .ctor(string message, Exception innerException)
+  void GetObjectData(SerializationInfo info, StreamingContext context)
+  SQLiteErrorCode get_ResultCode()
+  int get_ErrorCode()
+  string GetErrorString(SQLiteErrorCode errorCode)
+  string GetStockErrorMessage(SQLiteErrorCode errorCode, string message)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteErrorCode
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteErrorCode Unknown
+  SQLiteErrorCode Ok
+  SQLiteErrorCode Error
+  SQLiteErrorCode Internal
+  SQLiteErrorCode Perm
+  SQLiteErrorCode Abort
+  SQLiteErrorCode Busy
+  SQLiteErrorCode Locked
+  SQLiteErrorCode NoMem
+  SQLiteErrorCode ReadOnly
+  SQLiteErrorCode Interrupt
+  SQLiteErrorCode IoErr
+  SQLiteErrorCode Corrupt
+  SQLiteErrorCode NotFound
+  SQLiteErrorCode Full
+  SQLiteErrorCode CantOpen
+  SQLiteErrorCode Protocol
+  SQLiteErrorCode Empty
+  SQLiteErrorCode Schema
+  SQLiteErrorCode TooBig
+  SQLiteErrorCode Constraint
+  SQLiteErrorCode Mismatch
+  SQLiteErrorCode Misuse
+  SQLiteErrorCode NoLfs
+  SQLiteErrorCode Auth
+  SQLiteErrorCode Format
+  SQLiteErrorCode Range
+  SQLiteErrorCode NotADb
+  SQLiteErrorCode Notice
+  SQLiteErrorCode Warning
+  SQLiteErrorCode Row
+  SQLiteErrorCode Done
+  SQLiteErrorCode NonExtendedMask
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteFactory
+Наследуется от: DbProviderFactory
+Поля:
+  bool disposed
+  SQLiteFactory Instance
+  string DefaultTypeName
+  BindingFlags DefaultBindingFlags
+  Type _dbProviderServicesType
+  object _sqliteServices
+Свойства:
+Методы:
+  void .ctor()
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+  void add_Log(SQLiteLogEventHandler value)
+  void remove_Log(SQLiteLogEventHandler value)
+  DbCommand CreateCommand()
+  DbCommandBuilder CreateCommandBuilder()
+  DbConnection CreateConnection()
+  DbConnectionStringBuilder CreateConnectionStringBuilder()
+  DbDataAdapter CreateDataAdapter()
+  DbParameter CreateParameter()
+  void .cctor()
+  object System.IServiceProvider.GetService(Type serviceType)
+  object GetSQLiteProviderServicesInstance()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteFunction
+Наследуется от: object
+Поля:
+  SQLiteBase _base
+  Dictionary`2<IntPtr, AggregateData> _contextDataList
+  SQLiteConnectionFlags _flags
+  SQLiteCallback _InvokeFunc
+  SQLiteCallback _StepFunc
+  SQLiteFinalCallback _FinalFunc
+  SQLiteCollation _CompareFunc
+  SQLiteCollation _CompareFunc16
+  IntPtr _context
+  List`1<SQLiteFunctionAttribute> _registeredFunctions
+  bool disposed
+Свойства:
+  SQLiteConvert SQLiteConvert
+Методы:
+  void .ctor()
+  void .ctor(SQLiteDateFormats format, DateTimeKind kind, string formatString, bool utf16)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+  SQLiteConvert get_SQLiteConvert()
+  object Invoke(Object[] args)
+  void Step(Object[] args, int stepNumber, Object& contextData)
+  object Final(object contextData)
+  int Compare(string param1, string param2)
+  Object[] ConvertParams(int nArgs, IntPtr argsptr)
+  void SetReturnValue(IntPtr context, object returnValue)
+  void ScalarCallback(IntPtr context, int nArgs, IntPtr argsptr)
+  int CompareCallback(IntPtr ptr, int len1, IntPtr ptr1, int len2, IntPtr ptr2)
+  int CompareCallback16(IntPtr ptr, int len1, IntPtr ptr1, int len2, IntPtr ptr2)
+  void StepCallback(IntPtr context, int nArgs, IntPtr argsptr)
+  void FinalCallback(IntPtr context)
+  void .cctor()
+  void RegisterFunction(Type typ)
+  IEnumerable`1<SQLiteFunction> BindFunctions(SQLiteBase sqlbase, SQLiteConnectionFlags flags)
+  void BindFunction(SQLiteBase sqliteBase, SQLiteFunctionAttribute functionAttribute, SQLiteFunction function, SQLiteConnectionFlags flags)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteFunctionEx
+Наследуется от: SQLiteFunction
+Поля:
+  bool disposed
+Свойства:
+Методы:
+  CollationSequence GetCollationSequence()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.FunctionType
+Наследуется от: Enum
+Поля:
+  int value__
+  FunctionType Scalar
+  FunctionType Aggregate
+  FunctionType Collation
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr context, int argc, IntPtr argv)
+  IAsyncResult BeginInvoke(IntPtr context, int argc, IntPtr argv, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteFinalCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr context)
+  IAsyncResult BeginInvoke(IntPtr context, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteCollation
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  int Invoke(IntPtr puser, int len1, IntPtr pv1, int len2, IntPtr pv2)
+  IAsyncResult BeginInvoke(IntPtr puser, int len1, IntPtr pv1, int len2, IntPtr pv2, AsyncCallback callback, object object)
+  int EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.CollationTypeEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  CollationTypeEnum Binary
+  CollationTypeEnum NoCase
+  CollationTypeEnum Reverse
+  CollationTypeEnum Custom
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.CollationEncodingEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  CollationEncodingEnum UTF8
+  CollationEncodingEnum UTF16LE
+  CollationEncodingEnum UTF16BE
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.CollationSequence
+Наследуется от: ValueType
+Поля:
+  string Name
+  CollationTypeEnum Type
+  CollationEncodingEnum Encoding
+  SQLiteFunction _func
+Свойства:
+Методы:
+  int Compare(string s1, string s2)
+  int Compare(Char[] c1, Char[] c2)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteFunctionAttribute
+Наследуется от: Attribute
+Поля:
+  string _name
+  int _argumentCount
+  FunctionType _functionType
+  Type _instanceType
+Свойства:
+  string Name
+  int Arguments
+  FunctionType FuncType
+  Type InstanceType
+Методы:
+  void .ctor()
+  void .ctor(string name, int argumentCount, FunctionType functionType)
+  string get_Name()
+  void set_Name(string value)
+  int get_Arguments()
+  void set_Arguments(int value)
+  FunctionType get_FuncType()
+  void set_FuncType(FunctionType value)
+  Type get_InstanceType()
+  void set_InstanceType(Type value)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteKeyReader
+Наследуется от: object
+Поля:
+  KeyInfo[] _keyInfo
+  SQLiteStatement _stmt
+  bool _isValid
+  bool disposed
+Свойства:
+  int Count
+Методы:
+  void .ctor(SQLiteConnection cnn, SQLiteDataReader reader, SQLiteStatement stmt)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+  int get_Count()
+  void Sync(int i)
+  void Sync()
+  void Reset()
+  string GetDataTypeName(int i)
+  Type GetFieldType(int i)
+  string GetName(int i)
+  int GetOrdinal(string name)
+  bool GetBoolean(int i)
+  byte GetByte(int i)
+  long GetBytes(int i, long fieldOffset, Byte[] buffer, int bufferoffset, int length)
+  char GetChar(int i)
+  long GetChars(int i, long fieldOffset, Char[] buffer, int bufferoffset, int length)
+  DateTime GetDateTime(int i)
+  decimal GetDecimal(int i)
+  double GetDouble(int i)
+  float GetFloat(int i)
+  Guid GetGuid(int i)
+  short GetInt16(int i)
+  int GetInt32(int i)
+  long GetInt64(int i)
+  string GetString(int i)
+  object GetValue(int i)
+  bool IsDBNull(int i)
+  void AppendSchemaTable(DataTable tbl)
+--------------------------------------------------
+Класс: System.Data.SQLite.LogEventArgs
+Наследуется от: EventArgs
+Поля:
+  object ErrorCode
+  string Message
+  object Data
+Свойства:
+Методы:
+  void .ctor(IntPtr pUserData, object errorCode, string message, object data)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteLogEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, LogEventArgs e)
+  IAsyncResult BeginInvoke(object sender, LogEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteLog
+Наследуется от: object
+Поля:
+  object syncRoot
+  EventHandler _domainUnload
+  SQLiteLogEventHandler _handlers
+  SQLiteLogEventHandler _defaultHandler
+  SQLiteLogCallback _callback
+  SQLiteBase _sql
+  bool _enabled
+Свойства:
+  bool Enabled
+Методы:
+  void add__handlers(SQLiteLogEventHandler value)
+  void remove__handlers(SQLiteLogEventHandler value)
+  void Initialize()
+  void DomainUnload(object sender, EventArgs e)
+  void add_Log(SQLiteLogEventHandler value)
+  void remove_Log(SQLiteLogEventHandler value)
+  bool get_Enabled()
+  void set_Enabled(bool value)
+  void LogMessage(string message)
+  void LogMessage(SQLiteErrorCode errorCode, string message)
+  void LogMessage(int errorCode, string message)
+  void LogMessage(object errorCode, string message)
+  void InitializeDefaultHandler()
+  void AddDefaultHandler()
+  void RemoveDefaultHandler()
+  void LogCallback(IntPtr pUserData, int errorCode, IntPtr pMessage)
+  void LogEventHandler(object sender, LogEventArgs e)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteMetaDataCollectionNames
+Наследуется от: object
+Поля:
+  string Catalogs
+  string Columns
+  string Indexes
+  string IndexColumns
+  string Tables
+  string Views
+  string ViewColumns
+  string ForeignKeys
+  string Triggers
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteParameter
+Наследуется от: DbParameter
+Поля:
+  DbType UnknownDbType
+  IDbCommand _command
+  DbType _dbType
+  DataRowVersion _rowVersion
+  object _objValue
+  string _sourceColumn
+  string _parameterName
+  int _dataSize
+  bool _nullable
+  bool _nullMapping
+Свойства:
+  IDbCommand Command
+  bool IsNullable
+  DbType DbType
+  ParameterDirection Direction
+  string ParameterName
+  int Size
+  string SourceColumn
+  bool SourceColumnNullMapping
+  DataRowVersion SourceVersion
+  object Value
+Методы:
+  void .ctor(IDbCommand command)
+  void .ctor()
+  void .ctor(string parameterName)
+  void .ctor(string parameterName, object value)
+  void .ctor(string parameterName, DbType dbType)
+  void .ctor(string parameterName, DbType dbType, string sourceColumn)
+  void .ctor(string parameterName, DbType dbType, string sourceColumn, DataRowVersion rowVersion)
+  void .ctor(DbType dbType)
+  void .ctor(DbType dbType, object value)
+  void .ctor(DbType dbType, string sourceColumn)
+  void .ctor(DbType dbType, string sourceColumn, DataRowVersion rowVersion)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize, string sourceColumn)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize, string sourceColumn, DataRowVersion rowVersion)
+  void .ctor(SQLiteParameter source)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize, ParameterDirection direction, bool isNullable, byte precision, byte scale, string sourceColumn, DataRowVersion rowVersion, object value)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize, ParameterDirection direction, byte precision, byte scale, string sourceColumn, DataRowVersion rowVersion, bool sourceColumnNullMapping, object value)
+  void .ctor(DbType parameterType, int parameterSize)
+  void .ctor(DbType parameterType, int parameterSize, string sourceColumn)
+  void .ctor(DbType parameterType, int parameterSize, string sourceColumn, DataRowVersion rowVersion)
+  IDbCommand get_Command()
+  void set_Command(IDbCommand value)
+  bool get_IsNullable()
+  void set_IsNullable(bool value)
+  DbType get_DbType()
+  void set_DbType(DbType value)
+  ParameterDirection get_Direction()
+  void set_Direction(ParameterDirection value)
+  string get_ParameterName()
+  void set_ParameterName(string value)
+  void ResetDbType()
+  int get_Size()
+  void set_Size(int value)
+  string get_SourceColumn()
+  void set_SourceColumn(string value)
+  bool get_SourceColumnNullMapping()
+  void set_SourceColumnNullMapping(bool value)
+  DataRowVersion get_SourceVersion()
+  void set_SourceVersion(DataRowVersion value)
+  object get_Value()
+  void set_Value(object value)
+  object Clone()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteParameterCollection
+Наследуется от: DbParameterCollection
+Поля:
+  SQLiteCommand _command
+  List`1<SQLiteParameter> _parameterList
+  bool _unboundFlag
+Свойства:
+  bool IsSynchronized
+  bool IsFixedSize
+  bool IsReadOnly
+  object SyncRoot
+  int Count
+  SQLiteParameter Item
+  SQLiteParameter Item
+Методы:
+  void .ctor(SQLiteCommand cmd)
+  bool get_IsSynchronized()
+  bool get_IsFixedSize()
+  bool get_IsReadOnly()
+  object get_SyncRoot()
+  IEnumerator GetEnumerator()
+  SQLiteParameter Add(string parameterName, DbType parameterType, int parameterSize, string sourceColumn)
+  SQLiteParameter Add(string parameterName, DbType parameterType, int parameterSize)
+  SQLiteParameter Add(string parameterName, DbType parameterType)
+  int Add(SQLiteParameter parameter)
+  int Add(object value)
+  SQLiteParameter AddWithValue(string parameterName, object value)
+  void AddRange(SQLiteParameter[] values)
+  void AddRange(Array values)
+  void Clear()
+  bool Contains(string parameterName)
+  bool Contains(object value)
+  void CopyTo(Array array, int index)
+  int get_Count()
+  SQLiteParameter get_Item(string parameterName)
+  void set_Item(string parameterName, SQLiteParameter value)
+  SQLiteParameter get_Item(int index)
+  void set_Item(int index, SQLiteParameter value)
+  DbParameter GetParameter(string parameterName)
+  DbParameter GetParameter(int index)
+  int IndexOf(string parameterName)
+  int IndexOf(object value)
+  void Insert(int index, object value)
+  void Remove(object value)
+  void RemoveAt(string parameterName)
+  void RemoveAt(int index)
+  void SetParameter(string parameterName, DbParameter value)
+  void SetParameter(int index, DbParameter value)
+  void Unbind()
+  void MapParameters(SQLiteStatement activeStatement)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteStatement
+Наследуется от: object
+Поля:
+  SQLiteBase _sql
+  string _sqlStatement
+  SQLiteStatementHandle _sqlite_stmt
+  int _unnamedParameters
+  String[] _paramNames
+  SQLiteParameter[] _paramValues
+  SQLiteCommand _command
+  SQLiteConnectionFlags _flags
+  String[] _types
+  bool disposed
+Свойства:
+  String[] TypeDefinitions
+Методы:
+  void .ctor(SQLiteBase sqlbase, SQLiteConnectionFlags flags, SQLiteStatementHandle stmt, string strCommand, SQLiteStatement previous)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+  bool TryGetChanges(Int32& changes, Boolean& readOnly)
+  bool MapParameter(string s, SQLiteParameter p)
+  void BindParameters()
+  void BindParameter(int index, SQLiteParameter param)
+  String[] get_TypeDefinitions()
+  void SetTypes(string typedefs)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteTransaction
+Наследуется от: DbTransaction
+Поля:
+  SQLiteConnection _cnn
+  int _version
+  IsolationLevel _level
+  bool disposed
+Свойства:
+  SQLiteConnection Connection
+  DbConnection DbConnection
+  IsolationLevel IsolationLevel
+Методы:
+  void .ctor(SQLiteConnection connection, bool deferredLock)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Commit()
+  SQLiteConnection get_Connection()
+  DbConnection get_DbConnection()
+  IsolationLevel get_IsolationLevel()
+  void Rollback()
+  void IssueRollback(bool throwError)
+  bool IsValid(bool throwError)
+--------------------------------------------------
+Класс: System.Data.SQLite.UnsafeNativeMethods
+Наследуется от: object
+Поля:
+  string SQLITE_DLL
+  string DllFileExtension
+  string ConfigFileExtension
+  string XmlConfigFileName
+  object staticSyncRoot
+  Dictionary`2<string, string> processorArchitecturePlatforms
+  string PROCESSOR_ARCHITECTURE
+  string _SQLiteNativeModuleFileName
+  IntPtr _SQLiteNativeModuleHandle
+Свойства:
+Методы:
+  void .cctor()
+  void Initialize()
+  string GetXmlConfigFileName()
+  string GetSettingValue(string name, string default)
+  string ListToString(IList`1<string> list)
+  int CheckForArchitecturesAndPlatforms(string directory, List`1& matches)
+  bool CheckAssemblyCodeBase(Assembly assembly, String& fileName)
+  string GetAssemblyDirectory()
+  IntPtr LoadLibrary(string fileName)
+  bool SearchForDirectory(String& baseDirectory, String& processorArchitecture)
+  string GetBaseDirectory()
+  string FixUpDllFileName(string fileName)
+  string GetProcessorArchitecture()
+  string GetPlatformName(string processorArchitecture)
+  bool PreLoadSQLiteDll(string baseDirectory, string processorArchitecture, String& nativeModuleFileName, IntPtr& nativeModuleHandle)
+  SQLiteErrorCode sqlite3_close(IntPtr db)
+  SQLiteErrorCode sqlite3_close_v2(IntPtr db)
+  SQLiteErrorCode sqlite3_create_function(IntPtr db, Byte[] strName, int nArgs, int nType, IntPtr pvUser, SQLiteCallback func, SQLiteCallback fstep, SQLiteFinalCallback ffinal)
+  SQLiteErrorCode sqlite3_finalize(IntPtr stmt)
+  SQLiteErrorCode sqlite3_backup_finish(IntPtr backup)
+  SQLiteErrorCode sqlite3_reset(IntPtr stmt)
+  IntPtr sqlite3_bind_parameter_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_database_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_database_name16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_decltype(IntPtr stmt, int index)
+  IntPtr sqlite3_column_decltype16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_name16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_origin_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_origin_name16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_table_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_table_name16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_text(IntPtr stmt, int index)
+  IntPtr sqlite3_column_text16(IntPtr stmt, int index)
+  IntPtr sqlite3_errmsg(IntPtr db)
+  SQLiteErrorCode sqlite3_prepare(IntPtr db, IntPtr pSql, int nBytes, IntPtr& stmt, IntPtr& ptrRemain)
+  SQLiteErrorCode sqlite3_prepare_v2(IntPtr db, IntPtr pSql, int nBytes, IntPtr& stmt, IntPtr& ptrRemain)
+  SQLiteErrorCode sqlite3_table_column_metadata(IntPtr db, Byte[] dbName, Byte[] tblName, Byte[] colName, IntPtr& ptrDataType, IntPtr& ptrCollSeq, Int32& notNull, Int32& primaryKey, Int32& autoInc)
+  IntPtr sqlite3_value_text(IntPtr p)
+  IntPtr sqlite3_value_text16(IntPtr p)
+  IntPtr sqlite3_libversion()
+  int sqlite3_libversion_number()
+  IntPtr sqlite3_sourceid()
+  int sqlite3_compileoption_used(IntPtr zOptName)
+  IntPtr sqlite3_compileoption_get(int N)
+  SQLiteErrorCode sqlite3_enable_shared_cache(int enable)
+  SQLiteErrorCode sqlite3_enable_load_extension(IntPtr db, int enable)
+  SQLiteErrorCode sqlite3_load_extension(IntPtr db, Byte[] fileName, Byte[] procName, IntPtr& pError)
+  SQLiteErrorCode sqlite3_overload_function(IntPtr db, IntPtr zName, int nArgs)
+  SQLiteErrorCode sqlite3_win32_set_directory(UInt32 type, string value)
+  SQLiteErrorCode sqlite3_win32_reset_heap()
+  SQLiteErrorCode sqlite3_win32_compact_heap(UInt32& largest)
+  IntPtr sqlite3_malloc(int n)
+  IntPtr sqlite3_realloc(IntPtr p, int n)
+  void sqlite3_free(IntPtr p)
+  SQLiteErrorCode sqlite3_open_v2(Byte[] utf8Filename, IntPtr& db, SQLiteOpenFlagsEnum flags, IntPtr vfs)
+  SQLiteErrorCode sqlite3_open16(string fileName, IntPtr& db)
+  void sqlite3_interrupt(IntPtr db)
+  long sqlite3_last_insert_rowid(IntPtr db)
+  int sqlite3_changes(IntPtr db)
+  long sqlite3_memory_used()
+  long sqlite3_memory_highwater(int resetFlag)
+  SQLiteErrorCode sqlite3_shutdown()
+  SQLiteErrorCode sqlite3_busy_timeout(IntPtr db, int ms)
+  SQLiteErrorCode sqlite3_bind_blob(IntPtr stmt, int index, Byte[] value, int nSize, IntPtr nTransient)
+  SQLiteErrorCode sqlite3_bind_double(IntPtr stmt, int index, double value)
+  SQLiteErrorCode sqlite3_bind_int(IntPtr stmt, int index, int value)
+  SQLiteErrorCode sqlite3_bind_uint(IntPtr stmt, int index, UInt32 value)
+  SQLiteErrorCode sqlite3_bind_int64(IntPtr stmt, int index, long value)
+  SQLiteErrorCode sqlite3_bind_uint64(IntPtr stmt, int index, ulong value)
+  SQLiteErrorCode sqlite3_bind_null(IntPtr stmt, int index)
+  SQLiteErrorCode sqlite3_bind_text(IntPtr stmt, int index, Byte[] value, int nlen, IntPtr pvReserved)
+  int sqlite3_bind_parameter_count(IntPtr stmt)
+  int sqlite3_bind_parameter_index(IntPtr stmt, Byte[] strName)
+  int sqlite3_column_count(IntPtr stmt)
+  SQLiteErrorCode sqlite3_step(IntPtr stmt)
+  int sqlite3_stmt_readonly(IntPtr stmt)
+  double sqlite3_column_double(IntPtr stmt, int index)
+  int sqlite3_column_int(IntPtr stmt, int index)
+  long sqlite3_column_int64(IntPtr stmt, int index)
+  IntPtr sqlite3_column_blob(IntPtr stmt, int index)
+  int sqlite3_column_bytes(IntPtr stmt, int index)
+  int sqlite3_column_bytes16(IntPtr stmt, int index)
+  TypeAffinity sqlite3_column_type(IntPtr stmt, int index)
+  SQLiteErrorCode sqlite3_create_collation(IntPtr db, Byte[] strName, int nType, IntPtr pvUser, SQLiteCollation func)
+  int sqlite3_aggregate_count(IntPtr context)
+  IntPtr sqlite3_value_blob(IntPtr p)
+  int sqlite3_value_bytes(IntPtr p)
+  int sqlite3_value_bytes16(IntPtr p)
+  double sqlite3_value_double(IntPtr p)
+  int sqlite3_value_int(IntPtr p)
+  long sqlite3_value_int64(IntPtr p)
+  TypeAffinity sqlite3_value_type(IntPtr p)
+  void sqlite3_result_blob(IntPtr context, Byte[] value, int nSize, IntPtr pvReserved)
+  void sqlite3_result_double(IntPtr context, double value)
+  void sqlite3_result_error(IntPtr context, Byte[] strErr, int nLen)
+  void sqlite3_result_error_code(IntPtr context, SQLiteErrorCode value)
+  void sqlite3_result_error_toobig(IntPtr context)
+  void sqlite3_result_error_nomem(IntPtr context)
+  void sqlite3_result_value(IntPtr context, IntPtr value)
+  void sqlite3_result_zeroblob(IntPtr context, int nLen)
+  void sqlite3_result_int(IntPtr context, int value)
+  void sqlite3_result_int64(IntPtr context, long value)
+  void sqlite3_result_null(IntPtr context)
+  void sqlite3_result_text(IntPtr context, Byte[] value, int nLen, IntPtr pvReserved)
+  IntPtr sqlite3_aggregate_context(IntPtr context, int nBytes)
+  SQLiteErrorCode sqlite3_bind_text16(IntPtr stmt, int index, string value, int nlen, IntPtr pvReserved)
+  void sqlite3_result_error16(IntPtr context, string strName, int nLen)
+  void sqlite3_result_text16(IntPtr context, string strName, int nLen, IntPtr pvReserved)
+  SQLiteErrorCode sqlite3_key(IntPtr db, Byte[] key, int keylen)
+  SQLiteErrorCode sqlite3_rekey(IntPtr db, Byte[] key, int keylen)
+  IntPtr sqlite3_set_authorizer(IntPtr db, SQLiteAuthorizerCallback func, IntPtr pvUser)
+  IntPtr sqlite3_update_hook(IntPtr db, SQLiteUpdateCallback func, IntPtr pvUser)
+  IntPtr sqlite3_commit_hook(IntPtr db, SQLiteCommitCallback func, IntPtr pvUser)
+  IntPtr sqlite3_trace(IntPtr db, SQLiteTraceCallback func, IntPtr pvUser)
+  SQLiteErrorCode sqlite3_config_none(SQLiteConfigOpsEnum op)
+  SQLiteErrorCode sqlite3_config_int(SQLiteConfigOpsEnum op, int value)
+  SQLiteErrorCode sqlite3_config_log(SQLiteConfigOpsEnum op, SQLiteLogCallback func, IntPtr pvUser)
+  IntPtr sqlite3_rollback_hook(IntPtr db, SQLiteRollbackCallback func, IntPtr pvUser)
+  IntPtr sqlite3_db_handle(IntPtr stmt)
+  SQLiteErrorCode sqlite3_db_release_memory(IntPtr db)
+  IntPtr sqlite3_db_filename(IntPtr db, IntPtr dbName)
+  IntPtr sqlite3_next_stmt(IntPtr db, IntPtr stmt)
+  SQLiteErrorCode sqlite3_exec(IntPtr db, Byte[] strSql, IntPtr pvCallback, IntPtr pvParam, IntPtr& errMsg)
+  int sqlite3_release_memory(int nBytes)
+  int sqlite3_get_autocommit(IntPtr db)
+  SQLiteErrorCode sqlite3_extended_result_codes(IntPtr db, int onoff)
+  SQLiteErrorCode sqlite3_errcode(IntPtr db)
+  SQLiteErrorCode sqlite3_extended_errcode(IntPtr db)
+  IntPtr sqlite3_errstr(SQLiteErrorCode rc)
+  void sqlite3_log(SQLiteErrorCode iErrCode, Byte[] zFormat)
+  SQLiteErrorCode sqlite3_file_control(IntPtr db, Byte[] zDbName, int op, IntPtr pArg)
+  IntPtr sqlite3_backup_init(IntPtr destDb, Byte[] zDestName, IntPtr sourceDb, Byte[] zSourceName)
+  SQLiteErrorCode sqlite3_backup_step(IntPtr backup, int nPage)
+  int sqlite3_backup_remaining(IntPtr backup)
+  int sqlite3_backup_pagecount(IntPtr backup)
+  SQLiteErrorCode sqlite3_declare_vtab(IntPtr db, IntPtr zSQL)
+  IntPtr sqlite3_mprintf(IntPtr format)
+  IntPtr sqlite3_create_disposable_module(IntPtr db, IntPtr name, sqlite3_module& module, IntPtr pClientData, xDestroyModule xDestroy)
+  void sqlite3_dispose_module(IntPtr pModule)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteConnectionHandle
+Наследуется от: CriticalHandle
+Поля:
+  CloseConnectionCallback closeConnection
+  bool ownHandle
+Свойства:
+  bool OwnHandle
+  bool IsInvalid
+Методы:
+  IntPtr op_Implicit(SQLiteConnectionHandle db)
+  void .ctor(IntPtr db, bool ownHandle)
+  void .ctor(bool ownHandle)
+  bool ReleaseHandle()
+  bool get_OwnHandle()
+  bool get_IsInvalid()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteStatementHandle
+Наследуется от: CriticalHandle
+Поля:
+  SQLiteConnectionHandle cnn
+Свойства:
+  bool IsInvalid
+Методы:
+  IntPtr op_Implicit(SQLiteStatementHandle stmt)
+  void .ctor(SQLiteConnectionHandle cnn, IntPtr stmt)
+  void .ctor()
+  bool ReleaseHandle()
+  bool get_IsInvalid()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteBackupHandle
+Наследуется от: CriticalHandle
+Поля:
+  SQLiteConnectionHandle cnn
+Свойства:
+  bool IsInvalid
+Методы:
+  IntPtr op_Implicit(SQLiteBackupHandle backup)
+  void .ctor(SQLiteConnectionHandle cnn, IntPtr backup)
+  void .ctor()
+  bool ReleaseHandle()
+  bool get_IsInvalid()
+--------------------------------------------------
+Класс: System.Data.SQLite.SR
+Наследуется от: object
+Поля:
+  ResourceManager resourceMan
+  CultureInfo resourceCulture
+Свойства:
+  ResourceManager ResourceManager
+  CultureInfo Culture
+  string DataTypes
+  string Keywords
+  string MetaDataCollections
+Методы:
+  void .ctor()
+  ResourceManager get_ResourceManager()
+  CultureInfo get_Culture()
+  void set_Culture(CultureInfo value)
+  string get_DataTypes()
+  string get_Keywords()
+  string get_MetaDataCollections()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteEnlistment
+Наследуется от: object
+Поля:
+  SQLiteTransaction _transaction
+  Transaction _scope
+  bool _disposeConnection
+  bool disposed
+Свойства:
+Методы:
+  void .ctor(SQLiteConnection cnn, Transaction scope, IsolationLevel defaultIsolationLevel, bool throwOnUnavailable, bool throwOnUnsupported)
+  IsolationLevel GetSystemDataIsolationLevel(SQLiteConnection connection, Transaction transaction, IsolationLevel defaultIsolationLevel, bool throwOnUnavailable, bool throwOnUnsupported)
+  void Cleanup(SQLiteConnection cnn)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+  void Commit(Enlistment enlistment)
+  void InDoubt(Enlistment enlistment)
+  void Prepare(PreparingEnlistment preparingEnlistment)
+  void Rollback(Enlistment enlistment)
+--------------------------------------------------
+Класс: System.Data.SQLite.ISQLiteNativeHandle
+Поля:
+Свойства:
+  IntPtr NativeHandle
+Методы:
+  IntPtr get_NativeHandle()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteContext
+Наследуется от: object
+Поля:
+  IntPtr pContext
+Свойства:
+  IntPtr NativeHandle
+Методы:
+  void .ctor(IntPtr pContext)
+  IntPtr get_NativeHandle()
+  void SetNull()
+  void SetDouble(double value)
+  void SetInt(int value)
+  void SetInt64(long value)
+  void SetString(string value)
+  void SetError(string value)
+  void SetErrorCode(SQLiteErrorCode value)
+  void SetErrorTooBig()
+  void SetErrorNoMemory()
+  void SetBlob(Byte[] value)
+  void SetZeroBlob(int value)
+  void SetValue(SQLiteValue value)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteValue
+Наследуется от: object
+Поля:
+  IntPtr pValue
+  bool persisted
+  object value
+Свойства:
+  IntPtr NativeHandle
+  bool Persisted
+  object Value
+Методы:
+  void .ctor(IntPtr pValue)
+  void PreventNativeAccess()
+  SQLiteValue[] ArrayFromSizeAndIntPtr(int argc, IntPtr argv)
+  IntPtr get_NativeHandle()
+  bool get_Persisted()
+  object get_Value()
+  TypeAffinity GetTypeAffinity()
+  int GetBytes()
+  int GetInt()
+  long GetInt64()
+  double GetDouble()
+  string GetString()
+  Byte[] GetBlob()
+  bool Persist()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteIndexConstraintOp
+Наследуется от: Enum
+Поля:
+  byte value__
+  SQLiteIndexConstraintOp EqualTo
+  SQLiteIndexConstraintOp GreaterThan
+  SQLiteIndexConstraintOp LessThanOrEqualTo
+  SQLiteIndexConstraintOp LessThan
+  SQLiteIndexConstraintOp GreaterThanOrEqualTo
+  SQLiteIndexConstraintOp Match
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteIndexConstraint
+Наследуется от: object
+Поля:
+  int iColumn
+  SQLiteIndexConstraintOp op
+  byte usable
+  int iTermOffset
+Свойства:
+Методы:
+  void .ctor(sqlite3_index_constraint constraint)
+  void .ctor(int iColumn, SQLiteIndexConstraintOp op, byte usable, int iTermOffset)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteIndexOrderBy
+Наследуется от: object
+Поля:
+  int iColumn
+  byte desc
+Свойства:
+Методы:
+  void .ctor(sqlite3_index_orderby orderBy)
+  void .ctor(int iColumn, byte desc)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteIndexConstraintUsage
+Наследуется от: object
+Поля:
+  int argvIndex
+  byte omit
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(sqlite3_index_constraint_usage constraintUsage)
+  void .ctor(int argvIndex, byte omit)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteIndexInputs
+Наследуется от: object
+Поля:
+  SQLiteIndexConstraint[] constraints
+  SQLiteIndexOrderBy[] orderBys
+Свойства:
+  SQLiteIndexConstraint[] Constraints
+  SQLiteIndexOrderBy[] OrderBys
+Методы:
+  void .ctor(int nConstraint, int nOrderBy)
+  SQLiteIndexConstraint[] get_Constraints()
+  SQLiteIndexOrderBy[] get_OrderBys()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteIndexOutputs
+Наследуется от: object
+Поля:
+  SQLiteIndexConstraintUsage[] constraintUsages
+  int indexNumber
+  string indexString
+  int needToFreeIndexString
+  int orderByConsumed
+  Nullable`1<double> estimatedCost
+  Nullable`1<long> estimatedRows
+Свойства:
+  SQLiteIndexConstraintUsage[] ConstraintUsages
+  int IndexNumber
+  string IndexString
+  int NeedToFreeIndexString
+  int OrderByConsumed
+  Nullable`1<double> EstimatedCost
+  Nullable`1<long> EstimatedRows
+Методы:
+  void .ctor(int nConstraint)
+  bool CanUseEstimatedRows()
+  SQLiteIndexConstraintUsage[] get_ConstraintUsages()
+  int get_IndexNumber()
+  void set_IndexNumber(int value)
+  string get_IndexString()
+  void set_IndexString(string value)
+  int get_NeedToFreeIndexString()
+  void set_NeedToFreeIndexString(int value)
+  int get_OrderByConsumed()
+  void set_OrderByConsumed(int value)
+  Nullable`1<double> get_EstimatedCost()
+  void set_EstimatedCost(Nullable`1<double> value)
+  Nullable`1<long> get_EstimatedRows()
+  void set_EstimatedRows(Nullable`1<long> value)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteIndex
+Наследуется от: object
+Поля:
+  SQLiteIndexInputs inputs
+  SQLiteIndexOutputs outputs
+Свойства:
+  SQLiteIndexInputs Inputs
+  SQLiteIndexOutputs Outputs
+Методы:
+  void .ctor(int nConstraint, int nOrderBy)
+  void FromIntPtr(IntPtr pIndex, SQLiteIndex& index)
+  void ToIntPtr(SQLiteIndex index, IntPtr pIndex)
+  SQLiteIndexInputs get_Inputs()
+  SQLiteIndexOutputs get_Outputs()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteVirtualTable
+Наследуется от: object
+Поля:
+  int ModuleNameIndex
+  int DatabaseNameIndex
+  int TableNameIndex
+  String[] arguments
+  SQLiteIndex index
+  IntPtr nativeHandle
+  bool disposed
+Свойства:
+  String[] Arguments
+  string ModuleName
+  string DatabaseName
+  string TableName
+  SQLiteIndex Index
+  IntPtr NativeHandle
+Методы:
+  void .ctor(String[] arguments)
+  String[] get_Arguments()
+  string get_ModuleName()
+  string get_DatabaseName()
+  string get_TableName()
+  SQLiteIndex get_Index()
+  bool BestIndex(SQLiteIndex index)
+  bool Rename(string name)
+  IntPtr get_NativeHandle()
+  void set_NativeHandle(IntPtr value)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteVirtualTableCursor
+Наследуется от: object
+Поля:
+  int InvalidRowIndex
+  int rowIndex
+  SQLiteVirtualTable table
+  int indexNumber
+  string indexString
+  SQLiteValue[] values
+  IntPtr nativeHandle
+  bool disposed
+Свойства:
+  SQLiteVirtualTable Table
+  int IndexNumber
+  string IndexString
+  SQLiteValue[] Values
+  IntPtr NativeHandle
+Методы:
+  void .ctor(SQLiteVirtualTable table)
+  void .ctor()
+  SQLiteVirtualTable get_Table()
+  int get_IndexNumber()
+  string get_IndexString()
+  SQLiteValue[] get_Values()
+  int TryPersistValues(SQLiteValue[] values)
+  void Filter(int indexNumber, string indexString, SQLiteValue[] values)
+  int GetRowIndex()
+  void NextRowIndex()
+  IntPtr get_NativeHandle()
+  void set_NativeHandle(IntPtr value)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.ISQLiteNativeModule
+Поля:
+Свойства:
+Методы:
+  SQLiteErrorCode xCreate(IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError)
+  SQLiteErrorCode xConnect(IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError)
+  SQLiteErrorCode xBestIndex(IntPtr pVtab, IntPtr pIndex)
+  SQLiteErrorCode xDisconnect(IntPtr pVtab)
+  SQLiteErrorCode xDestroy(IntPtr pVtab)
+  SQLiteErrorCode xOpen(IntPtr pVtab, IntPtr& pCursor)
+  SQLiteErrorCode xClose(IntPtr pCursor)
+  SQLiteErrorCode xFilter(IntPtr pCursor, int idxNum, IntPtr idxStr, int argc, IntPtr argv)
+  SQLiteErrorCode xNext(IntPtr pCursor)
+  int xEof(IntPtr pCursor)
+  SQLiteErrorCode xColumn(IntPtr pCursor, IntPtr pContext, int index)
+  SQLiteErrorCode xRowId(IntPtr pCursor, Int64& rowId)
+  SQLiteErrorCode xUpdate(IntPtr pVtab, int argc, IntPtr argv, Int64& rowId)
+  SQLiteErrorCode xBegin(IntPtr pVtab)
+  SQLiteErrorCode xSync(IntPtr pVtab)
+  SQLiteErrorCode xCommit(IntPtr pVtab)
+  SQLiteErrorCode xRollback(IntPtr pVtab)
+  int xFindFunction(IntPtr pVtab, int nArg, IntPtr zName, SQLiteCallback& callback, IntPtr& pClientData)
+  SQLiteErrorCode xRename(IntPtr pVtab, IntPtr zNew)
+  SQLiteErrorCode xSavepoint(IntPtr pVtab, int iSavepoint)
+  SQLiteErrorCode xRelease(IntPtr pVtab, int iSavepoint)
+  SQLiteErrorCode xRollbackTo(IntPtr pVtab, int iSavepoint)
+--------------------------------------------------
+Класс: System.Data.SQLite.ISQLiteManagedModule
+Поля:
+Свойства:
+  bool Declared
+  string Name
+Методы:
+  bool get_Declared()
+  string get_Name()
+  SQLiteErrorCode Create(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error)
+  SQLiteErrorCode Connect(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error)
+  SQLiteErrorCode BestIndex(SQLiteVirtualTable table, SQLiteIndex index)
+  SQLiteErrorCode Disconnect(SQLiteVirtualTable table)
+  SQLiteErrorCode Destroy(SQLiteVirtualTable table)
+  SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor)
+  SQLiteErrorCode Close(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Filter(SQLiteVirtualTableCursor cursor, int indexNumber, string indexString, SQLiteValue[] values)
+  SQLiteErrorCode Next(SQLiteVirtualTableCursor cursor)
+  bool Eof(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index)
+  SQLiteErrorCode RowId(SQLiteVirtualTableCursor cursor, Int64& rowId)
+  SQLiteErrorCode Update(SQLiteVirtualTable table, SQLiteValue[] values, Int64& rowId)
+  SQLiteErrorCode Begin(SQLiteVirtualTable table)
+  SQLiteErrorCode Sync(SQLiteVirtualTable table)
+  SQLiteErrorCode Commit(SQLiteVirtualTable table)
+  SQLiteErrorCode Rollback(SQLiteVirtualTable table)
+  bool FindFunction(SQLiteVirtualTable table, int argumentCount, string name, SQLiteFunction& function, IntPtr& pClientData)
+  SQLiteErrorCode Rename(SQLiteVirtualTable table, string newName)
+  SQLiteErrorCode Savepoint(SQLiteVirtualTable table, int savepoint)
+  SQLiteErrorCode Release(SQLiteVirtualTable table, int savepoint)
+  SQLiteErrorCode RollbackTo(SQLiteVirtualTable table, int savepoint)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteMemory
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IntPtr Allocate(int size)
+  int Size(IntPtr pMemory)
+  void Free(IntPtr pMemory)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteString
+Наследуется от: object
+Поля:
+  int ThirtyBits
+  Encoding Utf8Encoding
+Свойства:
+Методы:
+  Byte[] GetUtf8BytesFromString(string value)
+  string GetStringFromUtf8Bytes(Byte[] bytes)
+  int ProbeForUtf8ByteLength(IntPtr pValue, int limit)
+  string StringFromUtf8IntPtr(IntPtr pValue)
+  string StringFromUtf8IntPtr(IntPtr pValue, int length)
+  IntPtr Utf8IntPtrFromString(string value)
+  String[] StringArrayFromUtf8SizeAndIntPtr(int argc, IntPtr argv)
+  IntPtr[] Utf8IntPtrArrayFromStringArray(String[] values)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteBytes
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Byte[] FromIntPtr(IntPtr pValue, int length)
+  IntPtr ToIntPtr(Byte[] value)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteMarshal
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IntPtr IntPtrForOffset(IntPtr pointer, int offset)
+  int RoundUp(int size, int alignment)
+  int NextOffsetOf(int offset, int size, int alignment)
+  int ReadInt32(IntPtr pointer, int offset)
+  double ReadDouble(IntPtr pointer, int offset)
+  IntPtr ReadIntPtr(IntPtr pointer, int offset)
+  void WriteInt32(IntPtr pointer, int offset, int value)
+  void WriteInt64(IntPtr pointer, int offset, long value)
+  void WriteDouble(IntPtr pointer, int offset, double value)
+  void WriteIntPtr(IntPtr pointer, int offset, IntPtr value)
+  int GetHashCode(object value, bool identity)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteModule
+Наследуется от: object
+Поля:
+  int DefaultModuleVersion
+  sqlite3_module nativeModule
+  xDestroyModule destroyModule
+  IntPtr disposableModule
+  Dictionary`2<IntPtr, SQLiteVirtualTable> tables
+  Dictionary`2<IntPtr, SQLiteVirtualTableCursor> cursors
+  Dictionary`2<string, SQLiteFunction> functions
+  bool logErrors
+  bool logExceptions
+  bool declared
+  string name
+  bool disposed
+Свойства:
+  bool LogErrorsNoThrow
+  bool LogExceptionsNoThrow
+  bool LogErrors
+  bool LogExceptions
+  bool Declared
+  string Name
+Методы:
+  void .ctor(string name)
+  bool CreateDisposableModule(IntPtr pDb)
+  void xDestroyModule(IntPtr pClientData)
+  sqlite3_module AllocateNativeModule()
+  sqlite3_module AllocateNativeModule(ISQLiteNativeModule module)
+  sqlite3_module CopyNativeModule(sqlite3_module module)
+  SQLiteErrorCode CreateOrConnect(bool create, IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError)
+  SQLiteErrorCode DestroyOrDisconnect(bool destroy, IntPtr pVtab)
+  bool SetTableError(SQLiteModule module, IntPtr pVtab, bool logErrors, bool logExceptions, string error)
+  bool SetTableError(SQLiteModule module, SQLiteVirtualTable table, bool logErrors, bool logExceptions, string error)
+  bool SetCursorError(SQLiteModule module, IntPtr pCursor, bool logErrors, bool logExceptions, string error)
+  bool SetCursorError(SQLiteModule module, SQLiteVirtualTableCursor cursor, bool logErrors, bool logExceptions, string error)
+  ISQLiteNativeModule GetNativeModuleImpl()
+  ISQLiteNativeModule CreateNativeModuleImpl()
+  IntPtr AllocateTable()
+  void ZeroTable(IntPtr pVtab)
+  void FreeTable(IntPtr pVtab)
+  IntPtr AllocateCursor()
+  void FreeCursor(IntPtr pCursor)
+  IntPtr TableFromCursor(SQLiteModule module, IntPtr pCursor)
+  IntPtr TableFromCursor(IntPtr pCursor)
+  SQLiteVirtualTable TableFromIntPtr(IntPtr pVtab)
+  IntPtr TableToIntPtr(SQLiteVirtualTable table)
+  SQLiteVirtualTableCursor CursorFromIntPtr(IntPtr pVtab, IntPtr pCursor)
+  IntPtr CursorToIntPtr(SQLiteVirtualTableCursor cursor)
+  string GetFunctionKey(int argumentCount, string name, SQLiteFunction function)
+  SQLiteErrorCode DeclareTable(SQLiteConnection connection, string sql, String& error)
+  SQLiteErrorCode DeclareFunction(SQLiteConnection connection, int argumentCount, string name, String& error)
+  bool get_LogErrorsNoThrow()
+  void set_LogErrorsNoThrow(bool value)
+  bool get_LogExceptionsNoThrow()
+  void set_LogExceptionsNoThrow(bool value)
+  bool SetTableError(IntPtr pVtab, string error)
+  bool SetTableError(SQLiteVirtualTable table, string error)
+  bool SetCursorError(SQLiteVirtualTableCursor cursor, string error)
+  bool SetEstimatedCost(SQLiteIndex index, Nullable`1<double> estimatedCost)
+  bool SetEstimatedCost(SQLiteIndex index)
+  bool SetEstimatedRows(SQLiteIndex index, Nullable`1<long> estimatedRows)
+  bool SetEstimatedRows(SQLiteIndex index)
+  bool get_LogErrors()
+  void set_LogErrors(bool value)
+  bool get_LogExceptions()
+  void set_LogExceptions(bool value)
+  SQLiteErrorCode xCreate(IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError)
+  SQLiteErrorCode xConnect(IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError)
+  SQLiteErrorCode xBestIndex(IntPtr pVtab, IntPtr pIndex)
+  SQLiteErrorCode xDisconnect(IntPtr pVtab)
+  SQLiteErrorCode xDestroy(IntPtr pVtab)
+  SQLiteErrorCode xOpen(IntPtr pVtab, IntPtr& pCursor)
+  SQLiteErrorCode xClose(IntPtr pCursor)
+  SQLiteErrorCode xFilter(IntPtr pCursor, int idxNum, IntPtr idxStr, int argc, IntPtr argv)
+  SQLiteErrorCode xNext(IntPtr pCursor)
+  int xEof(IntPtr pCursor)
+  SQLiteErrorCode xColumn(IntPtr pCursor, IntPtr pContext, int index)
+  SQLiteErrorCode xRowId(IntPtr pCursor, Int64& rowId)
+  SQLiteErrorCode xUpdate(IntPtr pVtab, int argc, IntPtr argv, Int64& rowId)
+  SQLiteErrorCode xBegin(IntPtr pVtab)
+  SQLiteErrorCode xSync(IntPtr pVtab)
+  SQLiteErrorCode xCommit(IntPtr pVtab)
+  SQLiteErrorCode xRollback(IntPtr pVtab)
+  int xFindFunction(IntPtr pVtab, int nArg, IntPtr zName, SQLiteCallback& callback, IntPtr& pClientData)
+  SQLiteErrorCode xRename(IntPtr pVtab, IntPtr zNew)
+  SQLiteErrorCode xSavepoint(IntPtr pVtab, int iSavepoint)
+  SQLiteErrorCode xRelease(IntPtr pVtab, int iSavepoint)
+  SQLiteErrorCode xRollbackTo(IntPtr pVtab, int iSavepoint)
+  bool get_Declared()
+  void set_Declared(bool value)
+  string get_Name()
+  SQLiteErrorCode Create(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error)
+  SQLiteErrorCode Connect(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error)
+  SQLiteErrorCode BestIndex(SQLiteVirtualTable table, SQLiteIndex index)
+  SQLiteErrorCode Disconnect(SQLiteVirtualTable table)
+  SQLiteErrorCode Destroy(SQLiteVirtualTable table)
+  SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor)
+  SQLiteErrorCode Close(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Filter(SQLiteVirtualTableCursor cursor, int indexNumber, string indexString, SQLiteValue[] values)
+  SQLiteErrorCode Next(SQLiteVirtualTableCursor cursor)
+  bool Eof(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index)
+  SQLiteErrorCode RowId(SQLiteVirtualTableCursor cursor, Int64& rowId)
+  SQLiteErrorCode Update(SQLiteVirtualTable table, SQLiteValue[] values, Int64& rowId)
+  SQLiteErrorCode Begin(SQLiteVirtualTable table)
+  SQLiteErrorCode Sync(SQLiteVirtualTable table)
+  SQLiteErrorCode Commit(SQLiteVirtualTable table)
+  SQLiteErrorCode Rollback(SQLiteVirtualTable table)
+  bool FindFunction(SQLiteVirtualTable table, int argumentCount, string name, SQLiteFunction& function, IntPtr& pClientData)
+  SQLiteErrorCode Rename(SQLiteVirtualTable table, string newName)
+  SQLiteErrorCode Savepoint(SQLiteVirtualTable table, int savepoint)
+  SQLiteErrorCode Release(SQLiteVirtualTable table, int savepoint)
+  SQLiteErrorCode RollbackTo(SQLiteVirtualTable table, int savepoint)
+  void Dispose()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void Finalize()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteModuleNoop
+Наследуется от: SQLiteModule
+Поля:
+  Dictionary`2<string, SQLiteErrorCode> resultCodes
+  bool disposed
+Свойства:
+Методы:
+  void .ctor(string name)
+  SQLiteErrorCode GetDefaultResultCode()
+  bool ResultCodeToEofResult(SQLiteErrorCode resultCode)
+  bool ResultCodeToFindFunctionResult(SQLiteErrorCode resultCode)
+  SQLiteErrorCode GetMethodResultCode(string methodName)
+  bool SetMethodResultCode(string methodName, SQLiteErrorCode resultCode)
+  SQLiteErrorCode Create(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error)
+  SQLiteErrorCode Connect(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error)
+  SQLiteErrorCode BestIndex(SQLiteVirtualTable table, SQLiteIndex index)
+  SQLiteErrorCode Disconnect(SQLiteVirtualTable table)
+  SQLiteErrorCode Destroy(SQLiteVirtualTable table)
+  SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor)
+  SQLiteErrorCode Close(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Filter(SQLiteVirtualTableCursor cursor, int indexNumber, string indexString, SQLiteValue[] values)
+  SQLiteErrorCode Next(SQLiteVirtualTableCursor cursor)
+  bool Eof(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index)
+  SQLiteErrorCode RowId(SQLiteVirtualTableCursor cursor, Int64& rowId)
+  SQLiteErrorCode Update(SQLiteVirtualTable table, SQLiteValue[] values, Int64& rowId)
+  SQLiteErrorCode Begin(SQLiteVirtualTable table)
+  SQLiteErrorCode Sync(SQLiteVirtualTable table)
+  SQLiteErrorCode Commit(SQLiteVirtualTable table)
+  SQLiteErrorCode Rollback(SQLiteVirtualTable table)
+  bool FindFunction(SQLiteVirtualTable table, int argumentCount, string name, SQLiteFunction& function, IntPtr& pClientData)
+  SQLiteErrorCode Rename(SQLiteVirtualTable table, string newName)
+  SQLiteErrorCode Savepoint(SQLiteVirtualTable table, int savepoint)
+  SQLiteErrorCode Release(SQLiteVirtualTable table, int savepoint)
+  SQLiteErrorCode RollbackTo(SQLiteVirtualTable table, int savepoint)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteModuleCommon
+Наследуется от: SQLiteModuleNoop
+Поля:
+  string declareSql
+  bool objectIdentity
+  bool disposed
+Свойства:
+Методы:
+  void .ctor(string name)
+  void .ctor(string name, bool objectIdentity)
+  string GetSqlForDeclareTable()
+  SQLiteErrorCode CursorTypeMismatchError(SQLiteVirtualTableCursor cursor, Type type)
+  string GetStringFromObject(SQLiteVirtualTableCursor cursor, object value)
+  long MakeRowId(int rowIndex, int hashCode)
+  long GetRowIdFromObject(SQLiteVirtualTableCursor cursor, object value)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteVirtualTableCursorEnumerator
+Наследуется от: SQLiteVirtualTableCursor
+Поля:
+  IEnumerator enumerator
+  bool endOfEnumerator
+  bool disposed
+Свойства:
+  object Current
+  bool EndOfEnumerator
+  bool IsOpen
+Методы:
+  void .ctor(SQLiteVirtualTable table, IEnumerator enumerator)
+  bool MoveNext()
+  object get_Current()
+  void Reset()
+  bool get_EndOfEnumerator()
+  bool get_IsOpen()
+  void Close()
+  void CheckClosed()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: System.Data.SQLite.SQLiteModuleEnumerable
+Наследуется от: SQLiteModuleCommon
+Поля:
+  IEnumerable enumerable
+  bool objectIdentity
+  bool disposed
+Свойства:
+Методы:
+  void .ctor(string name, IEnumerable enumerable)
+  void .ctor(string name, IEnumerable enumerable, bool objectIdentity)
+  SQLiteErrorCode CursorEndOfEnumeratorError(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Create(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error)
+  SQLiteErrorCode Connect(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error)
+  SQLiteErrorCode BestIndex(SQLiteVirtualTable table, SQLiteIndex index)
+  SQLiteErrorCode Disconnect(SQLiteVirtualTable table)
+  SQLiteErrorCode Destroy(SQLiteVirtualTable table)
+  SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor)
+  SQLiteErrorCode Close(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Filter(SQLiteVirtualTableCursor cursor, int indexNumber, string indexString, SQLiteValue[] values)
+  SQLiteErrorCode Next(SQLiteVirtualTableCursor cursor)
+  bool Eof(SQLiteVirtualTableCursor cursor)
+  SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index)
+  SQLiteErrorCode RowId(SQLiteVirtualTableCursor cursor, Int64& rowId)
+  SQLiteErrorCode Update(SQLiteVirtualTable table, SQLiteValue[] values, Int64& rowId)
+  SQLiteErrorCode Rename(SQLiteVirtualTable table, string newName)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: System.Data.SQLite.Generic.SQLiteVirtualTableCursorEnumerator`1
+Наследуется от: SQLiteVirtualTableCursorEnumerator
+Поля:
+  IEnumerator`1<T> enumerator
+  bool disposed
+Свойства:
+  T System.Collections.Generic.IEnumerator<T>.Current
+Методы:
+  void .ctor(SQLiteVirtualTable table, IEnumerator`1<T> enumerator)
+  T System.Collections.Generic.IEnumerator<T>.get_Current()
+  void Close()
+  void CheckDisposed()
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: System.Data.SQLite.Generic.SQLiteModuleEnumerable`1
+Наследуется от: SQLiteModuleEnumerable
+Поля:
+  IEnumerable`1<T> enumerable
+  bool disposed
+Свойства:
+Методы:
+  void .ctor(string name, IEnumerable`1<T> enumerable)
+  SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor)
+  SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index)
+  void CheckDisposed()
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>{C628CACD-DC18-4CEE-B28A-412D54694BF2}
+Наследуется от: object
+Поля:
+  Dictionary`2<string, int> $$method0x6000025-1
+  __StaticArrayInitTypeSize=104 $$method0x600068e-1
+  Dictionary`2<string, int> $$method0x6000230-1
+Свойства:
+Методы:
+--------------------------------------------------

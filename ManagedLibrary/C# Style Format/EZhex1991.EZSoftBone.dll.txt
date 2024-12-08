@@ -1,0 +1,213 @@
+public class EZhex1991.EZSoftBone.CustomForce : MulticastDelegate {
+    public CustomForce(object object, IntPtr method);
+    public virtual Vector3 Invoke(float normalizedLength, Transform forceSpace);
+    public virtual IAsyncResult BeginInvoke(float normalizedLength, Transform forceSpace, AsyncCallback callback, object object);
+    public virtual Vector3 EndInvoke(IAsyncResult result);
+}
+public class EZhex1991.EZSoftBone.EZCurveRectAttribute : PropertyAttribute {
+    public Rect rect;
+    public Color color;
+    public EZCurveRectAttribute(Rect rect);
+    public EZCurveRectAttribute(float x, float y, float width, float height);
+    public EZCurveRectAttribute(Rect rect, Color color);
+    public EZCurveRectAttribute(float x, float y, float width, float height, Color color);
+}
+public class EZhex1991.EZSoftBone.EZNestedEditorAttribute : PropertyAttribute {
+}
+public class EZhex1991.EZSoftBone.EZSoftBone : MonoBehaviour {
+    public static float DeltaTime_Min;
+    public static int MaxInstanceCount;
+    private static float CurrentFrame;
+    private static int InstanceNumber;
+    [FormerlySerializedAsAttribute("m_RootBones")]
+public List`1<Transform> rootBones;
+    [FormerlySerializedAsAttribute("m_EndBones")]
+public List`1<Transform> endBones;
+    [FormerlySerializedAsAttribute("m_Material")]
+[SerializeField]
+private EZSoftBoneMaterial _material;
+    [FormerlySerializedAsAttribute("m_Start_Depth")]
+public int startDepth;
+    public int stiffnessDepth;
+    [FormerlySerializedAsAttribute("m_SiblingConstraints")]
+public UnificationMode siblingConstraints;
+    [FormerlySerializedAsAttribute("m_LengthUnification")]
+public UnificationMode lengthUnification;
+    [FormerlySerializedAsAttribute("m_SiblingRotationConstraints")]
+public bool siblingRotationConstraints;
+    [FormerlySerializedAsAttribute("m_ClosedSiblings")]
+public bool closedSiblings;
+    [FormerlySerializedAsAttribute("m_CollisionLayers")]
+public LayerMask collisionLayers;
+    [FormerlySerializedAsAttribute("m_Radius")]
+public float radius;
+    [EZCurveRectAttribute("0", "0", "1", "1")]
+[FormerlySerializedAsAttribute("m_RadiusCurve")]
+public AnimationCurve radiusCurve;
+    public float deadZoneRadius;
+    public float deadZoneExtent;
+    [FormerlySerializedAsAttribute("m_DeltaTimeMode")]
+public DeltaTimeMode deltaTimeMode;
+    [FormerlySerializedAsAttribute("m_ConstantDeltaTime")]
+public float constantDeltaTime;
+    [FormerlySerializedAsAttribute("m_Iterations")]
+[RangeAttribute("1", "10")]
+public int iterations;
+    [FormerlySerializedAsAttribute("m_SleepThreshold")]
+public float sleepThreshold;
+    [FormerlySerializedAsAttribute("m_Gravity")]
+public Vector3 gravity;
+    [FormerlySerializedAsAttribute("m_SimulateSpace")]
+[SerializeField]
+private Transform _simulateSpace;
+    public float globalRadius;
+    public Vector3 globalForce;
+    public bool collisionEnabled;
+    [SerializeField]
+private BoneChain[] structures;
+    private Vector3 origin;
+    private Vector3 prevOrigin;
+    private Vector3 originDelta;
+    private bool simulationSpaceChanged;
+    private Capsule deadZoneCapsule;
+    private bool isVisible;
+    private Vector3 forceDirection;
+    public EZSoftBoneMaterial sharedMaterial { get; public set; }
+    public Transform simulateSpace { get; public set; }
+    public EZSoftBoneMaterial get_sharedMaterial();
+    public void set_sharedMaterial(EZSoftBoneMaterial value);
+    public Transform get_simulateSpace();
+    public void set_simulateSpace(Transform value);
+    private void Awake();
+    private void OnEnable();
+    private void OnDisable();
+    private void LateUpdate();
+    public void RevertTransforms();
+    public void RevertTransforms(int startDepth);
+    public void InitStructures(bool force);
+    public void SetRestState();
+    private void CreateBones();
+    private void SetParentBones();
+    private void SetSiblings();
+    private void SetTreeLength();
+    public void RefreshRadius();
+    private void UpdateStructures(float deltaTime);
+    private void UpdateBones(Bone bone, float deltaTime);
+    private void UpdateTransforms();
+    private void UpdateSimulationSpace(Transform transform);
+    public void PushBonesOutOfDeadZone();
+    public void PlayerPreviewVisibility(bool isVisible);
+    public sealed virtual void PreProcess(IPrefabProcessor preProcess, GameObject rootObj, string name, bool serverside, bool clientside, bool bundling);
+    [CompilerGeneratedAttribute]
+internal static bool <SetSiblings>g__HasBoneAtDepth|55_1(BoneChain chain, int depth);
+}
+public abstract class EZhex1991.EZSoftBone.EZSoftBoneColliderBase : MonoBehaviour {
+    public static ListHashSet`1<EZSoftBoneColliderBase> EnabledColliders;
+    private static EZSoftBoneColliderBase();
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    public abstract virtual void Collide(Vector3& position, float spacing);
+}
+public class EZhex1991.EZSoftBone.EZSoftBoneColliderCylinder : EZSoftBoneColliderBase {
+    [SerializeField]
+private float m_Margin;
+    [SerializeField]
+private bool m_InsideMode;
+    public float margin { get; public set; }
+    public bool insideMode { get; public set; }
+    public float get_margin();
+    public void set_margin(float value);
+    public bool get_insideMode();
+    public void set_insideMode(bool value);
+    public virtual void Collide(Vector3& position, float spacing);
+}
+[CreateAssetMenuAttribute]
+public class EZhex1991.EZSoftBone.EZSoftBoneMaterial : ScriptableObject {
+    [RangeAttribute("0", "1")]
+[SerializeField]
+private float m_Damping;
+    [EZCurveRectAttribute("0", "0", "1", "1")]
+[SerializeField]
+private AnimationCurve m_DampingCurve;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+private float m_Stiffness;
+    [EZCurveRectAttribute("0", "0", "1", "1")]
+[SerializeField]
+private AnimationCurve m_StiffnessCurve;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+private float m_Resistance;
+    [EZCurveRectAttribute("0", "0", "1", "1")]
+[SerializeField]
+private AnimationCurve m_ResistanceCurve;
+    [RangeAttribute("0", "1")]
+[SerializeField]
+private float m_Slackness;
+    [EZCurveRectAttribute("0", "0", "1", "1")]
+[SerializeField]
+private AnimationCurve m_SlacknessCurve;
+    private static EZSoftBoneMaterial m_DefaultMaterial;
+    public float damping { get; public set; }
+    public AnimationCurve dampingCurve { get; }
+    public float stiffness { get; public set; }
+    public AnimationCurve stiffnessCurve { get; }
+    public float resistance { get; public set; }
+    public AnimationCurve resistanceCurve { get; }
+    public float slackness { get; public set; }
+    public AnimationCurve slacknessCurve { get; }
+    public static EZSoftBoneMaterial defaultMaterial { get; }
+    public float get_damping();
+    public void set_damping(float value);
+    public AnimationCurve get_dampingCurve();
+    public float get_stiffness();
+    public void set_stiffness(float value);
+    public AnimationCurve get_stiffnessCurve();
+    public float get_resistance();
+    public void set_resistance(float value);
+    public AnimationCurve get_resistanceCurve();
+    public float get_slackness();
+    public void set_slackness(float value);
+    public AnimationCurve get_slacknessCurve();
+    public static EZSoftBoneMaterial get_defaultMaterial();
+    public float GetDamping(float t);
+    public float GetStiffness(float t);
+    public float GetResistance(float t);
+    public float GetSlackness(float t);
+}
+[ExtensionAttribute]
+public static class EZhex1991.EZSoftBone.EZSoftBoneUtility : object {
+    [ExtensionAttribute]
+internal static Vector3 Abs(Vector3 v);
+    [ExtensionAttribute]
+public static float Max(Vector3 v);
+    [ExtensionAttribute]
+public static bool Contains(LayerMask mask, int layer);
+    public static void GetCapsuleParams(CapsuleCollider collider, Vector3& center0, Vector3& center1, Single& radius);
+    public static void GetCylinderParams(Transform transform, Vector3& center, Vector3& direction, Single& radius, Single& height);
+    public static void PointOutsideSphere(Vector3& position, SphereCollider collider, float spacing);
+    private static void PointOutsideSphere(Vector3& position, Vector3 spherePosition, float radius);
+    public static void PointInsideSphere(Vector3& position, SphereCollider collider, float spacing);
+    private static void PointInsideSphere(Vector3& position, Vector3 spherePosition, float radius);
+    public static void PointOutsideCapsule(Vector3& position, CapsuleCollider collider, float spacing);
+    public static void PointOutsideCapsule(Vector3& position, Vector3 center0, Vector3 center1, float radius);
+    public static void PointInsideCapsule(Vector3& position, CapsuleCollider collider, float spacing);
+    private static void PointInsideCapsule(Vector3& position, Vector3 center0, Vector3 center1, float radius);
+    public static void PointOutsideCylinder(Vector3& position, Transform transform, float spacing);
+    private static void PointOutsideCylinder(Vector3& position, Vector3 center, Vector3 direction, float radius, float height);
+    public static void PointInsideCylinder(Vector3& position, Transform transform, float spacing);
+    private static void PointInsideCylinder(Vector3& position, Vector3 center, Vector3 direction, float radius, float height);
+    public static void PointOutsideBox(Vector3& position, BoxCollider collider, float spacing);
+    public static void PointOutsideBox(Vector3& position, Vector3 boxSize);
+    public static void PointInsideBox(Vector3& position, BoxCollider collider, float spacing);
+    private static void PointInsideBox(Vector3& position, Vector3 boxSize);
+    public static void PointOutsideCollider(Vector3& position, Collider collider, float spacing);
+    public static void DrawGizmosArrow(Vector3 startPoint, Vector3 direction, float halfWidth, Vector3 normal);
+    public static void DrawGizmosPolyLine(Vector3[] vertices);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

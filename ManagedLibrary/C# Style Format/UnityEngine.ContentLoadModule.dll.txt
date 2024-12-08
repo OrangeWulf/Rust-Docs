@@ -1,0 +1,119 @@
+public class Unity.Loading.ContentFile : ValueType {
+    internal ulong Id;
+    public bool IsValid { get; }
+    public LoadingStatus LoadingStatus { get; }
+    public static ContentFile GlobalTableDependency { get; }
+    public ContentFileUnloadHandle UnloadAsync();
+    public Object[] GetObjects();
+    public Object GetObject(ulong localIdentifierInFile);
+    private void ThrowIfInvalidHandle();
+    private void ThrowIfNotComplete();
+    public bool get_IsValid();
+    public LoadingStatus get_LoadingStatus();
+    public bool WaitForCompletion(int timeoutMs);
+    public static ContentFile get_GlobalTableDependency();
+}
+internal enum Unity.Loading.ContentFileReservedID : Enum {
+    public int value__;
+    public static ContentFileReservedID None;
+    public static ContentFileReservedID ResolveReferencesWithPM;
+}
+public class Unity.Loading.ContentFileUnloadHandle : ValueType {
+    internal JobHandle jobHandle;
+    public bool IsCompleted { get; }
+    public bool get_IsCompleted();
+    public bool WaitForCompletion(int timeoutMs);
+}
+[NativeHeaderAttribute("Modules/ContentLoad/Public/ContentLoadFrontend.h")]
+[StaticAccessorAttribute("GetContentLoadFrontend()", "0")]
+public static class Unity.Loading.ContentLoadInterface : object {
+    internal static float IntegrationTimeMS { get; internal set; }
+    [NativeThrowsAttribute]
+internal static ContentFile LoadContentFileAsync(ContentNamespace nameSpace, string filename, Void* dependencies, int dependencyCount, JobHandle dependentFence, bool useUnsafe);
+    [NativeThrowsAttribute]
+internal static ContentFileUnloadHandle ContentFile_UnloadAsync(ContentFile handle);
+    internal static Object ContentFile_GetObject(ContentFile handle, ulong localIdentifierInFile);
+    internal static Object[] ContentFile_GetObjects(ContentFile handle);
+    internal static LoadingStatus ContentFile_GetLoadingStatus(ContentFile handle);
+    internal static bool ContentFile_IsHandleValid(ContentFile handle);
+    internal static float get_IntegrationTimeMS();
+    internal static void set_IntegrationTimeMS(float value);
+    internal static bool WaitForLoadCompletion(ContentFile handle, int timeoutMs);
+    internal static bool WaitForJobCompletion(JobHandle handle, int timeoutMs);
+    [NativeThrowsAttribute]
+internal static ContentSceneFile LoadSceneAsync(ContentNamespace nameSpace, string filename, string sceneName, ContentSceneParameters sceneParams, ContentFile* dependencies, int dependencyCount, JobHandle dependentFence);
+    internal static Scene ContentSceneFile_GetScene(ContentSceneFile handle);
+    internal static SceneLoadingStatus ContentSceneFile_GetStatus(ContentSceneFile handle);
+    [NativeThrowsAttribute]
+internal static void ContentSceneFile_IntegrateAtEndOfFrame(ContentSceneFile handle);
+    internal static bool ContentSceneFile_UnloadAtEndOfFrame(ContentSceneFile handle);
+    internal static bool ContentSceneFile_IsHandleValid(ContentSceneFile handle);
+    internal static bool ContentSceneFile_WaitForCompletion(ContentSceneFile handle, int timeoutMs);
+    public static ContentSceneFile LoadSceneAsync(ContentNamespace nameSpace, string filename, string sceneName, ContentSceneParameters sceneParams, NativeArray`1<ContentFile> dependencies, JobHandle dependentFence);
+    public static ContentFile LoadContentFileAsync(ContentNamespace nameSpace, string filename, NativeArray`1<ContentFile> dependencies, JobHandle dependentFence);
+    public static ContentFile[] GetContentFiles(ContentNamespace nameSpace);
+    public static ContentSceneFile[] GetSceneFiles(ContentNamespace nameSpace);
+    public static float GetIntegrationTimeMS();
+    public static void SetIntegrationTimeMS(float integrationTimeMS);
+    private static void LoadContentFileAsync_Injected(ContentNamespace& nameSpace, string filename, Void* dependencies, int dependencyCount, JobHandle& dependentFence, bool useUnsafe, ContentFile& ret);
+    private static void ContentFile_UnloadAsync_Injected(ContentFile& handle, ContentFileUnloadHandle& ret);
+    private static Object ContentFile_GetObject_Injected(ContentFile& handle, ulong localIdentifierInFile);
+    private static Object[] ContentFile_GetObjects_Injected(ContentFile& handle);
+    private static LoadingStatus ContentFile_GetLoadingStatus_Injected(ContentFile& handle);
+    private static bool ContentFile_IsHandleValid_Injected(ContentFile& handle);
+    private static bool WaitForLoadCompletion_Injected(ContentFile& handle, int timeoutMs);
+    private static bool WaitForJobCompletion_Injected(JobHandle& handle, int timeoutMs);
+    private static void LoadSceneAsync_Injected(ContentNamespace& nameSpace, string filename, string sceneName, ContentSceneParameters& sceneParams, ContentFile* dependencies, int dependencyCount, JobHandle& dependentFence, ContentSceneFile& ret);
+    private static void ContentSceneFile_GetScene_Injected(ContentSceneFile& handle, Scene& ret);
+    private static SceneLoadingStatus ContentSceneFile_GetStatus_Injected(ContentSceneFile& handle);
+    private static void ContentSceneFile_IntegrateAtEndOfFrame_Injected(ContentSceneFile& handle);
+    private static bool ContentSceneFile_UnloadAtEndOfFrame_Injected(ContentSceneFile& handle);
+    private static bool ContentSceneFile_IsHandleValid_Injected(ContentSceneFile& handle);
+    private static bool ContentSceneFile_WaitForCompletion_Injected(ContentSceneFile& handle, int timeoutMs);
+    private static ContentFile[] GetContentFiles_Injected(ContentNamespace& nameSpace);
+    private static ContentSceneFile[] GetSceneFiles_Injected(ContentNamespace& nameSpace);
+}
+public class Unity.Loading.ContentSceneFile : ValueType {
+    internal ulong Id;
+    public Scene Scene { get; }
+    public SceneLoadingStatus Status { get; }
+    public bool IsValid { get; }
+    public Scene get_Scene();
+    public void IntegrateAtEndOfFrame();
+    public SceneLoadingStatus get_Status();
+    public bool UnloadAtEndOfFrame();
+    public bool WaitForLoadCompletion(int timeoutMs);
+    public bool get_IsValid();
+    private void ThrowIfInvalidHandle();
+}
+public class Unity.Loading.ContentSceneParameters : ValueType {
+    [NativeNameAttribute("LoadSceneMode")]
+internal LoadSceneMode m_LoadSceneMode;
+    [NativeNameAttribute("LocalPhysicsMode")]
+internal LocalPhysicsMode m_LocalPhysicsMode;
+    [NativeNameAttribute("AutoIntegrate")]
+internal bool m_AutoIntegrate;
+    public LoadSceneMode loadSceneMode { get; public set; }
+    public LocalPhysicsMode localPhysicsMode { get; public set; }
+    public bool autoIntegrate { get; public set; }
+    public LoadSceneMode get_loadSceneMode();
+    public void set_loadSceneMode(LoadSceneMode value);
+    public LocalPhysicsMode get_localPhysicsMode();
+    public void set_localPhysicsMode(LocalPhysicsMode value);
+    public bool get_autoIntegrate();
+    public void set_autoIntegrate(bool value);
+}
+public enum Unity.Loading.LoadingStatus : Enum {
+    public int value__;
+    public static LoadingStatus InProgress;
+    public static LoadingStatus Completed;
+    public static LoadingStatus Failed;
+}
+public enum Unity.Loading.SceneLoadingStatus : Enum {
+    public int value__;
+    public static SceneLoadingStatus InProgress;
+    public static SceneLoadingStatus WaitingForIntegrate;
+    public static SceneLoadingStatus WillIntegrateNextFrame;
+    public static SceneLoadingStatus Complete;
+    public static SceneLoadingStatus Failed;
+}

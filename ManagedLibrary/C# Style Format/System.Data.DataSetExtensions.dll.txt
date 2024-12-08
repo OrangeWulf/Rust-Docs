@@ -1,0 +1,224 @@
+internal static class Consts : object {
+    public static string MonoCorlibVersion;
+    public static string MonoVersion;
+    public static string MonoCompany;
+    public static string MonoProduct;
+    public static string MonoCopyright;
+    public static string FxVersion;
+    public static string FxFileVersion;
+    public static string EnvironmentVersion;
+    public static string VsVersion;
+    public static string VsFileVersion;
+    private static string PublicKeyToken;
+    public static string AssemblyI18N;
+    public static string AssemblyMicrosoft_JScript;
+    public static string AssemblyMicrosoft_VisualStudio;
+    public static string AssemblyMicrosoft_VisualStudio_Web;
+    public static string AssemblyMicrosoft_VSDesigner;
+    public static string AssemblyMono_Http;
+    public static string AssemblyMono_Posix;
+    public static string AssemblyMono_Security;
+    public static string AssemblyMono_Messaging_RabbitMQ;
+    public static string AssemblyCorlib;
+    public static string AssemblySystem;
+    public static string AssemblySystem_Data;
+    public static string AssemblySystem_Design;
+    public static string AssemblySystem_DirectoryServices;
+    public static string AssemblySystem_Drawing;
+    public static string AssemblySystem_Drawing_Design;
+    public static string AssemblySystem_Messaging;
+    public static string AssemblySystem_Security;
+    public static string AssemblySystem_ServiceProcess;
+    public static string AssemblySystem_Web;
+    public static string AssemblySystem_Windows_Forms;
+    public static string AssemblySystem_2_0;
+    public static string AssemblySystemCore_3_5;
+    public static string AssemblySystem_Core;
+    public static string WindowsBase_3_0;
+    public static string AssemblyWindowsBase;
+    public static string AssemblyPresentationCore_3_5;
+    public static string AssemblyPresentationCore_4_0;
+    public static string AssemblyPresentationFramework_3_5;
+    public static string AssemblySystemServiceModel_3_0;
+}
+internal static class DataSetUtil : object {
+    private static Type s_stackOverflowType;
+    private static Type s_outOfMemoryType;
+    private static Type s_threadAbortType;
+    private static Type s_nullReferenceType;
+    private static Type s_accessViolationType;
+    private static Type s_securityType;
+    private static DataSetUtil();
+    internal static void CheckArgumentNull(T argumentValue, string argumentName);
+    private static T TraceException(string trace, T e);
+    private static T TraceExceptionAsReturnValue(T e);
+    internal static ArgumentException Argument(string message);
+    internal static ArgumentNullException ArgumentNull(string message);
+    internal static ArgumentOutOfRangeException ArgumentOutOfRange(string message, string parameterName);
+    internal static InvalidCastException InvalidCast(string message);
+    internal static InvalidOperationException InvalidOperation(string message);
+    internal static NotSupportedException NotSupported(string message);
+    internal static ArgumentOutOfRangeException InvalidEnumerationValue(Type type, int value);
+    internal static ArgumentOutOfRangeException InvalidDataRowState(DataRowState value);
+    internal static ArgumentOutOfRangeException InvalidLoadOption(LoadOption value);
+    internal static bool IsCatchableExceptionType(Exception e);
+}
+internal class SR : object {
+    public static string DataSetLinq_InvalidEnumerationValue;
+    public static string DataSetLinq_EmptyDataRowSource;
+    public static string DataSetLinq_NullDataRow;
+    public static string DataSetLinq_CannotLoadDetachedRow;
+    public static string DataSetLinq_CannotCompareDeletedRow;
+    public static string DataSetLinq_CannotLoadDeletedRow;
+    public static string DataSetLinq_NonNullableCast;
+}
+public static class System.Data.DataRowComparer : object {
+    public static DataRowComparer`1<DataRow> Default { get; }
+    public static DataRowComparer`1<DataRow> get_Default();
+    internal static bool AreEqual(object a, object b);
+    private static bool AreElementEqual(object a, object b);
+    private static bool CompareArray(Array a, Array b);
+    private static bool CompareEquatableArray(TElem[] a, TElem[] b);
+}
+public class System.Data.DataRowComparer`1 : object {
+    private static DataRowComparer`1<TRow> s_instance;
+    public static DataRowComparer`1<TRow> Default { get; }
+    private static DataRowComparer`1();
+    public static DataRowComparer`1<TRow> get_Default();
+    public sealed virtual bool Equals(TRow leftRow, TRow rightRow);
+    public sealed virtual int GetHashCode(TRow row);
+}
+[ExtensionAttribute]
+public static class System.Data.DataRowExtensions : object {
+    [ExtensionAttribute]
+public static T Field(DataRow row, string columnName);
+    [ExtensionAttribute]
+public static T Field(DataRow row, DataColumn column);
+    [ExtensionAttribute]
+public static T Field(DataRow row, int columnIndex);
+    [ExtensionAttribute]
+public static T Field(DataRow row, int columnIndex, DataRowVersion version);
+    [ExtensionAttribute]
+public static T Field(DataRow row, string columnName, DataRowVersion version);
+    [ExtensionAttribute]
+public static T Field(DataRow row, DataColumn column, DataRowVersion version);
+    [ExtensionAttribute]
+public static void SetField(DataRow row, int columnIndex, T value);
+    [ExtensionAttribute]
+public static void SetField(DataRow row, string columnName, T value);
+    [ExtensionAttribute]
+public static void SetField(DataRow row, DataColumn column, T value);
+}
+[ExtensionAttribute]
+public static class System.Data.DataTableExtensions : object {
+    [ExtensionAttribute]
+public static EnumerableRowCollection`1<DataRow> AsEnumerable(DataTable source);
+    [ExtensionAttribute]
+public static DataTable CopyToDataTable(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static void CopyToDataTable(IEnumerable`1<T> source, DataTable table, LoadOption options);
+    [ExtensionAttribute]
+public static void CopyToDataTable(IEnumerable`1<T> source, DataTable table, LoadOption options, FillErrorEventHandler errorHandler);
+    private static DataTable LoadTableFromEnumerable(IEnumerable`1<T> source, DataTable table, Nullable`1<LoadOption> options, FillErrorEventHandler errorHandler);
+    [ExtensionAttribute]
+public static DataView AsDataView(DataTable table);
+    [ExtensionAttribute]
+public static DataView AsDataView(EnumerableRowCollection`1<T> source);
+}
+public abstract class System.Data.EnumerableRowCollection : object {
+    internal Type ElementType { get; }
+    internal DataTable Table { get; }
+    internal abstract virtual Type get_ElementType();
+    internal abstract virtual DataTable get_Table();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+}
+public class System.Data.EnumerableRowCollection`1 : EnumerableRowCollection {
+    private DataTable _table;
+    private IEnumerable`1<TRow> _enumerableRows;
+    private List`1<Func`2<TRow, bool>> _listOfPredicates;
+    private SortExpressionBuilder`1<TRow> _sortExpression;
+    private Func`2<TRow, TRow> _selector;
+    internal Type ElementType { get; }
+    internal IEnumerable`1<TRow> EnumerableRows { get; }
+    internal DataTable Table { get; }
+    internal EnumerableRowCollection`1(IEnumerable`1<TRow> enumerableRows, bool isDataViewable, DataTable table);
+    internal EnumerableRowCollection`1(DataTable table);
+    internal EnumerableRowCollection`1(EnumerableRowCollection`1<TRow> source, IEnumerable`1<TRow> enumerableRows, Func`2<TRow, TRow> selector);
+    internal virtual Type get_ElementType();
+    internal IEnumerable`1<TRow> get_EnumerableRows();
+    internal virtual DataTable get_Table();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public sealed virtual IEnumerator`1<TRow> GetEnumerator();
+    internal void AddPredicate(Func`2<TRow, bool> pred);
+    internal void AddSortExpression(Func`2<TRow, TKey> keySelector, bool isDescending, bool isOrderBy);
+    internal void AddSortExpression(Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer, bool isDescending, bool isOrderBy);
+}
+[ExtensionAttribute]
+public static class System.Data.EnumerableRowCollectionExtensions : object {
+    [ExtensionAttribute]
+public static EnumerableRowCollection`1<TRow> Where(EnumerableRowCollection`1<TRow> source, Func`2<TRow, bool> predicate);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> OrderBy(EnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> OrderBy(EnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> OrderByDescending(EnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> OrderByDescending(EnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> ThenBy(OrderedEnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> ThenBy(OrderedEnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> ThenByDescending(OrderedEnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> ThenByDescending(OrderedEnumerableRowCollection`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer);
+    [ExtensionAttribute]
+public static EnumerableRowCollection`1<S> Select(EnumerableRowCollection`1<TRow> source, Func`2<TRow, S> selector);
+    [ExtensionAttribute]
+public static EnumerableRowCollection`1<TResult> Cast(EnumerableRowCollection source);
+}
+public class System.Data.OrderedEnumerableRowCollection`1 : EnumerableRowCollection`1<TRow> {
+    internal OrderedEnumerableRowCollection`1(EnumerableRowCollection`1<TRow> enumerableTable, IEnumerable`1<TRow> enumerableRows);
+}
+internal class System.Data.SortExpressionBuilder`1 : object {
+    private LinkedList`1<Func`2<T, object>> _selectors;
+    private LinkedList`1<Comparison`1<object>> _comparers;
+    private LinkedListNode`1<Func`2<T, object>> _currentSelector;
+    private LinkedListNode`1<Comparison`1<object>> _currentComparer;
+    internal int Count { get; }
+    internal void Add(Func`2<T, object> keySelector, Comparison`1<object> compare, bool isOrderBy);
+    public List`1<object> Select(T row);
+    public sealed virtual int Compare(List`1<object> a, List`1<object> b);
+    internal int get_Count();
+    internal SortExpressionBuilder`1<T> Clone();
+    internal SortExpressionBuilder`1<TResult> CloneCast();
+}
+public abstract class System.Data.TypedTableBase`1 : DataTable {
+    protected TypedTableBase`1(SerializationInfo info, StreamingContext context);
+    public sealed virtual IEnumerator`1<T> GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public EnumerableRowCollection`1<TResult> Cast();
+}
+[ExtensionAttribute]
+public static class System.Data.TypedTableBaseExtensions : object {
+    [ExtensionAttribute]
+public static EnumerableRowCollection`1<TRow> Where(TypedTableBase`1<TRow> source, Func`2<TRow, bool> predicate);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> OrderBy(TypedTableBase`1<TRow> source, Func`2<TRow, TKey> keySelector);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> OrderBy(TypedTableBase`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> OrderByDescending(TypedTableBase`1<TRow> source, Func`2<TRow, TKey> keySelector);
+    [ExtensionAttribute]
+public static OrderedEnumerableRowCollection`1<TRow> OrderByDescending(TypedTableBase`1<TRow> source, Func`2<TRow, TKey> keySelector, IComparer`1<TKey> comparer);
+    [ExtensionAttribute]
+public static EnumerableRowCollection`1<S> Select(TypedTableBase`1<TRow> source, Func`2<TRow, S> selector);
+    [ExtensionAttribute]
+public static EnumerableRowCollection`1<TRow> AsEnumerable(TypedTableBase`1<TRow> source);
+    [ExtensionAttribute]
+public static TRow ElementAtOrDefault(TypedTableBase`1<TRow> source, int index);
+}
+internal class Unity.ThrowStub : ObjectDisposedException {
+    public static void ThrowNotSupportedException();
+}

@@ -1,0 +1,1460 @@
+Сборка: Mono.Data.Sqlite.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Consts
+Наследуется от: object
+Поля:
+  string MonoCorlibVersion
+  string MonoVersion
+  string MonoCompany
+  string MonoProduct
+  string MonoCopyright
+  string FxVersion
+  string FxFileVersion
+  string EnvironmentVersion
+  string VsVersion
+  string VsFileVersion
+  string PublicKeyToken
+  string AssemblyI18N
+  string AssemblyMicrosoft_JScript
+  string AssemblyMicrosoft_VisualStudio
+  string AssemblyMicrosoft_VisualStudio_Web
+  string AssemblyMicrosoft_VSDesigner
+  string AssemblyMono_Http
+  string AssemblyMono_Posix
+  string AssemblyMono_Security
+  string AssemblyMono_Messaging_RabbitMQ
+  string AssemblyCorlib
+  string AssemblySystem
+  string AssemblySystem_Data
+  string AssemblySystem_Design
+  string AssemblySystem_DirectoryServices
+  string AssemblySystem_Drawing
+  string AssemblySystem_Drawing_Design
+  string AssemblySystem_Messaging
+  string AssemblySystem_Security
+  string AssemblySystem_ServiceProcess
+  string AssemblySystem_Web
+  string AssemblySystem_Windows_Forms
+  string AssemblySystem_2_0
+  string AssemblySystemCore_3_5
+  string AssemblySystem_Core
+  string WindowsBase_3_0
+  string AssemblyWindowsBase
+  string AssemblyPresentationCore_3_5
+  string AssemblyPresentationCore_4_0
+  string AssemblyPresentationFramework_3_5
+  string AssemblySystemServiceModel_3_0
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteConnection
+Наследуется от: DbConnection
+Поля:
+  string _dataDirectory
+  string _masterdb
+  string _tempmasterdb
+  ConnectionState _connectionState
+  string _connectionString
+  int _transactionLevel
+  IsolationLevel _defaultIsolation
+  SQLiteEnlistment _enlistment
+  SQLiteBase _sql
+  string _dataSource
+  Byte[] _password
+  int _defaultTimeout
+  bool _binaryGuid
+  long _version
+  SQLiteUpdateEventHandler _updateHandler
+  SQLiteCommitHandler _commitHandler
+  EventHandler _rollbackHandler
+  SQLiteUpdateCallback _updateCallback
+  SQLiteCommitCallback _commitCallback
+  SQLiteRollbackCallback _rollbackCallback
+  StateChangeEventHandler StateChange
+Свойства:
+  DbProviderFactory DbProviderFactory
+  string ConnectionString
+  string DataSource
+  string Database
+  int DefaultTimeout
+  string ServerVersion
+  string SQLiteVersion
+  ConnectionState State
+Методы:
+  DbProviderFactory get_DbProviderFactory()
+  void add__updateHandler(SQLiteUpdateEventHandler value)
+  void remove__updateHandler(SQLiteUpdateEventHandler value)
+  void add__commitHandler(SQLiteCommitHandler value)
+  void remove__commitHandler(SQLiteCommitHandler value)
+  void add__rollbackHandler(EventHandler value)
+  void remove__rollbackHandler(EventHandler value)
+  void add_StateChange(StateChangeEventHandler value)
+  void remove_StateChange(StateChangeEventHandler value)
+  void .ctor()
+  void .ctor(string connectionString)
+  void .ctor(SqliteConnection connection)
+  object Clone()
+  void Dispose(bool disposing)
+  void CreateFile(string databaseFileName)
+  void OnStateChange(ConnectionState newState)
+  SqliteTransaction BeginTransaction(IsolationLevel isolationLevel, bool deferredLock)
+  SqliteTransaction BeginTransaction(bool deferredLock)
+  SqliteTransaction BeginTransaction(IsolationLevel isolationLevel)
+  SqliteTransaction BeginTransaction()
+  DbTransaction BeginDbTransaction(IsolationLevel isolationLevel)
+  void ChangeDatabase(string databaseName)
+  void Close()
+  void ClearPool(SqliteConnection connection)
+  void ClearAllPools()
+  string get_ConnectionString()
+  void set_ConnectionString(string value)
+  SqliteCommand CreateCommand()
+  DbCommand CreateDbCommand()
+  string get_DataSource()
+  string get_Database()
+  void MapMonoKeyword(String[] arPiece, SortedList`2<string, string> ls)
+  string MapMonoUriPath(string path)
+  string MapUriPath(string path)
+  SortedList`2<string, string> ParseConnectionString(string connectionString)
+  void EnlistTransaction(Transaction transaction)
+  string FindKey(SortedList`2<string, string> items, string key, string defValue)
+  void Open()
+  int get_DefaultTimeout()
+  void set_DefaultTimeout(int value)
+  string get_ServerVersion()
+  string get_SQLiteVersion()
+  ConnectionState get_State()
+  void ChangePassword(string newPassword)
+  void ChangePassword(Byte[] newPassword)
+  void SetPassword(string databasePassword)
+  void SetPassword(Byte[] databasePassword)
+  string ExpandFileName(string sourceFile)
+  DataTable GetSchema()
+  DataTable GetSchema(string collectionName)
+  DataTable GetSchema(string collectionName, String[] restrictionValues)
+  DataTable Schema_ReservedWords()
+  DataTable Schema_MetaDataCollections()
+  DataTable Schema_DataSourceInformation()
+  DataTable Schema_Columns(string strCatalog, string strTable, string strColumn)
+  DataTable Schema_Indexes(string strCatalog, string strTable, string strIndex)
+  DataTable Schema_Triggers(string catalog, string table, string triggerName)
+  DataTable Schema_Tables(string strCatalog, string strTable, string strType)
+  DataTable Schema_Views(string strCatalog, string strView)
+  DataTable Schema_Catalogs(string strCatalog)
+  DataTable Schema_DataTypes()
+  DataTable Schema_IndexColumns(string strCatalog, string strTable, string strIndex, string strColumn)
+  DataTable Schema_ViewColumns(string strCatalog, string strView, string strColumn)
+  DataTable Schema_ForeignKeys(string strCatalog, string strTable, string strKeyName)
+  void add_Update(SQLiteUpdateEventHandler value)
+  void remove_Update(SQLiteUpdateEventHandler value)
+  void UpdateCallback(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid)
+  void add_Commit(SQLiteCommitHandler value)
+  void remove_Commit(SQLiteCommitHandler value)
+  void add_RollBack(EventHandler value)
+  void remove_RollBack(EventHandler value)
+  int CommitCallback(IntPtr parg)
+  void RollbackCallback(IntPtr parg)
+  void SetConfig(SQLiteConfig config)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteFactory
+Наследуется от: DbProviderFactory
+Поля:
+  Type _dbProviderServicesType
+  object _sqliteServices
+  SqliteFactory Instance
+Свойства:
+Методы:
+  void .cctor()
+  object System.IServiceProvider.GetService(Type serviceType)
+  object GetSQLiteProviderServicesInstance()
+  DbCommand CreateCommand()
+  DbCommandBuilder CreateCommandBuilder()
+  DbConnection CreateConnection()
+  DbConnectionStringBuilder CreateConnectionStringBuilder()
+  DbDataAdapter CreateDataAdapter()
+  DbParameter CreateParameter()
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLite3
+Наследуется от: SQLiteBase
+Поля:
+  SqliteConnectionHandle _sql
+  string _fileName
+  bool _usePool
+  int _poolVersion
+  bool _buildingSchema
+  SqliteFunction[] _functionsArray
+Свойства:
+  string Version
+  string SQLiteVersion
+  int Changes
+Методы:
+  void .ctor(SQLiteDateFormats fmt)
+  void Dispose(bool bDisposing)
+  void Close()
+  void Cancel()
+  string get_Version()
+  string get_SQLiteVersion()
+  int get_Changes()
+  void Open(string strFilename, SQLiteOpenFlagsEnum flags, int maxPoolSize, bool usePool)
+  void ClearPool()
+  void SetTimeout(int nTimeoutMS)
+  bool Step(SqliteStatement stmt)
+  int Reset(SqliteStatement stmt)
+  string SQLiteLastError()
+  SqliteStatement Prepare(SqliteConnection cnn, string strSql, SqliteStatement previous, UInt32 timeoutMS, String& strRemain)
+  void Bind_Double(SqliteStatement stmt, int index, double value)
+  void Bind_Int32(SqliteStatement stmt, int index, int value)
+  void Bind_Int64(SqliteStatement stmt, int index, long value)
+  void Bind_Text(SqliteStatement stmt, int index, string value)
+  void Bind_DateTime(SqliteStatement stmt, int index, DateTime dt)
+  void Bind_Blob(SqliteStatement stmt, int index, Byte[] blobData)
+  void Bind_Null(SqliteStatement stmt, int index)
+  int Bind_ParamCount(SqliteStatement stmt)
+  string Bind_ParamName(SqliteStatement stmt, int index)
+  int Bind_ParamIndex(SqliteStatement stmt, string paramName)
+  int ColumnCount(SqliteStatement stmt)
+  string ColumnName(SqliteStatement stmt, int index)
+  TypeAffinity ColumnAffinity(SqliteStatement stmt, int index)
+  string ColumnType(SqliteStatement stmt, int index, TypeAffinity& nAffinity)
+  int ColumnIndex(SqliteStatement stmt, string columnName)
+  string ColumnOriginalName(SqliteStatement stmt, int index)
+  string ColumnDatabaseName(SqliteStatement stmt, int index)
+  string ColumnTableName(SqliteStatement stmt, int index)
+  void ColumnMetaData(string dataBase, string table, string column, String& dataType, String& collateSequence, Boolean& notNull, Boolean& primaryKey, Boolean& autoIncrement)
+  double GetDouble(SqliteStatement stmt, int index)
+  int GetInt32(SqliteStatement stmt, int index)
+  long GetInt64(SqliteStatement stmt, int index)
+  string GetText(SqliteStatement stmt, int index)
+  DateTime GetDateTime(SqliteStatement stmt, int index)
+  long GetBytes(SqliteStatement stmt, int index, int nDataOffset, Byte[] bDest, int nStart, int nLength)
+  long GetChars(SqliteStatement stmt, int index, int nDataOffset, Char[] bDest, int nStart, int nLength)
+  bool IsNull(SqliteStatement stmt, int index)
+  int AggregateCount(IntPtr context)
+  void CreateFunction(string strFunction, int nArgs, bool needCollSeq, SQLiteCallback func, SQLiteCallback funcstep, SQLiteFinalCallback funcfinal)
+  void CreateCollation(string strCollation, SQLiteCollation func, SQLiteCollation func16, IntPtr user_data)
+  int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, string s1, string s2)
+  int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, Char[] c1, Char[] c2)
+  CollationSequence GetCollationSequence(SqliteFunction func, IntPtr context)
+  long GetParamValueBytes(IntPtr p, int nDataOffset, Byte[] bDest, int nStart, int nLength)
+  double GetParamValueDouble(IntPtr ptr)
+  int GetParamValueInt32(IntPtr ptr)
+  long GetParamValueInt64(IntPtr ptr)
+  string GetParamValueText(IntPtr ptr)
+  TypeAffinity GetParamValueType(IntPtr ptr)
+  void ReturnBlob(IntPtr context, Byte[] value)
+  void ReturnDouble(IntPtr context, double value)
+  void ReturnError(IntPtr context, string value)
+  void ReturnInt32(IntPtr context, int value)
+  void ReturnInt64(IntPtr context, long value)
+  void ReturnNull(IntPtr context)
+  void ReturnText(IntPtr context, string value)
+  IntPtr AggregateContext(IntPtr context)
+  void SetPassword(Byte[] passwordBytes)
+  void ChangePassword(Byte[] newPasswordBytes)
+  void SetUpdateHook(SQLiteUpdateCallback func)
+  void SetCommitHook(SQLiteCommitCallback func)
+  void SetRollbackHook(SQLiteRollbackCallback func)
+  object GetValue(SqliteStatement stmt, int index, SQLiteType typ)
+  int GetCursorForTable(SqliteStatement stmt, int db, int rootPage)
+  long GetRowIdForCursor(SqliteStatement stmt, int cursor)
+  void GetIndexColumnExtendedInfo(string database, string index, string column, Int32& sortMode, Int32& onError, String& collationSequence)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLite3_UTF16
+Наследуется от: SQLite3
+Поля:
+Свойства:
+Методы:
+  void .ctor(SQLiteDateFormats fmt)
+  string ToString(IntPtr b, int nbytelen)
+  string UTF16ToString(IntPtr b, int nbytelen)
+  void Open(string strFilename, SQLiteOpenFlagsEnum flags, int maxPoolSize, bool usePool)
+  void Bind_DateTime(SqliteStatement stmt, int index, DateTime dt)
+  void Bind_Text(SqliteStatement stmt, int index, string value)
+  DateTime GetDateTime(SqliteStatement stmt, int index)
+  string ColumnName(SqliteStatement stmt, int index)
+  string GetText(SqliteStatement stmt, int index)
+  string ColumnOriginalName(SqliteStatement stmt, int index)
+  string ColumnDatabaseName(SqliteStatement stmt, int index)
+  string ColumnTableName(SqliteStatement stmt, int index)
+  string GetParamValueText(IntPtr ptr)
+  void ReturnError(IntPtr context, string value)
+  void ReturnText(IntPtr context, string value)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteBase
+Наследуется от: SqliteConvert
+Поля:
+  object _lock
+Свойства:
+  string Version
+  int Changes
+Методы:
+  void .ctor(SQLiteDateFormats fmt)
+  string get_Version()
+  int get_Changes()
+  void Open(string strFilename, SQLiteOpenFlagsEnum flags, int maxPoolSize, bool usePool)
+  void Close()
+  void SetTimeout(int nTimeoutMS)
+  string SQLiteLastError()
+  void ClearPool()
+  SqliteStatement Prepare(SqliteConnection cnn, string strSql, SqliteStatement previous, UInt32 timeoutMS, String& strRemain)
+  bool Step(SqliteStatement stmt)
+  int Reset(SqliteStatement stmt)
+  void Cancel()
+  void Bind_Double(SqliteStatement stmt, int index, double value)
+  void Bind_Int32(SqliteStatement stmt, int index, int value)
+  void Bind_Int64(SqliteStatement stmt, int index, long value)
+  void Bind_Text(SqliteStatement stmt, int index, string value)
+  void Bind_Blob(SqliteStatement stmt, int index, Byte[] blobData)
+  void Bind_DateTime(SqliteStatement stmt, int index, DateTime dt)
+  void Bind_Null(SqliteStatement stmt, int index)
+  int Bind_ParamCount(SqliteStatement stmt)
+  string Bind_ParamName(SqliteStatement stmt, int index)
+  int Bind_ParamIndex(SqliteStatement stmt, string paramName)
+  int ColumnCount(SqliteStatement stmt)
+  string ColumnName(SqliteStatement stmt, int index)
+  TypeAffinity ColumnAffinity(SqliteStatement stmt, int index)
+  string ColumnType(SqliteStatement stmt, int index, TypeAffinity& nAffinity)
+  int ColumnIndex(SqliteStatement stmt, string columnName)
+  string ColumnOriginalName(SqliteStatement stmt, int index)
+  string ColumnDatabaseName(SqliteStatement stmt, int index)
+  string ColumnTableName(SqliteStatement stmt, int index)
+  void ColumnMetaData(string dataBase, string table, string column, String& dataType, String& collateSequence, Boolean& notNull, Boolean& primaryKey, Boolean& autoIncrement)
+  void GetIndexColumnExtendedInfo(string database, string index, string column, Int32& sortMode, Int32& onError, String& collationSequence)
+  double GetDouble(SqliteStatement stmt, int index)
+  int GetInt32(SqliteStatement stmt, int index)
+  long GetInt64(SqliteStatement stmt, int index)
+  string GetText(SqliteStatement stmt, int index)
+  long GetBytes(SqliteStatement stmt, int index, int nDataoffset, Byte[] bDest, int nStart, int nLength)
+  long GetChars(SqliteStatement stmt, int index, int nDataoffset, Char[] bDest, int nStart, int nLength)
+  DateTime GetDateTime(SqliteStatement stmt, int index)
+  bool IsNull(SqliteStatement stmt, int index)
+  void CreateCollation(string strCollation, SQLiteCollation func, SQLiteCollation func16, IntPtr user_data)
+  void CreateFunction(string strFunction, int nArgs, bool needCollSeq, SQLiteCallback func, SQLiteCallback funcstep, SQLiteFinalCallback funcfinal)
+  CollationSequence GetCollationSequence(SqliteFunction func, IntPtr context)
+  int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, string s1, string s2)
+  int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, Char[] c1, Char[] c2)
+  int AggregateCount(IntPtr context)
+  IntPtr AggregateContext(IntPtr context)
+  long GetParamValueBytes(IntPtr ptr, int nDataOffset, Byte[] bDest, int nStart, int nLength)
+  double GetParamValueDouble(IntPtr ptr)
+  int GetParamValueInt32(IntPtr ptr)
+  long GetParamValueInt64(IntPtr ptr)
+  string GetParamValueText(IntPtr ptr)
+  TypeAffinity GetParamValueType(IntPtr ptr)
+  void ReturnBlob(IntPtr context, Byte[] value)
+  void ReturnDouble(IntPtr context, double value)
+  void ReturnError(IntPtr context, string value)
+  void ReturnInt32(IntPtr context, int value)
+  void ReturnInt64(IntPtr context, long value)
+  void ReturnNull(IntPtr context)
+  void ReturnText(IntPtr context, string value)
+  void SetPassword(Byte[] passwordBytes)
+  void ChangePassword(Byte[] newPasswordBytes)
+  void SetUpdateHook(SQLiteUpdateCallback func)
+  void SetCommitHook(SQLiteCommitCallback func)
+  void SetRollbackHook(SQLiteRollbackCallback func)
+  int GetCursorForTable(SqliteStatement stmt, int database, int rootPage)
+  long GetRowIdForCursor(SqliteStatement stmt, int cursor)
+  object GetValue(SqliteStatement stmt, int index, SQLiteType typ)
+  void Dispose(bool bDisposing)
+  void Dispose()
+  string SQLiteLastError(SqliteConnectionHandle db)
+  void FinalizeStatement(SqliteStatementHandle stmt)
+  void CloseConnection(SqliteConnectionHandle db)
+  void ResetConnection(SqliteConnectionHandle db)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.ISQLiteSchemaExtensions
+Поля:
+Свойства:
+Методы:
+  void BuildTempSchema(SqliteConnection cnn)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteOpenFlagsEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteOpenFlagsEnum None
+  SQLiteOpenFlagsEnum ReadOnly
+  SQLiteOpenFlagsEnum ReadWrite
+  SQLiteOpenFlagsEnum Create
+  SQLiteOpenFlagsEnum Default
+  SQLiteOpenFlagsEnum FileProtectionComplete
+  SQLiteOpenFlagsEnum FileProtectionCompleteUnlessOpen
+  SQLiteOpenFlagsEnum FileProtectionCompleteUntilFirstUserAuthentication
+  SQLiteOpenFlagsEnum FileProtectionNone
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteConfig
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteConfig SingleThread
+  SQLiteConfig MultiThread
+  SQLiteConfig Serialized
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteCommand
+Наследуется от: DbCommand
+Поля:
+  string _commandText
+  SqliteConnection _cnn
+  long _version
+  WeakReference _activeReader
+  int _commandTimeout
+  bool _designTimeVisible
+  UpdateRowSource _updateRowSource
+  SqliteParameterCollection _parameterCollection
+  List`1<SqliteStatement> _statementList
+  string _remainingText
+  SqliteTransaction _transaction
+Свойства:
+  string CommandText
+  int CommandTimeout
+  CommandType CommandType
+  SqliteConnection Connection
+  DbConnection DbConnection
+  SqliteParameterCollection Parameters
+  DbParameterCollection DbParameterCollection
+  SqliteTransaction Transaction
+  DbTransaction DbTransaction
+  UpdateRowSource UpdatedRowSource
+  bool DesignTimeVisible
+Методы:
+  void .ctor()
+  void .ctor(string commandText)
+  void .ctor(string commandText, SqliteConnection connection)
+  void .ctor(SqliteConnection connection)
+  void .ctor(SqliteCommand source)
+  void .ctor(string commandText, SqliteConnection connection, SqliteTransaction transaction)
+  void Dispose(bool disposing)
+  void ClearCommands()
+  SqliteStatement BuildNextCommand()
+  SqliteStatement GetStatement(int index)
+  void Cancel()
+  string get_CommandText()
+  void set_CommandText(string value)
+  int get_CommandTimeout()
+  void set_CommandTimeout(int value)
+  CommandType get_CommandType()
+  void set_CommandType(CommandType value)
+  DbParameter CreateDbParameter()
+  SqliteParameter CreateParameter()
+  SqliteConnection get_Connection()
+  void set_Connection(SqliteConnection value)
+  DbConnection get_DbConnection()
+  void set_DbConnection(DbConnection value)
+  SqliteParameterCollection get_Parameters()
+  DbParameterCollection get_DbParameterCollection()
+  SqliteTransaction get_Transaction()
+  void set_Transaction(SqliteTransaction value)
+  DbTransaction get_DbTransaction()
+  void set_DbTransaction(DbTransaction value)
+  void InitializeForReader()
+  DbDataReader ExecuteDbDataReader(CommandBehavior behavior)
+  SqliteDataReader ExecuteReader(CommandBehavior behavior)
+  SqliteDataReader ExecuteReader()
+  void ClearDataReader()
+  int ExecuteNonQuery()
+  object ExecuteScalar()
+  void Prepare()
+  UpdateRowSource get_UpdatedRowSource()
+  void set_UpdatedRowSource(UpdateRowSource value)
+  bool get_DesignTimeVisible()
+  void set_DesignTimeVisible(bool value)
+  object Clone()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteCommandBuilder
+Наследуется от: DbCommandBuilder
+Поля:
+Свойства:
+  SqliteDataAdapter DataAdapter
+  CatalogLocation CatalogLocation
+  string CatalogSeparator
+  string QuotePrefix
+  string QuoteSuffix
+  string SchemaSeparator
+Методы:
+  void .ctor()
+  void .ctor(SqliteDataAdapter adp)
+  void ApplyParameterInfo(DbParameter parameter, DataRow row, StatementType statementType, bool whereClause)
+  string GetParameterName(string parameterName)
+  string GetParameterName(int parameterOrdinal)
+  string GetParameterPlaceholder(int parameterOrdinal)
+  void SetRowUpdatingHandler(DbDataAdapter adapter)
+  void RowUpdatingEventHandler(object sender, RowUpdatingEventArgs e)
+  SqliteDataAdapter get_DataAdapter()
+  void set_DataAdapter(SqliteDataAdapter value)
+  SqliteCommand GetDeleteCommand()
+  SqliteCommand GetDeleteCommand(bool useColumnsForParameterNames)
+  SqliteCommand GetUpdateCommand()
+  SqliteCommand GetUpdateCommand(bool useColumnsForParameterNames)
+  SqliteCommand GetInsertCommand()
+  SqliteCommand GetInsertCommand(bool useColumnsForParameterNames)
+  CatalogLocation get_CatalogLocation()
+  void set_CatalogLocation(CatalogLocation value)
+  string get_CatalogSeparator()
+  void set_CatalogSeparator(string value)
+  string get_QuotePrefix()
+  void set_QuotePrefix(string value)
+  string get_QuoteSuffix()
+  void set_QuoteSuffix(string value)
+  string QuoteIdentifier(string unquotedIdentifier)
+  string UnquoteIdentifier(string quotedIdentifier)
+  string get_SchemaSeparator()
+  void set_SchemaSeparator(string value)
+  DataTable GetSchemaTable(DbCommand sourceCommand)
+  bool HasSchemaPrimaryKey(DataTable schema)
+  void ResetIsUniqueSchemaColumn(DataTable schema)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SynchronizationModes
+Наследуется от: Enum
+Поля:
+  int value__
+  SynchronizationModes Normal
+  SynchronizationModes Full
+  SynchronizationModes Off
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteUpdateCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid)
+  IAsyncResult BeginInvoke(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteCommitCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  int Invoke(IntPtr puser)
+  IAsyncResult BeginInvoke(IntPtr puser, AsyncCallback callback, object object)
+  int EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteRollbackCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr puser)
+  IAsyncResult BeginInvoke(IntPtr puser, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteCommitHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, CommitEventArgs e)
+  IAsyncResult BeginInvoke(object sender, CommitEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteUpdateEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, UpdateEventArgs e)
+  IAsyncResult BeginInvoke(object sender, UpdateEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.UpdateEventType
+Наследуется от: Enum
+Поля:
+  int value__
+  UpdateEventType Delete
+  UpdateEventType Insert
+  UpdateEventType Update
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.UpdateEventArgs
+Наследуется от: EventArgs
+Поля:
+  string Database
+  string Table
+  UpdateEventType Event
+  long RowId
+Свойства:
+Методы:
+  void .ctor(string database, string table, UpdateEventType eventType, long rowid)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.CommitEventArgs
+Наследуется от: EventArgs
+Поля:
+  bool AbortTransaction
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteConnectionPool
+Наследуется от: object
+Поля:
+  SortedList`2<string, Pool> _connections
+  int _poolVersion
+Свойства:
+Методы:
+  SqliteConnectionHandle Remove(string fileName, int maxPoolSize, Int32& version)
+  void ClearAllPools()
+  void ClearPool(string fileName)
+  void Add(string fileName, SqliteConnectionHandle hdl, int version)
+  void ResizePool(Pool queue, bool forAdding)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteConnectionStringBuilder
+Наследуется от: DbConnectionStringBuilder
+Поля:
+  Hashtable _properties
+Свойства:
+  int Version
+  SynchronizationModes SyncMode
+  bool UseUTF16Encoding
+  bool Pooling
+  bool BinaryGUID
+  string DataSource
+  string Uri
+  int DefaultTimeout
+  bool Enlist
+  bool FailIfMissing
+  bool LegacyFormat
+  bool ReadOnly
+  string Password
+  int PageSize
+  int MaxPageCount
+  int CacheSize
+  SQLiteDateFormats DateTimeFormat
+  SQLiteJournalModeEnum JournalMode
+  IsolationLevel DefaultIsolationLevel
+Методы:
+  void .ctor()
+  void .ctor(string connectionString)
+  void Initialize(string cnnString)
+  int get_Version()
+  void set_Version(int value)
+  SynchronizationModes get_SyncMode()
+  void set_SyncMode(SynchronizationModes value)
+  bool get_UseUTF16Encoding()
+  void set_UseUTF16Encoding(bool value)
+  bool get_Pooling()
+  void set_Pooling(bool value)
+  bool get_BinaryGUID()
+  void set_BinaryGUID(bool value)
+  string get_DataSource()
+  void set_DataSource(string value)
+  string get_Uri()
+  void set_Uri(string value)
+  int get_DefaultTimeout()
+  void set_DefaultTimeout(int value)
+  bool get_Enlist()
+  void set_Enlist(bool value)
+  bool get_FailIfMissing()
+  void set_FailIfMissing(bool value)
+  bool get_LegacyFormat()
+  void set_LegacyFormat(bool value)
+  bool get_ReadOnly()
+  void set_ReadOnly(bool value)
+  string get_Password()
+  void set_Password(string value)
+  int get_PageSize()
+  void set_PageSize(int value)
+  int get_MaxPageCount()
+  void set_MaxPageCount(int value)
+  int get_CacheSize()
+  void set_CacheSize(int value)
+  SQLiteDateFormats get_DateTimeFormat()
+  void set_DateTimeFormat(SQLiteDateFormats value)
+  SQLiteJournalModeEnum get_JournalMode()
+  void set_JournalMode(SQLiteJournalModeEnum value)
+  IsolationLevel get_DefaultIsolationLevel()
+  void set_DefaultIsolationLevel(IsolationLevel value)
+  bool TryGetValue(string keyword, Object& value)
+  void FallbackGetProperties(Hashtable propertyList)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteConvert
+Наследуется от: object
+Поля:
+  DateTime UnixEpoch
+  String[] _datetimeFormats
+  Encoding _utf8
+  SQLiteDateFormats _datetimeFormat
+  Type[] _affinitytotype
+  DbType[] _typetodbtype
+  Int32[] _dbtypetocolumnsize
+  Object[] _dbtypetonumericprecision
+  Object[] _dbtypetonumericscale
+  SQLiteTypeNames[] _dbtypeNames
+  Type[] _dbtypeToType
+  TypeAffinity[] _typecodeAffinities
+  SQLiteTypeNames[] _typeNames
+Свойства:
+Методы:
+  void .ctor(SQLiteDateFormats fmt)
+  Byte[] ToUTF8(string sourceText)
+  Byte[] ToUTF8(DateTime dateTimeValue)
+  string ToString(IntPtr nativestring, int nativestringlen)
+  string UTF8ToString(IntPtr nativestring, int nativestringlen)
+  DateTime ToDateTime(string dateText)
+  DateTime ToDateTime(double julianDay)
+  double ToJulianDay(DateTime value)
+  string ToString(DateTime dateValue)
+  DateTime ToDateTime(IntPtr ptr, int len)
+  String[] Split(string source, char separator)
+  bool ToBoolean(object source)
+  bool ToBoolean(string source)
+  void ColumnToType(SqliteStatement stmt, int i, SQLiteType typ)
+  Type SQLiteTypeToType(SQLiteType t)
+  DbType TypeToDbType(Type typ)
+  int DbTypeToColumnSize(DbType typ)
+  object DbTypeToNumericPrecision(DbType typ)
+  object DbTypeToNumericScale(DbType typ)
+  string DbTypeToTypeName(DbType typ)
+  Type DbTypeToType(DbType typ)
+  TypeAffinity TypeToAffinity(Type typ)
+  DbType TypeNameToDbType(string Name)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.TypeAffinity
+Наследуется от: Enum
+Поля:
+  int value__
+  TypeAffinity Uninitialized
+  TypeAffinity Int64
+  TypeAffinity Double
+  TypeAffinity Text
+  TypeAffinity Blob
+  TypeAffinity Null
+  TypeAffinity DateTime
+  TypeAffinity None
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteDateFormats
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteDateFormats Ticks
+  SQLiteDateFormats ISO8601
+  SQLiteDateFormats JulianDay
+  SQLiteDateFormats UnixEpoch
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteJournalModeEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteJournalModeEnum Delete
+  SQLiteJournalModeEnum Persist
+  SQLiteJournalModeEnum Off
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteType
+Наследуется от: object
+Поля:
+  DbType Type
+  TypeAffinity Affinity
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteTypeNames
+Наследуется от: ValueType
+Поля:
+  string typeName
+  DbType dataType
+Свойства:
+Методы:
+  void .ctor(string newtypeName, DbType newdataType)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteDataAdapter
+Наследуется от: DbDataAdapter
+Поля:
+  object _updatingEventPH
+  object _updatedEventPH
+Свойства:
+  SqliteCommand SelectCommand
+  SqliteCommand InsertCommand
+  SqliteCommand UpdateCommand
+  SqliteCommand DeleteCommand
+Методы:
+  void .ctor()
+  void .ctor(SqliteCommand cmd)
+  void .ctor(string commandText, SqliteConnection connection)
+  void .ctor(string commandText, string connectionString)
+  void add_RowUpdating(EventHandler`1<RowUpdatingEventArgs> value)
+  void remove_RowUpdating(EventHandler`1<RowUpdatingEventArgs> value)
+  Delegate FindBuilder(MulticastDelegate mcd)
+  void add_RowUpdated(EventHandler`1<RowUpdatedEventArgs> value)
+  void remove_RowUpdated(EventHandler`1<RowUpdatedEventArgs> value)
+  void OnRowUpdating(RowUpdatingEventArgs value)
+  void OnRowUpdated(RowUpdatedEventArgs value)
+  SqliteCommand get_SelectCommand()
+  void set_SelectCommand(SqliteCommand value)
+  SqliteCommand get_InsertCommand()
+  void set_InsertCommand(SqliteCommand value)
+  SqliteCommand get_UpdateCommand()
+  void set_UpdateCommand(SqliteCommand value)
+  SqliteCommand get_DeleteCommand()
+  void set_DeleteCommand(SqliteCommand value)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteDataReader
+Наследуется от: DbDataReader
+Поля:
+  SqliteCommand _command
+  int _activeStatementIndex
+  SqliteStatement _activeStatement
+  int _readingState
+  int _rowsAffected
+  int _fieldCount
+  SQLiteType[] _fieldTypeArray
+  CommandBehavior _commandBehavior
+  bool _disposeCommand
+  SqliteKeyReader _keyInfo
+  long _version
+  bool hasColumnMetadataSupport
+Свойства:
+  int Depth
+  int FieldCount
+  int VisibleFieldCount
+  bool HasRows
+  bool IsClosed
+  int RecordsAffected
+  object Item
+  object Item
+Методы:
+  void .ctor(SqliteCommand cmd, CommandBehavior behave)
+  void Cancel()
+  void Close()
+  void CheckClosed()
+  void CheckValidRow()
+  IEnumerator GetEnumerator()
+  int get_Depth()
+  int get_FieldCount()
+  int get_VisibleFieldCount()
+  TypeAffinity VerifyType(int i, DbType typ)
+  bool GetBoolean(int i)
+  byte GetByte(int i)
+  long GetBytes(int i, long fieldOffset, Byte[] buffer, int bufferoffset, int length)
+  char GetChar(int i)
+  long GetChars(int i, long fieldoffset, Char[] buffer, int bufferoffset, int length)
+  string GetDataTypeName(int i)
+  DateTime GetDateTime(int i)
+  decimal GetDecimal(int i)
+  double GetDouble(int i)
+  Type GetFieldType(int i)
+  float GetFloat(int i)
+  Guid GetGuid(int i)
+  short GetInt16(int i)
+  int GetInt32(int i)
+  long GetInt64(int i)
+  string GetName(int i)
+  int GetOrdinal(string name)
+  DataTable GetSchemaTable()
+  DataTable GetSchemaTable(bool wantUniqueInfo, bool wantDefaultValue)
+  string GetString(int i)
+  object GetValue(int i)
+  int GetValues(Object[] values)
+  bool get_HasRows()
+  bool get_IsClosed()
+  bool IsDBNull(int i)
+  bool NextResult()
+  SQLiteType GetSQLiteType(int i)
+  bool Read()
+  int get_RecordsAffected()
+  object get_Item(string name)
+  object get_Item(int i)
+  void LoadKeyInfo()
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteEnlistment
+Наследуется от: object
+Поля:
+  SqliteTransaction _transaction
+  Transaction _scope
+  bool _disposeConnection
+Свойства:
+Методы:
+  void .ctor(SqliteConnection cnn, Transaction scope)
+  void Cleanup(SqliteConnection cnn)
+  void Commit(Enlistment enlistment)
+  void InDoubt(Enlistment enlistment)
+  void Prepare(PreparingEnlistment preparingEnlistment)
+  void Rollback(Enlistment enlistment)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteException
+Наследуется от: DbException
+Поля:
+  SQLiteErrorCode _errorCode
+  String[] _errorMessages
+Свойства:
+  SQLiteErrorCode ErrorCode
+Методы:
+  void .ctor(SerializationInfo info, StreamingContext context)
+  void .ctor(int errorCode, string extendedInformation)
+  void .ctor(string message)
+  void .ctor()
+  void .ctor(string message, Exception innerException)
+  SQLiteErrorCode get_ErrorCode()
+  string GetStockErrorMessage(int errorCode, string errorMessage)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteErrorCode
+Наследуется от: Enum
+Поля:
+  int value__
+  SQLiteErrorCode Ok
+  SQLiteErrorCode Error
+  SQLiteErrorCode Internal
+  SQLiteErrorCode Perm
+  SQLiteErrorCode Abort
+  SQLiteErrorCode Busy
+  SQLiteErrorCode Locked
+  SQLiteErrorCode NoMem
+  SQLiteErrorCode ReadOnly
+  SQLiteErrorCode Interrupt
+  SQLiteErrorCode IOErr
+  SQLiteErrorCode Corrupt
+  SQLiteErrorCode NotFound
+  SQLiteErrorCode Full
+  SQLiteErrorCode CantOpen
+  SQLiteErrorCode Protocol
+  SQLiteErrorCode Empty
+  SQLiteErrorCode Schema
+  SQLiteErrorCode TooBig
+  SQLiteErrorCode Constraint
+  SQLiteErrorCode Mismatch
+  SQLiteErrorCode Misuse
+  SQLiteErrorCode NOLFS
+  SQLiteErrorCode Auth
+  SQLiteErrorCode Format
+  SQLiteErrorCode Range
+  SQLiteErrorCode NotADatabase
+  SQLiteErrorCode Row
+  SQLiteErrorCode Done
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteFunction
+Наследуется от: object
+Поля:
+  SQLiteBase _base
+  Dictionary`2<long, AggregateData> _contextDataList
+  SQLiteCallback _InvokeFunc
+  SQLiteCallback _StepFunc
+  SQLiteFinalCallback _FinalFunc
+  SQLiteCollation _CompareFunc
+  SQLiteCollation _CompareFunc16
+  IntPtr _context
+  List`1<SqliteFunctionAttribute> _registeredFunctions
+Свойства:
+  SqliteConvert SqliteConvert
+Методы:
+  void .ctor()
+  SqliteConvert get_SqliteConvert()
+  object Invoke(Object[] args)
+  void Step(Object[] args, int stepNumber, Object& contextData)
+  object Final(object contextData)
+  int Compare(string param1, string param2)
+  Object[] ConvertParams(int nArgs, IntPtr argsptr)
+  void SetReturnValue(IntPtr context, object returnValue)
+  void ScalarCallback(IntPtr context, int nArgs, IntPtr argsptr)
+  int CompareCallback(IntPtr ptr, int len1, IntPtr ptr1, int len2, IntPtr ptr2)
+  int CompareCallback16(IntPtr ptr, int len1, IntPtr ptr1, int len2, IntPtr ptr2)
+  void StepCallback(IntPtr context, int nArgs, IntPtr argsptr)
+  void FinalCallback(IntPtr context)
+  void Dispose(bool disposing)
+  void Dispose()
+  void .cctor()
+  void RegisterFunction(Type typ)
+  SqliteFunction[] BindFunctions(SQLiteBase sqlbase)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteFunctionEx
+Наследуется от: SqliteFunction
+Поля:
+Свойства:
+Методы:
+  CollationSequence GetCollationSequence()
+  void .ctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.FunctionType
+Наследуется от: Enum
+Поля:
+  int value__
+  FunctionType Scalar
+  FunctionType Aggregate
+  FunctionType Collation
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr context, int nArgs, IntPtr argsptr)
+  IAsyncResult BeginInvoke(IntPtr context, int nArgs, IntPtr argsptr, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteFinalCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(IntPtr context)
+  IAsyncResult BeginInvoke(IntPtr context, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SQLiteCollation
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  int Invoke(IntPtr puser, int len1, IntPtr pv1, int len2, IntPtr pv2)
+  IAsyncResult BeginInvoke(IntPtr puser, int len1, IntPtr pv1, int len2, IntPtr pv2, AsyncCallback callback, object object)
+  int EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.CollationTypeEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  CollationTypeEnum Binary
+  CollationTypeEnum NoCase
+  CollationTypeEnum Reverse
+  CollationTypeEnum Custom
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.CollationEncodingEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  CollationEncodingEnum UTF8
+  CollationEncodingEnum UTF16LE
+  CollationEncodingEnum UTF16BE
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.CollationSequence
+Наследуется от: ValueType
+Поля:
+  string Name
+  CollationTypeEnum Type
+  CollationEncodingEnum Encoding
+  SqliteFunction _func
+Свойства:
+Методы:
+  int Compare(string s1, string s2)
+  int Compare(Char[] c1, Char[] c2)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteFunctionAttribute
+Наследуется от: Attribute
+Поля:
+  string _name
+  int _arguments
+  FunctionType _functionType
+  Type _instanceType
+Свойства:
+  string Name
+  int Arguments
+  FunctionType FuncType
+Методы:
+  void .ctor()
+  string get_Name()
+  void set_Name(string value)
+  int get_Arguments()
+  void set_Arguments(int value)
+  FunctionType get_FuncType()
+  void set_FuncType(FunctionType value)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteKeyReader
+Наследуется от: object
+Поля:
+  KeyInfo[] _keyInfo
+  SqliteStatement _stmt
+  bool _isValid
+Свойства:
+  int Count
+Методы:
+  void .ctor(SqliteConnection cnn, SqliteDataReader reader, SqliteStatement stmt)
+  int get_Count()
+  void Sync(int i)
+  void Sync()
+  void Reset()
+  void Dispose()
+  string GetDataTypeName(int i)
+  Type GetFieldType(int i)
+  string GetName(int i)
+  int GetOrdinal(string name)
+  bool GetBoolean(int i)
+  byte GetByte(int i)
+  long GetBytes(int i, long fieldOffset, Byte[] buffer, int bufferoffset, int length)
+  char GetChar(int i)
+  long GetChars(int i, long fieldOffset, Char[] buffer, int bufferoffset, int length)
+  DateTime GetDateTime(int i)
+  decimal GetDecimal(int i)
+  double GetDouble(int i)
+  float GetFloat(int i)
+  Guid GetGuid(int i)
+  short GetInt16(int i)
+  int GetInt32(int i)
+  long GetInt64(int i)
+  string GetString(int i)
+  object GetValue(int i)
+  bool IsDBNull(int i)
+  void AppendSchemaTable(DataTable tbl)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteMetaDataCollectionNames
+Наследуется от: object
+Поля:
+  string Catalogs
+  string Columns
+  string Indexes
+  string IndexColumns
+  string Tables
+  string Views
+  string ViewColumns
+  string ForeignKeys
+  string Triggers
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteParameter
+Наследуется от: DbParameter
+Поля:
+  int _dbType
+  DataRowVersion _rowVersion
+  object _objValue
+  string _sourceColumn
+  string _parameterName
+  int _dataSize
+  bool _nullable
+  bool _nullMapping
+Свойства:
+  bool IsNullable
+  DbType DbType
+  ParameterDirection Direction
+  string ParameterName
+  int Size
+  string SourceColumn
+  bool SourceColumnNullMapping
+  DataRowVersion SourceVersion
+  object Value
+Методы:
+  void .ctor()
+  void .ctor(string parameterName)
+  void .ctor(string parameterName, object value)
+  void .ctor(string parameterName, DbType dbType)
+  void .ctor(string parameterName, DbType dbType, string sourceColumn)
+  void .ctor(string parameterName, DbType dbType, string sourceColumn, DataRowVersion rowVersion)
+  void .ctor(DbType dbType)
+  void .ctor(DbType dbType, object value)
+  void .ctor(DbType dbType, string sourceColumn)
+  void .ctor(DbType dbType, string sourceColumn, DataRowVersion rowVersion)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize, string sourceColumn)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize, string sourceColumn, DataRowVersion rowVersion)
+  void .ctor(SqliteParameter source)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize, ParameterDirection direction, bool isNullable, byte precision, byte scale, string sourceColumn, DataRowVersion rowVersion, object value)
+  void .ctor(string parameterName, DbType parameterType, int parameterSize, ParameterDirection direction, byte precision, byte scale, string sourceColumn, DataRowVersion rowVersion, bool sourceColumnNullMapping, object value)
+  void .ctor(DbType parameterType, int parameterSize)
+  void .ctor(DbType parameterType, int parameterSize, string sourceColumn)
+  void .ctor(DbType parameterType, int parameterSize, string sourceColumn, DataRowVersion rowVersion)
+  bool get_IsNullable()
+  void set_IsNullable(bool value)
+  DbType get_DbType()
+  void set_DbType(DbType value)
+  ParameterDirection get_Direction()
+  void set_Direction(ParameterDirection value)
+  string get_ParameterName()
+  void set_ParameterName(string value)
+  void ResetDbType()
+  int get_Size()
+  void set_Size(int value)
+  string get_SourceColumn()
+  void set_SourceColumn(string value)
+  bool get_SourceColumnNullMapping()
+  void set_SourceColumnNullMapping(bool value)
+  DataRowVersion get_SourceVersion()
+  void set_SourceVersion(DataRowVersion value)
+  object get_Value()
+  void set_Value(object value)
+  object Clone()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteParameterCollection
+Наследуется от: DbParameterCollection
+Поля:
+  SqliteCommand _command
+  List`1<SqliteParameter> _parameterList
+  bool _unboundFlag
+Свойства:
+  bool IsSynchronized
+  bool IsFixedSize
+  bool IsReadOnly
+  object SyncRoot
+  int Count
+  SqliteParameter Item
+  SqliteParameter Item
+Методы:
+  void .ctor(SqliteCommand cmd)
+  bool get_IsSynchronized()
+  bool get_IsFixedSize()
+  bool get_IsReadOnly()
+  object get_SyncRoot()
+  IEnumerator GetEnumerator()
+  SqliteParameter Add(string parameterName, DbType parameterType, int parameterSize, string sourceColumn)
+  SqliteParameter Add(string parameterName, DbType parameterType, int parameterSize)
+  SqliteParameter Add(string parameterName, DbType parameterType)
+  int Add(SqliteParameter parameter)
+  int Add(object value)
+  SqliteParameter AddWithValue(string parameterName, object value)
+  void AddRange(SqliteParameter[] values)
+  void AddRange(Array values)
+  void Clear()
+  bool Contains(string parameterName)
+  bool Contains(object value)
+  void CopyTo(Array array, int index)
+  int get_Count()
+  SqliteParameter get_Item(string parameterName)
+  void set_Item(string parameterName, SqliteParameter value)
+  SqliteParameter get_Item(int index)
+  void set_Item(int index, SqliteParameter value)
+  DbParameter GetParameter(string parameterName)
+  DbParameter GetParameter(int index)
+  int IndexOf(string parameterName)
+  int IndexOf(object value)
+  void Insert(int index, object value)
+  void Remove(object value)
+  void RemoveAt(string parameterName)
+  void RemoveAt(int index)
+  void SetParameter(string parameterName, DbParameter value)
+  void SetParameter(int index, DbParameter value)
+  void Unbind()
+  void MapParameters(SqliteStatement activeStatement)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteStatement
+Наследуется от: object
+Поля:
+  SQLiteBase _sql
+  string _sqlStatement
+  SqliteStatementHandle _sqlite_stmt
+  int _unnamedParameters
+  String[] _paramNames
+  SqliteParameter[] _paramValues
+  SqliteCommand _command
+  String[] _types
+Свойства:
+  String[] TypeDefinitions
+Методы:
+  void .ctor(SQLiteBase sqlbase, SqliteStatementHandle stmt, string strCommand, SqliteStatement previous)
+  bool MapParameter(string s, SqliteParameter p)
+  void Dispose()
+  void BindParameters()
+  void BindParameter(int index, SqliteParameter param)
+  String[] get_TypeDefinitions()
+  void SetTypes(string typedefs)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteTransaction
+Наследуется от: DbTransaction
+Поля:
+  SqliteConnection _cnn
+  long _version
+  IsolationLevel _level
+Свойства:
+  SqliteConnection Connection
+  DbConnection DbConnection
+  IsolationLevel IsolationLevel
+Методы:
+  void .ctor(SqliteConnection connection, bool deferredLock)
+  void Commit()
+  SqliteConnection get_Connection()
+  DbConnection get_DbConnection()
+  void Dispose(bool disposing)
+  IsolationLevel get_IsolationLevel()
+  void Rollback()
+  void IssueRollback(SqliteConnection cnn)
+  bool IsValid(bool throwError)
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SR
+Наследуется от: object
+Поля:
+  ResourceManager resourceMan
+  CultureInfo resourceCulture
+Свойства:
+  ResourceManager ResourceManager
+  CultureInfo Culture
+  string DataTypes
+  string Keywords
+  string MetaDataCollections
+Методы:
+  void .ctor()
+  ResourceManager get_ResourceManager()
+  CultureInfo get_Culture()
+  void set_Culture(CultureInfo value)
+  string get_DataTypes()
+  string get_Keywords()
+  string get_MetaDataCollections()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteDataSourceEnumerator
+Наследуется от: DbDataSourceEnumerator
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  DataTable GetDataSources()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.UnsafeNativeMethods
+Наследуется от: object
+Поля:
+  bool use_sqlite3_close_v2
+  bool use_sqlite3_open_v2
+  bool use_sqlite3_create_function_v2
+  string SQLITE_DLL
+Свойства:
+Методы:
+  void .cctor()
+  int sqlite3_close(IntPtr db)
+  int sqlite3_close_v2(IntPtr db)
+  int sqlite3_create_function(IntPtr db, Byte[] strName, int nArgs, int nType, IntPtr pvUser, SQLiteCallback func, SQLiteCallback fstep, SQLiteFinalCallback ffinal)
+  int sqlite3_create_function_v2(IntPtr db, Byte[] strName, int nArgs, int nType, IntPtr pvUser, SQLiteCallback func, SQLiteCallback fstep, SQLiteFinalCallback ffinal, SQLiteFinalCallback fdestroy)
+  int sqlite3_finalize(IntPtr stmt)
+  int sqlite3_open_v2(Byte[] utf8Filename, IntPtr& db, int flags, IntPtr vfs)
+  int sqlite3_open(Byte[] utf8Filename, IntPtr& db)
+  int sqlite3_open16(string fileName, IntPtr& db)
+  int sqlite3_reset(IntPtr stmt)
+  IntPtr sqlite3_bind_parameter_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_database_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_database_name16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_decltype(IntPtr stmt, int index)
+  IntPtr sqlite3_column_decltype16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_name16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_origin_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_origin_name16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_table_name(IntPtr stmt, int index)
+  IntPtr sqlite3_column_table_name16(IntPtr stmt, int index)
+  IntPtr sqlite3_column_text(IntPtr stmt, int index)
+  IntPtr sqlite3_column_text16(IntPtr stmt, int index)
+  IntPtr sqlite3_errmsg(IntPtr db)
+  int sqlite3_prepare(IntPtr db, IntPtr pSql, int nBytes, IntPtr& stmt, IntPtr& ptrRemain)
+  int sqlite3_table_column_metadata(IntPtr db, Byte[] dbName, Byte[] tblName, Byte[] colName, IntPtr& ptrDataType, IntPtr& ptrCollSeq, Int32& notNull, Int32& primaryKey, Int32& autoInc)
+  IntPtr sqlite3_value_text(IntPtr p)
+  IntPtr sqlite3_value_text16(IntPtr p)
+  IntPtr sqlite3_libversion()
+  void sqlite3_interrupt(IntPtr db)
+  int sqlite3_changes(IntPtr db)
+  int sqlite3_busy_timeout(IntPtr db, int ms)
+  int sqlite3_bind_blob(IntPtr stmt, int index, Byte[] value, int nSize, IntPtr nTransient)
+  int sqlite3_bind_double(IntPtr stmt, int index, double value)
+  int sqlite3_bind_int(IntPtr stmt, int index, int value)
+  int sqlite3_bind_int64(IntPtr stmt, int index, long value)
+  int sqlite3_bind_null(IntPtr stmt, int index)
+  int sqlite3_bind_text(IntPtr stmt, int index, Byte[] value, int nlen, IntPtr pvReserved)
+  int sqlite3_bind_parameter_count(IntPtr stmt)
+  int sqlite3_bind_parameter_index(IntPtr stmt, Byte[] strName)
+  int sqlite3_column_count(IntPtr stmt)
+  int sqlite3_step(IntPtr stmt)
+  double sqlite3_column_double(IntPtr stmt, int index)
+  int sqlite3_column_int(IntPtr stmt, int index)
+  long sqlite3_column_int64(IntPtr stmt, int index)
+  IntPtr sqlite3_column_blob(IntPtr stmt, int index)
+  int sqlite3_column_bytes(IntPtr stmt, int index)
+  TypeAffinity sqlite3_column_type(IntPtr stmt, int index)
+  int sqlite3_create_collation(IntPtr db, Byte[] strName, int nType, IntPtr pvUser, SQLiteCollation func)
+  int sqlite3_aggregate_count(IntPtr context)
+  IntPtr sqlite3_value_blob(IntPtr p)
+  int sqlite3_value_bytes(IntPtr p)
+  double sqlite3_value_double(IntPtr p)
+  int sqlite3_value_int(IntPtr p)
+  long sqlite3_value_int64(IntPtr p)
+  TypeAffinity sqlite3_value_type(IntPtr p)
+  void sqlite3_result_blob(IntPtr context, Byte[] value, int nSize, IntPtr pvReserved)
+  void sqlite3_result_double(IntPtr context, double value)
+  void sqlite3_result_error(IntPtr context, Byte[] strErr, int nLen)
+  void sqlite3_result_int(IntPtr context, int value)
+  void sqlite3_result_int64(IntPtr context, long value)
+  void sqlite3_result_null(IntPtr context)
+  void sqlite3_result_text(IntPtr context, Byte[] value, int nLen, IntPtr pvReserved)
+  IntPtr sqlite3_aggregate_context(IntPtr context, int nBytes)
+  int sqlite3_bind_text16(IntPtr stmt, int index, string value, int nlen, IntPtr pvReserved)
+  void sqlite3_result_error16(IntPtr context, string strName, int nLen)
+  void sqlite3_result_text16(IntPtr context, string strName, int nLen, IntPtr pvReserved)
+  int sqlite3_key(IntPtr db, Byte[] key, int keylen)
+  int sqlite3_rekey(IntPtr db, Byte[] key, int keylen)
+  IntPtr sqlite3_update_hook(IntPtr db, SQLiteUpdateCallback func, IntPtr pvUser)
+  IntPtr sqlite3_commit_hook(IntPtr db, SQLiteCommitCallback func, IntPtr pvUser)
+  IntPtr sqlite3_rollback_hook(IntPtr db, SQLiteRollbackCallback func, IntPtr pvUser)
+  IntPtr sqlite3_db_handle(IntPtr stmt)
+  IntPtr sqlite3_next_stmt(IntPtr db, IntPtr stmt)
+  int sqlite3_exec(IntPtr db, Byte[] strSql, IntPtr pvCallback, IntPtr pvParam, IntPtr& errMsg)
+  int sqlite3_config(SQLiteConfig config)
+  IntPtr sqlite3_user_data(IntPtr context)
+  int sqlite3_free(IntPtr ptr)
+  int sqlite3_libversion_number()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteConnectionHandle
+Наследуется от: CriticalHandle
+Поля:
+Свойства:
+  bool IsInvalid
+Методы:
+  IntPtr op_Implicit(SqliteConnectionHandle db)
+  SqliteConnectionHandle op_Implicit(IntPtr db)
+  void .ctor(IntPtr db)
+  void .ctor()
+  bool ReleaseHandle()
+  bool get_IsInvalid()
+--------------------------------------------------
+Класс: Mono.Data.Sqlite.SqliteStatementHandle
+Наследуется от: CriticalHandle
+Поля:
+Свойства:
+  bool IsInvalid
+Методы:
+  IntPtr op_Implicit(SqliteStatementHandle stmt)
+  SqliteStatementHandle op_Implicit(IntPtr stmt)
+  void .ctor(IntPtr stmt)
+  void .ctor()
+  bool ReleaseHandle()
+  bool get_IsInvalid()
+--------------------------------------------------
+Класс: Mono.Util.MonoPInvokeCallbackAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(Type t)
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=104 1008B9D0868E55E828EDDC3BA4B4BF5AE6AF4D763953E88EDE647FC74E47DB59
+  __StaticArrayInitTypeSize=76 23AA62CA46878A0E5EE0334E144404740A5F3F3D66E6445857BF285D54E8A53B
+  __StaticArrayInitTypeSize=76 86496093B56A2B24BC3BF2BA27468BDE12C9616E862C7C67183195358D43EB68
+  long CBB348370790A11EE7AC1D872C2A1006558833DE48FD4DB8E371AB765ACFB7E8
+Свойства:
+Методы:
+  UInt32 ComputeStringHash(string s)
+--------------------------------------------------

@@ -1,0 +1,109 @@
+public class Facepunch.Sqlite.Database : object {
+    private IntPtr _connection;
+    [CompilerGeneratedAttribute]
+private bool <IsConnectionOpen>k__BackingField;
+    private Dictionary`2<string, IntPtr> _preparedStatementCache;
+    private bool IsConnectionOpen { get; private set; }
+    public int AffectedRows { get; }
+    public long LastInsertRowId { get; }
+    [CompilerGeneratedAttribute]
+private bool get_IsConnectionOpen();
+    [CompilerGeneratedAttribute]
+private void set_IsConnectionOpen(bool value);
+    public void Open(string path, bool fastMode);
+    public bool TableExists(string tableName);
+    public bool IndexExists(string tableName, string indexName);
+    public bool ColumnExists(string tableName, string columnName);
+    public void Close();
+    public int get_AffectedRows();
+    public long get_LastInsertRowId();
+    public void Execute(string query);
+    public void Execute(string query, T1 arg1);
+    public void Execute(string query, T1 arg1, T2 arg2);
+    public void Execute(string query, T1 arg1, T2 arg2, T3 arg3);
+    public void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public TOut Query(string query);
+    public void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6);
+    public TOut Query(string query, T1 arg1);
+    public void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7);
+    public void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8);
+    public void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+    public void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+    public TOut Query(string query, T1 arg1, T2 arg2);
+    public TOut Query(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public TOut Query(string query, T1 arg1, T2 arg2, T3 arg3);
+    public void BeginTransaction();
+    public void Commit();
+    public string QueryString(string query, T1 arg1, T2 arg2);
+    public void Rollback();
+    protected void ExecuteQuery(IntPtr stmHandle);
+    protected static void Bind(IntPtr stmHandle, int index, T value);
+    protected static T GetColumnValue(IntPtr stmHandle, int i);
+    protected T ExecuteAndReadQueryResult(IntPtr stmHandle);
+    protected Nullable`1<T> ExecuteAndReadQueryResult(IntPtr stmHandle, Func`2<IntPtr, T> rowReader);
+    [IteratorStateMachineAttribute("Facepunch.Sqlite.Database/<ExecuteAndReadQueryResults>d__40`1")]
+protected IEnumerable`1<T> ExecuteAndReadQueryResults(IntPtr stmHandle, Func`2<IntPtr, T> rowReader);
+    protected int ExecuteAndReadQueryResults(IntPtr stmHandle, List`1<T> results, Func`2<IntPtr, T> rowReader);
+    private Exception ExecuteError(int result);
+    protected IntPtr Prepare(string query);
+    protected void Complete(IntPtr stmHandle);
+    protected void Reset(IntPtr stmHandle, bool clearBindings);
+    protected void DebugLogColumns(IntPtr stmHandle);
+    [CompilerGeneratedAttribute]
+internal static Exception <GetColumnValue>g__TypeError|37_0(<>c__DisplayClass37_0`1& );
+}
+internal static class Facepunch.Sqlite.Interop : object {
+    internal static int SQLITE_OK;
+    internal static int SQLITE_BUSY;
+    internal static int SQLITE_ROW;
+    internal static int SQLITE_DONE;
+    internal static int SQLITE_INTEGER;
+    internal static int SQLITE_FLOAT;
+    internal static int SQLITE_TEXT;
+    internal static int SQLITE_BLOB;
+    internal static int SQLITE_NULL;
+    internal static int SQLITE_PREPARE_PERSISTENT;
+    internal static IntPtr SQLITE_STATIC;
+    internal static IntPtr SQLITE_TRANSIENT;
+    private static Interop();
+    internal static int sqlite3_open(string filename, IntPtr& db);
+    internal static int sqlite3_close(IntPtr db);
+    internal static int sqlite3_extended_result_codes(IntPtr db, int onoff);
+    internal static int sqlite3_prepare_v3(IntPtr db, string zSql, int nByte, UInt32 prepFlags, IntPtr& ppStmpt, IntPtr pzTail);
+    internal static int sqlite3_step(IntPtr stmHandle);
+    internal static int sqlite3_finalize(IntPtr stmHandle);
+    internal static int sqlite3_reset(IntPtr stmHandle);
+    internal static int sqlite3_clear_bindings(IntPtr stmHandle);
+    internal static IntPtr sqlite3_errmsg(IntPtr db);
+    internal static int sqlite3_changes(IntPtr db);
+    internal static long sqlite3_last_insert_rowid(IntPtr db);
+    internal static int sqlite3_column_count(IntPtr stmHandle);
+    internal static IntPtr sqlite3_column_name(IntPtr stmHandle, int iCol);
+    internal static int sqlite3_column_type(IntPtr stmHandle, int iCol);
+    internal static long sqlite3_column_int64(IntPtr stmHandle, int iCol);
+    internal static IntPtr sqlite3_column_text16(IntPtr stmHandle, int iCol);
+    internal static IntPtr sqlite3_column_blob(IntPtr stmHandle, int iCol);
+    internal static int sqlite3_column_bytes(IntPtr stmHandle, int iCol);
+    internal static double sqlite3_column_double(IntPtr stmHandle, int iCol);
+    internal static int sqlite3_bind_text16(IntPtr stmHandle, int i, IntPtr str, int len, IntPtr dest);
+    internal static int sqlite3_bind_int64(IntPtr stmHandle, int i, long val);
+    internal static int sqlite3_bind_blob(IntPtr stmHandle, int i, IntPtr str, int len, IntPtr dest);
+    internal static int sqlite3_bind_double(IntPtr stmHandle, int i, double val);
+    internal static int sqlite3_bind_null(IntPtr stmHandle, int i);
+    public static string GetTypeName(int sqliteType);
+}
+public class Facepunch.Sqlite.SqliteException : Exception {
+    [CompilerGeneratedAttribute]
+private int <Result>k__BackingField;
+    public int Result { get; }
+    public SqliteException(int result, string message);
+    [CompilerGeneratedAttribute]
+public int get_Result();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

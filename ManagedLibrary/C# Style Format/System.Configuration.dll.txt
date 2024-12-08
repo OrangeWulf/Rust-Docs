@@ -1,0 +1,2197 @@
+internal class ConfigXmlTextReader : XmlTextReader {
+    private string fileName;
+    public string Filename { get; }
+    public ConfigXmlTextReader(Stream s, string fileName);
+    public ConfigXmlTextReader(TextReader input, string fileName);
+    public sealed virtual string get_Filename();
+}
+internal static class Consts : object {
+    public static string MonoCorlibVersion;
+    public static string MonoVersion;
+    public static string MonoCompany;
+    public static string MonoProduct;
+    public static string MonoCopyright;
+    public static string FxVersion;
+    public static string FxFileVersion;
+    public static string EnvironmentVersion;
+    public static string VsVersion;
+    public static string VsFileVersion;
+    private static string PublicKeyToken;
+    public static string AssemblyI18N;
+    public static string AssemblyMicrosoft_JScript;
+    public static string AssemblyMicrosoft_VisualStudio;
+    public static string AssemblyMicrosoft_VisualStudio_Web;
+    public static string AssemblyMicrosoft_VSDesigner;
+    public static string AssemblyMono_Http;
+    public static string AssemblyMono_Posix;
+    public static string AssemblyMono_Security;
+    public static string AssemblyMono_Messaging_RabbitMQ;
+    public static string AssemblyCorlib;
+    public static string AssemblySystem;
+    public static string AssemblySystem_Data;
+    public static string AssemblySystem_Design;
+    public static string AssemblySystem_DirectoryServices;
+    public static string AssemblySystem_Drawing;
+    public static string AssemblySystem_Drawing_Design;
+    public static string AssemblySystem_Messaging;
+    public static string AssemblySystem_Security;
+    public static string AssemblySystem_ServiceProcess;
+    public static string AssemblySystem_Web;
+    public static string AssemblySystem_Windows_Forms;
+    public static string AssemblySystem_2_0;
+    public static string AssemblySystemCore_3_5;
+    public static string AssemblySystem_Core;
+    public static string WindowsBase_3_0;
+    public static string AssemblyWindowsBase;
+    public static string AssemblyPresentationCore_3_5;
+    public static string AssemblyPresentationCore_4_0;
+    public static string AssemblyPresentationFramework_3_5;
+    public static string AssemblySystemServiceModel_3_0;
+}
+internal class Locale : object {
+    public static string GetText(string msg);
+    public static string GetText(string fmt, Object[] args);
+}
+public class System.Configuration.AppSettingsSection : ConfigurationSection {
+    private static ConfigurationPropertyCollection _properties;
+    private static ConfigurationProperty _propFile;
+    private static ConfigurationProperty _propSettings;
+    [ConfigurationPropertyAttribute("file")]
+public string File { get; public set; }
+    [ConfigurationPropertyAttribute("")]
+public KeyValueConfigurationCollection Settings { get; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static AppSettingsSection();
+    protected internal virtual bool IsModified();
+    [MonoInternalNoteAttribute("file path?  do we use a System.Configuration api for opening it?  do we keep it open?  do we open it writable?")]
+protected internal virtual void DeserializeElement(XmlReader reader, bool serializeCollectionKey);
+    protected internal virtual void Reset(ConfigurationElement parentSection);
+    [MonoTODOAttribute]
+protected internal virtual string SerializeSection(ConfigurationElement parentElement, string name, ConfigurationSaveMode saveMode);
+    public string get_File();
+    public void set_File(string value);
+    public KeyValueConfigurationCollection get_Settings();
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    protected internal virtual object GetRuntimeObject();
+}
+public class System.Configuration.CallbackValidator : ConfigurationValidatorBase {
+    private Type type;
+    private ValidatorCallback callback;
+    public CallbackValidator(Type type, ValidatorCallback callback);
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.CallbackValidatorAttribute : ConfigurationValidatorAttribute {
+    private string callbackMethodName;
+    private Type type;
+    private ConfigurationValidatorBase instance;
+    public string CallbackMethodName { get; public set; }
+    public Type Type { get; public set; }
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public string get_CallbackMethodName();
+    public void set_CallbackMethodName(string value);
+    public Type get_Type();
+    public void set_Type(Type value);
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+}
+internal class System.Configuration.ClientConfigurationSystem : object {
+    private Configuration cfg;
+    private Configuration Configuration { get; }
+    private bool System.Configuration.Internal.IInternalConfigSystem.SupportsUserConfig { get; }
+    private Configuration get_Configuration();
+    private sealed virtual override object System.Configuration.Internal.IInternalConfigSystem.GetSection(string configKey);
+    private sealed virtual override void System.Configuration.Internal.IInternalConfigSystem.RefreshConfig(string sectionName);
+    private sealed virtual override bool System.Configuration.Internal.IInternalConfigSystem.get_SupportsUserConfig();
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.CommaDelimitedStringCollection : StringCollection {
+    private bool modified;
+    private bool readOnly;
+    private int originalStringHash;
+    public bool IsModified { get; }
+    public bool IsReadOnly { get; }
+    public string Item { get; public set; }
+    public bool get_IsModified();
+    public bool get_IsReadOnly();
+    public string get_Item(int index);
+    public void set_Item(int index, string value);
+    public void Add(string value);
+    public void AddRange(String[] range);
+    public void Clear();
+    public CommaDelimitedStringCollection Clone();
+    public void Insert(int index, string value);
+    public void Remove(string value);
+    public void SetReadOnly();
+    public virtual string ToString();
+    internal void UpdateStringHash();
+}
+public class System.Configuration.CommaDelimitedStringCollectionConverter : ConfigurationConverterBase {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+internal abstract class System.Configuration.ConfigInfo : object {
+    public string Name;
+    public string TypeName;
+    protected Type Type;
+    private string streamName;
+    public ConfigInfo Parent;
+    public IInternalConfigHost ConfigHost;
+    public string XPath { get; }
+    public string StreamName { get; public set; }
+    public virtual object CreateInstance();
+    public string get_XPath();
+    public string get_StreamName();
+    public void set_StreamName(string value);
+    public abstract virtual bool HasConfigContent(Configuration cfg);
+    public abstract virtual bool HasDataContent(Configuration cfg);
+    protected void ThrowException(string text, XmlReader reader);
+    public abstract virtual void ReadConfig(Configuration cfg, string streamName, XmlReader reader);
+    public abstract virtual void WriteConfig(Configuration cfg, XmlWriter writer, ConfigurationSaveMode mode);
+    public abstract virtual void ReadData(Configuration config, XmlReader reader, bool overrideAllowed);
+    public abstract virtual void WriteData(Configuration config, XmlWriter writer, ConfigurationSaveMode mode);
+    internal abstract virtual void Merge(ConfigInfo data);
+    internal abstract virtual bool HasValues(Configuration config, ConfigurationSaveMode mode);
+    internal abstract virtual void ResetModified(Configuration config);
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Configuration.ConfigInfoCollection : NameObjectCollectionBase {
+    public ICollection AllKeys { get; }
+    public ConfigInfo Item { get; public set; }
+    public ConfigInfo Item { get; public set; }
+    public ICollection get_AllKeys();
+    public ConfigInfo get_Item(string name);
+    public void set_Item(string name, ConfigInfo value);
+    public ConfigInfo get_Item(int index);
+    public void set_Item(int index, ConfigInfo value);
+    public void Add(string name, ConfigInfo config);
+    public void Clear();
+    public string GetKey(int index);
+    public void Remove(string name);
+    public void RemoveAt(int index);
+}
+internal class System.Configuration.ConfigNameValueCollection : NameValueCollection {
+    private bool modified;
+    public bool IsModified { get; }
+    public ConfigNameValueCollection(ConfigNameValueCollection col);
+    public void ResetModified();
+    public bool get_IsModified();
+    public virtual void Set(string name, string value);
+}
+public class System.Configuration.Configuration : object {
+    private Configuration parent;
+    private Hashtable elementData;
+    private string streamName;
+    private ConfigurationSectionGroup rootSectionGroup;
+    private ConfigurationLocationCollection locations;
+    private SectionGroupInfo rootGroup;
+    private IConfigSystem system;
+    private bool hasFile;
+    private string rootNamespace;
+    private string configPath;
+    private string locationConfigPath;
+    private string locationSubPath;
+    [CompilerGeneratedAttribute]
+private static ConfigurationSaveEventHandler SaveStart;
+    [CompilerGeneratedAttribute]
+private static ConfigurationSaveEventHandler SaveEnd;
+    private ContextInformation evaluationContext;
+    internal Configuration Parent { get; internal set; }
+    internal string FileName { get; }
+    internal IInternalConfigHost ConfigHost { get; }
+    internal string LocationConfigPath { get; }
+    internal string ConfigPath { get; }
+    public AppSettingsSection AppSettings { get; }
+    public ConnectionStringsSection ConnectionStrings { get; }
+    public string FilePath { get; }
+    public bool HasFile { get; }
+    public ContextInformation EvaluationContext { get; }
+    public ConfigurationLocationCollection Locations { get; }
+    public bool NamespaceDeclared { get; public set; }
+    public ConfigurationSectionGroup RootSectionGroup { get; }
+    public ConfigurationSectionGroupCollection SectionGroups { get; }
+    public ConfigurationSectionCollection Sections { get; }
+    public Func`2<string, string> AssemblyStringTransformer { get; public set; }
+    public FrameworkName TargetFramework { get; public set; }
+    public Func`2<string, string> TypeStringTransformer { get; public set; }
+    internal Configuration(Configuration parent, string locationSubPath);
+    internal Configuration(InternalConfigurationSystem system, string locationSubPath);
+    [CompilerGeneratedAttribute]
+internal static void add_SaveStart(ConfigurationSaveEventHandler value);
+    [CompilerGeneratedAttribute]
+internal static void remove_SaveStart(ConfigurationSaveEventHandler value);
+    [CompilerGeneratedAttribute]
+internal static void add_SaveEnd(ConfigurationSaveEventHandler value);
+    [CompilerGeneratedAttribute]
+internal static void remove_SaveEnd(ConfigurationSaveEventHandler value);
+    internal Configuration FindLocationConfiguration(string relativePath, Configuration defaultConfiguration);
+    internal void Init(IConfigSystem system, string configPath, Configuration parent);
+    internal Configuration get_Parent();
+    internal void set_Parent(Configuration value);
+    internal Configuration GetParentWithFile();
+    internal string get_FileName();
+    internal IInternalConfigHost get_ConfigHost();
+    internal string get_LocationConfigPath();
+    internal string GetLocationSubPath();
+    internal string get_ConfigPath();
+    public AppSettingsSection get_AppSettings();
+    public ConnectionStringsSection get_ConnectionStrings();
+    public string get_FilePath();
+    public bool get_HasFile();
+    public ContextInformation get_EvaluationContext();
+    public ConfigurationLocationCollection get_Locations();
+    public bool get_NamespaceDeclared();
+    public void set_NamespaceDeclared(bool value);
+    public ConfigurationSectionGroup get_RootSectionGroup();
+    public ConfigurationSectionGroupCollection get_SectionGroups();
+    public ConfigurationSectionCollection get_Sections();
+    public ConfigurationSection GetSection(string sectionName);
+    public ConfigurationSectionGroup GetSectionGroup(string sectionGroupName);
+    internal ConfigurationSection GetSectionInstance(SectionInfo config, bool createDefaultInstance);
+    internal ConfigurationSectionGroup GetSectionGroupInstance(SectionGroupInfo group);
+    internal void SetConfigurationSection(SectionInfo config, ConfigurationSection sec);
+    internal void SetSectionXml(SectionInfo config, string data);
+    internal string GetSectionXml(SectionInfo config);
+    internal void CreateSection(SectionGroupInfo group, string name, ConfigurationSection sec);
+    internal void CreateSectionGroup(SectionGroupInfo parentGroup, string name, ConfigurationSectionGroup sec);
+    internal void RemoveConfigInfo(ConfigInfo config);
+    public void Save();
+    public void Save(ConfigurationSaveMode saveMode);
+    public void Save(ConfigurationSaveMode saveMode, bool forceSaveAll);
+    public void SaveAs(string filename);
+    public void SaveAs(string filename, ConfigurationSaveMode saveMode);
+    [MonoInternalNoteAttribute("Detect if file has changed")]
+public void SaveAs(string filename, ConfigurationSaveMode saveMode, bool forceSaveAll);
+    private void Save(Stream stream, ConfigurationSaveMode mode, bool forceUpdateAll);
+    private void SaveData(XmlTextWriter tw, ConfigurationSaveMode mode, bool forceUpdateAll);
+    private bool HasValues(ConfigurationSaveMode mode);
+    private void ResetModified();
+    private bool Load();
+    private void ReadConfigFile(XmlReader reader, string fileName);
+    internal void ReadData(XmlReader reader, bool allowOverride);
+    private void ThrowException(string text, XmlReader reader);
+    public Func`2<string, string> get_AssemblyStringTransformer();
+    public void set_AssemblyStringTransformer(Func`2<string, string> value);
+    public FrameworkName get_TargetFramework();
+    public void set_TargetFramework(FrameworkName value);
+    public Func`2<string, string> get_TypeStringTransformer();
+    public void set_TypeStringTransformer(Func`2<string, string> value);
+}
+public enum System.Configuration.ConfigurationAllowDefinition : Enum {
+    public int value__;
+    public static ConfigurationAllowDefinition MachineOnly;
+    public static ConfigurationAllowDefinition MachineToWebRoot;
+    public static ConfigurationAllowDefinition MachineToApplication;
+    public static ConfigurationAllowDefinition Everywhere;
+}
+public enum System.Configuration.ConfigurationAllowExeDefinition : Enum {
+    public int value__;
+    public static ConfigurationAllowExeDefinition MachineOnly;
+    public static ConfigurationAllowExeDefinition MachineToApplication;
+    public static ConfigurationAllowExeDefinition MachineToLocalUser;
+    public static ConfigurationAllowExeDefinition MachineToRoamingUser;
+}
+public abstract class System.Configuration.ConfigurationBuilder : ProviderBase {
+    public virtual ConfigurationSection ProcessConfigurationSection(ConfigurationSection configSection);
+    public virtual XmlNode ProcessRawXml(XmlNode rawXml);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.ConfigurationBuilderCollection : ProviderCollection {
+}
+public class System.Configuration.ConfigurationBuilderSettings : ConfigurationElement {
+    public ProviderSettingsCollection Builders { get; }
+    public ProviderSettingsCollection get_Builders();
+}
+public class System.Configuration.ConfigurationBuildersSection : ConfigurationSection {
+    public ProviderSettingsCollection Builders { get; }
+    public ProviderSettingsCollection get_Builders();
+    public ConfigurationBuilder GetBuilderFromName(string builderName);
+}
+[AttributeUsageAttribute("132")]
+public class System.Configuration.ConfigurationCollectionAttribute : Attribute {
+    private string addItemName;
+    private string clearItemsName;
+    private string removeItemName;
+    private ConfigurationElementCollectionType collectionType;
+    private Type itemType;
+    public string AddItemName { get; public set; }
+    public string ClearItemsName { get; public set; }
+    public string RemoveItemName { get; public set; }
+    public ConfigurationElementCollectionType CollectionType { get; public set; }
+    [MonoInternalNoteAttribute("Do something with this in ConfigurationElementCollection")]
+public Type ItemType { get; }
+    public ConfigurationCollectionAttribute(Type itemType);
+    public string get_AddItemName();
+    public void set_AddItemName(string value);
+    public string get_ClearItemsName();
+    public void set_ClearItemsName(string value);
+    public string get_RemoveItemName();
+    public void set_RemoveItemName(string value);
+    public ConfigurationElementCollectionType get_CollectionType();
+    public void set_CollectionType(ConfigurationElementCollectionType value);
+    public Type get_ItemType();
+}
+public abstract class System.Configuration.ConfigurationConverterBase : TypeConverter {
+    public virtual bool CanConvertFrom(ITypeDescriptorContext ctx, Type type);
+    public virtual bool CanConvertTo(ITypeDescriptorContext ctx, Type type);
+}
+[DefaultMemberAttribute("Item")]
+public abstract class System.Configuration.ConfigurationElement : object {
+    private string rawXml;
+    private bool modified;
+    private ElementMap map;
+    private ConfigurationPropertyCollection keyProps;
+    private ConfigurationElementCollection defaultCollection;
+    private bool readOnly;
+    private ElementInformation elementInfo;
+    private ConfigurationElementProperty elementProperty;
+    private Configuration _configuration;
+    private bool elementPresent;
+    private ConfigurationLockCollection lockAllAttributesExcept;
+    private ConfigurationLockCollection lockAllElementsExcept;
+    private ConfigurationLockCollection lockAttributes;
+    private ConfigurationLockCollection lockElements;
+    private bool lockItem;
+    private SaveContext saveContext;
+    internal Configuration Configuration { get; internal set; }
+    public ElementInformation ElementInformation { get; }
+    internal string RawXml { get; internal set; }
+    protected internal ConfigurationElementProperty ElementProperty { get; }
+    protected ContextInformation EvaluationContext { get; }
+    public ConfigurationLockCollection LockAllAttributesExcept { get; }
+    public ConfigurationLockCollection LockAllElementsExcept { get; }
+    public ConfigurationLockCollection LockAttributes { get; }
+    public ConfigurationLockCollection LockElements { get; }
+    public bool LockItem { get; public set; }
+    protected internal object Item { get; protected internal set; }
+    protected internal object Item { get; protected internal set; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    internal bool IsElementPresent { get; }
+    public Configuration CurrentConfiguration { get; }
+    protected bool HasContext { get; }
+    internal Configuration get_Configuration();
+    internal void set_Configuration(Configuration value);
+    internal virtual void InitFromProperty(PropertyInformation propertyInfo);
+    public ElementInformation get_ElementInformation();
+    internal string get_RawXml();
+    internal void set_RawXml(string value);
+    protected internal virtual void Init();
+    protected internal virtual ConfigurationElementProperty get_ElementProperty();
+    protected ContextInformation get_EvaluationContext();
+    public ConfigurationLockCollection get_LockAllAttributesExcept();
+    public ConfigurationLockCollection get_LockAllElementsExcept();
+    public ConfigurationLockCollection get_LockAttributes();
+    public ConfigurationLockCollection get_LockElements();
+    public bool get_LockItem();
+    public void set_LockItem(bool value);
+    [MonoTODOAttribute]
+protected virtual void ListErrors(IList errorList);
+    [MonoTODOAttribute]
+protected void SetPropertyValue(ConfigurationProperty prop, object value, bool ignoreLocks);
+    internal ConfigurationPropertyCollection GetKeyProperties();
+    internal ConfigurationElementCollection GetDefaultCollection();
+    protected internal object get_Item(ConfigurationProperty prop);
+    protected internal void set_Item(ConfigurationProperty prop, object value);
+    protected internal object get_Item(string propertyName);
+    protected internal void set_Item(string propertyName, object value);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    public virtual bool Equals(object compareTo);
+    public virtual int GetHashCode();
+    internal virtual bool HasLocalModifications();
+    protected internal virtual void DeserializeElement(XmlReader reader, bool serializeCollectionKey);
+    protected virtual bool OnDeserializeUnrecognizedAttribute(string name, string value);
+    protected virtual bool OnDeserializeUnrecognizedElement(string elementName, XmlReader reader);
+    protected virtual object OnRequiredPropertyNotFound(string name);
+    protected virtual void PreSerialize(XmlWriter writer);
+    protected virtual void PostDeserialize();
+    protected internal virtual void InitializeDefault();
+    protected internal virtual bool IsModified();
+    protected internal virtual void SetReadOnly();
+    public virtual bool IsReadOnly();
+    protected internal virtual void Reset(ConfigurationElement parentElement);
+    protected internal virtual void ResetModified();
+    protected internal virtual bool SerializeElement(XmlWriter writer, bool serializeCollectionKey);
+    protected internal virtual bool SerializeToXmlElement(XmlWriter writer, string elementName);
+    protected internal virtual void Unmerge(ConfigurationElement sourceElement, ConfigurationElement parentElement, ConfigurationSaveMode saveMode);
+    internal bool HasValue(string propName);
+    internal bool IsReadFromConfig(string propName);
+    internal bool get_IsElementPresent();
+    private void ValidateValue(ConfigurationProperty p, string value);
+    internal bool HasValue(ConfigurationElement parent, PropertyInformation prop, ConfigurationSaveMode mode);
+    internal virtual bool HasValues(ConfigurationElement parent, ConfigurationSaveMode mode);
+    internal virtual void PrepareSave(ConfigurationElement parent, ConfigurationSaveMode mode);
+    public Configuration get_CurrentConfiguration();
+    protected bool get_HasContext();
+    protected virtual string GetTransformedAssemblyString(string assemblyName);
+    protected virtual string GetTransformedTypeString(string typeName);
+}
+[DebuggerDisplayAttribute("Count = {Count}")]
+public abstract class System.Configuration.ConfigurationElementCollection : ConfigurationElement {
+    private ArrayList list;
+    private ArrayList removed;
+    private ArrayList inherited;
+    private bool emitClear;
+    private bool modified;
+    private IComparer comparer;
+    private int inheritedLimitIndex;
+    private string addElementName;
+    private string clearElementName;
+    private string removeElementName;
+    public ConfigurationElementCollectionType CollectionType { get; }
+    private bool IsBasic { get; }
+    private bool IsAlternate { get; }
+    public int Count { get; }
+    protected string ElementName { get; }
+    public bool EmitClear { get; public set; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    protected bool ThrowOnDuplicate { get; }
+    protected internal string AddElementName { get; protected internal set; }
+    protected internal string ClearElementName { get; protected internal set; }
+    protected internal string RemoveElementName { get; protected internal set; }
+    protected ConfigurationElementCollection(IComparer comparer);
+    internal virtual void InitFromProperty(PropertyInformation propertyInfo);
+    public virtual ConfigurationElementCollectionType get_CollectionType();
+    private bool get_IsBasic();
+    private bool get_IsAlternate();
+    public sealed virtual int get_Count();
+    protected virtual string get_ElementName();
+    public bool get_EmitClear();
+    public void set_EmitClear(bool value);
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+    protected virtual bool get_ThrowOnDuplicate();
+    protected internal string get_AddElementName();
+    protected internal void set_AddElementName(string value);
+    protected internal string get_ClearElementName();
+    protected internal void set_ClearElementName(string value);
+    protected internal string get_RemoveElementName();
+    protected internal void set_RemoveElementName(string value);
+    protected virtual void BaseAdd(ConfigurationElement element);
+    protected void BaseAdd(ConfigurationElement element, bool throwIfExists);
+    protected virtual void BaseAdd(int index, ConfigurationElement element);
+    protected internal void BaseClear();
+    protected internal ConfigurationElement BaseGet(int index);
+    protected internal ConfigurationElement BaseGet(object key);
+    protected internal Object[] BaseGetAllKeys();
+    protected internal object BaseGetKey(int index);
+    protected int BaseIndexOf(ConfigurationElement element);
+    private int IndexOfKey(object key);
+    protected internal bool BaseIsRemoved(object key);
+    protected internal void BaseRemove(object key);
+    protected internal void BaseRemoveAt(int index);
+    private bool CompareKeys(object key1, object key2);
+    public void CopyTo(ConfigurationElement[] array, int index);
+    protected abstract virtual ConfigurationElement CreateNewElement();
+    protected virtual ConfigurationElement CreateNewElement(string elementName);
+    private ConfigurationElement CreateNewElementInternal(string elementName);
+    public virtual bool Equals(object compareTo);
+    protected abstract virtual object GetElementKey(ConfigurationElement element);
+    public virtual int GetHashCode();
+    private sealed virtual override void System.Collections.ICollection.CopyTo(Array arr, int index);
+    public sealed virtual IEnumerator GetEnumerator();
+    protected virtual bool IsElementName(string elementName);
+    protected virtual bool IsElementRemovable(ConfigurationElement element);
+    protected internal virtual bool IsModified();
+    [MonoTODOAttribute]
+public virtual bool IsReadOnly();
+    internal virtual void PrepareSave(ConfigurationElement parentElement, ConfigurationSaveMode mode);
+    internal virtual bool HasValues(ConfigurationElement parentElement, ConfigurationSaveMode mode);
+    protected internal virtual void Reset(ConfigurationElement parentElement);
+    protected internal virtual void ResetModified();
+    [MonoTODOAttribute]
+protected internal virtual void SetReadOnly();
+    protected internal virtual bool SerializeElement(XmlWriter writer, bool serializeCollectionKey);
+    protected virtual bool OnDeserializeUnrecognizedElement(string elementName, XmlReader reader);
+    protected internal virtual void Unmerge(ConfigurationElement sourceElement, ConfigurationElement parentElement, ConfigurationSaveMode saveMode);
+}
+public enum System.Configuration.ConfigurationElementCollectionType : Enum {
+    public int value__;
+    public static ConfigurationElementCollectionType BasicMap;
+    public static ConfigurationElementCollectionType AddRemoveClearMap;
+    public static ConfigurationElementCollectionType BasicMapAlternate;
+    public static ConfigurationElementCollectionType AddRemoveClearMapAlternate;
+}
+public class System.Configuration.ConfigurationElementProperty : object {
+    private ConfigurationValidatorBase validator;
+    public ConfigurationValidatorBase Validator { get; }
+    public ConfigurationElementProperty(ConfigurationValidatorBase validator);
+    public ConfigurationValidatorBase get_Validator();
+}
+public class System.Configuration.ConfigurationErrorsException : ConfigurationException {
+    private string filename;
+    private int line;
+    public string BareMessage { get; }
+    public ICollection Errors { get; }
+    public string Filename { get; }
+    public int Line { get; }
+    public string Message { get; }
+    public ConfigurationErrorsException(string message);
+    protected ConfigurationErrorsException(SerializationInfo info, StreamingContext context);
+    public ConfigurationErrorsException(string message, Exception inner);
+    public ConfigurationErrorsException(string message, XmlNode node);
+    public ConfigurationErrorsException(string message, Exception inner, XmlNode node);
+    public ConfigurationErrorsException(string message, XmlReader reader);
+    public ConfigurationErrorsException(string message, Exception inner, XmlReader reader);
+    public ConfigurationErrorsException(string message, string filename, int line);
+    public ConfigurationErrorsException(string message, Exception inner, string filename, int line);
+    public virtual string get_BareMessage();
+    public ICollection get_Errors();
+    public virtual string get_Filename();
+    public virtual int get_Line();
+    public virtual string get_Message();
+    public static string GetFilename(XmlReader reader);
+    public static int GetLineNumber(XmlReader reader);
+    public static string GetFilename(XmlNode node);
+    public static int GetLineNumber(XmlNode node);
+    public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+}
+public class System.Configuration.ConfigurationFileMap : object {
+    private string machineConfigFilename;
+    public string MachineConfigFilename { get; public set; }
+    public ConfigurationFileMap(string machineConfigFilename);
+    public string get_MachineConfigFilename();
+    public void set_MachineConfigFilename(string value);
+    public virtual object Clone();
+}
+public class System.Configuration.ConfigurationLocation : object {
+    private static Char[] pathTrimChars;
+    private string path;
+    private Configuration configuration;
+    private Configuration parent;
+    private string xmlContent;
+    private bool parentResolved;
+    private bool allowOverride;
+    public string Path { get; }
+    internal bool AllowOverride { get; }
+    internal string XmlContent { get; }
+    internal Configuration OpenedConfiguration { get; }
+    internal ConfigurationLocation(string path, string xmlContent, Configuration parent, bool allowOverride);
+    private static ConfigurationLocation();
+    public string get_Path();
+    internal bool get_AllowOverride();
+    internal string get_XmlContent();
+    internal Configuration get_OpenedConfiguration();
+    public Configuration OpenConfiguration();
+    internal void SetParentConfiguration(Configuration parent);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.ConfigurationLocationCollection : ReadOnlyCollectionBase {
+    public ConfigurationLocation Item { get; }
+    public ConfigurationLocation get_Item(int index);
+    internal void Add(ConfigurationLocation loc);
+    internal ConfigurationLocation Find(string location);
+    internal ConfigurationLocation FindBest(string location);
+}
+public class System.Configuration.ConfigurationLockCollection : object {
+    private ArrayList names;
+    private ConfigurationElement element;
+    private ConfigurationLockType lockType;
+    private bool is_modified;
+    private Hashtable valid_name_hash;
+    private string valid_names;
+    public string AttributeList { get; }
+    public int Count { get; }
+    [MonoTODOAttribute]
+public bool HasParentElements { get; }
+    [MonoTODOAttribute]
+public bool IsModified { get; internal set; }
+    [MonoTODOAttribute]
+public bool IsSynchronized { get; }
+    [MonoTODOAttribute]
+public object SyncRoot { get; }
+    internal ConfigurationLockCollection(ConfigurationElement element, ConfigurationLockType lockType);
+    private void CheckName(string name);
+    public void Add(string name);
+    public void Clear();
+    public bool Contains(string name);
+    public void CopyTo(String[] array, int index);
+    public sealed virtual IEnumerator GetEnumerator();
+    [MonoInternalNoteAttribute("we can't possibly *always* return false here...")]
+public bool IsReadOnly(string name);
+    public void Remove(string name);
+    public void SetFromList(string attributeList);
+    private sealed virtual override void System.Collections.ICollection.CopyTo(Array array, int index);
+    public string get_AttributeList();
+    public sealed virtual int get_Count();
+    public bool get_HasParentElements();
+    public bool get_IsModified();
+    internal void set_IsModified(bool value);
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+}
+[FlagsAttribute]
+internal enum System.Configuration.ConfigurationLockType : Enum {
+    public int value__;
+    public static ConfigurationLockType Attribute;
+    public static ConfigurationLockType Element;
+    public static ConfigurationLockType Exclude;
+}
+public static class System.Configuration.ConfigurationManager : object {
+    private static InternalConfigurationFactory configFactory;
+    private static IInternalConfigSystem configSystem;
+    private static object lockobj;
+    internal static IInternalConfigConfigurationFactory ConfigurationFactory { get; }
+    internal static IInternalConfigSystem ConfigurationSystem { get; }
+    public static NameValueCollection AppSettings { get; }
+    public static ConnectionStringSettingsCollection ConnectionStrings { get; }
+    private static ConfigurationManager();
+    [MonoTODOAttribute("Evidence and version still needs work")]
+private static string GetAssemblyInfo(Assembly a);
+    internal static Configuration OpenExeConfigurationInternal(ConfigurationUserLevel userLevel, Assembly calling_assembly, string exePath);
+    public static Configuration OpenExeConfiguration(ConfigurationUserLevel userLevel);
+    public static Configuration OpenExeConfiguration(string exePath);
+    [MonoLimitationAttribute("ConfigurationUserLevel parameter is not supported.")]
+public static Configuration OpenMappedExeConfiguration(ExeConfigurationFileMap fileMap, ConfigurationUserLevel userLevel);
+    public static Configuration OpenMachineConfiguration();
+    public static Configuration OpenMappedMachineConfiguration(ConfigurationFileMap fileMap);
+    internal static IInternalConfigConfigurationFactory get_ConfigurationFactory();
+    internal static IInternalConfigSystem get_ConfigurationSystem();
+    public static object GetSection(string sectionName);
+    public static void RefreshSection(string sectionName);
+    public static NameValueCollection get_AppSettings();
+    public static ConnectionStringSettingsCollection get_ConnectionStrings();
+    internal static IInternalConfigSystem ChangeConfigurationSystem(IInternalConfigSystem newSystem);
+    public static Configuration OpenMappedExeConfiguration(ExeConfigurationFileMap fileMap, ConfigurationUserLevel userLevel, bool preLoad);
+}
+public class System.Configuration.ConfigurationPermission : CodeAccessPermission {
+    private bool unrestricted;
+    public ConfigurationPermission(PermissionState state);
+    public virtual IPermission Copy();
+    public virtual void FromXml(SecurityElement securityElement);
+    public virtual IPermission Intersect(IPermission target);
+    public virtual IPermission Union(IPermission target);
+    public virtual bool IsSubsetOf(IPermission target);
+    public sealed virtual bool IsUnrestricted();
+    public virtual SecurityElement ToXml();
+}
+[AttributeUsageAttribute("32767")]
+public class System.Configuration.ConfigurationPermissionAttribute : CodeAccessSecurityAttribute {
+    public ConfigurationPermissionAttribute(SecurityAction action);
+    public virtual IPermission CreatePermission();
+}
+public class System.Configuration.ConfigurationProperty : object {
+    internal static object NoDefaultValue;
+    private string name;
+    private Type type;
+    private object default_value;
+    private TypeConverter converter;
+    private ConfigurationValidatorBase validation;
+    private ConfigurationPropertyOptions flags;
+    private string description;
+    private ConfigurationCollectionAttribute collectionAttribute;
+    public TypeConverter Converter { get; }
+    public object DefaultValue { get; }
+    public bool IsKey { get; }
+    public bool IsRequired { get; }
+    public bool IsDefaultCollection { get; }
+    public string Name { get; }
+    public string Description { get; }
+    public Type Type { get; }
+    public ConfigurationValidatorBase Validator { get; }
+    internal bool IsElement { get; }
+    internal ConfigurationCollectionAttribute CollectionAttribute { get; internal set; }
+    public bool IsAssemblyStringTransformationRequired { get; }
+    public bool IsTypeStringTransformationRequired { get; }
+    public bool IsVersionCheckRequired { get; }
+    public ConfigurationProperty(string name, Type type);
+    public ConfigurationProperty(string name, Type type, object defaultValue);
+    public ConfigurationProperty(string name, Type type, object defaultValue, ConfigurationPropertyOptions options);
+    public ConfigurationProperty(string name, Type type, object defaultValue, TypeConverter typeConverter, ConfigurationValidatorBase validator, ConfigurationPropertyOptions options);
+    public ConfigurationProperty(string name, Type type, object defaultValue, TypeConverter typeConverter, ConfigurationValidatorBase validator, ConfigurationPropertyOptions options, string description);
+    private static ConfigurationProperty();
+    public TypeConverter get_Converter();
+    public object get_DefaultValue();
+    public bool get_IsKey();
+    public bool get_IsRequired();
+    public bool get_IsDefaultCollection();
+    public string get_Name();
+    public string get_Description();
+    public Type get_Type();
+    public ConfigurationValidatorBase get_Validator();
+    internal object ConvertFromString(string value);
+    internal string ConvertToString(object value);
+    internal bool get_IsElement();
+    internal ConfigurationCollectionAttribute get_CollectionAttribute();
+    internal void set_CollectionAttribute(ConfigurationCollectionAttribute value);
+    internal void Validate(object value);
+    public bool get_IsAssemblyStringTransformationRequired();
+    public bool get_IsTypeStringTransformationRequired();
+    public bool get_IsVersionCheckRequired();
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.ConfigurationPropertyAttribute : Attribute {
+    private string name;
+    private object default_value;
+    private ConfigurationPropertyOptions flags;
+    public bool IsKey { get; public set; }
+    public bool IsDefaultCollection { get; public set; }
+    public object DefaultValue { get; public set; }
+    public ConfigurationPropertyOptions Options { get; public set; }
+    public string Name { get; }
+    public bool IsRequired { get; public set; }
+    public ConfigurationPropertyAttribute(string name);
+    public bool get_IsKey();
+    public void set_IsKey(bool value);
+    public bool get_IsDefaultCollection();
+    public void set_IsDefaultCollection(bool value);
+    public object get_DefaultValue();
+    public void set_DefaultValue(object value);
+    public ConfigurationPropertyOptions get_Options();
+    public void set_Options(ConfigurationPropertyOptions value);
+    public string get_Name();
+    public bool get_IsRequired();
+    public void set_IsRequired(bool value);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.ConfigurationPropertyCollection : object {
+    private List`1<ConfigurationProperty> collection;
+    public int Count { get; }
+    public ConfigurationProperty Item { get; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    public sealed virtual int get_Count();
+    public ConfigurationProperty get_Item(string name);
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+    public void Add(ConfigurationProperty property);
+    public bool Contains(string name);
+    public void CopyTo(ConfigurationProperty[] array, int index);
+    private sealed virtual override void System.Collections.ICollection.CopyTo(Array array, int index);
+    public sealed virtual IEnumerator GetEnumerator();
+    public bool Remove(string name);
+    public void Clear();
+}
+[FlagsAttribute]
+public enum System.Configuration.ConfigurationPropertyOptions : Enum {
+    public int value__;
+    public static ConfigurationPropertyOptions None;
+    public static ConfigurationPropertyOptions IsDefaultCollection;
+    public static ConfigurationPropertyOptions IsRequired;
+    public static ConfigurationPropertyOptions IsKey;
+    public static ConfigurationPropertyOptions IsTypeStringTransformationRequired;
+    public static ConfigurationPropertyOptions IsAssemblyStringTransformationRequired;
+    public static ConfigurationPropertyOptions IsVersionCheckRequired;
+}
+internal class System.Configuration.ConfigurationSaveEventArgs : EventArgs {
+    [CompilerGeneratedAttribute]
+private string <StreamPath>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <Start>k__BackingField;
+    [CompilerGeneratedAttribute]
+private object <Context>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <Failed>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Exception <Exception>k__BackingField;
+    public string StreamPath { get; private set; }
+    public bool Start { get; private set; }
+    public object Context { get; private set; }
+    public bool Failed { get; private set; }
+    public Exception Exception { get; private set; }
+    public ConfigurationSaveEventArgs(string streamPath, bool start, Exception ex, object context);
+    [CompilerGeneratedAttribute]
+public string get_StreamPath();
+    [CompilerGeneratedAttribute]
+private void set_StreamPath(string value);
+    [CompilerGeneratedAttribute]
+public bool get_Start();
+    [CompilerGeneratedAttribute]
+private void set_Start(bool value);
+    [CompilerGeneratedAttribute]
+public object get_Context();
+    [CompilerGeneratedAttribute]
+private void set_Context(object value);
+    [CompilerGeneratedAttribute]
+public bool get_Failed();
+    [CompilerGeneratedAttribute]
+private void set_Failed(bool value);
+    [CompilerGeneratedAttribute]
+public Exception get_Exception();
+    [CompilerGeneratedAttribute]
+private void set_Exception(Exception value);
+}
+internal class System.Configuration.ConfigurationSaveEventHandler : MulticastDelegate {
+    public ConfigurationSaveEventHandler(object object, IntPtr method);
+    public virtual void Invoke(Configuration sender, ConfigurationSaveEventArgs args);
+    public virtual IAsyncResult BeginInvoke(Configuration sender, ConfigurationSaveEventArgs args, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public enum System.Configuration.ConfigurationSaveMode : Enum {
+    public int value__;
+    public static ConfigurationSaveMode Minimal;
+    public static ConfigurationSaveMode Full;
+    public static ConfigurationSaveMode Modified;
+}
+public abstract class System.Configuration.ConfigurationSection : ConfigurationElement {
+    private SectionInformation sectionInformation;
+    private IConfigurationSectionHandler section_handler;
+    private string externalDataXml;
+    private object _configContext;
+    internal string ExternalDataXml { get; }
+    internal IConfigurationSectionHandler SectionHandler { get; internal set; }
+    [MonoTODOAttribute]
+public SectionInformation SectionInformation { get; }
+    internal object ConfigContext { get; internal set; }
+    internal string get_ExternalDataXml();
+    internal IConfigurationSectionHandler get_SectionHandler();
+    internal void set_SectionHandler(IConfigurationSectionHandler value);
+    public SectionInformation get_SectionInformation();
+    internal object get_ConfigContext();
+    internal void set_ConfigContext(object value);
+    [MonoTODOAttribute("Provide ConfigContext. Likely the culprit of bug #322493")]
+protected internal virtual object GetRuntimeObject();
+    [MonoTODOAttribute]
+protected internal virtual bool IsModified();
+    [MonoTODOAttribute]
+protected internal virtual void ResetModified();
+    private ConfigurationElement CreateElement(Type t);
+    private void DoDeserializeSection(XmlReader reader);
+    [MonoInternalNoteAttribute("find the proper location for the decryption stuff")]
+protected internal virtual void DeserializeSection(XmlReader reader);
+    internal void DeserializeConfigSource(string basePath);
+    protected internal virtual string SerializeSection(ConfigurationElement parentElement, string name, ConfigurationSaveMode saveMode);
+    protected internal virtual bool ShouldSerializeElementInTargetVersion(ConfigurationElement element, string elementName, FrameworkName targetFramework);
+    protected internal virtual bool ShouldSerializePropertyInTargetVersion(ConfigurationProperty property, string propertyName, FrameworkName targetFramework, ConfigurationElement parentConfigurationElement);
+    protected internal virtual bool ShouldSerializeSectionInTargetVersion(FrameworkName targetFramework);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.ConfigurationSectionCollection : NameObjectCollectionBase {
+    private SectionGroupInfo group;
+    private Configuration config;
+    private static object lockObject;
+    public KeysCollection Keys { get; }
+    public int Count { get; }
+    public ConfigurationSection Item { get; }
+    public ConfigurationSection Item { get; }
+    internal ConfigurationSectionCollection(Configuration config, SectionGroupInfo group);
+    private static ConfigurationSectionCollection();
+    public virtual KeysCollection get_Keys();
+    public virtual int get_Count();
+    public ConfigurationSection get_Item(string name);
+    public ConfigurationSection get_Item(int index);
+    public void Add(string name, ConfigurationSection section);
+    public void Clear();
+    public void CopyTo(ConfigurationSection[] array, int index);
+    public ConfigurationSection Get(int index);
+    public ConfigurationSection Get(string name);
+    [IteratorStateMachineAttribute("System.Configuration.ConfigurationSectionCollection/<GetEnumerator>d__17")]
+public virtual IEnumerator GetEnumerator();
+    public string GetKey(int index);
+    public void Remove(string name);
+    public void RemoveAt(int index);
+    [MonoTODOAttribute]
+public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+}
+public class System.Configuration.ConfigurationSectionGroup : object {
+    private bool require_declaration;
+    private string name;
+    private string type_name;
+    private ConfigurationSectionCollection sections;
+    private ConfigurationSectionGroupCollection groups;
+    private Configuration config;
+    private SectionGroupInfo group;
+    private bool initialized;
+    private Configuration Config { get; }
+    [MonoTODOAttribute]
+public bool IsDeclared { get; }
+    [MonoTODOAttribute]
+public bool IsDeclarationRequired { get; }
+    public string Name { get; }
+    [MonoInternalNoteAttribute("Check if this is correct")]
+public string SectionGroupName { get; }
+    public ConfigurationSectionGroupCollection SectionGroups { get; }
+    public ConfigurationSectionCollection Sections { get; }
+    public string Type { get; public set; }
+    private Configuration get_Config();
+    internal void Initialize(Configuration config, SectionGroupInfo group);
+    internal void SetName(string name);
+    [MonoTODOAttribute]
+public void ForceDeclaration(bool force);
+    public void ForceDeclaration();
+    public bool get_IsDeclared();
+    public bool get_IsDeclarationRequired();
+    public string get_Name();
+    public string get_SectionGroupName();
+    public ConfigurationSectionGroupCollection get_SectionGroups();
+    public ConfigurationSectionCollection get_Sections();
+    public string get_Type();
+    public void set_Type(string value);
+    protected internal virtual bool ShouldSerializeSectionGroupInTargetVersion(FrameworkName targetFramework);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.ConfigurationSectionGroupCollection : NameObjectCollectionBase {
+    private SectionGroupInfo group;
+    private Configuration config;
+    public KeysCollection Keys { get; }
+    public int Count { get; }
+    public ConfigurationSectionGroup Item { get; }
+    public ConfigurationSectionGroup Item { get; }
+    internal ConfigurationSectionGroupCollection(Configuration config, SectionGroupInfo group);
+    public virtual KeysCollection get_Keys();
+    public virtual int get_Count();
+    public ConfigurationSectionGroup get_Item(string name);
+    public ConfigurationSectionGroup get_Item(int index);
+    public void Add(string name, ConfigurationSectionGroup sectionGroup);
+    public void Clear();
+    public void CopyTo(ConfigurationSectionGroup[] array, int index);
+    public ConfigurationSectionGroup Get(int index);
+    public ConfigurationSectionGroup Get(string name);
+    public virtual IEnumerator GetEnumerator();
+    public string GetKey(int index);
+    public void Remove(string name);
+    public void RemoveAt(int index);
+    [MonoTODOAttribute]
+public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+}
+public enum System.Configuration.ConfigurationUserLevel : Enum {
+    public int value__;
+    public static ConfigurationUserLevel None;
+    public static ConfigurationUserLevel PerUserRoaming;
+    public static ConfigurationUserLevel PerUserRoamingAndLocal;
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.ConfigurationValidatorAttribute : Attribute {
+    private Type validatorType;
+    private ConfigurationValidatorBase instance;
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public Type ValidatorType { get; }
+    public ConfigurationValidatorAttribute(Type validator);
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+    public Type get_ValidatorType();
+}
+public abstract class System.Configuration.ConfigurationValidatorBase : object {
+    public virtual bool CanValidate(Type type);
+    public abstract virtual void Validate(object value);
+}
+internal class System.Configuration.ConfigurationXmlDocument : XmlDocument {
+    public virtual XmlElement CreateElement(string prefix, string localName, string namespaceURI);
+}
+public class System.Configuration.ConnectionStringSettings : ConfigurationElement {
+    private static ConfigurationPropertyCollection _properties;
+    private static ConfigurationProperty _propConnectionString;
+    private static ConfigurationProperty _propName;
+    private static ConfigurationProperty _propProviderName;
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    [ConfigurationPropertyAttribute("name")]
+public string Name { get; public set; }
+    [ConfigurationPropertyAttribute("providerName")]
+public string ProviderName { get; public set; }
+    [ConfigurationPropertyAttribute("connectionString")]
+public string ConnectionString { get; public set; }
+    private static ConnectionStringSettings();
+    public ConnectionStringSettings(string name, string connectionString);
+    public ConnectionStringSettings(string name, string connectionString, string providerName);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    public string get_Name();
+    public void set_Name(string value);
+    public string get_ProviderName();
+    public void set_ProviderName(string value);
+    public string get_ConnectionString();
+    public void set_ConnectionString(string value);
+    public virtual string ToString();
+}
+[ConfigurationCollectionAttribute("System.Configuration.ConnectionStringSettings")]
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.ConnectionStringSettingsCollection : ConfigurationElementCollection {
+    public ConnectionStringSettings Item { get; }
+    public ConnectionStringSettings Item { get; public set; }
+    [MonoTODOAttribute]
+protected internal ConfigurationPropertyCollection Properties { get; }
+    public ConnectionStringSettings get_Item(string name);
+    public ConnectionStringSettings get_Item(int index);
+    public void set_Item(int index, ConnectionStringSettings value);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    protected virtual ConfigurationElement CreateNewElement();
+    protected virtual object GetElementKey(ConfigurationElement element);
+    public void Add(ConnectionStringSettings settings);
+    public void Clear();
+    public int IndexOf(ConnectionStringSettings settings);
+    public void Remove(ConnectionStringSettings settings);
+    public void Remove(string name);
+    public void RemoveAt(int index);
+    protected virtual void BaseAdd(int index, ConfigurationElement element);
+}
+public class System.Configuration.ConnectionStringsSection : ConfigurationSection {
+    private static ConfigurationProperty _propConnectionStrings;
+    private static ConfigurationPropertyCollection _properties;
+    [ConfigurationPropertyAttribute("")]
+public ConnectionStringSettingsCollection ConnectionStrings { get; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static ConnectionStringsSection();
+    public ConnectionStringSettingsCollection get_ConnectionStrings();
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    protected internal virtual object GetRuntimeObject();
+}
+public class System.Configuration.ContextInformation : object {
+    private object ctx;
+    private Configuration config;
+    public object HostingContext { get; }
+    [MonoInternalNoteAttribute("should this use HostingContext instead?")]
+public bool IsMachineLevel { get; }
+    internal ContextInformation(Configuration config, object ctx);
+    public object GetSection(string sectionName);
+    public object get_HostingContext();
+    public bool get_IsMachineLevel();
+}
+public class System.Configuration.DefaultSection : ConfigurationSection {
+    private static ConfigurationPropertyCollection properties;
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static DefaultSection();
+    protected internal virtual void DeserializeSection(XmlReader xmlReader);
+    [MonoTODOAttribute]
+protected internal virtual bool IsModified();
+    [MonoTODOAttribute]
+protected internal virtual void Reset(ConfigurationElement parentSection);
+    [MonoTODOAttribute]
+protected internal virtual void ResetModified();
+    [MonoTODOAttribute]
+protected internal virtual string SerializeSection(ConfigurationElement parentSection, string name, ConfigurationSaveMode saveMode);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+}
+public class System.Configuration.DefaultValidator : ConfigurationValidatorBase {
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+public class System.Configuration.DpapiProtectedConfigurationProvider : ProtectedConfigurationProvider {
+    private bool useMachineProtection;
+    private static string NotSupportedReason;
+    public bool UseMachineProtection { get; }
+    [MonoNotSupportedAttribute("DpapiProtectedConfigurationProvider depends on the Microsoft Data
+Protection API, and is unimplemented in Mono.  For portability's sake,
+it is suggested that you use the RsaProtectedConfigurationProvider.")]
+public virtual XmlNode Decrypt(XmlNode encryptedNode);
+    [MonoNotSupportedAttribute("DpapiProtectedConfigurationProvider depends on the Microsoft Data
+Protection API, and is unimplemented in Mono.  For portability's sake,
+it is suggested that you use the RsaProtectedConfigurationProvider.")]
+public virtual XmlNode Encrypt(XmlNode node);
+    [MonoTODOAttribute]
+public virtual void Initialize(string name, NameValueCollection configurationValues);
+    public bool get_UseMachineProtection();
+}
+public class System.Configuration.ElementInformation : object {
+    private PropertyInformation propertyInfo;
+    private ConfigurationElement owner;
+    private PropertyInformationCollection properties;
+    [MonoTODOAttribute]
+public ICollection Errors { get; }
+    public bool IsCollection { get; }
+    public bool IsLocked { get; }
+    [MonoTODOAttribute("Support multiple levels of inheritance")]
+public bool IsPresent { get; }
+    public int LineNumber { get; }
+    public string Source { get; }
+    public Type Type { get; }
+    public ConfigurationValidatorBase Validator { get; }
+    public PropertyInformationCollection Properties { get; }
+    internal ElementInformation(ConfigurationElement owner, PropertyInformation propertyInfo);
+    public ICollection get_Errors();
+    public bool get_IsCollection();
+    public bool get_IsLocked();
+    public bool get_IsPresent();
+    public int get_LineNumber();
+    public string get_Source();
+    public Type get_Type();
+    public ConfigurationValidatorBase get_Validator();
+    public PropertyInformationCollection get_Properties();
+    internal void Reset(ElementInformation parentInfo);
+}
+internal class System.Configuration.ElementMap : object {
+    private static Hashtable elementMaps;
+    private ConfigurationPropertyCollection properties;
+    private ConfigurationCollectionAttribute collectionAttribute;
+    public ConfigurationCollectionAttribute CollectionAttribute { get; }
+    public bool HasProperties { get; }
+    public ConfigurationPropertyCollection Properties { get; }
+    public ElementMap(Type t);
+    private static ElementMap();
+    public static ElementMap GetMap(Type t);
+    public ConfigurationCollectionAttribute get_CollectionAttribute();
+    public bool get_HasProperties();
+    public ConfigurationPropertyCollection get_Properties();
+}
+public class System.Configuration.ExeConfigurationFileMap : ConfigurationFileMap {
+    private string exeConfigFilename;
+    private string localUserConfigFilename;
+    private string roamingUserConfigFilename;
+    public string ExeConfigFilename { get; public set; }
+    public string LocalUserConfigFilename { get; public set; }
+    public string RoamingUserConfigFilename { get; public set; }
+    public ExeConfigurationFileMap(string machineConfigFileName);
+    public string get_ExeConfigFilename();
+    public void set_ExeConfigFilename(string value);
+    public string get_LocalUserConfigFilename();
+    public void set_LocalUserConfigFilename(string value);
+    public string get_RoamingUserConfigFilename();
+    public void set_RoamingUserConfigFilename(string value);
+    public virtual object Clone();
+}
+internal class System.Configuration.ExeConfigurationHost : InternalConfigurationHost {
+    private ExeConfigurationFileMap map;
+    private ConfigurationUserLevel level;
+    public virtual void Init(IInternalConfigRoot root, Object[] hostInitParams);
+    private static void CheckFileMap(ConfigurationUserLevel level, ExeConfigurationFileMap map);
+    public virtual string GetStreamName(string configPath);
+    public virtual void InitForConfiguration(String& locationSubPath, String& configPath, String& locationConfigPath, IInternalConfigRoot root, Object[] hostInitConfigurationParams);
+}
+public class System.Configuration.ExeContext : object {
+    private string path;
+    private ConfigurationUserLevel level;
+    public string ExePath { get; }
+    public ConfigurationUserLevel UserLevel { get; }
+    internal ExeContext(string path, ConfigurationUserLevel level);
+    public string get_ExePath();
+    public ConfigurationUserLevel get_UserLevel();
+}
+public class System.Configuration.GenericEnumConverter : ConfigurationConverterBase {
+    private Type typeEnum;
+    public GenericEnumConverter(Type typeEnum);
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+internal interface System.Configuration.IConfigXmlNode {
+    public string Filename { get; }
+    public int LineNumber { get; }
+    public abstract virtual string get_Filename();
+    public abstract virtual int get_LineNumber();
+}
+public class System.Configuration.IgnoreSection : ConfigurationSection {
+    private string xml;
+    private static ConfigurationPropertyCollection properties;
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static IgnoreSection();
+    protected internal virtual bool IsModified();
+    protected internal virtual void DeserializeSection(XmlReader xmlReader);
+    [MonoTODOAttribute]
+protected internal virtual void Reset(ConfigurationElement parentSection);
+    [MonoTODOAttribute]
+protected internal virtual void ResetModified();
+    protected internal virtual string SerializeSection(ConfigurationElement parentSection, string name, ConfigurationSaveMode saveMode);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+}
+public class System.Configuration.InfiniteIntConverter : ConfigurationConverterBase {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+public class System.Configuration.InfiniteTimeSpanConverter : ConfigurationConverterBase {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+public class System.Configuration.IntegerValidator : ConfigurationValidatorBase {
+    private bool rangeIsExclusive;
+    private int minValue;
+    private int maxValue;
+    private int resolution;
+    public IntegerValidator(int minValue, int maxValue, bool rangeIsExclusive, int resolution);
+    public IntegerValidator(int minValue, int maxValue, bool rangeIsExclusive);
+    public IntegerValidator(int minValue, int maxValue);
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.IntegerValidatorAttribute : ConfigurationValidatorAttribute {
+    private bool excludeRange;
+    private int maxValue;
+    private int minValue;
+    private ConfigurationValidatorBase instance;
+    public bool ExcludeRange { get; public set; }
+    public int MaxValue { get; public set; }
+    public int MinValue { get; public set; }
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public bool get_ExcludeRange();
+    public void set_ExcludeRange(bool value);
+    public int get_MaxValue();
+    public void set_MaxValue(int value);
+    public int get_MinValue();
+    public void set_MinValue(int value);
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+}
+public class System.Configuration.Internal.DelegatingConfigHost : object {
+    private IInternalConfigHost host;
+    protected IInternalConfigHost Host { get; protected set; }
+    public bool IsRemote { get; }
+    public bool SupportsChangeNotifications { get; }
+    public bool SupportsLocation { get; }
+    public bool SupportsPath { get; }
+    public bool SupportsRefresh { get; }
+    protected IInternalConfigurationBuilderHost ConfigBuilderHost { get; }
+    protected IInternalConfigHost get_Host();
+    protected void set_Host(IInternalConfigHost value);
+    public virtual object CreateConfigurationContext(string configPath, string locationSubPath);
+    public virtual object CreateDeprecatedConfigContext(string configPath);
+    public virtual string DecryptSection(string encryptedXml, ProtectedConfigurationProvider protectionProvider, ProtectedConfigurationSection protectedConfigSection);
+    public virtual void DeleteStream(string streamName);
+    public virtual string EncryptSection(string clearTextXml, ProtectedConfigurationProvider protectionProvider, ProtectedConfigurationSection protectedConfigSection);
+    public virtual string GetConfigPathFromLocationSubPath(string configPath, string locationSubPath);
+    public virtual Type GetConfigType(string typeName, bool throwOnError);
+    public virtual string GetConfigTypeName(Type t);
+    public virtual void GetRestrictedPermissions(IInternalConfigRecord configRecord, PermissionSet& permissionSet, Boolean& isHostReady);
+    public virtual string GetStreamName(string configPath);
+    public virtual string GetStreamNameForConfigSource(string streamName, string configSource);
+    public virtual object GetStreamVersion(string streamName);
+    public virtual IDisposable Impersonate();
+    public virtual void Init(IInternalConfigRoot configRoot, Object[] hostInitParams);
+    public virtual void InitForConfiguration(String& locationSubPath, String& configPath, String& locationConfigPath, IInternalConfigRoot configRoot, Object[] hostInitConfigurationParams);
+    public virtual bool IsAboveApplication(string configPath);
+    public virtual bool IsConfigRecordRequired(string configPath);
+    public virtual bool IsDefinitionAllowed(string configPath, ConfigurationAllowDefinition allowDefinition, ConfigurationAllowExeDefinition allowExeDefinition);
+    public virtual bool IsInitDelayed(IInternalConfigRecord configRecord);
+    public virtual bool IsFile(string streamName);
+    public virtual bool IsFullTrustSectionWithoutAptcaAllowed(IInternalConfigRecord configRecord);
+    public virtual bool IsLocationApplicable(string configPath);
+    public virtual bool get_IsRemote();
+    public virtual bool IsSecondaryRoot(string configPath);
+    public virtual bool IsTrustedConfigPath(string configPath);
+    public virtual Stream OpenStreamForRead(string streamName);
+    public virtual Stream OpenStreamForRead(string streamName, bool assertPermissions);
+    public virtual Stream OpenStreamForWrite(string streamName, string templateStreamName, Object& writeContext);
+    public virtual Stream OpenStreamForWrite(string streamName, string templateStreamName, Object& writeContext, bool assertPermissions);
+    public virtual bool PrefetchAll(string configPath, string streamName);
+    public virtual bool PrefetchSection(string sectionGroupName, string sectionName);
+    public virtual void RequireCompleteInit(IInternalConfigRecord configRecord);
+    public virtual object StartMonitoringStreamForChanges(string streamName, StreamChangeCallback callback);
+    public virtual void StopMonitoringStreamForChanges(string streamName, StreamChangeCallback callback);
+    public virtual void VerifyDefinitionAllowed(string configPath, ConfigurationAllowDefinition allowDefinition, ConfigurationAllowExeDefinition allowExeDefinition, IConfigErrorInfo errorInfo);
+    public virtual void WriteCompleted(string streamName, bool success, object writeContext);
+    public virtual void WriteCompleted(string streamName, bool success, object writeContext, bool assertPermissions);
+    public virtual bool get_SupportsChangeNotifications();
+    public virtual bool get_SupportsLocation();
+    public virtual bool get_SupportsPath();
+    public virtual bool get_SupportsRefresh();
+    protected IInternalConfigurationBuilderHost get_ConfigBuilderHost();
+    public virtual ConfigurationSection ProcessConfigurationSection(ConfigurationSection configSection, ConfigurationBuilder builder);
+    public virtual XmlNode ProcessRawXml(XmlNode rawXml, ConfigurationBuilder builder);
+}
+public interface System.Configuration.Internal.IConfigErrorInfo {
+    public string Filename { get; }
+    public int LineNumber { get; }
+    public abstract virtual string get_Filename();
+    public abstract virtual int get_LineNumber();
+}
+public interface System.Configuration.Internal.IConfigSystem {
+    public IInternalConfigHost Host { get; }
+    public IInternalConfigRoot Root { get; }
+    public abstract virtual IInternalConfigHost get_Host();
+    public abstract virtual IInternalConfigRoot get_Root();
+    public abstract virtual void Init(Type typeConfigHost, Object[] hostInitParams);
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IConfigurationManagerHelper {
+    public abstract virtual void EnsureNetConfigLoaded();
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IConfigurationManagerInternal {
+    public string ApplicationConfigUri { get; }
+    public string ExeLocalConfigDirectory { get; }
+    public string ExeLocalConfigPath { get; }
+    public string ExeProductName { get; }
+    public string ExeProductVersion { get; }
+    public string ExeRoamingConfigDirectory { get; }
+    public string ExeRoamingConfigPath { get; }
+    public string MachineConfigPath { get; }
+    public bool SetConfigurationSystemInProgress { get; }
+    public bool SupportsUserConfig { get; }
+    public string UserConfigFilename { get; }
+    public abstract virtual string get_ApplicationConfigUri();
+    public abstract virtual string get_ExeLocalConfigDirectory();
+    public abstract virtual string get_ExeLocalConfigPath();
+    public abstract virtual string get_ExeProductName();
+    public abstract virtual string get_ExeProductVersion();
+    public abstract virtual string get_ExeRoamingConfigDirectory();
+    public abstract virtual string get_ExeRoamingConfigPath();
+    public abstract virtual string get_MachineConfigPath();
+    public abstract virtual bool get_SetConfigurationSystemInProgress();
+    public abstract virtual bool get_SupportsUserConfig();
+    public abstract virtual string get_UserConfigFilename();
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IInternalConfigClientHost {
+    public abstract virtual string GetExeConfigPath();
+    public abstract virtual string GetLocalUserConfigPath();
+    public abstract virtual string GetRoamingUserConfigPath();
+    public abstract virtual bool IsExeConfig(string configPath);
+    public abstract virtual bool IsLocalUserConfig(string configPath);
+    public abstract virtual bool IsRoamingUserConfig(string configPath);
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IInternalConfigConfigurationFactory {
+    public abstract virtual Configuration Create(Type typeConfigHost, Object[] hostInitConfigurationParams);
+    public abstract virtual string NormalizeLocationSubPath(string subPath, IConfigErrorInfo errorInfo);
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IInternalConfigHost {
+    public bool IsRemote { get; }
+    public bool SupportsChangeNotifications { get; }
+    public bool SupportsLocation { get; }
+    public bool SupportsPath { get; }
+    public bool SupportsRefresh { get; }
+    public abstract virtual object CreateConfigurationContext(string configPath, string locationSubPath);
+    public abstract virtual object CreateDeprecatedConfigContext(string configPath);
+    public abstract virtual string DecryptSection(string encryptedXml, ProtectedConfigurationProvider protectionProvider, ProtectedConfigurationSection protectedConfigSection);
+    public abstract virtual void DeleteStream(string streamName);
+    public abstract virtual string EncryptSection(string clearTextXml, ProtectedConfigurationProvider protectionProvider, ProtectedConfigurationSection protectedConfigSection);
+    public abstract virtual string GetConfigPathFromLocationSubPath(string configPath, string locationSubPath);
+    public abstract virtual Type GetConfigType(string typeName, bool throwOnError);
+    public abstract virtual string GetConfigTypeName(Type t);
+    public abstract virtual void GetRestrictedPermissions(IInternalConfigRecord configRecord, PermissionSet& permissionSet, Boolean& isHostReady);
+    public abstract virtual string GetStreamName(string configPath);
+    public abstract virtual string GetStreamNameForConfigSource(string streamName, string configSource);
+    public abstract virtual object GetStreamVersion(string streamName);
+    public abstract virtual IDisposable Impersonate();
+    public abstract virtual void Init(IInternalConfigRoot configRoot, Object[] hostInitParams);
+    public abstract virtual void InitForConfiguration(String& locationSubPath, String& configPath, String& locationConfigPath, IInternalConfigRoot configRoot, Object[] hostInitConfigurationParams);
+    public abstract virtual bool IsAboveApplication(string configPath);
+    public abstract virtual bool IsConfigRecordRequired(string configPath);
+    public abstract virtual bool IsDefinitionAllowed(string configPath, ConfigurationAllowDefinition allowDefinition, ConfigurationAllowExeDefinition allowExeDefinition);
+    public abstract virtual bool IsFile(string streamName);
+    public abstract virtual bool IsFullTrustSectionWithoutAptcaAllowed(IInternalConfigRecord configRecord);
+    public abstract virtual bool IsInitDelayed(IInternalConfigRecord configRecord);
+    public abstract virtual bool IsLocationApplicable(string configPath);
+    public abstract virtual bool get_IsRemote();
+    public abstract virtual bool IsSecondaryRoot(string configPath);
+    public abstract virtual bool IsTrustedConfigPath(string configPath);
+    public abstract virtual Stream OpenStreamForRead(string streamName);
+    public abstract virtual Stream OpenStreamForRead(string streamName, bool assertPermissions);
+    public abstract virtual Stream OpenStreamForWrite(string streamName, string templateStreamName, Object& writeContext);
+    public abstract virtual Stream OpenStreamForWrite(string streamName, string templateStreamName, Object& writeContext, bool assertPermissions);
+    public abstract virtual bool PrefetchAll(string configPath, string streamName);
+    public abstract virtual bool PrefetchSection(string sectionGroupName, string sectionName);
+    public abstract virtual void RequireCompleteInit(IInternalConfigRecord configRecord);
+    public abstract virtual object StartMonitoringStreamForChanges(string streamName, StreamChangeCallback callback);
+    public abstract virtual void StopMonitoringStreamForChanges(string streamName, StreamChangeCallback callback);
+    public abstract virtual void VerifyDefinitionAllowed(string configPath, ConfigurationAllowDefinition allowDefinition, ConfigurationAllowExeDefinition allowExeDefinition, IConfigErrorInfo errorInfo);
+    public abstract virtual void WriteCompleted(string streamName, bool success, object writeContext);
+    public abstract virtual void WriteCompleted(string streamName, bool success, object writeContext, bool assertPermissions);
+    public abstract virtual bool get_SupportsChangeNotifications();
+    public abstract virtual bool get_SupportsLocation();
+    public abstract virtual bool get_SupportsPath();
+    public abstract virtual bool get_SupportsRefresh();
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IInternalConfigRecord {
+    public string ConfigPath { get; }
+    public bool HasInitErrors { get; }
+    public string StreamName { get; }
+    public abstract virtual object GetLkgSection(string configKey);
+    public abstract virtual object GetSection(string configKey);
+    public abstract virtual void RefreshSection(string configKey);
+    public abstract virtual void Remove();
+    public abstract virtual void ThrowIfInitErrors();
+    public abstract virtual string get_ConfigPath();
+    public abstract virtual bool get_HasInitErrors();
+    public abstract virtual string get_StreamName();
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IInternalConfigRoot {
+    public bool IsDesignTime { get; }
+    public abstract virtual IInternalConfigRecord GetConfigRecord(string configPath);
+    public abstract virtual object GetSection(string section, string configPath);
+    public abstract virtual string GetUniqueConfigPath(string configPath);
+    public abstract virtual IInternalConfigRecord GetUniqueConfigRecord(string configPath);
+    public abstract virtual void Init(IInternalConfigHost host, bool isDesignTime);
+    public abstract virtual bool get_IsDesignTime();
+    public abstract virtual void RemoveConfig(string configPath);
+    [CompilerGeneratedAttribute]
+public abstract virtual void add_ConfigChanged(InternalConfigEventHandler value);
+    [CompilerGeneratedAttribute]
+public abstract virtual void remove_ConfigChanged(InternalConfigEventHandler value);
+    [CompilerGeneratedAttribute]
+public abstract virtual void add_ConfigRemoved(InternalConfigEventHandler value);
+    [CompilerGeneratedAttribute]
+public abstract virtual void remove_ConfigRemoved(InternalConfigEventHandler value);
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IInternalConfigSettingsFactory {
+    public abstract virtual void CompleteInit();
+    public abstract virtual void SetConfigurationSystem(IInternalConfigSystem internalConfigSystem, bool initComplete);
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IInternalConfigSystem {
+    public bool SupportsUserConfig { get; }
+    public abstract virtual object GetSection(string configKey);
+    public abstract virtual void RefreshConfig(string sectionName);
+    public abstract virtual bool get_SupportsUserConfig();
+}
+[ComVisibleAttribute("False")]
+public interface System.Configuration.Internal.IInternalConfigurationBuilderHost {
+    public abstract virtual ConfigurationSection ProcessConfigurationSection(ConfigurationSection configSection, ConfigurationBuilder builder);
+    public abstract virtual XmlNode ProcessRawXml(XmlNode rawXml, ConfigurationBuilder builder);
+}
+public class System.Configuration.Internal.InternalConfigEventArgs : EventArgs {
+    private string configPath;
+    public string ConfigPath { get; public set; }
+    public InternalConfigEventArgs(string configPath);
+    public string get_ConfigPath();
+    public void set_ConfigPath(string value);
+}
+public class System.Configuration.Internal.InternalConfigEventHandler : MulticastDelegate {
+    public InternalConfigEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, InternalConfigEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, InternalConfigEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class System.Configuration.Internal.StreamChangeCallback : MulticastDelegate {
+    public StreamChangeCallback(object object, IntPtr method);
+    public virtual void Invoke(string streamName);
+    public virtual IAsyncResult BeginInvoke(string streamName, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+internal class System.Configuration.InternalConfigurationFactory : object {
+    public sealed virtual Configuration Create(Type typeConfigHost, Object[] hostInitConfigurationParams);
+    public sealed virtual string NormalizeLocationSubPath(string subPath, IConfigErrorInfo errorInfo);
+}
+internal abstract class System.Configuration.InternalConfigurationHost : object {
+    public bool IsRemote { get; }
+    public bool SupportsChangeNotifications { get; }
+    public bool SupportsLocation { get; }
+    public bool SupportsPath { get; }
+    public bool SupportsRefresh { get; }
+    public virtual object CreateConfigurationContext(string configPath, string locationSubPath);
+    public virtual object CreateDeprecatedConfigContext(string configPath);
+    public virtual void DeleteStream(string streamName);
+    private sealed virtual override string System.Configuration.Internal.IInternalConfigHost.DecryptSection(string encryptedXml, ProtectedConfigurationProvider protectionProvider, ProtectedConfigurationSection protectedSection);
+    private sealed virtual override string System.Configuration.Internal.IInternalConfigHost.EncryptSection(string clearXml, ProtectedConfigurationProvider protectionProvider, ProtectedConfigurationSection protectedSection);
+    public virtual string GetConfigPathFromLocationSubPath(string configPath, string locationSubPath);
+    public virtual Type GetConfigType(string typeName, bool throwOnError);
+    public virtual string GetConfigTypeName(Type t);
+    public virtual void GetRestrictedPermissions(IInternalConfigRecord configRecord, PermissionSet& permissionSet, Boolean& isHostReady);
+    public abstract virtual string GetStreamName(string configPath);
+    public abstract virtual void Init(IInternalConfigRoot root, Object[] hostInitParams);
+    public abstract virtual void InitForConfiguration(String& locationSubPath, String& configPath, String& locationConfigPath, IInternalConfigRoot root, Object[] hostInitConfigurationParams);
+    [MonoNotSupportedAttribute("mono does not support remote configuration")]
+public virtual string GetStreamNameForConfigSource(string streamName, string configSource);
+    public virtual object GetStreamVersion(string streamName);
+    public virtual IDisposable Impersonate();
+    public virtual bool IsAboveApplication(string configPath);
+    public virtual bool IsConfigRecordRequired(string configPath);
+    public virtual bool IsDefinitionAllowed(string configPath, ConfigurationAllowDefinition allowDefinition, ConfigurationAllowExeDefinition allowExeDefinition);
+    public virtual bool IsFile(string streamName);
+    public virtual bool IsFullTrustSectionWithoutAptcaAllowed(IInternalConfigRecord configRecord);
+    public virtual bool IsInitDelayed(IInternalConfigRecord configRecord);
+    public virtual bool IsLocationApplicable(string configPath);
+    public virtual bool get_IsRemote();
+    public virtual bool IsSecondaryRoot(string configPath);
+    public virtual bool IsTrustedConfigPath(string configPath);
+    private static string get_bundled_machine_config();
+    private static string get_bundled_app_config();
+    public virtual Stream OpenStreamForRead(string streamName);
+    public virtual Stream OpenStreamForRead(string streamName, bool assertPermissions);
+    public virtual Stream OpenStreamForWrite(string streamName, string templateStreamName, Object& writeContext);
+    public virtual Stream OpenStreamForWrite(string streamName, string templateStreamName, Object& writeContext, bool assertPermissions);
+    public virtual bool PrefetchAll(string configPath, string streamName);
+    public virtual bool PrefetchSection(string sectionGroupName, string sectionName);
+    public virtual void RequireCompleteInit(IInternalConfigRecord configRecord);
+    public virtual object StartMonitoringStreamForChanges(string streamName, StreamChangeCallback callback);
+    public virtual void StopMonitoringStreamForChanges(string streamName, StreamChangeCallback callback);
+    public virtual void VerifyDefinitionAllowed(string configPath, ConfigurationAllowDefinition allowDefinition, ConfigurationAllowExeDefinition allowExeDefinition, IConfigErrorInfo errorInfo);
+    public virtual void WriteCompleted(string streamName, bool success, object writeContext);
+    public virtual void WriteCompleted(string streamName, bool success, object writeContext, bool assertPermissions);
+    public virtual bool get_SupportsChangeNotifications();
+    public virtual bool get_SupportsLocation();
+    public virtual bool get_SupportsPath();
+    public virtual bool get_SupportsRefresh();
+}
+internal class System.Configuration.InternalConfigurationRoot : object {
+    private IInternalConfigHost host;
+    private bool isDesignTime;
+    [CompilerGeneratedAttribute]
+private InternalConfigEventHandler ConfigChanged;
+    [CompilerGeneratedAttribute]
+private InternalConfigEventHandler ConfigRemoved;
+    public bool IsDesignTime { get; }
+    [MonoTODOAttribute]
+public sealed virtual IInternalConfigRecord GetConfigRecord(string configPath);
+    public sealed virtual object GetSection(string section, string configPath);
+    [MonoTODOAttribute]
+public sealed virtual string GetUniqueConfigPath(string configPath);
+    [MonoTODOAttribute]
+public sealed virtual IInternalConfigRecord GetUniqueConfigRecord(string configPath);
+    public sealed virtual void Init(IInternalConfigHost host, bool isDesignTime);
+    [MonoTODOAttribute]
+public sealed virtual void RemoveConfig(string configPath);
+    public sealed virtual bool get_IsDesignTime();
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_ConfigChanged(InternalConfigEventHandler value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_ConfigChanged(InternalConfigEventHandler value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_ConfigRemoved(InternalConfigEventHandler value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_ConfigRemoved(InternalConfigEventHandler value);
+}
+internal class System.Configuration.InternalConfigurationSystem : object {
+    private IInternalConfigHost host;
+    private IInternalConfigRoot root;
+    private Object[] hostInitParams;
+    public IInternalConfigHost Host { get; }
+    public IInternalConfigRoot Root { get; }
+    public sealed virtual void Init(Type typeConfigHost, Object[] hostInitParams);
+    public void InitForConfiguration(String& locationConfigPath, String& parentConfigPath, String& parentLocationConfigPath);
+    public sealed virtual IInternalConfigHost get_Host();
+    public sealed virtual IInternalConfigRoot get_Root();
+}
+[ConfigurationCollectionAttribute("System.Configuration.KeyValueConfigurationElement")]
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.KeyValueConfigurationCollection : ConfigurationElementCollection {
+    private ConfigurationPropertyCollection properties;
+    public String[] AllKeys { get; }
+    public KeyValueConfigurationElement Item { get; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    protected bool ThrowOnDuplicate { get; }
+    public void Add(KeyValueConfigurationElement keyValue);
+    public void Add(string key, string value);
+    public void Clear();
+    public void Remove(string key);
+    public String[] get_AllKeys();
+    public KeyValueConfigurationElement get_Item(string key);
+    protected virtual ConfigurationElement CreateNewElement();
+    protected virtual object GetElementKey(ConfigurationElement element);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    protected virtual bool get_ThrowOnDuplicate();
+}
+public class System.Configuration.KeyValueConfigurationElement : ConfigurationElement {
+    private static ConfigurationProperty keyProp;
+    private static ConfigurationProperty valueProp;
+    private static ConfigurationPropertyCollection properties;
+    [ConfigurationPropertyAttribute("key")]
+public string Key { get; }
+    [ConfigurationPropertyAttribute("value")]
+public string Value { get; public set; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static KeyValueConfigurationElement();
+    public KeyValueConfigurationElement(string key, string value);
+    public string get_Key();
+    public string get_Value();
+    public void set_Value(string value);
+    [MonoTODOAttribute]
+protected internal virtual void Init();
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+}
+internal class System.Configuration.KeyValueInternalCollection : NameValueCollection {
+    public void SetReadOnly();
+    public virtual void Add(string name, string val);
+}
+public class System.Configuration.LongValidator : ConfigurationValidatorBase {
+    private bool rangeIsExclusive;
+    private long minValue;
+    private long maxValue;
+    private long resolution;
+    public LongValidator(long minValue, long maxValue, bool rangeIsExclusive, long resolution);
+    public LongValidator(long minValue, long maxValue, bool rangeIsExclusive);
+    public LongValidator(long minValue, long maxValue);
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.LongValidatorAttribute : ConfigurationValidatorAttribute {
+    private bool excludeRange;
+    private long maxValue;
+    private long minValue;
+    private ConfigurationValidatorBase instance;
+    public bool ExcludeRange { get; public set; }
+    public long MaxValue { get; public set; }
+    public long MinValue { get; public set; }
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public bool get_ExcludeRange();
+    public void set_ExcludeRange(bool value);
+    public long get_MaxValue();
+    public void set_MaxValue(long value);
+    public long get_MinValue();
+    public void set_MinValue(long value);
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+}
+internal class System.Configuration.MachineConfigurationHost : InternalConfigurationHost {
+    private ConfigurationFileMap map;
+    public virtual void Init(IInternalConfigRoot root, Object[] hostInitParams);
+    public virtual string GetStreamName(string configPath);
+    public virtual void InitForConfiguration(String& locationSubPath, String& configPath, String& locationConfigPath, IInternalConfigRoot root, Object[] hostInitConfigurationParams);
+    public virtual bool IsDefinitionAllowed(string configPath, ConfigurationAllowDefinition allowDefinition, ConfigurationAllowExeDefinition allowExeDefinition);
+}
+[ConfigurationCollectionAttribute("System.Configuration.NameValueConfigurationElement")]
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.NameValueConfigurationCollection : ConfigurationElementCollection {
+    private static ConfigurationPropertyCollection properties;
+    public String[] AllKeys { get; }
+    public NameValueConfigurationElement Item { get; public set; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static NameValueConfigurationCollection();
+    public String[] get_AllKeys();
+    public NameValueConfigurationElement get_Item(string name);
+    public void set_Item(string name, NameValueConfigurationElement value);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    public void Add(NameValueConfigurationElement nameValue);
+    public void Clear();
+    protected virtual ConfigurationElement CreateNewElement();
+    protected virtual object GetElementKey(ConfigurationElement element);
+    public void Remove(NameValueConfigurationElement nameValue);
+    public void Remove(string name);
+}
+public class System.Configuration.NameValueConfigurationElement : ConfigurationElement {
+    private static ConfigurationPropertyCollection _properties;
+    private static ConfigurationProperty _propName;
+    private static ConfigurationProperty _propValue;
+    [ConfigurationPropertyAttribute("name")]
+public string Name { get; }
+    [ConfigurationPropertyAttribute("value")]
+public string Value { get; public set; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static NameValueConfigurationElement();
+    public NameValueConfigurationElement(string name, string value);
+    public string get_Name();
+    public string get_Value();
+    public void set_Value(string value);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+}
+public enum System.Configuration.OverrideMode : Enum {
+    public int value__;
+    public static OverrideMode Allow;
+    public static OverrideMode Deny;
+    public static OverrideMode Inherit;
+}
+public class System.Configuration.PositiveTimeSpanValidator : ConfigurationValidatorBase {
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.PositiveTimeSpanValidatorAttribute : ConfigurationValidatorAttribute {
+    private ConfigurationValidatorBase instance;
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+}
+public class System.Configuration.PropertyInformation : object {
+    private bool isLocked;
+    private bool isModified;
+    private int lineNumber;
+    private string source;
+    private object val;
+    private PropertyValueOrigin origin;
+    private ConfigurationElement owner;
+    private ConfigurationProperty property;
+    public TypeConverter Converter { get; }
+    public object DefaultValue { get; }
+    public string Description { get; }
+    public bool IsKey { get; }
+    [MonoTODOAttribute]
+public bool IsLocked { get; internal set; }
+    public bool IsModified { get; internal set; }
+    public bool IsRequired { get; }
+    public int LineNumber { get; internal set; }
+    public string Name { get; }
+    public string Source { get; internal set; }
+    public Type Type { get; }
+    public ConfigurationValidatorBase Validator { get; }
+    public object Value { get; public set; }
+    internal bool IsElement { get; }
+    public PropertyValueOrigin ValueOrigin { get; }
+    internal ConfigurationProperty Property { get; }
+    internal PropertyInformation(ConfigurationElement owner, ConfigurationProperty property);
+    public TypeConverter get_Converter();
+    public object get_DefaultValue();
+    public string get_Description();
+    public bool get_IsKey();
+    public bool get_IsLocked();
+    internal void set_IsLocked(bool value);
+    public bool get_IsModified();
+    internal void set_IsModified(bool value);
+    public bool get_IsRequired();
+    public int get_LineNumber();
+    internal void set_LineNumber(int value);
+    public string get_Name();
+    public string get_Source();
+    internal void set_Source(string value);
+    public Type get_Type();
+    public ConfigurationValidatorBase get_Validator();
+    public object get_Value();
+    public void set_Value(object value);
+    internal void Reset(PropertyInformation parentProperty);
+    internal bool get_IsElement();
+    public PropertyValueOrigin get_ValueOrigin();
+    internal string GetStringValue();
+    internal void SetStringValue(string value);
+    internal ConfigurationProperty get_Property();
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.PropertyInformationCollection : NameObjectCollectionBase {
+    public PropertyInformation Item { get; }
+    public void CopyTo(PropertyInformation[] array, int index);
+    public PropertyInformation get_Item(string propertyName);
+    public virtual IEnumerator GetEnumerator();
+    internal void Add(PropertyInformation pi);
+    [MonoTODOAttribute]
+public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+}
+public enum System.Configuration.PropertyValueOrigin : Enum {
+    public int value__;
+    public static PropertyValueOrigin Default;
+    public static PropertyValueOrigin Inherited;
+    public static PropertyValueOrigin SetHere;
+}
+public static class System.Configuration.ProtectedConfiguration : object {
+    public static string DataProtectionProviderName;
+    public static string ProtectedDataSectionName;
+    public static string RsaProviderName;
+    public static string DefaultProvider { get; }
+    public static ProtectedConfigurationProviderCollection Providers { get; }
+    internal static ProtectedConfigurationSection Section { get; }
+    public static string get_DefaultProvider();
+    public static ProtectedConfigurationProviderCollection get_Providers();
+    internal static ProtectedConfigurationSection get_Section();
+    internal static ProtectedConfigurationProvider GetProvider(string name, bool throwOnError);
+}
+public abstract class System.Configuration.ProtectedConfigurationProvider : ProviderBase {
+    public abstract virtual XmlNode Decrypt(XmlNode encryptedNode);
+    public abstract virtual XmlNode Encrypt(XmlNode node);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.ProtectedConfigurationProviderCollection : ProviderCollection {
+    [MonoTODOAttribute]
+public ProtectedConfigurationProvider Item { get; }
+    public ProtectedConfigurationProvider get_Item(string name);
+    [MonoTODOAttribute]
+public virtual void Add(ProviderBase provider);
+}
+public class System.Configuration.ProtectedConfigurationSection : ConfigurationSection {
+    private static ConfigurationProperty defaultProviderProp;
+    private static ConfigurationProperty providersProp;
+    private static ConfigurationPropertyCollection properties;
+    private ProtectedConfigurationProviderCollection providers;
+    [ConfigurationPropertyAttribute("defaultProvider")]
+public string DefaultProvider { get; public set; }
+    [ConfigurationPropertyAttribute("providers")]
+public ProviderSettingsCollection Providers { get; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static ProtectedConfigurationSection();
+    public string get_DefaultProvider();
+    public void set_DefaultProvider(string value);
+    public ProviderSettingsCollection get_Providers();
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    internal string EncryptSection(string clearXml, ProtectedConfigurationProvider protectionProvider);
+    internal string DecryptSection(string encryptedXml, ProtectedConfigurationProvider protectionProvider);
+    internal ProtectedConfigurationProviderCollection GetAllProviders();
+    private ProtectedConfigurationProvider InstantiateProvider(ProviderSettings ps);
+}
+public class System.Configuration.ProtectedProviderSettings : ConfigurationElement {
+    private static ConfigurationProperty providersProp;
+    private static ConfigurationPropertyCollection properties;
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    [ConfigurationPropertyAttribute("")]
+public ProviderSettingsCollection Providers { get; }
+    private static ProtectedProviderSettings();
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    public ProviderSettingsCollection get_Providers();
+}
+public abstract class System.Configuration.Provider.ProviderBase : object {
+    private bool alreadyInitialized;
+    private string _description;
+    private string _name;
+    public string Name { get; }
+    public string Description { get; }
+    public virtual void Initialize(string name, NameValueCollection config);
+    public virtual string get_Name();
+    public virtual string get_Description();
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.Provider.ProviderCollection : object {
+    private Hashtable lookup;
+    private bool readOnly;
+    private ArrayList values;
+    public int Count { get; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    public ProviderBase Item { get; }
+    public virtual void Add(ProviderBase provider);
+    public void Clear();
+    public void CopyTo(ProviderBase[] array, int index);
+    private sealed virtual override void System.Collections.ICollection.CopyTo(Array array, int index);
+    public sealed virtual IEnumerator GetEnumerator();
+    public void Remove(string name);
+    public void SetReadOnly();
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+    public ProviderBase get_Item(string name);
+}
+public class System.Configuration.Provider.ProviderException : Exception {
+    protected ProviderException(SerializationInfo info, StreamingContext context);
+    public ProviderException(string message);
+    public ProviderException(string message, Exception innerException);
+}
+public class System.Configuration.ProviderSettings : ConfigurationElement {
+    private ConfigNameValueCollection parameters;
+    private static ConfigurationProperty nameProp;
+    private static ConfigurationProperty typeProp;
+    private static ConfigurationPropertyCollection properties;
+    [ConfigurationPropertyAttribute("name")]
+public string Name { get; public set; }
+    [ConfigurationPropertyAttribute("type")]
+public string Type { get; public set; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    public NameValueCollection Parameters { get; }
+    private static ProviderSettings();
+    public ProviderSettings(string name, string type);
+    protected virtual bool OnDeserializeUnrecognizedAttribute(string name, string value);
+    protected internal virtual bool IsModified();
+    protected internal virtual void Reset(ConfigurationElement parentElement);
+    [MonoTODOAttribute]
+protected internal virtual void Unmerge(ConfigurationElement sourceElement, ConfigurationElement parentElement, ConfigurationSaveMode saveMode);
+    public string get_Name();
+    public void set_Name(string value);
+    public string get_Type();
+    public void set_Type(string value);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+    public NameValueCollection get_Parameters();
+}
+[ConfigurationCollectionAttribute("System.Configuration.ProviderSettings")]
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.ProviderSettingsCollection : ConfigurationElementCollection {
+    private static ConfigurationPropertyCollection props;
+    public ProviderSettings Item { get; public set; }
+    public ProviderSettings Item { get; }
+    protected internal ConfigurationPropertyCollection Properties { get; }
+    private static ProviderSettingsCollection();
+    public void Add(ProviderSettings provider);
+    public void Clear();
+    protected virtual ConfigurationElement CreateNewElement();
+    protected virtual object GetElementKey(ConfigurationElement element);
+    public void Remove(string name);
+    public ProviderSettings get_Item(int index);
+    public void set_Item(int index, ProviderSettings value);
+    public ProviderSettings get_Item(string key);
+    protected internal virtual ConfigurationPropertyCollection get_Properties();
+}
+public class System.Configuration.RegexStringValidator : ConfigurationValidatorBase {
+    private string regex;
+    public RegexStringValidator(string regex);
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.RegexStringValidatorAttribute : ConfigurationValidatorAttribute {
+    private string regex;
+    private ConfigurationValidatorBase instance;
+    public string Regex { get; }
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public RegexStringValidatorAttribute(string regex);
+    public string get_Regex();
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+}
+public class System.Configuration.RsaProtectedConfigurationProvider : ProtectedConfigurationProvider {
+    private string cspProviderName;
+    private string keyContainerName;
+    private bool useMachineContainer;
+    private bool useOAEP;
+    private RSACryptoServiceProvider rsa;
+    public string CspProviderName { get; }
+    public string KeyContainerName { get; }
+    public RSAParameters RsaPublicKey { get; }
+    public bool UseMachineContainer { get; }
+    public bool UseOAEP { get; }
+    public bool UseFIPS { get; }
+    private RSACryptoServiceProvider GetProvider();
+    [MonoTODOAttribute]
+public virtual XmlNode Decrypt(XmlNode encryptedNode);
+    [MonoTODOAttribute]
+public virtual XmlNode Encrypt(XmlNode node);
+    [MonoTODOAttribute]
+public virtual void Initialize(string name, NameValueCollection configurationValues);
+    [MonoTODOAttribute]
+public void AddKey(int keySize, bool exportable);
+    [MonoTODOAttribute]
+public void DeleteKey();
+    [MonoTODOAttribute]
+public void ExportKey(string xmlFileName, bool includePrivateParameters);
+    [MonoTODOAttribute]
+public void ImportKey(string xmlFileName, bool exportable);
+    public string get_CspProviderName();
+    public string get_KeyContainerName();
+    public RSAParameters get_RsaPublicKey();
+    public bool get_UseMachineContainer();
+    public bool get_UseOAEP();
+    public bool get_UseFIPS();
+}
+internal class System.Configuration.SectionGroupInfo : ConfigInfo {
+    private bool modified;
+    private ConfigInfoCollection sections;
+    private ConfigInfoCollection groups;
+    private static ConfigInfoCollection emptyList;
+    public ConfigInfoCollection Sections { get; }
+    public ConfigInfoCollection Groups { get; }
+    public SectionGroupInfo(string groupName, string typeName);
+    private static SectionGroupInfo();
+    public void AddChild(ConfigInfo data);
+    public void Clear();
+    public bool HasChild(string name);
+    public void RemoveChild(string name);
+    public SectionInfo GetChildSection(string name);
+    public SectionGroupInfo GetChildGroup(string name);
+    public ConfigInfoCollection get_Sections();
+    public ConfigInfoCollection get_Groups();
+    public virtual bool HasDataContent(Configuration config);
+    public virtual bool HasConfigContent(Configuration cfg);
+    public virtual void ReadConfig(Configuration cfg, string streamName, XmlReader reader);
+    public virtual void WriteConfig(Configuration cfg, XmlWriter writer, ConfigurationSaveMode mode);
+    private void ReadRemoveSection(XmlReader reader);
+    public void ReadRootData(XmlReader reader, Configuration config, bool overrideAllowed);
+    public virtual void ReadData(Configuration config, XmlReader reader, bool overrideAllowed);
+    private void ReadContent(XmlReader reader, Configuration config, bool overrideAllowed, bool root);
+    private ConfigInfo GetConfigInfo(XmlReader reader, SectionGroupInfo current);
+    internal virtual void Merge(ConfigInfo newData);
+    public void WriteRootData(XmlWriter writer, Configuration config, ConfigurationSaveMode mode);
+    public virtual void WriteData(Configuration config, XmlWriter writer, ConfigurationSaveMode mode);
+    public void WriteContent(XmlWriter writer, Configuration config, ConfigurationSaveMode mode, bool writeElem);
+    internal virtual bool HasValues(Configuration config, ConfigurationSaveMode mode);
+    internal virtual void ResetModified(Configuration config);
+}
+internal class System.Configuration.SectionInfo : ConfigInfo {
+    private bool allowLocation;
+    private bool requirePermission;
+    private bool restartOnExternalChanges;
+    private ConfigurationAllowDefinition allowDefinition;
+    private ConfigurationAllowExeDefinition allowExeDefinition;
+    public SectionInfo(string sectionName, SectionInformation info);
+    public virtual object CreateInstance();
+    public virtual bool HasDataContent(Configuration config);
+    public virtual bool HasConfigContent(Configuration cfg);
+    public virtual void ReadConfig(Configuration cfg, string streamName, XmlReader reader);
+    public virtual void WriteConfig(Configuration cfg, XmlWriter writer, ConfigurationSaveMode mode);
+    public virtual void ReadData(Configuration config, XmlReader reader, bool overrideAllowed);
+    public virtual void WriteData(Configuration config, XmlWriter writer, ConfigurationSaveMode mode);
+    internal virtual void Merge(ConfigInfo data);
+    internal virtual bool HasValues(Configuration config, ConfigurationSaveMode mode);
+    internal virtual void ResetModified(Configuration config);
+}
+public class System.Configuration.SectionInformation : object {
+    private ConfigurationSection parent;
+    private ConfigurationAllowDefinition allow_definition;
+    private ConfigurationAllowExeDefinition allow_exe_definition;
+    private bool allow_location;
+    private bool allow_override;
+    private bool inherit_on_child_apps;
+    private bool restart_on_external_changes;
+    private bool require_permission;
+    private string config_source;
+    private bool force_update;
+    private string name;
+    private string type_name;
+    private string raw_xml;
+    private ProtectedConfigurationProvider protection_provider;
+    [CompilerGeneratedAttribute]
+private string <ConfigFilePath>k__BackingField;
+    internal string ConfigFilePath { get; internal set; }
+    public ConfigurationAllowDefinition AllowDefinition { get; public set; }
+    public ConfigurationAllowExeDefinition AllowExeDefinition { get; public set; }
+    public bool AllowLocation { get; public set; }
+    public bool AllowOverride { get; public set; }
+    public string ConfigSource { get; public set; }
+    public bool ForceSave { get; public set; }
+    public bool InheritInChildApplications { get; public set; }
+    [MonoTODOAttribute]
+public bool IsDeclarationRequired { get; }
+    [MonoTODOAttribute]
+public bool IsDeclared { get; }
+    [MonoTODOAttribute]
+public bool IsLocked { get; }
+    public bool IsProtected { get; }
+    public string Name { get; }
+    public ProtectedConfigurationProvider ProtectionProvider { get; }
+    [MonoTODOAttribute]
+public bool RequirePermission { get; public set; }
+    [MonoTODOAttribute]
+public bool RestartOnExternalChanges { get; public set; }
+    [MonoTODOAttribute]
+public string SectionName { get; }
+    public string Type { get; public set; }
+    public ConfigurationBuilder ConfigurationBuilder { get; }
+    public OverrideMode OverrideMode { get; public set; }
+    public OverrideMode OverrideModeDefault { get; public set; }
+    public OverrideMode OverrideModeEffective { get; }
+    [CompilerGeneratedAttribute]
+internal string get_ConfigFilePath();
+    [CompilerGeneratedAttribute]
+internal void set_ConfigFilePath(string value);
+    public ConfigurationAllowDefinition get_AllowDefinition();
+    public void set_AllowDefinition(ConfigurationAllowDefinition value);
+    public ConfigurationAllowExeDefinition get_AllowExeDefinition();
+    public void set_AllowExeDefinition(ConfigurationAllowExeDefinition value);
+    public bool get_AllowLocation();
+    public void set_AllowLocation(bool value);
+    public bool get_AllowOverride();
+    public void set_AllowOverride(bool value);
+    public string get_ConfigSource();
+    public void set_ConfigSource(string value);
+    public bool get_ForceSave();
+    public void set_ForceSave(bool value);
+    public bool get_InheritInChildApplications();
+    public void set_InheritInChildApplications(bool value);
+    public bool get_IsDeclarationRequired();
+    public bool get_IsDeclared();
+    public bool get_IsLocked();
+    public bool get_IsProtected();
+    public string get_Name();
+    public ProtectedConfigurationProvider get_ProtectionProvider();
+    public bool get_RequirePermission();
+    public void set_RequirePermission(bool value);
+    public bool get_RestartOnExternalChanges();
+    public void set_RestartOnExternalChanges(bool value);
+    public string get_SectionName();
+    public string get_Type();
+    public void set_Type(string value);
+    public ConfigurationSection GetParentSection();
+    internal void SetParentSection(ConfigurationSection parent);
+    public string GetRawXml();
+    public void ProtectSection(string protectionProvider);
+    [MonoTODOAttribute]
+public void ForceDeclaration(bool force);
+    public void ForceDeclaration();
+    [MonoTODOAttribute]
+public void RevertToParent();
+    public void UnprotectSection();
+    public void SetRawXml(string rawXml);
+    [MonoTODOAttribute]
+internal void SetName(string name);
+    public ConfigurationBuilder get_ConfigurationBuilder();
+    public OverrideMode get_OverrideMode();
+    public void set_OverrideMode(OverrideMode value);
+    public OverrideMode get_OverrideModeDefault();
+    public void set_OverrideModeDefault(OverrideMode value);
+    public OverrideMode get_OverrideModeEffective();
+}
+public class System.Configuration.StringValidator : ConfigurationValidatorBase {
+    private Char[] invalidCharacters;
+    private int maxLength;
+    private int minLength;
+    public StringValidator(int minLength);
+    public StringValidator(int minLength, int maxLength);
+    public StringValidator(int minLength, int maxLength, string invalidCharacters);
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.StringValidatorAttribute : ConfigurationValidatorAttribute {
+    private string invalidCharacters;
+    private int maxLength;
+    private int minLength;
+    private ConfigurationValidatorBase instance;
+    public string InvalidCharacters { get; public set; }
+    public int MaxLength { get; public set; }
+    public int MinLength { get; public set; }
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public string get_InvalidCharacters();
+    public void set_InvalidCharacters(string value);
+    public int get_MaxLength();
+    public void set_MaxLength(int value);
+    public int get_MinLength();
+    public void set_MinLength(int value);
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+}
+public class System.Configuration.SubclassTypeValidator : ConfigurationValidatorBase {
+    private Type baseClass;
+    public SubclassTypeValidator(Type baseClass);
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.SubclassTypeValidatorAttribute : ConfigurationValidatorAttribute {
+    private Type baseClass;
+    private ConfigurationValidatorBase instance;
+    public Type BaseClass { get; }
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public SubclassTypeValidatorAttribute(Type baseClass);
+    public Type get_BaseClass();
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+}
+public class System.Configuration.TimeSpanMinutesConverter : ConfigurationConverterBase {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+public class System.Configuration.TimeSpanMinutesOrInfiniteConverter : TimeSpanMinutesConverter {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+public class System.Configuration.TimeSpanSecondsConverter : ConfigurationConverterBase {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+public class System.Configuration.TimeSpanSecondsOrInfiniteConverter : TimeSpanSecondsConverter {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+public class System.Configuration.TimeSpanValidator : ConfigurationValidatorBase {
+    private bool rangeIsExclusive;
+    private TimeSpan minValue;
+    private TimeSpan maxValue;
+    private long resolutionInSeconds;
+    public TimeSpanValidator(TimeSpan minValue, TimeSpan maxValue);
+    public TimeSpanValidator(TimeSpan minValue, TimeSpan maxValue, bool rangeIsExclusive);
+    public TimeSpanValidator(TimeSpan minValue, TimeSpan maxValue, bool rangeIsExclusive, long resolutionInSeconds);
+    public virtual bool CanValidate(Type type);
+    public virtual void Validate(object value);
+}
+[AttributeUsageAttribute("128")]
+public class System.Configuration.TimeSpanValidatorAttribute : ConfigurationValidatorAttribute {
+    private bool excludeRange;
+    private string maxValueString;
+    private string minValueString;
+    public static string TimeSpanMaxValue;
+    public static string TimeSpanMinValue;
+    private ConfigurationValidatorBase instance;
+    public string MaxValueString { get; public set; }
+    public string MinValueString { get; public set; }
+    public TimeSpan MaxValue { get; }
+    public TimeSpan MinValue { get; }
+    public bool ExcludeRange { get; public set; }
+    public ConfigurationValidatorBase ValidatorInstance { get; }
+    public string get_MaxValueString();
+    public void set_MaxValueString(string value);
+    public string get_MinValueString();
+    public void set_MinValueString(string value);
+    public TimeSpan get_MaxValue();
+    public TimeSpan get_MinValue();
+    public bool get_ExcludeRange();
+    public void set_ExcludeRange(bool value);
+    public virtual ConfigurationValidatorBase get_ValidatorInstance();
+}
+public class System.Configuration.TypeNameConverter : ConfigurationConverterBase {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+public class System.Configuration.ValidatorCallback : MulticastDelegate {
+    public ValidatorCallback(object object, IntPtr method);
+    public virtual void Invoke(object value);
+    public virtual IAsyncResult BeginInvoke(object value, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class System.Configuration.WhiteSpaceTrimStringConverter : ConfigurationConverterBase {
+    public virtual object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data);
+    public virtual object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoDocumentationNoteAttribute : MonoTODOAttribute {
+    public MonoDocumentationNoteAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoExtensionAttribute : MonoTODOAttribute {
+    public MonoExtensionAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoInternalNoteAttribute : MonoTODOAttribute {
+    public MonoInternalNoteAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoLimitationAttribute : MonoTODOAttribute {
+    public MonoLimitationAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoNotSupportedAttribute : MonoTODOAttribute {
+    public MonoNotSupportedAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoTODOAttribute : Attribute {
+    private string comment;
+    public string Comment { get; }
+    public MonoTODOAttribute(string comment);
+    public string get_Comment();
+}
+internal class Unity.ThrowStub : ObjectDisposedException {
+    public static void ThrowNotSupportedException();
+}

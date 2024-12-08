@@ -1,0 +1,418 @@
+[NativeHeaderAttribute("Modules/UnityAnalytics/Public/UnityAnalytics.h")]
+[NativeHeaderAttribute("Modules/UnityConnect/UnityConnectSettings.h")]
+[NativeHeaderAttribute("Modules/UnityAnalytics/Public/Events/UserCustomEvent.h")]
+public static class UnityEngine.Analytics.Analytics : object {
+    public static bool initializeOnStartup { get; public set; }
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static bool initializeOnStartupInternal { get; private set; }
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static bool enabledInternal { get; private set; }
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static bool playerOptedOutInternal { get; }
+    [StaticAccessorAttribute("GetUnityConnectSettings()", "0")]
+private static string eventUrlInternal { get; }
+    [StaticAccessorAttribute("GetUnityConnectSettings()", "0")]
+private static string configUrlInternal { get; }
+    [StaticAccessorAttribute("GetUnityConnectSettings()", "0")]
+private static string dashboardUrlInternal { get; }
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static bool limitUserTrackingInternal { get; private set; }
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static bool deviceStatsEnabledInternal { get; private set; }
+    public static bool playerOptedOut { get; }
+    public static string eventUrl { get; }
+    public static string dashboardUrl { get; }
+    public static string configUrl { get; }
+    public static bool limitUserTracking { get; public set; }
+    public static bool deviceStatsEnabled { get; public set; }
+    public static bool enabled { get; public set; }
+    public static bool get_initializeOnStartup();
+    public static void set_initializeOnStartup(bool value);
+    public static AnalyticsResult ResumeInitialization();
+    [NativeMethodAttribute("ResumeInitialization")]
+[StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static AnalyticsResult ResumeInitializationInternal();
+    [NativeMethodAttribute("GetInitializeOnStartup")]
+private static bool get_initializeOnStartupInternal();
+    [NativeMethodAttribute("SetInitializeOnStartup")]
+private static void set_initializeOnStartupInternal(bool value);
+    [ThreadSafeAttribute]
+internal static bool IsInitialized();
+    [NativeMethodAttribute("GetEnabled")]
+private static bool get_enabledInternal();
+    [NativeMethodAttribute("SetEnabled")]
+private static void set_enabledInternal(bool value);
+    [NativeMethodAttribute("GetPlayerOptedOut")]
+private static bool get_playerOptedOutInternal();
+    [NativeMethodAttribute("GetEventUrl")]
+private static string get_eventUrlInternal();
+    [NativeMethodAttribute("GetConfigUrl")]
+private static string get_configUrlInternal();
+    [NativeMethodAttribute("GetDashboardUrl")]
+private static string get_dashboardUrlInternal();
+    [NativeMethodAttribute("GetLimitUserTracking")]
+private static bool get_limitUserTrackingInternal();
+    [NativeMethodAttribute("SetLimitUserTracking")]
+private static void set_limitUserTrackingInternal(bool value);
+    [NativeMethodAttribute("GetDeviceStatsEnabled")]
+private static bool get_deviceStatsEnabledInternal();
+    [NativeMethodAttribute("SetDeviceStatsEnabled")]
+private static void set_deviceStatsEnabledInternal(bool value);
+    [NativeMethodAttribute("FlushEvents")]
+[StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static bool FlushArchivedEvents();
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static AnalyticsResult Transaction(string productId, double amount, string currency, string receiptPurchaseData, string signature, bool usingIAPService);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static AnalyticsResult SendCustomEventName(string customEventName);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static AnalyticsResult SendCustomEvent(CustomEventData eventData);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+internal static AnalyticsResult IsCustomEventWithLimitEnabled(string customEventName);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+internal static AnalyticsResult EnableCustomEventWithLimit(string customEventName, bool enable);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+internal static AnalyticsResult IsEventWithLimitEnabled(string eventName, int ver, string prefix);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+internal static AnalyticsResult EnableEventWithLimit(string eventName, bool enable, int ver, string prefix);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+internal static AnalyticsResult RegisterEventWithLimit(string eventName, int maxEventPerHour, int maxItems, string vendorKey, int ver, string prefix, string assemblyInfo, bool notifyServer);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+internal static AnalyticsResult RegisterEventsWithLimit(String[] eventName, int maxEventPerHour, int maxItems, string vendorKey, int ver, string prefix, string assemblyInfo, bool notifyServer);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+[ThreadSafeAttribute]
+internal static AnalyticsResult SendEventWithLimit(string eventName, object parameters, int ver, string prefix);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+[ThreadSafeAttribute]
+internal static AnalyticsResult SetEventWithLimitEndPoint(string eventName, string endPoint, int ver, string prefix);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+[ThreadSafeAttribute]
+internal static AnalyticsResult SetEventWithLimitPriority(string eventName, AnalyticsEventPriority eventPriority, int ver, string prefix);
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+[ThreadSafeAttribute]
+internal static bool QueueEvent(string eventName, object parameters, int ver, string prefix);
+    public static bool get_playerOptedOut();
+    public static string get_eventUrl();
+    public static string get_dashboardUrl();
+    public static string get_configUrl();
+    public static bool get_limitUserTracking();
+    public static void set_limitUserTracking(bool value);
+    public static bool get_deviceStatsEnabled();
+    public static void set_deviceStatsEnabled(bool value);
+    public static bool get_enabled();
+    public static void set_enabled(bool value);
+    public static AnalyticsResult FlushEvents();
+    [ObsoleteAttribute("SetUserId is no longer supported", "True")]
+public static AnalyticsResult SetUserId(string userId);
+    [ObsoleteAttribute("SetUserGender is no longer supported", "True")]
+public static AnalyticsResult SetUserGender(Gender gender);
+    [ObsoleteAttribute("SetUserBirthYear is no longer supported", "True")]
+public static AnalyticsResult SetUserBirthYear(int birthYear);
+    [ObsoleteAttribute("SendUserInfoEvent is no longer supported", "True")]
+private static AnalyticsResult SendUserInfoEvent(object param);
+    public static AnalyticsResult Transaction(string productId, decimal amount, string currency);
+    public static AnalyticsResult Transaction(string productId, decimal amount, string currency, string receiptPurchaseData, string signature);
+    public static AnalyticsResult Transaction(string productId, decimal amount, string currency, string receiptPurchaseData, string signature, bool usingIAPService);
+    public static AnalyticsResult CustomEvent(string customEventName);
+    public static AnalyticsResult CustomEvent(string customEventName, Vector3 position);
+    public static AnalyticsResult CustomEvent(string customEventName, IDictionary`2<string, object> eventData);
+    public static AnalyticsResult EnableCustomEvent(string customEventName, bool enabled);
+    public static AnalyticsResult IsCustomEventEnabled(string customEventName);
+    public static AnalyticsResult RegisterEvent(string eventName, int maxEventPerHour, int maxItems, string vendorKey, string prefix);
+    public static AnalyticsResult RegisterEvent(string eventName, int maxEventPerHour, int maxItems, string vendorKey, int ver, string prefix);
+    private static AnalyticsResult RegisterEvent(string eventName, int maxEventPerHour, int maxItems, string vendorKey, int ver, string prefix, string assemblyInfo);
+    public static AnalyticsResult SendEvent(string eventName, object parameters, int ver, string prefix);
+    public static AnalyticsResult SetEventEndPoint(string eventName, string endPoint, int ver, string prefix);
+    public static AnalyticsResult SetEventPriority(string eventName, AnalyticsEventPriority eventPriority, int ver, string prefix);
+    public static AnalyticsResult EnableEvent(string eventName, bool enabled, int ver, string prefix);
+    public static AnalyticsResult IsEventEnabled(string eventName, int ver, string prefix);
+}
+[FlagsAttribute]
+public enum UnityEngine.Analytics.AnalyticsEventPriority : Enum {
+    public int value__;
+    public static AnalyticsEventPriority FlushQueueFlag;
+    public static AnalyticsEventPriority CacheImmediatelyFlag;
+    public static AnalyticsEventPriority AllowInStopModeFlag;
+    public static AnalyticsEventPriority SendImmediateFlag;
+    public static AnalyticsEventPriority NoCachingFlag;
+    public static AnalyticsEventPriority NoRetryFlag;
+    public static AnalyticsEventPriority NormalPriorityEvent;
+    public static AnalyticsEventPriority NormalPriorityEvent_WithCaching;
+    public static AnalyticsEventPriority NormalPriorityEvent_NoRetryNoCaching;
+    public static AnalyticsEventPriority HighPriorityEvent;
+    public static AnalyticsEventPriority HighPriorityEvent_InStopMode;
+    public static AnalyticsEventPriority HighestPriorityEvent;
+    public static AnalyticsEventPriority HighestPriorityEvent_NoRetryNoCaching;
+}
+public enum UnityEngine.Analytics.AnalyticsResult : Enum {
+    public int value__;
+    public static AnalyticsResult Ok;
+    public static AnalyticsResult NotInitialized;
+    public static AnalyticsResult AnalyticsDisabled;
+    public static AnalyticsResult TooManyItems;
+    public static AnalyticsResult SizeLimitReached;
+    public static AnalyticsResult TooManyRequests;
+    public static AnalyticsResult InvalidData;
+    public static AnalyticsResult UnsupportedPlatform;
+}
+[NativeHeaderAttribute("UnityAnalyticsScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/UnityAnalytics/Public/UnityAnalytics.h")]
+[RequiredByNativeCodeAttribute]
+public static class UnityEngine.Analytics.AnalyticsSessionInfo : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static SessionStateChanged sessionStateChanged;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static IdentityTokenChanged identityTokenChanged;
+    public static AnalyticsSessionState sessionState { get; }
+    public static long sessionId { get; }
+    public static long sessionCount { get; }
+    public static long sessionElapsedTime { get; }
+    public static bool sessionFirstRun { get; }
+    public static string userId { get; }
+    public static string customUserId { get; public set; }
+    public static string customDeviceId { get; public set; }
+    public static string identityToken { get; }
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static string identityTokenInternal { get; }
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static string customUserIdInternal { get; private set; }
+    [StaticAccessorAttribute("GetUnityAnalytics()", "0")]
+private static string customDeviceIdInternal { get; private set; }
+    [CompilerGeneratedAttribute]
+public static void add_sessionStateChanged(SessionStateChanged value);
+    [CompilerGeneratedAttribute]
+public static void remove_sessionStateChanged(SessionStateChanged value);
+    [RequiredByNativeCodeAttribute]
+internal static void CallSessionStateChanged(AnalyticsSessionState sessionState, long sessionId, long sessionElapsedTime, bool sessionChanged);
+    [NativeMethodAttribute("GetPlayerSessionState")]
+public static AnalyticsSessionState get_sessionState();
+    [NativeMethodAttribute("GetPlayerSessionId")]
+public static long get_sessionId();
+    [NativeMethodAttribute("GetPlayerSessionCount")]
+public static long get_sessionCount();
+    [NativeMethodAttribute("GetPlayerSessionElapsedTime")]
+public static long get_sessionElapsedTime();
+    [NativeMethodAttribute("GetPlayerSessionFirstRun", "False", "True")]
+public static bool get_sessionFirstRun();
+    [NativeMethodAttribute("GetUserId")]
+public static string get_userId();
+    public static string get_customUserId();
+    public static void set_customUserId(string value);
+    public static string get_customDeviceId();
+    public static void set_customDeviceId(string value);
+    [CompilerGeneratedAttribute]
+public static void add_identityTokenChanged(IdentityTokenChanged value);
+    [CompilerGeneratedAttribute]
+public static void remove_identityTokenChanged(IdentityTokenChanged value);
+    [RequiredByNativeCodeAttribute]
+internal static void CallIdentityTokenChanged(string token);
+    public static string get_identityToken();
+    [NativeMethodAttribute("GetIdentityToken")]
+private static string get_identityTokenInternal();
+    [NativeMethodAttribute("GetCustomUserId")]
+private static string get_customUserIdInternal();
+    [NativeMethodAttribute("SetCustomUserId")]
+private static void set_customUserIdInternal(string value);
+    [NativeMethodAttribute("GetCustomDeviceId")]
+private static string get_customDeviceIdInternal();
+    [NativeMethodAttribute("SetCustomDeviceId")]
+private static void set_customDeviceIdInternal(string value);
+}
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Analytics.AnalyticsSessionState : Enum {
+    public int value__;
+    public static AnalyticsSessionState kSessionStopped;
+    public static AnalyticsSessionState kSessionStarted;
+    public static AnalyticsSessionState kSessionPaused;
+    public static AnalyticsSessionState kSessionResumed;
+}
+[ExcludeFromDocsAttribute]
+[NativeHeaderAttribute("Modules/UnityAnalytics/ContinuousEvent/Manager.h")]
+[NativeHeaderAttribute("Modules/UnityAnalytics/Public/UnityAnalytics.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Analytics.ContinuousEvent : object {
+    public static AnalyticsResult RegisterCollector(string metricName, Func`1<T> del);
+    public static AnalyticsResult SetEventHistogramThresholds(string eventName, int count, T[] data, int ver, string prefix);
+    public static AnalyticsResult SetCustomEventHistogramThresholds(string eventName, int count, T[] data);
+    public static AnalyticsResult ConfigureCustomEvent(string customEventName, string metricName, float interval, float period, bool enabled);
+    public static AnalyticsResult ConfigureEvent(string eventName, string metricName, float interval, float period, bool enabled, int ver, string prefix);
+    [StaticAccessorAttribute("::GetUnityAnalytics().GetContinuousEventManager()", "0")]
+private static AnalyticsResult InternalRegisterCollector(string type, string metricName, object collector);
+    [StaticAccessorAttribute("::GetUnityAnalytics().GetContinuousEventManager()", "0")]
+private static AnalyticsResult InternalSetEventHistogramThresholds(string type, string eventName, int count, object data, int ver, string prefix);
+    [StaticAccessorAttribute("::GetUnityAnalytics().GetContinuousEventManager()", "0")]
+private static AnalyticsResult InternalSetCustomEventHistogramThresholds(string type, string eventName, int count, object data);
+    [StaticAccessorAttribute("::GetUnityAnalytics().GetContinuousEventManager()", "0")]
+private static AnalyticsResult InternalConfigureCustomEvent(string customEventName, string metricName, float interval, float period, bool enabled);
+    [StaticAccessorAttribute("::GetUnityAnalytics().GetContinuousEventManager()", "0")]
+private static AnalyticsResult InternalConfigureEvent(string eventName, string metricName, float interval, float period, bool enabled, int ver, string prefix);
+    internal static bool IsInitialized();
+}
+[NativeHeaderAttribute("Modules/UnityAnalytics/Public/Events/UserCustomEvent.h")]
+internal class UnityEngine.Analytics.CustomEventData : object {
+    internal IntPtr m_Ptr;
+    public CustomEventData(string name);
+    protected virtual override void Finalize();
+    private void Destroy();
+    public sealed virtual void Dispose();
+    internal static IntPtr Internal_Create(CustomEventData ced, string name);
+    [ThreadSafeAttribute]
+internal static void Internal_Destroy(IntPtr ptr);
+    public bool AddString(string key, string value);
+    public bool AddInt32(string key, int value);
+    public bool AddUInt32(string key, UInt32 value);
+    public bool AddInt64(string key, long value);
+    public bool AddUInt64(string key, ulong value);
+    public bool AddBool(string key, bool value);
+    public bool AddDouble(string key, double value);
+    public bool AddDictionary(IDictionary`2<string, object> eventData);
+}
+public enum UnityEngine.Analytics.Gender : Enum {
+    public int value__;
+    public static Gender Male;
+    public static Gender Female;
+    public static Gender Unknown;
+}
+[ExcludeFromDocsAttribute]
+[NativeHeaderAttribute("UnityAnalyticsScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/UnityAnalytics/RemoteSettings/RemoteSettings.h")]
+public class UnityEngine.RemoteConfigSettings : object {
+    internal IntPtr m_Ptr;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Action`1<bool> Updated;
+    public RemoteConfigSettings(string configKey);
+    [CompilerGeneratedAttribute]
+public void add_Updated(Action`1<bool> value);
+    [CompilerGeneratedAttribute]
+public void remove_Updated(Action`1<bool> value);
+    protected virtual override void Finalize();
+    private void Destroy();
+    public sealed virtual void Dispose();
+    internal static IntPtr Internal_Create(RemoteConfigSettings rcs, string configKey);
+    [ThreadSafeAttribute]
+internal static void Internal_Destroy(IntPtr ptr);
+    [RequiredByNativeCodeAttribute]
+internal static void RemoteConfigSettingsUpdated(RemoteConfigSettings rcs, bool wasLastUpdatedFromServer);
+    public static bool QueueConfig(string name, object param, int ver, string prefix);
+    public static bool SendDeviceInfoInConfigRequest();
+    public static void AddSessionTag(string tag);
+    public void ForceUpdate();
+    public bool WasLastUpdatedFromServer();
+    [ExcludeFromDocsAttribute]
+public int GetInt(string key);
+    public int GetInt(string key, int defaultValue);
+    [ExcludeFromDocsAttribute]
+public long GetLong(string key);
+    public long GetLong(string key, long defaultValue);
+    [ExcludeFromDocsAttribute]
+public float GetFloat(string key);
+    public float GetFloat(string key, float defaultValue);
+    [ExcludeFromDocsAttribute]
+public string GetString(string key);
+    public string GetString(string key, string defaultValue);
+    [ExcludeFromDocsAttribute]
+public bool GetBool(string key);
+    public bool GetBool(string key, bool defaultValue);
+    public bool HasKey(string key);
+    public int GetCount();
+    public String[] GetKeys();
+    public T GetObject(string key);
+    public object GetObject(Type type, string key);
+    public object GetObject(string key, object defaultValue);
+    internal object GetAsScriptingObject(Type t, object defaultValue, string key);
+    public IDictionary`2<string, object> GetDictionary(string key);
+    internal void UseSafeLock();
+    internal void ReleaseSafeLock();
+    internal IntPtr GetSafeTopMap();
+}
+internal static class UnityEngine.RemoteConfigSettingsHelper : object {
+    internal static IntPtr GetSafeMap(IntPtr m, string key);
+    internal static String[] GetSafeMapKeys(IntPtr m);
+    internal static Tag[] GetSafeMapTypes(IntPtr m);
+    internal static long GetSafeNumber(IntPtr m, string key, long defaultValue);
+    internal static float GetSafeFloat(IntPtr m, string key, float defaultValue);
+    internal static bool GetSafeBool(IntPtr m, string key, bool defaultValue);
+    internal static string GetSafeStringValue(IntPtr m, string key, string defaultValue);
+    internal static IntPtr GetSafeArray(IntPtr m, string key);
+    internal static long GetSafeArraySize(IntPtr a);
+    internal static IntPtr GetSafeArrayArray(IntPtr a, long i);
+    internal static IntPtr GetSafeArrayMap(IntPtr a, long i);
+    internal static Tag GetSafeArrayType(IntPtr a, long i);
+    internal static long GetSafeNumberArray(IntPtr a, long i);
+    internal static float GetSafeArrayFloat(IntPtr a, long i);
+    internal static bool GetSafeArrayBool(IntPtr a, long i);
+    internal static string GetSafeArrayStringValue(IntPtr a, long i);
+    public static IDictionary`2<string, object> GetDictionary(IntPtr m, string key);
+    internal static IDictionary`2<string, object> GetDictionary(IntPtr m);
+    internal static object GetArrayArrayEntries(IntPtr a, long i);
+    internal static IDictionary`2<string, object> GetArrayMapEntries(IntPtr a, long i);
+    internal static T[] GetArrayEntriesType(IntPtr a, long size, Func`3<IntPtr, long, T> f);
+    internal static object GetArrayEntries(IntPtr a);
+    internal static object GetMixedArrayEntries(IntPtr a);
+    internal static void SetDictKeyType(IntPtr m, IDictionary`2<string, object> dict, string key, Tag tag);
+}
+[NativeHeaderAttribute("UnityAnalyticsScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/UnityAnalytics/RemoteSettings/RemoteSettings.h")]
+public static class UnityEngine.RemoteSettings : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static UpdatedEventHandler Updated;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action BeforeFetchFromServer;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action`3<bool, bool, int> Completed;
+    [CompilerGeneratedAttribute]
+public static void add_Updated(UpdatedEventHandler value);
+    [CompilerGeneratedAttribute]
+public static void remove_Updated(UpdatedEventHandler value);
+    [CompilerGeneratedAttribute]
+public static void add_BeforeFetchFromServer(Action value);
+    [CompilerGeneratedAttribute]
+public static void remove_BeforeFetchFromServer(Action value);
+    [CompilerGeneratedAttribute]
+public static void add_Completed(Action`3<bool, bool, int> value);
+    [CompilerGeneratedAttribute]
+public static void remove_Completed(Action`3<bool, bool, int> value);
+    [RequiredByNativeCodeAttribute]
+internal static void RemoteSettingsUpdated(bool wasLastUpdatedFromServer);
+    [RequiredByNativeCodeAttribute]
+internal static void RemoteSettingsBeforeFetchFromServer();
+    [RequiredByNativeCodeAttribute]
+internal static void RemoteSettingsUpdateCompleted(bool wasLastUpdatedFromServer, bool settingsChanged, int response);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Calling CallOnUpdate() is not necessary any more and should be removed. Use RemoteSettingsUpdated instead", "True")]
+public static void CallOnUpdate();
+    public static void ForceUpdate();
+    public static bool WasLastUpdatedFromServer();
+    [ExcludeFromDocsAttribute]
+public static int GetInt(string key);
+    public static int GetInt(string key, int defaultValue);
+    [ExcludeFromDocsAttribute]
+public static long GetLong(string key);
+    public static long GetLong(string key, long defaultValue);
+    [ExcludeFromDocsAttribute]
+public static float GetFloat(string key);
+    public static float GetFloat(string key, float defaultValue);
+    [ExcludeFromDocsAttribute]
+public static string GetString(string key);
+    public static string GetString(string key, string defaultValue);
+    [ExcludeFromDocsAttribute]
+public static bool GetBool(string key);
+    public static bool GetBool(string key, bool defaultValue);
+    public static bool HasKey(string key);
+    public static int GetCount();
+    public static String[] GetKeys();
+    public static T GetObject(string key);
+    public static object GetObject(Type type, string key);
+    public static object GetObject(string key, object defaultValue);
+    internal static object GetAsScriptingObject(Type t, object defaultValue, string key);
+    public static IDictionary`2<string, object> GetDictionary(string key);
+    internal static void UseSafeLock();
+    internal static void ReleaseSafeLock();
+    internal static IntPtr GetSafeTopMap();
+}

@@ -1,0 +1,48 @@
+public static class Facepunch.Input : object {
+    private static Memoized`2<string, string> WithoutFirstChar;
+    [CompilerGeneratedAttribute]
+private static Action`1<string> OnKeybindChanged;
+    [CompilerGeneratedAttribute]
+private static Action`2<string, bool> RunBind;
+    private static List`1<Button> buttons;
+    private static List`1<Action> frameThinks;
+    private static List`1<String[]> KeybindRealms;
+    private static Input();
+    [CompilerGeneratedAttribute]
+public static void add_OnKeybindChanged(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public static void remove_OnKeybindChanged(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public static void add_RunBind(Action`2<string, bool> value);
+    [CompilerGeneratedAttribute]
+public static void remove_RunBind(Action`2<string, bool> value);
+    public static void Frame();
+    public static void Update();
+    public static void AddButton(string name, KeyCode key, Func`1<bool> TestFunction, Action FrameThink, bool transient);
+    public static bool HasButton(string name);
+    private static int FindBindRealm(string bind);
+    public static void SetBind(string name, string rawBind, bool cycled, bool clear);
+    public static string GetBind(string name);
+    public static Button GetButton(string name);
+    public static void ClearBinds();
+    public static Dictionary`2<string, Button> GetAllBinds();
+    public static String[] GetAllButtons();
+    public static String[] GetPressedButtons();
+    public static String[] GetButtonsWithBind(string bind, bool strict);
+    public static bool IsBindInUse(string bind);
+    public static string GetButtonWithBind(string bind, bool strict);
+    public static string GetButtonWithBindFormatted(string bind);
+    public static Button GetButtonObjectWithBind(string bind);
+    public static void GetButtonsWithBind(string bind, List`1<Button> results);
+}
+[ExtensionAttribute]
+public static class KeyCodeEx : object {
+    [ExtensionAttribute]
+public static string ToShortname(KeyCode code, bool lowercase);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

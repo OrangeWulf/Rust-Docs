@@ -1,0 +1,990 @@
+Сборка: Rust.Global.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ArrayIndexIsEnum
+Наследуется от: PropertyAttribute
+Поля:
+  Type enumType
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: ArrayIndexIsEnumRanged
+Наследуется от: ArrayIndexIsEnum
+Поля:
+  float min
+  float max
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: AssetPool
+Наследуется от: object
+Поля:
+  Dictionary`2<Type, Pool> storage
+Свойства:
+Методы:
+  T Get()
+  void Free(Mesh& mesh)
+  Pool GetPool()
+  void Clear(string filter)
+  void .cctor()
+--------------------------------------------------
+Класс: ObjectWorkQueue`1
+Наследуется от: object
+Поля:
+  Queue`1<T> queue
+  HashSet`1<T> containerTest
+  string queueName
+  long warnTime
+  long totalProcessed
+  double totalTime
+  int queueProcessedLast
+  double lastMS
+  int hashsetMaxLength
+  Stopwatch stopwatch
+Свойства:
+  int queueLength
+Методы:
+  int get_queueLength()
+  void .ctor()
+  void Clear()
+  void RunQueue(double maximumMilliseconds)
+  void Add(T entity)
+  void AddNoContainsCheck(T entity)
+  bool Contains(T entity)
+  void SortQueue()
+  bool ShouldAdd(T entity)
+  void RunJob(T entity)
+  string Info()
+--------------------------------------------------
+Класс: PersistentObjectWorkQueue`1
+Наследуется от: object
+Поля:
+  ListHashSet`1<T> workList
+  string listName
+  long warnTime
+  double totalTime
+  double lastMS
+  int currentIndex
+  Stopwatch stopwatch
+Свойства:
+  int listLength
+Методы:
+  int get_listLength()
+  void .ctor()
+  void Clear()
+  void RunList(double maximumMilliseconds)
+  void Add(T entity)
+  void Remove(T entity)
+  bool Contains(T entity)
+  bool ShouldAdd(T entity)
+  void RunJob(T entity)
+  string Info()
+--------------------------------------------------
+Класс: WorldSpaceGrid`1
+Наследуется от: object
+Поля:
+  T[] Cells
+  float CellSize
+  float CellSizeHalf
+  float CellSizeInverse
+  float CellArea
+  int CellCount
+  int CellCountHalf
+Свойства:
+  T Item
+  T Item
+  T Item
+  T Item
+Методы:
+  void .ctor(float gridSize, float cellSize)
+  T get_Item(Vector3 worldPos)
+  void set_Item(Vector3 worldPos, T value)
+  T get_Item(Vector2i cellCoords)
+  void set_Item(Vector2i cellCoords, T value)
+  T get_Item(int x, int y)
+  void set_Item(int x, int y, T value)
+  T get_Item(int index)
+  void set_Item(int index, T value)
+  Vector2i IndexToGridCoords(int index)
+  Vector3 IndexToWorldCoords(int index)
+  Vector2i WorldToGridCoords(Vector3 worldPos)
+  Vector3 GridToWorldCoords(Vector2i cellPos)
+  void Copy(WorldSpaceGrid`1<T> other)
+--------------------------------------------------
+Класс: WorldSpaceGrid
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Vector3 ClosestGridCell(Vector3 worldPos, float gridSize, float cellSize)
+  void .ctor()
+--------------------------------------------------
+Класс: CRC
+Наследуется от: object
+Поля:
+  Byte[] byteBuffer
+  UInt32[] crc32_tab
+  UInt64[] crc64_tab
+Свойства:
+Методы:
+  UInt32 Compute32(UInt32 crc, int i)
+  UInt32 Compute32(UInt32 crc, UInt32 u)
+  UInt32 Compute32(UInt32 crc, float f)
+  UInt32 Compute32(UInt32 crc, long i)
+  UInt32 Compute32(UInt32 crc, ulong u)
+  UInt32 Compute32(UInt32 crc, double f)
+  UInt32 Compute32(UInt32 crc, string str)
+  UInt32 Compute32(String[] strs)
+  ulong Compute64(ulong crc, int i)
+  ulong Compute64(ulong crc, UInt32 u)
+  ulong Compute64(ulong crc, float f)
+  ulong Compute64(ulong crc, long i)
+  ulong Compute64(ulong crc, ulong u)
+  ulong Compute64(ulong crc, double f)
+  ulong Compute64(ulong crc, string str)
+  ulong Compute64(String[] strs)
+  int GrowByteBuffer(int count)
+  UInt32 CRC32(UInt32 value, Byte[] buf, ulong size)
+  ulong CRC64(ulong value, Byte[] buf, ulong size)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: ListEx
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  T GetRandom(List`1<T> list)
+  T GetRandom(List`1<T> list, UInt32 seed)
+  T GetRandom(List`1<T> list, UInt32& seed)
+  void Shuffle(List`1<T> list, UInt32 seed)
+  void Shuffle(List`1<T> list, UInt32& seed)
+  void BubbleSort(List`1<T> list)
+  void RemoveUnordered(List`1<T> list, int index)
+  double TruncatedAverage(List`1<double> list, float pct)
+--------------------------------------------------
+Класс: StringBuilderEx
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Clear(StringBuilder value)
+--------------------------------------------------
+Класс: HorizontalAttribute
+Наследуется от: PropertyAttribute
+Поля:
+  int count
+  int label
+Свойства:
+Методы:
+  void .ctor(int count, int label)
+--------------------------------------------------
+Класс: ICustomMaterialReplacer
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: InspectorFlagsAttribute
+Наследуется от: PropertyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: IEditorComponent
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: IServerComponent
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: IClientComponent
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: IPrefabPreProcess
+Поля:
+Свойства:
+Методы:
+  void PreProcess(IPrefabProcessor preProcess, GameObject rootObj, string name, bool serverside, bool clientside, bool bundling)
+--------------------------------------------------
+Класс: IPrefabPostProcess
+Поля:
+Свойства:
+Методы:
+  void PostProcess(IPrefabProcessor preProcess, GameObject rootObj, string name, bool serverside, bool clientside, bool bundling)
+--------------------------------------------------
+Класс: IPrefabProcessor
+Поля:
+Свойства:
+Методы:
+  void RemoveComponent(Component component)
+  void NominateForDeletion(GameObject obj)
+--------------------------------------------------
+Класс: IServerComponentEx
+Поля:
+Свойства:
+Методы:
+  void PreServerComponentCull(IPrefabProcessor p)
+--------------------------------------------------
+Класс: IClientComponentEx
+Поля:
+Свойства:
+Методы:
+  void PreClientComponentCull(IPrefabProcessor p)
+--------------------------------------------------
+Класс: IPropRenderNotify
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MaterialReplacement
+Наследуется от: MonoBehaviour
+Поля:
+  bool initialized
+  Material[] Default
+  Material[] Override
+  Renderer Renderer
+Свойства:
+Методы:
+  void ReplaceRecursive(GameObject go, Material mat)
+  void ReplaceRecursive(GameObject obj, Material[] find, Material[] replace)
+  void Prepare(GameObject go)
+  bool MaterialsContainAny(Material[] source, Material[] find)
+  void Reset(GameObject go)
+  void Init()
+  void Replace(Material mat)
+  void Replace(Material find, Material replace)
+  void Replace(Material[] find, Material[] replace)
+  void Revert()
+  void .ctor()
+--------------------------------------------------
+Класс: AABB
+Наследуется от: ValueType
+Поля:
+  Vector3 position
+  Vector3 extents
+Свойства:
+Методы:
+  void .ctor(Vector3 position, Vector3 size)
+  bool Contains(Vector3 target)
+  Vector3 ClosestPoint(Vector3 target)
+  bool Trace(Ray ray, RaycastHit& hit, float radius, float maxDistance)
+--------------------------------------------------
+Класс: Capsule
+Наследуется от: ValueType
+Поля:
+  Vector3 position
+  float radius
+  float extent
+Свойства:
+Методы:
+  void .ctor(Vector3 position, float radius, float extent)
+  bool Contains(Vector3 target)
+  Vector3 ClosestPoint(Vector3 target)
+  void Move(Vector3 direction, float distance, int layerMask)
+  bool Trace(Ray ray, RaycastHit& hit, float rayRadius, float maxDistance)
+--------------------------------------------------
+Класс: Cylinder
+Наследуется от: ValueType
+Поля:
+  Vector3 position
+  float radius
+  float extent
+Свойства:
+Методы:
+  void .ctor(Vector3 position, float radius, float extent)
+  bool Contains(Vector3 target)
+  Vector3 ClosestPoint(Vector3 target)
+--------------------------------------------------
+Класс: Line
+Наследуется от: ValueType
+Поля:
+  Vector3 point0
+  Vector3 point1
+Свойства:
+Методы:
+  void .ctor(Vector3 point0, Vector3 point1)
+  void .ctor(Vector3 origin, Vector3 direction, float length)
+  bool Trace(Ray ray, float radius, RaycastHit& hit, float maxDistance)
+  Vector3 ClosestPoint(Vector3 pos)
+  Vector3 ClosestPoint2D(Vector3 pos)
+  float Distance(Vector3 pos)
+  float SqrDistance(Vector3 pos)
+--------------------------------------------------
+Класс: Mathx
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  float Increment(float f)
+  float Decrement(float f)
+  float Above(float latitude, float lower, float fade)
+  float Tween(float latitude, float lower, float upper, float fade)
+  float Below(float latitude, float upper, float fade)
+  Color Lerp3(float f1, Color c1, float f2, Color c2, float f3, Color c3)
+  int Clamp(int v, int min, int max)
+  int Sign(int v)
+  float SmoothMax(float a, float b, float fade)
+  float Discretize01(float v, int steps)
+  float Min(float f1, float f2, float f3)
+  float Min(float f1, float f2, float f3, float f4)
+  int Min(int f1, int f2, int f3)
+  int Min(int f1, int f2, int f3, int f4)
+  float Max(float f1, float f2, float f3)
+  float Max(float f1, float f2, float f3, float f4)
+  int Max(int f1, int f2, int f3)
+  int Max(int f1, int f2, int f3, int f4)
+  UInt32 Min(UInt32 i1, UInt32 i2)
+  UInt32 Max(UInt32 i1, UInt32 i2)
+  float fsel(float c, float x, float y)
+  float RemapValClamped(float val, float A, float B, float C, float D)
+  bool HasSignFlipped(int signA, int signB)
+  int GetSignZero(float input, bool useApproximate)
+  float Lerp(float from, float to, float speed, float deltaTime)
+  float Lerp(float from, float to, float speed)
+  Vector3 Lerp(Vector3 from, Vector3 to, float speed, float deltaTime)
+  Vector3 Lerp(Vector3 from, Vector3 to, float speed)
+  Quaternion Lerp(Quaternion from, Quaternion to, float speed, float deltaTime)
+  Quaternion Lerp(Quaternion from, Quaternion to, float speed)
+--------------------------------------------------
+Класс: OBB
+Наследуется от: ValueType
+Поля:
+  Quaternion rotation
+  Vector3 position
+  Vector3 extents
+  Vector3 forward
+  Vector3 right
+  Vector3 up
+  float reject
+Свойства:
+Методы:
+  void .ctor(Bounds bounds)
+  void .ctor(Transform transform, Bounds bounds)
+  void .ctor(Vector3 position, Vector3 scale, Quaternion rotation, Bounds bounds)
+  void .ctor(Vector3 position, Quaternion rotation, Bounds bounds)
+  void .ctor(Vector3 position, Vector3 size, Quaternion rotation)
+  void Transform(Vector3 position, Vector3 scale, Quaternion rotation)
+  Vector3 GetPoint(float x, float y, float z)
+  Bounds ToBounds()
+  bool Contains(Vector3 target)
+  bool Intersects(OBB target)
+  bool Intersects2D(OBB target)
+  bool Intersects(Ray ray)
+  bool Trace(Ray ray, RaycastHit& hit, float maxDistance)
+  Vector3 ClosestPoint(Vector3 target)
+  float Distance(OBB other)
+  float Distance(Vector3 position)
+  float SqrDistance(OBB other)
+  float SqrDistance(Vector3 position)
+  void DebugDraw(Color colour, float duration)
+--------------------------------------------------
+Класс: SeedEx
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  UInt32 Seed(Vector2 v, UInt32 baseSeed)
+  UInt32 Seed(Vector3 v, UInt32 baseSeed)
+  UInt32 Seed(Vector4 v, UInt32 baseSeed)
+--------------------------------------------------
+Класс: SeedRandom
+Наследуется от: object
+Поля:
+  UInt32 Seed
+Свойства:
+Методы:
+  void .ctor(UInt32 seed)
+  int Range(int min, int max)
+  int Range(UInt32 seed, int min, int max)
+  int Range(UInt32& seed, int min, int max)
+  float Range(float min, float max)
+  float Range(UInt32 seed, float min, float max)
+  float Range(UInt32& seed, float min, float max)
+  int Sign()
+  int Sign(UInt32 seed)
+  int Sign(UInt32& seed)
+  float Value()
+  float Value(UInt32 seed)
+  float Value(UInt32& seed)
+  Vector2 Value2D()
+  Vector2 Value2D(UInt32 seed)
+  Vector2 Value2D(UInt32& seed)
+  UInt32 Wanghash(UInt32& x)
+  float Wanghash01(UInt32& x)
+  UInt32 Xorshift(UInt32& x)
+  float Xorshift01(UInt32& x)
+--------------------------------------------------
+Класс: Sphere
+Наследуется от: ValueType
+Поля:
+  Vector3 position
+  float radius
+Свойства:
+Методы:
+  void .ctor(Vector3 position, float radius)
+  bool Contains(Vector3 target)
+  Vector3 ClosestPoint(Vector3 target)
+  void Move(Vector3 direction, float distance, int layerMask)
+  bool Trace(Ray ray, RaycastHit& hit, float maxDistance)
+--------------------------------------------------
+Класс: Triangle
+Наследуется от: ValueType
+Поля:
+  Vector3 point0
+  Vector3 point1
+  Vector3 point2
+Свойства:
+  Vector3 Normal
+  Vector3 Center
+Методы:
+  void .ctor(Vector3 point0, Vector3 point1, Vector3 point2)
+  bool Trace(Ray ray, float radius, RaycastHit& hit, float maxDistance)
+  bool LineTest(Vector3 a, Vector3 b, Ray ray, float radius, RaycastHit& hit, float maxDistance)
+  Vector3 get_Normal()
+  Vector3 get_Center()
+  Vector3 ClosestPoint(Vector3 pos)
+  float Distance(Vector3 pos)
+  float SqrDistance(Vector3 pos)
+  float Area()
+--------------------------------------------------
+Класс: TextBuffer
+Наследуется от: object
+Поля:
+  Queue`1<string> buffer
+  StringBuilder builder
+  string text
+  bool dirty
+  int curlines
+  int maxlines
+  int curchars
+  int maxchars
+Свойства:
+  int Count
+Методы:
+  int get_Count()
+  void .ctor(int maxlines, int maxchars)
+  void Add(string text)
+  void Remove()
+  void Clear()
+  string Get(int index)
+  string ToString()
+--------------------------------------------------
+Класс: TextTable
+Наследуется от: object
+Поля:
+  List`1<Row> rows
+  List`1<Column> columns
+  StringBuilder builder
+  string text
+  string jsonText
+  Encoding utf8NoBom
+Свойства:
+Методы:
+  void Clear()
+  void AddColumns(String[] values)
+  void AddColumn(string title)
+  void AddRow(String[] values)
+  string ToJson()
+  string ToString()
+  void MarkDirty()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Instantiate
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  GameObject GameObject(GameObject go, Transform parent)
+  GameObject GameObject(GameObject go, Vector3 pos, Quaternion rot)
+--------------------------------------------------
+Класс: Facepunch.ObjectPool`1
+Наследуется от: object
+Поля:
+  List`1<T> list
+Свойства:
+Методы:
+  void AddToPool(T t)
+  T TakeFromPool()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.GameObjectPool`1
+Наследуется от: ObjectPool`1<T>
+Поля:
+  GameObject poolRoot
+Свойства:
+Методы:
+  void AddToPool(T t)
+  void AddChildrenToPool(Transform t)
+  T TakeOrInstantiate(GameObject prefabSource)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Tick
+Наследуется от: object
+Поля:
+  List Timed
+  List Update
+  List Late
+  List`1<Object> RemoveList
+Свойства:
+Методы:
+  void AddTimed(Object obj, float minDelay, float maxDelay, Action action, string DebugName)
+  void Add(Object obj, Action action, string DebugName)
+  void AddLateUpdate(Object obj, Action action, string DebugName)
+  void RemoveAll(Object obj)
+  void Cleanup()
+  void OnFrame()
+  void OnFrameLate()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.TickComponent
+Наследуется от: MonoBehaviour
+Поля:
+  TickComponent Instance
+Свойства:
+Методы:
+  void Init()
+  void OnEnable()
+  void Update()
+  void LateUpdate()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.MathEx
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  float SnapTo(float val, float snapValue)
+  bool QuadTest(Ray ray, Vector3 planeCenter, Quaternion planeRot, Vector2 planeSize, Vector3& hitPosition, float gridSize)
+  float BiasedLerp(float x, float bias)
+  float Bias(float x, float bias)
+--------------------------------------------------
+Класс: UnityEngine.StringEx
+Наследуется от: object
+Поля:
+  Regex regexNumeric
+  Regex regexAlphaNumeric
+Свойства:
+Методы:
+  string Replace(string originalString, string oldValue, string newValue, StringComparison comparisonType)
+  bool Contains(string haystack, string needle, CompareOptions options)
+  bool IsLower(string str)
+  string ToPrintable(string str, int maxLength)
+  bool IsNumeric(string str)
+  bool IsAlphaNumeric(string str)
+  string EscapeRichText(string str)
+  IEnumerable`1<string> SplitToLines(string input)
+  IEnumerable`1<string> SplitToChunks(string str, int chunkLength)
+  UInt32 ManifestHash(string str)
+  Byte[] Sha256(string str)
+  string HexString(Byte[] bytes)
+  bool StartsWithAny(string str, String[] values)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Vector2Ex
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Vector2 WithX(Vector2 v, float x)
+  Vector2 WithY(Vector2 v, float y)
+  Vector2 Parse(string p)
+  Vector2 Rotate(Vector2 v, float degrees)
+  float Length(float x, float y)
+  float Length(Vector2 vec)
+  Vector2 X(Vector2 v, float x)
+  Vector2 Y(Vector2 v, float y)
+  Vector2 ToCanvas(Vector2 v, RectTransform target, Camera cam)
+  float AngleFromTo(Vector2 from, Vector2 to)
+--------------------------------------------------
+Класс: UnityEngine.Vector3Ex
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Vector3 WithX(Vector3 v, float x)
+  Vector3 WithY(Vector3 v, float y)
+  Vector3 WithZ(Vector3 v, float z)
+  Vector3 XZ(Vector3 v)
+  float Distance2D(Vector3 a, Vector3 b)
+  float HeightDelta(Vector3 a, Vector3 b)
+  Vector3 Direction2D(Vector3 aimAt, Vector3 aimFrom)
+  Vector3 Direction(Vector3 aimAt, Vector3 aimFrom)
+  Vector3 Range(float x, float y)
+  Vector3 Scale(Vector3 vector, float x, float y, float z)
+  Vector3 SnapTo(Vector3 vector, float snapValue)
+  Vector3 Inverse(Vector3 v)
+  float SignedAngle(Vector3 v1, Vector3 v2, Vector3 n)
+  void FastRenormalize(Vector3 n, float scale)
+  void ToDirectionAndMagnitude(Vector3 value, Vector3& direction, Single& magnitude)
+  Vector3 BlendNormals(Vector3 n1, Vector3 n2)
+  bool IsNaNOrInfinity(Vector3 v)
+  float DotRadians(Vector3 a, Vector3 b)
+  float DotDegrees(Vector3 a, Vector3 b)
+  float Magnitude2D(Vector3 v)
+  float SqrMagnitude2D(Vector3 v)
+  float MagnitudeXY(Vector3 v)
+  float SqrMagnitudeXY(Vector3 v)
+  float MagnitudeXZ(Vector3 v)
+  float SqrMagnitudeXZ(Vector3 v)
+  float MagnitudeYZ(Vector3 v)
+  float SqrMagnitudeYZ(Vector3 v)
+  Vector3 XY3D(Vector3 v)
+  Vector3 XZ3D(Vector3 v)
+  Vector3 YZ3D(Vector3 v)
+  Vector2 XY2D(Vector3 v)
+  Vector2 XZ2D(Vector3 v)
+  Vector2 YZ2D(Vector3 v)
+  Vector2 YX2D(Vector3 v)
+  Vector2 ZX2D(Vector3 v)
+  Vector2 ZY2D(Vector3 v)
+  Vector3 XZ3D(Vector2 v)
+  float Max(Vector4 v)
+  float Max(Vector3 v)
+  float Max(Vector2 v)
+  Vector4 Abs(Vector4 v)
+  Vector3 Abs(Vector3 v)
+  Vector2 Abs(Vector2 v)
+  Vector3 Parse(string p)
+  Vector3 GetWithInaccuracy(Vector3 o, float maxAngle)
+--------------------------------------------------
+Класс: Rust.Application
+Наследуется от: object
+Поля:
+  bool isQuitting
+  bool isLoading
+  bool isReceiving
+  bool isLoadingSave
+  bool isLoadingPrefabs
+Свойства:
+  string installPath
+  string dataPath
+Методы:
+  void Quit()
+  string get_installPath()
+  string get_dataPath()
+--------------------------------------------------
+Класс: Rust.Layers
+Наследуется от: object
+Поля:
+  int Terrain
+  int World
+  int Ragdolls
+  int Construction
+  int ConstructionSocket
+  int Craters
+  int GameTrace
+  int Trigger
+  int VehiclesLarge
+  int VehiclesDetailed
+  int Tree
+  int Harvestable
+  int RainFall
+  int Deploy
+  int DefaultDeployVolumeCheck
+  int PreventBuilding
+  int BuildLineOfSightCheck
+  int ProjectileLineOfSightCheck
+  int MeleeLineOfSightCheck
+  int EyeLineOfSightCheck
+  int EntityLineOfSightCheck
+  int PlayerBuildings
+  int PlannerPlacement
+  int IndustrialPipeObstruction
+  int Solid
+  int StaticSolid
+  int StaticSolidAndVehicleLarge
+  int VisCulling
+  int HABGroundEffect
+  int AILineOfSight
+  int DismountCheck
+  int AIPlacement
+  int WheelRay
+  int Water
+  int Sprays
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.Rarity
+Наследуется от: Enum
+Поля:
+  int value__
+  Rarity None
+  Rarity Common
+  Rarity Uncommon
+  Rarity Rare
+  Rarity VeryRare
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.AmmoTypes
+Наследуется от: Enum
+Поля:
+  int value__
+  AmmoTypes PISTOL_9MM
+  AmmoTypes RIFLE_556MM
+  AmmoTypes SHOTGUN_12GUAGE
+  AmmoTypes BOW_ARROW
+  AmmoTypes HANDMADE_SHELL
+  AmmoTypes ROCKET
+  AmmoTypes NAILS
+  AmmoTypes AMMO_40MM
+  AmmoTypes SNOWBALL
+  AmmoTypes SPEARGUN_BOLT
+  AmmoTypes TORPEDO
+  AmmoTypes MLRS_ROCKET
+  AmmoTypes MISSILE_SEEKING
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.Layer
+Наследуется от: Enum
+Поля:
+  int value__
+  Layer Default
+  Layer TransparentFX
+  Layer Ignore_Raycast
+  Layer Reserved1
+  Layer Water
+  Layer UI
+  Layer Reserved2
+  Layer Reserved3
+  Layer Deployed
+  Layer Ragdoll
+  Layer Invisible
+  Layer AI
+  Layer Player_Movement
+  Layer Vehicle_Detailed
+  Layer Game_Trace
+  Layer Vehicle_World
+  Layer World
+  Layer Player_Server
+  Layer Trigger
+  Layer Harvestable
+  Layer Physics_Projectile
+  Layer Construction
+  Layer Construction_Socket
+  Layer Terrain
+  Layer Transparent
+  Layer Clutter
+  Layer Bush
+  Layer Vehicle_Large
+  Layer Prevent_Movement
+  Layer Prevent_Building
+  Layer Tree
+  Layer Physics_Debris
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.Global
+Наследуется от: object
+Поля:
+  Func`2<string, GameObject> LoadPrefab
+  Func`2<string, GameObject> FindPrefab
+  Func`2<string, GameObject> CreatePrefab
+  Action OpenMainMenu
+  FacepunchBehaviour _runner
+  int <LaunchCountThisVersion>k__BackingField
+Свойства:
+  FacepunchBehaviour Runner
+  int LaunchCountThisVersion
+Методы:
+  FacepunchBehaviour get_Runner()
+  int get_LaunchCountThisVersion()
+  void set_LaunchCountThisVersion(int value)
+  void Init()
+--------------------------------------------------
+Класс: Rust.IEntity
+Поля:
+Свойства:
+  bool IsDestroyed
+Методы:
+  bool get_IsDestroyed()
+--------------------------------------------------
+Класс: Rust.PropRenderer
+Наследуется от: MonoBehaviour
+Поля:
+  bool HideLowLods
+  bool HideUnskinnable
+  bool Outline
+  Vector3 Rotation
+  Vector3 PostRotation
+  Vector3 PositionalTweak
+  float FieldOfView
+  Vector3 LookDirection
+  Vector3 UpDirection
+  GameObject[] HideDuringRender
+Свойства:
+Методы:
+  void DebugAlign()
+  void PositionCamera(Camera cam)
+  void PreRender()
+  void PostRender()
+  void CreateIcon()
+  void CreateRender()
+  float DefaultLightIntensityScale(float intensity)
+  void CreateScreenshot(string filename, int width, int height, int SuperSampleSize, LightIntensityScale lightIntensityScale)
+  bool RenderScreenshot(GameObject prefab, string filename, int width, int height, int SuperSampleSize)
+  void .ctor()
+--------------------------------------------------
+Класс: Rust.PropRendererDebug
+Наследуется от: MonoBehaviour
+Поля:
+Свойства:
+Методы:
+  void Update()
+  void .ctor()
+--------------------------------------------------
+Класс: Rust.Protocol
+Наследуется от: object
+Поля:
+  int network
+  int save
+  int report
+  int persistance
+  int analytics_db
+  int ping
+Свойства:
+  string printable
+Методы:
+  string get_printable()
+--------------------------------------------------
+Класс: Rust.AsyncTextureLoad
+Наследуется от: CustomYieldInstruction
+Поля:
+  IntPtr buffer
+  int size
+  int width
+  int height
+  int format
+  string filename
+  bool normal
+  bool dither
+  bool hqmode
+  bool cache
+  Action worker
+Свойства:
+  bool keepWaiting
+  bool isDone
+  bool isValid
+  Texture2D texture
+Методы:
+  bool get_keepWaiting()
+  bool get_isDone()
+  bool get_isValid()
+  Texture2D get_texture()
+  void LoadIntoTexture(Texture2D tex)
+  void WriteToCache(string cachename)
+  void FreeTexture(IntPtr& buffer)
+  void LoadTextureFromFile(string filename, IntPtr& buffer, Int32& size, Int32& width, Int32& height, Int32& channels, bool normal, bool dither, bool hqmode)
+  void LoadTextureFromCache(string filename, IntPtr& buffer, Int32& size, Int32& width, Int32& height, Int32& format)
+  void SaveTextureToCache(string filename, IntPtr buffer, int size, int width, int height, int format)
+  void .ctor(string filename, bool normal, bool dither, bool hqmode, bool cache)
+  void DoWork()
+  void Invoke()
+  void Callback(IAsyncResult result)
+--------------------------------------------------
+Класс: Rust.Registry.Entity
+Наследуется от: object
+Поля:
+  Dictionary`2<Transform, IEntity> _dict
+Свойства:
+Методы:
+  void Register(Transform t, IEntity entity)
+  IEntity Get(Transform t)
+  void Unregister(Transform t)
+  void Register(GameObject obj, IEntity entity)
+  IEntity Get(GameObject obj)
+  void Unregister(GameObject obj)
+  void .cctor()
+--------------------------------------------------
+Класс: Rust.ImageEffects.IconOutline
+Наследуется от: MonoBehaviour
+Поля:
+  Material Material
+Свойства:
+Методы:
+  void OnEnable()
+  void OnDisable()
+  void OnRenderImage(RenderTexture source, RenderTexture destination)
+  void .ctor()
+--------------------------------------------------
+Класс: Rust.Components.NullMonoBehaviour
+Наследуется от: FacepunchBehaviour
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Rust.Components.Utility.OnObjectDisable
+Наследуется от: MonoBehaviour
+Поля:
+  UnityEvent Action
+Свойства:
+Методы:
+  void OnDisable()
+  void .ctor()
+--------------------------------------------------
+Класс: Rust.Components.Utility.OnObjectEnable
+Наследуется от: MonoBehaviour
+Поля:
+  UnityEvent Action
+Свойства:
+Методы:
+  void OnEnable()
+  void .ctor()
+--------------------------------------------------
+Класс: Rust.Components.Camera.DepthOfFieldFocusPoint
+Наследуется от: ListComponent`1<DepthOfFieldFocusPoint>
+Поля:
+  Renderer cachedRenderer
+Свойства:
+  Vector3 FocusPoint
+Методы:
+  Vector3 get_FocusPoint()
+  void OnEnable()
+  DepthOfFieldFocusPoint Evaluate(Camera cam)
+  float Score(Camera cam)
+  void .ctor()
+--------------------------------------------------
+Класс: Rust.Components.Camera.LightingOverride
+Наследуется от: MonoBehaviour
+Поля:
+  bool overrideAmbientLight
+  AmbientMode ambientMode
+  Color ambientGroundColor
+  Color ambientEquatorColor
+  Color ambientLight
+  float ambientIntensity
+  Color old_ambientLight
+  Color old_ambientGroundColor
+  Color old_ambientEquatorColor
+  float old_ambientIntensity
+  AmbientMode old_ambientMode
+  float aspect
+Свойства:
+Методы:
+  void OnPreRender()
+  void OnPostRender()
+  void .ctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=1024 12F3E0576D447EB37B36D82BA0C1C5481B8F0D12FDC70347CE4A076B229D4C86
+  __StaticArrayInitTypeSize=2048 E0D21FC6200880C2170D9145ECDF89F5F5DC60FFD0921F72E4DCFFE26B9E2A8B
+Свойства:
+Методы:
+--------------------------------------------------

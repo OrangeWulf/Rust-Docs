@@ -1,0 +1,927 @@
+Сборка: UnityEngine.XRModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.CodeAnalysis.EmbeddedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Runtime.CompilerServices.IsReadOnlyAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.InputTracking
+Наследуется от: object
+Поля:
+  Action`1<XRNodeState> trackingAcquired
+  Action`1<XRNodeState> trackingLost
+  Action`1<XRNodeState> nodeAdded
+  Action`1<XRNodeState> nodeRemoved
+Свойства:
+  bool disablePositionalTracking
+Методы:
+  void add_trackingAcquired(Action`1<XRNodeState> value)
+  void remove_trackingAcquired(Action`1<XRNodeState> value)
+  void add_trackingLost(Action`1<XRNodeState> value)
+  void remove_trackingLost(Action`1<XRNodeState> value)
+  void add_nodeAdded(Action`1<XRNodeState> value)
+  void remove_nodeAdded(Action`1<XRNodeState> value)
+  void add_nodeRemoved(Action`1<XRNodeState> value)
+  void remove_nodeRemoved(Action`1<XRNodeState> value)
+  void InvokeTrackingEvent(TrackingStateEventType eventType, XRNode nodeType, long uniqueID, bool tracked)
+  Vector3 GetLocalPosition(XRNode node)
+  Quaternion GetLocalRotation(XRNode node)
+  void Recenter()
+  string GetNodeName(ulong uniqueId)
+  void GetNodeStates(List`1<XRNodeState> nodeStates)
+  void GetNodeStates_Internal(List`1<XRNodeState> nodeStates)
+  bool get_disablePositionalTracking()
+  void set_disablePositionalTracking(bool value)
+  ulong GetDeviceIdAtXRNode(XRNode node)
+  void GetDeviceIdsAtXRNode_Internal(XRNode node, List`1<ulong> deviceIds)
+  void GetLocalPosition_Injected(XRNode node, Vector3& ret)
+  void GetLocalRotation_Injected(XRNode node, Quaternion& ret)
+--------------------------------------------------
+Класс: UnityEngine.XR.XRNode
+Наследуется от: Enum
+Поля:
+  int value__
+  XRNode LeftEye
+  XRNode RightEye
+  XRNode CenterEye
+  XRNode Head
+  XRNode LeftHand
+  XRNode RightHand
+  XRNode GameController
+  XRNode TrackingReference
+  XRNode HardwareTracker
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.AvailableTrackingData
+Наследуется от: Enum
+Поля:
+  int value__
+  AvailableTrackingData None
+  AvailableTrackingData PositionAvailable
+  AvailableTrackingData RotationAvailable
+  AvailableTrackingData VelocityAvailable
+  AvailableTrackingData AngularVelocityAvailable
+  AvailableTrackingData AccelerationAvailable
+  AvailableTrackingData AngularAccelerationAvailable
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.XRNodeState
+Наследуется от: ValueType
+Поля:
+  XRNode m_Type
+  AvailableTrackingData m_AvailableFields
+  Vector3 m_Position
+  Quaternion m_Rotation
+  Vector3 m_Velocity
+  Vector3 m_AngularVelocity
+  Vector3 m_Acceleration
+  Vector3 m_AngularAcceleration
+  int m_Tracked
+  ulong m_UniqueID
+Свойства:
+  ulong uniqueID
+  XRNode nodeType
+  bool tracked
+  Vector3 position
+  Quaternion rotation
+  Vector3 velocity
+  Vector3 angularVelocity
+  Vector3 acceleration
+  Vector3 angularAcceleration
+Методы:
+  ulong get_uniqueID()
+  void set_uniqueID(ulong value)
+  XRNode get_nodeType()
+  void set_nodeType(XRNode value)
+  bool get_tracked()
+  void set_tracked(bool value)
+  void set_position(Vector3 value)
+  void set_rotation(Quaternion value)
+  void set_velocity(Vector3 value)
+  void set_angularVelocity(Vector3 value)
+  void set_acceleration(Vector3 value)
+  void set_angularAcceleration(Vector3 value)
+  bool TryGetPosition(Vector3& position)
+  bool TryGetRotation(Quaternion& rotation)
+  bool TryGetVelocity(Vector3& velocity)
+  bool TryGetAngularVelocity(Vector3& angularVelocity)
+  bool TryGetAcceleration(Vector3& acceleration)
+  bool TryGetAngularAcceleration(Vector3& angularAcceleration)
+  bool TryGet(Vector3 inValue, AvailableTrackingData availabilityFlag, Vector3& outValue)
+  bool TryGet(Quaternion inValue, AvailableTrackingData availabilityFlag, Quaternion& outValue)
+--------------------------------------------------
+Класс: UnityEngine.XR.HapticCapabilities
+Наследуется от: ValueType
+Поля:
+  UInt32 m_NumChannels
+  bool m_SupportsImpulse
+  bool m_SupportsBuffer
+  UInt32 m_BufferFrequencyHz
+  UInt32 m_BufferMaxSize
+  UInt32 m_BufferOptimalSize
+Свойства:
+  UInt32 numChannels
+  bool supportsImpulse
+  bool supportsBuffer
+  UInt32 bufferFrequencyHz
+  UInt32 bufferMaxSize
+  UInt32 bufferOptimalSize
+Методы:
+  UInt32 get_numChannels()
+  void set_numChannels(UInt32 value)
+  bool get_supportsImpulse()
+  void set_supportsImpulse(bool value)
+  bool get_supportsBuffer()
+  void set_supportsBuffer(bool value)
+  UInt32 get_bufferFrequencyHz()
+  void set_bufferFrequencyHz(UInt32 value)
+  UInt32 get_bufferMaxSize()
+  void set_bufferMaxSize(UInt32 value)
+  UInt32 get_bufferOptimalSize()
+  void set_bufferOptimalSize(UInt32 value)
+  bool Equals(object obj)
+  bool Equals(HapticCapabilities other)
+  int GetHashCode()
+  bool op_Equality(HapticCapabilities a, HapticCapabilities b)
+  bool op_Inequality(HapticCapabilities a, HapticCapabilities b)
+--------------------------------------------------
+Класс: UnityEngine.XR.InputFeatureType
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  InputFeatureType Custom
+  InputFeatureType Binary
+  InputFeatureType DiscreteStates
+  InputFeatureType Axis1D
+  InputFeatureType Axis2D
+  InputFeatureType Axis3D
+  InputFeatureType Rotation
+  InputFeatureType Hand
+  InputFeatureType Bone
+  InputFeatureType Eyes
+  InputFeatureType kUnityXRInputFeatureTypeInvalid
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.ConnectionChangeType
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  ConnectionChangeType Connected
+  ConnectionChangeType Disconnected
+  ConnectionChangeType ConfigChange
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.InputDeviceRole
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  InputDeviceRole Unknown
+  InputDeviceRole Generic
+  InputDeviceRole LeftHanded
+  InputDeviceRole RightHanded
+  InputDeviceRole GameController
+  InputDeviceRole TrackingReference
+  InputDeviceRole HardwareTracker
+  InputDeviceRole LegacyController
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.InputDeviceCharacteristics
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  InputDeviceCharacteristics None
+  InputDeviceCharacteristics HeadMounted
+  InputDeviceCharacteristics Camera
+  InputDeviceCharacteristics HeldInHand
+  InputDeviceCharacteristics HandTracking
+  InputDeviceCharacteristics EyeTracking
+  InputDeviceCharacteristics TrackedDevice
+  InputDeviceCharacteristics Controller
+  InputDeviceCharacteristics TrackingReference
+  InputDeviceCharacteristics Left
+  InputDeviceCharacteristics Right
+  InputDeviceCharacteristics Simulated6DOF
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.InputTrackingState
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  InputTrackingState None
+  InputTrackingState Position
+  InputTrackingState Rotation
+  InputTrackingState Velocity
+  InputTrackingState AngularVelocity
+  InputTrackingState Acceleration
+  InputTrackingState AngularAcceleration
+  InputTrackingState All
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.InputFeatureUsage
+Наследуется от: ValueType
+Поля:
+  string m_Name
+  InputFeatureType m_InternalType
+Свойства:
+  string name
+  InputFeatureType internalType
+  Type type
+Методы:
+  string get_name()
+  void set_name(string value)
+  InputFeatureType get_internalType()
+  void set_internalType(InputFeatureType value)
+  Type get_type()
+  void .ctor(string name, InputFeatureType type)
+  bool Equals(object obj)
+  bool Equals(InputFeatureUsage other)
+  int GetHashCode()
+  bool op_Equality(InputFeatureUsage a, InputFeatureUsage b)
+  bool op_Inequality(InputFeatureUsage a, InputFeatureUsage b)
+  InputFeatureUsage`1<T> As()
+--------------------------------------------------
+Класс: UnityEngine.XR.InputFeatureUsage`1
+Наследуется от: ValueType
+Поля:
+  string <name>k__BackingField
+Свойства:
+  string name
+  Type usageType
+Методы:
+  string get_name()
+  void set_name(string value)
+  void .ctor(string usageName)
+  bool Equals(object obj)
+  bool Equals(InputFeatureUsage`1<T> other)
+  int GetHashCode()
+  bool op_Equality(InputFeatureUsage`1<T> a, InputFeatureUsage`1<T> b)
+  bool op_Inequality(InputFeatureUsage`1<T> a, InputFeatureUsage`1<T> b)
+  Type get_usageType()
+  InputFeatureUsage op_Explicit(InputFeatureUsage`1<T> self)
+--------------------------------------------------
+Класс: UnityEngine.XR.CommonUsages
+Наследуется от: object
+Поля:
+  InputFeatureUsage`1<bool> isTracked
+  InputFeatureUsage`1<bool> primaryButton
+  InputFeatureUsage`1<bool> primaryTouch
+  InputFeatureUsage`1<bool> secondaryButton
+  InputFeatureUsage`1<bool> secondaryTouch
+  InputFeatureUsage`1<bool> gripButton
+  InputFeatureUsage`1<bool> triggerButton
+  InputFeatureUsage`1<bool> menuButton
+  InputFeatureUsage`1<bool> primary2DAxisClick
+  InputFeatureUsage`1<bool> primary2DAxisTouch
+  InputFeatureUsage`1<bool> secondary2DAxisClick
+  InputFeatureUsage`1<bool> secondary2DAxisTouch
+  InputFeatureUsage`1<bool> userPresence
+  InputFeatureUsage`1<InputTrackingState> trackingState
+  InputFeatureUsage`1<float> batteryLevel
+  InputFeatureUsage`1<float> trigger
+  InputFeatureUsage`1<float> grip
+  InputFeatureUsage`1<Vector2> primary2DAxis
+  InputFeatureUsage`1<Vector2> secondary2DAxis
+  InputFeatureUsage`1<Vector3> devicePosition
+  InputFeatureUsage`1<Vector3> leftEyePosition
+  InputFeatureUsage`1<Vector3> rightEyePosition
+  InputFeatureUsage`1<Vector3> centerEyePosition
+  InputFeatureUsage`1<Vector3> colorCameraPosition
+  InputFeatureUsage`1<Vector3> deviceVelocity
+  InputFeatureUsage`1<Vector3> deviceAngularVelocity
+  InputFeatureUsage`1<Vector3> leftEyeVelocity
+  InputFeatureUsage`1<Vector3> leftEyeAngularVelocity
+  InputFeatureUsage`1<Vector3> rightEyeVelocity
+  InputFeatureUsage`1<Vector3> rightEyeAngularVelocity
+  InputFeatureUsage`1<Vector3> centerEyeVelocity
+  InputFeatureUsage`1<Vector3> centerEyeAngularVelocity
+  InputFeatureUsage`1<Vector3> colorCameraVelocity
+  InputFeatureUsage`1<Vector3> colorCameraAngularVelocity
+  InputFeatureUsage`1<Vector3> deviceAcceleration
+  InputFeatureUsage`1<Vector3> deviceAngularAcceleration
+  InputFeatureUsage`1<Vector3> leftEyeAcceleration
+  InputFeatureUsage`1<Vector3> leftEyeAngularAcceleration
+  InputFeatureUsage`1<Vector3> rightEyeAcceleration
+  InputFeatureUsage`1<Vector3> rightEyeAngularAcceleration
+  InputFeatureUsage`1<Vector3> centerEyeAcceleration
+  InputFeatureUsage`1<Vector3> centerEyeAngularAcceleration
+  InputFeatureUsage`1<Vector3> colorCameraAcceleration
+  InputFeatureUsage`1<Vector3> colorCameraAngularAcceleration
+  InputFeatureUsage`1<Quaternion> deviceRotation
+  InputFeatureUsage`1<Quaternion> leftEyeRotation
+  InputFeatureUsage`1<Quaternion> rightEyeRotation
+  InputFeatureUsage`1<Quaternion> centerEyeRotation
+  InputFeatureUsage`1<Quaternion> colorCameraRotation
+  InputFeatureUsage`1<Hand> handData
+  InputFeatureUsage`1<Eyes> eyesData
+  InputFeatureUsage`1<Vector2> dPad
+  InputFeatureUsage`1<float> indexFinger
+  InputFeatureUsage`1<float> middleFinger
+  InputFeatureUsage`1<float> ringFinger
+  InputFeatureUsage`1<float> pinkyFinger
+  InputFeatureUsage`1<bool> thumbrest
+  InputFeatureUsage`1<float> indexTouch
+  InputFeatureUsage`1<float> thumbTouch
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.InputDevice
+Наследуется от: ValueType
+Поля:
+  List`1<XRInputSubsystem> s_InputSubsystemCache
+  ulong m_DeviceId
+  bool m_Initialized
+Свойства:
+  ulong deviceId
+  XRInputSubsystem subsystem
+  bool isValid
+  string name
+  InputDeviceRole role
+  string manufacturer
+  string serialNumber
+  InputDeviceCharacteristics characteristics
+Методы:
+  void .ctor(ulong deviceId)
+  ulong get_deviceId()
+  XRInputSubsystem get_subsystem()
+  bool get_isValid()
+  string get_name()
+  InputDeviceRole get_role()
+  string get_manufacturer()
+  string get_serialNumber()
+  InputDeviceCharacteristics get_characteristics()
+  bool IsValidId()
+  bool SendHapticImpulse(UInt32 channel, float amplitude, float duration)
+  bool SendHapticBuffer(UInt32 channel, Byte[] buffer)
+  bool TryGetHapticCapabilities(HapticCapabilities& capabilities)
+  void StopHaptics()
+  bool TryGetFeatureUsages(List`1<InputFeatureUsage> featureUsages)
+  bool TryGetFeatureValue(InputFeatureUsage`1<bool> usage, Boolean& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<UInt32> usage, UInt32& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<float> usage, Single& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Vector2> usage, Vector2& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Vector3> usage, Vector3& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Quaternion> usage, Quaternion& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Hand> usage, Hand& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Bone> usage, Bone& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Eyes> usage, Eyes& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Byte[]> usage, Byte[] value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<InputTrackingState> usage, InputTrackingState& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<bool> usage, DateTime time, Boolean& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<UInt32> usage, DateTime time, UInt32& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<float> usage, DateTime time, Single& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Vector2> usage, DateTime time, Vector2& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Vector3> usage, DateTime time, Vector3& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<Quaternion> usage, DateTime time, Quaternion& value)
+  bool TryGetFeatureValue(InputFeatureUsage`1<InputTrackingState> usage, DateTime time, InputTrackingState& value)
+  bool CheckValidAndSetDefault(T& value)
+  bool Equals(object obj)
+  bool Equals(InputDevice other)
+  int GetHashCode()
+  bool op_Equality(InputDevice a, InputDevice b)
+  bool op_Inequality(InputDevice a, InputDevice b)
+--------------------------------------------------
+Класс: UnityEngine.XR.TimeConverter
+Наследуется от: object
+Поля:
+  DateTime s_Epoch
+Свойства:
+  DateTime now
+Методы:
+  DateTime get_now()
+  long LocalDateTimeToUnixTimeMilliseconds(DateTime date)
+  DateTime UnixTimeMillisecondsToLocalDateTime(long unixTimeInMilliseconds)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.HandFinger
+Наследуется от: Enum
+Поля:
+  int value__
+  HandFinger Thumb
+  HandFinger Index
+  HandFinger Middle
+  HandFinger Ring
+  HandFinger Pinky
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.Hand
+Наследуется от: ValueType
+Поля:
+  ulong m_DeviceId
+  UInt32 m_FeatureIndex
+Свойства:
+  ulong deviceId
+  UInt32 featureIndex
+Методы:
+  ulong get_deviceId()
+  UInt32 get_featureIndex()
+  bool TryGetRootBone(Bone& boneOut)
+  bool Hand_TryGetRootBone(Hand hand, Bone& boneOut)
+  bool TryGetFingerBones(HandFinger finger, List`1<Bone> bonesOut)
+  bool Hand_TryGetFingerBonesAsList(Hand hand, HandFinger finger, List`1<Bone> bonesOut)
+  bool Equals(object obj)
+  bool Equals(Hand other)
+  int GetHashCode()
+  bool op_Equality(Hand a, Hand b)
+  bool op_Inequality(Hand a, Hand b)
+  bool Hand_TryGetRootBone_Injected(Hand& hand, Bone& boneOut)
+  bool Hand_TryGetFingerBonesAsList_Injected(Hand& hand, HandFinger finger, List`1<Bone> bonesOut)
+--------------------------------------------------
+Класс: UnityEngine.XR.EyeSide
+Наследуется от: Enum
+Поля:
+  int value__
+  EyeSide Left
+  EyeSide Right
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.Eyes
+Наследуется от: ValueType
+Поля:
+  ulong m_DeviceId
+  UInt32 m_FeatureIndex
+Свойства:
+  ulong deviceId
+  UInt32 featureIndex
+Методы:
+  ulong get_deviceId()
+  UInt32 get_featureIndex()
+  bool TryGetLeftEyePosition(Vector3& position)
+  bool TryGetRightEyePosition(Vector3& position)
+  bool TryGetLeftEyeRotation(Quaternion& rotation)
+  bool TryGetRightEyeRotation(Quaternion& rotation)
+  bool Eyes_TryGetEyePosition(Eyes eyes, EyeSide chirality, Vector3& position)
+  bool Eyes_TryGetEyeRotation(Eyes eyes, EyeSide chirality, Quaternion& rotation)
+  bool TryGetFixationPoint(Vector3& fixationPoint)
+  bool Eyes_TryGetFixationPoint(Eyes eyes, Vector3& fixationPoint)
+  bool TryGetLeftEyeOpenAmount(Single& openAmount)
+  bool TryGetRightEyeOpenAmount(Single& openAmount)
+  bool Eyes_TryGetEyeOpenAmount(Eyes eyes, EyeSide chirality, Single& openAmount)
+  bool Equals(object obj)
+  bool Equals(Eyes other)
+  int GetHashCode()
+  bool op_Equality(Eyes a, Eyes b)
+  bool op_Inequality(Eyes a, Eyes b)
+  bool Eyes_TryGetEyePosition_Injected(Eyes& eyes, EyeSide chirality, Vector3& position)
+  bool Eyes_TryGetEyeRotation_Injected(Eyes& eyes, EyeSide chirality, Quaternion& rotation)
+  bool Eyes_TryGetFixationPoint_Injected(Eyes& eyes, Vector3& fixationPoint)
+  bool Eyes_TryGetEyeOpenAmount_Injected(Eyes& eyes, EyeSide chirality, Single& openAmount)
+--------------------------------------------------
+Класс: UnityEngine.XR.Bone
+Наследуется от: ValueType
+Поля:
+  ulong m_DeviceId
+  UInt32 m_FeatureIndex
+Свойства:
+  ulong deviceId
+  UInt32 featureIndex
+Методы:
+  ulong get_deviceId()
+  UInt32 get_featureIndex()
+  bool TryGetPosition(Vector3& position)
+  bool Bone_TryGetPosition(Bone bone, Vector3& position)
+  bool TryGetRotation(Quaternion& rotation)
+  bool Bone_TryGetRotation(Bone bone, Quaternion& rotation)
+  bool TryGetParentBone(Bone& parentBone)
+  bool Bone_TryGetParentBone(Bone bone, Bone& parentBone)
+  bool TryGetChildBones(List`1<Bone> childBones)
+  bool Bone_TryGetChildBones(Bone bone, List`1<Bone> childBones)
+  bool Equals(object obj)
+  bool Equals(Bone other)
+  int GetHashCode()
+  bool op_Equality(Bone a, Bone b)
+  bool op_Inequality(Bone a, Bone b)
+  bool Bone_TryGetPosition_Injected(Bone& bone, Vector3& position)
+  bool Bone_TryGetRotation_Injected(Bone& bone, Quaternion& rotation)
+  bool Bone_TryGetParentBone_Injected(Bone& bone, Bone& parentBone)
+  bool Bone_TryGetChildBones_Injected(Bone& bone, List`1<Bone> childBones)
+--------------------------------------------------
+Класс: UnityEngine.XR.InputDevices
+Наследуется от: object
+Поля:
+  List`1<InputDevice> s_InputDeviceList
+  Action`1<InputDevice> deviceConnected
+  Action`1<InputDevice> deviceDisconnected
+  Action`1<InputDevice> deviceConfigChanged
+Свойства:
+Методы:
+  InputDevice GetDeviceAtXRNode(XRNode node)
+  void GetDevicesAtXRNode(XRNode node, List`1<InputDevice> inputDevices)
+  void GetDevices(List`1<InputDevice> inputDevices)
+  void GetDevicesWithRole(InputDeviceRole role, List`1<InputDevice> inputDevices)
+  void GetDevicesWithCharacteristics(InputDeviceCharacteristics desiredCharacteristics, List`1<InputDevice> inputDevices)
+  void add_deviceConnected(Action`1<InputDevice> value)
+  void remove_deviceConnected(Action`1<InputDevice> value)
+  void add_deviceDisconnected(Action`1<InputDevice> value)
+  void remove_deviceDisconnected(Action`1<InputDevice> value)
+  void add_deviceConfigChanged(Action`1<InputDevice> value)
+  void remove_deviceConfigChanged(Action`1<InputDevice> value)
+  void InvokeConnectionEvent(ulong deviceId, ConnectionChangeType change)
+  void GetDevices_Internal(List`1<InputDevice> inputDevices)
+  bool SendHapticImpulse(ulong deviceId, UInt32 channel, float amplitude, float duration)
+  bool SendHapticBuffer(ulong deviceId, UInt32 channel, Byte[] buffer)
+  bool TryGetHapticCapabilities(ulong deviceId, HapticCapabilities& capabilities)
+  void StopHaptics(ulong deviceId)
+  bool TryGetFeatureUsages(ulong deviceId, List`1<InputFeatureUsage> featureUsages)
+  bool TryGetFeatureValue_bool(ulong deviceId, string usage, Boolean& value)
+  bool TryGetFeatureValue_UInt32(ulong deviceId, string usage, UInt32& value)
+  bool TryGetFeatureValue_float(ulong deviceId, string usage, Single& value)
+  bool TryGetFeatureValue_Vector2f(ulong deviceId, string usage, Vector2& value)
+  bool TryGetFeatureValue_Vector3f(ulong deviceId, string usage, Vector3& value)
+  bool TryGetFeatureValue_Quaternionf(ulong deviceId, string usage, Quaternion& value)
+  bool TryGetFeatureValue_Custom(ulong deviceId, string usage, Byte[] value)
+  bool TryGetFeatureValueAtTime_bool(ulong deviceId, string usage, long time, Boolean& value)
+  bool TryGetFeatureValueAtTime_UInt32(ulong deviceId, string usage, long time, UInt32& value)
+  bool TryGetFeatureValueAtTime_float(ulong deviceId, string usage, long time, Single& value)
+  bool TryGetFeatureValueAtTime_Vector2f(ulong deviceId, string usage, long time, Vector2& value)
+  bool TryGetFeatureValueAtTime_Vector3f(ulong deviceId, string usage, long time, Vector3& value)
+  bool TryGetFeatureValueAtTime_Quaternionf(ulong deviceId, string usage, long time, Quaternion& value)
+  bool TryGetFeatureValue_XRHand(ulong deviceId, string usage, Hand& value)
+  bool TryGetFeatureValue_XRBone(ulong deviceId, string usage, Bone& value)
+  bool TryGetFeatureValue_XREyes(ulong deviceId, string usage, Eyes& value)
+  bool IsDeviceValid(ulong deviceId)
+  string GetDeviceName(ulong deviceId)
+  string GetDeviceManufacturer(ulong deviceId)
+  string GetDeviceSerialNumber(ulong deviceId)
+  InputDeviceCharacteristics GetDeviceCharacteristics(ulong deviceId)
+  InputDeviceRole GetDeviceRole(ulong deviceId)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.XRDisplaySubsystem
+Наследуется от: IntegratedSubsystem`1<XRDisplaySubsystemDescriptor>
+Поля:
+  Action`1<bool> displayFocusChanged
+Свойства:
+  bool singlePassRenderingDisabled
+  bool displayOpaque
+  bool contentProtectionEnabled
+  float scaleOfAllViewports
+  float scaleOfAllRenderTargets
+  float zNear
+  float zFar
+  bool sRGB
+  float occlusionMaskScale
+  TextureLayout textureLayout
+  TextureLayout supportedTextureLayouts
+  ReprojectionMode reprojectionMode
+  bool disableLegacyRenderer
+Методы:
+  void add_displayFocusChanged(Action`1<bool> value)
+  void remove_displayFocusChanged(Action`1<bool> value)
+  void InvokeDisplayFocusChanged(bool focus)
+  bool get_singlePassRenderingDisabled()
+  void set_singlePassRenderingDisabled(bool value)
+  bool get_displayOpaque()
+  bool get_contentProtectionEnabled()
+  void set_contentProtectionEnabled(bool value)
+  float get_scaleOfAllViewports()
+  void set_scaleOfAllViewports(float value)
+  float get_scaleOfAllRenderTargets()
+  void set_scaleOfAllRenderTargets(float value)
+  float get_zNear()
+  void set_zNear(float value)
+  float get_zFar()
+  void set_zFar(float value)
+  bool get_sRGB()
+  void set_sRGB(bool value)
+  float get_occlusionMaskScale()
+  void set_occlusionMaskScale(float value)
+  void MarkTransformLateLatched(Transform transform, LateLatchNode nodeType)
+  TextureLayout get_textureLayout()
+  void set_textureLayout(TextureLayout value)
+  TextureLayout get_supportedTextureLayouts()
+  ReprojectionMode get_reprojectionMode()
+  void set_reprojectionMode(ReprojectionMode value)
+  void SetFocusPlane(Vector3 point, Vector3 normal, Vector3 velocity)
+  void SetMSAALevel(int level)
+  bool get_disableLegacyRenderer()
+  void set_disableLegacyRenderer(bool value)
+  int GetRenderPassCount()
+  void GetRenderPass(int renderPassIndex, XRRenderPass& renderPass)
+  bool Internal_TryGetRenderPass(int renderPassIndex, XRRenderPass& renderPass)
+  void EndRecordingIfLateLatched(Camera camera)
+  bool Internal_TryEndRecordingIfLateLatched(Camera camera)
+  void BeginRecordingIfLateLatched(Camera camera)
+  bool Internal_TryBeginRecordingIfLateLatched(Camera camera)
+  void GetCullingParameters(Camera camera, int cullingPassIndex, ScriptableCullingParameters& scriptableCullingParameters)
+  bool Internal_TryGetCullingParams(Camera camera, int cullingPassIndex, ScriptableCullingParameters& scriptableCullingParameters)
+  bool TryGetAppGPUTimeLastFrame(Single& gpuTimeLastFrame)
+  bool TryGetCompositorGPUTimeLastFrame(Single& gpuTimeLastFrameCompositor)
+  bool TryGetDroppedFrameCount(Int32& droppedFrameCount)
+  bool TryGetFramePresentCount(Int32& framePresentCount)
+  bool TryGetDisplayRefreshRate(Single& displayRefreshRate)
+  bool TryGetMotionToPhoton(Single& motionToPhoton)
+  RenderTexture GetRenderTextureForRenderPass(int renderPass)
+  RenderTexture GetSharedDepthTextureForRenderPass(int renderPass)
+  int GetPreferredMirrorBlitMode()
+  void SetPreferredMirrorBlitMode(int blitMode)
+  bool GetMirrorViewBlitDesc(RenderTexture mirrorRt, XRMirrorViewBlitDesc& outDesc)
+  bool GetMirrorViewBlitDesc(RenderTexture mirrorRt, XRMirrorViewBlitDesc& outDesc, int mode)
+  bool AddGraphicsThreadMirrorViewBlit(CommandBuffer cmd, bool allowGraphicsStateInvalidate)
+  bool AddGraphicsThreadMirrorViewBlit(CommandBuffer cmd, bool allowGraphicsStateInvalidate, int mode)
+  void .ctor()
+  void SetFocusPlane_Injected(Vector3& point, Vector3& normal, Vector3& velocity)
+--------------------------------------------------
+Класс: UnityEngine.XR.XRMirrorViewBlitMode
+Наследуется от: ValueType
+Поля:
+  int Default
+  int LeftEye
+  int RightEye
+  int SideBySide
+  int SideBySideOcclusionMesh
+  int Distort
+  int None
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.XRMirrorViewBlitModeDesc
+Наследуется от: ValueType
+Поля:
+  int blitMode
+  string blitModeDesc
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.XRDisplaySubsystemDescriptor
+Наследуется от: IntegratedSubsystemDescriptor`1<XRDisplaySubsystem>
+Поля:
+Свойства:
+  bool disablesLegacyVr
+  bool enableBackBufferMSAA
+Методы:
+  bool get_disablesLegacyVr()
+  bool get_enableBackBufferMSAA()
+  int GetAvailableMirrorBlitModeCount()
+  void GetMirrorBlitModeByIndex(int index, XRMirrorViewBlitModeDesc& mode)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.TrackingOriginModeFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  TrackingOriginModeFlags Unknown
+  TrackingOriginModeFlags Device
+  TrackingOriginModeFlags Floor
+  TrackingOriginModeFlags TrackingReference
+  TrackingOriginModeFlags Unbounded
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.XRInputSubsystem
+Наследуется от: IntegratedSubsystem`1<XRInputSubsystemDescriptor>
+Поля:
+  Action`1<XRInputSubsystem> trackingOriginUpdated
+  Action`1<XRInputSubsystem> boundaryChanged
+  List`1<ulong> m_DeviceIdsCache
+Свойства:
+Методы:
+  UInt32 GetIndex()
+  bool TryRecenter()
+  bool TryGetInputDevices(List`1<InputDevice> devices)
+  bool TrySetTrackingOriginMode(TrackingOriginModeFlags origin)
+  TrackingOriginModeFlags GetTrackingOriginMode()
+  TrackingOriginModeFlags GetSupportedTrackingOriginModes()
+  bool TryGetBoundaryPoints(List`1<Vector3> boundaryPoints)
+  bool TryGetBoundaryPoints_AsList(List`1<Vector3> boundaryPoints)
+  void add_trackingOriginUpdated(Action`1<XRInputSubsystem> value)
+  void remove_trackingOriginUpdated(Action`1<XRInputSubsystem> value)
+  void add_boundaryChanged(Action`1<XRInputSubsystem> value)
+  void remove_boundaryChanged(Action`1<XRInputSubsystem> value)
+  void InvokeTrackingOriginUpdatedEvent(IntPtr internalPtr)
+  void InvokeBoundaryChangedEvent(IntPtr internalPtr)
+  void TryGetDeviceIds_AsList(List`1<ulong> deviceIds)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.XRInputSubsystemDescriptor
+Наследуется от: IntegratedSubsystemDescriptor`1<XRInputSubsystem>
+Поля:
+Свойства:
+  bool disablesLegacyInput
+Методы:
+  bool get_disablesLegacyInput()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.MeshId
+Наследуется от: ValueType
+Поля:
+  MeshId s_InvalidId
+  ulong m_SubId1
+  ulong m_SubId2
+Свойства:
+  MeshId InvalidId
+Методы:
+  string ToString()
+  int GetHashCode()
+  bool Equals(object obj)
+  bool Equals(MeshId other)
+  bool op_Equality(MeshId id1, MeshId id2)
+  bool op_Inequality(MeshId id1, MeshId id2)
+  MeshId get_InvalidId()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.MeshGenerationStatus
+Наследуется от: Enum
+Поля:
+  int value__
+  MeshGenerationStatus Success
+  MeshGenerationStatus InvalidMeshId
+  MeshGenerationStatus GenerationAlreadyInProgress
+  MeshGenerationStatus Canceled
+  MeshGenerationStatus UnknownError
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.HashCodeHelper
+Наследуется от: object
+Поля:
+  int k_HashCodeMultiplier
+Свойства:
+Методы:
+  int Combine(int hash1, int hash2)
+  int Combine(int hash1, int hash2, int hash3)
+  int Combine(int hash1, int hash2, int hash3, int hash4)
+  int Combine(int hash1, int hash2, int hash3, int hash4, int hash5)
+  int Combine(int hash1, int hash2, int hash3, int hash4, int hash5, int hash6)
+  int Combine(int hash1, int hash2, int hash3, int hash4, int hash5, int hash6, int hash7)
+  int Combine(int hash1, int hash2, int hash3, int hash4, int hash5, int hash6, int hash7, int hash8)
+--------------------------------------------------
+Класс: UnityEngine.XR.MeshGenerationResult
+Наследуется от: ValueType
+Поля:
+  MeshId <MeshId>k__BackingField
+  Mesh <Mesh>k__BackingField
+  MeshCollider <MeshCollider>k__BackingField
+  MeshGenerationStatus <Status>k__BackingField
+  MeshVertexAttributes <Attributes>k__BackingField
+  ulong <Timestamp>k__BackingField
+  Vector3 <Position>k__BackingField
+  Quaternion <Rotation>k__BackingField
+  Vector3 <Scale>k__BackingField
+Свойства:
+  MeshId MeshId
+  Mesh Mesh
+  MeshCollider MeshCollider
+  MeshGenerationStatus Status
+  MeshVertexAttributes Attributes
+  ulong Timestamp
+  Vector3 Position
+  Quaternion Rotation
+  Vector3 Scale
+Методы:
+  MeshId get_MeshId()
+  Mesh get_Mesh()
+  MeshCollider get_MeshCollider()
+  MeshGenerationStatus get_Status()
+  MeshVertexAttributes get_Attributes()
+  ulong get_Timestamp()
+  Vector3 get_Position()
+  Quaternion get_Rotation()
+  Vector3 get_Scale()
+  bool Equals(object obj)
+  bool Equals(MeshGenerationResult other)
+  bool op_Equality(MeshGenerationResult lhs, MeshGenerationResult rhs)
+  bool op_Inequality(MeshGenerationResult lhs, MeshGenerationResult rhs)
+  int GetHashCode()
+--------------------------------------------------
+Класс: UnityEngine.XR.MeshVertexAttributes
+Наследуется от: Enum
+Поля:
+  int value__
+  MeshVertexAttributes None
+  MeshVertexAttributes Normals
+  MeshVertexAttributes Tangents
+  MeshVertexAttributes UVs
+  MeshVertexAttributes Colors
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.MeshGenerationOptions
+Наследуется от: Enum
+Поля:
+  int value__
+  MeshGenerationOptions None
+  MeshGenerationOptions ConsumeTransform
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.MeshChangeState
+Наследуется от: Enum
+Поля:
+  int value__
+  MeshChangeState Added
+  MeshChangeState Updated
+  MeshChangeState Removed
+  MeshChangeState Unchanged
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.XR.MeshInfo
+Наследуется от: ValueType
+Поля:
+  MeshId <MeshId>k__BackingField
+  MeshChangeState <ChangeState>k__BackingField
+  int <PriorityHint>k__BackingField
+Свойства:
+  MeshId MeshId
+  MeshChangeState ChangeState
+  int PriorityHint
+Методы:
+  MeshId get_MeshId()
+  void set_MeshId(MeshId value)
+  MeshChangeState get_ChangeState()
+  void set_ChangeState(MeshChangeState value)
+  int get_PriorityHint()
+  void set_PriorityHint(int value)
+  bool Equals(object obj)
+  bool Equals(MeshInfo other)
+  bool op_Equality(MeshInfo lhs, MeshInfo rhs)
+  bool op_Inequality(MeshInfo lhs, MeshInfo rhs)
+  int GetHashCode()
+--------------------------------------------------
+Класс: UnityEngine.XR.MeshTransform
+Наследуется от: ValueType
+Поля:
+  MeshId <MeshId>k__BackingField
+  ulong <Timestamp>k__BackingField
+  Vector3 <Position>k__BackingField
+  Quaternion <Rotation>k__BackingField
+  Vector3 <Scale>k__BackingField
+Свойства:
+  MeshId MeshId
+  ulong Timestamp
+  Vector3 Position
+  Quaternion Rotation
+  Vector3 Scale
+Методы:
+  MeshId get_MeshId()
+  ulong get_Timestamp()
+  Vector3 get_Position()
+  Quaternion get_Rotation()
+  Vector3 get_Scale()
+  void .ctor(MeshId& meshId, ulong timestamp, Vector3& position, Quaternion& rotation, Vector3& scale)
+  bool Equals(object obj)
+  bool Equals(MeshTransform other)
+  bool op_Equality(MeshTransform lhs, MeshTransform rhs)
+  bool op_Inequality(MeshTransform lhs, MeshTransform rhs)
+  int GetHashCode()
+--------------------------------------------------
+Класс: UnityEngine.XR.XRMeshSubsystem
+Наследуется от: IntegratedSubsystem`1<XRMeshSubsystemDescriptor>
+Поля:
+Свойства:
+  float meshDensity
+Методы:
+  bool TryGetMeshInfos(List`1<MeshInfo> meshInfosOut)
+  bool GetMeshInfosAsList(List`1<MeshInfo> meshInfos)
+  MeshInfo[] GetMeshInfosAsFixedArray()
+  void GenerateMeshAsync(MeshId meshId, Mesh mesh, MeshCollider meshCollider, MeshVertexAttributes attributes, Action`1<MeshGenerationResult> onMeshGenerationComplete)
+  void GenerateMeshAsync(MeshId meshId, Mesh mesh, MeshCollider meshCollider, MeshVertexAttributes attributes, Action`1<MeshGenerationResult> onMeshGenerationComplete, MeshGenerationOptions options)
+  void InvokeMeshReadyDelegate(MeshGenerationResult result, Action`1<MeshGenerationResult> onMeshGenerationComplete)
+  float get_meshDensity()
+  void set_meshDensity(float value)
+  bool SetBoundingVolume(Vector3 origin, Vector3 extents)
+  NativeArray`1<MeshTransform> GetUpdatedMeshTransforms(Allocator allocator)
+  IntPtr GetUpdatedMeshTransforms()
+  void .ctor()
+  void GenerateMeshAsync_Injected(MeshId& meshId, Mesh mesh, MeshCollider meshCollider, MeshVertexAttributes attributes, Action`1<MeshGenerationResult> onMeshGenerationComplete, MeshGenerationOptions options)
+  bool SetBoundingVolume_Injected(Vector3& origin, Vector3& extents)
+--------------------------------------------------
+Класс: UnityEngine.XR.XRMeshSubsystemDescriptor
+Наследуется от: IntegratedSubsystemDescriptor`1<XRMeshSubsystem>
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.XR.Provider.XRStats
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool TryGetStat(IntegratedSubsystem xrSubsystem, string tag, Single& value)
+  bool TryGetStat_Internal(IntPtr ptr, string tag, Single& value)
+--------------------------------------------------

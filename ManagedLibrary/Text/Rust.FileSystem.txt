@@ -1,0 +1,144 @@
+Сборка: Rust.FileSystem.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: AssetBundleBackend
+Наследуется от: FileSystemBackend
+Поля:
+  AssetBundle rootBundle
+  AssetBundleManifest manifest
+  Dictionary`2<string, AssetBundle> bundles
+  Dictionary`2<string, AssetBundle> files
+  string assetPath
+  float <LoadProgress>k__BackingField
+Свойства:
+  bool Enabled
+  float LoadProgress
+Методы:
+  bool get_Enabled()
+  float get_LoadProgress()
+  void set_LoadProgress(float value)
+  void Load(string assetRoot)
+  AssetBundle LoadBundle(string bundleName)
+  void BuildFileIndex()
+  void Dispose()
+  List`1<string> UnloadBundles(string partialName)
+  T LoadAsset(string filePath)
+  LoadAssetsResult LoadAssetsAsync(List`1<string> filePaths, int maxConcurrency, int priority)
+  String[] LoadAssetList(string folder, string search)
+  T[] LoadAllFromBundle(string bundleName, string editorSearch)
+  void .ctor()
+--------------------------------------------------
+Класс: AssetBundleLoadAssetsResult
+Наследуется от: LoadAssetsResult
+Поля:
+  AssetBundle _bundle
+  List`1<string> _filePaths
+  int _maxConcurrency
+  int _priority
+  List`1<AssetBundleRequest> _requests
+  List`1<ValueTuple`2<string, AssetBundleRequest>> _pendingRequests
+  int _index
+Свойства:
+  int TotalCount
+  bool keepWaiting
+Методы:
+  int get_TotalCount()
+  void .ctor(AssetBundle bundle, List`1<string> filePaths, int maxConcurrency, int priority)
+  bool get_keepWaiting()
+  bool Update()
+  Dictionary`2<string, Object> GetResult()
+--------------------------------------------------
+Класс: AssetPreloadResult
+Наследуется от: CustomYieldInstruction
+Поля:
+  FileSystemBackend _backend
+  LoadAssetsResult _load
+  List`1<ValueTuple`2<string, Object>> _loaded
+  int _alreadyLoadedCount
+Свойства:
+  int TotalCount
+  int CompletedCount
+  IReadOnlyList`1<ValueTuple`2<string, Object>> Results
+  bool keepWaiting
+Методы:
+  void .ctor(FileSystemBackend backend, LoadAssetsResult load, List`1<ValueTuple`2<string, Object>> loaded)
+  int get_TotalCount()
+  int get_CompletedCount()
+  IReadOnlyList`1<ValueTuple`2<string, Object>> get_Results()
+  bool get_keepWaiting()
+  void OnAssetLoaded(string path, Object obj)
+--------------------------------------------------
+Класс: CompositeLoadAssetsResult
+Наследуется от: LoadAssetsResult
+Поля:
+  List`1<LoadAssetsResult> _loads
+Свойства:
+  int TotalCount
+  int CompletedCount
+  bool keepWaiting
+Методы:
+  void .ctor(List`1<LoadAssetsResult> loads)
+  int get_TotalCount()
+  int get_CompletedCount()
+  void set_CompletedCount(int value)
+  bool get_keepWaiting()
+  Dictionary`2<string, Object> GetResult()
+  void AssetLoadedHandler(string assetPath, Object obj)
+--------------------------------------------------
+Класс: FileSystem
+Наследуется от: object
+Поля:
+  bool LogDebug
+  bool LogTime
+  FileSystemBackend Backend
+Свойства:
+Методы:
+  GameObject[] LoadPrefabs(string folder)
+  GameObject LoadPrefab(string filePath)
+  String[] FindAll(string folder, string search)
+  T[] LoadAll(string folder, string search)
+  T[] LoadAllFromBundle(string bundleName, string editorSearch)
+  T Load(string filePath, bool complain)
+  AssetPreloadResult PreloadAssets(IEnumerable`1<string> filePaths, int maxConcurrency, int priority)
+--------------------------------------------------
+Класс: FileSystemBackend
+Наследуется от: object
+Поля:
+  bool isError
+  string loadingError
+  Dictionary`2<string, Object> cache
+Свойства:
+Методы:
+  GameObject[] LoadPrefabs(string folder)
+  GameObject LoadPrefab(string filePath)
+  String[] FindAll(string folder, string search)
+  T[] LoadAll(string folder, string search)
+  T Load(string filePath)
+  AssetPreloadResult PreloadAssets(IEnumerable`1<string> filePaths, int maxConcurrency, int priority)
+  void LoadError(string err)
+  List`1<string> UnloadBundles(string partialName)
+  T LoadAsset(string filePath)
+  LoadAssetsResult LoadAssetsAsync(List`1<string> filePaths, int maxConcurrency, int priority)
+  String[] LoadAssetList(string folder, string search)
+  T[] LoadAllFromBundle(string bundleName, string editorSearch)
+  void .ctor()
+--------------------------------------------------
+Класс: LoadAssetsResult
+Наследуется от: CustomYieldInstruction
+Поля:
+  int <CompletedCount>k__BackingField
+  AssetLoaded OnAssetLoaded
+Свойства:
+  int TotalCount
+  int CompletedCount
+Методы:
+  int get_TotalCount()
+  int get_CompletedCount()
+  void set_CompletedCount(int value)
+  Dictionary`2<string, Object> GetResult()
+  void .ctor()
+--------------------------------------------------

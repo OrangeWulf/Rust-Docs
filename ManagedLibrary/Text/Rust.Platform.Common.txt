@@ -1,0 +1,344 @@
+Сборка: Rust.Platform.Common.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: AuthResponse
+Наследуется от: Enum
+Поля:
+  int value__
+  AuthResponse Invalid
+  AuthResponse TimedOut
+  AuthResponse OK
+  AuthResponse VACBanned
+  AuthResponse PublisherBanned
+  AuthResponse InvalidAuthSession
+  AuthResponse NetworkIdentityFailure
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: AvatarCache
+Наследуется от: object
+Поля:
+  Dictionary`2<ulong, Entry> _entries
+  Action`2<ulong, Texture2D> _loadAvatar
+Свойства:
+Методы:
+  void .ctor(Action`2<ulong, Texture2D> loadAvatar)
+  Texture2D Get(ulong userId)
+--------------------------------------------------
+Класс: IAchievement
+Поля:
+Свойства:
+  string Key
+  bool IsUnlocked
+Методы:
+  string get_Key()
+  bool get_IsUnlocked()
+  void Unlock()
+--------------------------------------------------
+Класс: IAuthTicket
+Поля:
+Свойства:
+  string Token
+  Byte[] Data
+Методы:
+  string get_Token()
+  Byte[] get_Data()
+--------------------------------------------------
+Класс: IDownloadableContent
+Поля:
+Свойства:
+  int AppId
+  bool IsInstalled
+Методы:
+  int get_AppId()
+  bool get_IsInstalled()
+--------------------------------------------------
+Класс: IPlatformHooks
+Поля:
+Свойства:
+  UInt32 SteamAppId
+  Nullable`1<ServerParameters> ServerParameters
+Методы:
+  UInt32 get_SteamAppId()
+  void Abort()
+  void OnItemDefinitionsChanged()
+  Nullable`1<ServerParameters> get_ServerParameters()
+  void AuthSessionValidated(ulong userId, ulong ownerUserId, AuthResponse response, string rawResponse)
+--------------------------------------------------
+Класс: IPlatformService
+Поля:
+Свойства:
+  bool IsValid
+  IReadOnlyList`1<IPlayerItemDefinition> ItemDefinitions
+Методы:
+  bool Initialize(IPlatformHooks hooks)
+  void Shutdown()
+  void Update()
+  bool get_IsValid()
+  IReadOnlyList`1<IPlayerItemDefinition> get_ItemDefinitions()
+  void RefreshItemDefinitions()
+  IPlayerItemDefinition GetItemDefinition(int definitionId)
+  Task`1<IPlayerInventory> DeserializeInventory(Byte[] data)
+  bool PlayerOwnsDownloadableContent(ulong userId, int appId)
+  Task`1<bool> LoadPlayerStats(ulong userId)
+  Task`1<bool> SavePlayerStats(ulong userId)
+  long GetPlayerStatInt(ulong userId, string key, long defaultValue)
+  bool SetPlayerStatInt(ulong userId, string key, long value)
+  bool BeginPlayerSession(ulong userId, Byte[] authToken)
+  void UpdatePlayerSession(ulong userId, string userName)
+  void EndPlayerSession(ulong userId)
+--------------------------------------------------
+Класс: IPlayerInfo
+Поля:
+Свойства:
+  ulong UserId
+  string UserName
+  bool IsOnline
+  bool IsMe
+  bool IsFriend
+  bool IsPlayingThisGame
+  string ServerEndpoint
+Методы:
+  ulong get_UserId()
+  string get_UserName()
+  bool get_IsOnline()
+  bool get_IsMe()
+  bool get_IsFriend()
+  bool get_IsPlayingThisGame()
+  string get_ServerEndpoint()
+--------------------------------------------------
+Класс: IPlayerInventory
+Поля:
+Свойства:
+  IReadOnlyList`1<IPlayerItem> Items
+Методы:
+  bool BelongsTo(ulong userId)
+  IReadOnlyList`1<IPlayerItem> get_Items()
+  Byte[] Serialize()
+--------------------------------------------------
+Класс: IPlayerItem
+Поля:
+Свойства:
+  int DefinitionId
+  int Quantity
+  DateTimeOffset Acquired
+  ulong WorkshopId
+  string ItemShortName
+Методы:
+  int get_DefinitionId()
+  int get_Quantity()
+  DateTimeOffset get_Acquired()
+  ulong get_WorkshopId()
+  string get_ItemShortName()
+--------------------------------------------------
+Класс: IPlayerItemDefinition
+Поля:
+Свойства:
+  int DefinitionId
+  string Name
+  string Description
+  string Type
+  string IconUrl
+  int LocalPrice
+  string LocalPriceFormatted
+  string PriceCategory
+  bool IsGenerator
+  bool IsMarketable
+  string StoreTags
+  string ItemShortName
+  ulong WorkshopId
+  ulong WorkshopDownload
+Методы:
+  int get_DefinitionId()
+  string get_Name()
+  string get_Description()
+  string get_Type()
+  string get_IconUrl()
+  int get_LocalPrice()
+  string get_LocalPriceFormatted()
+  string get_PriceCategory()
+  bool get_IsGenerator()
+  bool get_IsMarketable()
+  string get_StoreTags()
+  string get_ItemShortName()
+  ulong get_WorkshopId()
+  ulong get_WorkshopDownload()
+  IEnumerable`1<PlayerItemRecipe> GetRecipesContainingThis()
+--------------------------------------------------
+Класс: ServerQuerySet
+Наследуется от: Enum
+Поля:
+  int value__
+  ServerQuerySet Whitelist
+  ServerQuerySet Internet
+  ServerQuerySet LocalNetwork
+  ServerQuerySet Friends
+  ServerQuerySet Favorites
+  ServerQuerySet History
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: IServerQuery
+Поля:
+Свойства:
+  ServerQuerySet QuerySet
+  IReadOnlyList`1<ServerInfo> Servers
+Методы:
+  ServerQuerySet get_QuerySet()
+  IReadOnlyList`1<ServerInfo> get_Servers()
+  void add_OnServerFound(Action`1<ServerInfo> value)
+  void remove_OnServerFound(Action`1<ServerInfo> value)
+  void AddFilter(string key, string value)
+  Task RunQueryAsync(double timeoutInSeconds)
+--------------------------------------------------
+Класс: IWorkshopContent
+Поля:
+Свойства:
+  ulong WorkshopId
+  string Title
+  string Description
+  IEnumerable`1<string> Tags
+  string Url
+  string PreviewImageUrl
+  ulong OwnerId
+  IPlayerInfo Owner
+  bool IsInstalled
+  bool IsDownloadPending
+  bool IsDownloading
+  string Directory
+Методы:
+  ulong get_WorkshopId()
+  string get_Title()
+  string get_Description()
+  IEnumerable`1<string> get_Tags()
+  string get_Url()
+  string get_PreviewImageUrl()
+  ulong get_OwnerId()
+  IPlayerInfo get_Owner()
+  bool get_IsInstalled()
+  bool get_IsDownloadPending()
+  bool get_IsDownloading()
+  string get_Directory()
+  bool Download()
+--------------------------------------------------
+Класс: PlayerItemRecipe
+Наследуется от: ValueType
+Поля:
+  IReadOnlyList`1<Ingredient> <Ingredients>k__BackingField
+  IPlayerItemDefinition <Result>k__BackingField
+Свойства:
+  IReadOnlyList`1<Ingredient> Ingredients
+  IPlayerItemDefinition Result
+Методы:
+  IReadOnlyList`1<Ingredient> get_Ingredients()
+  IPlayerItemDefinition get_Result()
+  void .ctor(IReadOnlyList`1<Ingredient> ingredients, IPlayerItemDefinition result)
+  bool Equals(PlayerItemRecipe other)
+  bool Equals(object obj)
+  int GetHashCode()
+  bool op_Equality(PlayerItemRecipe left, PlayerItemRecipe right)
+  bool op_Inequality(PlayerItemRecipe left, PlayerItemRecipe right)
+--------------------------------------------------
+Класс: ServerInfo
+Наследуется от: ValueType
+Поля:
+  Char[] SplitComma
+  UInt32 <AppId>k__BackingField
+  string <Name>k__BackingField
+  IPAddress <Address>k__BackingField
+  UInt32 <AddressRaw>k__BackingField
+  int <ConnectionPort>k__BackingField
+  int <QueryPort>k__BackingField
+  string <Map>k__BackingField
+  string <TagString>k__BackingField
+  bool <IsSecure>k__BackingField
+  int <Players>k__BackingField
+  int <MaxPlayers>k__BackingField
+  UInt32 <LastTimePlayed>k__BackingField
+  int <Ping>k__BackingField
+  ulong <SteamId>k__BackingField
+  string <Changeset>k__BackingField
+  UInt32 <Born>k__BackingField
+  HashSet`1<string> <Tags>k__BackingField
+  string <ConnectionProtocol>k__BackingField
+  string <ConnectionString>k__BackingField
+Свойства:
+  UInt32 AppId
+  string Name
+  IPAddress Address
+  UInt32 AddressRaw
+  int ConnectionPort
+  int QueryPort
+  string Map
+  string TagString
+  bool IsSecure
+  int Players
+  int MaxPlayers
+  UInt32 LastTimePlayed
+  int Ping
+  ulong SteamId
+  string Changeset
+  UInt32 Born
+  HashSet`1<string> Tags
+  string ConnectionProtocol
+  string ConnectionString
+Методы:
+  UInt32 get_AppId()
+  string get_Name()
+  IPAddress get_Address()
+  UInt32 get_AddressRaw()
+  int get_ConnectionPort()
+  int get_QueryPort()
+  string get_Map()
+  string get_TagString()
+  bool get_IsSecure()
+  int get_Players()
+  int get_MaxPlayers()
+  UInt32 get_LastTimePlayed()
+  int get_Ping()
+  ulong get_SteamId()
+  string get_Changeset()
+  UInt32 get_Born()
+  HashSet`1<string> get_Tags()
+  string get_ConnectionProtocol()
+  string get_ConnectionString()
+  void .ctor(UInt32 appId, string name, IPAddress address, int connectionPort, int queryPort, string map, string tagString, bool isSecure, int players, int maxPlayers, UInt32 lastTimePlayed, int ping, ulong steamId, int authedPlayers)
+  UInt32 AddressToUInt32(IPAddress address)
+  UInt32 Swap(UInt32 x)
+  void .cctor()
+--------------------------------------------------
+Класс: Rust.Platform.Common.ServerParameters
+Наследуется от: ValueType
+Поля:
+  string <ShortName>k__BackingField
+  string <FullName>k__BackingField
+  string <Version>k__BackingField
+  bool <IsSecure>k__BackingField
+  bool <HideIP>k__BackingField
+  IPAddress <Address>k__BackingField
+  ushort <GamePort>k__BackingField
+  ushort <QueryPort>k__BackingField
+Свойства:
+  string ShortName
+  string FullName
+  string Version
+  bool IsSecure
+  bool HideIP
+  IPAddress Address
+  ushort GamePort
+  ushort QueryPort
+Методы:
+  string get_ShortName()
+  string get_FullName()
+  string get_Version()
+  bool get_IsSecure()
+  bool get_HideIP()
+  IPAddress get_Address()
+  ushort get_GamePort()
+  ushort get_QueryPort()
+  void .ctor(string shortName, string fullName, string version, bool isSecure, bool hideIP, IPAddress address, ushort gamePort, ushort queryPort)
+--------------------------------------------------

@@ -1,0 +1,60 @@
+Сборка: Rust.Harmony.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: IHarmonyModHooks
+Поля:
+Свойства:
+Методы:
+  void OnLoaded(OnHarmonyModLoadedArgs args)
+  void OnUnloaded(OnHarmonyModUnloadedArgs args)
+--------------------------------------------------
+Класс: OnHarmonyModLoadedArgs
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: OnHarmonyModUnloadedArgs
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: HarmonyModInfo
+Наследуется от: ValueType
+Поля:
+  string Name
+  string Version
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: HarmonyLoader
+Наследуется от: object
+Поля:
+  string modPath
+  List`1<HarmonyMod> loadedMods
+  DefaultAssemblyResolver AssemblyResolver
+  Dictionary`2<string, Assembly> assemblyNames
+Свойства:
+Методы:
+  IEnumerable`1<HarmonyModInfo> GetHarmonyMods()
+  void LoadHarmonyMods()
+  bool TryLoadMod(string dllName)
+  bool TryUnloadMod(string name)
+  void UnloadMod(HarmonyMod mod)
+  HarmonyMod GetMod(string name)
+  Assembly LoadAssembly(string assemblyPath)
+  bool IsKnownDependency(string assemblyName)
+  void ReportException(string harmonyId, Exception e)
+  void Log(string harmonyId, object message)
+  void LogError(string harmonyId, object message)
+  void LogError(object message)
+  void LogWarning(object message)
+  void .cctor()
+--------------------------------------------------

@@ -1,0 +1,241 @@
+Сборка: Rust.Clans.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanChatEntry
+Наследуется от: ValueType
+Поля:
+  ulong SteamId
+  string Name
+  string Message
+  long Time
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanChatScrollback
+Наследуется от: ValueType
+Поля:
+  long ClanId
+  List`1<ClanChatEntry> Entries
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanDataSource
+Наследуется от: Enum
+Поля:
+  int value__
+  ClanDataSource Basic
+  ClanDataSource Motd
+  ClanDataSource Logo
+  ClanDataSource Roles
+  ClanDataSource Members
+  ClanDataSource Invites
+  ClanDataSource All
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanInvitation
+Наследуется от: ValueType
+Поля:
+  long ClanId
+  ulong Recruiter
+  long Timestamp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanInvite
+Наследуется от: ValueType
+Поля:
+  ulong SteamId
+  ulong Recruiter
+  long Timestamp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanLogEntry
+Наследуется от: ValueType
+Поля:
+  long Timestamp
+  string EventKey
+  string Arg1
+  string Arg2
+  string Arg3
+  string Arg4
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanLogs
+Наследуется от: ValueType
+Поля:
+  long ClanId
+  List`1<ClanLogEntry> Entries
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanMember
+Наследуется от: ValueType
+Поля:
+  ulong SteamId
+  int RoleId
+  long Joined
+  long LastSeen
+  string Notes
+  long NotesTimestamp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanResult
+Наследуется от: Enum
+Поля:
+  int value__
+  ClanResult Fail
+  ClanResult Success
+  ClanResult Timeout
+  ClanResult NoClan
+  ClanResult NotFound
+  ClanResult NoPermission
+  ClanResult InvalidText
+  ClanResult InvalidLogo
+  ClanResult InvalidColor
+  ClanResult DuplicateName
+  ClanResult RoleNotEmpty
+  ClanResult CannotSwapLeader
+  ClanResult CannotDeleteLeader
+  ClanResult CannotKickLeader
+  ClanResult CannotDemoteLeader
+  ClanResult AlreadyInAClan
+  ClanResult CantModifyClanHere
+  ClanResult ClanIsFull
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanRole
+Наследуется от: ValueType
+Поля:
+  int RoleId
+  int Rank
+  string Name
+  bool CanSetMotd
+  bool CanSetLogo
+  bool CanInvite
+  bool CanKick
+  bool CanPromote
+  bool CanDemote
+  bool CanSetPlayerNotes
+  bool CanAccessLogs
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ClanUtility
+Наследуется от: object
+Поля:
+  int LeaderRank
+Свойства:
+Методы:
+  long Timestamp()
+--------------------------------------------------
+Класс: ClanValidator
+Наследуется от: object
+Поля:
+  StringBuilder Builder
+Свойства:
+Методы:
+  bool ValidateClanName(string name, String& validated)
+  bool ValidateRoleName(string name, String& validated)
+  bool ValidateMotd(string motd, String& validated)
+  bool ValidatePlayerNote(string note, String& validated)
+  bool ValidateChatMessage(string message, String& validated)
+  string Normalize(string value, int maxLines)
+  bool ValidateLength(string value, int min, int max)
+  bool ValidateAlphanumericOnly(string value)
+  void .cctor()
+--------------------------------------------------
+Класс: ClanValueResult`1
+Наследуется от: ValueType
+Поля:
+  ClanResult Result
+  T _value
+Свойства:
+  bool IsSuccess
+  T Value
+Методы:
+  void .ctor(ClanResult result)
+  void .ctor(T value)
+  bool get_IsSuccess()
+  T get_Value()
+  ClanValueResult`1<T> op_Implicit(ClanResult result)
+  ClanValueResult`1<T> op_Implicit(T value)
+--------------------------------------------------
+Класс: IClan
+Поля:
+Свойства:
+  long ClanId
+  string Name
+  long Created
+  ulong Creator
+  string Motd
+  long MotdTimestamp
+  ulong MotdAuthor
+  Byte[] Logo
+  Color32 Color
+  IReadOnlyList`1<ClanRole> Roles
+  IReadOnlyList`1<ClanMember> Members
+  int MaxMemberCount
+  IReadOnlyList`1<ClanInvite> Invites
+Методы:
+  long get_ClanId()
+  string get_Name()
+  long get_Created()
+  ulong get_Creator()
+  string get_Motd()
+  long get_MotdTimestamp()
+  ulong get_MotdAuthor()
+  Byte[] get_Logo()
+  Color32 get_Color()
+  IReadOnlyList`1<ClanRole> get_Roles()
+  IReadOnlyList`1<ClanMember> get_Members()
+  int get_MaxMemberCount()
+  IReadOnlyList`1<ClanInvite> get_Invites()
+  ValueTask`1<ClanValueResult`1<ClanLogs>> GetLogs(int limit, ulong bySteamId)
+  ValueTask`1<ClanResult> UpdateLastSeen(ulong steamId)
+  ValueTask`1<ClanResult> SetMotd(string newMotd, ulong bySteamId)
+  ValueTask`1<ClanResult> SetLogo(Byte[] newLogo, ulong bySteamId)
+  ValueTask`1<ClanResult> SetColor(Color32 newColor, ulong bySteamId)
+  ValueTask`1<ClanResult> Invite(ulong steamId, ulong bySteamId)
+  ValueTask`1<ClanResult> CancelInvite(ulong steamId, ulong bySteamId)
+  ValueTask`1<ClanResult> AcceptInvite(ulong steamId)
+  ValueTask`1<ClanResult> Kick(ulong steamId, ulong bySteamId)
+  ValueTask`1<ClanResult> SetPlayerRole(ulong steamId, int newRoleId, ulong bySteamId)
+  ValueTask`1<ClanResult> SetPlayerNotes(ulong steamId, string notes, ulong bySteamId)
+  ValueTask`1<ClanResult> CreateRole(ClanRole role, ulong bySteamId)
+  ValueTask`1<ClanResult> UpdateRole(ClanRole role, ulong bySteamId)
+  ValueTask`1<ClanResult> SwapRoleRanks(int roleIdA, int roleIdB, ulong bySteamId)
+  ValueTask`1<ClanResult> DeleteRole(int roleId, ulong bySteamId)
+  ValueTask`1<ClanResult> Disband(ulong bySteamId)
+  ValueTask`1<ClanValueResult`1<ClanChatScrollback>> GetChatScrollback()
+  ValueTask`1<ClanResult> SendChatMessage(string name, string message, ulong bySteamId)
+--------------------------------------------------
+Класс: IClanBackend
+Поля:
+Свойства:
+Методы:
+  ValueTask Initialize(IClanChangeSink changeSink)
+  ValueTask`1<ClanValueResult`1<IClan>> Get(long clanId)
+  bool TryGet(long clanId, IClan& clan)
+  ValueTask`1<ClanValueResult`1<IClan>> GetByMember(ulong steamId)
+  ValueTask`1<ClanValueResult`1<IClan>> Create(ulong leaderSteamId, string name)
+  ValueTask`1<ClanValueResult`1<List`1<ClanInvitation>>> ListInvitations(ulong steamId)
+--------------------------------------------------
+Класс: IClanChangeSink
+Поля:
+Свойства:
+Методы:
+  void ClanChanged(long clanId, ClanDataSource dataSources)
+  void ClanDisbanded(long clanId)
+  void InvitationCreated(ulong steamId, long clanId)
+  void MembershipChanged(ulong steamId, Nullable`1<long> clanId)
+  void ClanChatMessage(long clanId, ClanChatEntry entry)
+--------------------------------------------------

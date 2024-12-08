@@ -1,0 +1,111 @@
+Сборка: Facepunch.Sqlite.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Sqlite.Database
+Наследуется от: object
+Поля:
+  IntPtr _connection
+  bool <IsConnectionOpen>k__BackingField
+Свойства:
+  bool IsConnectionOpen
+  int AffectedRows
+  long LastInsertRowId
+Методы:
+  bool get_IsConnectionOpen()
+  void set_IsConnectionOpen(bool value)
+  void Open(string path, bool fastMode)
+  bool TableExists(string tableName)
+  bool IndexExists(string tableName, string indexName)
+  bool ColumnExists(string tableName, string columnName)
+  void Close()
+  int get_AffectedRows()
+  long get_LastInsertRowId()
+  void Execute(string query)
+  void Execute(string query, T1 arg1)
+  void Execute(string query, T1 arg1, T2 arg2)
+  void Execute(string query, T1 arg1, T2 arg2, T3 arg3)
+  void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
+  void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)
+  TOut Query(string query)
+  void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6)
+  TOut Query(string query, T1 arg1)
+  void Execute(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7)
+  TOut Query(string query, T1 arg1, T2 arg2)
+  TOut Query(string query, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
+  TOut Query(string query, T1 arg1, T2 arg2, T3 arg3)
+  void BeginTransaction()
+  void Commit()
+  string QueryString(string query, T1 arg1, T2 arg2)
+  void Rollback()
+  void ExecuteQuery(IntPtr stmHandle, bool finalize)
+  void Bind(IntPtr stmHandle, int index, T value)
+  T GetColumnValue(IntPtr stmHandle, int i)
+  T ExecuteAndReadQueryResult(IntPtr stmHandle, bool finalize)
+  Nullable`1<T> ExecuteAndReadQueryResult(IntPtr stmHandle, Func`2<IntPtr, T> rowReader, bool finalize)
+  IEnumerable`1<T> ExecuteAndReadQueryResults(IntPtr stmHandle, Func`2<IntPtr, T> rowReader, bool finalize)
+  int ExecuteAndReadQueryResults(IntPtr stmHandle, List`1<T> results, Func`2<IntPtr, T> rowReader, bool finalize)
+  Exception ExecuteError(int result)
+  IntPtr Prepare(string query)
+  void FinalizeOrReset(IntPtr stmHandle, bool finalize)
+  void Finalize(IntPtr stmHandle)
+  void Reset(IntPtr stmHandle)
+  void DebugLogColumns(IntPtr stmHandle)
+  void .ctor()
+  Exception <GetColumnValue>g__TypeError|33_0(<>c__DisplayClass33_0`1& )
+--------------------------------------------------
+Класс: Facepunch.Sqlite.Interop
+Наследуется от: object
+Поля:
+  int SQLITE_OK
+  int SQLITE_BUSY
+  int SQLITE_ROW
+  int SQLITE_DONE
+  int SQLITE_INTEGER
+  int SQLITE_FLOAT
+  int SQLITE_TEXT
+  int SQLITE_BLOB
+  int SQLITE_NULL
+  IntPtr SQLITE_STATIC
+  IntPtr SQLITE_TRANSIENT
+Свойства:
+Методы:
+  int sqlite3_open(string filename, IntPtr& db)
+  int sqlite3_close(IntPtr db)
+  int sqlite3_extended_result_codes(IntPtr db, int onoff)
+  int sqlite3_prepare_v2(IntPtr db, string zSql, int nByte, IntPtr& ppStmpt, IntPtr pzTail)
+  int sqlite3_step(IntPtr stmHandle)
+  int sqlite3_finalize(IntPtr stmHandle)
+  int sqlite3_reset(IntPtr stmHandle)
+  IntPtr sqlite3_errmsg(IntPtr db)
+  int sqlite3_changes(IntPtr db)
+  long sqlite3_last_insert_rowid(IntPtr db)
+  int sqlite3_column_count(IntPtr stmHandle)
+  IntPtr sqlite3_column_name(IntPtr stmHandle, int iCol)
+  int sqlite3_column_type(IntPtr stmHandle, int iCol)
+  long sqlite3_column_int64(IntPtr stmHandle, int iCol)
+  IntPtr sqlite3_column_text16(IntPtr stmHandle, int iCol)
+  IntPtr sqlite3_column_blob(IntPtr stmHandle, int iCol)
+  int sqlite3_column_bytes(IntPtr stmHandle, int iCol)
+  double sqlite3_column_double(IntPtr stmHandle, int iCol)
+  int sqlite3_bind_text16(IntPtr stmHandle, int i, IntPtr str, int len, IntPtr dest)
+  int sqlite3_bind_int64(IntPtr stmHandle, int i, long val)
+  int sqlite3_bind_blob(IntPtr stmHandle, int i, IntPtr str, int len, IntPtr dest)
+  int sqlite3_bind_double(IntPtr stmHandle, int i, double val)
+  int sqlite3_bind_null(IntPtr stmHandle, int i)
+  string GetTypeName(int sqliteType)
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Sqlite.SqliteException
+Наследуется от: Exception
+Поля:
+  int <Result>k__BackingField
+Свойства:
+  int Result
+Методы:
+  int get_Result()
+  void .ctor(int result, string message)
+--------------------------------------------------

@@ -1,0 +1,124 @@
+Сборка: Oxide.MySql.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Oxide.Core.MySql.MySqlExtension
+Наследуется от: Extension
+Поля:
+  Assembly Assembly
+  AssemblyName AssemblyName
+  VersionNumber AssemblyVersion
+  string AssemblyAuthors
+Свойства:
+  bool IsCoreExtension
+  string Name
+  string Author
+  VersionNumber Version
+Методы:
+  bool get_IsCoreExtension()
+  string get_Name()
+  string get_Author()
+  VersionNumber get_Version()
+  void .ctor(ExtensionManager manager)
+  void Load()
+  void LoadPluginWatchers(string pluginDirectory)
+  void OnModLoad()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.MySql.Libraries.MySql
+Наследуется от: Library
+Поля:
+  Queue`1<MySqlQuery> _queue
+  object _syncroot
+  AutoResetEvent _workevent
+  HashSet`1<Connection> _runningConnections
+  bool _running
+  Dictionary`2<string, Dictionary`2<string, Connection>> _connections
+  Thread _worker
+  Dictionary`2<Plugin, Callback`2<Plugin, PluginManager>> _pluginRemovedFromManager
+Свойства:
+  bool IsGlobal
+Методы:
+  bool get_IsGlobal()
+  void .ctor()
+  void Worker()
+  Connection OpenDb(string host, int port, string database, string user, string password, Plugin plugin, bool persistent)
+  Connection OpenDb(string conStr, Plugin plugin, bool persistent)
+  void OnRemovedFromManager(Plugin sender, PluginManager manager)
+  void CloseDb(Connection db)
+  Sql NewSql()
+  void Query(Sql sql, Connection db, Action`1<List`1<Dictionary`2<string, object>>> callback)
+  void ExecuteNonQuery(Sql sql, Connection db, Action`1<int> callback)
+  void Insert(Sql sql, Connection db, Action`1<int> callback)
+  void Update(Sql sql, Connection db, Action`1<int> callback)
+  void Delete(Sql sql, Connection db, Action`1<int> callback)
+  void Shutdown()
+--------------------------------------------------
+Класс: Oxide.Ext.MySql.Connection
+Наследуется от: object
+Поля:
+  string <ConnectionString>k__BackingField
+  bool <ConnectionPersistent>k__BackingField
+  MySqlConnection <Con>k__BackingField
+  Plugin <Plugin>k__BackingField
+  long <LastInsertRowId>k__BackingField
+Свойства:
+  string ConnectionString
+  bool ConnectionPersistent
+  MySqlConnection Con
+  Plugin Plugin
+  long LastInsertRowId
+Методы:
+  string get_ConnectionString()
+  void set_ConnectionString(string value)
+  bool get_ConnectionPersistent()
+  void set_ConnectionPersistent(bool value)
+  MySqlConnection get_Con()
+  void set_Con(MySqlConnection value)
+  Plugin get_Plugin()
+  void set_Plugin(Plugin value)
+  long get_LastInsertRowId()
+  void set_LastInsertRowId(long value)
+  void .ctor(string connection, bool persistent)
+--------------------------------------------------
+Класс: Oxide.Ext.MySql.Sql
+Наследуется от: object
+Поля:
+  Regex Filter
+  Regex RxParams
+  Object[] _args
+  string _sql
+  Object[] _argsFinal
+  Sql _rhs
+  string _sqlFinal
+Свойства:
+  Sql Builder
+  string SQL
+  Object[] Arguments
+Методы:
+  void .ctor()
+  void .ctor(string sql, Object[] args)
+  Sql get_Builder()
+  string get_SQL()
+  Object[] get_Arguments()
+  void Build()
+  Sql Append(Sql sql)
+  Sql Append(string sql, Object[] args)
+  bool Is(Sql sql, string sqltype)
+  void Build(StringBuilder sb, List`1<object> args, Sql lhs)
+  Sql Where(string sql, Object[] args)
+  Sql OrderBy(Object[] columns)
+  Sql Select(Object[] columns)
+  Sql From(Object[] tables)
+  Sql GroupBy(Object[] columns)
+  SqlJoinClause Join(string joinType, string table)
+  SqlJoinClause InnerJoin(string table)
+  SqlJoinClause LeftJoin(string table)
+  string ProcessParams(string sql, Object[] argsSrc, List`1<object> argsDest)
+  void AddParams(IDbCommand cmd, Object[] items, string parameterPrefix)
+  void AddParam(IDbCommand cmd, object item, string parameterPrefix)
+  void .cctor()
+--------------------------------------------------

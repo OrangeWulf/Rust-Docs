@@ -1,0 +1,441 @@
+Сборка: UnityEngine.TilemapModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.CustomGridBrushAttribute
+Наследуется от: Attribute
+Поля:
+  bool m_HideAssetInstances
+  bool m_HideDefaultInstance
+  bool m_DefaultBrush
+  string m_DefaultName
+Свойства:
+  bool hideAssetInstances
+  bool hideDefaultInstance
+  bool defaultBrush
+  string defaultName
+Методы:
+  bool get_hideAssetInstances()
+  bool get_hideDefaultInstance()
+  bool get_defaultBrush()
+  string get_defaultName()
+  void .ctor()
+  void .ctor(bool hideAssetInstances, bool hideDefaultInstance, bool defaultBrush, string defaultName)
+--------------------------------------------------
+Класс: UnityEngine.GridBrushBase
+Наследуется от: ScriptableObject
+Поля:
+Свойства:
+Методы:
+  void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
+  void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
+  void BoxFill(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
+  void BoxErase(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
+  void Select(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
+  void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position)
+  void Rotate(RotationDirection direction, CellLayout layout)
+  void Flip(FlipAxis flip, CellLayout layout)
+  void Pick(GridLayout gridLayout, GameObject brushTarget, BoundsInt position, Vector3Int pivot)
+  void Move(GridLayout gridLayout, GameObject brushTarget, BoundsInt from, BoundsInt to)
+  void MoveStart(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
+  void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position)
+  void ChangeZPosition(int change)
+  void ResetZPosition()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.ITilemap
+Наследуется от: object
+Поля:
+  ITilemap s_Instance
+  Tilemap m_Tilemap
+  bool m_AddToList
+  int m_RefreshCount
+  NativeArray`1<Vector3Int> m_RefreshPos
+Свойства:
+  Vector3Int origin
+  Vector3Int size
+  Bounds localBounds
+  BoundsInt cellBounds
+Методы:
+  void .ctor()
+  void SetTilemapInstance(Tilemap tilemap)
+  Vector3Int get_origin()
+  Vector3Int get_size()
+  Bounds get_localBounds()
+  BoundsInt get_cellBounds()
+  Sprite GetSprite(Vector3Int position)
+  Color GetColor(Vector3Int position)
+  Matrix4x4 GetTransformMatrix(Vector3Int position)
+  TileFlags GetTileFlags(Vector3Int position)
+  TileBase GetTile(Vector3Int position)
+  T GetTile(Vector3Int position)
+  void RefreshTile(Vector3Int position)
+  T GetComponent()
+  ITilemap CreateInstance()
+  void FindAllRefreshPositions(ITilemap tilemap, int count, IntPtr oldTilesIntPtr, IntPtr newTilesIntPtr, IntPtr positionsIntPtr)
+  void GetAllTileData(ITilemap tilemap, int count, IntPtr tilesIntPtr, IntPtr positionsIntPtr, IntPtr outTileDataIntPtr)
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.Tile
+Наследуется от: TileBase
+Поля:
+  Sprite m_Sprite
+  Color m_Color
+  Matrix4x4 m_Transform
+  GameObject m_InstancedGameObject
+  TileFlags m_Flags
+  ColliderType m_ColliderType
+Свойства:
+  Sprite sprite
+  Color color
+  Matrix4x4 transform
+  GameObject gameObject
+  TileFlags flags
+  ColliderType colliderType
+Методы:
+  Sprite get_sprite()
+  void set_sprite(Sprite value)
+  Color get_color()
+  void set_color(Color value)
+  Matrix4x4 get_transform()
+  void set_transform(Matrix4x4 value)
+  GameObject get_gameObject()
+  void set_gameObject(GameObject value)
+  TileFlags get_flags()
+  void set_flags(TileFlags value)
+  ColliderType get_colliderType()
+  void set_colliderType(ColliderType value)
+  void GetTileData(Vector3Int position, ITilemap tilemap, TileData& tileData)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.TileBase
+Наследуется от: ScriptableObject
+Поля:
+Свойства:
+Методы:
+  void RefreshTile(Vector3Int position, ITilemap tilemap)
+  void GetTileData(Vector3Int position, ITilemap tilemap, TileData& tileData)
+  TileData GetTileDataNoRef(Vector3Int position, ITilemap tilemap)
+  bool GetTileAnimationData(Vector3Int position, ITilemap tilemap, TileAnimationData& tileAnimationData)
+  TileAnimationData GetTileAnimationDataNoRef(Vector3Int position, ITilemap tilemap)
+  void GetTileAnimationDataRef(Vector3Int position, ITilemap tilemap, TileAnimationData& tileAnimationData, Boolean& hasAnimation)
+  bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
+  void StartUpRef(Vector3Int position, ITilemap tilemap, GameObject go, Boolean& startUpInvokedByUser)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.Tilemap
+Наследуется от: GridLayout
+Поля:
+Свойства:
+  Grid layoutGrid
+  BoundsInt cellBounds
+  Bounds localBounds
+  Bounds localFrameBounds
+  float animationFrameRate
+  Color color
+  Vector3Int origin
+  Vector3Int size
+  Vector3 tileAnchor
+  Orientation orientation
+  Matrix4x4 orientationMatrix
+Методы:
+  Grid get_layoutGrid()
+  Vector3 GetCellCenterLocal(Vector3Int position)
+  Vector3 GetCellCenterWorld(Vector3Int position)
+  BoundsInt get_cellBounds()
+  Bounds get_localBounds()
+  Bounds get_localFrameBounds()
+  float get_animationFrameRate()
+  void set_animationFrameRate(float value)
+  Color get_color()
+  void set_color(Color value)
+  Vector3Int get_origin()
+  void set_origin(Vector3Int value)
+  Vector3Int get_size()
+  void set_size(Vector3Int value)
+  Vector3 get_tileAnchor()
+  void set_tileAnchor(Vector3 value)
+  Orientation get_orientation()
+  void set_orientation(Orientation value)
+  Matrix4x4 get_orientationMatrix()
+  void set_orientationMatrix(Matrix4x4 value)
+  Object GetTileAsset(Vector3Int position)
+  TileBase GetTile(Vector3Int position)
+  T GetTile(Vector3Int position)
+  Object[] GetTileAssetsBlock(Vector3Int position, Vector3Int blockDimensions)
+  TileBase[] GetTilesBlock(BoundsInt bounds)
+  int GetTileAssetsBlockNonAlloc(Vector3Int startPosition, Vector3Int endPosition, Object[] tiles)
+  int GetTilesBlockNonAlloc(BoundsInt bounds, TileBase[] tiles)
+  int GetTilesRangeCount(Vector3Int startPosition, Vector3Int endPosition)
+  int GetTileAssetsRangeNonAlloc(Vector3Int startPosition, Vector3Int endPosition, Vector3Int[] positions, Object[] tiles)
+  int GetTilesRangeNonAlloc(Vector3Int startPosition, Vector3Int endPosition, Vector3Int[] positions, TileBase[] tiles)
+  void SetTileAsset(Vector3Int position, Object tile)
+  void SetTile(Vector3Int position, TileBase tile)
+  void SetTileAssets(Vector3Int[] positionArray, Object[] tileArray)
+  void SetTiles(Vector3Int[] positionArray, TileBase[] tileArray)
+  void INTERNAL_CALL_SetTileAssetsBlock(Vector3Int position, Vector3Int blockDimensions, Object[] tileArray)
+  void SetTilesBlock(BoundsInt position, TileBase[] tileArray)
+  void SetTile(TileChangeData tileChangeData, bool ignoreLockFlags)
+  void SetTiles(TileChangeData[] tileChangeDataArray, bool ignoreLockFlags)
+  bool HasTile(Vector3Int position)
+  void RefreshTile(Vector3Int position)
+  void RefreshTilesNative(Void* positions, int count)
+  void RefreshAllTiles()
+  void SwapTileAsset(Object changeTile, Object newTile)
+  void SwapTile(TileBase changeTile, TileBase newTile)
+  bool ContainsTileAsset(Object tileAsset)
+  bool ContainsTile(TileBase tileAsset)
+  int GetUsedTilesCount()
+  int GetUsedSpritesCount()
+  int GetUsedTilesNonAlloc(TileBase[] usedTiles)
+  int GetUsedSpritesNonAlloc(Sprite[] usedSprites)
+  int Internal_GetUsedTilesNonAlloc(Object[] usedTiles)
+  int Internal_GetUsedSpritesNonAlloc(Object[] usedSprites)
+  Sprite GetSprite(Vector3Int position)
+  Matrix4x4 GetTransformMatrix(Vector3Int position)
+  void SetTransformMatrix(Vector3Int position, Matrix4x4 transform)
+  Color GetColor(Vector3Int position)
+  void SetColor(Vector3Int position, Color color)
+  TileFlags GetTileFlags(Vector3Int position)
+  void SetTileFlags(Vector3Int position, TileFlags flags)
+  void AddTileFlags(Vector3Int position, TileFlags flags)
+  void RemoveTileFlags(Vector3Int position, TileFlags flags)
+  GameObject GetInstantiatedObject(Vector3Int position)
+  GameObject GetObjectToInstantiate(Vector3Int position)
+  void SetColliderType(Vector3Int position, ColliderType colliderType)
+  ColliderType GetColliderType(Vector3Int position)
+  int GetAnimationFrameCount(Vector3Int position)
+  int GetAnimationFrame(Vector3Int position)
+  void SetAnimationFrame(Vector3Int position, int frame)
+  float GetAnimationTime(Vector3Int position)
+  void SetAnimationTime(Vector3Int position, float time)
+  void FloodFill(Vector3Int position, TileBase tile)
+  void FloodFillTileAsset(Vector3Int position, Object tile)
+  void BoxFill(Vector3Int position, TileBase tile, int startX, int startY, int endX, int endY)
+  void BoxFillTileAsset(Vector3Int position, Object tile, int startX, int startY, int endX, int endY)
+  void InsertCells(Vector3Int position, Vector3Int insertCells)
+  void InsertCells(Vector3Int position, int numColumns, int numRows, int numLayers)
+  void DeleteCells(Vector3Int position, Vector3Int deleteCells)
+  void DeleteCells(Vector3Int position, int numColumns, int numRows, int numLayers)
+  void ClearAllTiles()
+  void ResizeBounds()
+  void CompressBounds()
+  void .ctor()
+  void get_localBounds_Injected(Bounds& ret)
+  void get_localFrameBounds_Injected(Bounds& ret)
+  void get_color_Injected(Color& ret)
+  void set_color_Injected(Color& value)
+  void get_origin_Injected(Vector3Int& ret)
+  void set_origin_Injected(Vector3Int& value)
+  void get_size_Injected(Vector3Int& ret)
+  void set_size_Injected(Vector3Int& value)
+  void get_tileAnchor_Injected(Vector3& ret)
+  void set_tileAnchor_Injected(Vector3& value)
+  void get_orientationMatrix_Injected(Matrix4x4& ret)
+  void set_orientationMatrix_Injected(Matrix4x4& value)
+  Object GetTileAsset_Injected(Vector3Int& position)
+  Object[] GetTileAssetsBlock_Injected(Vector3Int& position, Vector3Int& blockDimensions)
+  int GetTileAssetsBlockNonAlloc_Injected(Vector3Int& startPosition, Vector3Int& endPosition, Object[] tiles)
+  int GetTilesRangeCount_Injected(Vector3Int& startPosition, Vector3Int& endPosition)
+  int GetTileAssetsRangeNonAlloc_Injected(Vector3Int& startPosition, Vector3Int& endPosition, Vector3Int[] positions, Object[] tiles)
+  void SetTileAsset_Injected(Vector3Int& position, Object tile)
+  void INTERNAL_CALL_SetTileAssetsBlock_Injected(Vector3Int& position, Vector3Int& blockDimensions, Object[] tileArray)
+  void SetTile_Injected(TileChangeData& tileChangeData, bool ignoreLockFlags)
+  void RefreshTile_Injected(Vector3Int& position)
+  Sprite GetSprite_Injected(Vector3Int& position)
+  void GetTransformMatrix_Injected(Vector3Int& position, Matrix4x4& ret)
+  void SetTransformMatrix_Injected(Vector3Int& position, Matrix4x4& transform)
+  void GetColor_Injected(Vector3Int& position, Color& ret)
+  void SetColor_Injected(Vector3Int& position, Color& color)
+  TileFlags GetTileFlags_Injected(Vector3Int& position)
+  void SetTileFlags_Injected(Vector3Int& position, TileFlags flags)
+  void AddTileFlags_Injected(Vector3Int& position, TileFlags flags)
+  void RemoveTileFlags_Injected(Vector3Int& position, TileFlags flags)
+  GameObject GetInstantiatedObject_Injected(Vector3Int& position)
+  GameObject GetObjectToInstantiate_Injected(Vector3Int& position)
+  void SetColliderType_Injected(Vector3Int& position, ColliderType colliderType)
+  ColliderType GetColliderType_Injected(Vector3Int& position)
+  int GetAnimationFrameCount_Injected(Vector3Int& position)
+  int GetAnimationFrame_Injected(Vector3Int& position)
+  void SetAnimationFrame_Injected(Vector3Int& position, int frame)
+  float GetAnimationTime_Injected(Vector3Int& position)
+  void SetAnimationTime_Injected(Vector3Int& position, float time)
+  void FloodFillTileAsset_Injected(Vector3Int& position, Object tile)
+  void BoxFillTileAsset_Injected(Vector3Int& position, Object tile, int startX, int startY, int endX, int endY)
+  void InsertCells_Injected(Vector3Int& position, int numColumns, int numRows, int numLayers)
+  void DeleteCells_Injected(Vector3Int& position, int numColumns, int numRows, int numLayers)
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.TileFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  TileFlags None
+  TileFlags LockColor
+  TileFlags LockTransform
+  TileFlags InstantiateGameObjectRuntimeOnly
+  TileFlags KeepGameObjectRuntimeOnly
+  TileFlags LockAll
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.TilemapRenderer
+Наследуется от: Renderer
+Поля:
+Свойства:
+  Vector3Int chunkSize
+  Vector3 chunkCullingBounds
+  int maxChunkCount
+  int maxFrameAge
+  SortOrder sortOrder
+  Mode mode
+  DetectChunkCullingBounds detectChunkCullingBounds
+  SpriteMaskInteraction maskInteraction
+Методы:
+  Vector3Int get_chunkSize()
+  void set_chunkSize(Vector3Int value)
+  Vector3 get_chunkCullingBounds()
+  void set_chunkCullingBounds(Vector3 value)
+  int get_maxChunkCount()
+  void set_maxChunkCount(int value)
+  int get_maxFrameAge()
+  void set_maxFrameAge(int value)
+  SortOrder get_sortOrder()
+  void set_sortOrder(SortOrder value)
+  Mode get_mode()
+  void set_mode(Mode value)
+  DetectChunkCullingBounds get_detectChunkCullingBounds()
+  void set_detectChunkCullingBounds(DetectChunkCullingBounds value)
+  SpriteMaskInteraction get_maskInteraction()
+  void set_maskInteraction(SpriteMaskInteraction value)
+  void RegisterSpriteAtlasRegistered()
+  void UnregisterSpriteAtlasRegistered()
+  void OnSpriteAtlasRegistered(SpriteAtlas atlas)
+  void .ctor()
+  void get_chunkSize_Injected(Vector3Int& ret)
+  void set_chunkSize_Injected(Vector3Int& value)
+  void get_chunkCullingBounds_Injected(Vector3& ret)
+  void set_chunkCullingBounds_Injected(Vector3& value)
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.TileData
+Наследуется от: ValueType
+Поля:
+  int m_Sprite
+  Color m_Color
+  Matrix4x4 m_Transform
+  int m_GameObject
+  TileFlags m_Flags
+  ColliderType m_ColliderType
+  TileData Default
+Свойства:
+  Sprite sprite
+  Color color
+  Matrix4x4 transform
+  GameObject gameObject
+  TileFlags flags
+  ColliderType colliderType
+Методы:
+  Sprite get_sprite()
+  void set_sprite(Sprite value)
+  Color get_color()
+  void set_color(Color value)
+  Matrix4x4 get_transform()
+  void set_transform(Matrix4x4 value)
+  GameObject get_gameObject()
+  void set_gameObject(GameObject value)
+  TileFlags get_flags()
+  void set_flags(TileFlags value)
+  ColliderType get_colliderType()
+  void set_colliderType(ColliderType value)
+  TileData CreateDefault()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.TileDataNative
+Наследуется от: ValueType
+Поля:
+  int m_Sprite
+  Color m_Color
+  Matrix4x4 m_Transform
+  int m_GameObject
+  TileFlags m_Flags
+  ColliderType m_ColliderType
+Свойства:
+  int sprite
+  Color color
+  Matrix4x4 transform
+  int gameObject
+  TileFlags flags
+  ColliderType colliderType
+Методы:
+  int get_sprite()
+  void set_sprite(int value)
+  Color get_color()
+  void set_color(Color value)
+  Matrix4x4 get_transform()
+  void set_transform(Matrix4x4 value)
+  int get_gameObject()
+  void set_gameObject(int value)
+  TileFlags get_flags()
+  void set_flags(TileFlags value)
+  ColliderType get_colliderType()
+  void set_colliderType(ColliderType value)
+  TileDataNative op_Implicit(TileData td)
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.TileChangeData
+Наследуется от: ValueType
+Поля:
+  Vector3Int m_Position
+  Object m_TileAsset
+  Color m_Color
+  Matrix4x4 m_Transform
+Свойства:
+  Vector3Int position
+  TileBase tile
+  Color color
+  Matrix4x4 transform
+Методы:
+  Vector3Int get_position()
+  void set_position(Vector3Int value)
+  TileBase get_tile()
+  void set_tile(TileBase value)
+  Color get_color()
+  void set_color(Color value)
+  Matrix4x4 get_transform()
+  void set_transform(Matrix4x4 value)
+  void .ctor(Vector3Int position, TileBase tile, Color color, Matrix4x4 transform)
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.TileAnimationData
+Наследуется от: ValueType
+Поля:
+  Sprite[] m_AnimatedSprites
+  float m_AnimationSpeed
+  float m_AnimationStartTime
+Свойства:
+  Sprite[] animatedSprites
+  float animationSpeed
+  float animationStartTime
+Методы:
+  Sprite[] get_animatedSprites()
+  void set_animatedSprites(Sprite[] value)
+  float get_animationSpeed()
+  void set_animationSpeed(float value)
+  float get_animationStartTime()
+  void set_animationStartTime(float value)
+--------------------------------------------------
+Класс: UnityEngine.Tilemaps.TilemapCollider2D
+Наследуется от: Collider2D
+Поля:
+Свойства:
+  UInt32 maximumTileChangeCount
+  float extrusionFactor
+  bool hasTilemapChanges
+Методы:
+  UInt32 get_maximumTileChangeCount()
+  void set_maximumTileChangeCount(UInt32 value)
+  float get_extrusionFactor()
+  void set_extrusionFactor(float value)
+  bool get_hasTilemapChanges()
+  void ProcessTilemapChanges()
+  void .ctor()
+--------------------------------------------------

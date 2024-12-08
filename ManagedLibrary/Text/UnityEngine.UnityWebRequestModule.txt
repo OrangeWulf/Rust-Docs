@@ -1,0 +1,489 @@
+Сборка: UnityEngine.UnityWebRequestModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngineInternal.WebRequestUtils
+Наследуется от: object
+Поля:
+  Regex domainRegex
+Свойства:
+Методы:
+  string RedirectTo(string baseUri, string redirectUri)
+  string MakeInitialUrl(string targetUrl, string localUrl)
+  string MakeUriString(Uri targetUri, string targetUrl, bool prependProtocol)
+  string URLDecode(string encoded)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.WWWForm
+Наследуется от: object
+Поля:
+  List`1<Byte[]> formData
+  List`1<string> fieldNames
+  List`1<string> fileNames
+  List`1<string> types
+  Byte[] boundary
+  bool containsFiles
+  Byte[] dDash
+  Byte[] crlf
+  Byte[] contentTypeHeader
+  Byte[] dispositionHeader
+  Byte[] endQuote
+  Byte[] fileNameField
+  Byte[] ampersand
+  Byte[] equal
+Свойства:
+  Encoding DefaultEncoding
+  Dictionary`2<string, string> headers
+  Byte[] data
+Методы:
+  Encoding get_DefaultEncoding()
+  void .ctor()
+  void AddField(string fieldName, string value)
+  void AddField(string fieldName, string value, Encoding e)
+  void AddField(string fieldName, int i)
+  void AddBinaryData(string fieldName, Byte[] contents)
+  void AddBinaryData(string fieldName, Byte[] contents, string fileName)
+  void AddBinaryData(string fieldName, Byte[] contents, string fileName, string mimeType)
+  Dictionary`2<string, string> get_headers()
+  Byte[] get_data()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.WWWTranscoder
+Наследуется от: object
+Поля:
+  Byte[] ucHexChars
+  Byte[] lcHexChars
+  byte urlEscapeChar
+  Byte[] urlSpace
+  Byte[] dataSpace
+  Byte[] urlForbidden
+  byte qpEscapeChar
+  Byte[] qpSpace
+  Byte[] qpForbidden
+Свойства:
+Методы:
+  byte Hex2Byte(Byte[] b, int offset)
+  void Byte2Hex(byte b, Byte[] hexChars, Byte& byte0, Byte& byte1)
+  string URLEncode(string toEncode)
+  string URLEncode(string toEncode, Encoding e)
+  Byte[] URLEncode(Byte[] toEncode)
+  string DataEncode(string toEncode)
+  string DataEncode(string toEncode, Encoding e)
+  Byte[] DataEncode(Byte[] toEncode)
+  string QPEncode(string toEncode)
+  string QPEncode(string toEncode, Encoding e)
+  Byte[] QPEncode(Byte[] toEncode)
+  Byte[] Encode(Byte[] input, byte escapeChar, Byte[] space, Byte[] forbidden, bool uppercase)
+  bool ByteArrayContains(Byte[] array, byte b)
+  string URLDecode(string toEncode)
+  string URLDecode(string toEncode, Encoding e)
+  Byte[] URLDecode(Byte[] toEncode)
+  string DataDecode(string toDecode)
+  string DataDecode(string toDecode, Encoding e)
+  Byte[] DataDecode(Byte[] toDecode)
+  string QPDecode(string toEncode)
+  string QPDecode(string toEncode, Encoding e)
+  Byte[] QPDecode(Byte[] toEncode)
+  bool ByteSubArrayEquals(Byte[] array, int index, Byte[] comperand)
+  Byte[] Decode(Byte[] input, byte escapeChar, Byte[] space)
+  bool SevenBitClean(string s)
+  bool SevenBitClean(string s, Encoding e)
+  bool SevenBitClean(Byte* input, int inputLength)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.IMultipartFormSection
+Поля:
+Свойства:
+  string sectionName
+  Byte[] sectionData
+  string fileName
+  string contentType
+Методы:
+  string get_sectionName()
+  Byte[] get_sectionData()
+  string get_fileName()
+  string get_contentType()
+--------------------------------------------------
+Класс: UnityEngine.Networking.MultipartFormDataSection
+Наследуется от: object
+Поля:
+  string name
+  Byte[] data
+  string content
+Свойства:
+  string sectionName
+  Byte[] sectionData
+  string fileName
+  string contentType
+Методы:
+  void .ctor(string name, Byte[] data, string contentType)
+  void .ctor(string name, Byte[] data)
+  void .ctor(Byte[] data)
+  void .ctor(string name, string data, Encoding encoding, string contentType)
+  void .ctor(string name, string data, string contentType)
+  void .ctor(string name, string data)
+  void .ctor(string data)
+  string get_sectionName()
+  Byte[] get_sectionData()
+  string get_fileName()
+  string get_contentType()
+--------------------------------------------------
+Класс: UnityEngine.Networking.MultipartFormFileSection
+Наследуется от: object
+Поля:
+  string name
+  Byte[] data
+  string file
+  string content
+Свойства:
+  string sectionName
+  Byte[] sectionData
+  string fileName
+  string contentType
+Методы:
+  void Init(string name, Byte[] data, string fileName, string contentType)
+  void .ctor(string name, Byte[] data, string fileName, string contentType)
+  void .ctor(Byte[] data)
+  void .ctor(string fileName, Byte[] data)
+  void .ctor(string name, string data, Encoding dataEncoding, string fileName)
+  void .ctor(string data, Encoding dataEncoding, string fileName)
+  void .ctor(string data, string fileName)
+  string get_sectionName()
+  Byte[] get_sectionData()
+  string get_fileName()
+  string get_contentType()
+--------------------------------------------------
+Класс: UnityEngine.Networking.UnityWebRequestAsyncOperation
+Наследуется от: AsyncOperation
+Поля:
+  UnityWebRequest <webRequest>k__BackingField
+Свойства:
+  UnityWebRequest webRequest
+Методы:
+  UnityWebRequest get_webRequest()
+  void set_webRequest(UnityWebRequest value)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Networking.UnityWebRequest
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+  DownloadHandler m_DownloadHandler
+  UploadHandler m_UploadHandler
+  CertificateHandler m_CertificateHandler
+  Uri m_Uri
+  string kHttpVerbGET
+  string kHttpVerbHEAD
+  string kHttpVerbPOST
+  string kHttpVerbPUT
+  string kHttpVerbCREATE
+  string kHttpVerbDELETE
+  bool <disposeCertificateHandlerOnDispose>k__BackingField
+  bool <disposeDownloadHandlerOnDispose>k__BackingField
+  bool <disposeUploadHandlerOnDispose>k__BackingField
+Свойства:
+  bool disposeCertificateHandlerOnDispose
+  bool disposeDownloadHandlerOnDispose
+  bool disposeUploadHandlerOnDispose
+  string method
+  string error
+  bool use100Continue
+  bool useHttpContinue
+  string url
+  Uri uri
+  long responseCode
+  float uploadProgress
+  bool isModifiable
+  bool isDone
+  bool isNetworkError
+  bool isHttpError
+  Result result
+  float downloadProgress
+  ulong uploadedBytes
+  ulong downloadedBytes
+  int redirectLimit
+  bool chunkedTransfer
+  UploadHandler uploadHandler
+  DownloadHandler downloadHandler
+  CertificateHandler certificateHandler
+  int timeout
+  bool suppressErrorsToConsole
+Методы:
+  string GetWebErrorString(UnityWebRequestError err)
+  string GetHTTPStatusString(long responseCode)
+  bool get_disposeCertificateHandlerOnDispose()
+  void set_disposeCertificateHandlerOnDispose(bool value)
+  bool get_disposeDownloadHandlerOnDispose()
+  void set_disposeDownloadHandlerOnDispose(bool value)
+  bool get_disposeUploadHandlerOnDispose()
+  void set_disposeUploadHandlerOnDispose(bool value)
+  void ClearCookieCache()
+  void ClearCookieCache(Uri uri)
+  void ClearCookieCache(string domain, string path)
+  IntPtr Create()
+  void Release()
+  void InternalDestroy()
+  void InternalSetDefaults()
+  void .ctor()
+  void .ctor(string url)
+  void .ctor(Uri uri)
+  void .ctor(string url, string method)
+  void .ctor(Uri uri, string method)
+  void .ctor(string url, string method, DownloadHandler downloadHandler, UploadHandler uploadHandler)
+  void .ctor(Uri uri, string method, DownloadHandler downloadHandler, UploadHandler uploadHandler)
+  void Finalize()
+  void Dispose()
+  void DisposeHandlers()
+  UnityWebRequestAsyncOperation BeginWebRequest()
+  AsyncOperation Send()
+  UnityWebRequestAsyncOperation SendWebRequest()
+  void Abort()
+  UnityWebRequestError SetMethod(UnityWebRequestMethod methodType)
+  void InternalSetMethod(UnityWebRequestMethod methodType)
+  UnityWebRequestError SetCustomMethod(string customMethodName)
+  void InternalSetCustomMethod(string customMethodName)
+  UnityWebRequestMethod GetMethod()
+  string GetCustomMethod()
+  string get_method()
+  void set_method(string value)
+  UnityWebRequestError GetError()
+  string get_error()
+  bool get_use100Continue()
+  void set_use100Continue(bool value)
+  bool get_useHttpContinue()
+  void set_useHttpContinue(bool value)
+  string get_url()
+  void set_url(string value)
+  Uri get_uri()
+  void set_uri(Uri value)
+  string GetUrl()
+  UnityWebRequestError SetUrl(string url)
+  void InternalSetUrl(string url)
+  long get_responseCode()
+  float GetUploadProgress()
+  bool IsExecuting()
+  float get_uploadProgress()
+  bool get_isModifiable()
+  bool get_isDone()
+  bool get_isNetworkError()
+  bool get_isHttpError()
+  Result get_result()
+  float GetDownloadProgress()
+  float get_downloadProgress()
+  ulong get_uploadedBytes()
+  ulong get_downloadedBytes()
+  int GetRedirectLimit()
+  void SetRedirectLimitFromScripting(int limit)
+  int get_redirectLimit()
+  void set_redirectLimit(int value)
+  bool GetChunked()
+  UnityWebRequestError SetChunked(bool chunked)
+  bool get_chunkedTransfer()
+  void set_chunkedTransfer(bool value)
+  string GetRequestHeader(string name)
+  UnityWebRequestError InternalSetRequestHeader(string name, string value)
+  void SetRequestHeader(string name, string value)
+  string GetResponseHeader(string name)
+  String[] GetResponseHeaderKeys()
+  Dictionary`2<string, string> GetResponseHeaders()
+  UnityWebRequestError SetUploadHandler(UploadHandler uh)
+  UploadHandler get_uploadHandler()
+  void set_uploadHandler(UploadHandler value)
+  UnityWebRequestError SetDownloadHandler(DownloadHandler dh)
+  DownloadHandler get_downloadHandler()
+  void set_downloadHandler(DownloadHandler value)
+  UnityWebRequestError SetCertificateHandler(CertificateHandler ch)
+  CertificateHandler get_certificateHandler()
+  void set_certificateHandler(CertificateHandler value)
+  int GetTimeoutMsec()
+  UnityWebRequestError SetTimeoutMsec(int timeout)
+  int get_timeout()
+  void set_timeout(int value)
+  bool GetSuppressErrorsToConsole()
+  UnityWebRequestError SetSuppressErrorsToConsole(bool suppress)
+  bool get_suppressErrorsToConsole()
+  void set_suppressErrorsToConsole(bool value)
+  UnityWebRequest Get(string uri)
+  UnityWebRequest Get(Uri uri)
+  UnityWebRequest Delete(string uri)
+  UnityWebRequest Delete(Uri uri)
+  UnityWebRequest Head(string uri)
+  UnityWebRequest Head(Uri uri)
+  UnityWebRequest GetTexture(string uri)
+  UnityWebRequest GetTexture(string uri, bool nonReadable)
+  UnityWebRequest GetAudioClip(string uri, AudioType audioType)
+  UnityWebRequest GetAssetBundle(string uri)
+  UnityWebRequest GetAssetBundle(string uri, UInt32 crc)
+  UnityWebRequest GetAssetBundle(string uri, UInt32 version, UInt32 crc)
+  UnityWebRequest GetAssetBundle(string uri, Hash128 hash, UInt32 crc)
+  UnityWebRequest GetAssetBundle(string uri, CachedAssetBundle cachedAssetBundle, UInt32 crc)
+  UnityWebRequest Put(string uri, Byte[] bodyData)
+  UnityWebRequest Put(Uri uri, Byte[] bodyData)
+  UnityWebRequest Put(string uri, string bodyData)
+  UnityWebRequest Put(Uri uri, string bodyData)
+  UnityWebRequest Post(string uri, string postData)
+  UnityWebRequest Post(Uri uri, string postData)
+  void SetupPost(UnityWebRequest request, string postData)
+  UnityWebRequest Post(string uri, WWWForm formData)
+  UnityWebRequest Post(Uri uri, WWWForm formData)
+  void SetupPost(UnityWebRequest request, WWWForm formData)
+  UnityWebRequest Post(string uri, List`1<IMultipartFormSection> multipartFormSections)
+  UnityWebRequest Post(Uri uri, List`1<IMultipartFormSection> multipartFormSections)
+  UnityWebRequest Post(string uri, List`1<IMultipartFormSection> multipartFormSections, Byte[] boundary)
+  UnityWebRequest Post(Uri uri, List`1<IMultipartFormSection> multipartFormSections, Byte[] boundary)
+  void SetupPost(UnityWebRequest request, List`1<IMultipartFormSection> multipartFormSections, Byte[] boundary)
+  UnityWebRequest Post(string uri, Dictionary`2<string, string> formFields)
+  UnityWebRequest Post(Uri uri, Dictionary`2<string, string> formFields)
+  void SetupPost(UnityWebRequest request, Dictionary`2<string, string> formFields)
+  string EscapeURL(string s)
+  string EscapeURL(string s, Encoding e)
+  string UnEscapeURL(string s)
+  string UnEscapeURL(string s, Encoding e)
+  Byte[] SerializeFormSections(List`1<IMultipartFormSection> multipartFormSections, Byte[] boundary)
+  Byte[] GenerateBoundary()
+  Byte[] SerializeSimpleForm(Dictionary`2<string, string> formFields)
+--------------------------------------------------
+Класс: UnityEngine.Networking.CertificateHandler
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+Методы:
+  IntPtr Create(CertificateHandler obj)
+  void Release()
+  void .ctor()
+  void Finalize()
+  bool ValidateCertificate(Byte[] certificateData)
+  bool ValidateCertificateNative(Byte[] certificateData)
+  void Dispose()
+--------------------------------------------------
+Класс: UnityEngine.Networking.DownloadHandler
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+  bool isDone
+  string error
+  ReadOnly<byte> nativeData
+  Byte[] data
+  string text
+Методы:
+  void Release()
+  void .ctor()
+  void Finalize()
+  void Dispose()
+  bool get_isDone()
+  bool IsDone()
+  string get_error()
+  string GetErrorMsg()
+  ReadOnly<byte> get_nativeData()
+  Byte[] get_data()
+  string get_text()
+  NativeArray`1<byte> GetNativeData()
+  Byte[] GetData()
+  string GetText()
+  Encoding GetTextEncoder()
+  string GetContentType()
+  bool ReceiveData(Byte[] data, int dataLength)
+  void ReceiveContentLengthHeader(ulong contentLength)
+  void ReceiveContentLength(int contentLength)
+  void CompleteContent()
+  float GetProgress()
+  T GetCheckedDownloader(UnityWebRequest www)
+  Byte* InternalGetByteArray(DownloadHandler dh, Int32& length)
+  Byte[] InternalGetByteArray(DownloadHandler dh)
+  NativeArray`1<byte> InternalGetNativeArray(DownloadHandler dh, NativeArray`1& nativeArray)
+  void DisposeNativeArray(NativeArray`1& data)
+  void CreateNativeArrayForNativeData(NativeArray`1& data, Byte* bytes, int length)
+--------------------------------------------------
+Класс: UnityEngine.Networking.DownloadHandlerBuffer
+Наследуется от: DownloadHandler
+Поля:
+  NativeArray`1<byte> m_NativeData
+Свойства:
+Методы:
+  IntPtr Create(DownloadHandlerBuffer obj)
+  void InternalCreateBuffer()
+  void .ctor()
+  NativeArray`1<byte> GetNativeData()
+  void Dispose()
+  string GetContent(UnityWebRequest www)
+--------------------------------------------------
+Класс: UnityEngine.Networking.DownloadHandlerScript
+Наследуется от: DownloadHandler
+Поля:
+Свойства:
+Методы:
+  IntPtr Create(DownloadHandlerScript obj)
+  IntPtr CreatePreallocated(DownloadHandlerScript obj, Byte[] preallocatedBuffer)
+  void InternalCreateScript()
+  void InternalCreateScript(Byte[] preallocatedBuffer)
+  void .ctor()
+  void .ctor(Byte[] preallocatedBuffer)
+--------------------------------------------------
+Класс: UnityEngine.Networking.DownloadHandlerFile
+Наследуется от: DownloadHandler
+Поля:
+Свойства:
+  bool removeFileOnAbort
+Методы:
+  IntPtr Create(DownloadHandlerFile obj, string path, bool append)
+  void InternalCreateVFS(string path, bool append)
+  void .ctor(string path)
+  void .ctor(string path, bool append)
+  NativeArray`1<byte> GetNativeData()
+  Byte[] GetData()
+  string GetText()
+  bool get_removeFileOnAbort()
+  void set_removeFileOnAbort(bool value)
+--------------------------------------------------
+Класс: UnityEngine.Networking.UploadHandler
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+Свойства:
+  Byte[] data
+  string contentType
+  float progress
+Методы:
+  void Release()
+  void .ctor()
+  void Finalize()
+  void Dispose()
+  Byte[] get_data()
+  string get_contentType()
+  void set_contentType(string value)
+  float get_progress()
+  Byte[] GetData()
+  string GetContentType()
+  void SetContentType(string newContentType)
+  float GetProgress()
+  string InternalGetContentType()
+  void InternalSetContentType(string newContentType)
+  float InternalGetProgress()
+--------------------------------------------------
+Класс: UnityEngine.Networking.UploadHandlerRaw
+Наследуется от: UploadHandler
+Поля:
+  NativeArray`1<byte> m_Payload
+Свойства:
+Методы:
+  IntPtr Create(UploadHandlerRaw self, Byte* data, int dataLength)
+  void .ctor(Byte[] data)
+  void .ctor(NativeArray`1<byte> data, bool transferOwnership)
+  void .ctor(ReadOnly<byte> data)
+  Byte[] GetData()
+  void Dispose()
+--------------------------------------------------
+Класс: UnityEngine.Networking.UploadHandlerFile
+Наследуется от: UploadHandler
+Поля:
+Свойства:
+Методы:
+  IntPtr Create(UploadHandlerFile self, string filePath)
+  void .ctor(string filePath)
+--------------------------------------------------

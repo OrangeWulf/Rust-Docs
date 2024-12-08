@@ -1,0 +1,586 @@
+Сборка: Fleck.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.CodeAnalysis.EmbeddedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Runtime.CompilerServices.IsUnmanagedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Runtime.CompilerServices.IsByRefLikeAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Fleck.ConnectionNotAvailableException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+--------------------------------------------------
+Класс: Fleck.LogLevel
+Наследуется от: Enum
+Поля:
+  int value__
+  LogLevel Debug
+  LogLevel Info
+  LogLevel Warn
+  LogLevel Error
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Fleck.FleckLog
+Наследуется от: object
+Поля:
+  LogLevel Level
+  Action`3<LogLevel, string, Exception> LogAction
+Свойства:
+Методы:
+  void Warn(string message, Exception ex)
+  void Error(string message, Exception ex)
+  void Debug(string message, Exception ex)
+  void Info(string message, Exception ex)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Fleck.FrameType
+Наследуется от: Enum
+Поля:
+  byte value__
+  FrameType Continuation
+  FrameType Text
+  FrameType Binary
+  FrameType Close
+  FrameType Ping
+  FrameType Pong
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Fleck.FrameTypeExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool IsDefined(FrameType type)
+--------------------------------------------------
+Класс: Fleck.HandlerFactory
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IHandler BuildHandler(WebSocketHttpRequest request, IWebSocketConnection connection)
+  string GetVersion(WebSocketHttpRequest request)
+  void .ctor()
+--------------------------------------------------
+Класс: Fleck.IHandler
+Поля:
+Свойства:
+Методы:
+  void Receive(Span`1<byte> newData)
+  MemoryBuffer CreateHandshake()
+  MemoryBuffer FrameText(string text)
+  MemoryBuffer FrameText(MemoryBuffer utf8StringBytes)
+  MemoryBuffer FrameBinary(MemoryBuffer bytes)
+  MemoryBuffer FramePing(MemoryBuffer bytes)
+  MemoryBuffer FramePong(MemoryBuffer bytes)
+  MemoryBuffer FrameClose(ushort code)
+--------------------------------------------------
+Класс: Fleck.ISocket
+Поля:
+Свойства:
+  bool Connected
+  IPAddress RemoteIpAddress
+  int RemotePort
+  Stream Stream
+  bool NoDelay
+  EndPoint LocalEndPoint
+Методы:
+  bool get_Connected()
+  IPAddress get_RemoteIpAddress()
+  int get_RemotePort()
+  Stream get_Stream()
+  bool get_NoDelay()
+  void set_NoDelay(bool value)
+  EndPoint get_LocalEndPoint()
+  Task`1<ISocket> Accept(Action`1<ISocket> callback, Action`1<Exception> error)
+  Task Authenticate(X509Certificate2 certificate, SslProtocols enabledSslProtocols, Action callback, Action`1<Exception> error)
+  void Dispose()
+  void Close()
+  void Bind(EndPoint ipLocal)
+  void Listen(int backlog)
+--------------------------------------------------
+Класс: Fleck.BinaryDataHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(Span`1<byte> data)
+  IAsyncResult BeginInvoke(Span`1<byte> data, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Fleck.IWebSocketConnection
+Поля:
+Свойства:
+  Action OnOpen
+  Action OnClose
+  Action`1<string> OnMessage
+  BinaryDataHandler OnBinary
+  BinaryDataHandler OnPing
+  BinaryDataHandler OnPong
+  Action`1<Exception> OnError
+  IWebSocketConnectionInfo ConnectionInfo
+  bool IsAvailable
+Методы:
+  Action get_OnOpen()
+  void set_OnOpen(Action value)
+  Action get_OnClose()
+  void set_OnClose(Action value)
+  Action`1<string> get_OnMessage()
+  void set_OnMessage(Action`1<string> value)
+  BinaryDataHandler get_OnBinary()
+  void set_OnBinary(BinaryDataHandler value)
+  BinaryDataHandler get_OnPing()
+  void set_OnPing(BinaryDataHandler value)
+  BinaryDataHandler get_OnPong()
+  void set_OnPong(BinaryDataHandler value)
+  Action`1<Exception> get_OnError()
+  void set_OnError(Action`1<Exception> value)
+  void Send(string message)
+  void Send(MemoryBuffer message)
+  void SendPing(MemoryBuffer message)
+  void SendPong(MemoryBuffer message)
+  void Close()
+  IWebSocketConnectionInfo get_ConnectionInfo()
+  bool get_IsAvailable()
+--------------------------------------------------
+Класс: Fleck.IWebSocketConnectionInfo
+Поля:
+Свойства:
+  Guid Id
+  string SubProtocol
+  string Origin
+  string Host
+  string Path
+  IPAddress ClientIpAddress
+  int ClientPort
+Методы:
+  Guid get_Id()
+  string get_SubProtocol()
+  string get_Origin()
+  string get_Host()
+  string get_Path()
+  IPAddress get_ClientIpAddress()
+  int get_ClientPort()
+--------------------------------------------------
+Класс: Fleck.IWebSocketServer
+Поля:
+Свойства:
+Методы:
+  void Start(Action`1<IWebSocketConnection> config)
+--------------------------------------------------
+Класс: Fleck.IntExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IMemoryOwner`1<byte> ToBigEndianBytes(int source)
+  int ToLittleEndianInt(Span`1<byte> source)
+  IMemoryOwner`1<byte> CopyToMemory(T value)
+  T CopyFromMemory(Span`1<byte> memory)
+--------------------------------------------------
+Класс: Fleck.MemoryBuffer
+Наследуется от: ValueType
+Поля:
+  Byte[] <Data>k__BackingField
+  int <Length>k__BackingField
+  bool _fromPool
+Свойства:
+  Byte[] Data
+  int Length
+Методы:
+  Byte[] get_Data()
+  void set_Data(Byte[] value)
+  int get_Length()
+  void set_Length(int value)
+  void .ctor(int minimumLength)
+  void .ctor(Byte[] data, int length, bool fromPool)
+  void Dispose()
+  MemoryBuffer DontDispose()
+  MemoryBuffer Slice(int newLength)
+  Span`1<byte> op_Implicit(MemoryBuffer buffer)
+--------------------------------------------------
+Класс: Fleck.QueuedStream
+Наследуется от: Stream
+Поля:
+  Stream _stream
+  Queue`1<WriteData> _queue
+  int _pendingWrite
+  bool _disposed
+Свойства:
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream stream)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  int Read(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void Write(Byte[] buffer, int offset, int count)
+  IAsyncResult BeginRead(Byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+  IAsyncResult BeginWrite(Byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+  int EndRead(IAsyncResult asyncResult)
+  void EndWrite(IAsyncResult asyncResult)
+  void Flush()
+  void Close()
+  void Dispose(bool disposing)
+  IAsyncResult BeginWriteInternal(Byte[] buffer, int offset, int count, AsyncCallback callback, object state, WriteData queued)
+--------------------------------------------------
+Класс: Fleck.RequestParser
+Наследуется от: object
+Поля:
+  string pattern
+  Regex _regex
+Свойства:
+Методы:
+  WebSocketHttpRequest Parse(ArraySegment`1<byte> bytes)
+  WebSocketHttpRequest Parse(ArraySegment`1<byte> bytes, string scheme)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Fleck.SocketWrapper
+Наследуется от: object
+Поля:
+  UInt32 KeepAliveInterval
+  UInt32 RetryInterval
+  Byte[] keepAliveValues
+  Socket _socket
+  CancellationTokenSource _tokenSource
+  TaskFactory _taskFactory
+  Stream <Stream>k__BackingField
+Свойства:
+  IPAddress RemoteIpAddress
+  int RemotePort
+  bool Connected
+  Stream Stream
+  bool NoDelay
+  EndPoint LocalEndPoint
+Методы:
+  IPAddress get_RemoteIpAddress()
+  int get_RemotePort()
+  void .cctor()
+  void .ctor(Socket socket)
+  Task Authenticate(X509Certificate2 certificate, SslProtocols enabledSslProtocols, Action callback, Action`1<Exception> error)
+  void Listen(int backlog)
+  void Bind(EndPoint endPoint)
+  bool get_Connected()
+  Stream get_Stream()
+  void set_Stream(Stream value)
+  bool get_NoDelay()
+  void set_NoDelay(bool value)
+  EndPoint get_LocalEndPoint()
+  Task`1<ISocket> Accept(Action`1<ISocket> callback, Action`1<Exception> error)
+  void Dispose()
+  void Close()
+--------------------------------------------------
+Класс: Fleck.SpanWriter
+Наследуется от: ValueType
+Поля:
+  Span`1<byte> _data
+  int <Length>k__BackingField
+Свойства:
+  int Length
+Методы:
+  int get_Length()
+  void set_Length(int value)
+  void .ctor(Span`1<byte> data)
+  void Write(T value, bool reverse)
+  void Write(Span`1<T> values)
+--------------------------------------------------
+Класс: Fleck.WebSocketConnection
+Наследуется от: object
+Поля:
+  int ReadSize
+  ISocket <Socket>k__BackingField
+  IHandler <Handler>k__BackingField
+  Action <OnOpen>k__BackingField
+  Action <OnClose>k__BackingField
+  Action`1<string> <OnMessage>k__BackingField
+  BinaryDataHandler <OnBinary>k__BackingField
+  BinaryDataHandler <OnPing>k__BackingField
+  BinaryDataHandler <OnPong>k__BackingField
+  Action`1<Exception> <OnError>k__BackingField
+  IWebSocketConnectionInfo <ConnectionInfo>k__BackingField
+  Action`1<IWebSocketConnection> _initialize
+  Func`3<IWebSocketConnection, WebSocketHttpRequest, IHandler> _handlerFactory
+  Func`2<ArraySegment`1<byte>, WebSocketHttpRequest> _parseRequest
+  Byte[] _receiveBuffer
+  int _receiveOffset
+  bool _closing
+  bool _closed
+Свойства:
+  ISocket Socket
+  IHandler Handler
+  Action OnOpen
+  Action OnClose
+  Action`1<string> OnMessage
+  BinaryDataHandler OnBinary
+  BinaryDataHandler OnPing
+  BinaryDataHandler OnPong
+  Action`1<Exception> OnError
+  IWebSocketConnectionInfo ConnectionInfo
+  bool IsAvailable
+Методы:
+  ISocket get_Socket()
+  void set_Socket(ISocket value)
+  IHandler get_Handler()
+  void set_Handler(IHandler value)
+  Action get_OnOpen()
+  void set_OnOpen(Action value)
+  Action get_OnClose()
+  void set_OnClose(Action value)
+  Action`1<string> get_OnMessage()
+  void set_OnMessage(Action`1<string> value)
+  BinaryDataHandler get_OnBinary()
+  void set_OnBinary(BinaryDataHandler value)
+  BinaryDataHandler get_OnPing()
+  void set_OnPing(BinaryDataHandler value)
+  BinaryDataHandler get_OnPong()
+  void set_OnPong(BinaryDataHandler value)
+  Action`1<Exception> get_OnError()
+  void set_OnError(Action`1<Exception> value)
+  IWebSocketConnectionInfo get_ConnectionInfo()
+  void set_ConnectionInfo(IWebSocketConnectionInfo value)
+  bool get_IsAvailable()
+  void .ctor(ISocket socket, Action`1<IWebSocketConnection> initialize, Func`2<ArraySegment`1<byte>, WebSocketHttpRequest> parseRequest, Func`3<IWebSocketConnection, WebSocketHttpRequest, IHandler> handlerFactory)
+  void Send(string message)
+  void SendText(MemoryBuffer utf8StringBytes)
+  void Send(MemoryBuffer message)
+  void SendPing(MemoryBuffer message)
+  void SendPong(MemoryBuffer message)
+  void SendImpl(MemoryBuffer buffer)
+  void Close()
+  void Close(ushort code)
+  bool CreateHandler(ArraySegment`1<byte> data)
+  void StartReceiving()
+  void HandleReadSuccess(int bytesRead)
+  void HandleReadError(Exception e)
+  void Receive(Byte[] buffer, int offset)
+  void HandleWriteError(Exception e)
+  void SendBytes(MemoryBuffer bytes, Action`2<WebSocketConnection, bool> callback)
+  void CloseSocket()
+--------------------------------------------------
+Класс: Fleck.WebSocketConnectionInfo
+Наследуется от: object
+Поля:
+  string <SubProtocol>k__BackingField
+  string <Origin>k__BackingField
+  string <Host>k__BackingField
+  string <Path>k__BackingField
+  IPAddress <ClientIpAddress>k__BackingField
+  int <ClientPort>k__BackingField
+  Guid <Id>k__BackingField
+Свойства:
+  string SubProtocol
+  string Origin
+  string Host
+  string Path
+  IPAddress ClientIpAddress
+  int ClientPort
+  Guid Id
+Методы:
+  WebSocketConnectionInfo Create(WebSocketHttpRequest request, IPAddress clientIp, int clientPort)
+  void .ctor()
+  string get_SubProtocol()
+  void set_SubProtocol(string value)
+  string get_Origin()
+  void set_Origin(string value)
+  string get_Host()
+  void set_Host(string value)
+  string get_Path()
+  void set_Path(string value)
+  IPAddress get_ClientIpAddress()
+  void set_ClientIpAddress(IPAddress value)
+  int get_ClientPort()
+  void set_ClientPort(int value)
+  Guid get_Id()
+  void set_Id(Guid value)
+--------------------------------------------------
+Класс: Fleck.WebSocketException
+Наследуется от: Exception
+Поля:
+  ushort <StatusCode>k__BackingField
+Свойства:
+  ushort StatusCode
+Методы:
+  void .ctor(ushort statusCode)
+  void .ctor(ushort statusCode, string message)
+  void .ctor(ushort statusCode, string message, Exception innerException)
+  ushort get_StatusCode()
+  void set_StatusCode(ushort value)
+--------------------------------------------------
+Класс: Fleck.WebSocketHttpRequest
+Наследуется от: object
+Поля:
+  string <Method>k__BackingField
+  string <Path>k__BackingField
+  string <Scheme>k__BackingField
+  IDictionary`2<string, string> <Headers>k__BackingField
+Свойства:
+  string Method
+  string Path
+  string Scheme
+  string Item
+  IDictionary`2<string, string> Headers
+Методы:
+  string get_Method()
+  void set_Method(string value)
+  string get_Path()
+  void set_Path(string value)
+  string get_Scheme()
+  void set_Scheme(string value)
+  string get_Item(string name)
+  IDictionary`2<string, string> get_Headers()
+  void .ctor()
+--------------------------------------------------
+Класс: Fleck.WebSocketServer
+Наследуется от: object
+Поля:
+  string _scheme
+  IPAddress _locationIP
+  Action`1<IWebSocketConnection> _config
+  ISocket <ListenerSocket>k__BackingField
+  string <Location>k__BackingField
+  bool <SupportDualStack>k__BackingField
+  int <Port>k__BackingField
+  X509Certificate2 <Certificate>k__BackingField
+  SslProtocols <EnabledSslProtocols>k__BackingField
+  bool <RestartAfterListenError>k__BackingField
+Свойства:
+  ISocket ListenerSocket
+  string Location
+  bool SupportDualStack
+  int Port
+  X509Certificate2 Certificate
+  SslProtocols EnabledSslProtocols
+  bool RestartAfterListenError
+  bool IsSecure
+Методы:
+  void .ctor(string location, bool supportDualStack)
+  ISocket get_ListenerSocket()
+  void set_ListenerSocket(ISocket value)
+  string get_Location()
+  bool get_SupportDualStack()
+  int get_Port()
+  void set_Port(int value)
+  X509Certificate2 get_Certificate()
+  void set_Certificate(X509Certificate2 value)
+  SslProtocols get_EnabledSslProtocols()
+  void set_EnabledSslProtocols(SslProtocols value)
+  bool get_RestartAfterListenError()
+  void set_RestartAfterListenError(bool value)
+  bool get_IsSecure()
+  void Dispose()
+  IPAddress ParseIPAddress(Uri uri)
+  void Start(Action`1<IWebSocketConnection> config)
+  void ListenForClients()
+  void OnClientConnect(ISocket clientSocket)
+  void <ListenForClients>b__35_0(Exception e)
+  WebSocketHttpRequest <OnClientConnect>b__36_0(ArraySegment`1<byte> bytes)
+--------------------------------------------------
+Класс: Fleck.WebSocketStatusCodes
+Наследуется от: object
+Поля:
+  ushort NormalClosure
+  ushort GoingAway
+  ushort ProtocolError
+  ushort UnsupportedDataType
+  ushort NoStatusReceived
+  ushort AbnormalClosure
+  ushort InvalidFramePayloadData
+  ushort PolicyViolation
+  ushort MessageTooBig
+  ushort MandatoryExt
+  ushort InternalServerError
+  ushort TLSHandshake
+  ushort ApplicationError
+  UInt16[] ValidCloseCodes
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: Fleck.Helpers.FleckRuntime
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool IsRunningOnMono()
+  bool IsRunningOnWindows()
+--------------------------------------------------
+Класс: Fleck.Handlers.Hybi13Handler
+Наследуется от: object
+Поля:
+  string WebSocketResponseGuid
+  Encoding UTF8
+  SHA1 SHA1
+  ThreadLocal`1<StringBuilder> StringBuilder
+  WebSocketHttpRequest _request
+  IWebSocketConnection _connection
+  Byte[] _data
+  int _dataLen
+  Nullable`1<FrameType> _frameType
+  Byte[] _message
+  int _messageLen
+Свойства:
+Методы:
+  void .ctor(WebSocketHttpRequest request, IWebSocketConnection connection)
+  void Dispose()
+  void Receive(Span`1<byte> newData)
+  MemoryBuffer CreateHandshake()
+  MemoryBuffer FrameText(string text)
+  MemoryBuffer FrameText(MemoryBuffer utf8StringBytes)
+  MemoryBuffer FrameBinary(MemoryBuffer bytes)
+  MemoryBuffer FramePing(MemoryBuffer bytes)
+  MemoryBuffer FramePong(MemoryBuffer bytes)
+  MemoryBuffer FrameClose(ushort code)
+  MemoryBuffer FrameData(MemoryBuffer payload, FrameType frameType)
+  MemoryBuffer FrameData(Span`1<byte> payload, FrameType frameType)
+  void ReceiveData()
+  void ProcessFrame(FrameType frameType, ArraySegment`1<byte> buffer)
+  void Clear()
+  string CreateResponseKey(string requestKey)
+  string ReadUTF8PayloadData(ArraySegment`1<byte> bytes)
+  void .cctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=18 B633673BF635D4C719EF5A0496BD28129A8CE5D3B76217371B6C1FDDFFDD780B
+Свойства:
+Методы:
+--------------------------------------------------

@@ -1,0 +1,450 @@
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+internal static class Microsoft.Identity.Client.Extensions.Msal.Accessors.FileWithPermissions : object {
+    private static int PosixCreate(string pathname, int mode);
+    private static int PosixChmod(string pathname, int mode);
+    public static void WriteToNewFileWithOwnerRWPermissions(string path, Byte[] data);
+    private static void WriteToNewFileWithOwnerRWPermissionsUnix(string path, Byte[] data);
+    private static void WriteToNewFileWithOwnerRWPermissionsWindows(string filePath, Byte[] data);
+}
+public class Microsoft.Identity.Client.Extensions.Msal.CacheChangedEventArgs : EventArgs {
+    public IEnumerable`1<string> AccountsAdded;
+    public IEnumerable`1<string> AccountsRemoved;
+    public CacheChangedEventArgs(IEnumerable`1<string> added, IEnumerable`1<string> removed);
+}
+public class Microsoft.Identity.Client.Extensions.Msal.CrossPlatLock : object {
+    internal static int LockfileRetryDelayDefault;
+    internal static int LockfileRetryCountDefault;
+    private FileStream _lockFileStream;
+    public CrossPlatLock(string lockfilePath, int lockFileRetryDelay, int lockFileRetryCount);
+    public sealed virtual void Dispose();
+}
+internal class Microsoft.Identity.Client.Extensions.Msal.DpApiEncryptedFileAccessor : object {
+    private string _cacheFilePath;
+    private TraceSourceLogger _logger;
+    private ICacheAccessor _unencryptedFileAccessor;
+    public DpApiEncryptedFileAccessor(string cacheFilePath, TraceSourceLogger logger);
+    public sealed virtual void Clear();
+    public sealed virtual ICacheAccessor CreateForPersistenceValidation();
+    public sealed virtual Byte[] Read();
+    public sealed virtual void Write(Byte[] data);
+}
+internal static class Microsoft.Identity.Client.Extensions.Msal.EnvUtils : object {
+    internal static string TraceLevelEnvVarName;
+    private static string DefaultTraceSource;
+    internal static TraceSource GetNewTraceSource(string sourceName);
+}
+internal class Microsoft.Identity.Client.Extensions.Msal.FileAccessor : object {
+    private string _cacheFilePath;
+    private TraceSourceLogger _logger;
+    private bool _setOwnerOnlyPermission;
+    internal FileAccessor(string cacheFilePath, bool setOwnerOnlyPermissions, TraceSourceLogger logger);
+    public sealed virtual void Clear();
+    public sealed virtual ICacheAccessor CreateForPersistenceValidation();
+    public sealed virtual Byte[] Read();
+    public sealed virtual void Write(Byte[] data);
+}
+internal static class Microsoft.Identity.Client.Extensions.Msal.FileIOWithRetries : object {
+    private static int FileLockRetryCount;
+    private static int FileLockRetryWaitInMs;
+    internal static void DeleteCacheFile(string filePath, TraceSourceLogger logger);
+    internal static void CreateAndWriteToFile(string filePath, Byte[] data, bool setChmod600, TraceSourceLogger logger);
+    private static void EnsureParentDirectoryExists(string filePath, TraceSourceLogger logger);
+    internal static void TouchFile(string filePath, TraceSourceLogger logger);
+    internal static void TryProcessFile(Action action, TraceSourceLogger logger);
+}
+internal class Microsoft.Identity.Client.Extensions.Msal.GError : ValueType {
+    public UInt32 Domain;
+    public int Code;
+    public string Message;
+}
+internal interface Microsoft.Identity.Client.Extensions.Msal.ICacheAccessor {
+    public abstract virtual void Clear();
+    public abstract virtual Byte[] Read();
+    public abstract virtual void Write(Byte[] data);
+    public abstract virtual ICacheAccessor CreateForPersistenceValidation();
+}
+internal static class Microsoft.Identity.Client.Extensions.Msal.Libsecret : object {
+    public static IntPtr secret_schema_new(string name, int flags, string attribute1, int attribute1Type, string attribute2, int attribute2Type, IntPtr end);
+    public static int secret_password_store_sync(IntPtr schema, string collection, string label, string password, IntPtr cancellable, IntPtr& error, string attribute1Type, string attribute1Value, string attribute2Type, string attribute2Value, IntPtr end);
+    public static string secret_password_lookup_sync(IntPtr schema, IntPtr cancellable, IntPtr& error, string attribute1Type, string attribute1Value, string attribute2Type, string attribute2Value, IntPtr end);
+    public static int secret_password_clear_sync(IntPtr schema, IntPtr cancellable, IntPtr& error, string attribute1Type, string attribute1Value, string attribute2Type, string attribute2Value, IntPtr end);
+}
+internal class Microsoft.Identity.Client.Extensions.Msal.LinuxKeyringAccessor : object {
+    private TraceSourceLogger _logger;
+    private IntPtr _libsecretSchema;
+    private string _cacheFilePath;
+    private string _keyringCollection;
+    private string _keyringSchemaName;
+    private string _keyringSecretLabel;
+    private string _attributeKey1;
+    private string _attributeValue1;
+    private string _attributeKey2;
+    private string _attributeValue2;
+    public LinuxKeyringAccessor(string cacheFilePath, string keyringCollection, string keyringSchemaName, string keyringSecretLabel, string attributeKey1, string attributeValue1, string attributeKey2, string attributeValue2, TraceSourceLogger logger);
+    public sealed virtual ICacheAccessor CreateForPersistenceValidation();
+    public sealed virtual void Clear();
+    public sealed virtual Byte[] Read();
+    public sealed virtual void Write(Byte[] data);
+    private IntPtr GetLibsecretSchema();
+}
+internal static class Microsoft.Identity.Client.Extensions.Msal.LinuxNativeMethods : object {
+    public static int RootUserId;
+    public static int getuid();
+}
+internal class Microsoft.Identity.Client.Extensions.Msal.MacKeychainAccessor : object {
+    private string _cacheFilePath;
+    private string _service;
+    private string _account;
+    private TraceSourceLogger _logger;
+    private MacOSKeychain _keyChain;
+    public MacKeychainAccessor(string cacheFilePath, string keyChainServiceName, string keyChainAccountName, TraceSourceLogger logger);
+    public sealed virtual void Clear();
+    public sealed virtual Byte[] Read();
+    public sealed virtual void Write(Byte[] data);
+    public sealed virtual ICacheAccessor CreateForPersistenceValidation();
+    public virtual string ToString();
+}
+internal class Microsoft.Identity.Client.Extensions.Msal.MacOSKeychain : object {
+    private string _namespace;
+    public MacOSKeychain(string namespace);
+    public MacOSKeychainCredential Get(string service, string account);
+    public void AddOrUpdate(string service, string account, Byte[] secretBytes);
+    public bool Remove(string service, string account);
+    private static IntPtr CreateCFStringUtf8(string str);
+    private static MacOSKeychainCredential CreateCredentialFromAttributes(IntPtr attributes);
+    private static Byte[] GetByteArrayAtrribute(IntPtr dict, IntPtr key);
+    private static string GetStringAttribute(IntPtr dict, IntPtr key);
+    private string CreateServiceName(string service);
+}
+public class Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper : object {
+    public static string LinuxKeyRingDefaultCollection;
+    public static string LinuxKeyRingSessionCollection;
+    private static Lazy`1<TraceSourceLogger> s_staticLogger;
+    private object _lockObject;
+    private StorageCreationProperties _storageCreationProperties;
+    [CompilerGeneratedAttribute]
+private CrossPlatLock <CacheLock>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Storage <CacheStore>k__BackingField;
+    private TraceSourceLogger _logger;
+    private HashSet`1<string> _knownAccountIds;
+    private FileSystemWatcher _cacheWatcher;
+    private EventHandler`1<CacheChangedEventArgs> _cacheChangedEventHandler;
+    internal CrossPlatLock CacheLock { get; private set; }
+    internal Storage CacheStore { get; }
+    public static string UserRootDirectory { get; }
+    private MsalCacheHelper(StorageCreationProperties storageCreationProperties, TraceSource logger, HashSet`1<string> knownAccountIds, FileSystemWatcher cacheWatcher);
+    internal MsalCacheHelper(ITokenCache userTokenCache, Storage store, TraceSource logger);
+    private static MsalCacheHelper();
+    [CompilerGeneratedAttribute]
+internal CrossPlatLock get_CacheLock();
+    [CompilerGeneratedAttribute]
+private void set_CacheLock(CrossPlatLock value);
+    [CompilerGeneratedAttribute]
+internal Storage get_CacheStore();
+    public void add_CacheChanged(EventHandler`1<CacheChangedEventArgs> value);
+    public void remove_CacheChanged(EventHandler`1<CacheChangedEventArgs> value);
+    [AsyncStateMachineAttribute("Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper/<GetAccountIdentifiersNoLockAsync>d__19")]
+private static Task`1<HashSet`1<string>> GetAccountIdentifiersNoLockAsync(StorageCreationProperties storageCreationProperties, TraceSourceLogger logger);
+    [AsyncStateMachineAttribute("Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper/<OnCacheFileChangedAsync>d__21")]
+private void OnCacheFileChangedAsync(object sender, FileSystemEventArgs args);
+    [AsyncStateMachineAttribute("Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper/<CreateAsync>d__23")]
+public static Task`1<MsalCacheHelper> CreateAsync(StorageCreationProperties storageCreationProperties, TraceSource logger);
+    public static string get_UserRootDirectory();
+    public void RegisterCache(ITokenCache tokenCache);
+    public void UnregisterCache(ITokenCache tokenCache);
+    [ObsoleteAttribute("Applications should not delete the entire cache to log out all users. Instead, call app.RemoveAsync(IAccount) for each account in the cache. ", "False")]
+public void Clear();
+    public Byte[] LoadUnencryptedTokenCache();
+    public void SaveUnencryptedTokenCache(Byte[] tokenCache);
+    private static CrossPlatLock CreateCrossPlatLock(StorageCreationProperties storageCreationProperties);
+    internal void BeforeAccessNotification(TokenCacheNotificationArgs args);
+    internal void AfterAccessNotification(TokenCacheNotificationArgs args);
+    private void ReleaseFileLock();
+    public void VerifyPersistence();
+}
+public class Microsoft.Identity.Client.Extensions.Msal.MsalCachePersistenceException : Exception {
+    public MsalCachePersistenceException(string message);
+    public MsalCachePersistenceException(string message, Exception innerException);
+    protected MsalCachePersistenceException(SerializationInfo info, StreamingContext context);
+}
+public static class Microsoft.Identity.Client.Extensions.Msal.SharedUtilities : object {
+    private static string s_homeEnvVar;
+    private static string s_lognameEnvVar;
+    private static string s_userEnvVar;
+    private static string s_lNameEnvVar;
+    private static string s_usernameEnvVar;
+    private static Lazy`1<bool> s_isMono;
+    private static string s_processName;
+    private static int s_processId;
+    private static SharedUtilities();
+    public static bool IsWindowsPlatform();
+    public static bool IsMacPlatform();
+    public static bool IsLinuxPlatform();
+    internal static bool IsMonoPlatform();
+    internal static int GetCurrentProcessId();
+    internal static string GetCurrentProcessName();
+    public static string GetUserRootDirectory();
+    private static string GetUserHomeDirOnUnix();
+}
+public class Microsoft.Identity.Client.Extensions.Msal.Storage : object {
+    private TraceSourceLogger _logger;
+    [CompilerGeneratedAttribute]
+private ICacheAccessor <CacheAccessor>k__BackingField;
+    [CompilerGeneratedAttribute]
+private StorageCreationProperties <StorageCreationProperties>k__BackingField;
+    internal static string PersistenceValidationDummyData;
+    private static Lazy`1<TraceSourceLogger> s_staticLogger;
+    internal ICacheAccessor CacheAccessor { get; }
+    internal StorageCreationProperties StorageCreationProperties { get; }
+    internal Storage(StorageCreationProperties creationProperties, ICacheAccessor cacheAccessor, TraceSourceLogger logger);
+    private static Storage();
+    [CompilerGeneratedAttribute]
+internal ICacheAccessor get_CacheAccessor();
+    [CompilerGeneratedAttribute]
+internal StorageCreationProperties get_StorageCreationProperties();
+    public static Storage Create(StorageCreationProperties creationProperties, TraceSource logger);
+    public Byte[] ReadData();
+    public void WriteData(Byte[] data);
+    public void Clear(bool ignoreExceptions);
+    public void VerifyPersistence();
+}
+public class Microsoft.Identity.Client.Extensions.Msal.StorageCreationProperties : object {
+    [CompilerGeneratedAttribute]
+private string <CacheFilePath>k__BackingField;
+    public string CacheFileName;
+    public string CacheDirectory;
+    public string MacKeyChainServiceName;
+    public string MacKeyChainAccountName;
+    public string KeyringSchemaName;
+    public string KeyringCollection;
+    public string KeyringSecretLabel;
+    public KeyValuePair`2<string, string> KeyringAttribute1;
+    public KeyValuePair`2<string, string> KeyringAttribute2;
+    public int LockRetryDelay;
+    public bool UseLinuxUnencryptedFallback;
+    public bool UseUnencryptedFallback;
+    public int LockRetryCount;
+    [CompilerGeneratedAttribute]
+private string <ClientId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Authority>k__BackingField;
+    public string CacheFilePath { get; }
+    public string ClientId { get; }
+    public string Authority { get; }
+    internal bool IsCacheEventConfigured { get; }
+    internal StorageCreationProperties(string cacheFileName, string cacheDirectory, string macKeyChainServiceName, string macKeyChainAccountName, bool useLinuxPlaintextFallback, bool usePlaintextFallback, string keyringSchemaName, string keyringCollection, string keyringSecretLabel, KeyValuePair`2<string, string> keyringAttribute1, KeyValuePair`2<string, string> keyringAttribute2, int lockRetryDelay, int lockRetryCount, string clientId, string authority);
+    private void Validate();
+    [CompilerGeneratedAttribute]
+public string get_CacheFilePath();
+    [CompilerGeneratedAttribute]
+public string get_ClientId();
+    [CompilerGeneratedAttribute]
+public string get_Authority();
+    internal bool get_IsCacheEventConfigured();
+}
+public class Microsoft.Identity.Client.Extensions.Msal.StorageCreationPropertiesBuilder : object {
+    private string _cacheFileName;
+    private string _cacheDirectory;
+    private string _clientId;
+    private string _authority;
+    private string _macKeyChainServiceName;
+    private string _macKeyChainAccountName;
+    private string _keyringSchemaName;
+    private string _keyringCollection;
+    private string _keyringSecretLabel;
+    private KeyValuePair`2<string, string> _keyringAttribute1;
+    private KeyValuePair`2<string, string> _keyringAttribute2;
+    private int _lockRetryDelay;
+    private int _lockRetryCount;
+    private bool _useLinuxPlaintextFallback;
+    private bool _usePlaintextFallback;
+    [ObsoleteAttribute("Use StorageCreationPropertiesBuilder(string, string) instead. If you need to consume the CacheChanged event then also use WithCacheChangedEvent(string, string)", "False")]
+public StorageCreationPropertiesBuilder(string cacheFileName, string cacheDirectory, string clientId);
+    public StorageCreationPropertiesBuilder(string cacheFileName, string cacheDirectory);
+    public StorageCreationProperties Build();
+    public StorageCreationPropertiesBuilder WithMacKeyChain(string serviceName, string accountName);
+    public StorageCreationPropertiesBuilder WithCacheChangedEvent(string clientId, string authority);
+    public StorageCreationPropertiesBuilder CustomizeLockRetry(int lockRetryDelay, int lockRetryCount);
+    public StorageCreationPropertiesBuilder WithLinuxKeyring(string schemaName, string collection, string secretLabel, KeyValuePair`2<string, string> attribute1, KeyValuePair`2<string, string> attribute2);
+    public StorageCreationPropertiesBuilder WithLinuxUnprotectedFile();
+    public StorageCreationPropertiesBuilder WithUnprotectedFile();
+}
+public class Microsoft.Identity.Client.Extensions.Msal.TraceSourceLogger : object {
+    [CompilerGeneratedAttribute]
+private TraceSource <Source>k__BackingField;
+    public TraceSource Source { get; }
+    public TraceSourceLogger(TraceSource traceSource);
+    [CompilerGeneratedAttribute]
+public TraceSource get_Source();
+    public void LogInformation(string message);
+    public void LogError(string message);
+    public void LogWarning(string message);
+    private static string FormatLogMessage(string message);
+}
+[DebuggerDisplayAttribute("{DebuggerDisplay}")]
+internal class Microsoft.Identity.Extensions.InteropException : Exception {
+    [CompilerGeneratedAttribute]
+private int <ErrorCode>k__BackingField;
+    public int ErrorCode { get; }
+    private string DebuggerDisplay { get; }
+    public InteropException(string message, int errorCode);
+    public InteropException(string message, int errorCode, Exception innerException);
+    [CompilerGeneratedAttribute]
+public int get_ErrorCode();
+    private string get_DebuggerDisplay();
+}
+internal enum Microsoft.Identity.Extensions.Mac.CFStringEncoding : Enum {
+    public int value__;
+    public static CFStringEncoding kCFStringEncodingUTF8;
+}
+internal static class Microsoft.Identity.Extensions.Mac.CoreFoundation : object {
+    private static string CoreFoundationFrameworkLib;
+    public static IntPtr Handle;
+    public static IntPtr kCFBooleanTrue;
+    public static IntPtr kCFBooleanFalse;
+    private static CoreFoundation();
+    public static IntPtr CFArrayCreateMutable(IntPtr allocator, long capacity, IntPtr callbacks);
+    public static void CFArrayInsertValueAtIndex(IntPtr theArray, long idx, IntPtr value);
+    public static long CFArrayGetCount(IntPtr theArray);
+    public static IntPtr CFArrayGetValueAtIndex(IntPtr theArray, long idx);
+    public static IntPtr CFDictionaryCreateMutable(IntPtr allocator, long capacity, IntPtr keyCallBacks, IntPtr valueCallBacks);
+    public static void CFDictionaryAddValue(IntPtr theDict, IntPtr key, IntPtr value);
+    public static IntPtr CFDictionaryGetValue(IntPtr theDict, IntPtr key);
+    public static bool CFDictionaryGetValueIfPresent(IntPtr theDict, IntPtr key, IntPtr& value);
+    public static IntPtr CFStringCreateWithBytes(IntPtr alloc, Byte[] bytes, long numBytes, CFStringEncoding encoding, bool isExternalRepresentation);
+    public static long CFStringGetLength(IntPtr theString);
+    public static bool CFStringGetCString(IntPtr theString, IntPtr buffer, long bufferSize, CFStringEncoding encoding);
+    public static void CFRetain(IntPtr cf);
+    public static void CFRelease(IntPtr cf);
+    public static int CFGetTypeID(IntPtr cf);
+    public static int CFStringGetTypeID();
+    public static int CFDataGetTypeID();
+    public static int CFDictionaryGetTypeID();
+    public static int CFArrayGetTypeID();
+    public static IntPtr CFDataGetBytePtr(IntPtr theData);
+    public static int CFDataGetLength(IntPtr theData);
+}
+internal enum Microsoft.Identity.Extensions.Mac.CssmDbAttributeFormat : Enum {
+    public UInt32 value__;
+    public static CssmDbAttributeFormat String;
+    public static CssmDbAttributeFormat SInt32;
+    public static CssmDbAttributeFormat UInt32;
+    public static CssmDbAttributeFormat BigNum;
+    public static CssmDbAttributeFormat Real;
+    public static CssmDbAttributeFormat TimeDate;
+    public static CssmDbAttributeFormat Blob;
+    public static CssmDbAttributeFormat MultiUInt32;
+    public static CssmDbAttributeFormat Complex;
+}
+internal static class Microsoft.Identity.Extensions.Mac.LibSystem : object {
+    private static string LibSystemLib;
+    public static IntPtr dlopen(string name, int flags);
+    public static IntPtr dlsym(IntPtr handle, string symbol);
+    public static IntPtr GetGlobal(IntPtr handle, string symbol);
+}
+[DebuggerDisplayAttribute("{DebuggerDisplay}")]
+internal class Microsoft.Identity.Extensions.Mac.MacOSKeychainCredential : object {
+    [CompilerGeneratedAttribute]
+private string <Service>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Account>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Label>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Byte[] <Password>k__BackingField;
+    public string Service { get; }
+    public string Account { get; }
+    public string Label { get; }
+    public Byte[] Password { get; }
+    private string DebuggerDisplay { get; }
+    internal MacOSKeychainCredential(string service, string account, Byte[] password, string label);
+    [CompilerGeneratedAttribute]
+public string get_Service();
+    [CompilerGeneratedAttribute]
+public string get_Account();
+    [CompilerGeneratedAttribute]
+public string get_Label();
+    [CompilerGeneratedAttribute]
+public Byte[] get_Password();
+    private string get_DebuggerDisplay();
+}
+internal class Microsoft.Identity.Extensions.Mac.SecKeychainAttribute : ValueType {
+    public SecKeychainAttrType Tag;
+    public UInt32 Length;
+    public IntPtr Data;
+}
+internal class Microsoft.Identity.Extensions.Mac.SecKeychainAttributeInfo : ValueType {
+    public UInt32 Count;
+    public IntPtr Tag;
+    public IntPtr Format;
+}
+internal class Microsoft.Identity.Extensions.Mac.SecKeychainAttributeList : ValueType {
+    public UInt32 Count;
+    public IntPtr Attributes;
+}
+internal enum Microsoft.Identity.Extensions.Mac.SecKeychainAttrType : Enum {
+    public UInt32 value__;
+    public static SecKeychainAttrType AccountItem;
+}
+internal static class Microsoft.Identity.Extensions.Mac.SecurityFramework : object {
+    private static string SecurityFrameworkLib;
+    public static IntPtr Handle;
+    public static IntPtr kSecClass;
+    public static IntPtr kSecMatchLimit;
+    public static IntPtr kSecReturnAttributes;
+    public static IntPtr kSecReturnRef;
+    public static IntPtr kSecReturnPersistentRef;
+    public static IntPtr kSecClassGenericPassword;
+    public static IntPtr kSecMatchLimitOne;
+    public static IntPtr kSecMatchItemList;
+    public static IntPtr kSecAttrLabel;
+    public static IntPtr kSecAttrAccount;
+    public static IntPtr kSecAttrService;
+    public static IntPtr kSecValueRef;
+    public static IntPtr kSecValueData;
+    public static IntPtr kSecReturnData;
+    public static int CallerSecuritySession;
+    public static int OK;
+    public static int ErrorSecNoSuchKeychain;
+    public static int ErrorSecInvalidKeychain;
+    public static int ErrorSecAuthFailed;
+    public static int ErrorSecDuplicateItem;
+    public static int ErrorSecItemNotFound;
+    public static int ErrorSecInteractionNotAllowed;
+    public static int ErrorSecInteractionRequired;
+    public static int ErrorSecNoSuchAttr;
+    public static int ErrSecUserCanceled;
+    private static SecurityFramework();
+    public static int SessionGetInfo(int session, Int32& sessionId, SessionAttributeBits& attributes);
+    public static int SecAccessCreate(IntPtr descriptor, IntPtr trustedList, IntPtr& accessRef);
+    public static int SecKeychainItemCreateFromContent(IntPtr itemClass, IntPtr attrList, UInt32 length, IntPtr data, IntPtr keychainRef, IntPtr initialAccess, IntPtr& itemRef);
+    public static int SecKeychainAddGenericPassword(IntPtr keychain, UInt32 serviceNameLength, string serviceName, UInt32 accountNameLength, string accountName, UInt32 passwordLength, Byte[] passwordData, IntPtr& itemRef);
+    public static int SecKeychainFindGenericPassword(IntPtr keychainOrArray, UInt32 serviceNameLength, string serviceName, UInt32 accountNameLength, string accountName, UInt32& passwordLength, IntPtr& passwordData, IntPtr& itemRef);
+    public static int SecKeychainItemModifyAttributesAndData(IntPtr itemRef, IntPtr attrList, UInt32 length, Byte[] data);
+    public static int SecKeychainItemDelete(IntPtr itemRef);
+    public static int SecKeychainItemFreeContent(IntPtr attrList, IntPtr data);
+    public static int SecKeychainItemFreeAttributesAndData(IntPtr attrList, IntPtr data);
+    public static int SecItemCopyMatching(IntPtr query, IntPtr& result);
+    public static int SecKeychainItemCopyFromPersistentReference(IntPtr persistentItemRef, IntPtr& itemRef);
+    public static int SecKeychainItemCopyContent(IntPtr itemRef, IntPtr itemClass, IntPtr attrList, UInt32& length, IntPtr& outData);
+    public static void ThrowIfError(int error, string defaultErrorMessage);
+}
+[FlagsAttribute]
+internal enum Microsoft.Identity.Extensions.Mac.SessionAttributeBits : Enum {
+    public int value__;
+    public static SessionAttributeBits SessionIsRoot;
+    public static SessionAttributeBits SessionHasGraphicAccess;
+    public static SessionAttributeBits SessionHasTty;
+    public static SessionAttributeBits SessionIsRemote;
+}
+[AttributeUsageAttribute("2")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.RefSafetyRulesAttribute : Attribute {
+    public int Version;
+    public RefSafetyRulesAttribute(int );
+}

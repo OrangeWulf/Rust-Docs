@@ -1,0 +1,459 @@
+Сборка: UnityEngine.GameCenterModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Social
+Наследуется от: object
+Поля:
+Свойства:
+  ISocialPlatform Active
+  ILocalUser localUser
+Методы:
+  ISocialPlatform get_Active()
+  void set_Active(ISocialPlatform value)
+  ILocalUser get_localUser()
+  void LoadUsers(String[] userIDs, Action`1<IUserProfile[]> callback)
+  void ReportProgress(string achievementID, double progress, Action`1<bool> callback)
+  void LoadAchievementDescriptions(Action`1<IAchievementDescription[]> callback)
+  void LoadAchievements(Action`1<IAchievement[]> callback)
+  void ReportScore(long score, string board, Action`1<bool> callback)
+  void LoadScores(string leaderboardID, Action`1<IScore[]> callback)
+  ILeaderboard CreateLeaderboard()
+  IAchievement CreateAchievement()
+  void ShowAchievementsUI()
+  void ShowLeaderboardUI()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.Local
+Наследуется от: object
+Поля:
+  LocalUser m_LocalUser
+  List`1<UserProfile> m_Friends
+  List`1<UserProfile> m_Users
+  List`1<AchievementDescription> m_AchievementDescriptions
+  List`1<Achievement> m_Achievements
+  List`1<Leaderboard> m_Leaderboards
+  Texture2D m_DefaultTexture
+Свойства:
+  ILocalUser localUser
+Методы:
+  ILocalUser get_localUser()
+  void UnityEngine.SocialPlatforms.ISocialPlatform.Authenticate(ILocalUser user, Action`1<bool> callback)
+  void UnityEngine.SocialPlatforms.ISocialPlatform.Authenticate(ILocalUser user, Action`2<bool, string> callback)
+  void UnityEngine.SocialPlatforms.ISocialPlatform.LoadFriends(ILocalUser user, Action`1<bool> callback)
+  void LoadUsers(String[] userIDs, Action`1<IUserProfile[]> callback)
+  void ReportProgress(string id, double progress, Action`1<bool> callback)
+  void LoadAchievementDescriptions(Action`1<IAchievementDescription[]> callback)
+  void LoadAchievements(Action`1<IAchievement[]> callback)
+  void ReportScore(long score, string board, Action`1<bool> callback)
+  void LoadScores(string leaderboardID, Action`1<IScore[]> callback)
+  void UnityEngine.SocialPlatforms.ISocialPlatform.LoadScores(ILeaderboard board, Action`1<bool> callback)
+  bool UnityEngine.SocialPlatforms.ISocialPlatform.GetLoading(ILeaderboard board)
+  void SortScores(Leaderboard board)
+  void SetLocalPlayerScore(Leaderboard board)
+  void ShowAchievementsUI()
+  void ShowLeaderboardUI()
+  ILeaderboard CreateLeaderboard()
+  IAchievement CreateAchievement()
+  bool VerifyUser()
+  void PopulateStaticData()
+  Texture2D CreateDummyTexture(int width, int height)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.ActivePlatform
+Наследуется от: object
+Поля:
+  ISocialPlatform _active
+Свойства:
+  ISocialPlatform Instance
+Методы:
+  ISocialPlatform get_Instance()
+  void set_Instance(ISocialPlatform value)
+  ISocialPlatform SelectSocialPlatform()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.ISocialPlatform
+Поля:
+Свойства:
+  ILocalUser localUser
+Методы:
+  ILocalUser get_localUser()
+  void LoadUsers(String[] userIDs, Action`1<IUserProfile[]> callback)
+  void ReportProgress(string achievementID, double progress, Action`1<bool> callback)
+  void LoadAchievementDescriptions(Action`1<IAchievementDescription[]> callback)
+  void LoadAchievements(Action`1<IAchievement[]> callback)
+  IAchievement CreateAchievement()
+  void ReportScore(long score, string board, Action`1<bool> callback)
+  void LoadScores(string leaderboardID, Action`1<IScore[]> callback)
+  ILeaderboard CreateLeaderboard()
+  void ShowAchievementsUI()
+  void ShowLeaderboardUI()
+  void Authenticate(ILocalUser user, Action`1<bool> callback)
+  void Authenticate(ILocalUser user, Action`2<bool, string> callback)
+  void LoadFriends(ILocalUser user, Action`1<bool> callback)
+  void LoadScores(ILeaderboard board, Action`1<bool> callback)
+  bool GetLoading(ILeaderboard board)
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.ILocalUser
+Поля:
+Свойства:
+  IUserProfile[] friends
+  bool authenticated
+  bool underage
+Методы:
+  void Authenticate(Action`1<bool> callback)
+  void Authenticate(Action`2<bool, string> callback)
+  void LoadFriends(Action`1<bool> callback)
+  IUserProfile[] get_friends()
+  bool get_authenticated()
+  bool get_underage()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.UserState
+Наследуется от: Enum
+Поля:
+  int value__
+  UserState Online
+  UserState OnlineAndAway
+  UserState OnlineAndBusy
+  UserState Offline
+  UserState Playing
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.IUserProfile
+Поля:
+Свойства:
+  string userName
+  string id
+  bool isFriend
+  UserState state
+  Texture2D image
+Методы:
+  string get_userName()
+  string get_id()
+  bool get_isFriend()
+  UserState get_state()
+  Texture2D get_image()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.IAchievement
+Поля:
+Свойства:
+  string id
+  double percentCompleted
+  bool completed
+  bool hidden
+  DateTime lastReportedDate
+Методы:
+  void ReportProgress(Action`1<bool> callback)
+  string get_id()
+  void set_id(string value)
+  double get_percentCompleted()
+  void set_percentCompleted(double value)
+  bool get_completed()
+  bool get_hidden()
+  DateTime get_lastReportedDate()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.IAchievementDescription
+Поля:
+Свойства:
+  string id
+  string title
+  Texture2D image
+  string achievedDescription
+  string unachievedDescription
+  bool hidden
+  int points
+Методы:
+  string get_id()
+  void set_id(string value)
+  string get_title()
+  Texture2D get_image()
+  string get_achievedDescription()
+  string get_unachievedDescription()
+  bool get_hidden()
+  int get_points()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.IScore
+Поля:
+Свойства:
+  string leaderboardID
+  long value
+  DateTime date
+  string formattedValue
+  string userID
+  int rank
+Методы:
+  void ReportScore(Action`1<bool> callback)
+  string get_leaderboardID()
+  void set_leaderboardID(string value)
+  long get_value()
+  void set_value(long value)
+  DateTime get_date()
+  string get_formattedValue()
+  string get_userID()
+  int get_rank()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.UserScope
+Наследуется от: Enum
+Поля:
+  int value__
+  UserScope Global
+  UserScope FriendsOnly
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.TimeScope
+Наследуется от: Enum
+Поля:
+  int value__
+  TimeScope Today
+  TimeScope Week
+  TimeScope AllTime
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.Range
+Наследуется от: ValueType
+Поля:
+  int from
+  int count
+Свойства:
+Методы:
+  void .ctor(int fromValue, int valueCount)
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.ILeaderboard
+Поля:
+Свойства:
+  bool loading
+  string id
+  UserScope userScope
+  Range range
+  TimeScope timeScope
+  IScore localUserScore
+  UInt32 maxRange
+  IScore[] scores
+  string title
+Методы:
+  void SetUserFilter(String[] userIDs)
+  void LoadScores(Action`1<bool> callback)
+  bool get_loading()
+  string get_id()
+  void set_id(string value)
+  UserScope get_userScope()
+  void set_userScope(UserScope value)
+  Range get_range()
+  void set_range(Range value)
+  TimeScope get_timeScope()
+  void set_timeScope(TimeScope value)
+  IScore get_localUserScore()
+  UInt32 get_maxRange()
+  IScore[] get_scores()
+  string get_title()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.Impl.LocalUser
+Наследуется от: UserProfile
+Поля:
+  IUserProfile[] m_Friends
+  bool m_Authenticated
+  bool m_Underage
+Свойства:
+  IUserProfile[] friends
+  bool authenticated
+  bool underage
+Методы:
+  void .ctor()
+  void Authenticate(Action`1<bool> callback)
+  void Authenticate(Action`2<bool, string> callback)
+  void LoadFriends(Action`1<bool> callback)
+  void SetFriends(IUserProfile[] friends)
+  void SetAuthenticated(bool value)
+  void SetUnderage(bool value)
+  IUserProfile[] get_friends()
+  bool get_authenticated()
+  bool get_underage()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.Impl.UserProfile
+Наследуется от: object
+Поля:
+  string m_UserName
+  string m_ID
+  string m_legacyID
+  bool m_IsFriend
+  UserState m_State
+  Texture2D m_Image
+  string m_gameID
+  string legacyIdObsoleteMessage
+Свойства:
+  string userName
+  string id
+  string legacyId
+  string gameId
+  bool isFriend
+  UserState state
+  Texture2D image
+Методы:
+  void .ctor()
+  void .ctor(string name, string id, bool friend)
+  void .ctor(string name, string id, bool friend, UserState state, Texture2D image)
+  void .ctor(string name, string teamId, string gameId, bool friend, UserState state, Texture2D image)
+  string ToString()
+  void SetUserName(string name)
+  void SetUserID(string id)
+  void SetLegacyUserID(string id)
+  void SetUserGameID(string id)
+  void SetImage(Texture2D image)
+  void SetIsFriend(bool value)
+  void SetState(UserState state)
+  string get_userName()
+  string get_id()
+  string get_legacyId()
+  string get_gameId()
+  bool get_isFriend()
+  UserState get_state()
+  Texture2D get_image()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.Impl.Achievement
+Наследуется от: object
+Поля:
+  bool m_Completed
+  bool m_Hidden
+  DateTime m_LastReportedDate
+  string <id>k__BackingField
+  double <percentCompleted>k__BackingField
+Свойства:
+  string id
+  double percentCompleted
+  bool completed
+  bool hidden
+  DateTime lastReportedDate
+Методы:
+  void .ctor(string id, double percentCompleted, bool completed, bool hidden, DateTime lastReportedDate)
+  void .ctor(string id, double percent)
+  void .ctor()
+  string ToString()
+  void ReportProgress(Action`1<bool> callback)
+  void SetCompleted(bool value)
+  void SetHidden(bool value)
+  void SetLastReportedDate(DateTime date)
+  string get_id()
+  void set_id(string value)
+  double get_percentCompleted()
+  void set_percentCompleted(double value)
+  bool get_completed()
+  bool get_hidden()
+  DateTime get_lastReportedDate()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.Impl.AchievementDescription
+Наследуется от: object
+Поля:
+  string m_Title
+  Texture2D m_Image
+  string m_AchievedDescription
+  string m_UnachievedDescription
+  bool m_Hidden
+  int m_Points
+  string <id>k__BackingField
+Свойства:
+  string id
+  string title
+  Texture2D image
+  string achievedDescription
+  string unachievedDescription
+  bool hidden
+  int points
+Методы:
+  void .ctor(string id, string title, Texture2D image, string achievedDescription, string unachievedDescription, bool hidden, int points)
+  string ToString()
+  void SetImage(Texture2D image)
+  string get_id()
+  void set_id(string value)
+  string get_title()
+  Texture2D get_image()
+  string get_achievedDescription()
+  string get_unachievedDescription()
+  bool get_hidden()
+  int get_points()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.Impl.Score
+Наследуется от: object
+Поля:
+  DateTime m_Date
+  string m_FormattedValue
+  string m_UserID
+  int m_Rank
+  string <leaderboardID>k__BackingField
+  long <value>k__BackingField
+Свойства:
+  string leaderboardID
+  long value
+  DateTime date
+  string formattedValue
+  string userID
+  int rank
+Методы:
+  void .ctor()
+  void .ctor(string leaderboardID, long value)
+  void .ctor(string leaderboardID, long value, string userID, DateTime date, string formattedValue, int rank)
+  string ToString()
+  void ReportScore(Action`1<bool> callback)
+  void SetDate(DateTime date)
+  void SetFormattedValue(string value)
+  void SetUserID(string userID)
+  void SetRank(int rank)
+  string get_leaderboardID()
+  void set_leaderboardID(string value)
+  long get_value()
+  void set_value(long value)
+  DateTime get_date()
+  string get_formattedValue()
+  string get_userID()
+  int get_rank()
+--------------------------------------------------
+Класс: UnityEngine.SocialPlatforms.Impl.Leaderboard
+Наследуется от: object
+Поля:
+  bool m_Loading
+  IScore m_LocalUserScore
+  UInt32 m_MaxRange
+  IScore[] m_Scores
+  string m_Title
+  String[] m_UserIDs
+  string <id>k__BackingField
+  UserScope <userScope>k__BackingField
+  Range <range>k__BackingField
+  TimeScope <timeScope>k__BackingField
+Свойства:
+  bool loading
+  string id
+  UserScope userScope
+  Range range
+  TimeScope timeScope
+  IScore localUserScore
+  UInt32 maxRange
+  IScore[] scores
+  string title
+Методы:
+  void .ctor()
+  void SetUserFilter(String[] userIDs)
+  string ToString()
+  void LoadScores(Action`1<bool> callback)
+  bool get_loading()
+  void SetLocalUserScore(IScore score)
+  void SetMaxRange(UInt32 maxRange)
+  void SetScores(IScore[] scores)
+  void SetTitle(string title)
+  String[] GetUserFilter()
+  string get_id()
+  void set_id(string value)
+  UserScope get_userScope()
+  void set_userScope(UserScope value)
+  Range get_range()
+  void set_range(Range value)
+  TimeScope get_timeScope()
+  void set_timeScope(TimeScope value)
+  IScore get_localUserScore()
+  UInt32 get_maxRange()
+  IScore[] get_scores()
+  string get_title()
+--------------------------------------------------

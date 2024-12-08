@@ -1,0 +1,122 @@
+public class Oxide.Core.MySql.Libraries.MySql : Library {
+    private Queue`1<MySqlQuery> _queue;
+    private object _syncroot;
+    private AutoResetEvent _workevent;
+    private HashSet`1<Connection> _runningConnections;
+    private bool _running;
+    private Dictionary`2<string, Dictionary`2<string, Connection>> _connections;
+    private Thread _worker;
+    private Dictionary`2<Plugin, Callback`2<Plugin, PluginManager>> _pluginRemovedFromManager;
+    public bool IsGlobal { get; }
+    public virtual bool get_IsGlobal();
+    private void Worker();
+    [LibraryFunction("OpenDb")]
+public Connection OpenDb(string host, int port, string database, string user, string password, Plugin plugin, bool persistent);
+    public sealed virtual Connection OpenDb(string conStr, Plugin plugin, bool persistent);
+    private void OnRemovedFromManager(Plugin sender, PluginManager manager);
+    [LibraryFunction("CloseDb")]
+public sealed virtual void CloseDb(Connection db);
+    [LibraryFunction("NewSql")]
+public sealed virtual Sql NewSql();
+    [LibraryFunction("Query")]
+public sealed virtual void Query(Sql sql, Connection db, Action`1<List`1<Dictionary`2<string, object>>> callback);
+    [LibraryFunction("ExecuteNonQuery")]
+public sealed virtual void ExecuteNonQuery(Sql sql, Connection db, Action`1<int> callback);
+    [LibraryFunction("Insert")]
+public sealed virtual void Insert(Sql sql, Connection db, Action`1<int> callback);
+    [LibraryFunction("Update")]
+public sealed virtual void Update(Sql sql, Connection db, Action`1<int> callback);
+    [LibraryFunction("Delete")]
+public sealed virtual void Delete(Sql sql, Connection db, Action`1<int> callback);
+    public virtual void Shutdown();
+}
+public class Oxide.Core.MySql.MySqlExtension : Extension {
+    internal static Assembly Assembly;
+    internal static AssemblyName AssemblyName;
+    internal static VersionNumber AssemblyVersion;
+    internal static string AssemblyAuthors;
+    public bool IsCoreExtension { get; }
+    public string Name { get; }
+    public string Author { get; }
+    public VersionNumber Version { get; }
+    public MySqlExtension(ExtensionManager manager);
+    private static MySqlExtension();
+    public virtual bool get_IsCoreExtension();
+    public virtual string get_Name();
+    public virtual string get_Author();
+    public virtual VersionNumber get_Version();
+    public virtual void Load();
+    public virtual void LoadPluginWatchers(string pluginDirectory);
+    public virtual void OnModLoad();
+}
+public class Oxide.Ext.MySql.Connection : object {
+    [CompilerGeneratedAttribute]
+private string <ConnectionString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <ConnectionPersistent>k__BackingField;
+    [CompilerGeneratedAttribute]
+private MySqlConnection <Con>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Plugin <Plugin>k__BackingField;
+    [CompilerGeneratedAttribute]
+private long <LastInsertRowId>k__BackingField;
+    internal string ConnectionString { get; internal set; }
+    internal bool ConnectionPersistent { get; internal set; }
+    internal MySqlConnection Con { get; internal set; }
+    internal Plugin Plugin { get; internal set; }
+    public long LastInsertRowId { get; internal set; }
+    public Connection(string connection, bool persistent);
+    [CompilerGeneratedAttribute]
+internal string get_ConnectionString();
+    [CompilerGeneratedAttribute]
+internal void set_ConnectionString(string value);
+    [CompilerGeneratedAttribute]
+internal bool get_ConnectionPersistent();
+    [CompilerGeneratedAttribute]
+internal void set_ConnectionPersistent(bool value);
+    [CompilerGeneratedAttribute]
+internal MySqlConnection get_Con();
+    [CompilerGeneratedAttribute]
+internal void set_Con(MySqlConnection value);
+    [CompilerGeneratedAttribute]
+internal Plugin get_Plugin();
+    [CompilerGeneratedAttribute]
+internal void set_Plugin(Plugin value);
+    [CompilerGeneratedAttribute]
+public long get_LastInsertRowId();
+    [CompilerGeneratedAttribute]
+internal void set_LastInsertRowId(long value);
+}
+public class Oxide.Ext.MySql.Sql : object {
+    private static Regex Filter;
+    private static Regex RxParams;
+    private Object[] _args;
+    private string _sql;
+    private Object[] _argsFinal;
+    private Sql _rhs;
+    private string _sqlFinal;
+    public static Sql Builder { get; }
+    public string SQL { get; }
+    public Object[] Arguments { get; }
+    public Sql(string sql, Object[] args);
+    private static Sql();
+    public static Sql get_Builder();
+    public string get_SQL();
+    public Object[] get_Arguments();
+    private void Build();
+    public Sql Append(Sql sql);
+    public Sql Append(string sql, Object[] args);
+    private static bool Is(Sql sql, string sqltype);
+    private void Build(StringBuilder sb, List`1<object> args, Sql lhs);
+    public Sql Where(string sql, Object[] args);
+    public Sql OrderBy(Object[] columns);
+    public Sql Select(Object[] columns);
+    public Sql From(Object[] tables);
+    public Sql GroupBy(Object[] columns);
+    private SqlJoinClause Join(string joinType, string table);
+    public SqlJoinClause InnerJoin(string table);
+    public SqlJoinClause LeftJoin(string table);
+    public static string ProcessParams(string sql, Object[] argsSrc, List`1<object> argsDest);
+    public static void AddParams(IDbCommand cmd, Object[] items, string parameterPrefix);
+    public static void AddParam(IDbCommand cmd, object item, string parameterPrefix);
+}

@@ -1,0 +1,499 @@
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/CertificateHandler/CertificateHandlerScript.h")]
+public class UnityEngine.Networking.CertificateHandler : object {
+    internal IntPtr m_Ptr;
+    private static IntPtr Create(CertificateHandler obj);
+    [NativeMethodAttribute]
+private void Release();
+    protected virtual override void Finalize();
+    protected virtual bool ValidateCertificate(Byte[] certificateData);
+    [RequiredByNativeCodeAttribute]
+internal bool ValidateCertificateNative(Byte[] certificateData);
+    public sealed virtual void Dispose();
+}
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/DownloadHandler/DownloadHandler.h")]
+public class UnityEngine.Networking.DownloadHandler : object {
+    [VisibleToOtherModulesAttribute]
+internal IntPtr m_Ptr;
+    public bool isDone { get; }
+    public string error { get; }
+    public ReadOnly<byte> nativeData { get; }
+    public Byte[] data { get; }
+    public string text { get; }
+    [NativeMethodAttribute]
+private void Release();
+    protected virtual override void Finalize();
+    public virtual void Dispose();
+    public bool get_isDone();
+    private bool IsDone();
+    public string get_error();
+    private string GetErrorMsg();
+    public ReadOnly<byte> get_nativeData();
+    public Byte[] get_data();
+    public string get_text();
+    protected virtual NativeArray`1<byte> GetNativeData();
+    protected virtual Byte[] GetData();
+    protected virtual string GetText();
+    private Encoding GetTextEncoder();
+    private string GetContentType();
+    [RequiredByNativeCodeAttribute]
+protected virtual bool ReceiveData(Byte[] data, int dataLength);
+    [RequiredByNativeCodeAttribute]
+protected virtual void ReceiveContentLengthHeader(ulong contentLength);
+    [ObsoleteAttribute("Use ReceiveContentLengthHeader")]
+protected virtual void ReceiveContentLength(int contentLength);
+    [RequiredByNativeCodeAttribute]
+protected virtual void CompleteContent();
+    [RequiredByNativeCodeAttribute]
+protected virtual float GetProgress();
+    protected static T GetCheckedDownloader(UnityWebRequest www);
+    [NativeThrowsAttribute]
+[VisibleToOtherModulesAttribute]
+internal static Byte* InternalGetByteArray(DownloadHandler dh, Int32& length);
+    internal static Byte[] InternalGetByteArray(DownloadHandler dh);
+    internal static NativeArray`1<byte> InternalGetNativeArray(DownloadHandler dh, NativeArray`1& nativeArray);
+    internal static void DisposeNativeArray(NativeArray`1& data);
+    internal static void CreateNativeArrayForNativeData(NativeArray`1& data, Byte* bytes, int length);
+}
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/DownloadHandler/DownloadHandlerBuffer.h")]
+public class UnityEngine.Networking.DownloadHandlerBuffer : DownloadHandler {
+    private NativeArray`1<byte> m_NativeData;
+    private static IntPtr Create(DownloadHandlerBuffer obj);
+    private void InternalCreateBuffer();
+    protected virtual NativeArray`1<byte> GetNativeData();
+    public virtual void Dispose();
+    public static string GetContent(UnityWebRequest www);
+}
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/DownloadHandler/DownloadHandlerVFS.h")]
+public class UnityEngine.Networking.DownloadHandlerFile : DownloadHandler {
+    public bool removeFileOnAbort { get; public set; }
+    public DownloadHandlerFile(string path);
+    public DownloadHandlerFile(string path, bool append);
+    [NativeThrowsAttribute]
+private static IntPtr Create(DownloadHandlerFile obj, string path, bool append);
+    private void InternalCreateVFS(string path, bool append);
+    protected virtual NativeArray`1<byte> GetNativeData();
+    protected virtual Byte[] GetData();
+    protected virtual string GetText();
+    public bool get_removeFileOnAbort();
+    public void set_removeFileOnAbort(bool value);
+}
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/DownloadHandler/DownloadHandlerScript.h")]
+public class UnityEngine.Networking.DownloadHandlerScript : DownloadHandler {
+    public DownloadHandlerScript(Byte[] preallocatedBuffer);
+    private static IntPtr Create(DownloadHandlerScript obj);
+    private static IntPtr CreatePreallocated(DownloadHandlerScript obj, Byte[] preallocatedBuffer);
+    private void InternalCreateScript();
+    private void InternalCreateScript(Byte[] preallocatedBuffer);
+}
+public interface UnityEngine.Networking.IMultipartFormSection {
+    public string sectionName { get; }
+    public Byte[] sectionData { get; }
+    public string fileName { get; }
+    public string contentType { get; }
+    public abstract virtual string get_sectionName();
+    public abstract virtual Byte[] get_sectionData();
+    public abstract virtual string get_fileName();
+    public abstract virtual string get_contentType();
+}
+public class UnityEngine.Networking.MultipartFormDataSection : object {
+    private string name;
+    private Byte[] data;
+    private string content;
+    public string sectionName { get; }
+    public Byte[] sectionData { get; }
+    public string fileName { get; }
+    public string contentType { get; }
+    public MultipartFormDataSection(string name, Byte[] data, string contentType);
+    public MultipartFormDataSection(string name, Byte[] data);
+    public MultipartFormDataSection(Byte[] data);
+    public MultipartFormDataSection(string name, string data, Encoding encoding, string contentType);
+    public MultipartFormDataSection(string name, string data, string contentType);
+    public MultipartFormDataSection(string name, string data);
+    public MultipartFormDataSection(string data);
+    public sealed virtual string get_sectionName();
+    public sealed virtual Byte[] get_sectionData();
+    public sealed virtual string get_fileName();
+    public sealed virtual string get_contentType();
+}
+public class UnityEngine.Networking.MultipartFormFileSection : object {
+    private string name;
+    private Byte[] data;
+    private string file;
+    private string content;
+    public string sectionName { get; }
+    public Byte[] sectionData { get; }
+    public string fileName { get; }
+    public string contentType { get; }
+    public MultipartFormFileSection(string name, Byte[] data, string fileName, string contentType);
+    public MultipartFormFileSection(Byte[] data);
+    public MultipartFormFileSection(string fileName, Byte[] data);
+    public MultipartFormFileSection(string name, string data, Encoding dataEncoding, string fileName);
+    public MultipartFormFileSection(string data, Encoding dataEncoding, string fileName);
+    public MultipartFormFileSection(string data, string fileName);
+    private void Init(string name, Byte[] data, string fileName, string contentType);
+    public sealed virtual string get_sectionName();
+    public sealed virtual Byte[] get_sectionData();
+    public sealed virtual string get_fileName();
+    public sealed virtual string get_contentType();
+}
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/UnityWebRequest.h")]
+public class UnityEngine.Networking.UnityWebRequest : object {
+    internal IntPtr m_Ptr;
+    internal DownloadHandler m_DownloadHandler;
+    internal UploadHandler m_UploadHandler;
+    internal CertificateHandler m_CertificateHandler;
+    internal Uri m_Uri;
+    public static string kHttpVerbGET;
+    public static string kHttpVerbHEAD;
+    public static string kHttpVerbPOST;
+    public static string kHttpVerbPUT;
+    public static string kHttpVerbCREATE;
+    public static string kHttpVerbDELETE;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private bool <disposeCertificateHandlerOnDispose>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private bool <disposeDownloadHandlerOnDispose>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private bool <disposeUploadHandlerOnDispose>k__BackingField;
+    public bool disposeCertificateHandlerOnDispose { get; public set; }
+    public bool disposeDownloadHandlerOnDispose { get; public set; }
+    public bool disposeUploadHandlerOnDispose { get; public set; }
+    public string method { get; public set; }
+    public string error { get; }
+    private bool use100Continue { get; private set; }
+    public bool useHttpContinue { get; public set; }
+    public string url { get; public set; }
+    public Uri uri { get; public set; }
+    public long responseCode { get; }
+    public float uploadProgress { get; }
+    public bool isModifiable { get; }
+    public bool isDone { get; }
+    [ObsoleteAttribute("UnityWebRequest.isNetworkError is deprecated. Use (UnityWebRequest.result == UnityWebRequest.Result.ConnectionError) instead.", "False")]
+public bool isNetworkError { get; }
+    [ObsoleteAttribute("UnityWebRequest.isHttpError is deprecated. Use (UnityWebRequest.result == UnityWebRequest.Result.ProtocolError) instead.", "False")]
+public bool isHttpError { get; }
+    public Result result { get; }
+    public float downloadProgress { get; }
+    public ulong uploadedBytes { get; }
+    public ulong downloadedBytes { get; }
+    public int redirectLimit { get; public set; }
+    [ObsoleteAttribute("HTTP/2 and many HTTP/1.1 servers don't support this; we recommend leaving it set to false (default).", "False")]
+public bool chunkedTransfer { get; public set; }
+    public UploadHandler uploadHandler { get; public set; }
+    public DownloadHandler downloadHandler { get; public set; }
+    public CertificateHandler certificateHandler { get; public set; }
+    public int timeout { get; public set; }
+    internal bool suppressErrorsToConsole { get; internal set; }
+    public UnityWebRequest(string url);
+    public UnityWebRequest(Uri uri);
+    public UnityWebRequest(string url, string method);
+    public UnityWebRequest(Uri uri, string method);
+    public UnityWebRequest(string url, string method, DownloadHandler downloadHandler, UploadHandler uploadHandler);
+    public UnityWebRequest(Uri uri, string method, DownloadHandler downloadHandler, UploadHandler uploadHandler);
+    [NativeConditionalAttribute("ENABLE_UNITYWEBREQUEST")]
+[NativeMethodAttribute]
+private static string GetWebErrorString(UnityWebRequestError err);
+    [VisibleToOtherModulesAttribute]
+internal static string GetHTTPStatusString(long responseCode);
+    [CompilerGeneratedAttribute]
+public bool get_disposeCertificateHandlerOnDispose();
+    [CompilerGeneratedAttribute]
+public void set_disposeCertificateHandlerOnDispose(bool value);
+    [CompilerGeneratedAttribute]
+public bool get_disposeDownloadHandlerOnDispose();
+    [CompilerGeneratedAttribute]
+public void set_disposeDownloadHandlerOnDispose(bool value);
+    [CompilerGeneratedAttribute]
+public bool get_disposeUploadHandlerOnDispose();
+    [CompilerGeneratedAttribute]
+public void set_disposeUploadHandlerOnDispose(bool value);
+    public static void ClearCookieCache();
+    public static void ClearCookieCache(Uri uri);
+    private static void ClearCookieCache(string domain, string path);
+    [NativeThrowsAttribute]
+internal static IntPtr Create();
+    [NativeMethodAttribute]
+private void Release();
+    internal void InternalDestroy();
+    private void InternalSetDefaults();
+    protected virtual override void Finalize();
+    public sealed virtual void Dispose();
+    private void DisposeHandlers();
+    [NativeThrowsAttribute]
+internal UnityWebRequestAsyncOperation BeginWebRequest();
+    [ObsoleteAttribute("Use SendWebRequest.  It returns a UnityWebRequestAsyncOperation which contains a reference to the WebRequest object.", "False")]
+public AsyncOperation Send();
+    public UnityWebRequestAsyncOperation SendWebRequest();
+    [NativeMethodAttribute]
+public void Abort();
+    private UnityWebRequestError SetMethod(UnityWebRequestMethod methodType);
+    internal void InternalSetMethod(UnityWebRequestMethod methodType);
+    private UnityWebRequestError SetCustomMethod(string customMethodName);
+    internal void InternalSetCustomMethod(string customMethodName);
+    internal UnityWebRequestMethod GetMethod();
+    internal string GetCustomMethod();
+    public string get_method();
+    public void set_method(string value);
+    private UnityWebRequestError GetError();
+    public string get_error();
+    private bool get_use100Continue();
+    private void set_use100Continue(bool value);
+    public bool get_useHttpContinue();
+    public void set_useHttpContinue(bool value);
+    public string get_url();
+    public void set_url(string value);
+    public Uri get_uri();
+    public void set_uri(Uri value);
+    private string GetUrl();
+    private UnityWebRequestError SetUrl(string url);
+    private void InternalSetUrl(string url);
+    public long get_responseCode();
+    private float GetUploadProgress();
+    private bool IsExecuting();
+    public float get_uploadProgress();
+    [NativeMethodAttribute("IsModifiable")]
+public bool get_isModifiable();
+    public bool get_isDone();
+    public bool get_isNetworkError();
+    public bool get_isHttpError();
+    [NativeMethodAttribute("GetResult")]
+public Result get_result();
+    private float GetDownloadProgress();
+    public float get_downloadProgress();
+    public ulong get_uploadedBytes();
+    public ulong get_downloadedBytes();
+    private int GetRedirectLimit();
+    [NativeThrowsAttribute]
+private void SetRedirectLimitFromScripting(int limit);
+    public int get_redirectLimit();
+    public void set_redirectLimit(int value);
+    private bool GetChunked();
+    private UnityWebRequestError SetChunked(bool chunked);
+    public bool get_chunkedTransfer();
+    public void set_chunkedTransfer(bool value);
+    public string GetRequestHeader(string name);
+    [NativeMethodAttribute("SetRequestHeader")]
+internal UnityWebRequestError InternalSetRequestHeader(string name, string value);
+    public void SetRequestHeader(string name, string value);
+    public string GetResponseHeader(string name);
+    internal String[] GetResponseHeaderKeys();
+    public Dictionary`2<string, string> GetResponseHeaders();
+    private UnityWebRequestError SetUploadHandler(UploadHandler uh);
+    public UploadHandler get_uploadHandler();
+    public void set_uploadHandler(UploadHandler value);
+    private UnityWebRequestError SetDownloadHandler(DownloadHandler dh);
+    public DownloadHandler get_downloadHandler();
+    public void set_downloadHandler(DownloadHandler value);
+    private UnityWebRequestError SetCertificateHandler(CertificateHandler ch);
+    public CertificateHandler get_certificateHandler();
+    public void set_certificateHandler(CertificateHandler value);
+    private int GetTimeoutMsec();
+    private UnityWebRequestError SetTimeoutMsec(int timeout);
+    public int get_timeout();
+    public void set_timeout(int value);
+    private bool GetSuppressErrorsToConsole();
+    private UnityWebRequestError SetSuppressErrorsToConsole(bool suppress);
+    internal bool get_suppressErrorsToConsole();
+    internal void set_suppressErrorsToConsole(bool value);
+    public static UnityWebRequest Get(string uri);
+    public static UnityWebRequest Get(Uri uri);
+    public static UnityWebRequest Delete(string uri);
+    public static UnityWebRequest Delete(Uri uri);
+    public static UnityWebRequest Head(string uri);
+    public static UnityWebRequest Head(Uri uri);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.GetTexture is obsolete. Use UnityWebRequestTexture.GetTexture instead (UnityUpgradable) -> [UnityEngine] UnityWebRequestTexture.GetTexture(*)", "True")]
+public static UnityWebRequest GetTexture(string uri);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.GetTexture is obsolete. Use UnityWebRequestTexture.GetTexture instead (UnityUpgradable) -> [UnityEngine] UnityWebRequestTexture.GetTexture(*)", "True")]
+public static UnityWebRequest GetTexture(string uri, bool nonReadable);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.GetAudioClip is obsolete. Use UnityWebRequestMultimedia.GetAudioClip instead (UnityUpgradable) -> [UnityEngine] UnityWebRequestMultimedia.GetAudioClip(*)", "True")]
+public static UnityWebRequest GetAudioClip(string uri, AudioType audioType);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.GetAssetBundle is obsolete. Use UnityWebRequestAssetBundle.GetAssetBundle instead (UnityUpgradable) -> [UnityEngine] UnityWebRequestAssetBundle.GetAssetBundle(*)", "True")]
+public static UnityWebRequest GetAssetBundle(string uri);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.GetAssetBundle is obsolete. Use UnityWebRequestAssetBundle.GetAssetBundle instead (UnityUpgradable) -> [UnityEngine] UnityWebRequestAssetBundle.GetAssetBundle(*)", "True")]
+public static UnityWebRequest GetAssetBundle(string uri, UInt32 crc);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.GetAssetBundle is obsolete. Use UnityWebRequestAssetBundle.GetAssetBundle instead (UnityUpgradable) -> [UnityEngine] UnityWebRequestAssetBundle.GetAssetBundle(*)", "True")]
+public static UnityWebRequest GetAssetBundle(string uri, UInt32 version, UInt32 crc);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.GetAssetBundle is obsolete. Use UnityWebRequestAssetBundle.GetAssetBundle instead (UnityUpgradable) -> [UnityEngine] UnityWebRequestAssetBundle.GetAssetBundle(*)", "True")]
+public static UnityWebRequest GetAssetBundle(string uri, Hash128 hash, UInt32 crc);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.GetAssetBundle is obsolete. Use UnityWebRequestAssetBundle.GetAssetBundle instead (UnityUpgradable) -> [UnityEngine] UnityWebRequestAssetBundle.GetAssetBundle(*)", "True")]
+public static UnityWebRequest GetAssetBundle(string uri, CachedAssetBundle cachedAssetBundle, UInt32 crc);
+    public static UnityWebRequest Put(string uri, Byte[] bodyData);
+    public static UnityWebRequest Put(Uri uri, Byte[] bodyData);
+    public static UnityWebRequest Put(string uri, string bodyData);
+    public static UnityWebRequest Put(Uri uri, string bodyData);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.Post with only a string data is obsolete. Use UnityWebRequest.Post with content type argument or UnityWebRequest.PostWwwForm instead (UnityUpgradable) -> [UnityEngine] UnityWebRequest.PostWwwForm(*)", "False")]
+public static UnityWebRequest Post(string uri, string postData);
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("UnityWebRequest.Post with only a string data is obsolete. Use UnityWebRequest.Post with content type argument or UnityWebRequest.PostWwwForm instead (UnityUpgradable) -> [UnityEngine] UnityWebRequest.PostWwwForm(*)", "False")]
+public static UnityWebRequest Post(Uri uri, string postData);
+    public static UnityWebRequest PostWwwForm(string uri, string form);
+    public static UnityWebRequest PostWwwForm(Uri uri, string form);
+    private static void SetupPostWwwForm(UnityWebRequest request, string postData);
+    public static UnityWebRequest Post(string uri, string postData, string contentType);
+    public static UnityWebRequest Post(Uri uri, string postData, string contentType);
+    private static void SetupPost(UnityWebRequest request, string postData, string contentType);
+    public static UnityWebRequest Post(string uri, WWWForm formData);
+    public static UnityWebRequest Post(Uri uri, WWWForm formData);
+    private static void SetupPost(UnityWebRequest request, WWWForm formData);
+    public static UnityWebRequest Post(string uri, List`1<IMultipartFormSection> multipartFormSections);
+    public static UnityWebRequest Post(Uri uri, List`1<IMultipartFormSection> multipartFormSections);
+    public static UnityWebRequest Post(string uri, List`1<IMultipartFormSection> multipartFormSections, Byte[] boundary);
+    public static UnityWebRequest Post(Uri uri, List`1<IMultipartFormSection> multipartFormSections, Byte[] boundary);
+    private static void SetupPost(UnityWebRequest request, List`1<IMultipartFormSection> multipartFormSections, Byte[] boundary);
+    public static UnityWebRequest Post(string uri, Dictionary`2<string, string> formFields);
+    public static UnityWebRequest Post(Uri uri, Dictionary`2<string, string> formFields);
+    private static void SetupPost(UnityWebRequest request, Dictionary`2<string, string> formFields);
+    public static string EscapeURL(string s);
+    public static string EscapeURL(string s, Encoding e);
+    public static string UnEscapeURL(string s);
+    public static string UnEscapeURL(string s, Encoding e);
+    public static Byte[] SerializeFormSections(List`1<IMultipartFormSection> multipartFormSections, Byte[] boundary);
+    public static Byte[] GenerateBoundary();
+    public static Byte[] SerializeSimpleForm(Dictionary`2<string, string> formFields);
+}
+[NativeHeaderAttribute("UnityWebRequestScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/UnityWebRequestAsyncOperation.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Networking.UnityWebRequestAsyncOperation : AsyncOperation {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private UnityWebRequest <webRequest>k__BackingField;
+    public UnityWebRequest webRequest { get; internal set; }
+    [CompilerGeneratedAttribute]
+public UnityWebRequest get_webRequest();
+    [CompilerGeneratedAttribute]
+internal void set_webRequest(UnityWebRequest value);
+}
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/UploadHandler/UploadHandler.h")]
+public class UnityEngine.Networking.UploadHandler : object {
+    internal IntPtr m_Ptr;
+    public Byte[] data { get; }
+    public string contentType { get; public set; }
+    public float progress { get; }
+    [NativeMethodAttribute]
+private void Release();
+    protected virtual override void Finalize();
+    public virtual void Dispose();
+    public Byte[] get_data();
+    public string get_contentType();
+    public void set_contentType(string value);
+    public float get_progress();
+    internal virtual Byte[] GetData();
+    internal virtual string GetContentType();
+    internal virtual void SetContentType(string newContentType);
+    internal virtual float GetProgress();
+    [NativeMethodAttribute("GetContentType")]
+private string InternalGetContentType();
+    [NativeMethodAttribute("SetContentType")]
+private void InternalSetContentType(string newContentType);
+    [NativeMethodAttribute("GetProgress")]
+private float InternalGetProgress();
+}
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/UploadHandler/UploadHandlerFile.h")]
+public class UnityEngine.Networking.UploadHandlerFile : UploadHandler {
+    public UploadHandlerFile(string filePath);
+    [NativeThrowsAttribute]
+private static IntPtr Create(UploadHandlerFile self, string filePath);
+}
+[NativeHeaderAttribute("Modules/UnityWebRequest/Public/UploadHandler/UploadHandlerRaw.h")]
+public class UnityEngine.Networking.UploadHandlerRaw : UploadHandler {
+    private NativeArray`1<byte> m_Payload;
+    public UploadHandlerRaw(Byte[] data);
+    public UploadHandlerRaw(NativeArray`1<byte> data, bool transferOwnership);
+    public UploadHandlerRaw(ReadOnly<byte> data);
+    private static IntPtr Create(UploadHandlerRaw self, Byte* data, int dataLength);
+    internal virtual Byte[] GetData();
+    public virtual void Dispose();
+}
+public class UnityEngine.WWWForm : object {
+    private List`1<Byte[]> formData;
+    private List`1<string> fieldNames;
+    private List`1<string> fileNames;
+    private List`1<string> types;
+    private Byte[] boundary;
+    private bool containsFiles;
+    private static Byte[] dDash;
+    private static Byte[] crlf;
+    private static Byte[] contentTypeHeader;
+    private static Byte[] dispositionHeader;
+    private static Byte[] endQuote;
+    private static Byte[] fileNameField;
+    private static Byte[] ampersand;
+    private static Byte[] equal;
+    internal static Encoding DefaultEncoding { get; }
+    public Dictionary`2<string, string> headers { get; }
+    public Byte[] data { get; }
+    private static WWWForm();
+    internal static Encoding get_DefaultEncoding();
+    public void AddField(string fieldName, string value);
+    public void AddField(string fieldName, string value, Encoding e);
+    public void AddField(string fieldName, int i);
+    [ExcludeFromDocsAttribute]
+public void AddBinaryData(string fieldName, Byte[] contents);
+    [ExcludeFromDocsAttribute]
+public void AddBinaryData(string fieldName, Byte[] contents, string fileName);
+    public void AddBinaryData(string fieldName, Byte[] contents, string fileName, string mimeType);
+    public Dictionary`2<string, string> get_headers();
+    public Byte[] get_data();
+}
+[VisibleToOtherModulesAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+internal class UnityEngine.WWWTranscoder : object {
+    private static Byte[] ucHexChars;
+    private static Byte[] lcHexChars;
+    private static byte urlEscapeChar;
+    private static Byte[] urlSpace;
+    private static Byte[] dataSpace;
+    private static Byte[] urlForbidden;
+    private static byte qpEscapeChar;
+    private static Byte[] qpSpace;
+    private static Byte[] qpForbidden;
+    private static WWWTranscoder();
+    private static byte Hex2Byte(Byte[] b, int offset);
+    private static void Byte2Hex(byte b, Byte[] hexChars, Byte& byte0, Byte& byte1);
+    public static string URLEncode(string toEncode);
+    public static string URLEncode(string toEncode, Encoding e);
+    public static Byte[] URLEncode(Byte[] toEncode);
+    public static string DataEncode(string toEncode);
+    public static string DataEncode(string toEncode, Encoding e);
+    public static Byte[] DataEncode(Byte[] toEncode);
+    public static string QPEncode(string toEncode);
+    public static string QPEncode(string toEncode, Encoding e);
+    public static Byte[] QPEncode(Byte[] toEncode);
+    public static Byte[] Encode(Byte[] input, byte escapeChar, Byte[] space, Byte[] forbidden, bool uppercase);
+    private static bool ByteArrayContains(Byte[] array, byte b);
+    public static string URLDecode(string toEncode);
+    public static string URLDecode(string toEncode, Encoding e);
+    public static Byte[] URLDecode(Byte[] toEncode);
+    public static string DataDecode(string toDecode);
+    public static string DataDecode(string toDecode, Encoding e);
+    public static Byte[] DataDecode(Byte[] toDecode);
+    public static string QPDecode(string toEncode);
+    public static string QPDecode(string toEncode, Encoding e);
+    public static Byte[] QPDecode(Byte[] toEncode);
+    private static bool ByteSubArrayEquals(Byte[] array, int index, Byte[] comperand);
+    public static Byte[] Decode(Byte[] input, byte escapeChar, Byte[] space);
+    public static bool SevenBitClean(string s);
+    public static bool SevenBitClean(string s, Encoding e);
+    public static bool SevenBitClean(Byte* input, int inputLength);
+}
+internal static class UnityEngineInternal.WebRequestUtils : object {
+    private static Regex domainRegex;
+    private static WebRequestUtils();
+    [RequiredByNativeCodeAttribute]
+internal static string RedirectTo(string baseUri, string redirectUri);
+    internal static string MakeInitialUrl(string targetUrl, string localUrl);
+    internal static string MakeUriString(Uri targetUri, string targetUrl, bool prependProtocol);
+    private static string URLDecode(string encoded);
+}

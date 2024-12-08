@@ -1,0 +1,51 @@
+internal enum Unity.Curl.BufferOwnership : Enum {
+    public int value__;
+    public static BufferOwnership Copy;
+    public static BufferOwnership Transfer;
+    public static BufferOwnership External;
+}
+[FlagsAttribute]
+internal enum Unity.Curl.CurlEasyHandleFlags : Enum {
+    public UInt32 value__;
+    public static CurlEasyHandleFlags kSendBody;
+    public static CurlEasyHandleFlags kReceiveHeaders;
+    public static CurlEasyHandleFlags kReceiveBody;
+    public static CurlEasyHandleFlags kFollowRedirects;
+}
+[NativeHeaderAttribute("Modules/UnityCurl/Public/UnityCurl.h")]
+[StaticAccessorAttribute("UnityCurl", "2")]
+internal static class Unity.Curl.UnityCurl : object {
+    [NativeMethodAttribute]
+internal static IntPtr CreateMultiHandle();
+    [NativeMethodAttribute]
+internal static void DestroyMultiHandle(IntPtr handle);
+    [NativeMethodAttribute]
+internal static IntPtr CreateEasyHandle(Byte* method, Byte* url, UInt32& curlMethod);
+    [NativeMethodAttribute]
+internal static void SetupEasyHandle(IntPtr handle, UInt32 curlMethod, IntPtr headers, ulong contentLen, UInt32 flags);
+    [NativeMethodAttribute]
+internal static void DestroyEasyHandle(IntPtr handle);
+    [NativeMethodAttribute]
+internal static void QueueRequest(IntPtr multiHandle, IntPtr easyHandle);
+    [NativeMethodAttribute]
+internal static IntPtr AppendHeader(IntPtr headerList, Byte* header);
+    [NativeMethodAttribute]
+internal static void FreeHeaderList(IntPtr headerList);
+    [NativeMethodAttribute]
+internal static int GetRequestErrorCode(IntPtr request);
+    [NativeMethodAttribute]
+internal static int GetRequestStatus(IntPtr request);
+    [NativeMethodAttribute]
+internal static UInt32 GetRequestStatusCode(IntPtr request);
+    [NativeMethodAttribute]
+internal static void GetDownloadSize(IntPtr request, UInt64& downloaded, UInt64& expected);
+    [NativeMethodAttribute]
+internal static Byte* GetResponseHeader(IntPtr request, UInt32 index, UInt32& length);
+    [NativeMethodAttribute]
+internal static Byte* GetMoreBody(IntPtr handle, Int32& length);
+    internal static void SendMoreBody(IntPtr handle, Byte* chunk, UInt32 length, BufferOwnership ownership);
+    [NativeMethodAttribute]
+private static void SendMoreBody(IntPtr handle, Byte* chunk, UInt32 length, int ownership);
+    [NativeMethodAttribute]
+internal static void AbortRequest(IntPtr handle);
+}

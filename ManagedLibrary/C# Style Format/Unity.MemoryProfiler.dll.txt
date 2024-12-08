@@ -1,0 +1,22 @@
+internal class Unity.MemoryProfiler.DefaultMetadataCollect : MetadataCollect {
+    public virtual void CollectMetadata(MemorySnapshotMetadata data);
+}
+public abstract class Unity.MemoryProfiler.MetadataCollect : object {
+    private bool disposed;
+    public abstract virtual void CollectMetadata(MemorySnapshotMetadata data);
+    public sealed virtual void Dispose();
+}
+internal static class Unity.MemoryProfiler.MetadataInjector : object {
+    public static DefaultMetadataCollect DefaultCollector;
+    public static long CollectorCount;
+    public static byte DefaultCollectorInjected;
+    [RuntimeInitializeOnLoadMethodAttribute("3")]
+private static void PlayerInitMetadata();
+    private static void InitializeMetadataCollection();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

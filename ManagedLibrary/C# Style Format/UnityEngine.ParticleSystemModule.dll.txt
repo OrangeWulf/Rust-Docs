@@ -1,0 +1,1126 @@
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.ParticleCollisionEvent : ValueType {
+    internal Vector3 m_Intersection;
+    internal Vector3 m_Normal;
+    internal Vector3 m_Velocity;
+    internal int m_ColliderInstanceID;
+    public Vector3 intersection { get; }
+    public Vector3 normal { get; }
+    public Vector3 velocity { get; }
+    public Component colliderComponent { get; }
+    public Vector3 get_intersection();
+    public Vector3 get_normal();
+    public Vector3 get_velocity();
+    public Component get_colliderComponent();
+    [FreeFunctionAttribute]
+private static Component InstanceIDToColliderComponent(int instanceID);
+}
+[ExtensionAttribute]
+public static class UnityEngine.ParticlePhysicsExtensions : object {
+    [ExtensionAttribute]
+[ObsoleteAttribute("GetCollisionEvents function using ParticleCollisionEvent[] is deprecated. Use List<ParticleCollisionEvent> instead.", "False")]
+public static int GetCollisionEvents(ParticleSystem ps, GameObject go, ParticleCollisionEvent[] collisionEvents);
+    [ExtensionAttribute]
+public static int GetSafeCollisionEventSize(ParticleSystem ps);
+    [ExtensionAttribute]
+public static int GetCollisionEvents(ParticleSystem ps, GameObject go, List`1<ParticleCollisionEvent> collisionEvents);
+    [ExtensionAttribute]
+public static int GetSafeTriggerParticlesSize(ParticleSystem ps, ParticleSystemTriggerEventType type);
+    [ExtensionAttribute]
+public static int GetTriggerParticles(ParticleSystem ps, ParticleSystemTriggerEventType type, List`1<Particle> particles);
+    [ExtensionAttribute]
+public static int GetTriggerParticles(ParticleSystem ps, ParticleSystemTriggerEventType type, List`1<Particle> particles, ColliderData& colliderData);
+    [ExtensionAttribute]
+public static void SetTriggerParticles(ParticleSystem ps, ParticleSystemTriggerEventType type, List`1<Particle> particles, int offset, int count);
+    [ExtensionAttribute]
+public static void SetTriggerParticles(ParticleSystem ps, ParticleSystemTriggerEventType type, List`1<Particle> particles);
+}
+[NativeHeaderAttribute("ParticleSystemScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ParticleSystem.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ParticleSystemGeometryJob.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ScriptBindings/ParticleSystemScriptBindings.h")]
+[NativeHeaderAttribute("ParticleSystemScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ScriptBindings/ParticleSystemScriptBindings.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ScriptBindings/ParticleSystemModulesScriptBindings.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ParticleSystem.h")]
+[RequireComponent("UnityEngine.Transform")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.ParticleSystem : Component {
+    [ObsoleteAttribute("startDelay property is deprecated. Use main.startDelay or main.startDelayMultiplier instead.", "False")]
+public float startDelay { get; public set; }
+    [ObsoleteAttribute("loop property is deprecated. Use main.loop instead.", "False")]
+public bool loop { get; public set; }
+    [ObsoleteAttribute("playOnAwake property is deprecated. Use main.playOnAwake instead.", "False")]
+public bool playOnAwake { get; public set; }
+    [ObsoleteAttribute("duration property is deprecated. Use main.duration instead.", "False")]
+public float duration { get; }
+    [ObsoleteAttribute("playbackSpeed property is deprecated. Use main.simulationSpeed instead.", "False")]
+public float playbackSpeed { get; public set; }
+    [ObsoleteAttribute("enableEmission property is deprecated. Use emission.enabled instead.", "False")]
+public bool enableEmission { get; public set; }
+    [ObsoleteAttribute("emissionRate property is deprecated. Use emission.rateOverTime, emission.rateOverDistance, emission.rateOverTimeMultiplier or emission.rateOverDistanceMultiplier instead.", "False")]
+public float emissionRate { get; public set; }
+    [ObsoleteAttribute("startSpeed property is deprecated. Use main.startSpeed or main.startSpeedMultiplier instead.", "False")]
+public float startSpeed { get; public set; }
+    [ObsoleteAttribute("startSize property is deprecated. Use main.startSize or main.startSizeMultiplier instead.", "False")]
+public float startSize { get; public set; }
+    [ObsoleteAttribute("startColor property is deprecated. Use main.startColor instead.", "False")]
+public Color startColor { get; public set; }
+    [ObsoleteAttribute("startRotation property is deprecated. Use main.startRotation or main.startRotationMultiplier instead.", "False")]
+public float startRotation { get; public set; }
+    [ObsoleteAttribute("startRotation3D property is deprecated. Use main.startRotationX, main.startRotationY and main.startRotationZ instead. (Or main.startRotationXMultiplier, main.startRotationYMultiplier and main.startRotationZMultiplier).", "False")]
+public Vector3 startRotation3D { get; public set; }
+    [ObsoleteAttribute("startLifetime property is deprecated. Use main.startLifetime or main.startLifetimeMultiplier instead.", "False")]
+public float startLifetime { get; public set; }
+    [ObsoleteAttribute("gravityModifier property is deprecated. Use main.gravityModifier or main.gravityModifierMultiplier instead.", "False")]
+public float gravityModifier { get; public set; }
+    [ObsoleteAttribute("maxParticles property is deprecated. Use main.maxParticles instead.", "False")]
+public int maxParticles { get; public set; }
+    [ObsoleteAttribute("simulationSpace property is deprecated. Use main.simulationSpace instead.", "False")]
+public ParticleSystemSimulationSpace simulationSpace { get; public set; }
+    [ObsoleteAttribute("scalingMode property is deprecated. Use main.scalingMode instead.", "False")]
+public ParticleSystemScalingMode scalingMode { get; public set; }
+    [ObsoleteAttribute("automaticCullingEnabled property is deprecated. Use proceduralSimulationSupported instead (UnityUpgradable) -> proceduralSimulationSupported", "True")]
+public bool automaticCullingEnabled { get; }
+    public bool isPlaying { get; }
+    public bool isEmitting { get; }
+    public bool isStopped { get; }
+    public bool isPaused { get; }
+    public int particleCount { get; }
+    public float time { get; public set; }
+    public float totalTime { get; }
+    public UInt32 randomSeed { get; public set; }
+    public bool useAutoRandomSeed { get; public set; }
+    public bool proceduralSimulationSupported { get; }
+    public bool has3DParticleRotations { get; }
+    public bool hasNonUniformParticleSizes { get; }
+    public MainModule main { get; }
+    public EmissionModule emission { get; }
+    public ShapeModule shape { get; }
+    public VelocityOverLifetimeModule velocityOverLifetime { get; }
+    public LimitVelocityOverLifetimeModule limitVelocityOverLifetime { get; }
+    public InheritVelocityModule inheritVelocity { get; }
+    public LifetimeByEmitterSpeedModule lifetimeByEmitterSpeed { get; }
+    public ForceOverLifetimeModule forceOverLifetime { get; }
+    public ColorOverLifetimeModule colorOverLifetime { get; }
+    public ColorBySpeedModule colorBySpeed { get; }
+    public SizeOverLifetimeModule sizeOverLifetime { get; }
+    public SizeBySpeedModule sizeBySpeed { get; }
+    public RotationOverLifetimeModule rotationOverLifetime { get; }
+    public RotationBySpeedModule rotationBySpeed { get; }
+    public ExternalForcesModule externalForces { get; }
+    public NoiseModule noise { get; }
+    public CollisionModule collision { get; }
+    public TriggerModule trigger { get; }
+    public SubEmittersModule subEmitters { get; }
+    public TextureSheetAnimationModule textureSheetAnimation { get; }
+    public LightsModule lights { get; }
+    public TrailModule trails { get; }
+    public CustomDataModule customData { get; }
+    [ObsoleteAttribute("Emit with specific parameters is deprecated. Pass a ParticleSystem.EmitParams parameter instead, which allows you to override some/all of the emission properties", "False")]
+public void Emit(Vector3 position, Vector3 velocity, float size, float lifetime, Color32 color);
+    [ObsoleteAttribute("Emit with a single particle structure is deprecated. Pass a ParticleSystem.EmitParams parameter instead, which allows you to override some/all of the emission properties", "False")]
+public void Emit(Particle particle);
+    public float get_startDelay();
+    public void set_startDelay(float value);
+    public bool get_loop();
+    public void set_loop(bool value);
+    public bool get_playOnAwake();
+    public void set_playOnAwake(bool value);
+    public float get_duration();
+    public float get_playbackSpeed();
+    public void set_playbackSpeed(float value);
+    public bool get_enableEmission();
+    public void set_enableEmission(bool value);
+    public float get_emissionRate();
+    public void set_emissionRate(float value);
+    public float get_startSpeed();
+    public void set_startSpeed(float value);
+    public float get_startSize();
+    public void set_startSize(float value);
+    public Color get_startColor();
+    public void set_startColor(Color value);
+    public float get_startRotation();
+    public void set_startRotation(float value);
+    public Vector3 get_startRotation3D();
+    public void set_startRotation3D(Vector3 value);
+    public float get_startLifetime();
+    public void set_startLifetime(float value);
+    public float get_gravityModifier();
+    public void set_gravityModifier(float value);
+    public int get_maxParticles();
+    public void set_maxParticles(int value);
+    public ParticleSystemSimulationSpace get_simulationSpace();
+    public void set_simulationSpace(ParticleSystemSimulationSpace value);
+    public ParticleSystemScalingMode get_scalingMode();
+    public void set_scalingMode(ParticleSystemScalingMode value);
+    public bool get_automaticCullingEnabled();
+    [NativeNameAttribute("SyncJobs(false)->IsPlaying")]
+public bool get_isPlaying();
+    [NativeNameAttribute("SyncJobs(false)->IsEmitting")]
+public bool get_isEmitting();
+    [NativeNameAttribute("SyncJobs(false)->IsStopped")]
+public bool get_isStopped();
+    [NativeNameAttribute("SyncJobs(false)->IsPaused")]
+public bool get_isPaused();
+    [NativeNameAttribute("SyncJobs(false)->GetParticleCount")]
+public int get_particleCount();
+    [NativeNameAttribute("SyncJobs(false)->GetSecPosition")]
+public float get_time();
+    [NativeNameAttribute("SyncJobs(false)->SetSecPosition")]
+public void set_time(float value);
+    [NativeNameAttribute("SyncJobs(false)->GetTotalSecPosition")]
+public float get_totalTime();
+    [NativeNameAttribute("GetRandomSeed")]
+public UInt32 get_randomSeed();
+    [NativeNameAttribute("SyncJobs(false)->SetRandomSeed")]
+public void set_randomSeed(UInt32 value);
+    [NativeNameAttribute("GetAutoRandomSeed")]
+public bool get_useAutoRandomSeed();
+    [NativeNameAttribute("SyncJobs(false)->SetAutoRandomSeed")]
+public void set_useAutoRandomSeed(bool value);
+    public bool get_proceduralSimulationSupported();
+    [FreeFunctionAttribute]
+internal float GetParticleCurrentSize(Particle& particle);
+    [FreeFunctionAttribute]
+internal Vector3 GetParticleCurrentSize3D(Particle& particle);
+    [FreeFunctionAttribute]
+internal Color32 GetParticleCurrentColor(Particle& particle);
+    [FreeFunctionAttribute]
+internal int GetParticleMeshIndex(Particle& particle);
+    [FreeFunctionAttribute]
+public void SetParticles(Particle[] particles, int size, int offset);
+    public void SetParticles(Particle[] particles, int size);
+    public void SetParticles(Particle[] particles);
+    [FreeFunctionAttribute]
+private void SetParticlesWithNativeArray(IntPtr particles, int particlesLength, int size, int offset);
+    public void SetParticles(NativeArray`1<Particle> particles, int size, int offset);
+    public void SetParticles(NativeArray`1<Particle> particles, int size);
+    public void SetParticles(NativeArray`1<Particle> particles);
+    [FreeFunctionAttribute]
+public int GetParticles(Particle[] particles, int size, int offset);
+    public int GetParticles(Particle[] particles, int size);
+    public int GetParticles(Particle[] particles);
+    [FreeFunctionAttribute]
+private int GetParticlesWithNativeArray(IntPtr particles, int particlesLength, int size, int offset);
+    public int GetParticles(NativeArray`1<Particle> particles, int size, int offset);
+    public int GetParticles(NativeArray`1<Particle> particles, int size);
+    public int GetParticles(NativeArray`1<Particle> particles);
+    [FreeFunctionAttribute]
+public void SetCustomParticleData(List`1<Vector4> customData, ParticleSystemCustomData streamIndex);
+    [FreeFunctionAttribute]
+public int GetCustomParticleData(List`1<Vector4> customData, ParticleSystemCustomData streamIndex);
+    public PlaybackState GetPlaybackState();
+    public void SetPlaybackState(PlaybackState playbackState);
+    [FreeFunctionAttribute]
+private void GetTrailDataInternal(Trails& trailData);
+    public Trails GetTrails();
+    public int GetTrails(Trails& trailData);
+    [FreeFunctionAttribute]
+public void SetTrails(Trails trailData);
+    [FreeFunctionAttribute]
+public void Simulate(float t, bool withChildren, bool restart, bool fixedTimeStep);
+    public void Simulate(float t, bool withChildren, bool restart);
+    public void Simulate(float t, bool withChildren);
+    public void Simulate(float t);
+    [FreeFunctionAttribute]
+public void Play(bool withChildren);
+    public void Play();
+    [FreeFunctionAttribute]
+public void Pause(bool withChildren);
+    public void Pause();
+    [FreeFunctionAttribute]
+public void Stop(bool withChildren, ParticleSystemStopBehavior stopBehavior);
+    public void Stop(bool withChildren);
+    public void Stop();
+    [FreeFunctionAttribute]
+public void Clear(bool withChildren);
+    public void Clear();
+    [FreeFunctionAttribute]
+public bool IsAlive(bool withChildren);
+    public bool IsAlive();
+    [RequiredByNativeCodeAttribute]
+public void Emit(int count);
+    [NativeNameAttribute("SyncJobs()->Emit")]
+private void Emit_Internal(int count);
+    [NativeNameAttribute("SyncJobs()->EmitParticlesExternal")]
+public void Emit(EmitParams emitParams, int count);
+    [NativeNameAttribute("SyncJobs()->EmitParticleExternal")]
+private void EmitOld_Internal(Particle& particle);
+    public void TriggerSubEmitter(int subEmitterIndex);
+    public void TriggerSubEmitter(int subEmitterIndex, Particle& particle);
+    [FreeFunctionAttribute]
+internal void TriggerSubEmitterForParticle(int subEmitterIndex, Particle particle);
+    [FreeFunctionAttribute]
+public void TriggerSubEmitter(int subEmitterIndex, List`1<Particle> particles);
+    [FreeFunctionAttribute]
+public static void ResetPreMappedBufferMemory();
+    [FreeFunctionAttribute]
+public static void SetMaximumPreMappedBufferCounts(int vertexBuffersCount, int indexBuffersCount);
+    [NativeNameAttribute("SetUsesAxisOfRotation")]
+public void AllocateAxisOfRotationAttribute();
+    [NativeNameAttribute("SetUsesMeshIndex")]
+public void AllocateMeshIndexAttribute();
+    [NativeNameAttribute("SetUsesCustomData")]
+public void AllocateCustomDataAttribute(ParticleSystemCustomData stream);
+    [NativeNameAttribute("Has3DParticleRotations")]
+public bool get_has3DParticleRotations();
+    [NativeNameAttribute("HasNonUniformParticleSizes")]
+public bool get_hasNonUniformParticleSizes();
+    internal Void* GetManagedJobData();
+    internal JobHandle GetManagedJobHandle();
+    internal void SetManagedJobHandle(JobHandle handle);
+    [FreeFunctionAttribute("ScheduleManagedJob")]
+internal static JobHandle ScheduleManagedJob(JobScheduleParameters& parameters, Void* additionalData);
+    [ThreadSafeAttribute]
+internal static void CopyManagedJobData(Void* systemPtr, NativeParticleData& particleData);
+    public MainModule get_main();
+    public EmissionModule get_emission();
+    public ShapeModule get_shape();
+    public VelocityOverLifetimeModule get_velocityOverLifetime();
+    public LimitVelocityOverLifetimeModule get_limitVelocityOverLifetime();
+    public InheritVelocityModule get_inheritVelocity();
+    public LifetimeByEmitterSpeedModule get_lifetimeByEmitterSpeed();
+    public ForceOverLifetimeModule get_forceOverLifetime();
+    public ColorOverLifetimeModule get_colorOverLifetime();
+    public ColorBySpeedModule get_colorBySpeed();
+    public SizeOverLifetimeModule get_sizeOverLifetime();
+    public SizeBySpeedModule get_sizeBySpeed();
+    public RotationOverLifetimeModule get_rotationOverLifetime();
+    public RotationBySpeedModule get_rotationBySpeed();
+    public ExternalForcesModule get_externalForces();
+    public NoiseModule get_noise();
+    public CollisionModule get_collision();
+    public TriggerModule get_trigger();
+    public SubEmittersModule get_subEmitters();
+    public TextureSheetAnimationModule get_textureSheetAnimation();
+    public LightsModule get_lights();
+    public TrailModule get_trails();
+    public CustomDataModule get_customData();
+    private void GetParticleCurrentSize3D_Injected(Particle& particle, Vector3& ret);
+    private void GetParticleCurrentColor_Injected(Particle& particle, Color32& ret);
+    private void GetPlaybackState_Injected(PlaybackState& ret);
+    private void SetPlaybackState_Injected(PlaybackState& playbackState);
+    private void SetTrails_Injected(Trails& trailData);
+    private void Emit_Injected(EmitParams& emitParams, int count);
+    private void TriggerSubEmitterForParticle_Injected(int subEmitterIndex, Particle& particle);
+    private void GetManagedJobHandle_Injected(JobHandle& ret);
+    private void SetManagedJobHandle_Injected(JobHandle& handle);
+    private static void ScheduleManagedJob_Injected(JobScheduleParameters& parameters, Void* additionalData, JobHandle& ret);
+}
+public enum UnityEngine.ParticleSystemAnimationMode : Enum {
+    public int value__;
+    public static ParticleSystemAnimationMode Grid;
+    public static ParticleSystemAnimationMode Sprites;
+}
+public enum UnityEngine.ParticleSystemAnimationRowMode : Enum {
+    public int value__;
+    public static ParticleSystemAnimationRowMode Custom;
+    public static ParticleSystemAnimationRowMode Random;
+    public static ParticleSystemAnimationRowMode MeshIndex;
+}
+public enum UnityEngine.ParticleSystemAnimationTimeMode : Enum {
+    public int value__;
+    public static ParticleSystemAnimationTimeMode Lifetime;
+    public static ParticleSystemAnimationTimeMode Speed;
+    public static ParticleSystemAnimationTimeMode FPS;
+}
+public enum UnityEngine.ParticleSystemAnimationType : Enum {
+    public int value__;
+    public static ParticleSystemAnimationType WholeSheet;
+    public static ParticleSystemAnimationType SingleRow;
+}
+[FlagsAttribute]
+public enum UnityEngine.ParticleSystemBakeMeshOptions : Enum {
+    public int value__;
+    public static ParticleSystemBakeMeshOptions BakeRotationAndScale;
+    public static ParticleSystemBakeMeshOptions BakePosition;
+    public static ParticleSystemBakeMeshOptions Default;
+}
+[FlagsAttribute]
+public enum UnityEngine.ParticleSystemBakeTextureOptions : Enum {
+    public int value__;
+    public static ParticleSystemBakeTextureOptions BakeRotationAndScale;
+    public static ParticleSystemBakeTextureOptions BakePosition;
+    public static ParticleSystemBakeTextureOptions PerVertex;
+    public static ParticleSystemBakeTextureOptions PerParticle;
+    public static ParticleSystemBakeTextureOptions IncludeParticleIndices;
+    public static ParticleSystemBakeTextureOptions Default;
+}
+public enum UnityEngine.ParticleSystemColliderQueryMode : Enum {
+    public int value__;
+    public static ParticleSystemColliderQueryMode Disabled;
+    public static ParticleSystemColliderQueryMode One;
+    public static ParticleSystemColliderQueryMode All;
+}
+public enum UnityEngine.ParticleSystemCollisionMode : Enum {
+    public int value__;
+    public static ParticleSystemCollisionMode Collision3D;
+    public static ParticleSystemCollisionMode Collision2D;
+}
+public enum UnityEngine.ParticleSystemCollisionQuality : Enum {
+    public int value__;
+    public static ParticleSystemCollisionQuality High;
+    public static ParticleSystemCollisionQuality Medium;
+    public static ParticleSystemCollisionQuality Low;
+}
+public enum UnityEngine.ParticleSystemCollisionType : Enum {
+    public int value__;
+    public static ParticleSystemCollisionType Planes;
+    public static ParticleSystemCollisionType World;
+}
+public enum UnityEngine.ParticleSystemCullingMode : Enum {
+    public int value__;
+    public static ParticleSystemCullingMode Automatic;
+    public static ParticleSystemCullingMode PauseAndCatchup;
+    public static ParticleSystemCullingMode Pause;
+    public static ParticleSystemCullingMode AlwaysSimulate;
+}
+public enum UnityEngine.ParticleSystemCurveMode : Enum {
+    public int value__;
+    public static ParticleSystemCurveMode Constant;
+    public static ParticleSystemCurveMode Curve;
+    public static ParticleSystemCurveMode TwoCurves;
+    public static ParticleSystemCurveMode TwoConstants;
+}
+public enum UnityEngine.ParticleSystemCustomData : Enum {
+    public int value__;
+    public static ParticleSystemCustomData Custom1;
+    public static ParticleSystemCustomData Custom2;
+}
+public enum UnityEngine.ParticleSystemCustomDataMode : Enum {
+    public int value__;
+    public static ParticleSystemCustomDataMode Disabled;
+    public static ParticleSystemCustomDataMode Vector;
+    public static ParticleSystemCustomDataMode Color;
+}
+[ObsoleteAttribute("ParticleSystemEmissionType no longer does anything. Time and Distance based emission are now both always active.", "False")]
+public enum UnityEngine.ParticleSystemEmissionType : Enum {
+    public int value__;
+    public static ParticleSystemEmissionType Time;
+    public static ParticleSystemEmissionType Distance;
+}
+public enum UnityEngine.ParticleSystemEmitterVelocityMode : Enum {
+    public int value__;
+    public static ParticleSystemEmitterVelocityMode Transform;
+    public static ParticleSystemEmitterVelocityMode Rigidbody;
+    public static ParticleSystemEmitterVelocityMode Custom;
+}
+internal class UnityEngine.ParticleSystemExtensionsImpl : object {
+    [FreeFunctionAttribute]
+internal static int GetSafeCollisionEventSize(ParticleSystem ps);
+    [FreeFunctionAttribute]
+internal static int GetCollisionEventsDeprecated(ParticleSystem ps, GameObject go, ParticleCollisionEvent[] collisionEvents);
+    [FreeFunctionAttribute]
+internal static int GetSafeTriggerParticlesSize(ParticleSystem ps, int type);
+    [FreeFunctionAttribute]
+internal static int GetCollisionEvents(ParticleSystem ps, GameObject go, List`1<ParticleCollisionEvent> collisionEvents);
+    [FreeFunctionAttribute]
+internal static int GetTriggerParticles(ParticleSystem ps, int type, List`1<Particle> particles);
+    [FreeFunctionAttribute]
+internal static int GetTriggerParticlesWithData(ParticleSystem ps, int type, List`1<Particle> particles, ColliderData& colliderData);
+    [FreeFunctionAttribute]
+internal static void SetTriggerParticles(ParticleSystem ps, int type, List`1<Particle> particles, int offset, int count);
+}
+[NativeHeaderAttribute("ParticleSystemScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ParticleSystem.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ParticleSystemForceField.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ParticleSystemForceFieldManager.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ScriptBindings/ParticleSystemScriptBindings.h")]
+[RequireComponent("UnityEngine.Transform")]
+public class UnityEngine.ParticleSystemForceField : Behaviour {
+    [NativeNameAttribute("ForceShape")]
+public ParticleSystemForceFieldShape shape { get; public set; }
+    public float startRange { get; public set; }
+    public float endRange { get; public set; }
+    public float length { get; public set; }
+    public float gravityFocus { get; public set; }
+    public Vector2 rotationRandomness { get; public set; }
+    public bool multiplyDragByParticleSize { get; public set; }
+    public bool multiplyDragByParticleVelocity { get; public set; }
+    public Texture3D vectorField { get; public set; }
+    public MinMaxCurve directionX { get; public set; }
+    public MinMaxCurve directionY { get; public set; }
+    public MinMaxCurve directionZ { get; public set; }
+    public MinMaxCurve gravity { get; public set; }
+    public MinMaxCurve rotationSpeed { get; public set; }
+    public MinMaxCurve rotationAttraction { get; public set; }
+    public MinMaxCurve drag { get; public set; }
+    public MinMaxCurve vectorFieldSpeed { get; public set; }
+    public MinMaxCurve vectorFieldAttraction { get; public set; }
+    public ParticleSystemForceFieldShape get_shape();
+    public void set_shape(ParticleSystemForceFieldShape value);
+    public float get_startRange();
+    public void set_startRange(float value);
+    public float get_endRange();
+    public void set_endRange(float value);
+    public float get_length();
+    public void set_length(float value);
+    public float get_gravityFocus();
+    public void set_gravityFocus(float value);
+    public Vector2 get_rotationRandomness();
+    public void set_rotationRandomness(Vector2 value);
+    public bool get_multiplyDragByParticleSize();
+    public void set_multiplyDragByParticleSize(bool value);
+    public bool get_multiplyDragByParticleVelocity();
+    public void set_multiplyDragByParticleVelocity(bool value);
+    public Texture3D get_vectorField();
+    public void set_vectorField(Texture3D value);
+    public MinMaxCurve get_directionX();
+    public void set_directionX(MinMaxCurve value);
+    public MinMaxCurve get_directionY();
+    public void set_directionY(MinMaxCurve value);
+    public MinMaxCurve get_directionZ();
+    public void set_directionZ(MinMaxCurve value);
+    public MinMaxCurve get_gravity();
+    public void set_gravity(MinMaxCurve value);
+    public MinMaxCurve get_rotationSpeed();
+    public void set_rotationSpeed(MinMaxCurve value);
+    public MinMaxCurve get_rotationAttraction();
+    public void set_rotationAttraction(MinMaxCurve value);
+    public MinMaxCurve get_drag();
+    public void set_drag(MinMaxCurve value);
+    public MinMaxCurve get_vectorFieldSpeed();
+    public void set_vectorFieldSpeed(MinMaxCurve value);
+    public MinMaxCurve get_vectorFieldAttraction();
+    public void set_vectorFieldAttraction(MinMaxCurve value);
+    private void get_rotationRandomness_Injected(Vector2& ret);
+    private void set_rotationRandomness_Injected(Vector2& value);
+    private void get_directionX_Injected(MinMaxCurve& ret);
+    private void set_directionX_Injected(MinMaxCurve& value);
+    private void get_directionY_Injected(MinMaxCurve& ret);
+    private void set_directionY_Injected(MinMaxCurve& value);
+    private void get_directionZ_Injected(MinMaxCurve& ret);
+    private void set_directionZ_Injected(MinMaxCurve& value);
+    private void get_gravity_Injected(MinMaxCurve& ret);
+    private void set_gravity_Injected(MinMaxCurve& value);
+    private void get_rotationSpeed_Injected(MinMaxCurve& ret);
+    private void set_rotationSpeed_Injected(MinMaxCurve& value);
+    private void get_rotationAttraction_Injected(MinMaxCurve& ret);
+    private void set_rotationAttraction_Injected(MinMaxCurve& value);
+    private void get_drag_Injected(MinMaxCurve& ret);
+    private void set_drag_Injected(MinMaxCurve& value);
+    private void get_vectorFieldSpeed_Injected(MinMaxCurve& ret);
+    private void set_vectorFieldSpeed_Injected(MinMaxCurve& value);
+    private void get_vectorFieldAttraction_Injected(MinMaxCurve& ret);
+    private void set_vectorFieldAttraction_Injected(MinMaxCurve& value);
+}
+public enum UnityEngine.ParticleSystemForceFieldShape : Enum {
+    public int value__;
+    public static ParticleSystemForceFieldShape Sphere;
+    public static ParticleSystemForceFieldShape Hemisphere;
+    public static ParticleSystemForceFieldShape Cylinder;
+    public static ParticleSystemForceFieldShape Box;
+}
+public enum UnityEngine.ParticleSystemGameObjectFilter : Enum {
+    public int value__;
+    public static ParticleSystemGameObjectFilter LayerMask;
+    public static ParticleSystemGameObjectFilter List;
+    public static ParticleSystemGameObjectFilter LayerMaskAndList;
+}
+public enum UnityEngine.ParticleSystemGradientMode : Enum {
+    public int value__;
+    public static ParticleSystemGradientMode Color;
+    public static ParticleSystemGradientMode Gradient;
+    public static ParticleSystemGradientMode TwoColors;
+    public static ParticleSystemGradientMode TwoGradients;
+    public static ParticleSystemGradientMode RandomColor;
+}
+public enum UnityEngine.ParticleSystemGravitySource : Enum {
+    public int value__;
+    public static ParticleSystemGravitySource Physics3D;
+    public static ParticleSystemGravitySource Physics2D;
+}
+public enum UnityEngine.ParticleSystemInheritVelocityMode : Enum {
+    public int value__;
+    public static ParticleSystemInheritVelocityMode Initial;
+    public static ParticleSystemInheritVelocityMode Current;
+}
+[JobProducerTypeAttribute("UnityEngine.ParticleSystemJobs.ParticleSystemJobStruct`1")]
+public interface UnityEngine.ParticleSystemJobs.IJobParticleSystem {
+    public abstract virtual void Execute(ParticleSystemJobData jobData);
+}
+public static class UnityEngine.ParticleSystemJobs.IJobParticleSystemExtensions : object {
+    public static void EarlyJobInit();
+    internal static IntPtr GetReflectionData();
+}
+[JobProducerTypeAttribute("UnityEngine.ParticleSystemJobs.ParticleSystemParallelForJobStruct`1")]
+public interface UnityEngine.ParticleSystemJobs.IJobParticleSystemParallelFor {
+    public abstract virtual void Execute(ParticleSystemJobData jobData, int index);
+}
+[JobProducerTypeAttribute("UnityEngine.ParticleSystemJobs.ParticleSystemParallelForBatchJobStruct`1")]
+public interface UnityEngine.ParticleSystemJobs.IJobParticleSystemParallelForBatch {
+    public abstract virtual void Execute(ParticleSystemJobData jobData, int startIndex, int count);
+}
+public static class UnityEngine.ParticleSystemJobs.IJobParticleSystemParallelForBatchExtensions : object {
+    public static void EarlyJobInit();
+    internal static IntPtr GetReflectionData();
+}
+public static class UnityEngine.ParticleSystemJobs.IJobParticleSystemParallelForExtensions : object {
+    public static void EarlyJobInit();
+    internal static IntPtr GetReflectionData();
+}
+[ExtensionAttribute]
+public static class UnityEngine.ParticleSystemJobs.IParticleSystemJobExtensions : object {
+    [ExtensionAttribute]
+public static JobHandle Schedule(T jobData, ParticleSystem ps, JobHandle dependsOn);
+    [ExtensionAttribute]
+public static JobHandle Schedule(T jobData, ParticleSystem ps, int minIndicesPerJobCount, JobHandle dependsOn);
+    [ExtensionAttribute]
+public static JobHandle ScheduleBatch(T jobData, ParticleSystem ps, int innerLoopBatchCount, JobHandle dependsOn);
+}
+internal class UnityEngine.ParticleSystemJobs.NativeListData : ValueType {
+    public Void* system;
+    public int length;
+    public int capacity;
+}
+internal class UnityEngine.ParticleSystemJobs.NativeParticleData : ValueType {
+    internal int count;
+    internal Array3 positions;
+    internal Array3 velocities;
+    internal Array3 axisOfRotations;
+    internal Array3 rotations;
+    internal Array3 rotationalSpeeds;
+    internal Array3 sizes;
+    internal Void* startColors;
+    internal Void* aliveTimePercent;
+    internal Void* inverseStartLifetimes;
+    internal Void* randomSeeds;
+    internal Array4 customData1;
+    internal Array4 customData2;
+    internal Void* meshIndices;
+}
+public class UnityEngine.ParticleSystemJobs.ParticleSystemJobData : ValueType {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <count>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ParticleSystemNativeArray3 <positions>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ParticleSystemNativeArray3 <velocities>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ParticleSystemNativeArray3 <axisOfRotations>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ParticleSystemNativeArray3 <rotations>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ParticleSystemNativeArray3 <rotationalSpeeds>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ParticleSystemNativeArray3 <sizes>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private NativeArray`1<Color32> <startColors>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private NativeArray`1<float> <aliveTimePercent>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private NativeArray`1<float> <inverseStartLifetimes>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private NativeArray`1<UInt32> <randomSeeds>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ParticleSystemNativeArray4 <customData1>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ParticleSystemNativeArray4 <customData2>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private NativeArray`1<int> <meshIndices>k__BackingField;
+    public int count { get; }
+    public ParticleSystemNativeArray3 positions { get; }
+    public ParticleSystemNativeArray3 velocities { get; }
+    public ParticleSystemNativeArray3 axisOfRotations { get; }
+    public ParticleSystemNativeArray3 rotations { get; }
+    public ParticleSystemNativeArray3 rotationalSpeeds { get; }
+    public ParticleSystemNativeArray3 sizes { get; }
+    public NativeArray`1<Color32> startColors { get; }
+    public NativeArray`1<float> aliveTimePercent { get; }
+    public NativeArray`1<float> inverseStartLifetimes { get; }
+    public NativeArray`1<UInt32> randomSeeds { get; }
+    public ParticleSystemNativeArray4 customData1 { get; }
+    public ParticleSystemNativeArray4 customData2 { get; }
+    public NativeArray`1<int> meshIndices { get; }
+    internal ParticleSystemJobData(NativeParticleData& nativeData);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public int get_count();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public ParticleSystemNativeArray3 get_positions();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public ParticleSystemNativeArray3 get_velocities();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public ParticleSystemNativeArray3 get_axisOfRotations();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public ParticleSystemNativeArray3 get_rotations();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public ParticleSystemNativeArray3 get_rotationalSpeeds();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public ParticleSystemNativeArray3 get_sizes();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public NativeArray`1<Color32> get_startColors();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public NativeArray`1<float> get_aliveTimePercent();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public NativeArray`1<float> get_inverseStartLifetimes();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public NativeArray`1<UInt32> get_randomSeeds();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public ParticleSystemNativeArray4 get_customData1();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public ParticleSystemNativeArray4 get_customData2();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public NativeArray`1<int> get_meshIndices();
+    internal NativeArray`1<T> CreateNativeArray(Void* src, int count);
+    internal ParticleSystemNativeArray3 CreateNativeArray3(Array3& ptrs, int count);
+    internal ParticleSystemNativeArray4 CreateNativeArray4(Array4& ptrs, int count);
+}
+internal class UnityEngine.ParticleSystemJobs.ParticleSystemJobStruct`1 : ValueType {
+    public static SharedStatic`1<IntPtr> jobReflectionData;
+    private static ParticleSystemJobStruct`1();
+    [BurstDiscardAttribute]
+public static void Initialize();
+    public static void Execute(T& data, IntPtr listDataPtr, IntPtr unusedPtr, JobRanges& ranges, int jobIndex);
+}
+internal static class UnityEngine.ParticleSystemJobs.ParticleSystemJobUtility : object {
+    internal static JobScheduleParameters CreateScheduleParams(T& jobData, ParticleSystem ps, JobHandle dependsOn, IntPtr jobReflectionData);
+}
+[DefaultMemberAttribute("Item")]
+public class UnityEngine.ParticleSystemJobs.ParticleSystemNativeArray3 : ValueType {
+    public NativeArray`1<float> x;
+    public NativeArray`1<float> y;
+    public NativeArray`1<float> z;
+    public Vector3 Item { get; public set; }
+    public Vector3 get_Item(int index);
+    public void set_Item(int index, Vector3 value);
+}
+[DefaultMemberAttribute("Item")]
+public class UnityEngine.ParticleSystemJobs.ParticleSystemNativeArray4 : ValueType {
+    public NativeArray`1<float> x;
+    public NativeArray`1<float> y;
+    public NativeArray`1<float> z;
+    public NativeArray`1<float> w;
+    public Vector4 Item { get; public set; }
+    public Vector4 get_Item(int index);
+    public void set_Item(int index, Vector4 value);
+}
+internal class UnityEngine.ParticleSystemJobs.ParticleSystemParallelForBatchJobStruct`1 : ValueType {
+    public static SharedStatic`1<IntPtr> jobReflectionData;
+    private static ParticleSystemParallelForBatchJobStruct`1();
+    [BurstDiscardAttribute]
+public static void Initialize();
+    public static void Execute(T& data, IntPtr listDataPtr, IntPtr bufferRangePatchData, JobRanges& ranges, int jobIndex);
+}
+internal class UnityEngine.ParticleSystemJobs.ParticleSystemParallelForJobStruct`1 : ValueType {
+    public static SharedStatic`1<IntPtr> jobReflectionData;
+    private static ParticleSystemParallelForJobStruct`1();
+    [BurstDiscardAttribute]
+public static void Initialize();
+    public static void Execute(T& data, IntPtr listDataPtr, IntPtr bufferRangePatchData, JobRanges& ranges, int jobIndex);
+}
+public enum UnityEngine.ParticleSystemMeshDistribution : Enum {
+    public int value__;
+    public static ParticleSystemMeshDistribution UniformRandom;
+    public static ParticleSystemMeshDistribution NonUniformRandom;
+}
+public enum UnityEngine.ParticleSystemMeshShapeType : Enum {
+    public int value__;
+    public static ParticleSystemMeshShapeType Vertex;
+    public static ParticleSystemMeshShapeType Edge;
+    public static ParticleSystemMeshShapeType Triangle;
+}
+public enum UnityEngine.ParticleSystemNoiseQuality : Enum {
+    public int value__;
+    public static ParticleSystemNoiseQuality Low;
+    public static ParticleSystemNoiseQuality Medium;
+    public static ParticleSystemNoiseQuality High;
+}
+public enum UnityEngine.ParticleSystemOverlapAction : Enum {
+    public int value__;
+    public static ParticleSystemOverlapAction Ignore;
+    public static ParticleSystemOverlapAction Kill;
+    public static ParticleSystemOverlapAction Callback;
+}
+[NativeHeaderAttribute("Modules/ParticleSystem/ScriptBindings/ParticleSystemRendererScriptBindings.h")]
+[NativeHeaderAttribute("Modules/ParticleSystem/ParticleSystemRenderer.h")]
+[NativeHeaderAttribute("ParticleSystemScriptingClasses.h")]
+[RequireComponent("UnityEngine.Transform")]
+public class UnityEngine.ParticleSystemRenderer : Renderer {
+    [NativeNameAttribute("RenderAlignment")]
+public ParticleSystemRenderSpace alignment { get; public set; }
+    public ParticleSystemRenderMode renderMode { get; public set; }
+    public ParticleSystemMeshDistribution meshDistribution { get; public set; }
+    public ParticleSystemSortMode sortMode { get; public set; }
+    public float lengthScale { get; public set; }
+    public float velocityScale { get; public set; }
+    public float cameraVelocityScale { get; public set; }
+    public float normalDirection { get; public set; }
+    public float shadowBias { get; public set; }
+    public float sortingFudge { get; public set; }
+    public float minParticleSize { get; public set; }
+    public float maxParticleSize { get; public set; }
+    public Vector3 pivot { get; public set; }
+    public Vector3 flip { get; public set; }
+    public SpriteMaskInteraction maskInteraction { get; public set; }
+    public Material trailMaterial { get; public set; }
+    unknown Material oldTrailMaterial {internal set; }
+    public bool enableGPUInstancing { get; public set; }
+    public bool allowRoll { get; public set; }
+    public bool freeformStretching { get; public set; }
+    public bool rotateWithStretchDirection { get; public set; }
+    public Mesh mesh { get; public set; }
+    public int meshCount { get; }
+    public int activeVertexStreamsCount { get; }
+    public int activeTrailVertexStreamsCount { get; }
+    [ObsoleteAttribute("EnableVertexStreams is deprecated. Use SetActiveVertexStreams instead.", "False")]
+public void EnableVertexStreams(ParticleSystemVertexStreams streams);
+    [ObsoleteAttribute("DisableVertexStreams is deprecated. Use SetActiveVertexStreams instead.", "False")]
+public void DisableVertexStreams(ParticleSystemVertexStreams streams);
+    [ObsoleteAttribute("AreVertexStreamsEnabled is deprecated. Use GetActiveVertexStreams instead.", "False")]
+public bool AreVertexStreamsEnabled(ParticleSystemVertexStreams streams);
+    [ObsoleteAttribute("GetEnabledVertexStreams is deprecated. Use GetActiveVertexStreams instead.", "False")]
+public ParticleSystemVertexStreams GetEnabledVertexStreams(ParticleSystemVertexStreams streams);
+    [ObsoleteAttribute("Internal_SetVertexStreams is deprecated. Use SetActiveVertexStreams instead.", "False")]
+internal void Internal_SetVertexStreams(ParticleSystemVertexStreams streams, bool enabled);
+    [ObsoleteAttribute("Internal_GetVertexStreams is deprecated. Use GetActiveVertexStreams instead.", "False")]
+internal ParticleSystemVertexStreams Internal_GetEnabledVertexStreams(ParticleSystemVertexStreams streams);
+    [ObsoleteAttribute("BakeMesh with useTransform is deprecated. Use BakeMesh with ParticleSystemBakeMeshOptions instead.", "False")]
+public void BakeMesh(Mesh mesh, bool useTransform);
+    [ObsoleteAttribute("BakeMesh with useTransform is deprecated. Use BakeMesh with ParticleSystemBakeMeshOptions instead.", "False")]
+public void BakeMesh(Mesh mesh, Camera camera, bool useTransform);
+    [ObsoleteAttribute("BakeTrailsMesh with useTransform is deprecated. Use BakeTrailsMesh with ParticleSystemBakeMeshOptions instead.", "False")]
+public void BakeTrailsMesh(Mesh mesh, bool useTransform);
+    [ObsoleteAttribute("BakeTrailsMesh with useTransform is deprecated. Use BakeTrailsMesh with ParticleSystemBakeMeshOptions instead.", "False")]
+public void BakeTrailsMesh(Mesh mesh, Camera camera, bool useTransform);
+    public ParticleSystemRenderSpace get_alignment();
+    public void set_alignment(ParticleSystemRenderSpace value);
+    public ParticleSystemRenderMode get_renderMode();
+    public void set_renderMode(ParticleSystemRenderMode value);
+    public ParticleSystemMeshDistribution get_meshDistribution();
+    public void set_meshDistribution(ParticleSystemMeshDistribution value);
+    public ParticleSystemSortMode get_sortMode();
+    public void set_sortMode(ParticleSystemSortMode value);
+    public float get_lengthScale();
+    public void set_lengthScale(float value);
+    public float get_velocityScale();
+    public void set_velocityScale(float value);
+    public float get_cameraVelocityScale();
+    public void set_cameraVelocityScale(float value);
+    public float get_normalDirection();
+    public void set_normalDirection(float value);
+    public float get_shadowBias();
+    public void set_shadowBias(float value);
+    public float get_sortingFudge();
+    public void set_sortingFudge(float value);
+    public float get_minParticleSize();
+    public void set_minParticleSize(float value);
+    public float get_maxParticleSize();
+    public void set_maxParticleSize(float value);
+    public Vector3 get_pivot();
+    public void set_pivot(Vector3 value);
+    public Vector3 get_flip();
+    public void set_flip(Vector3 value);
+    public SpriteMaskInteraction get_maskInteraction();
+    public void set_maskInteraction(SpriteMaskInteraction value);
+    public Material get_trailMaterial();
+    public void set_trailMaterial(Material value);
+    internal void set_oldTrailMaterial(Material value);
+    public bool get_enableGPUInstancing();
+    public void set_enableGPUInstancing(bool value);
+    public bool get_allowRoll();
+    public void set_allowRoll(bool value);
+    public bool get_freeformStretching();
+    public void set_freeformStretching(bool value);
+    public bool get_rotateWithStretchDirection();
+    public void set_rotateWithStretchDirection(bool value);
+    [FreeFunctionAttribute]
+public Mesh get_mesh();
+    [FreeFunctionAttribute]
+public void set_mesh(Mesh value);
+    [FreeFunctionAttribute]
+[RequiredByNativeCodeAttribute]
+public int GetMeshes(Mesh[] meshes);
+    [FreeFunctionAttribute]
+public void SetMeshes(Mesh[] meshes, int size);
+    public void SetMeshes(Mesh[] meshes);
+    [FreeFunctionAttribute]
+public int GetMeshWeightings(Single[] weightings);
+    [FreeFunctionAttribute]
+public void SetMeshWeightings(Single[] weightings, int size);
+    public void SetMeshWeightings(Single[] weightings);
+    public int get_meshCount();
+    public void BakeMesh(Mesh mesh, ParticleSystemBakeMeshOptions options);
+    public void BakeMesh(Mesh mesh, Camera camera, ParticleSystemBakeMeshOptions options);
+    public void BakeTrailsMesh(Mesh mesh, ParticleSystemBakeMeshOptions options);
+    public void BakeTrailsMesh(Mesh mesh, Camera camera, ParticleSystemBakeMeshOptions options);
+    public int BakeTexture(Texture2D& verticesTexture, ParticleSystemBakeTextureOptions options);
+    public int BakeTexture(Texture2D& verticesTexture, Camera camera, ParticleSystemBakeTextureOptions options);
+    [FreeFunctionAttribute]
+private Texture2D BakeTextureNoIndicesInternal(Texture2D verticesTexture, Camera camera, ParticleSystemBakeTextureOptions options, Int32& indexCount);
+    public int BakeTexture(Texture2D& verticesTexture, Texture2D& indicesTexture, ParticleSystemBakeTextureOptions options);
+    public int BakeTexture(Texture2D& verticesTexture, Texture2D& indicesTexture, Camera camera, ParticleSystemBakeTextureOptions options);
+    [FreeFunctionAttribute]
+private BakeTextureOutput BakeTextureInternal(Texture2D verticesTexture, Texture2D indicesTexture, Camera camera, ParticleSystemBakeTextureOptions options, Int32& indexCount);
+    public int BakeTrailsTexture(Texture2D& verticesTexture, Texture2D& indicesTexture, ParticleSystemBakeTextureOptions options);
+    public int BakeTrailsTexture(Texture2D& verticesTexture, Texture2D& indicesTexture, Camera camera, ParticleSystemBakeTextureOptions options);
+    [FreeFunctionAttribute]
+private BakeTextureOutput BakeTrailsTextureInternal(Texture2D verticesTexture, Texture2D indicesTexture, Camera camera, ParticleSystemBakeTextureOptions options, Int32& indexCount);
+    public int get_activeVertexStreamsCount();
+    [FreeFunctionAttribute]
+public void SetActiveVertexStreams(List`1<ParticleSystemVertexStream> streams);
+    [FreeFunctionAttribute]
+public void GetActiveVertexStreams(List`1<ParticleSystemVertexStream> streams);
+    public int get_activeTrailVertexStreamsCount();
+    [FreeFunctionAttribute]
+public void SetActiveTrailVertexStreams(List`1<ParticleSystemVertexStream> streams);
+    [FreeFunctionAttribute]
+public void GetActiveTrailVertexStreams(List`1<ParticleSystemVertexStream> streams);
+    private void get_pivot_Injected(Vector3& ret);
+    private void set_pivot_Injected(Vector3& value);
+    private void get_flip_Injected(Vector3& ret);
+    private void set_flip_Injected(Vector3& value);
+    private void BakeTextureInternal_Injected(Texture2D verticesTexture, Texture2D indicesTexture, Camera camera, ParticleSystemBakeTextureOptions options, Int32& indexCount, BakeTextureOutput& ret);
+    private void BakeTrailsTextureInternal_Injected(Texture2D verticesTexture, Texture2D indicesTexture, Camera camera, ParticleSystemBakeTextureOptions options, Int32& indexCount, BakeTextureOutput& ret);
+}
+public enum UnityEngine.ParticleSystemRenderMode : Enum {
+    public int value__;
+    public static ParticleSystemRenderMode Billboard;
+    public static ParticleSystemRenderMode Stretch;
+    public static ParticleSystemRenderMode HorizontalBillboard;
+    public static ParticleSystemRenderMode VerticalBillboard;
+    public static ParticleSystemRenderMode Mesh;
+    public static ParticleSystemRenderMode None;
+}
+public enum UnityEngine.ParticleSystemRenderSpace : Enum {
+    public int value__;
+    public static ParticleSystemRenderSpace View;
+    public static ParticleSystemRenderSpace World;
+    public static ParticleSystemRenderSpace Local;
+    public static ParticleSystemRenderSpace Facing;
+    public static ParticleSystemRenderSpace Velocity;
+}
+public enum UnityEngine.ParticleSystemRingBufferMode : Enum {
+    public int value__;
+    public static ParticleSystemRingBufferMode Disabled;
+    public static ParticleSystemRingBufferMode PauseUntilReplaced;
+    public static ParticleSystemRingBufferMode LoopUntilReplaced;
+}
+public enum UnityEngine.ParticleSystemScalingMode : Enum {
+    public int value__;
+    public static ParticleSystemScalingMode Hierarchy;
+    public static ParticleSystemScalingMode Local;
+    public static ParticleSystemScalingMode Shape;
+}
+public enum UnityEngine.ParticleSystemShapeMultiModeValue : Enum {
+    public int value__;
+    public static ParticleSystemShapeMultiModeValue Random;
+    public static ParticleSystemShapeMultiModeValue Loop;
+    public static ParticleSystemShapeMultiModeValue PingPong;
+    public static ParticleSystemShapeMultiModeValue BurstSpread;
+}
+public enum UnityEngine.ParticleSystemShapeTextureChannel : Enum {
+    public int value__;
+    public static ParticleSystemShapeTextureChannel Red;
+    public static ParticleSystemShapeTextureChannel Green;
+    public static ParticleSystemShapeTextureChannel Blue;
+    public static ParticleSystemShapeTextureChannel Alpha;
+}
+public enum UnityEngine.ParticleSystemShapeType : Enum {
+    public int value__;
+    public static ParticleSystemShapeType Sphere;
+    [ObsoleteAttribute("SphereShell is deprecated and does nothing. Please use ShapeModule.radiusThickness instead, to control edge emission.", "False")]
+public static ParticleSystemShapeType SphereShell;
+    public static ParticleSystemShapeType Hemisphere;
+    [ObsoleteAttribute("HemisphereShell is deprecated and does nothing. Please use ShapeModule.radiusThickness instead, to control edge emission.", "False")]
+public static ParticleSystemShapeType HemisphereShell;
+    public static ParticleSystemShapeType Cone;
+    public static ParticleSystemShapeType Box;
+    public static ParticleSystemShapeType Mesh;
+    [ObsoleteAttribute("ConeShell is deprecated and does nothing. Please use ShapeModule.radiusThickness instead, to control edge emission.", "False")]
+public static ParticleSystemShapeType ConeShell;
+    public static ParticleSystemShapeType ConeVolume;
+    [ObsoleteAttribute("ConeVolumeShell is deprecated and does nothing. Please use ShapeModule.radiusThickness instead, to control edge emission.", "False")]
+public static ParticleSystemShapeType ConeVolumeShell;
+    public static ParticleSystemShapeType Circle;
+    [ObsoleteAttribute("CircleEdge is deprecated and does nothing. Please use ShapeModule.radiusThickness instead, to control edge emission.", "False")]
+public static ParticleSystemShapeType CircleEdge;
+    public static ParticleSystemShapeType SingleSidedEdge;
+    public static ParticleSystemShapeType MeshRenderer;
+    public static ParticleSystemShapeType SkinnedMeshRenderer;
+    public static ParticleSystemShapeType BoxShell;
+    public static ParticleSystemShapeType BoxEdge;
+    public static ParticleSystemShapeType Donut;
+    public static ParticleSystemShapeType Rectangle;
+    public static ParticleSystemShapeType Sprite;
+    public static ParticleSystemShapeType SpriteRenderer;
+}
+public enum UnityEngine.ParticleSystemSimulationSpace : Enum {
+    public int value__;
+    public static ParticleSystemSimulationSpace Local;
+    public static ParticleSystemSimulationSpace World;
+    public static ParticleSystemSimulationSpace Custom;
+}
+public enum UnityEngine.ParticleSystemSortMode : Enum {
+    public int value__;
+    public static ParticleSystemSortMode None;
+    public static ParticleSystemSortMode Distance;
+    public static ParticleSystemSortMode OldestInFront;
+    public static ParticleSystemSortMode YoungestInFront;
+    public static ParticleSystemSortMode Depth;
+}
+public enum UnityEngine.ParticleSystemStopAction : Enum {
+    public int value__;
+    public static ParticleSystemStopAction None;
+    public static ParticleSystemStopAction Disable;
+    public static ParticleSystemStopAction Destroy;
+    public static ParticleSystemStopAction Callback;
+}
+public enum UnityEngine.ParticleSystemStopBehavior : Enum {
+    public int value__;
+    public static ParticleSystemStopBehavior StopEmittingAndClear;
+    public static ParticleSystemStopBehavior StopEmitting;
+}
+[FlagsAttribute]
+public enum UnityEngine.ParticleSystemSubEmitterProperties : Enum {
+    public int value__;
+    public static ParticleSystemSubEmitterProperties InheritNothing;
+    public static ParticleSystemSubEmitterProperties InheritEverything;
+    public static ParticleSystemSubEmitterProperties InheritColor;
+    public static ParticleSystemSubEmitterProperties InheritSize;
+    public static ParticleSystemSubEmitterProperties InheritRotation;
+    public static ParticleSystemSubEmitterProperties InheritLifetime;
+    public static ParticleSystemSubEmitterProperties InheritDuration;
+}
+public enum UnityEngine.ParticleSystemSubEmitterType : Enum {
+    public int value__;
+    public static ParticleSystemSubEmitterType Birth;
+    public static ParticleSystemSubEmitterType Collision;
+    public static ParticleSystemSubEmitterType Death;
+    public static ParticleSystemSubEmitterType Trigger;
+    public static ParticleSystemSubEmitterType Manual;
+}
+public enum UnityEngine.ParticleSystemTrailMode : Enum {
+    public int value__;
+    public static ParticleSystemTrailMode PerParticle;
+    public static ParticleSystemTrailMode Ribbon;
+}
+public enum UnityEngine.ParticleSystemTrailTextureMode : Enum {
+    public int value__;
+    public static ParticleSystemTrailTextureMode Stretch;
+    public static ParticleSystemTrailTextureMode Tile;
+    public static ParticleSystemTrailTextureMode DistributePerSegment;
+    public static ParticleSystemTrailTextureMode RepeatPerSegment;
+    public static ParticleSystemTrailTextureMode Static;
+}
+public enum UnityEngine.ParticleSystemTriggerEventType : Enum {
+    public int value__;
+    public static ParticleSystemTriggerEventType Inside;
+    public static ParticleSystemTriggerEventType Outside;
+    public static ParticleSystemTriggerEventType Enter;
+    public static ParticleSystemTriggerEventType Exit;
+}
+[UsedByNativeCodeAttribute]
+public enum UnityEngine.ParticleSystemVertexStream : Enum {
+    public int value__;
+    public static ParticleSystemVertexStream Position;
+    public static ParticleSystemVertexStream Normal;
+    public static ParticleSystemVertexStream Tangent;
+    public static ParticleSystemVertexStream Color;
+    public static ParticleSystemVertexStream UV;
+    public static ParticleSystemVertexStream UV2;
+    public static ParticleSystemVertexStream UV3;
+    public static ParticleSystemVertexStream UV4;
+    public static ParticleSystemVertexStream AnimBlend;
+    public static ParticleSystemVertexStream AnimFrame;
+    public static ParticleSystemVertexStream Center;
+    public static ParticleSystemVertexStream VertexID;
+    public static ParticleSystemVertexStream SizeX;
+    public static ParticleSystemVertexStream SizeXY;
+    public static ParticleSystemVertexStream SizeXYZ;
+    public static ParticleSystemVertexStream Rotation;
+    public static ParticleSystemVertexStream Rotation3D;
+    public static ParticleSystemVertexStream RotationSpeed;
+    public static ParticleSystemVertexStream RotationSpeed3D;
+    public static ParticleSystemVertexStream Velocity;
+    public static ParticleSystemVertexStream Speed;
+    public static ParticleSystemVertexStream AgePercent;
+    public static ParticleSystemVertexStream InvStartLifetime;
+    public static ParticleSystemVertexStream StableRandomX;
+    public static ParticleSystemVertexStream StableRandomXY;
+    public static ParticleSystemVertexStream StableRandomXYZ;
+    public static ParticleSystemVertexStream StableRandomXYZW;
+    public static ParticleSystemVertexStream VaryingRandomX;
+    public static ParticleSystemVertexStream VaryingRandomXY;
+    public static ParticleSystemVertexStream VaryingRandomXYZ;
+    public static ParticleSystemVertexStream VaryingRandomXYZW;
+    public static ParticleSystemVertexStream Custom1X;
+    public static ParticleSystemVertexStream Custom1XY;
+    public static ParticleSystemVertexStream Custom1XYZ;
+    public static ParticleSystemVertexStream Custom1XYZW;
+    public static ParticleSystemVertexStream Custom2X;
+    public static ParticleSystemVertexStream Custom2XY;
+    public static ParticleSystemVertexStream Custom2XYZ;
+    public static ParticleSystemVertexStream Custom2XYZW;
+    public static ParticleSystemVertexStream NoiseSumX;
+    public static ParticleSystemVertexStream NoiseSumXY;
+    public static ParticleSystemVertexStream NoiseSumXYZ;
+    public static ParticleSystemVertexStream NoiseImpulseX;
+    public static ParticleSystemVertexStream NoiseImpulseXY;
+    public static ParticleSystemVertexStream NoiseImpulseXYZ;
+    public static ParticleSystemVertexStream MeshIndex;
+    public static ParticleSystemVertexStream ParticleIndex;
+    public static ParticleSystemVertexStream ColorPackedAsTwoFloats;
+    public static ParticleSystemVertexStream MeshAxisOfRotation;
+    public static ParticleSystemVertexStream NextTrailCenter;
+    public static ParticleSystemVertexStream PreviousTrailCenter;
+    public static ParticleSystemVertexStream PercentageAlongTrail;
+    public static ParticleSystemVertexStream TrailWidth;
+}
+[FlagsAttribute]
+[ObsoleteAttribute("ParticleSystemVertexStreams is deprecated. Please use ParticleSystemVertexStream instead.", "False")]
+public enum UnityEngine.ParticleSystemVertexStreams : Enum {
+    public int value__;
+    public static ParticleSystemVertexStreams Position;
+    public static ParticleSystemVertexStreams Normal;
+    public static ParticleSystemVertexStreams Tangent;
+    public static ParticleSystemVertexStreams Color;
+    public static ParticleSystemVertexStreams UV;
+    public static ParticleSystemVertexStreams UV2BlendAndFrame;
+    public static ParticleSystemVertexStreams CenterAndVertexID;
+    public static ParticleSystemVertexStreams Size;
+    public static ParticleSystemVertexStreams Rotation;
+    public static ParticleSystemVertexStreams Velocity;
+    public static ParticleSystemVertexStreams Lifetime;
+    public static ParticleSystemVertexStreams Custom1;
+    public static ParticleSystemVertexStreams Custom2;
+    public static ParticleSystemVertexStreams Random;
+    public static ParticleSystemVertexStreams None;
+    public static ParticleSystemVertexStreams All;
+}
+[FlagsAttribute]
+public enum UnityEngine.Rendering.UVChannelFlags : Enum {
+    public int value__;
+    public static UVChannelFlags UV0;
+    public static UVChannelFlags UV1;
+    public static UVChannelFlags UV2;
+    public static UVChannelFlags UV3;
+}

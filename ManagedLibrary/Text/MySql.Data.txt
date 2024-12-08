@@ -1,0 +1,5744 @@
+Сборка: MySql.Data.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.AuthenticationPluginManager
+Наследуется от: object
+Поля:
+  Dictionary`2<string, PluginInfo> plugins
+Свойства:
+Методы:
+  void .cctor()
+  MySqlAuthenticationPlugin GetPlugin(string method)
+  MySqlAuthenticationPlugin CreatePlugin(string method)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.PluginInfo
+Наследуется от: ValueType
+Поля:
+  string Type
+  Assembly Assembly
+Свойства:
+Методы:
+  void .ctor(string type)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin
+Наследуется от: object
+Поля:
+  NativeDriver driver
+  Byte[] AuthenticationData
+Свойства:
+  MySqlConnectionStringBuilder Settings
+  Version ServerVersion
+  ClientFlags Flags
+  Encoding Encoding
+  string PluginName
+Методы:
+  MySqlAuthenticationPlugin GetPlugin(string method, NativeDriver driver, Byte[] authData)
+  MySqlConnectionStringBuilder get_Settings()
+  Version get_ServerVersion()
+  ClientFlags get_Flags()
+  Encoding get_Encoding()
+  void SetAuthData(Byte[] data)
+  void CheckConstraints()
+  void AuthenticationFailed(Exception ex)
+  void AuthenticationSuccessful()
+  Byte[] MoreData(Byte[] data)
+  void Authenticate(bool reset)
+  void WritePassword(MySqlPacket packet)
+  MySqlPacket ReadPacket()
+  void HandleAuthChange(MySqlPacket packet)
+  void AuthenticationChange()
+  string get_PluginName()
+  string GetUsername()
+  object GetPassword()
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.MySqlNativePasswordPlugin
+Наследуется от: MySqlAuthenticationPlugin
+Поля:
+Свойства:
+  string PluginName
+Методы:
+  string get_PluginName()
+  void SetAuthData(Byte[] data)
+  Byte[] MoreData(Byte[] data)
+  object GetPassword()
+  Byte[] Get411Password(string password, Byte[] seedBytes)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.Sha256AuthenticationPlugin
+Наследуется от: MySqlAuthenticationPlugin
+Поля:
+  Byte[] rawPubkey
+Свойства:
+  string PluginName
+Методы:
+  string get_PluginName()
+  Byte[] MoreData(Byte[] data)
+  object GetPassword()
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.MySqlWindowsAuthenticationPlugin
+Наследуется от: MySqlAuthenticationPlugin
+Поля:
+  int SEC_E_OK
+  int SEC_I_CONTINUE_NEEDED
+  int SEC_I_COMPLETE_NEEDED
+  int SEC_I_COMPLETE_AND_CONTINUE
+  int SECPKG_CRED_OUTBOUND
+  int SECURITY_NETWORK_DREP
+  int SECURITY_NATIVE_DREP
+  int SECPKG_CRED_INBOUND
+  int MAX_TOKEN_SIZE
+  int SECPKG_ATTR_SIZES
+  int STANDARD_CONTEXT_ATTRIBUTES
+  SECURITY_HANDLE outboundCredentials
+  SECURITY_HANDLE clientContext
+  SECURITY_INTEGER lifetime
+  bool continueProcessing
+  string targetName
+Свойства:
+  string PluginName
+Методы:
+  void CheckConstraints()
+  string GetUsername()
+  string get_PluginName()
+  Byte[] MoreData(Byte[] moreData)
+  void InitializeClient(Byte[]& clientBlob, Byte[] serverBlob, Boolean& continueProcessing)
+  string GetTargetName()
+  void AcquireCredentials()
+  int AcquireCredentialsHandle(string pszPrincipal, string pszPackage, int fCredentialUse, IntPtr PAuthenticationID, IntPtr pAuthData, int pGetKeyFn, IntPtr pvGetKeyArgument, SECURITY_HANDLE& phCredential, SECURITY_INTEGER& ptsExpiry)
+  int InitializeSecurityContext(SECURITY_HANDLE& phCredential, IntPtr phContext, string pszTargetName, int fContextReq, int Reserved1, int TargetDataRep, IntPtr pInput, int Reserved2, SECURITY_HANDLE& phNewContext, SecBufferDesc& pOutput, UInt32& pfContextAttr, SECURITY_INTEGER& ptsExpiry)
+  int InitializeSecurityContext(SECURITY_HANDLE& phCredential, SECURITY_HANDLE& phContext, string pszTargetName, int fContextReq, int Reserved1, int TargetDataRep, SecBufferDesc& SecBufferDesc, int Reserved2, SECURITY_HANDLE& phNewContext, SecBufferDesc& pOutput, UInt32& pfContextAttr, SECURITY_INTEGER& ptsExpiry)
+  int CompleteAuthToken(SECURITY_HANDLE& phContext, SecBufferDesc& pToken)
+  int QueryContextAttributes(SECURITY_HANDLE& phContext, UInt32 ulAttribute, SecPkgContext_Sizes& pContextAttributes)
+  int FreeCredentialsHandle(SECURITY_HANDLE& pCred)
+  int DeleteSecurityContext(SECURITY_HANDLE& pCred)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.SecBufferDesc
+Наследуется от: ValueType
+Поля:
+  int ulVersion
+  int cBuffers
+  IntPtr pBuffers
+Свойства:
+Методы:
+  void .ctor(int bufferSize)
+  void .ctor(Byte[] secBufferBytes)
+  void Dispose()
+  Byte[] GetSecBufferByteArray()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.SecBufferType
+Наследуется от: Enum
+Поля:
+  int value__
+  SecBufferType SECBUFFER_VERSION
+  SecBufferType SECBUFFER_EMPTY
+  SecBufferType SECBUFFER_DATA
+  SecBufferType SECBUFFER_TOKEN
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.SecHandle
+Наследуется от: ValueType
+Поля:
+  IntPtr dwLower
+  IntPtr dwUpper
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.SecBuffer
+Наследуется от: ValueType
+Поля:
+  int cbBuffer
+  int BufferType
+  IntPtr pvBuffer
+Свойства:
+Методы:
+  void .ctor(int bufferSize)
+  void .ctor(Byte[] secBufferBytes)
+  void .ctor(Byte[] secBufferBytes, SecBufferType bufferType)
+  void Dispose()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.SECURITY_INTEGER
+Наследуется от: ValueType
+Поля:
+  UInt32 LowPart
+  int HighPart
+Свойства:
+Методы:
+  void .ctor(int dummy)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.SECURITY_HANDLE
+Наследуется от: ValueType
+Поля:
+  IntPtr LowPart
+  IntPtr HighPart
+Свойства:
+Методы:
+  void .ctor(int dummy)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Authentication.SecPkgContext_Sizes
+Наследуется от: ValueType
+Поля:
+  UInt32 cbMaxToken
+  UInt32 cbMaxSignature
+  UInt32 cbBlockSize
+  UInt32 cbSecurityTrailer
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlBulkLoader
+Наследуется от: object
+Поля:
+  string defaultFieldTerminator
+  string defaultLineTerminator
+  char defaultEscapeCharacter
+  string fieldTerminator
+  string lineTerminator
+  string charSet
+  string tableName
+  int numLinesToIgnore
+  MySqlConnection connection
+  string filename
+  int timeout
+  bool local
+  string linePrefix
+  char fieldQuotationCharacter
+  bool fieldQuotationOptional
+  char escapeChar
+  MySqlBulkLoaderPriority priority
+  MySqlBulkLoaderConflictOption conflictOption
+  List`1<string> columns
+  List`1<string> expressions
+Свойства:
+  MySqlConnection Connection
+  string FieldTerminator
+  string LineTerminator
+  string TableName
+  string CharacterSet
+  string FileName
+  int Timeout
+  bool Local
+  int NumberOfLinesToSkip
+  string LinePrefix
+  char FieldQuotationCharacter
+  bool FieldQuotationOptional
+  char EscapeCharacter
+  MySqlBulkLoaderConflictOption ConflictOption
+  MySqlBulkLoaderPriority Priority
+  List`1<string> Columns
+  List`1<string> Expressions
+Методы:
+  void .ctor(MySqlConnection connection)
+  MySqlConnection get_Connection()
+  void set_Connection(MySqlConnection value)
+  string get_FieldTerminator()
+  void set_FieldTerminator(string value)
+  string get_LineTerminator()
+  void set_LineTerminator(string value)
+  string get_TableName()
+  void set_TableName(string value)
+  string get_CharacterSet()
+  void set_CharacterSet(string value)
+  string get_FileName()
+  void set_FileName(string value)
+  int get_Timeout()
+  void set_Timeout(int value)
+  bool get_Local()
+  void set_Local(bool value)
+  int get_NumberOfLinesToSkip()
+  void set_NumberOfLinesToSkip(int value)
+  string get_LinePrefix()
+  void set_LinePrefix(string value)
+  char get_FieldQuotationCharacter()
+  void set_FieldQuotationCharacter(char value)
+  bool get_FieldQuotationOptional()
+  void set_FieldQuotationOptional(bool value)
+  char get_EscapeCharacter()
+  void set_EscapeCharacter(char value)
+  MySqlBulkLoaderConflictOption get_ConflictOption()
+  void set_ConflictOption(MySqlBulkLoaderConflictOption value)
+  MySqlBulkLoaderPriority get_Priority()
+  void set_Priority(MySqlBulkLoaderPriority value)
+  List`1<string> get_Columns()
+  List`1<string> get_Expressions()
+  int Load()
+  string BuildSqlCommand()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlBulkLoaderPriority
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlBulkLoaderPriority None
+  MySqlBulkLoaderPriority Low
+  MySqlBulkLoaderPriority Concurrent
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlBulkLoaderConflictOption
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlBulkLoaderConflictOption None
+  MySqlBulkLoaderConflictOption Replace
+  MySqlBulkLoaderConflictOption Ignore
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.CharSetMap
+Наследуется от: object
+Поля:
+  Dictionary`2<string, string> defaultCollations
+  Dictionary`2<string, int> maxLengths
+  Dictionary`2<string, CharacterSet> mapping
+  object lockObject
+Свойства:
+Методы:
+  void .cctor()
+  CharacterSet GetCharacterSet(DBVersion version, string CharSetName)
+  Encoding GetEncoding(DBVersion version, string CharSetName)
+  void InitializeMapping()
+  void LoadCharsetMap()
+  void InitCollections(MySqlConnection connection)
+  string GetDefaultCollation(string charset, MySqlConnection connection)
+  int GetMaxLength(string charset, MySqlConnection connection)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.CharacterSet
+Наследуется от: object
+Поля:
+  string name
+  int byteCount
+Свойства:
+Методы:
+  void .ctor(string name, int byteCount)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlCommand
+Наследуется от: DbCommand
+Поля:
+  MySqlConnection connection
+  MySqlTransaction curTransaction
+  string cmdText
+  CommandType cmdType
+  long updatedRowCount
+  MySqlParameterCollection parameters
+  IAsyncResult asyncResult
+  long lastInsertedId
+  PreparableStatement statement
+  int commandTimeout
+  bool canceled
+  bool resetSqlSelect
+  List`1<MySqlCommand> batch
+  string batchableCommandText
+  CommandTimer commandTimer
+  bool useDefaultTimeout
+  bool shouldCache
+  int cacheAge
+  bool internallyCreated
+  AsyncDelegate caller
+  Exception thrownException
+  UpdateRowSource <UpdatedRowSource>k__BackingField
+  bool <DesignTimeVisible>k__BackingField
+Свойства:
+  long LastInsertedId
+  string CommandText
+  int CommandTimeout
+  CommandType CommandType
+  bool IsPrepared
+  MySqlConnection Connection
+  MySqlParameterCollection Parameters
+  MySqlTransaction Transaction
+  bool EnableCaching
+  int CacheAge
+  List`1<MySqlCommand> Batch
+  bool Canceled
+  string BatchableCommandText
+  bool InternallyCreated
+  UpdateRowSource UpdatedRowSource
+  bool DesignTimeVisible
+  DbConnection DbConnection
+  DbParameterCollection DbParameterCollection
+  DbTransaction DbTransaction
+Методы:
+  void .ctor()
+  void .ctor(string cmdText)
+  void .ctor(string cmdText, MySqlConnection connection)
+  void .ctor(string cmdText, MySqlConnection connection, MySqlTransaction transaction)
+  void Finalize()
+  long get_LastInsertedId()
+  string get_CommandText()
+  void set_CommandText(string value)
+  int get_CommandTimeout()
+  void set_CommandTimeout(int value)
+  CommandType get_CommandType()
+  void set_CommandType(CommandType value)
+  bool get_IsPrepared()
+  MySqlConnection get_Connection()
+  void set_Connection(MySqlConnection value)
+  MySqlParameterCollection get_Parameters()
+  MySqlTransaction get_Transaction()
+  void set_Transaction(MySqlTransaction value)
+  bool get_EnableCaching()
+  void set_EnableCaching(bool value)
+  int get_CacheAge()
+  void set_CacheAge(int value)
+  List`1<MySqlCommand> get_Batch()
+  bool get_Canceled()
+  string get_BatchableCommandText()
+  bool get_InternallyCreated()
+  void set_InternallyCreated(bool value)
+  void Cancel()
+  MySqlParameter CreateParameter()
+  void CheckState()
+  int ExecuteNonQuery()
+  void ClearCommandTimer()
+  void Close(MySqlDataReader reader)
+  void ResetReader()
+  void ResetSqlSelectLimit()
+  MySqlDataReader ExecuteReader()
+  MySqlDataReader ExecuteReader(CommandBehavior behavior)
+  void EnsureCommandIsReadOnly(string sql)
+  bool IsReadOnlyCommand(string sql)
+  object ExecuteScalar()
+  void HandleCommandBehaviors(CommandBehavior behavior)
+  void Prepare(int cursorPageSize)
+  void Prepare()
+  object AsyncExecuteWrapper(int type, CommandBehavior behavior)
+  IAsyncResult BeginExecuteReader()
+  IAsyncResult BeginExecuteReader(CommandBehavior behavior)
+  MySqlDataReader EndExecuteReader(IAsyncResult result)
+  IAsyncResult BeginExecuteNonQuery(AsyncCallback callback, object stateObject)
+  IAsyncResult BeginExecuteNonQuery()
+  int EndExecuteNonQuery(IAsyncResult asyncResult)
+  long EstimatedSize()
+  bool AddCallStatement(string query)
+  MySqlCommand Clone()
+  object System.ICloneable.Clone()
+  void AddToBatch(MySqlCommand command)
+  string GetCommandTextForBatching()
+  void Throw(Exception ex)
+  void Dispose()
+  void Dispose(bool disposing)
+  void Constructor()
+  void PartialClone(MySqlCommand clone)
+  UpdateRowSource get_UpdatedRowSource()
+  void set_UpdatedRowSource(UpdateRowSource value)
+  bool get_DesignTimeVisible()
+  void set_DesignTimeVisible(bool value)
+  DbParameter CreateDbParameter()
+  DbConnection get_DbConnection()
+  void set_DbConnection(DbConnection value)
+  DbParameterCollection get_DbParameterCollection()
+  DbTransaction get_DbTransaction()
+  void set_DbTransaction(DbTransaction value)
+  DbDataReader ExecuteDbDataReader(CommandBehavior behavior)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlCommandBuilder
+Наследуется от: DbCommandBuilder
+Поля:
+Свойства:
+  MySqlDataAdapter DataAdapter
+Методы:
+  void .ctor()
+  void .ctor(MySqlDataAdapter adapter)
+  MySqlDataAdapter get_DataAdapter()
+  void set_DataAdapter(MySqlDataAdapter value)
+  void DeriveParameters(MySqlCommand command)
+  List`1<string> GetPossibleValues(MySqlSchemaRow row)
+  ParameterDirection GetDirection(MySqlSchemaRow row)
+  MySqlCommand GetDeleteCommand()
+  MySqlCommand GetUpdateCommand()
+  MySqlCommand GetInsertCommand()
+  string QuoteIdentifier(string unquotedIdentifier)
+  string UnquoteIdentifier(string quotedIdentifier)
+  DataTable GetSchemaTable(DbCommand sourceCommand)
+  string GetParameterName(string parameterName)
+  void ApplyParameterInfo(DbParameter parameter, DataRow row, StatementType statementType, bool whereClause)
+  string GetParameterName(int parameterOrdinal)
+  string GetParameterPlaceholder(int parameterOrdinal)
+  void SetRowUpdatingHandler(DbDataAdapter adapter)
+  void RowUpdating(object sender, MySqlRowUpdatingEventArgs args)
+--------------------------------------------------
+Класс: MySql.Data.Common.Cache`2
+Наследуется от: object
+Поля:
+  int _capacity
+  Queue`1<KeyType> _keyQ
+  Dictionary`2<KeyType, ValueType> _contents
+Свойства:
+  ValueType Item
+Методы:
+  void .ctor(int initialCapacity, int capacity)
+  ValueType get_Item(KeyType key)
+  void set_Item(KeyType key, ValueType value)
+  void Add(KeyType key, ValueType value)
+  void InternalAdd(KeyType key, ValueType value)
+--------------------------------------------------
+Класс: MySql.Data.Common.ContextString
+Наследуется от: object
+Поля:
+  string contextMarkers
+  bool escapeBackslash
+Свойства:
+  string ContextMarkers
+Методы:
+  void .ctor(string contextMarkers, bool escapeBackslash)
+  string get_ContextMarkers()
+  void set_ContextMarkers(string value)
+  int IndexOf(string src, string target)
+  int IndexOf(string src, string target, int startIndex)
+  bool IndexInQuotes(string src, int index, int startIndex)
+  int IndexOf(string src, char target)
+  String[] Split(string src, string delimiters)
+--------------------------------------------------
+Класс: MySql.Data.Common.LowResolutionStopwatch
+Наследуется от: object
+Поля:
+  long millis
+  long startTime
+  long Frequency
+  bool isHighResolution
+Свойства:
+  long ElapsedMilliseconds
+  TimeSpan Elapsed
+Методы:
+  void .ctor()
+  long get_ElapsedMilliseconds()
+  void Start()
+  void Stop()
+  void Reset()
+  TimeSpan get_Elapsed()
+  LowResolutionStopwatch StartNew()
+  long GetTimestamp()
+  bool IsRunning()
+  void .cctor()
+--------------------------------------------------
+Класс: MySql.Data.Common.MyNetworkStream
+Наследуется от: NetworkStream
+Поля:
+  int MaxRetryCount
+  Socket socket
+Свойства:
+Методы:
+  void .ctor(Socket socket, bool ownsSocket)
+  bool IsTimeoutException(SocketException e)
+  bool IsWouldBlockException(SocketException e)
+  void HandleOrRethrowException(Exception e)
+  int Read(Byte[] buffer, int offset, int count)
+  int ReadByte()
+  void Write(Byte[] buffer, int offset, int count)
+  void Flush()
+  MyNetworkStream CreateStream(MySqlConnectionStringBuilder settings, bool unix)
+  IPHostEntry ParseIPAddress(string hostname)
+  IPHostEntry GetHostEntry(string hostname)
+  EndPoint CreateUnixEndPoint(string host)
+  MyNetworkStream CreateSocketStream(MySqlConnectionStringBuilder settings, IPAddress ip, bool unix)
+  void SetKeepAlive(Socket s, UInt32 time)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlTokenizer
+Наследуется от: object
+Поля:
+  string sql
+  int startIndex
+  int stopIndex
+  bool ansiQuotes
+  bool backslashEscapes
+  bool returnComments
+  bool multiLine
+  bool sqlServerMode
+  bool quoted
+  bool isComment
+  int pos
+Свойства:
+  string Text
+  bool AnsiQuotes
+  bool BackslashEscapes
+  bool MultiLine
+  bool SqlServerMode
+  bool Quoted
+  bool IsComment
+  int StartIndex
+  int StopIndex
+  int Position
+  bool ReturnComments
+Методы:
+  void .ctor()
+  void .ctor(string input)
+  string get_Text()
+  void set_Text(string value)
+  bool get_AnsiQuotes()
+  void set_AnsiQuotes(bool value)
+  bool get_BackslashEscapes()
+  void set_BackslashEscapes(bool value)
+  bool get_MultiLine()
+  void set_MultiLine(bool value)
+  bool get_SqlServerMode()
+  void set_SqlServerMode(bool value)
+  bool get_Quoted()
+  void set_Quoted(bool value)
+  bool get_IsComment()
+  int get_StartIndex()
+  void set_StartIndex(int value)
+  int get_StopIndex()
+  void set_StopIndex(int value)
+  int get_Position()
+  void set_Position(int value)
+  bool get_ReturnComments()
+  void set_ReturnComments(bool value)
+  List`1<string> GetAllTokens()
+  string NextToken()
+  bool IsParameter(string s)
+  string NextParameter()
+  bool FindToken()
+  string ReadParenthesis()
+  bool ReadComment(char c)
+  void CalculatePosition(int start, int stop)
+  void ReadUnquotedToken()
+  void ReadSpecialToken()
+  void ReadQuotedToken(char quoteChar)
+  bool IsQuoteChar(char c)
+  bool IsParameterMarker(char c)
+  bool IsSpecialCharacter(char c)
+--------------------------------------------------
+Класс: MySql.Data.Common.NamedPipeStream
+Наследуется от: Stream
+Поля:
+  int ERROR_PIPE_BUSY
+  int ERROR_SEM_TIMEOUT
+  SafeFileHandle handle
+  Stream fileStream
+  int readTimeout
+  int writeTimeout
+Свойства:
+  bool CanRead
+  bool CanWrite
+  bool CanSeek
+  long Length
+  long Position
+  bool CanTimeout
+  int ReadTimeout
+  int WriteTimeout
+Методы:
+  void .ctor(string path, FileAccess mode, UInt32 timeout)
+  void CancelIo()
+  void Open(string path, FileAccess mode, UInt32 timeout)
+  bool get_CanRead()
+  bool get_CanWrite()
+  bool get_CanSeek()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  void Flush()
+  int Read(Byte[] buffer, int offset, int count)
+  void Write(Byte[] buffer, int offset, int count)
+  void Close()
+  void SetLength(long length)
+  bool get_CanTimeout()
+  int get_ReadTimeout()
+  void set_ReadTimeout(int value)
+  int get_WriteTimeout()
+  void set_WriteTimeout(int value)
+  long Seek(long offset, SeekOrigin origin)
+  Stream Create(string pipeName, string hostname, UInt32 timeout)
+--------------------------------------------------
+Класс: MySql.Data.Common.NativeMethods
+Наследуется от: object
+Поля:
+  UInt32 GENERIC_READ
+  UInt32 GENERIC_WRITE
+  int INVALIDpipeHandle_VALUE
+  UInt32 FILE_FLAG_OVERLAPPED
+  UInt32 FILE_FLAG_NO_BUFFERING
+  UInt32 OPEN_EXISTING
+Свойства:
+Методы:
+  void .ctor()
+  IntPtr CreateFile(string fileName, UInt32 desiredAccess, UInt32 shareMode, SecurityAttributes securityAttributes, UInt32 creationDisposition, UInt32 flagsAndAttributes, UInt32 templateFile)
+  bool PeekNamedPipe(IntPtr handle, Byte[] buffer, UInt32 nBufferSize, UInt32& bytesRead, UInt32& bytesAvail, UInt32& BytesLeftThisMessage)
+  bool ReadFile(IntPtr hFile, Byte[] lpBuffer, UInt32 nNumberOfBytesToRead, UInt32& lpNumberOfBytesRead, IntPtr lpOverlapped)
+  bool WriteFile(IntPtr hFile, Byte[] buffer, UInt32 numberOfBytesToWrite, UInt32& numberOfBytesWritten, IntPtr lpOverlapped)
+  bool CloseHandle(IntPtr handle)
+  bool CancelIo(IntPtr handle)
+  bool FlushFileBuffers(IntPtr handle)
+  IntPtr OpenEvent(UInt32 dwDesiredAccess, bool bInheritHandle, string lpName)
+  IntPtr OpenFileMapping(UInt32 dwDesiredAccess, bool bInheritHandle, string lpName)
+  IntPtr MapViewOfFile(IntPtr hFileMappingObject, UInt32 dwDesiredAccess, UInt32 dwFileOffsetHigh, UInt32 dwFileOffsetLow, IntPtr dwNumberOfBytesToMap)
+  bool UnmapViewOfFile(IntPtr lpBaseAddress)
+  int FlushViewOfFile(IntPtr address, UInt32 numBytes)
+  bool WaitNamedPipe(string namedPipeName, UInt32 timeOut)
+  IntPtr socket(int af, int type, int protocol)
+  int ioctlsocket(IntPtr socket, UInt32 cmd, UInt32& arg)
+  int WSAIoctl(IntPtr s, UInt32 dwIoControlCode, Byte[] inBuffer, UInt32 cbInBuffer, Byte[] outBuffer, UInt32 cbOutBuffer, IntPtr lpcbBytesReturned, IntPtr lpOverlapped, IntPtr lpCompletionRoutine)
+  int WSAGetLastError()
+  int connect(IntPtr socket, Byte[] addr, int addrlen)
+  int recv(IntPtr socket, Byte[] buff, int len, int flags)
+  int send(IntPtr socket, Byte[] buff, int len, int flags)
+--------------------------------------------------
+Класс: MySql.Data.Common.Platform
+Наследуется от: object
+Поля:
+  bool inited
+  bool isMono
+Свойства:
+  char DirectorySeparatorChar
+Методы:
+  void .ctor()
+  bool IsWindows()
+  char get_DirectorySeparatorChar()
+  bool IsMono()
+  void Init()
+--------------------------------------------------
+Класс: MySql.Data.Common.QueryNormalizer
+Наследуется от: object
+Поля:
+  List`1<string> keywords
+  List`1<Token> tokens
+  int pos
+  string fullSql
+  string queryType
+Свойства:
+  string QueryType
+Методы:
+  void .cctor()
+  string get_QueryType()
+  string Normalize(string sql)
+  void DetermineStatementType(List`1<Token> tok)
+  void ProcessMathSymbols(List`1<Token> tok)
+  void CollapseWhitespace(List`1<Token> tok)
+  void CollapseValueLists(List`1<Token> tok)
+  void CollapseValueList(List`1<Token> tok, Int32& pos)
+  void CollapseInLists(List`1<Token> tok)
+  Token GetNextRealToken(List`1<Token> tok, Int32& pos)
+  void CollapseInList(List`1<Token> tok, Int32& pos)
+  void TokenizeSql(string sql)
+  bool LetterStartsComment(char c)
+  bool IsSpecialCharacter(char c)
+  bool ConsumeComment()
+  void ConsumeSymbol()
+  void ConsumeQuotedToken(char c)
+  void ConsumeUnquotedToken()
+  void ConsumeWhitespace()
+  bool IsKeyword(string word)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.Common.Token
+Наследуется от: object
+Поля:
+  TokenType Type
+  string Text
+  bool Output
+Свойства:
+  bool IsRealToken
+Методы:
+  void .ctor(TokenType type, string text)
+  bool get_IsRealToken()
+--------------------------------------------------
+Класс: MySql.Data.Common.TokenType
+Наследуется от: Enum
+Поля:
+  int value__
+  TokenType Keyword
+  TokenType String
+  TokenType Number
+  TokenType Symbol
+  TokenType Identifier
+  TokenType Comment
+  TokenType CommandComment
+  TokenType Whitespace
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.Common.SharedMemory
+Наследуется от: object
+Поля:
+  UInt32 FILE_MAP_WRITE
+  IntPtr fileMapping
+  IntPtr view
+Свойства:
+  IntPtr View
+Методы:
+  void .ctor(string name, IntPtr size)
+  void Finalize()
+  IntPtr get_View()
+  void Dispose()
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: MySql.Data.Common.SharedMemoryStream
+Наследуется от: Stream
+Поля:
+  int BUFFERLENGTH
+  string memoryName
+  EventWaitHandle serverRead
+  EventWaitHandle serverWrote
+  EventWaitHandle clientRead
+  EventWaitHandle clientWrote
+  EventWaitHandle connectionClosed
+  SharedMemory data
+  int bytesLeft
+  int position
+  int connectNumber
+  int readTimeout
+  int writeTimeout
+Свойства:
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+  bool CanTimeout
+  int ReadTimeout
+  int WriteTimeout
+Методы:
+  void .ctor(string memName)
+  void Open(UInt32 timeOut)
+  void Close()
+  void GetConnectNumber(UInt32 timeOut)
+  void SetupEvents()
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  void Flush()
+  int Read(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void Write(Byte[] buffer, int offset, int count)
+  void SetLength(long value)
+  bool get_CanTimeout()
+  int get_ReadTimeout()
+  void set_ReadTimeout(int value)
+  int get_WriteTimeout()
+  void set_WriteTimeout(int value)
+--------------------------------------------------
+Класс: MySql.Data.Common.StreamCreator
+Наследуется от: object
+Поля:
+  string hostList
+  UInt32 port
+  string pipeName
+  UInt32 timeOut
+  UInt32 keepalive
+  DBVersion driverVersion
+Свойства:
+Методы:
+  void .ctor(string hosts, UInt32 port, string pipeName, UInt32 keepalive, DBVersion driverVersion)
+  Stream GetStream(string server, UInt32 port, string pipename, UInt32 keepalive, DBVersion v, UInt32 timeout)
+  Stream GetStream(MySqlConnectionStringBuilder settings)
+  Stream GetTcpStream(MySqlConnectionStringBuilder settings)
+  Stream GetUnixSocketStream(MySqlConnectionStringBuilder settings)
+  Stream GetSharedMemoryStream(MySqlConnectionStringBuilder settings)
+  Stream GetNamedPipeStream(MySqlConnectionStringBuilder settings)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.StringUtility
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string ToUpperInvariant(string s)
+  string ToLowerInvariant(string s)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.Common.DBVersion
+Наследуется от: ValueType
+Поля:
+  int major
+  int minor
+  int build
+  string srcString
+Свойства:
+  int Major
+  int Minor
+  int Build
+Методы:
+  void .ctor(string s, int major, int minor, int build)
+  int get_Major()
+  int get_Minor()
+  int get_Build()
+  DBVersion Parse(string versionString)
+  bool isAtLeast(int majorNum, int minorNum, int buildNum)
+  string ToString()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.CompressedStream
+Наследуется от: Stream
+Поля:
+  Stream baseStream
+  MemoryStream cache
+  Byte[] localByte
+  Byte[] inBuffer
+  Byte[] lengthBytes
+  WeakReference inBufferRef
+  int inPos
+  int maxInPos
+  ZInputStream zInStream
+Свойства:
+  bool CanRead
+  bool CanWrite
+  bool CanSeek
+  long Length
+  long Position
+  bool CanTimeout
+  int ReadTimeout
+  int WriteTimeout
+Методы:
+  void .ctor(Stream baseStream)
+  bool get_CanRead()
+  bool get_CanWrite()
+  bool get_CanSeek()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  void Close()
+  void SetLength(long value)
+  int ReadByte()
+  bool get_CanTimeout()
+  int get_ReadTimeout()
+  void set_ReadTimeout(int value)
+  int get_WriteTimeout()
+  void set_WriteTimeout(int value)
+  int Read(Byte[] buffer, int offset, int count)
+  void PrepareNextPacket()
+  void ReadNextPacket(int len)
+  MemoryStream CompressCache()
+  void CompressAndSendCache()
+  void Flush()
+  bool InputDone()
+  void WriteByte(byte value)
+  void Write(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlConnection
+Наследуется от: DbConnection
+Поля:
+  ConnectionState connectionState
+  Driver driver
+  bool hasBeenOpen
+  SchemaProvider schemaProvider
+  ProcedureCache procedureCache
+  bool isInUse
+  PerformanceMonitor perfMonitor
+  ExceptionInterceptor exceptionInterceptor
+  CommandInterceptor commandInterceptor
+  bool isKillQueryConnection
+  string database
+  int commandTimeout
+  MySqlInfoMessageEventHandler InfoMessage
+  Cache`2<string, MySqlConnectionStringBuilder> connectionStringCache
+  MySqlConnectionStringBuilder <Settings>k__BackingField
+Свойства:
+  PerformanceMonitor PerfMonitor
+  ProcedureCache ProcedureCache
+  MySqlConnectionStringBuilder Settings
+  MySqlDataReader Reader
+  bool SoftClosed
+  bool IsInUse
+  int ServerThread
+  string DataSource
+  int ConnectionTimeout
+  string Database
+  bool UseCompression
+  ConnectionState State
+  string ServerVersion
+  string ConnectionString
+  DbProviderFactory DbProviderFactory
+  bool IsPasswordExpired
+Методы:
+  void add_InfoMessage(MySqlInfoMessageEventHandler value)
+  void remove_InfoMessage(MySqlInfoMessageEventHandler value)
+  void .ctor()
+  void .ctor(string connectionString)
+  void Finalize()
+  PerformanceMonitor get_PerfMonitor()
+  ProcedureCache get_ProcedureCache()
+  MySqlConnectionStringBuilder get_Settings()
+  void set_Settings(MySqlConnectionStringBuilder value)
+  MySqlDataReader get_Reader()
+  void set_Reader(MySqlDataReader value)
+  void OnInfoMessage(MySqlInfoMessageEventArgs args)
+  bool get_SoftClosed()
+  bool get_IsInUse()
+  void set_IsInUse(bool value)
+  int get_ServerThread()
+  string get_DataSource()
+  int get_ConnectionTimeout()
+  string get_Database()
+  bool get_UseCompression()
+  ConnectionState get_State()
+  string get_ServerVersion()
+  string get_ConnectionString()
+  void set_ConnectionString(string value)
+  DbProviderFactory get_DbProviderFactory()
+  bool get_IsPasswordExpired()
+  void EnlistTransaction(Transaction transaction)
+  MySqlTransaction BeginTransaction()
+  MySqlTransaction BeginTransaction(IsolationLevel iso)
+  void ChangeDatabase(string databaseName)
+  void SetState(ConnectionState newConnectionState, bool broadcast)
+  bool Ping()
+  void Open()
+  MySqlCommand CreateCommand()
+  object Clone()
+  void Abort()
+  void CloseFully()
+  void Close()
+  string CurrentDatabase()
+  void HandleTimeoutOrThreadAbort(Exception ex)
+  void CancelQuery(int timeout)
+  bool SetCommandTimeout(int value)
+  void ClearCommandTimeout()
+  MySqlSchemaCollection GetSchemaCollection(string collectionName, String[] restrictionValues)
+  void ClearPool(MySqlConnection connection)
+  void ClearAllPools()
+  void Throw(Exception ex)
+  void Dispose()
+  DataTable GetSchema()
+  DataTable GetSchema(string collectionName)
+  DataTable GetSchema(string collectionName, String[] restrictionValues)
+  DbTransaction BeginDbTransaction(IsolationLevel isolationLevel)
+  DbCommand CreateDbCommand()
+  void AssertPermissions()
+  void Dispose(bool disposing)
+  void .cctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlInfoMessageEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, MySqlInfoMessageEventArgs args)
+  IAsyncResult BeginInvoke(object sender, MySqlInfoMessageEventArgs args, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlInfoMessageEventArgs
+Наследуется от: EventArgs
+Поля:
+  MySqlError[] errors
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.CommandTimer
+Наследуется от: object
+Поля:
+  bool timeoutSet
+  MySqlConnection connection
+Свойства:
+Методы:
+  void .ctor(MySqlConnection connection, int timeout)
+  void Dispose()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Crypt
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void XorScramble(Byte[] from, int fromIndex, Byte[] to, int toIndex, Byte[] password, int length)
+  Byte[] Get411Password(string password, string seed)
+  double rand(Int64& seed1, Int64& seed2, long max)
+  string EncryptPassword(string password, string seed, bool new_ver)
+  Int64[] Hash(string P)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlDataAdapter
+Наследуется от: DbDataAdapter
+Поля:
+  bool loadingDefaults
+  int updateBatchSize
+  List`1<IDbCommand> commandBatch
+  MySqlRowUpdatingEventHandler RowUpdating
+  MySqlRowUpdatedEventHandler RowUpdated
+Свойства:
+  MySqlCommand DeleteCommand
+  MySqlCommand InsertCommand
+  MySqlCommand SelectCommand
+  MySqlCommand UpdateCommand
+  bool LoadDefaults
+  int UpdateBatchSize
+Методы:
+  void add_RowUpdating(MySqlRowUpdatingEventHandler value)
+  void remove_RowUpdating(MySqlRowUpdatingEventHandler value)
+  void add_RowUpdated(MySqlRowUpdatedEventHandler value)
+  void remove_RowUpdated(MySqlRowUpdatedEventHandler value)
+  void .ctor()
+  void .ctor(MySqlCommand selectCommand)
+  void .ctor(string selectCommandText, MySqlConnection connection)
+  void .ctor(string selectCommandText, string selectConnString)
+  MySqlCommand get_DeleteCommand()
+  void set_DeleteCommand(MySqlCommand value)
+  MySqlCommand get_InsertCommand()
+  void set_InsertCommand(MySqlCommand value)
+  MySqlCommand get_SelectCommand()
+  void set_SelectCommand(MySqlCommand value)
+  MySqlCommand get_UpdateCommand()
+  void set_UpdateCommand(MySqlCommand value)
+  bool get_LoadDefaults()
+  void set_LoadDefaults(bool value)
+  void OpenConnectionIfClosed(DataRowState state, List`1<MySqlConnection> openedConnections)
+  int Update(DataRow[] dataRows, DataTableMapping tableMapping)
+  int get_UpdateBatchSize()
+  void set_UpdateBatchSize(int value)
+  void InitializeBatching()
+  int AddToBatch(IDbCommand command)
+  int ExecuteBatch()
+  void ClearBatch()
+  void TerminateBatching()
+  IDataParameter GetBatchedParameter(int commandIdentifier, int parameterIndex)
+  RowUpdatedEventArgs CreateRowUpdatedEvent(DataRow dataRow, IDbCommand command, StatementType statementType, DataTableMapping tableMapping)
+  RowUpdatingEventArgs CreateRowUpdatingEvent(DataRow dataRow, IDbCommand command, StatementType statementType, DataTableMapping tableMapping)
+  void OnRowUpdating(RowUpdatingEventArgs value)
+  void OnRowUpdated(RowUpdatedEventArgs value)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlRowUpdatingEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, MySqlRowUpdatingEventArgs e)
+  IAsyncResult BeginInvoke(object sender, MySqlRowUpdatingEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlRowUpdatedEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, MySqlRowUpdatedEventArgs e)
+  IAsyncResult BeginInvoke(object sender, MySqlRowUpdatedEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlRowUpdatingEventArgs
+Наследуется от: RowUpdatingEventArgs
+Поля:
+Свойства:
+  MySqlCommand Command
+Методы:
+  void .ctor(DataRow row, IDbCommand command, StatementType statementType, DataTableMapping tableMapping)
+  MySqlCommand get_Command()
+  void set_Command(MySqlCommand value)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlRowUpdatedEventArgs
+Наследуется от: RowUpdatedEventArgs
+Поля:
+Свойства:
+  MySqlCommand Command
+Методы:
+  void .ctor(DataRow row, IDbCommand command, StatementType statementType, DataTableMapping tableMapping)
+  MySqlCommand get_Command()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlDataReader
+Наследуется от: DbDataReader
+Поля:
+  bool isOpen
+  CommandBehavior commandBehavior
+  MySqlCommand command
+  long affectedRows
+  Driver driver
+  PreparableStatement statement
+  ResultSet resultSet
+  bool disableZeroAffectedRows
+  MySqlConnection connection
+Свойства:
+  PreparableStatement Statement
+  MySqlCommand Command
+  ResultSet ResultSet
+  CommandBehavior CommandBehavior
+  int FieldCount
+  bool HasRows
+  bool IsClosed
+  int RecordsAffected
+  object Item
+  object Item
+  int Depth
+Методы:
+  void .ctor(MySqlCommand cmd, PreparableStatement statement, CommandBehavior behavior)
+  PreparableStatement get_Statement()
+  MySqlCommand get_Command()
+  ResultSet get_ResultSet()
+  CommandBehavior get_CommandBehavior()
+  int get_FieldCount()
+  bool get_HasRows()
+  bool get_IsClosed()
+  int get_RecordsAffected()
+  object get_Item(int i)
+  object get_Item(string name)
+  void Close()
+  bool GetBoolean(string name)
+  bool GetBoolean(int i)
+  byte GetByte(string name)
+  byte GetByte(int i)
+  sbyte GetSByte(string name)
+  sbyte GetSByte(int i)
+  long GetBytes(int i, long fieldOffset, Byte[] buffer, int bufferoffset, int length)
+  object ChangeType(IMySqlValue value, int fieldIndex, Type newType)
+  char GetChar(string name)
+  char GetChar(int i)
+  long GetChars(int i, long fieldoffset, Char[] buffer, int bufferoffset, int length)
+  string GetDataTypeName(int i)
+  MySqlDateTime GetMySqlDateTime(string column)
+  MySqlDateTime GetMySqlDateTime(int column)
+  DateTime GetDateTime(string column)
+  DateTime GetDateTime(int i)
+  MySqlDecimal GetMySqlDecimal(string column)
+  MySqlDecimal GetMySqlDecimal(int i)
+  decimal GetDecimal(string column)
+  decimal GetDecimal(int i)
+  double GetDouble(string column)
+  double GetDouble(int i)
+  Type GetFieldType(string column)
+  Type GetFieldType(int i)
+  float GetFloat(string column)
+  float GetFloat(int i)
+  Guid GetGuid(string column)
+  Guid GetGuid(int i)
+  short GetInt16(string column)
+  short GetInt16(int i)
+  int GetInt32(string column)
+  int GetInt32(int i)
+  long GetInt64(string column)
+  long GetInt64(int i)
+  string GetName(int i)
+  int GetOrdinal(string name)
+  string GetString(string column)
+  string GetString(int i)
+  TimeSpan GetTimeSpan(string column)
+  TimeSpan GetTimeSpan(int column)
+  object GetValue(int i)
+  int GetValues(Object[] values)
+  ushort GetUInt16(string column)
+  ushort GetUInt16(int column)
+  UInt32 GetUInt32(string column)
+  UInt32 GetUInt32(int column)
+  ulong GetUInt64(string column)
+  ulong GetUInt64(int column)
+  IDataReader System.Data.IDataRecord.GetData(int i)
+  bool IsDBNull(int i)
+  bool NextResult()
+  bool Read()
+  IMySqlValue GetFieldValue(int index, bool checkNull)
+  void ClearKillFlag()
+  void ProcessOutputParameters()
+  void AdjustOutputTypes()
+  void Throw(Exception ex)
+  void Dispose()
+  void Dispose(bool disposing)
+  void Finalize()
+  int get_Depth()
+  MySqlGeometry GetMySqlGeometry(int i)
+  MySqlGeometry GetMySqlGeometry(string column)
+  DataTable GetSchemaTable()
+  IEnumerator GetEnumerator()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Driver
+Наследуется от: object
+Поля:
+  Encoding encoding
+  MySqlConnectionStringBuilder connectionString
+  bool isOpen
+  DateTime creationTime
+  string serverCharSet
+  int serverCharSetIndex
+  Dictionary`2<string, string> serverProps
+  Dictionary`2<int, string> charSets
+  long maxPacketSize
+  int timeZoneOffset
+  DateTime idleSince
+  MySqlPromotableTransaction currentTransaction
+  bool inActiveUse
+  MySqlPool pool
+  bool firstResult
+  IDriver handler
+  MySqlDataReader reader
+  bool disposeInProgress
+  bool isFabric
+  bool <IsPasswordExpired>k__BackingField
+Свойства:
+  DateTime IdleSince
+  int ThreadID
+  DBVersion Version
+  MySqlConnectionStringBuilder Settings
+  Encoding Encoding
+  MySqlPromotableTransaction CurrentTransaction
+  bool IsInActiveUse
+  bool IsOpen
+  MySqlPool Pool
+  long MaxPacketSize
+  int ConnectionCharSetIndex
+  Dictionary`2<int, string> CharacterSets
+  bool SupportsOutputParameters
+  bool SupportsBatch
+  bool SupportsConnectAttrs
+  bool SupportsPasswordExpiration
+  bool IsPasswordExpired
+Методы:
+  DateTime get_IdleSince()
+  void set_IdleSince(DateTime value)
+  void .ctor(MySqlConnectionStringBuilder settings)
+  void Finalize()
+  int get_ThreadID()
+  DBVersion get_Version()
+  MySqlConnectionStringBuilder get_Settings()
+  void set_Settings(MySqlConnectionStringBuilder value)
+  Encoding get_Encoding()
+  void set_Encoding(Encoding value)
+  MySqlPromotableTransaction get_CurrentTransaction()
+  void set_CurrentTransaction(MySqlPromotableTransaction value)
+  bool get_IsInActiveUse()
+  void set_IsInActiveUse(bool value)
+  bool get_IsOpen()
+  MySqlPool get_Pool()
+  void set_Pool(MySqlPool value)
+  long get_MaxPacketSize()
+  int get_ConnectionCharSetIndex()
+  void set_ConnectionCharSetIndex(int value)
+  Dictionary`2<int, string> get_CharacterSets()
+  bool get_SupportsOutputParameters()
+  bool get_SupportsBatch()
+  bool get_SupportsConnectAttrs()
+  bool get_SupportsPasswordExpiration()
+  bool get_IsPasswordExpired()
+  void set_IsPasswordExpired(bool value)
+  string Property(string key)
+  bool ConnectionLifetimeExpired()
+  Driver Create(MySqlConnectionStringBuilder settings)
+  bool HasStatus(ServerStatusFlags flag)
+  void Open()
+  void Close()
+  void Configure(MySqlConnection connection)
+  Dictionary`2<string, string> LoadServerProperties(MySqlConnection connection)
+  int GetTimeZoneOffset(MySqlConnection con)
+  void LoadCharacterSets(MySqlConnection connection)
+  List`1<MySqlError> ReportWarnings(MySqlConnection connection)
+  void SendQuery(MySqlPacket p)
+  ResultSet NextResult(int statementId, bool force)
+  int GetResult(int statementId, Int32& affectedRows, Int64& insertedId)
+  bool FetchDataRow(int statementId, int columns)
+  bool SkipDataRow()
+  void ExecuteDirect(string sql)
+  MySqlField[] GetColumns(int count)
+  int PrepareStatement(string sql, MySqlField[]& parameters)
+  IMySqlValue ReadColumnValue(int index, MySqlField field, IMySqlValue value)
+  void SkipColumnValue(IMySqlValue valObject)
+  void ResetTimeout(int timeoutMilliseconds)
+  bool Ping()
+  void SetDatabase(string dbName)
+  void ExecuteStatement(MySqlPacket packetToExecute)
+  void CloseStatement(int id)
+  void Reset()
+  void CloseQuery(MySqlConnection connection, int statementId)
+  void Dispose(bool disposing)
+  void Dispose()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.IDriver
+Поля:
+Свойства:
+  int ThreadId
+  DBVersion Version
+  ServerStatusFlags ServerStatus
+  ClientFlags Flags
+  int WarningCount
+Методы:
+  int get_ThreadId()
+  DBVersion get_Version()
+  ServerStatusFlags get_ServerStatus()
+  ClientFlags get_Flags()
+  void Configure()
+  void Open()
+  void SendQuery(MySqlPacket packet)
+  void Close(bool isOpen)
+  bool Ping()
+  int GetResult(Int32& affectedRows, Int64& insertedId)
+  bool FetchDataRow(int statementId, int columns)
+  int PrepareStatement(string sql, MySqlField[]& parameters)
+  void ExecuteStatement(MySqlPacket packet)
+  void CloseStatement(int statementId)
+  void SetDatabase(string dbName)
+  void Reset()
+  IMySqlValue ReadColumnValue(int index, MySqlField field, IMySqlValue valObject)
+  void SkipColumnValue(IMySqlValue valueObject)
+  void GetColumnsData(MySqlField[] columns)
+  void ResetTimeout(int timeout)
+  int get_WarningCount()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlException
+Наследуется от: DbException
+Поля:
+  int errorCode
+  bool isFatal
+Свойства:
+  int Number
+  bool IsFatal
+  bool IsQueryAborted
+Методы:
+  void .ctor()
+  void .ctor(string msg)
+  void .ctor(string msg, Exception ex)
+  void .ctor(string msg, bool isFatal, Exception inner)
+  void .ctor(string msg, int errno, Exception inner)
+  void .ctor(string msg, int errno)
+  void .ctor(SerializationInfo info, StreamingContext context)
+  int get_Number()
+  bool get_IsFatal()
+  bool get_IsQueryAborted()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlConnectionStringBuilder
+Наследуется от: DbConnectionStringBuilder
+Поля:
+  Dictionary`2<string, object> values
+  MySqlConnectionStringOptionCollection options
+  string <FabricGroup>k__BackingField
+  string <ShardingTable>k__BackingField
+  object <ShardingKey>k__BackingField
+  Nullable`1<int> <FabricServerMode>k__BackingField
+  Nullable`1<int> <FabricScope>k__BackingField
+  bool <HasProcAccess>k__BackingField
+  SetterDelegate CS$<>9__CachedAnonymousMethodDelegatea
+  GetterDelegate CS$<>9__CachedAnonymousMethodDelegateb
+  SetterDelegate CS$<>9__CachedAnonymousMethodDelegatec
+  GetterDelegate CS$<>9__CachedAnonymousMethodDelegated
+  SetterDelegate CS$<>9__CachedAnonymousMethodDelegatee
+  GetterDelegate CS$<>9__CachedAnonymousMethodDelegatef
+  SetterDelegate CS$<>9__CachedAnonymousMethodDelegate10
+  GetterDelegate CS$<>9__CachedAnonymousMethodDelegate11
+  SetterDelegate CS$<>9__CachedAnonymousMethodDelegate12
+  GetterDelegate CS$<>9__CachedAnonymousMethodDelegate13
+Свойства:
+  string Server
+  string Database
+  MySqlConnectionProtocol ConnectionProtocol
+  string PipeName
+  bool UseCompression
+  bool AllowBatch
+  bool Logging
+  string SharedMemoryName
+  bool UseOldSyntax
+  UInt32 Port
+  UInt32 ConnectionTimeout
+  UInt32 DefaultCommandTimeout
+  string UserID
+  string Password
+  bool PersistSecurityInfo
+  bool Encrypt
+  string CertificateFile
+  string CertificatePassword
+  MySqlCertificateStoreLocation CertificateStoreLocation
+  string CertificateThumbprint
+  bool IntegratedSecurity
+  bool AllowZeroDateTime
+  bool ConvertZeroDateTime
+  bool UseUsageAdvisor
+  UInt32 ProcedureCacheSize
+  bool UsePerformanceMonitor
+  bool IgnorePrepare
+  bool UseProcedureBodies
+  bool AutoEnlist
+  bool RespectBinaryFlags
+  bool TreatTinyAsBoolean
+  bool AllowUserVariables
+  bool InteractiveSession
+  bool FunctionsReturnString
+  bool UseAffectedRows
+  bool OldGuids
+  UInt32 Keepalive
+  bool SqlServerMode
+  bool TableCaching
+  int DefaultTableCacheAge
+  bool CheckParameters
+  bool Replication
+  string ExceptionInterceptors
+  string CommandInterceptors
+  bool IncludeSecurityAsserts
+  UInt32 ConnectionLifeTime
+  bool Pooling
+  UInt32 MinimumPoolSize
+  UInt32 MaximumPoolSize
+  bool ConnectionReset
+  bool CacheServerProperties
+  string CharacterSet
+  bool TreatBlobsAsUTF8
+  string BlobAsUTF8IncludePattern
+  string BlobAsUTF8ExcludePattern
+  MySqlSslMode SslMode
+  bool UseDefaultCommandTimeoutForEF
+  string FabricGroup
+  string ShardingTable
+  object ShardingKey
+  Nullable`1<int> FabricServerMode
+  Nullable`1<int> FabricScope
+  bool HasProcAccess
+  object Item
+Методы:
+  void .cctor()
+  void .ctor()
+  void .ctor(string connStr)
+  string get_Server()
+  void set_Server(string value)
+  string get_Database()
+  void set_Database(string value)
+  MySqlConnectionProtocol get_ConnectionProtocol()
+  void set_ConnectionProtocol(MySqlConnectionProtocol value)
+  string get_PipeName()
+  void set_PipeName(string value)
+  bool get_UseCompression()
+  void set_UseCompression(bool value)
+  bool get_AllowBatch()
+  void set_AllowBatch(bool value)
+  bool get_Logging()
+  void set_Logging(bool value)
+  string get_SharedMemoryName()
+  void set_SharedMemoryName(string value)
+  bool get_UseOldSyntax()
+  void set_UseOldSyntax(bool value)
+  UInt32 get_Port()
+  void set_Port(UInt32 value)
+  UInt32 get_ConnectionTimeout()
+  void set_ConnectionTimeout(UInt32 value)
+  UInt32 get_DefaultCommandTimeout()
+  void set_DefaultCommandTimeout(UInt32 value)
+  string get_UserID()
+  void set_UserID(string value)
+  string get_Password()
+  void set_Password(string value)
+  bool get_PersistSecurityInfo()
+  void set_PersistSecurityInfo(bool value)
+  bool get_Encrypt()
+  void set_Encrypt(bool value)
+  string get_CertificateFile()
+  void set_CertificateFile(string value)
+  string get_CertificatePassword()
+  void set_CertificatePassword(string value)
+  MySqlCertificateStoreLocation get_CertificateStoreLocation()
+  void set_CertificateStoreLocation(MySqlCertificateStoreLocation value)
+  string get_CertificateThumbprint()
+  void set_CertificateThumbprint(string value)
+  bool get_IntegratedSecurity()
+  void set_IntegratedSecurity(bool value)
+  bool get_AllowZeroDateTime()
+  void set_AllowZeroDateTime(bool value)
+  bool get_ConvertZeroDateTime()
+  void set_ConvertZeroDateTime(bool value)
+  bool get_UseUsageAdvisor()
+  void set_UseUsageAdvisor(bool value)
+  UInt32 get_ProcedureCacheSize()
+  void set_ProcedureCacheSize(UInt32 value)
+  bool get_UsePerformanceMonitor()
+  void set_UsePerformanceMonitor(bool value)
+  bool get_IgnorePrepare()
+  void set_IgnorePrepare(bool value)
+  bool get_UseProcedureBodies()
+  void set_UseProcedureBodies(bool value)
+  bool get_AutoEnlist()
+  void set_AutoEnlist(bool value)
+  bool get_RespectBinaryFlags()
+  void set_RespectBinaryFlags(bool value)
+  bool get_TreatTinyAsBoolean()
+  void set_TreatTinyAsBoolean(bool value)
+  bool get_AllowUserVariables()
+  void set_AllowUserVariables(bool value)
+  bool get_InteractiveSession()
+  void set_InteractiveSession(bool value)
+  bool get_FunctionsReturnString()
+  void set_FunctionsReturnString(bool value)
+  bool get_UseAffectedRows()
+  void set_UseAffectedRows(bool value)
+  bool get_OldGuids()
+  void set_OldGuids(bool value)
+  UInt32 get_Keepalive()
+  void set_Keepalive(UInt32 value)
+  bool get_SqlServerMode()
+  void set_SqlServerMode(bool value)
+  bool get_TableCaching()
+  void set_TableCaching(bool value)
+  int get_DefaultTableCacheAge()
+  void set_DefaultTableCacheAge(int value)
+  bool get_CheckParameters()
+  void set_CheckParameters(bool value)
+  bool get_Replication()
+  void set_Replication(bool value)
+  string get_ExceptionInterceptors()
+  void set_ExceptionInterceptors(string value)
+  string get_CommandInterceptors()
+  void set_CommandInterceptors(string value)
+  bool get_IncludeSecurityAsserts()
+  void set_IncludeSecurityAsserts(bool value)
+  UInt32 get_ConnectionLifeTime()
+  void set_ConnectionLifeTime(UInt32 value)
+  bool get_Pooling()
+  void set_Pooling(bool value)
+  UInt32 get_MinimumPoolSize()
+  void set_MinimumPoolSize(UInt32 value)
+  UInt32 get_MaximumPoolSize()
+  void set_MaximumPoolSize(UInt32 value)
+  bool get_ConnectionReset()
+  void set_ConnectionReset(bool value)
+  bool get_CacheServerProperties()
+  void set_CacheServerProperties(bool value)
+  string get_CharacterSet()
+  void set_CharacterSet(string value)
+  bool get_TreatBlobsAsUTF8()
+  void set_TreatBlobsAsUTF8(bool value)
+  string get_BlobAsUTF8IncludePattern()
+  void set_BlobAsUTF8IncludePattern(string value)
+  string get_BlobAsUTF8ExcludePattern()
+  void set_BlobAsUTF8ExcludePattern(string value)
+  MySqlSslMode get_SslMode()
+  void set_SslMode(MySqlSslMode value)
+  bool get_UseDefaultCommandTimeoutForEF()
+  void set_UseDefaultCommandTimeoutForEF(bool value)
+  string get_FabricGroup()
+  void set_FabricGroup(string value)
+  string get_ShardingTable()
+  void set_ShardingTable(string value)
+  object get_ShardingKey()
+  void set_ShardingKey(object value)
+  Nullable`1<int> get_FabricServerMode()
+  void set_FabricServerMode(Nullable`1<int> value)
+  Nullable`1<int> get_FabricScope()
+  void set_FabricScope(Nullable`1<int> value)
+  bool get_HasProcAccess()
+  void set_HasProcAccess(bool value)
+  object get_Item(string keyword)
+  void set_Item(string keyword, object value)
+  Regex GetBlobAsUTF8IncludeRegex()
+  Regex GetBlobAsUTF8ExcludeRegex()
+  void Clear()
+  void SetValue(string keyword, object value)
+  MySqlConnectionStringOption GetOption(string key)
+  bool ContainsKey(string keyword)
+  bool Remove(string keyword)
+  string GetConnectionString(bool includePass)
+  bool Equals(object obj)
+  void <.cctor>b__0(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender, object value)
+  object <.cctor>b__1(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender)
+  void <.cctor>b__2(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender, object Value)
+  object <.cctor>b__3(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender)
+  void <.cctor>b__4(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender, object value)
+  object <.cctor>b__5(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender)
+  void <.cctor>b__6(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender, object value)
+  object <.cctor>b__7(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender)
+  void <.cctor>b__8(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender, object value)
+  object <.cctor>b__9(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender)
+--------------------------------------------------
+Класс: MySql.Data.Types.IMySqlValue
+Поля:
+Свойства:
+  bool IsNull
+  MySqlDbType MySqlDbType
+  object Value
+  Type SystemType
+  string MySqlTypeName
+Методы:
+  bool get_IsNull()
+  MySqlDbType get_MySqlDbType()
+  object get_Value()
+  Type get_SystemType()
+  string get_MySqlTypeName()
+  void WriteValue(MySqlPacket packet, bool binary, object value, int length)
+  IMySqlValue ReadValue(MySqlPacket packet, long length, bool isNull)
+  void SkipValue(MySqlPacket packet)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlDateTime
+Наследуется от: ValueType
+Поля:
+  bool isNull
+  MySqlDbType type
+  int year
+  int month
+  int day
+  int hour
+  int minute
+  int second
+  int millisecond
+  int microsecond
+  int TimezoneOffset
+Свойства:
+  bool IsValidDateTime
+  int Year
+  int Month
+  int Day
+  int Hour
+  int Minute
+  int Second
+  int Millisecond
+  int Microsecond
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  DateTime Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  ulong System.IConvertible.ToUInt64(IFormatProvider provider)
+  sbyte System.IConvertible.ToSByte(IFormatProvider provider)
+  double System.IConvertible.ToDouble(IFormatProvider provider)
+  DateTime System.IConvertible.ToDateTime(IFormatProvider provider)
+  float System.IConvertible.ToSingle(IFormatProvider provider)
+  bool System.IConvertible.ToBoolean(IFormatProvider provider)
+  int System.IConvertible.ToInt32(IFormatProvider provider)
+  ushort System.IConvertible.ToUInt16(IFormatProvider provider)
+  short System.IConvertible.ToInt16(IFormatProvider provider)
+  string System.IConvertible.ToString(IFormatProvider provider)
+  byte System.IConvertible.ToByte(IFormatProvider provider)
+  char System.IConvertible.ToChar(IFormatProvider provider)
+  long System.IConvertible.ToInt64(IFormatProvider provider)
+  TypeCode System.IConvertible.GetTypeCode()
+  decimal System.IConvertible.ToDecimal(IFormatProvider provider)
+  object System.IConvertible.ToType(Type conversionType, IFormatProvider provider)
+  UInt32 System.IConvertible.ToUInt32(IFormatProvider provider)
+  void .ctor(int year, int month, int day, int hour, int minute, int second, int microsecond)
+  void .ctor(DateTime dt)
+  void .ctor(MySqlDateTime mdt)
+  void .ctor(string dateTime)
+  void .ctor(MySqlDbType type, int year, int month, int day, int hour, int minute, int second, int microsecond)
+  void .ctor(MySqlDbType type, bool isNull)
+  void .ctor(MySqlDbType type, DateTime val)
+  bool get_IsValidDateTime()
+  int get_Year()
+  void set_Year(int value)
+  int get_Month()
+  void set_Month(int value)
+  int get_Day()
+  void set_Day(int value)
+  int get_Hour()
+  void set_Hour(int value)
+  int get_Minute()
+  void set_Minute(int value)
+  int get_Second()
+  void set_Second(int value)
+  int get_Millisecond()
+  void set_Millisecond(int value)
+  int get_Microsecond()
+  void set_Microsecond(int value)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  DateTime get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void SerializeText(MySqlPacket packet, MySqlDateTime value)
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object value, int length)
+  MySqlDateTime Parse(string s)
+  MySqlDateTime Parse(string s, DBVersion version)
+  MySqlDateTime ParseMySql(string s)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  DateTime GetDateTime()
+  string FormatDateCustom(string format, int monthVal, int dayVal, int yearVal)
+  string ToString()
+  DateTime op_Explicit(MySqlDateTime val)
+  void SetDSInfo(MySqlSchemaCollection sc)
+  int System.IComparable.CompareTo(object obj)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlParameter
+Наследуется от: DbParameter
+Поля:
+  int UNSIGNED_MASK
+  int GEOMETRY_LENGTH
+  DbType dbType
+  object paramValue
+  string paramName
+  MySqlDbType mySqlDbType
+  bool inferType
+  IMySqlValue _valueObject
+  DataRowVersion <SourceVersion>k__BackingField
+  string <SourceColumn>k__BackingField
+  bool <SourceColumnNullMapping>k__BackingField
+  MySqlParameterCollection <Collection>k__BackingField
+  Encoding <Encoding>k__BackingField
+  ParameterDirection <Direction>k__BackingField
+  bool <IsNullable>k__BackingField
+  byte <Precision>k__BackingField
+  byte <Scale>k__BackingField
+  int <Size>k__BackingField
+  IList <PossibleValues>k__BackingField
+Свойства:
+  DataRowVersion SourceVersion
+  string SourceColumn
+  bool SourceColumnNullMapping
+  DbType DbType
+  string ParameterName
+  MySqlParameterCollection Collection
+  Encoding Encoding
+  bool TypeHasBeenSet
+  string BaseName
+  ParameterDirection Direction
+  bool IsNullable
+  MySqlDbType MySqlDbType
+  byte Precision
+  byte Scale
+  int Size
+  object Value
+  IMySqlValue ValueObject
+  IList PossibleValues
+Методы:
+  void .ctor(string parameterName, MySqlDbType dbType, int size, string sourceColumn)
+  void .ctor(string parameterName, MySqlDbType dbType, int size, ParameterDirection direction, bool isNullable, byte precision, byte scale, string sourceColumn, DataRowVersion sourceVersion, object value)
+  void .ctor(string name, MySqlDbType type, ParameterDirection dir, string col, DataRowVersion ver, object val)
+  void Init()
+  DataRowVersion get_SourceVersion()
+  void set_SourceVersion(DataRowVersion value)
+  string get_SourceColumn()
+  void set_SourceColumn(string value)
+  void ResetDbType()
+  bool get_SourceColumnNullMapping()
+  void set_SourceColumnNullMapping(bool value)
+  DbType get_DbType()
+  void set_DbType(DbType value)
+  void SetDbTypeFromMySqlDbType()
+  void SetDbType(DbType db_type)
+  void .ctor()
+  void .ctor(string parameterName, object value)
+  void .ctor(string parameterName, MySqlDbType dbType)
+  void .ctor(string parameterName, MySqlDbType dbType, int size)
+  string get_ParameterName()
+  void set_ParameterName(string value)
+  MySqlParameterCollection get_Collection()
+  void set_Collection(MySqlParameterCollection value)
+  Encoding get_Encoding()
+  void set_Encoding(Encoding value)
+  bool get_TypeHasBeenSet()
+  string get_BaseName()
+  ParameterDirection get_Direction()
+  void set_Direction(ParameterDirection value)
+  bool get_IsNullable()
+  void set_IsNullable(bool value)
+  MySqlDbType get_MySqlDbType()
+  void set_MySqlDbType(MySqlDbType value)
+  byte get_Precision()
+  void set_Precision(byte value)
+  byte get_Scale()
+  void set_Scale(byte value)
+  int get_Size()
+  void set_Size(int value)
+  object get_Value()
+  void set_Value(object value)
+  IMySqlValue get_ValueObject()
+  void set_ValueObject(IMySqlValue value)
+  IList get_PossibleValues()
+  void set_PossibleValues(IList value)
+  void SetParameterName(string name)
+  string ToString()
+  int GetPSType()
+  void Serialize(MySqlPacket packet, bool binary, MySqlConnectionStringBuilder settings)
+  void SetMySqlDbType(MySqlDbType mysql_dbtype)
+  void SetTypeFromValue()
+  MySqlParameter Clone()
+  object System.ICloneable.Clone()
+  long EstimatedSize()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlParameterConverter
+Наследуется от: TypeConverter
+Поля:
+Свойства:
+Методы:
+  bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+  object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlParameterCollection
+Наследуется от: DbParameterCollection
+Поля:
+  List`1<MySqlParameter> items
+  Dictionary`2<string, int> indexHashCS
+  Dictionary`2<string, int> indexHashCI
+  bool containsUnnamedParameters
+Свойства:
+  bool IsFixedSize
+  bool IsReadOnly
+  bool IsSynchronized
+  object SyncRoot
+  int Count
+  MySqlParameter Item
+  MySqlParameter Item
+Методы:
+  MySqlParameter Add(string parameterName, MySqlDbType dbType, int size, string sourceColumn)
+  void AddRange(Array values)
+  DbParameter GetParameter(string parameterName)
+  DbParameter GetParameter(int index)
+  void SetParameter(string parameterName, DbParameter value)
+  void SetParameter(int index, DbParameter value)
+  int Add(object value)
+  bool Contains(string parameterName)
+  bool Contains(object value)
+  void CopyTo(Array array, int index)
+  IEnumerator GetEnumerator()
+  void Insert(int index, object value)
+  bool get_IsFixedSize()
+  bool get_IsReadOnly()
+  bool get_IsSynchronized()
+  void Remove(object value)
+  void RemoveAt(string parameterName)
+  void RemoveAt(int index)
+  object get_SyncRoot()
+  void .ctor(MySqlCommand cmd)
+  int get_Count()
+  MySqlParameter get_Item(int index)
+  void set_Item(int index, MySqlParameter value)
+  MySqlParameter get_Item(string name)
+  void set_Item(string name, MySqlParameter value)
+  MySqlParameter Add(MySqlParameter value)
+  MySqlParameter Add(string parameterName, object value)
+  MySqlParameter AddWithValue(string parameterName, object value)
+  MySqlParameter Add(string parameterName, MySqlDbType dbType)
+  MySqlParameter Add(string parameterName, MySqlDbType dbType, int size)
+  void Clear()
+  void CheckIndex(int index)
+  MySqlParameter InternalGetParameter(int index)
+  MySqlParameter InternalGetParameter(string parameterName)
+  void InternalSetParameter(string parameterName, MySqlParameter value)
+  void InternalSetParameter(int index, MySqlParameter value)
+  int IndexOf(string parameterName)
+  int IndexOf(object value)
+  void ParameterNameChanged(MySqlParameter p, string oldName, string newName)
+  MySqlParameter InternalAdd(MySqlParameter value, int index)
+  int GetNextIndex()
+  void AdjustHash(Dictionary`2<string, int> hash, string parameterName, int keyIndex, bool addEntry)
+  void AdjustHashes(int keyIndex, bool addEntry)
+  MySqlParameter GetParameterFlexibleInternal(string baseName)
+  MySqlParameter GetParameterFlexible(string parameterName, bool throwOnNotFound)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlTrace
+Наследуется от: object
+Поля:
+  TraceSource source
+  string qaHost
+  bool qaEnabled
+Свойства:
+  TraceListenerCollection Listeners
+  SourceSwitch Switch
+  bool QueryAnalysisEnabled
+  TraceSource Source
+Методы:
+  void .cctor()
+  TraceListenerCollection get_Listeners()
+  SourceSwitch get_Switch()
+  void set_Switch(SourceSwitch value)
+  bool get_QueryAnalysisEnabled()
+  void EnableQueryAnalyzer(string host, int postInterval)
+  void DisableQueryAnalyzer()
+  TraceSource get_Source()
+  void LogInformation(int id, string msg)
+  void LogWarning(int id, string msg)
+  void LogError(int id, string msg)
+  void TraceEvent(TraceEventType eventType, MySqlTraceEventType mysqlEventType, string msgFormat, Object[] args)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.UsageAdvisorWarningFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  UsageAdvisorWarningFlags NoIndex
+  UsageAdvisorWarningFlags BadIndex
+  UsageAdvisorWarningFlags SkippedRows
+  UsageAdvisorWarningFlags SkippedColumns
+  UsageAdvisorWarningFlags FieldConversion
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlTraceEventType
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlTraceEventType ConnectionOpened
+  MySqlTraceEventType ConnectionClosed
+  MySqlTraceEventType QueryOpened
+  MySqlTraceEventType ResultOpened
+  MySqlTraceEventType ResultClosed
+  MySqlTraceEventType QueryClosed
+  MySqlTraceEventType StatementPrepared
+  MySqlTraceEventType StatementExecuted
+  MySqlTraceEventType StatementClosed
+  MySqlTraceEventType NonQuery
+  MySqlTraceEventType UsageAdvisorWarning
+  MySqlTraceEventType Warning
+  MySqlTraceEventType Error
+  MySqlTraceEventType QueryNormalized
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlTransaction
+Наследуется от: DbTransaction
+Поля:
+  IsolationLevel level
+  MySqlConnection conn
+  bool open
+Свойства:
+  DbConnection DbConnection
+  MySqlConnection Connection
+  IsolationLevel IsolationLevel
+Методы:
+  DbConnection get_DbConnection()
+  void .ctor(MySqlConnection c, IsolationLevel il)
+  void Finalize()
+  MySqlConnection get_Connection()
+  IsolationLevel get_IsolationLevel()
+  void Dispose()
+  void Dispose(bool disposing)
+  void Commit()
+  void Rollback()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ColumnFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  ColumnFlags NOT_NULL
+  ColumnFlags PRIMARY_KEY
+  ColumnFlags UNIQUE_KEY
+  ColumnFlags MULTIPLE_KEY
+  ColumnFlags BLOB
+  ColumnFlags UNSIGNED
+  ColumnFlags ZERO_FILL
+  ColumnFlags BINARY
+  ColumnFlags ENUM
+  ColumnFlags AUTO_INCREMENT
+  ColumnFlags TIMESTAMP
+  ColumnFlags SET
+  ColumnFlags NUMBER
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlField
+Наследуется от: object
+Поля:
+  string CatalogName
+  int ColumnLength
+  string ColumnName
+  string OriginalColumnName
+  string TableName
+  string RealTableName
+  string DatabaseName
+  Encoding Encoding
+  int maxLength
+  ColumnFlags colFlags
+  int charSetIndex
+  byte precision
+  byte scale
+  MySqlDbType mySqlDbType
+  DBVersion connVersion
+  Driver driver
+  bool binaryOk
+  List`1<Type> typeConversions
+Свойства:
+  int CharacterSetIndex
+  MySqlDbType Type
+  byte Precision
+  byte Scale
+  int MaxLength
+  ColumnFlags Flags
+  bool IsAutoIncrement
+  bool IsNumeric
+  bool AllowsNull
+  bool IsUnique
+  bool IsPrimaryKey
+  bool IsBlob
+  bool IsBinary
+  bool IsUnsigned
+  bool IsTextField
+  int CharacterLength
+  List`1<Type> TypeConversions
+Методы:
+  void .ctor(Driver driver)
+  int get_CharacterSetIndex()
+  void set_CharacterSetIndex(int value)
+  MySqlDbType get_Type()
+  byte get_Precision()
+  void set_Precision(byte value)
+  byte get_Scale()
+  void set_Scale(byte value)
+  int get_MaxLength()
+  void set_MaxLength(int value)
+  ColumnFlags get_Flags()
+  bool get_IsAutoIncrement()
+  bool get_IsNumeric()
+  bool get_AllowsNull()
+  bool get_IsUnique()
+  bool get_IsPrimaryKey()
+  bool get_IsBlob()
+  bool get_IsBinary()
+  bool get_IsUnsigned()
+  bool get_IsTextField()
+  int get_CharacterLength()
+  List`1<Type> get_TypeConversions()
+  void SetTypeAndFlags(MySqlDbType type, ColumnFlags flags)
+  void AddTypeConversion(Type t)
+  void CheckForExceptions()
+  IMySqlValue GetValueObject()
+  IMySqlValue GetIMySqlValue(MySqlDbType type)
+  void SetFieldEncoding()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.CustomInstaller
+Наследуется от: Installer
+Поля:
+Свойства:
+Методы:
+  void Install(IDictionary stateSaver)
+  void AddProviderToMachineConfig()
+  void UpdateMachineConfigs(string rootPath, bool add)
+  XmlElement CreateNodeAssemblyBindingRedirection(XmlElement mysqlNode, XmlDocument doc, string oldVersion, string newVersion)
+  void AddProviderToMachineConfigInDir(string path)
+  XmlDocument RemoveOldBindingRedirection(XmlDocument doc)
+  void Uninstall(IDictionary savedState)
+  void RemoveProviderFromMachineConfig()
+  void RemoveProviderFromMachineConfigInDir(string path)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.BaseCommandInterceptor
+Наследуется от: object
+Поля:
+  MySqlConnection <ActiveConnection>k__BackingField
+Свойства:
+  MySqlConnection ActiveConnection
+Методы:
+  MySqlConnection get_ActiveConnection()
+  void set_ActiveConnection(MySqlConnection value)
+  bool ExecuteScalar(string sql, Object& returnValue)
+  bool ExecuteNonQuery(string sql, Int32& returnValue)
+  bool ExecuteReader(string sql, CommandBehavior behavior, MySqlDataReader& returnValue)
+  void Init(MySqlConnection connection)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Interceptor
+Наследуется от: object
+Поля:
+  MySqlConnection connection
+Свойства:
+Методы:
+  void LoadInterceptors(string interceptorList)
+  void AddInterceptor(object o)
+  string ResolveType(string nameOrType)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.CommandInterceptor
+Наследуется от: Interceptor
+Поля:
+  bool insideInterceptor
+  List`1<BaseCommandInterceptor> interceptors
+Свойства:
+Методы:
+  void .ctor(MySqlConnection connection)
+  bool ExecuteScalar(string sql, Object& returnValue)
+  bool ExecuteNonQuery(string sql, Int32& returnValue)
+  bool ExecuteReader(string sql, CommandBehavior behavior, MySqlDataReader& returnValue)
+  void AddInterceptor(object o)
+  string ResolveType(string nameOrType)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.BaseExceptionInterceptor
+Наследуется от: object
+Поля:
+  MySqlConnection <ActiveConnection>k__BackingField
+Свойства:
+  MySqlConnection ActiveConnection
+Методы:
+  Exception InterceptException(Exception exception)
+  MySqlConnection get_ActiveConnection()
+  void set_ActiveConnection(MySqlConnection value)
+  void Init(MySqlConnection connection)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.StandardExceptionInterceptor
+Наследуется от: BaseExceptionInterceptor
+Поля:
+Свойства:
+Методы:
+  Exception InterceptException(Exception exception)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ExceptionInterceptor
+Наследуется от: Interceptor
+Поля:
+  List`1<BaseExceptionInterceptor> interceptors
+Свойства:
+Методы:
+  void .ctor(MySqlConnection connection)
+  void AddInterceptor(object o)
+  void Throw(Exception exception)
+  string ResolveType(string nameOrType)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.SchemaProvider
+Наследуется от: object
+Поля:
+  MySqlConnection connection
+  string MetaCollection
+Свойства:
+Методы:
+  void .ctor(MySqlConnection connectionToUse)
+  MySqlSchemaCollection GetSchema(string collection, String[] restrictions)
+  MySqlSchemaCollection GetDatabases(String[] restrictions)
+  MySqlSchemaCollection GetTables(String[] restrictions)
+  void QuoteDefaultValues(MySqlSchemaCollection schemaCollection)
+  MySqlSchemaCollection GetColumns(String[] restrictions)
+  void LoadTableColumns(MySqlSchemaCollection schemaCollection, string schema, string tableName, string columnRestriction)
+  void ParseColumnRow(MySqlSchemaRow row)
+  MySqlSchemaCollection GetIndexes(String[] restrictions)
+  MySqlSchemaCollection GetIndexColumns(String[] restrictions)
+  MySqlSchemaCollection GetForeignKeys(String[] restrictions)
+  MySqlSchemaCollection GetForeignKeyColumns(String[] restrictions)
+  string GetSqlMode()
+  void GetForeignKeysOnTable(MySqlSchemaCollection fkTable, MySqlSchemaRow tableToParse, string filterName, bool includeColumns)
+  void ParseConstraint(MySqlSchemaCollection fkTable, MySqlSchemaRow table, MySqlTokenizer tokenizer, bool includeColumns)
+  List`1<string> ParseColumns(MySqlTokenizer tokenizer)
+  void ProcessColumns(MySqlSchemaCollection fkTable, MySqlSchemaRow row, List`1<string> srcColumns, List`1<string> targetColumns)
+  MySqlSchemaCollection GetUsers(String[] restrictions)
+  MySqlSchemaCollection GetProcedures(String[] restrictions)
+  MySqlSchemaCollection GetCollections()
+  MySqlSchemaCollection GetDataSourceInformation()
+  MySqlSchemaCollection GetDataTypes()
+  MySqlSchemaCollection GetRestrictions()
+  MySqlSchemaCollection GetReservedWords()
+  void FillTable(MySqlSchemaCollection dt, Object[][] data)
+  void FindTables(MySqlSchemaCollection schema, String[] restrictions)
+  string GetString(MySqlDataReader reader, int index)
+  MySqlSchemaCollection GetUDF(String[] restrictions)
+  MySqlSchemaCollection GetSchemaInternal(string collection, String[] restrictions)
+  String[] CleanRestrictions(String[] restrictionValues)
+  MySqlSchemaCollection QueryCollection(string name, string sql)
+  void .cctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ISSchemaProvider
+Наследуется от: SchemaProvider
+Поля:
+Свойства:
+Методы:
+  void .ctor(MySqlConnection connection)
+  MySqlSchemaCollection GetCollections()
+  MySqlSchemaCollection GetRestrictions()
+  MySqlSchemaCollection GetDatabases(String[] restrictions)
+  MySqlSchemaCollection GetTables(String[] restrictions)
+  MySqlSchemaCollection GetColumns(String[] restrictions)
+  MySqlSchemaCollection GetViews(String[] restrictions)
+  MySqlSchemaCollection GetViewColumns(String[] restrictions)
+  MySqlSchemaCollection GetTriggers(String[] restrictions)
+  MySqlSchemaCollection GetProcedures(String[] restrictions)
+  MySqlSchemaCollection GetProceduresWithParameters(String[] restrictions)
+  string GetProcedureParameterLine(MySqlSchemaRow isRow)
+  MySqlSchemaCollection GetParametersForRoutineFromIS(String[] restrictions)
+  MySqlSchemaCollection GetParametersFromIS(String[] restrictions, MySqlSchemaCollection routines)
+  MySqlSchemaCollection CreateParametersTable()
+  MySqlSchemaCollection GetProcedureParameters(String[] restrictions, MySqlSchemaCollection routines)
+  MySqlSchemaCollection GetSchemaInternal(string collection, String[] restrictions)
+  string GetWhereClause(string initial_where, String[] keys, String[] values)
+  MySqlSchemaCollection Query(string table_name, string initial_where, String[] keys, String[] values)
+  MySqlSchemaCollection GetTable(string sql)
+  MySqlSchemaCollection GetForeignKeys(String[] restrictions)
+  MySqlSchemaCollection GetForeignKeyColumns(String[] restrictions)
+  void GetParametersFromShowCreate(MySqlSchemaCollection parametersTable, String[] restrictions, MySqlSchemaCollection routines)
+  void ParseProcedureBody(MySqlSchemaCollection parametersTable, string body, MySqlSchemaRow row, string nameToRestrict)
+  void InitParameterRow(MySqlSchemaRow procedure, MySqlSchemaRow parameter)
+  string ParseDataType(MySqlSchemaRow row, MySqlTokenizer tokenizer)
+  string GetDataTypeDefaults(string type, MySqlSchemaRow row)
+  void ParseDataTypeSize(MySqlSchemaRow row, string size)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Memcached.Client
+Наследуется от: object
+Поля:
+  UInt32 port
+  string server
+  Stream stream
+Свойства:
+Методы:
+  Client GetInstance(string server, UInt32 port, MemcachedFlags flags)
+  void Open()
+  void Close()
+  void .ctor(string server, UInt32 port)
+  void Add(string key, object data, TimeSpan expiration)
+  void Append(string key, object data)
+  void Cas(string key, object data, TimeSpan expiration, ulong casUnique)
+  void Decrement(string key, int amount)
+  void Delete(string key)
+  void FlushAll(TimeSpan delay)
+  KeyValuePair`2<string, object> Get(string key)
+  void Increment(string key, int amount)
+  void Prepend(string key, object data)
+  void Replace(string key, object data, TimeSpan expiration)
+  void Set(string key, object data, TimeSpan expiration)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Memcached.BinaryClient
+Наследуется от: Client
+Поля:
+  Encoding encoding
+Свойства:
+Методы:
+  void .ctor(string server, UInt32 port)
+  void Add(string key, object data, TimeSpan expiration)
+  void Append(string key, object data)
+  void Cas(string key, object data, TimeSpan expiration, ulong casUnique)
+  void Decrement(string key, int amount)
+  void Delete(string key)
+  void FlushAll(TimeSpan delay)
+  KeyValuePair`2<string, object> Get(string key)
+  void Increment(string key, int amount)
+  void Prepend(string key, object data)
+  void Replace(string key, object data, TimeSpan expiration)
+  void Set(string key, object data, TimeSpan expiration)
+  void SendCommand(byte magic, byte opcode, string key, object data, TimeSpan expiration, bool hasExtra)
+  void SendCommand(byte magic, byte opcode, string key, String& value)
+  void SendCommand(byte magic, byte opcode, string key)
+  void SendCommand(byte magic, byte opcode, TimeSpan expiration)
+  void SendCommand(byte magic, byte opcode, string key, int amount)
+  Byte[] GetResponse()
+  void ValidateResponse(Byte[] res)
+  Byte[] EncodeStoreCommand(byte magic, byte opcode, string key, object data, TimeSpan expiration, bool hasExtra)
+  Byte[] EncodeGetCommand(byte magic, byte opcode, string key)
+  Byte[] EncodeFlushCommand(byte magic, byte opcode, TimeSpan expiration)
+  Byte[] EncodeIncrCommand(byte magic, byte opcode, string key, int amount)
+  void WriteToMemoryStream(Byte[] data, MemoryStream ms)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Memcached.MemcachedException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor(string msg)
+  void .ctor(string msg, Exception e)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Memcached.TextClient
+Наследуется от: Client
+Поля:
+  Encoding encoding
+  string PROTOCOL_ADD
+  string PROTOCOL_APPEND
+  string PROTOCOL_CAS
+  string PROTOCOL_DECREMENT
+  string PROTOCOL_DELETE
+  string PROTOCOL_FLUSHALL
+  string PROTOCOL_GET
+  string PROTOCOL_GETS
+  string PROTOCOL_INCREMENT
+  string PROTOCOL_PREPEND
+  string PROTOCOL_REPLACE
+  string PROTOCOL_SET
+  string VALUE
+  string END
+  string ERR_ERROR
+  string ERR_CLIENT_ERROR
+  string ERR_SERVER_ERROR
+Свойства:
+Методы:
+  void .ctor(string server, UInt32 port)
+  void Add(string key, object data, TimeSpan expiration)
+  void Append(string key, object data)
+  void Cas(string key, object data, TimeSpan expiration, ulong casUnique)
+  void Decrement(string key, int amount)
+  void Delete(string key)
+  void FlushAll(TimeSpan delay)
+  KeyValuePair`2<string, object> Get(string key)
+  KeyValuePair`2[] Gets(String[] keys)
+  void Increment(string key, int amount)
+  void Prepend(string key, object data)
+  void Replace(string key, object data, TimeSpan expiration)
+  void Set(string key, object data, TimeSpan expiration)
+  void SendCommand(string cmd, string key, object data, TimeSpan expiration, ulong casUnique)
+  void SendCommand(string cmd, string key, object data, TimeSpan expiration)
+  void SendCommand(string cmd, string key, object data)
+  void SendCommand(string cmd, string key)
+  void SendCommand(string cmd, string key, int amount)
+  void SendCommand(string cmd, TimeSpan expiration)
+  void ValidateErrorResponse(Byte[] res)
+  void SendData(string sData)
+  KeyValuePair`2[] ParseGetResponse(Byte[] input)
+  Byte[] GetResponse()
+  void .cctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Memcached.MemcachedFlags
+Наследуется от: Enum
+Поля:
+  ushort value__
+  MemcachedFlags TextProtocol
+  MemcachedFlags BinaryProtocol
+  MemcachedFlags Tcp
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlClientFactory
+Наследуется от: DbProviderFactory
+Поля:
+  MySqlClientFactory Instance
+  Type dbServicesType
+  FieldInfo mySqlDbProviderServicesInstance
+Свойства:
+  bool CanCreateDataSourceEnumerator
+  Type DbServicesType
+  FieldInfo MySqlDbProviderServicesInstance
+Методы:
+  DbCommandBuilder CreateCommandBuilder()
+  DbCommand CreateCommand()
+  DbConnection CreateConnection()
+  DbDataAdapter CreateDataAdapter()
+  DbParameter CreateParameter()
+  DbConnectionStringBuilder CreateConnectionStringBuilder()
+  bool get_CanCreateDataSourceEnumerator()
+  Type get_DbServicesType()
+  FieldInfo get_MySqlDbProviderServicesInstance()
+  object System.IServiceProvider.GetService(Type serviceType)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlClientPermission
+Наследуется от: DBDataPermission
+Поля:
+Свойства:
+Методы:
+  void .ctor(PermissionState permissionState)
+  void .ctor(MySqlClientPermission permission)
+  void .ctor(MySqlClientPermissionAttribute permissionAttribute)
+  void .ctor(DBDataPermission permission)
+  void .ctor(string connectionString)
+  void Add(string connectionString, string restrictions, KeyRestrictionBehavior behavior)
+  IPermission Copy()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlConfiguration
+Наследуется от: ConfigurationSection
+Поля:
+  MySqlConfiguration settings
+Свойства:
+  MySqlConfiguration Settings
+  GenericConfigurationElementCollection`1<InterceptorConfigurationElement> ExceptionInterceptors
+  GenericConfigurationElementCollection`1<InterceptorConfigurationElement> CommandInterceptors
+  GenericConfigurationElementCollection`1<AuthenticationPluginConfigurationElement> AuthenticationPlugins
+  ReplicationConfigurationElement Replication
+Методы:
+  MySqlConfiguration get_Settings()
+  GenericConfigurationElementCollection`1<InterceptorConfigurationElement> get_ExceptionInterceptors()
+  GenericConfigurationElementCollection`1<InterceptorConfigurationElement> get_CommandInterceptors()
+  GenericConfigurationElementCollection`1<AuthenticationPluginConfigurationElement> get_AuthenticationPlugins()
+  ReplicationConfigurationElement get_Replication()
+  void set_Replication(ReplicationConfigurationElement value)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.AuthenticationPluginConfigurationElement
+Наследуется от: ConfigurationElement
+Поля:
+Свойства:
+  string Name
+  string Type
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  string get_Type()
+  void set_Type(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.InterceptorConfigurationElement
+Наследуется от: ConfigurationElement
+Поля:
+Свойства:
+  string Name
+  string Type
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  string get_Type()
+  void set_Type(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.GenericConfigurationElementCollection`1
+Наследуется от: ConfigurationElementCollection
+Поля:
+  List`1<T> _elements
+Свойства:
+Методы:
+  ConfigurationElement CreateNewElement()
+  object GetElementKey(ConfigurationElement element)
+  IEnumerator`1<T> GetEnumerator()
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlConnectionStringOption
+Наследуется от: object
+Поля:
+  String[] <Synonyms>k__BackingField
+  bool <Obsolete>k__BackingField
+  Type <BaseType>k__BackingField
+  string <Keyword>k__BackingField
+  object <DefaultValue>k__BackingField
+  SetterDelegate <Setter>k__BackingField
+  GetterDelegate <Getter>k__BackingField
+  SetterDelegate CS$<>9__CachedAnonymousMethodDelegate2
+  GetterDelegate CS$<>9__CachedAnonymousMethodDelegate3
+Свойства:
+  String[] Synonyms
+  bool Obsolete
+  Type BaseType
+  string Keyword
+  object DefaultValue
+  SetterDelegate Setter
+  GetterDelegate Getter
+Методы:
+  void .ctor(string keyword, string synonyms, Type baseType, object defaultValue, bool obsolete, SetterDelegate setter, GetterDelegate getter)
+  void .ctor(string keyword, string synonyms, Type baseType, object defaultValue, bool obsolete)
+  String[] get_Synonyms()
+  void set_Synonyms(String[] value)
+  bool get_Obsolete()
+  void set_Obsolete(bool value)
+  Type get_BaseType()
+  void set_BaseType(Type value)
+  string get_Keyword()
+  void set_Keyword(string value)
+  object get_DefaultValue()
+  void set_DefaultValue(object value)
+  SetterDelegate get_Setter()
+  void set_Setter(SetterDelegate value)
+  GetterDelegate get_Getter()
+  void set_Getter(GetterDelegate value)
+  bool HasKeyword(string key)
+  void Clean(MySqlConnectionStringBuilder builder)
+  void ValidateValue(Object& value)
+  bool ParseEnum(string requestedValue, Object& value)
+  void <.ctor>b__0(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender, object value)
+  object <.ctor>b__1(MySqlConnectionStringBuilder msb, MySqlConnectionStringOption sender)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlConnectionStringOptionCollection
+Наследуется от: Dictionary`2<string, MySqlConnectionStringOption>
+Поля:
+  List`1<MySqlConnectionStringOption> options
+Свойства:
+  List`1<MySqlConnectionStringOption> Options
+Методы:
+  List`1<MySqlConnectionStringOption> get_Options()
+  void .ctor()
+  void Add(MySqlConnectionStringOption option)
+  MySqlConnectionStringOption Get(string keyword)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ClientFlags
+Наследуется от: Enum
+Поля:
+  ulong value__
+  ClientFlags LONG_PASSWORD
+  ClientFlags FOUND_ROWS
+  ClientFlags LONG_FLAG
+  ClientFlags CONNECT_WITH_DB
+  ClientFlags NO_SCHEMA
+  ClientFlags COMPRESS
+  ClientFlags ODBC
+  ClientFlags LOCAL_FILES
+  ClientFlags IGNORE_SPACE
+  ClientFlags PROTOCOL_41
+  ClientFlags INTERACTIVE
+  ClientFlags SSL
+  ClientFlags IGNORE_SIGPIPE
+  ClientFlags TRANSACTIONS
+  ClientFlags RESERVED
+  ClientFlags SECURE_CONNECTION
+  ClientFlags MULTI_STATEMENTS
+  ClientFlags MULTI_RESULTS
+  ClientFlags PS_MULTI_RESULTS
+  ClientFlags PLUGIN_AUTH
+  ClientFlags CONNECT_ATTRS
+  ClientFlags CAN_HANDLE_EXPIRED_PASSWORD
+  ClientFlags CLIENT_SSL_VERIFY_SERVER_CERT
+  ClientFlags CLIENT_REMEMBER_OPTIONS
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ServerStatusFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  ServerStatusFlags InTransaction
+  ServerStatusFlags AutoCommitMode
+  ServerStatusFlags MoreResults
+  ServerStatusFlags AnotherQuery
+  ServerStatusFlags BadIndex
+  ServerStatusFlags NoIndex
+  ServerStatusFlags CursorExists
+  ServerStatusFlags LastRowSent
+  ServerStatusFlags OutputParameters
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.DBCmd
+Наследуется от: Enum
+Поля:
+  byte value__
+  DBCmd SLEEP
+  DBCmd QUIT
+  DBCmd INIT_DB
+  DBCmd QUERY
+  DBCmd FIELD_LIST
+  DBCmd CREATE_DB
+  DBCmd DROP_DB
+  DBCmd RELOAD
+  DBCmd SHUTDOWN
+  DBCmd STATISTICS
+  DBCmd PROCESS_INFO
+  DBCmd CONNECT
+  DBCmd PROCESS_KILL
+  DBCmd DEBUG
+  DBCmd PING
+  DBCmd TIME
+  DBCmd DELAYED_INSERT
+  DBCmd CHANGE_USER
+  DBCmd BINLOG_DUMP
+  DBCmd TABLE_DUMP
+  DBCmd CONNECT_OUT
+  DBCmd REGISTER_SLAVE
+  DBCmd PREPARE
+  DBCmd EXECUTE
+  DBCmd LONG_DATA
+  DBCmd CLOSE_STMT
+  DBCmd RESET_STMT
+  DBCmd SET_OPTION
+  DBCmd FETCH
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlDbType
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlDbType Decimal
+  MySqlDbType Byte
+  MySqlDbType Int16
+  MySqlDbType Int24
+  MySqlDbType Int32
+  MySqlDbType Int64
+  MySqlDbType Float
+  MySqlDbType Double
+  MySqlDbType Timestamp
+  MySqlDbType Date
+  MySqlDbType Time
+  MySqlDbType DateTime
+  MySqlDbType Datetime
+  MySqlDbType Year
+  MySqlDbType Newdate
+  MySqlDbType VarString
+  MySqlDbType Bit
+  MySqlDbType NewDecimal
+  MySqlDbType Enum
+  MySqlDbType Set
+  MySqlDbType TinyBlob
+  MySqlDbType MediumBlob
+  MySqlDbType LongBlob
+  MySqlDbType Blob
+  MySqlDbType VarChar
+  MySqlDbType String
+  MySqlDbType Geometry
+  MySqlDbType UByte
+  MySqlDbType UInt16
+  MySqlDbType UInt24
+  MySqlDbType UInt32
+  MySqlDbType UInt64
+  MySqlDbType Binary
+  MySqlDbType VarBinary
+  MySqlDbType TinyText
+  MySqlDbType MediumText
+  MySqlDbType LongText
+  MySqlDbType Text
+  MySqlDbType Guid
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Field_Type
+Наследуется от: Enum
+Поля:
+  byte value__
+  Field_Type DECIMAL
+  Field_Type BYTE
+  Field_Type SHORT
+  Field_Type LONG
+  Field_Type FLOAT
+  Field_Type DOUBLE
+  Field_Type NULL
+  Field_Type TIMESTAMP
+  Field_Type LONGLONG
+  Field_Type INT24
+  Field_Type DATE
+  Field_Type TIME
+  Field_Type DATETIME
+  Field_Type YEAR
+  Field_Type NEWDATE
+  Field_Type ENUM
+  Field_Type SET
+  Field_Type TINY_BLOB
+  Field_Type MEDIUM_BLOB
+  Field_Type LONG_BLOB
+  Field_Type BLOB
+  Field_Type VAR_STRING
+  Field_Type STRING
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlConnectionProtocol
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlConnectionProtocol Sockets
+  MySqlConnectionProtocol Socket
+  MySqlConnectionProtocol Tcp
+  MySqlConnectionProtocol Pipe
+  MySqlConnectionProtocol NamedPipe
+  MySqlConnectionProtocol UnixSocket
+  MySqlConnectionProtocol Unix
+  MySqlConnectionProtocol SharedMemory
+  MySqlConnectionProtocol Memory
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlSslMode
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlSslMode None
+  MySqlSslMode Preferred
+  MySqlSslMode Prefered
+  MySqlSslMode Required
+  MySqlSslMode VerifyCA
+  MySqlSslMode VerifyFull
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlDriverType
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlDriverType Native
+  MySqlDriverType Client
+  MySqlDriverType Embedded
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlCertificateStoreLocation
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlCertificateStoreLocation None
+  MySqlCertificateStoreLocation CurrentUser
+  MySqlCertificateStoreLocation LocalMachine
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlConnectAttrs
+Наследуется от: object
+Поля:
+Свойства:
+  string ClientName
+  string PID
+  string ClientVersion
+  string Platform
+  string ProgramName
+  string OS
+  string OSDetails
+  string Thread
+Методы:
+  string get_ClientName()
+  string get_PID()
+  string get_ClientVersion()
+  string get_Platform()
+  string get_ProgramName()
+  string get_OS()
+  string get_OSDetails()
+  string get_Thread()
+  bool Is64BitOS()
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlError
+Наследуется от: object
+Поля:
+  string level
+  int code
+  string message
+Свойства:
+  string Level
+  int Code
+  string Message
+Методы:
+  void .ctor(string level, int code, string message)
+  string get_Level()
+  int get_Code()
+  string get_Message()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlErrorCode
+Наследуется от: Enum
+Поля:
+  int value__
+  MySqlErrorCode None
+  MySqlErrorCode HashCheck
+  MySqlErrorCode ISAMCheck
+  MySqlErrorCode No
+  MySqlErrorCode Yes
+  MySqlErrorCode CannotCreateFile
+  MySqlErrorCode CannotCreateTable
+  MySqlErrorCode CannotCreateDatabase
+  MySqlErrorCode DatabaseCreateExists
+  MySqlErrorCode DatabaseDropExists
+  MySqlErrorCode DatabaseDropDelete
+  MySqlErrorCode DatabaseDropRemoveDir
+  MySqlErrorCode CannotDeleteFile
+  MySqlErrorCode CannotFindSystemRecord
+  MySqlErrorCode CannotGetStatus
+  MySqlErrorCode CannotGetWorkingDirectory
+  MySqlErrorCode CannotLock
+  MySqlErrorCode CannotOpenFile
+  MySqlErrorCode FileNotFound
+  MySqlErrorCode CannotReadDirectory
+  MySqlErrorCode CannotSetWorkingDirectory
+  MySqlErrorCode CheckRead
+  MySqlErrorCode DiskFull
+  MySqlErrorCode DuplicateKey
+  MySqlErrorCode ErrorOnClose
+  MySqlErrorCode ErrorOnRead
+  MySqlErrorCode ErrorOnRename
+  MySqlErrorCode ErrorOnWrite
+  MySqlErrorCode FileUsed
+  MySqlErrorCode FileSortAborted
+  MySqlErrorCode FormNotFound
+  MySqlErrorCode GetErrorNumber
+  MySqlErrorCode IllegalHA
+  MySqlErrorCode KeyNotFound
+  MySqlErrorCode NotFormFile
+  MySqlErrorCode NotKeyFile
+  MySqlErrorCode OldKeyFile
+  MySqlErrorCode OpenAsReadOnly
+  MySqlErrorCode OutOfMemory
+  MySqlErrorCode OutOfSortMemory
+  MySqlErrorCode UnexepectedEOF
+  MySqlErrorCode ConnectionCountError
+  MySqlErrorCode OutOfResources
+  MySqlErrorCode UnableToConnectToHost
+  MySqlErrorCode HandshakeError
+  MySqlErrorCode DatabaseAccessDenied
+  MySqlErrorCode AccessDenied
+  MySqlErrorCode NoDatabaseSelected
+  MySqlErrorCode UnknownCommand
+  MySqlErrorCode ColumnCannotBeNull
+  MySqlErrorCode UnknownDatabase
+  MySqlErrorCode TableExists
+  MySqlErrorCode BadTable
+  MySqlErrorCode NonUnique
+  MySqlErrorCode ServerShutdown
+  MySqlErrorCode BadFieldError
+  MySqlErrorCode WrongFieldWithGroup
+  MySqlErrorCode WrongGroupField
+  MySqlErrorCode WrongSumSelected
+  MySqlErrorCode WrongValueCount
+  MySqlErrorCode TooLongIdentifier
+  MySqlErrorCode DuplicateFieldName
+  MySqlErrorCode DuplicateKeyName
+  MySqlErrorCode DuplicateKeyEntry
+  MySqlErrorCode WrongFieldSpecifier
+  MySqlErrorCode ParseError
+  MySqlErrorCode EmptyQuery
+  MySqlErrorCode NonUniqueTable
+  MySqlErrorCode InvalidDefault
+  MySqlErrorCode MultiplePrimaryKey
+  MySqlErrorCode TooManyKeys
+  MySqlErrorCode TooManyKeysParts
+  MySqlErrorCode TooLongKey
+  MySqlErrorCode KeyColumnDoesNotExist
+  MySqlErrorCode BlobUsedAsKey
+  MySqlErrorCode TooBigFieldLength
+  MySqlErrorCode WrongAutoKey
+  MySqlErrorCode Ready
+  MySqlErrorCode NormalShutdown
+  MySqlErrorCode GotSignal
+  MySqlErrorCode ShutdownComplete
+  MySqlErrorCode ForcingClose
+  MySqlErrorCode IPSocketError
+  MySqlErrorCode NoSuchIndex
+  MySqlErrorCode WrongFieldTerminators
+  MySqlErrorCode BlobsAndNoTerminated
+  MySqlErrorCode TextFileNotReadable
+  MySqlErrorCode FileExists
+  MySqlErrorCode LoadInfo
+  MySqlErrorCode AlterInfo
+  MySqlErrorCode WrongSubKey
+  MySqlErrorCode CannotRemoveAllFields
+  MySqlErrorCode CannotDropFieldOrKey
+  MySqlErrorCode InsertInfo
+  MySqlErrorCode UpdateTableUsed
+  MySqlErrorCode NoSuchThread
+  MySqlErrorCode KillDenied
+  MySqlErrorCode NoTablesUsed
+  MySqlErrorCode TooBigSet
+  MySqlErrorCode NoUniqueLogFile
+  MySqlErrorCode TableNotLockedForWrite
+  MySqlErrorCode TableNotLocked
+  MySqlErrorCode BlobCannotHaveDefault
+  MySqlErrorCode WrongDatabaseName
+  MySqlErrorCode WrongTableName
+  MySqlErrorCode TooBigSelect
+  MySqlErrorCode UnknownError
+  MySqlErrorCode UnknownProcedure
+  MySqlErrorCode WrongParameterCountToProcedure
+  MySqlErrorCode WrongParametersToProcedure
+  MySqlErrorCode UnknownTable
+  MySqlErrorCode FieldSpecifiedTwice
+  MySqlErrorCode InvalidGroupFunctionUse
+  MySqlErrorCode UnsupportedExtenstion
+  MySqlErrorCode TableMustHaveColumns
+  MySqlErrorCode RecordFileFull
+  MySqlErrorCode UnknownCharacterSet
+  MySqlErrorCode TooManyTables
+  MySqlErrorCode TooManyFields
+  MySqlErrorCode TooBigRowSize
+  MySqlErrorCode StackOverrun
+  MySqlErrorCode WrongOuterJoin
+  MySqlErrorCode NullColumnInIndex
+  MySqlErrorCode CannotFindUDF
+  MySqlErrorCode CannotInitializeUDF
+  MySqlErrorCode UDFNoPaths
+  MySqlErrorCode UDFExists
+  MySqlErrorCode CannotOpenLibrary
+  MySqlErrorCode CannotFindDLEntry
+  MySqlErrorCode FunctionNotDefined
+  MySqlErrorCode HostIsBlocked
+  MySqlErrorCode HostNotPrivileged
+  MySqlErrorCode AnonymousUser
+  MySqlErrorCode PasswordNotAllowed
+  MySqlErrorCode PasswordNoMatch
+  MySqlErrorCode UpdateInfo
+  MySqlErrorCode CannotCreateThread
+  MySqlErrorCode WrongValueCountOnRow
+  MySqlErrorCode CannotReopenTable
+  MySqlErrorCode InvalidUseOfNull
+  MySqlErrorCode RegExpError
+  MySqlErrorCode MixOfGroupFunctionAndFields
+  MySqlErrorCode NonExistingGrant
+  MySqlErrorCode TableAccessDenied
+  MySqlErrorCode ColumnAccessDenied
+  MySqlErrorCode IllegalGrantForTable
+  MySqlErrorCode GrantWrongHostOrUser
+  MySqlErrorCode NoSuchTable
+  MySqlErrorCode NonExistingTableGrant
+  MySqlErrorCode NotAllowedCommand
+  MySqlErrorCode SyntaxError
+  MySqlErrorCode DelayedCannotChangeLock
+  MySqlErrorCode TooManyDelayedThreads
+  MySqlErrorCode AbortingConnection
+  MySqlErrorCode PacketTooLarge
+  MySqlErrorCode NetReadErrorFromPipe
+  MySqlErrorCode NetFCntlError
+  MySqlErrorCode NetPacketsOutOfOrder
+  MySqlErrorCode NetUncompressError
+  MySqlErrorCode NetReadError
+  MySqlErrorCode NetReadInterrupted
+  MySqlErrorCode NetErrorOnWrite
+  MySqlErrorCode NetWriteInterrupted
+  MySqlErrorCode TooLongString
+  MySqlErrorCode TableCannotHandleBlob
+  MySqlErrorCode TableCannotHandleAutoIncrement
+  MySqlErrorCode DelayedInsertTableLocked
+  MySqlErrorCode WrongColumnName
+  MySqlErrorCode WrongKeyColumn
+  MySqlErrorCode WrongMergeTable
+  MySqlErrorCode DuplicateUnique
+  MySqlErrorCode BlobKeyWithoutLength
+  MySqlErrorCode PrimaryCannotHaveNull
+  MySqlErrorCode TooManyRows
+  MySqlErrorCode RequiresPrimaryKey
+  MySqlErrorCode NoRAIDCompiled
+  MySqlErrorCode UpdateWithoutKeysInSafeMode
+  MySqlErrorCode KeyDoesNotExist
+  MySqlErrorCode CheckNoSuchTable
+  MySqlErrorCode CheckNotImplemented
+  MySqlErrorCode CannotDoThisDuringATransaction
+  MySqlErrorCode ErrorDuringCommit
+  MySqlErrorCode ErrorDuringRollback
+  MySqlErrorCode ErrorDuringFlushLogs
+  MySqlErrorCode ErrorDuringCheckpoint
+  MySqlErrorCode NewAbortingConnection
+  MySqlErrorCode DumpNotImplemented
+  MySqlErrorCode FlushMasterBinLogClosed
+  MySqlErrorCode IndexRebuild
+  MySqlErrorCode MasterError
+  MySqlErrorCode MasterNetRead
+  MySqlErrorCode MasterNetWrite
+  MySqlErrorCode FullTextMatchingKeyNotFound
+  MySqlErrorCode LockOrActiveTransaction
+  MySqlErrorCode UnknownSystemVariable
+  MySqlErrorCode CrashedOnUsage
+  MySqlErrorCode CrashedOnRepair
+  MySqlErrorCode WarningNotCompleteRollback
+  MySqlErrorCode TransactionCacheFull
+  MySqlErrorCode SlaveMustStop
+  MySqlErrorCode SlaveNotRunning
+  MySqlErrorCode BadSlave
+  MySqlErrorCode MasterInfo
+  MySqlErrorCode SlaveThread
+  MySqlErrorCode TooManyUserConnections
+  MySqlErrorCode SetConstantsOnly
+  MySqlErrorCode LockWaitTimeout
+  MySqlErrorCode LockTableFull
+  MySqlErrorCode ReadOnlyTransaction
+  MySqlErrorCode DropDatabaseWithReadLock
+  MySqlErrorCode CreateDatabaseWithReadLock
+  MySqlErrorCode WrongArguments
+  MySqlErrorCode NoPermissionToCreateUser
+  MySqlErrorCode UnionTablesInDifferentDirectory
+  MySqlErrorCode LockDeadlock
+  MySqlErrorCode TableCannotHandleFullText
+  MySqlErrorCode CannotAddForeignConstraint
+  MySqlErrorCode NoReferencedRow
+  MySqlErrorCode RowIsReferenced
+  MySqlErrorCode ConnectToMaster
+  MySqlErrorCode QueryOnMaster
+  MySqlErrorCode ErrorWhenExecutingCommand
+  MySqlErrorCode WrongUsage
+  MySqlErrorCode WrongNumberOfColumnsInSelect
+  MySqlErrorCode CannotUpdateWithReadLock
+  MySqlErrorCode MixingNotAllowed
+  MySqlErrorCode DuplicateArgument
+  MySqlErrorCode UserLimitReached
+  MySqlErrorCode SpecifiedAccessDeniedError
+  MySqlErrorCode LocalVariableError
+  MySqlErrorCode GlobalVariableError
+  MySqlErrorCode NotDefaultError
+  MySqlErrorCode WrongValueForVariable
+  MySqlErrorCode WrongTypeForVariable
+  MySqlErrorCode VariableCannotBeRead
+  MySqlErrorCode CannotUseOptionHere
+  MySqlErrorCode NotSupportedYet
+  MySqlErrorCode MasterFatalErrorReadingBinLog
+  MySqlErrorCode SlaveIgnoredTable
+  MySqlErrorCode IncorrectGlobalLocalVariable
+  MySqlErrorCode WrongForeignKeyDefinition
+  MySqlErrorCode KeyReferenceDoesNotMatchTableReference
+  MySqlErrorCode OpearnColumnsError
+  MySqlErrorCode SubQueryNoOneRow
+  MySqlErrorCode UnknownStatementHandler
+  MySqlErrorCode CorruptHelpDatabase
+  MySqlErrorCode CyclicReference
+  MySqlErrorCode AutoConvert
+  MySqlErrorCode IllegalReference
+  MySqlErrorCode DerivedMustHaveAlias
+  MySqlErrorCode SelectReduced
+  MySqlErrorCode TableNameNotAllowedHere
+  MySqlErrorCode NotSupportedAuthMode
+  MySqlErrorCode SpatialCannotHaveNull
+  MySqlErrorCode CollationCharsetMismatch
+  MySqlErrorCode SlaveWasRunning
+  MySqlErrorCode SlaveWasNotRunning
+  MySqlErrorCode TooBigForUncompress
+  MySqlErrorCode ZipLibMemoryError
+  MySqlErrorCode ZipLibBufferError
+  MySqlErrorCode ZipLibDataError
+  MySqlErrorCode CutValueGroupConcat
+  MySqlErrorCode WarningTooFewRecords
+  MySqlErrorCode WarningTooManyRecords
+  MySqlErrorCode WarningNullToNotNull
+  MySqlErrorCode WarningDataOutOfRange
+  MySqlErrorCode WaningDataTruncated
+  MySqlErrorCode WaningUsingOtherHandler
+  MySqlErrorCode CannotAggregateTwoCollations
+  MySqlErrorCode DropUserError
+  MySqlErrorCode RevokeGrantsError
+  MySqlErrorCode CannotAggregateThreeCollations
+  MySqlErrorCode CannotAggregateNCollations
+  MySqlErrorCode VariableIsNotStructure
+  MySqlErrorCode UnknownCollation
+  MySqlErrorCode SlaveIgnoreSSLParameters
+  MySqlErrorCode ServerIsInSecureAuthMode
+  MySqlErrorCode WaningFieldResolved
+  MySqlErrorCode BadSlaveUntilCondition
+  MySqlErrorCode MissingSkipSlave
+  MySqlErrorCode ErrorUntilConditionIgnored
+  MySqlErrorCode WrongNameForIndex
+  MySqlErrorCode WrongNameForCatalog
+  MySqlErrorCode WarningQueryCacheResize
+  MySqlErrorCode BadFullTextColumn
+  MySqlErrorCode UnknownKeyCache
+  MySqlErrorCode WarningHostnameWillNotWork
+  MySqlErrorCode UnknownStorageEngine
+  MySqlErrorCode WaningDeprecatedSyntax
+  MySqlErrorCode NonUpdateableTable
+  MySqlErrorCode FeatureDisabled
+  MySqlErrorCode OptionPreventsStatement
+  MySqlErrorCode DuplicatedValueInType
+  MySqlErrorCode TruncatedWrongValue
+  MySqlErrorCode TooMuchAutoTimestampColumns
+  MySqlErrorCode InvalidOnUpdate
+  MySqlErrorCode UnsupportedPreparedStatement
+  MySqlErrorCode GetErroMessage
+  MySqlErrorCode GetTemporaryErrorMessage
+  MySqlErrorCode UnknownTimeZone
+  MySqlErrorCode WarningInvalidTimestamp
+  MySqlErrorCode InvalidCharacterString
+  MySqlErrorCode WarningAllowedPacketOverflowed
+  MySqlErrorCode ConflictingDeclarations
+  MySqlErrorCode StoredProcedureNoRecursiveCreate
+  MySqlErrorCode StoredProcedureAlreadyExists
+  MySqlErrorCode StoredProcedureDoesNotExist
+  MySqlErrorCode StoredProcedureDropFailed
+  MySqlErrorCode StoredProcedureStoreFailed
+  MySqlErrorCode StoredProcedureLiLabelMismatch
+  MySqlErrorCode StoredProcedureLabelRedefine
+  MySqlErrorCode StoredProcedureLabelMismatch
+  MySqlErrorCode StoredProcedureUninitializedVariable
+  MySqlErrorCode StoredProcedureBadSelect
+  MySqlErrorCode StoredProcedureBadReturn
+  MySqlErrorCode StoredProcedureBadStatement
+  MySqlErrorCode UpdateLogDeprecatedIgnored
+  MySqlErrorCode UpdateLogDeprecatedTranslated
+  MySqlErrorCode QueryInterrupted
+  MySqlErrorCode StoredProcedureNumberOfArguments
+  MySqlErrorCode StoredProcedureConditionMismatch
+  MySqlErrorCode StoredProcedureNoReturn
+  MySqlErrorCode StoredProcedureNoReturnEnd
+  MySqlErrorCode StoredProcedureBadCursorQuery
+  MySqlErrorCode StoredProcedureBadCursorSelect
+  MySqlErrorCode StoredProcedureCursorMismatch
+  MySqlErrorCode StoredProcedureAlreadyOpen
+  MySqlErrorCode StoredProcedureCursorNotOpen
+  MySqlErrorCode StoredProcedureUndeclaredVariabel
+  MySqlErrorCode StoredProcedureWrongNumberOfFetchArguments
+  MySqlErrorCode StoredProcedureFetchNoData
+  MySqlErrorCode StoredProcedureDuplicateParameter
+  MySqlErrorCode StoredProcedureDuplicateVariable
+  MySqlErrorCode StoredProcedureDuplicateCondition
+  MySqlErrorCode StoredProcedureDuplicateCursor
+  MySqlErrorCode StoredProcedureCannotAlter
+  MySqlErrorCode StoredProcedureSubSelectNYI
+  MySqlErrorCode StatementNotAllowedInStoredFunctionOrTrigger
+  MySqlErrorCode StoredProcedureVariableConditionAfterCursorHandler
+  MySqlErrorCode StoredProcedureCursorAfterHandler
+  MySqlErrorCode StoredProcedureCaseNotFound
+  MySqlErrorCode FileParserTooBigFile
+  MySqlErrorCode FileParserBadHeader
+  MySqlErrorCode FileParserEOFInComment
+  MySqlErrorCode FileParserErrorInParameter
+  MySqlErrorCode FileParserEOFInUnknownParameter
+  MySqlErrorCode ViewNoExplain
+  MySqlErrorCode FrmUnknownType
+  MySqlErrorCode WrongObject
+  MySqlErrorCode NonUpdateableColumn
+  MySqlErrorCode ViewSelectDerived
+  MySqlErrorCode ViewSelectClause
+  MySqlErrorCode ViewSelectVariable
+  MySqlErrorCode ViewSelectTempTable
+  MySqlErrorCode ViewWrongList
+  MySqlErrorCode WarningViewMerge
+  MySqlErrorCode WarningViewWithoutKey
+  MySqlErrorCode ViewInvalid
+  MySqlErrorCode StoredProcedureNoDropStoredProcedure
+  MySqlErrorCode StoredProcedureGotoInHandler
+  MySqlErrorCode TriggerAlreadyExists
+  MySqlErrorCode TriggerDoesNotExist
+  MySqlErrorCode TriggerOnViewOrTempTable
+  MySqlErrorCode TriggerCannotChangeRow
+  MySqlErrorCode TriggerNoSuchRowInTrigger
+  MySqlErrorCode NoDefaultForField
+  MySqlErrorCode DivisionByZero
+  MySqlErrorCode TruncatedWrongValueForField
+  MySqlErrorCode IllegalValueForType
+  MySqlErrorCode ViewNonUpdatableCheck
+  MySqlErrorCode ViewCheckFailed
+  MySqlErrorCode PrecedureAccessDenied
+  MySqlErrorCode RelayLogFail
+  MySqlErrorCode PasswordLength
+  MySqlErrorCode UnknownTargetBinLog
+  MySqlErrorCode IOErrorLogIndexRead
+  MySqlErrorCode BinLogPurgeProhibited
+  MySqlErrorCode FSeekFail
+  MySqlErrorCode BinLogPurgeFatalError
+  MySqlErrorCode LogInUse
+  MySqlErrorCode LogPurgeUnknownError
+  MySqlErrorCode RelayLogInit
+  MySqlErrorCode NoBinaryLogging
+  MySqlErrorCode ReservedSyntax
+  MySqlErrorCode WSAStartupFailed
+  MySqlErrorCode DifferentGroupsProcedure
+  MySqlErrorCode NoGroupForProcedure
+  MySqlErrorCode OrderWithProcedure
+  MySqlErrorCode LoggingProhibitsChangingOf
+  MySqlErrorCode NoFileMapping
+  MySqlErrorCode WrongMagic
+  MySqlErrorCode PreparedStatementManyParameters
+  MySqlErrorCode KeyPartZero
+  MySqlErrorCode ViewChecksum
+  MySqlErrorCode ViewMultiUpdate
+  MySqlErrorCode ViewNoInsertFieldList
+  MySqlErrorCode ViewDeleteMergeView
+  MySqlErrorCode CannotUser
+  MySqlErrorCode XAERNotA
+  MySqlErrorCode XAERInvalid
+  MySqlErrorCode XAERRemoveFail
+  MySqlErrorCode XAEROutside
+  MySqlErrorCode XAERRemoveError
+  MySqlErrorCode XARBRollback
+  MySqlErrorCode NonExistingProcedureGrant
+  MySqlErrorCode ProcedureAutoGrantFail
+  MySqlErrorCode ProcedureAutoRevokeFail
+  MySqlErrorCode DataTooLong
+  MySqlErrorCode StoredProcedureSQLState
+  MySqlErrorCode StartupError
+  MySqlErrorCode LoadFromFixedSizeRowsToVariable
+  MySqlErrorCode CannotCreateUserWithGrant
+  MySqlErrorCode WrongValueForType
+  MySqlErrorCode TableDefinitionChanged
+  MySqlErrorCode StoredProcedureDuplicateHandler
+  MySqlErrorCode StoredProcedureNotVariableArgument
+  MySqlErrorCode StoredProcedureNoReturnSet
+  MySqlErrorCode CannotCreateGeometryObject
+  MySqlErrorCode FailedRoutineBreaksBinLog
+  MySqlErrorCode BinLogUnsafeRoutine
+  MySqlErrorCode BinLogCreateRoutineNeedSuper
+  MySqlErrorCode ExecuteStatementWithOpenCursor
+  MySqlErrorCode StatementHasNoOpenCursor
+  MySqlErrorCode CommitNotAllowedIfStoredFunctionOrTrigger
+  MySqlErrorCode NoDefaultForViewField
+  MySqlErrorCode StoredProcedureNoRecursion
+  MySqlErrorCode TooBigScale
+  MySqlErrorCode TooBigPrecision
+  MySqlErrorCode MBiggerThanD
+  MySqlErrorCode WrongLockOfSystemTable
+  MySqlErrorCode ConnectToForeignDataSource
+  MySqlErrorCode QueryOnForeignDataSource
+  MySqlErrorCode ForeignDataSourceDoesNotExist
+  MySqlErrorCode ForeignDataStringInvalidCannotCreate
+  MySqlErrorCode ForeignDataStringInvalid
+  MySqlErrorCode CannotCreateFederatedTable
+  MySqlErrorCode TriggerInWrongSchema
+  MySqlErrorCode StackOverrunNeedMore
+  MySqlErrorCode TooLongBody
+  MySqlErrorCode WarningCannotDropDefaultKeyCache
+  MySqlErrorCode TooBigDisplayWidth
+  MySqlErrorCode XAERDuplicateID
+  MySqlErrorCode DateTimeFunctionOverflow
+  MySqlErrorCode CannotUpdateUsedTableInStoredFunctionOrTrigger
+  MySqlErrorCode ViewPreventUpdate
+  MySqlErrorCode PreparedStatementNoRecursion
+  MySqlErrorCode StoredProcedureCannotSetAutoCommit
+  MySqlErrorCode MalformedDefiner
+  MySqlErrorCode ViewFrmNoUser
+  MySqlErrorCode ViewOtherUser
+  MySqlErrorCode NoSuchUser
+  MySqlErrorCode ForbidSchemaChange
+  MySqlErrorCode RowIsReferenced2
+  MySqlErrorCode NoReferencedRow2
+  MySqlErrorCode StoredProcedureBadVariableShadow
+  MySqlErrorCode TriggerNoDefiner
+  MySqlErrorCode OldFileFormat
+  MySqlErrorCode StoredProcedureRecursionLimit
+  MySqlErrorCode StoredProcedureTableCorrupt
+  MySqlErrorCode StoredProcedureWrongName
+  MySqlErrorCode TableNeedsUpgrade
+  MySqlErrorCode StoredProcedureNoAggregate
+  MySqlErrorCode MaxPreparedStatementCountReached
+  MySqlErrorCode ViewRecursive
+  MySqlErrorCode NonGroupingFieldUsed
+  MySqlErrorCode TableCannotHandleSpatialKeys
+  MySqlErrorCode NoTriggersOnSystemSchema
+  MySqlErrorCode RemovedSpaces
+  MySqlErrorCode AutoIncrementReadFailed
+  MySqlErrorCode UserNameError
+  MySqlErrorCode HostNameError
+  MySqlErrorCode WrongStringLength
+  MySqlErrorCode NonInsertableTable
+  MySqlErrorCode AdminWrongMergeTable
+  MySqlErrorCode TooHighLevelOfNestingForSelect
+  MySqlErrorCode NameBecomesEmpty
+  MySqlErrorCode AmbiguousFieldTerm
+  MySqlErrorCode ForeignServerExists
+  MySqlErrorCode ForeignServerDoesNotExist
+  MySqlErrorCode IllegalHACreateOption
+  MySqlErrorCode PartitionRequiresValues
+  MySqlErrorCode PartitionWrongValues
+  MySqlErrorCode PartitionMaxValue
+  MySqlErrorCode PartitionSubPartition
+  MySqlErrorCode PartitionSubPartMix
+  MySqlErrorCode PartitionWrongNoPart
+  MySqlErrorCode PartitionWrongNoSubPart
+  MySqlErrorCode WrongExpressionInParitionFunction
+  MySqlErrorCode NoConstantExpressionInRangeOrListError
+  MySqlErrorCode FieldNotFoundPartitionErrror
+  MySqlErrorCode ListOfFieldsOnlyInHash
+  MySqlErrorCode InconsistentPartitionInfo
+  MySqlErrorCode PartitionFunctionNotAllowed
+  MySqlErrorCode PartitionsMustBeDefined
+  MySqlErrorCode RangeNotIncreasing
+  MySqlErrorCode InconsistentTypeOfFunctions
+  MySqlErrorCode MultipleDefinitionsConstantInListPartition
+  MySqlErrorCode PartitionEntryError
+  MySqlErrorCode MixHandlerError
+  MySqlErrorCode PartitionNotDefined
+  MySqlErrorCode TooManyPartitions
+  MySqlErrorCode SubPartitionError
+  MySqlErrorCode CannotCreateHandlerFile
+  MySqlErrorCode BlobFieldInPartitionFunction
+  MySqlErrorCode UniqueKeyNeedAllFieldsInPartitioningFunction
+  MySqlErrorCode NoPartitions
+  MySqlErrorCode PartitionManagementOnNoPartitioned
+  MySqlErrorCode ForeignKeyOnPartitioned
+  MySqlErrorCode DropPartitionNonExistent
+  MySqlErrorCode DropLastPartition
+  MySqlErrorCode CoalesceOnlyOnHashPartition
+  MySqlErrorCode ReorganizeHashOnlyOnSameNumber
+  MySqlErrorCode ReorganizeNoParameter
+  MySqlErrorCode OnlyOnRangeListPartition
+  MySqlErrorCode AddPartitionSubPartition
+  MySqlErrorCode AddPartitionNoNewPartition
+  MySqlErrorCode CoalescePartitionNoPartition
+  MySqlErrorCode ReorganizePartitionNotExist
+  MySqlErrorCode SameNamePartition
+  MySqlErrorCode NoBinLog
+  MySqlErrorCode ConsecutiveReorganizePartitions
+  MySqlErrorCode ReorganizeOutsideRange
+  MySqlErrorCode PartitionFunctionFailure
+  MySqlErrorCode PartitionStateError
+  MySqlErrorCode LimitedPartitionRange
+  MySqlErrorCode PluginIsNotLoaded
+  MySqlErrorCode WrongValue
+  MySqlErrorCode NoPartitionForGivenValue
+  MySqlErrorCode FileGroupOptionOnlyOnce
+  MySqlErrorCode CreateFileGroupFailed
+  MySqlErrorCode DropFileGroupFailed
+  MySqlErrorCode TableSpaceAutoExtend
+  MySqlErrorCode WrongSizeNumber
+  MySqlErrorCode SizeOverflow
+  MySqlErrorCode AlterFileGroupFailed
+  MySqlErrorCode BinLogRowLogginFailed
+  MySqlErrorCode BinLogRowWrongTableDefinition
+  MySqlErrorCode BinLogRowRBRToSBR
+  MySqlErrorCode EventAlreadyExists
+  MySqlErrorCode EventStoreFailed
+  MySqlErrorCode EventDoesNotExist
+  MySqlErrorCode EventCannotAlter
+  MySqlErrorCode EventDropFailed
+  MySqlErrorCode EventIntervalNotPositiveOrTooBig
+  MySqlErrorCode EventEndsBeforeStarts
+  MySqlErrorCode EventExecTimeInThePast
+  MySqlErrorCode EventOpenTableFailed
+  MySqlErrorCode EventNeitherMExpresssionNorMAt
+  MySqlErrorCode ColumnCountDoesNotMatchCorrupted
+  MySqlErrorCode CannotLoadFromTable
+  MySqlErrorCode EventCannotDelete
+  MySqlErrorCode EventCompileError
+  MySqlErrorCode EventSameName
+  MySqlErrorCode EventDataTooLong
+  MySqlErrorCode DropIndexForeignKey
+  MySqlErrorCode WarningDeprecatedSyntaxWithVersion
+  MySqlErrorCode CannotWriteLockLogTable
+  MySqlErrorCode CannotLockLogTable
+  MySqlErrorCode ForeignDuplicateKey
+  MySqlErrorCode ColumnCountDoesNotMatchPleaseUpdate
+  MySqlErrorCode TemoraryTablePreventSwitchOutOfRBR
+  MySqlErrorCode StoredFunctionPreventsSwitchBinLogFormat
+  MySqlErrorCode NDBCannotSwitchBinLogFormat
+  MySqlErrorCode PartitionNoTemporary
+  MySqlErrorCode PartitionConstantDomain
+  MySqlErrorCode PartitionFunctionIsNotAllowed
+  MySqlErrorCode DDLLogError
+  MySqlErrorCode NullInValuesLessThan
+  MySqlErrorCode WrongPartitionName
+  MySqlErrorCode CannotChangeTransactionIsolation
+  MySqlErrorCode DuplicateEntryAutoIncrementCase
+  MySqlErrorCode EventModifyQueueError
+  MySqlErrorCode EventSetVariableError
+  MySqlErrorCode PartitionMergeError
+  MySqlErrorCode CannotActivateLog
+  MySqlErrorCode RBRNotAvailable
+  MySqlErrorCode Base64DecodeError
+  MySqlErrorCode EventRecursionForbidden
+  MySqlErrorCode EventsDatabaseError
+  MySqlErrorCode OnlyIntegersAllowed
+  MySqlErrorCode UnsupportedLogEngine
+  MySqlErrorCode BadLogStatement
+  MySqlErrorCode CannotRenameLogTable
+  MySqlErrorCode WrongParameterCountToNativeFCT
+  MySqlErrorCode WrongParametersToNativeFCT
+  MySqlErrorCode WrongParametersToStoredFCT
+  MySqlErrorCode NativeFCTNameCollision
+  MySqlErrorCode DuplicateEntryWithKeyName
+  MySqlErrorCode BinLogPurgeEMFile
+  MySqlErrorCode EventCannotCreateInThePast
+  MySqlErrorCode EventCannotAlterInThePast
+  MySqlErrorCode SlaveIncident
+  MySqlErrorCode NoPartitionForGivenValueSilent
+  MySqlErrorCode BinLogUnsafeStatement
+  MySqlErrorCode SlaveFatalError
+  MySqlErrorCode SlaveRelayLogReadFailure
+  MySqlErrorCode SlaveRelayLogWriteFailure
+  MySqlErrorCode SlaveCreateEventFailure
+  MySqlErrorCode SlaveMasterComFailure
+  MySqlErrorCode BinLogLoggingImpossible
+  MySqlErrorCode ViewNoCreationContext
+  MySqlErrorCode ViewInvalidCreationContext
+  MySqlErrorCode StoredRoutineInvalidCreateionContext
+  MySqlErrorCode TiggerCorruptedFile
+  MySqlErrorCode TriggerNoCreationContext
+  MySqlErrorCode TriggerInvalidCreationContext
+  MySqlErrorCode EventInvalidCreationContext
+  MySqlErrorCode TriggerCannotOpenTable
+  MySqlErrorCode CannoCreateSubRoutine
+  MySqlErrorCode SlaveAmbiguousExecMode
+  MySqlErrorCode NoFormatDescriptionEventBeforeBinLogStatement
+  MySqlErrorCode SlaveCorruptEvent
+  MySqlErrorCode LoadDataInvalidColumn
+  MySqlErrorCode LogPurgeNoFile
+  MySqlErrorCode XARBTimeout
+  MySqlErrorCode XARBDeadlock
+  MySqlErrorCode NeedRePrepare
+  MySqlErrorCode DelayedNotSupported
+  MySqlErrorCode WarningNoMasterInfo
+  MySqlErrorCode WarningOptionIgnored
+  MySqlErrorCode WarningPluginDeleteBuiltIn
+  MySqlErrorCode WarningPluginBusy
+  MySqlErrorCode VariableIsReadonly
+  MySqlErrorCode WarningEngineTransactionRollback
+  MySqlErrorCode SlaveHeartbeatFailure
+  MySqlErrorCode SlaveHeartbeatValueOutOfRange
+  MySqlErrorCode NDBReplicationSchemaError
+  MySqlErrorCode ConflictFunctionParseError
+  MySqlErrorCode ExcepionsWriteError
+  MySqlErrorCode TooLongTableComment
+  MySqlErrorCode TooLongFieldComment
+  MySqlErrorCode FunctionInExistentNameCollision
+  MySqlErrorCode DatabaseNameError
+  MySqlErrorCode TableNameErrror
+  MySqlErrorCode PartitionNameError
+  MySqlErrorCode SubPartitionNameError
+  MySqlErrorCode TemporaryNameError
+  MySqlErrorCode RenamedNameError
+  MySqlErrorCode TooManyConcurrentTransactions
+  MySqlErrorCode WarningNonASCIISeparatorNotImplemented
+  MySqlErrorCode DebugSyncTimeout
+  MySqlErrorCode DebugSyncHitLimit
+  MySqlErrorCode ErrorLast
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlHelper
+Наследуется от: object
+Поля:
+  string stringOfBackslashChars
+  string stringOfQuoteChars
+  CharClass[] charClassArray
+Свойства:
+Методы:
+  void .ctor()
+  int ExecuteNonQuery(MySqlConnection connection, string commandText, MySqlParameter[] commandParameters)
+  int ExecuteNonQuery(string connectionString, string commandText, MySqlParameter[] parms)
+  DataRow ExecuteDataRow(string connectionString, string commandText, MySqlParameter[] parms)
+  DataSet ExecuteDataset(string connectionString, string commandText)
+  DataSet ExecuteDataset(string connectionString, string commandText, MySqlParameter[] commandParameters)
+  DataSet ExecuteDataset(MySqlConnection connection, string commandText)
+  DataSet ExecuteDataset(MySqlConnection connection, string commandText, MySqlParameter[] commandParameters)
+  void UpdateDataSet(string connectionString, string commandText, DataSet ds, string tablename)
+  MySqlDataReader ExecuteReader(MySqlConnection connection, MySqlTransaction transaction, string commandText, MySqlParameter[] commandParameters, bool ExternalConn)
+  MySqlDataReader ExecuteReader(string connectionString, string commandText)
+  MySqlDataReader ExecuteReader(MySqlConnection connection, string commandText)
+  MySqlDataReader ExecuteReader(string connectionString, string commandText, MySqlParameter[] commandParameters)
+  MySqlDataReader ExecuteReader(MySqlConnection connection, string commandText, MySqlParameter[] commandParameters)
+  object ExecuteScalar(string connectionString, string commandText)
+  object ExecuteScalar(string connectionString, string commandText, MySqlParameter[] commandParameters)
+  object ExecuteScalar(MySqlConnection connection, string commandText)
+  object ExecuteScalar(MySqlConnection connection, string commandText, MySqlParameter[] commandParameters)
+  CharClass[] makeCharClassArray()
+  bool needsQuoting(string s)
+  string EscapeString(string value)
+  string DoubleQuoteString(string value)
+  void .cctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlPacket
+Наследуется от: object
+Поля:
+  Byte[] tempBuffer
+  Encoding encoding
+  MemoryStream buffer
+  DBVersion version
+Свойства:
+  Encoding Encoding
+  bool HasMoreData
+  int Position
+  int Length
+  bool IsLastPacket
+  Byte[] Buffer
+  DBVersion Version
+Методы:
+  void .ctor()
+  void .ctor(Encoding enc)
+  void .ctor(MemoryStream stream)
+  Encoding get_Encoding()
+  void set_Encoding(Encoding value)
+  bool get_HasMoreData()
+  int get_Position()
+  void set_Position(int value)
+  int get_Length()
+  void set_Length(int value)
+  bool get_IsLastPacket()
+  Byte[] get_Buffer()
+  DBVersion get_Version()
+  void set_Version(DBVersion value)
+  void Clear()
+  byte ReadByte()
+  int Read(Byte[] byteBuffer, int offset, int count)
+  void WriteByte(byte b)
+  void Write(Byte[] bytesToWrite)
+  void Write(Byte[] bytesToWrite, int offset, int countToWrite)
+  int ReadNBytes()
+  void SetByte(long position, byte value)
+  long ReadFieldLength()
+  ulong ReadBitValue(int numbytes)
+  long ReadLong(int numbytes)
+  ulong ReadULong(int numbytes)
+  int Read3ByteInt()
+  int ReadInteger(int numbytes)
+  void WriteInteger(long v, int numbytes)
+  int ReadPackedInteger()
+  void WriteLength(long length)
+  void WriteLenString(string s)
+  void WriteStringNoNull(string v)
+  void WriteString(string v)
+  string ReadLenString()
+  string ReadAsciiString(long length)
+  string ReadString(long length)
+  string ReadString()
+  string ReadString(Encoding theEncoding)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlClientPermissionAttribute
+Наследуется от: DBDataPermissionAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(SecurityAction action)
+  IPermission CreatePermission()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlPool
+Наследуется от: object
+Поля:
+  List`1<Driver> inUsePool
+  Queue`1<Driver> idlePool
+  MySqlConnectionStringBuilder settings
+  UInt32 minSize
+  UInt32 maxSize
+  ProcedureCache procedureCache
+  bool beingCleared
+  int available
+  AutoResetEvent autoEvent
+  Dictionary`2<string, string> <ServerProperties>k__BackingField
+Свойства:
+  MySqlConnectionStringBuilder Settings
+  ProcedureCache ProcedureCache
+  bool HasIdleConnections
+  int NumConnections
+  bool BeingCleared
+  Dictionary`2<string, string> ServerProperties
+Методы:
+  void EnqueueIdle(Driver driver)
+  void .ctor(MySqlConnectionStringBuilder settings)
+  MySqlConnectionStringBuilder get_Settings()
+  void set_Settings(MySqlConnectionStringBuilder value)
+  ProcedureCache get_ProcedureCache()
+  bool get_HasIdleConnections()
+  int get_NumConnections()
+  bool get_BeingCleared()
+  Dictionary`2<string, string> get_ServerProperties()
+  void set_ServerProperties(Dictionary`2<string, string> value)
+  Driver GetPooledConnection()
+  Driver CreateNewPooledConnection()
+  void ReleaseConnection(Driver driver)
+  void RemoveConnection(Driver driver)
+  Driver TryToGetDriver()
+  Driver GetConnection()
+  void Clear()
+  List`1<Driver> RemoveOldIdleConnections()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlPoolManager
+Наследуется от: object
+Поля:
+  Dictionary`2<string, MySqlPool> pools
+  List`1<MySqlPool> clearingPools
+  int maxConnectionIdleTime
+  Timer timer
+Свойства:
+Методы:
+  void .cctor()
+  void EnsureClearingPools(object sender, EventArgs e)
+  string GetKey(MySqlConnectionStringBuilder settings)
+  MySqlPool GetPool(MySqlConnectionStringBuilder settings)
+  void RemoveConnection(Driver driver)
+  void ReleaseConnection(Driver driver)
+  void ClearPool(MySqlConnectionStringBuilder settings)
+  void ClearPoolByText(string key)
+  void ClearAllPools()
+  void RemoveClearedPool(MySqlPool pool)
+  void CleanIdleConnections(object obj)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlTransactionScope
+Наследуется от: object
+Поля:
+  MySqlConnection connection
+  Transaction baseTransaction
+  MySqlTransaction simpleTransaction
+  int rollbackThreadId
+Свойства:
+Методы:
+  void .ctor(MySqlConnection con, Transaction trans, MySqlTransaction simpleTransaction)
+  void Rollback(SinglePhaseEnlistment singlePhaseEnlistment)
+  void SinglePhaseCommit(SinglePhaseEnlistment singlePhaseEnlistment)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlPromotableTransaction
+Наследуется от: object
+Поля:
+  Stack`1<MySqlTransactionScope> globalScopeStack
+  MySqlConnection connection
+  Transaction baseTransaction
+  Stack`1<MySqlTransactionScope> scopeStack
+Свойства:
+  Transaction BaseTransaction
+  bool InRollback
+Методы:
+  void .ctor(MySqlConnection connection, Transaction baseTransaction)
+  Transaction get_BaseTransaction()
+  bool get_InRollback()
+  void System.Transactions.IPromotableSinglePhaseNotification.Initialize()
+  void System.Transactions.IPromotableSinglePhaseNotification.Rollback(SinglePhaseEnlistment singlePhaseEnlistment)
+  void System.Transactions.IPromotableSinglePhaseNotification.SinglePhaseCommit(SinglePhaseEnlistment singlePhaseEnlistment)
+  Byte[] System.Transactions.ITransactionPromoter.Promote()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.DriverTransactionManager
+Наследуется от: object
+Поля:
+  Hashtable driversInUse
+Свойства:
+Методы:
+  Driver GetDriverInTransaction(Transaction transaction)
+  void SetDriverInTransaction(Driver driver)
+  void RemoveDriverInTransaction(Transaction transaction)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlScript
+Наследуется от: object
+Поля:
+  MySqlConnection connection
+  string query
+  string delimiter
+  MySqlStatementExecutedEventHandler StatementExecuted
+  MySqlScriptErrorEventHandler Error
+  EventHandler ScriptCompleted
+Свойства:
+  MySqlConnection Connection
+  string Query
+  string Delimiter
+Методы:
+  void add_StatementExecuted(MySqlStatementExecutedEventHandler value)
+  void remove_StatementExecuted(MySqlStatementExecutedEventHandler value)
+  void add_Error(MySqlScriptErrorEventHandler value)
+  void remove_Error(MySqlScriptErrorEventHandler value)
+  void add_ScriptCompleted(EventHandler value)
+  void remove_ScriptCompleted(EventHandler value)
+  void .ctor()
+  void .ctor(MySqlConnection connection)
+  void .ctor(string query)
+  void .ctor(MySqlConnection connection, string query)
+  MySqlConnection get_Connection()
+  void set_Connection(MySqlConnection value)
+  string get_Query()
+  void set_Query(string value)
+  string get_Delimiter()
+  void set_Delimiter(string value)
+  int Execute()
+  void OnQueryExecuted(ScriptStatement statement)
+  void OnScriptCompleted()
+  bool OnScriptError(Exception ex)
+  List`1<int> BreakScriptIntoLines()
+  int FindLineNumber(int position, List`1<int> lineNumbers)
+  List`1<ScriptStatement> BreakIntoStatements(bool ansiQuotes, bool noBackslashEscapes)
+  void AdjustDelimiterEnd(MySqlTokenizer tokenizer)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlStatementExecutedEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, MySqlScriptEventArgs args)
+  IAsyncResult BeginInvoke(object sender, MySqlScriptEventArgs args, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlScriptErrorEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, MySqlScriptErrorEventArgs args)
+  IAsyncResult BeginInvoke(object sender, MySqlScriptErrorEventArgs args, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlScriptEventArgs
+Наследуется от: EventArgs
+Поля:
+  ScriptStatement statement
+Свойства:
+  ScriptStatement Statement
+  string StatementText
+  int Line
+  int Position
+Методы:
+  void set_Statement(ScriptStatement value)
+  string get_StatementText()
+  int get_Line()
+  int get_Position()
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlScriptErrorEventArgs
+Наследуется от: MySqlScriptEventArgs
+Поля:
+  Exception exception
+  bool ignore
+Свойства:
+  Exception Exception
+  bool Ignore
+Методы:
+  void .ctor(Exception exception)
+  Exception get_Exception()
+  bool get_Ignore()
+  void set_Ignore(bool value)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ScriptStatement
+Наследуется от: ValueType
+Поля:
+  string text
+  int line
+  int position
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlSecurityPermission
+Наследуется от: MarshalByRefObject
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  PermissionSet CreatePermissionSet(bool includeReflectionPermission)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlStream
+Наследуется от: object
+Поля:
+  byte sequenceByte
+  int maxBlockSize
+  ulong maxPacketSize
+  Byte[] packetHeader
+  MySqlPacket packet
+  TimedStream timedStream
+  Stream inStream
+  Stream outStream
+Свойства:
+  Stream BaseStream
+  Encoding Encoding
+  byte SequenceByte
+  int MaxBlockSize
+  ulong MaxPacketSize
+Методы:
+  Stream get_BaseStream()
+  void .ctor(Encoding encoding)
+  void .ctor(Stream baseStream, Encoding encoding, bool compress)
+  void Close()
+  Encoding get_Encoding()
+  void set_Encoding(Encoding value)
+  void ResetTimeout(int timeout)
+  byte get_SequenceByte()
+  void set_SequenceByte(byte value)
+  int get_MaxBlockSize()
+  void set_MaxBlockSize(int value)
+  ulong get_MaxPacketSize()
+  void set_MaxPacketSize(ulong value)
+  MySqlPacket ReadPacket()
+  void ReadFully(Stream stream, Byte[] buffer, int offset, int count)
+  void LoadPacket()
+  void SendPacket(MySqlPacket packet)
+  void SendEntirePacketDirectly(Byte[] buffer, int count)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.NativeDriver
+Наследуется от: object
+Поля:
+  string AuthenticationWindowsPlugin
+  string AuthenticationWindowsUser
+  DBVersion version
+  int threadId
+  string encryptionSeed
+  ServerStatusFlags serverStatus
+  MySqlStream stream
+  Stream baseStream
+  BitArray nullMap
+  MySqlPacket packet
+  ClientFlags connectionFlags
+  Driver owner
+  int warnings
+  MySqlAuthenticationPlugin authPlugin
+Свойства:
+  ClientFlags Flags
+  int ThreadId
+  DBVersion Version
+  ServerStatusFlags ServerStatus
+  int WarningCount
+  MySqlPacket Packet
+  MySqlConnectionStringBuilder Settings
+  Encoding Encoding
+Методы:
+  void .ctor(Driver owner)
+  ClientFlags get_Flags()
+  int get_ThreadId()
+  DBVersion get_Version()
+  ServerStatusFlags get_ServerStatus()
+  int get_WarningCount()
+  MySqlPacket get_Packet()
+  MySqlConnectionStringBuilder get_Settings()
+  Encoding get_Encoding()
+  void HandleException(MySqlException ex)
+  void SendPacket(MySqlPacket p)
+  void SendEmptyPacket()
+  MySqlPacket ReadPacket()
+  void ReadOk(bool read)
+  void SetDatabase(string dbName)
+  void Configure()
+  void Open()
+  X509CertificateCollection GetClientCertificates()
+  void StartSSL()
+  bool ServerCheckValidation(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+  void SetConnectionFlags(ClientFlags serverCaps)
+  void Authenticate(string authMethod, bool reset)
+  void Reset()
+  void SendQuery(MySqlPacket queryPacket)
+  void Close(bool isOpen)
+  bool Ping()
+  int GetResult(Int32& affectedRow, Int64& insertedId)
+  void SendFileToServer(string filename)
+  void ReadNullMap(int fieldCount)
+  IMySqlValue ReadColumnValue(int index, MySqlField field, IMySqlValue valObject)
+  void SkipColumnValue(IMySqlValue valObject)
+  void GetColumnsData(MySqlField[] columns)
+  void GetColumnData(MySqlField field)
+  void ExecutePacket(MySqlPacket packetToExecute)
+  void ExecuteStatement(MySqlPacket packetToExecute)
+  void CheckEOF()
+  void ReadEOF()
+  int PrepareStatement(string sql, MySqlField[]& parameters)
+  bool FetchDataRow(int statementId, int columns)
+  void CloseStatement(int statementId)
+  void ResetTimeout(int timeout)
+  void SetConnectAttrs()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.PerformanceMonitor
+Наследуется от: object
+Поля:
+  MySqlConnection connection
+  MySqlConnection <Connection>k__BackingField
+Свойства:
+  MySqlConnection Connection
+Методы:
+  void .ctor(MySqlConnection connection)
+  MySqlConnection get_Connection()
+  void set_Connection(MySqlConnection value)
+  void AddHardProcedureQuery()
+  void AddSoftProcedureQuery()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Statement
+Наследуется от: object
+Поля:
+  MySqlCommand command
+  string commandText
+  List`1<MySqlPacket> buffers
+Свойства:
+  string ResolvedCommandText
+  Driver Driver
+  MySqlConnection Connection
+  MySqlParameterCollection Parameters
+Методы:
+  void .ctor(MySqlCommand cmd)
+  void .ctor(MySqlCommand cmd, string text)
+  string get_ResolvedCommandText()
+  Driver get_Driver()
+  MySqlConnection get_Connection()
+  MySqlParameterCollection get_Parameters()
+  void Close(MySqlDataReader reader)
+  void Resolve(bool preparing)
+  void Execute()
+  bool ExecuteNext()
+  void BindParameters()
+  void InternalBindParameters(string sql, MySqlParameterCollection parameters, MySqlPacket packet)
+  bool ShouldIgnoreMissingParameter(string parameterName)
+  bool SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, string parmName, int parameterIndex)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.PreparableStatement
+Наследуется от: Statement
+Поля:
+  int executionCount
+  int statementId
+  BitArray nullMap
+  List`1<MySqlParameter> parametersToSend
+  MySqlPacket packet
+  int dataPosition
+  int nullMapPosition
+Свойства:
+  int ExecutionCount
+  bool IsPrepared
+  int StatementId
+Методы:
+  void .ctor(MySqlCommand command, string text)
+  int get_ExecutionCount()
+  void set_ExecutionCount(int value)
+  bool get_IsPrepared()
+  int get_StatementId()
+  void Prepare()
+  void Execute()
+  bool ExecuteNext()
+  List`1<string> PrepareCommandText(String& stripped_sql)
+  void CloseStatement()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ProcedureCacheEntry
+Наследуется от: object
+Поля:
+  MySqlSchemaCollection procedure
+  MySqlSchemaCollection parameters
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ProcedureCache
+Наследуется от: object
+Поля:
+  Dictionary`2<int, ProcedureCacheEntry> procHash
+  Queue`1<int> hashQueue
+  int maxSize
+Свойства:
+Методы:
+  void .ctor(int size)
+  ProcedureCacheEntry GetProcedure(MySqlConnection conn, string spName, string cacheKey)
+  string GetCacheKey(string spName, ProcedureCacheEntry proc)
+  ProcedureCacheEntry AddNew(MySqlConnection connection, string spName)
+  void TrimHash()
+  ProcedureCacheEntry GetProcData(MySqlConnection connection, string spName)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ReplicationConfigurationElement
+Наследуется от: ConfigurationElement
+Поля:
+Свойства:
+  GenericConfigurationElementCollection`1<ReplicationServerGroupConfigurationElement> ServerGroups
+Методы:
+  GenericConfigurationElementCollection`1<ReplicationServerGroupConfigurationElement> get_ServerGroups()
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ReplicationServerGroupConfigurationElement
+Наследуется от: ConfigurationElement
+Поля:
+Свойства:
+  string Name
+  string GroupType
+  int RetryTime
+  GenericConfigurationElementCollection`1<ReplicationServerConfigurationElement> Servers
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  string get_GroupType()
+  void set_GroupType(string value)
+  int get_RetryTime()
+  void set_RetryTime(int value)
+  GenericConfigurationElementCollection`1<ReplicationServerConfigurationElement> get_Servers()
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ReplicationServerConfigurationElement
+Наследуется от: ConfigurationElement
+Поля:
+Свойства:
+  string Name
+  bool IsMaster
+  string ConnectionString
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  bool get_IsMaster()
+  void set_IsMaster(bool value)
+  string get_ConnectionString()
+  void set_ConnectionString(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Replication.ReplicationManager
+Наследуется от: object
+Поля:
+  List`1<ReplicationServerGroup> groups
+  object thisLock
+  IList`1<ReplicationServerGroup> <Groups>k__BackingField
+Свойства:
+  IList`1<ReplicationServerGroup> Groups
+Методы:
+  void .cctor()
+  IList`1<ReplicationServerGroup> get_Groups()
+  void set_Groups(IList`1<ReplicationServerGroup> value)
+  ReplicationServerGroup AddGroup(string name, int retryTime)
+  ReplicationServerGroup AddGroup(string name, string groupType, int retryTime)
+  ReplicationServer GetServer(string groupName, bool isMaster)
+  ReplicationServerGroup GetGroup(string groupName)
+  bool IsReplicationGroup(string groupName)
+  void GetNewConnection(string groupName, bool master, MySqlConnection connection)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Replication.ReplicationServerGroup
+Наследуется от: object
+Поля:
+  List`1<ReplicationServer> servers
+  string <Name>k__BackingField
+  int <RetryTime>k__BackingField
+  IList`1<ReplicationServer> <Servers>k__BackingField
+Свойства:
+  string Name
+  int RetryTime
+  IList`1<ReplicationServer> Servers
+Методы:
+  void .ctor(string name, int retryTime)
+  string get_Name()
+  void set_Name(string value)
+  int get_RetryTime()
+  void set_RetryTime(int value)
+  IList`1<ReplicationServer> get_Servers()
+  void set_Servers(IList`1<ReplicationServer> value)
+  ReplicationServer AddServer(string name, bool isMaster, string connectionString)
+  void RemoveServer(string name)
+  ReplicationServer GetServer(string name)
+  ReplicationServer GetServer(bool isMaster)
+  ReplicationServer GetServer(bool isMaster, MySqlConnectionStringBuilder settings)
+  void HandleFailover(ReplicationServer server)
+  void HandleFailover(ReplicationServer server, Exception exception)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Replication.ReplicationRoundRobinServerGroup
+Наследуется от: ReplicationServerGroup
+Поля:
+  int nextServer
+Свойства:
+Методы:
+  void .ctor(string name, int retryTime)
+  ReplicationServer GetServer(bool isMaster)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Replication.ReplicationServer
+Наследуется от: object
+Поля:
+  string <Name>k__BackingField
+  bool <IsMaster>k__BackingField
+  string <ConnectionString>k__BackingField
+  bool <IsAvailable>k__BackingField
+Свойства:
+  string Name
+  bool IsMaster
+  string ConnectionString
+  bool IsAvailable
+Методы:
+  void .ctor(string name, bool isMaster, string connectionString)
+  string get_Name()
+  void set_Name(string value)
+  bool get_IsMaster()
+  void set_IsMaster(bool value)
+  string get_ConnectionString()
+  void set_ConnectionString(string value)
+  bool get_IsAvailable()
+  void set_IsAvailable(bool value)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.ResultSet
+Наследуется от: object
+Поля:
+  Driver driver
+  bool hasRows
+  Boolean[] uaFieldsUsed
+  MySqlField[] fields
+  IMySqlValue[] values
+  Dictionary`2<string, int> fieldHashCS
+  Dictionary`2<string, int> fieldHashCI
+  int rowIndex
+  bool readDone
+  bool isSequential
+  int seqIndex
+  bool isOutputParameters
+  int affectedRows
+  long insertedId
+  int statementId
+  int totalRows
+  int skippedRows
+  bool cached
+  List`1<IMySqlValue[]> cachedValues
+Свойства:
+  bool HasRows
+  int Size
+  MySqlField[] Fields
+  IMySqlValue[] Values
+  bool IsOutputParameters
+  int AffectedRows
+  long InsertedId
+  int TotalRows
+  int SkippedRows
+  bool Cached
+  IMySqlValue Item
+Методы:
+  void .ctor(int affectedRows, long insertedId)
+  void .ctor(Driver d, int statementId, int numCols)
+  bool get_HasRows()
+  int get_Size()
+  MySqlField[] get_Fields()
+  IMySqlValue[] get_Values()
+  bool get_IsOutputParameters()
+  void set_IsOutputParameters(bool value)
+  int get_AffectedRows()
+  long get_InsertedId()
+  int get_TotalRows()
+  int get_SkippedRows()
+  bool get_Cached()
+  void set_Cached(bool value)
+  int GetOrdinal(string name)
+  IMySqlValue get_Item(int index)
+  bool GetNextRow()
+  bool NextRow(CommandBehavior behavior)
+  bool CachedNextRow(CommandBehavior behavior)
+  void Close()
+  void CacheClose()
+  void CacheReset()
+  bool FieldRead(int index)
+  void SetValueObject(int i, IMySqlValue valueObject)
+  bool IsOutputParameterResultSet()
+  void LoadColumns(int numCols)
+  void ReadColumnData(bool outputParms)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlSchemaCollection
+Наследуется от: object
+Поля:
+  List`1<SchemaColumn> columns
+  List`1<MySqlSchemaRow> rows
+  DataTable _table
+  Dictionary`2<string, int> Mapping
+  Dictionary`2<int, int> LogicalMappings
+  string <Name>k__BackingField
+Свойства:
+  string Name
+  IList`1<SchemaColumn> Columns
+  IList`1<MySqlSchemaRow> Rows
+Методы:
+  void .ctor()
+  void .ctor(string name)
+  void .ctor(DataTable dt)
+  string get_Name()
+  void set_Name(string value)
+  IList`1<SchemaColumn> get_Columns()
+  IList`1<MySqlSchemaRow> get_Rows()
+  SchemaColumn AddColumn(string name, Type t)
+  int ColumnIndex(string name)
+  void RemoveColumn(string name)
+  bool ContainsColumn(string name)
+  MySqlSchemaRow AddRow()
+  MySqlSchemaRow NewRow()
+  DataTable AsDataTable()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.MySqlSchemaRow
+Наследуется от: object
+Поля:
+  Dictionary`2<int, object> data
+  MySqlSchemaCollection <Collection>k__BackingField
+Свойства:
+  MySqlSchemaCollection Collection
+  object Item
+  object Item
+Методы:
+  void .ctor(MySqlSchemaCollection c)
+  void InitMetadata()
+  MySqlSchemaCollection get_Collection()
+  void set_Collection(MySqlSchemaCollection value)
+  object get_Item(string s)
+  void set_Item(string s, object value)
+  object get_Item(int i)
+  void set_Item(int i, object value)
+  void SetValueForName(string colName, object value)
+  object GetValueForName(string colName)
+  void CopyRow(MySqlSchemaRow row)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.SchemaColumn
+Наследуется от: object
+Поля:
+  string <Name>k__BackingField
+  Type <Type>k__BackingField
+Свойства:
+  string Name
+  Type Type
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  Type get_Type()
+  void set_Type(Type value)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.StoredProcedure
+Наследуется от: PreparableStatement
+Поля:
+  string ParameterPrefix
+  string outSelect
+  string resolvedCommandText
+  bool serverProvidingOutputParameters
+Свойства:
+  bool ServerProvidingOutputParameters
+  string ResolvedCommandText
+Методы:
+  void .ctor(MySqlCommand cmd, string text)
+  MySqlParameter GetReturnParameter()
+  bool get_ServerProvidingOutputParameters()
+  string get_ResolvedCommandText()
+  string GetCacheKey(string spName)
+  ProcedureCacheEntry GetParameters(string procName)
+  string GetFlags(string dtd)
+  string FixProcedureName(string name)
+  MySqlParameter GetAndFixParameter(string spName, MySqlSchemaRow param, bool realAsFloat, MySqlParameter returnParameter)
+  MySqlParameterCollection CheckParameters(string spName)
+  void Resolve(bool preparing)
+  string SetUserVariables(MySqlParameterCollection parms, bool preparing)
+  string CreateCallStatement(string spName, MySqlParameter returnParameter, MySqlParameterCollection parms)
+  string CreateOutputSelect(MySqlParameterCollection parms, bool preparing)
+  void ProcessOutputParameters(MySqlDataReader reader)
+  void AdjustOutputTypes(MySqlDataReader reader)
+  void Close(MySqlDataReader reader)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.SystemPerformanceMonitor
+Наследуется от: PerformanceMonitor
+Поля:
+  PerformanceCounter procedureHardQueries
+  PerformanceCounter procedureSoftQueries
+Свойства:
+Методы:
+  void .ctor(MySqlConnection connection)
+  void AddHardProcedureQuery()
+  void AddSoftProcedureQuery()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.TableCache
+Наследуется от: object
+Поля:
+  BaseTableCache cache
+Свойства:
+Методы:
+  void .cctor()
+  void AddToCache(string commandText, ResultSet resultSet)
+  ResultSet RetrieveFromCache(string commandText, int cacheAge)
+  void RemoveFromCache(string commandText)
+  void DumpCache()
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.BaseTableCache
+Наследуется от: object
+Поля:
+  int MaxCacheAge
+  Dictionary`2<string, CacheEntry> cache
+Свойства:
+Методы:
+  void .ctor(int maxCacheAge)
+  void AddToCache(string commandText, object resultSet)
+  object RetrieveFromCache(string commandText, int cacheAge)
+  void RemoveFromCache(string commandText)
+  void Dump()
+  void CleanCache()
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.TimedStream
+Наследуется от: Stream
+Поля:
+  Stream baseStream
+  int timeout
+  int lastReadTimeout
+  int lastWriteTimeout
+  LowResolutionStopwatch stopwatch
+  bool isClosed
+Свойства:
+  bool IsClosed
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+  bool CanTimeout
+  int ReadTimeout
+  int WriteTimeout
+Методы:
+  bool get_IsClosed()
+  void .ctor(Stream baseStream)
+  bool ShouldResetStreamTimeout(int currentValue, int newValue)
+  void StartTimer(IOKind op)
+  void StopTimer()
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  int Read(Byte[] buffer, int offset, int count)
+  int ReadByte()
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void Write(Byte[] buffer, int offset, int count)
+  bool get_CanTimeout()
+  int get_ReadTimeout()
+  void set_ReadTimeout(int value)
+  int get_WriteTimeout()
+  void set_WriteTimeout(int value)
+  void Close()
+  void ResetTimeout(int newTimeout)
+  void HandleException(Exception e)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.TracingDriver
+Наследуется от: Driver
+Поля:
+  long driverCounter
+  long driverId
+  ResultSet activeResult
+  int rowSizeInBytes
+Свойства:
+Методы:
+  void .ctor(MySqlConnectionStringBuilder settings)
+  void Open()
+  void Close()
+  void SendQuery(MySqlPacket p)
+  int GetResult(int statementId, Int32& affectedRows, Int64& insertedId)
+  ResultSet NextResult(int statementId, bool force)
+  int PrepareStatement(string sql, MySqlField[]& parameters)
+  void CloseStatement(int id)
+  void SetDatabase(string dbName)
+  void ExecuteStatement(MySqlPacket packetToExecute)
+  bool FetchDataRow(int statementId, int columns)
+  void CloseQuery(MySqlConnection connection, int statementId)
+  List`1<MySqlError> ReportWarnings(MySqlConnection connection)
+  bool AllFieldsAccessed(ResultSet rs)
+  void ReportUsageAdvisorWarnings(int statementId, ResultSet rs)
+--------------------------------------------------
+Класс: MySql.Data.Types.MetaData
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool IsNumericType(string typename)
+  bool IsTextType(string typename)
+  bool SupportScale(string typename)
+  MySqlDbType NameToType(string typeName, bool unsigned, bool realAsFloat, MySqlConnection connection)
+  void .ctor()
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlBinary
+Наследуется от: ValueType
+Поля:
+  MySqlDbType type
+  Byte[] mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  Byte[] Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(MySqlDbType type, bool isNull)
+  void .ctor(MySqlDbType type, Byte[] val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  Byte[] get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  void EscapeByteArray(Byte[] bytes, int length, MySqlPacket packet)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlBit
+Наследуется от: ValueType
+Поля:
+  ulong mValue
+  bool isNull
+  bool readAsString
+Свойства:
+  bool ReadAsString
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isnull)
+  bool get_ReadAsString()
+  void set_ReadAsString(bool value)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void WriteValue(MySqlPacket packet, bool binary, object value, int length)
+  IMySqlValue ReadValue(MySqlPacket packet, long length, bool isNull)
+  void SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlByte
+Наследуется от: ValueType
+Поля:
+  sbyte mValue
+  bool isNull
+  bool treatAsBool
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  sbyte Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+  bool TreatAsBoolean
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(sbyte val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  sbyte get_Value()
+  void set_Value(sbyte value)
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  bool get_TreatAsBoolean()
+  void set_TreatAsBoolean(bool value)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlConversionException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor(string msg)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlDecimal
+Наследуется от: ValueType
+Поля:
+  byte precision
+  byte scale
+  string mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  byte Precision
+  byte Scale
+  object MySql.Data.Types.IMySqlValue.Value
+  decimal Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(string val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  byte get_Precision()
+  void set_Precision(byte value)
+  byte get_Scale()
+  void set_Scale(byte value)
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  decimal get_Value()
+  double ToDouble()
+  string ToString()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlDouble
+Наследуется от: ValueType
+Поля:
+  double mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  double Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(double val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  double get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlGeometry
+Наследуется от: ValueType
+Поля:
+  int GEOMETRY_LENGTH
+  MySqlDbType _type
+  double _xValue
+  double _yValue
+  int _srid
+  Byte[] _valBinary
+  bool _isNull
+Свойства:
+  Nullable`1<double> XCoordinate
+  Nullable`1<double> YCoordinate
+  Nullable`1<int> SRID
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  bool IsNull
+  object MySql.Data.Types.IMySqlValue.Value
+  Byte[] Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  Nullable`1<double> get_XCoordinate()
+  Nullable`1<double> get_YCoordinate()
+  Nullable`1<int> get_SRID()
+  void .ctor(bool isNull)
+  void .ctor(double xValue, double yValue)
+  void .ctor(double xValue, double yValue, int srid)
+  void .ctor(MySqlDbType type, bool isNull)
+  void .ctor(MySqlDbType type, double xValue, double yValue, int srid)
+  void .ctor(MySqlDbType type, Byte[] val)
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  bool get_IsNull()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  Byte[] get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  void EscapeByteArray(Byte[] bytes, int length, MySqlPacket packet)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  string ToString()
+  MySqlGeometry Parse(string value)
+  bool TryParse(string value, MySqlGeometry& mySqlGeometryValue)
+  void SetDSInfo(MySqlSchemaCollection dsTable)
+  string GetWKT()
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlGuid
+Наследуется от: ValueType
+Поля:
+  Guid mValue
+  bool isNull
+  Byte[] bytes
+  bool oldGuids
+Свойства:
+  Byte[] Bytes
+  bool OldGuids
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  Guid Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(Byte[] buff)
+  Byte[] get_Bytes()
+  bool get_OldGuids()
+  void set_OldGuids(bool value)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  Guid get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  void WriteOldGuid(MySqlPacket packet, Guid guid, bool binary)
+  void EscapeByteArray(Byte[] bytes, int length, MySqlPacket packet)
+  MySqlGuid ReadOldGuid(MySqlPacket packet, long length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlInt16
+Наследуется от: ValueType
+Поля:
+  short mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  short Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(short val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  short get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlInt32
+Наследуется от: ValueType
+Поля:
+  int mValue
+  bool isNull
+  bool is24Bit
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  int Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(MySqlDbType type)
+  void .ctor(MySqlDbType type, bool isNull)
+  void .ctor(MySqlDbType type, int val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  int get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlInt64
+Наследуется от: ValueType
+Поля:
+  long mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  long Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(long val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  long get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlSingle
+Наследуется от: ValueType
+Поля:
+  float mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  float Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(float val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  float get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlString
+Наследуется от: ValueType
+Поля:
+  string mValue
+  bool isNull
+  MySqlDbType type
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  string Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(MySqlDbType type, bool isNull)
+  void .ctor(MySqlDbType type, string val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  string get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlTimeSpan
+Наследуется от: ValueType
+Поля:
+  TimeSpan mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  TimeSpan Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(TimeSpan val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  TimeSpan get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+  string ToString()
+  void ParseMySql(string s)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlUByte
+Наследуется от: ValueType
+Поля:
+  byte mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  byte Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(byte val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  byte get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlUInt16
+Наследуется от: ValueType
+Поля:
+  ushort mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  ushort Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(ushort val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  ushort get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlUInt32
+Наследуется от: ValueType
+Поля:
+  UInt32 mValue
+  bool isNull
+  bool is24Bit
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  UInt32 Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(MySqlDbType type)
+  void .ctor(MySqlDbType type, bool isNull)
+  void .ctor(MySqlDbType type, UInt32 val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  UInt32 get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object v, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: MySql.Data.Types.MySqlUInt64
+Наследуется от: ValueType
+Поля:
+  ulong mValue
+  bool isNull
+Свойства:
+  bool IsNull
+  MySqlDbType MySql.Data.Types.IMySqlValue.MySqlDbType
+  object MySql.Data.Types.IMySqlValue.Value
+  ulong Value
+  Type MySql.Data.Types.IMySqlValue.SystemType
+  string MySql.Data.Types.IMySqlValue.MySqlTypeName
+Методы:
+  void .ctor(bool isNull)
+  void .ctor(ulong val)
+  bool get_IsNull()
+  MySqlDbType MySql.Data.Types.IMySqlValue.get_MySqlDbType()
+  object MySql.Data.Types.IMySqlValue.get_Value()
+  ulong get_Value()
+  Type MySql.Data.Types.IMySqlValue.get_SystemType()
+  string MySql.Data.Types.IMySqlValue.get_MySqlTypeName()
+  void MySql.Data.Types.IMySqlValue.WriteValue(MySqlPacket packet, bool binary, object val, int length)
+  IMySqlValue MySql.Data.Types.IMySqlValue.ReadValue(MySqlPacket packet, long length, bool nullVal)
+  void MySql.Data.Types.IMySqlValue.SkipValue(MySqlPacket packet)
+  void SetDSInfo(MySqlSchemaCollection sc)
+--------------------------------------------------
+Класс: zlib.Adler32
+Наследуется от: object
+Поля:
+  int BASE
+  int NMAX
+Свойства:
+Методы:
+  long adler32(long adler, Byte[] buf, int index, int len)
+  void .ctor()
+--------------------------------------------------
+Класс: zlib.Deflate
+Наследуется от: object
+Поля:
+  int MAX_MEM_LEVEL
+  int Z_DEFAULT_COMPRESSION
+  int MAX_WBITS
+  int DEF_MEM_LEVEL
+  int STORED
+  int FAST
+  int SLOW
+  int NeedMore
+  int BlockDone
+  int FinishStarted
+  int FinishDone
+  int PRESET_DICT
+  int Z_FILTERED
+  int Z_HUFFMAN_ONLY
+  int Z_DEFAULT_STRATEGY
+  int Z_NO_FLUSH
+  int Z_PARTIAL_FLUSH
+  int Z_SYNC_FLUSH
+  int Z_FULL_FLUSH
+  int Z_FINISH
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_ERRNO
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_MEM_ERROR
+  int Z_BUF_ERROR
+  int Z_VERSION_ERROR
+  int INIT_STATE
+  int BUSY_STATE
+  int FINISH_STATE
+  int Z_DEFLATED
+  int STORED_BLOCK
+  int STATIC_TREES
+  int DYN_TREES
+  int Z_BINARY
+  int Z_ASCII
+  int Z_UNKNOWN
+  int Buf_size
+  int REP_3_6
+  int REPZ_3_10
+  int REPZ_11_138
+  int MIN_MATCH
+  int MAX_MATCH
+  int MAX_BITS
+  int D_CODES
+  int BL_CODES
+  int LENGTH_CODES
+  int LITERALS
+  int END_BLOCK
+  Config[] config_table
+  String[] z_errmsg
+  int MIN_LOOKAHEAD
+  int L_CODES
+  int HEAP_SIZE
+  ZStream strm
+  int status
+  Byte[] pending_buf
+  int pending_buf_size
+  int pending_out
+  int pending
+  int noheader
+  byte data_type
+  byte method
+  int last_flush
+  int w_size
+  int w_bits
+  int w_mask
+  Byte[] window
+  int window_size
+  Int16[] prev
+  Int16[] head
+  int ins_h
+  int hash_size
+  int hash_bits
+  int hash_mask
+  int hash_shift
+  int block_start
+  int match_length
+  int prev_match
+  int match_available
+  int strstart
+  int match_start
+  int lookahead
+  int prev_length
+  int max_chain_length
+  int max_lazy_match
+  int level
+  int strategy
+  int good_match
+  int nice_match
+  Int16[] dyn_ltree
+  Int16[] dyn_dtree
+  Int16[] bl_tree
+  Tree l_desc
+  Tree d_desc
+  Tree bl_desc
+  Int16[] bl_count
+  Int32[] heap
+  int heap_len
+  int heap_max
+  Byte[] depth
+  int l_buf
+  int lit_bufsize
+  int last_lit
+  int d_buf
+  int opt_len
+  int static_len
+  int matches
+  int last_eob_len
+  short bi_buf
+  int bi_valid
+Свойства:
+Методы:
+  void .ctor()
+  void lm_init()
+  void tr_init()
+  void init_block()
+  void pqdownheap(Int16[] tree, int k)
+  bool smaller(Int16[] tree, int n, int m, Byte[] depth)
+  void scan_tree(Int16[] tree, int max_code)
+  int build_bl_tree()
+  void send_all_trees(int lcodes, int dcodes, int blcodes)
+  void send_tree(Int16[] tree, int max_code)
+  void put_byte(Byte[] p, int start, int len)
+  void put_byte(byte c)
+  void put_short(int w)
+  void putShortMSB(int b)
+  void send_code(int c, Int16[] tree)
+  void send_bits(int value_Renamed, int length)
+  void _tr_align()
+  bool _tr_tally(int dist, int lc)
+  void compress_block(Int16[] ltree, Int16[] dtree)
+  void set_data_type()
+  void bi_flush()
+  void bi_windup()
+  void copy_block(int buf, int len, bool header)
+  void flush_block_only(bool eof)
+  int deflate_stored(int flush)
+  void _tr_stored_block(int buf, int stored_len, bool eof)
+  void _tr_flush_block(int buf, int stored_len, bool eof)
+  void fill_window()
+  int deflate_fast(int flush)
+  int deflate_slow(int flush)
+  int longest_match(int cur_match)
+  int deflateInit(ZStream strm, int level, int bits)
+  int deflateInit(ZStream strm, int level)
+  int deflateInit2(ZStream strm, int level, int method, int windowBits, int memLevel, int strategy)
+  int deflateReset(ZStream strm)
+  int deflateEnd()
+  int deflateParams(ZStream strm, int _level, int _strategy)
+  int deflateSetDictionary(ZStream strm, Byte[] dictionary, int dictLength)
+  int deflate(ZStream strm, int flush)
+  void .cctor()
+--------------------------------------------------
+Класс: zlib.InfBlocks
+Наследуется от: object
+Поля:
+  int MANY
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_ERRNO
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_MEM_ERROR
+  int Z_BUF_ERROR
+  int Z_VERSION_ERROR
+  int TYPE
+  int LENS
+  int STORED
+  int TABLE
+  int BTREE
+  int DTREE
+  int CODES
+  int DRY
+  int DONE
+  int BAD
+  Int32[] inflate_mask
+  Int32[] border
+  int mode
+  int left
+  int table
+  int index
+  Int32[] blens
+  Int32[] bb
+  Int32[] tb
+  InfCodes codes
+  int last
+  int bitk
+  int bitb
+  Int32[] hufts
+  Byte[] window
+  int end
+  int read
+  int write
+  object checkfn
+  long check
+Свойства:
+Методы:
+  void .ctor(ZStream z, object checkfn, int w)
+  void reset(ZStream z, Int64[] c)
+  int proc(ZStream z, int r)
+  void free(ZStream z)
+  void set_dictionary(Byte[] d, int start, int n)
+  int sync_point()
+  int inflate_flush(ZStream z, int r)
+  void .cctor()
+--------------------------------------------------
+Класс: zlib.InfCodes
+Наследуется от: object
+Поля:
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_ERRNO
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_MEM_ERROR
+  int Z_BUF_ERROR
+  int Z_VERSION_ERROR
+  int START
+  int LEN
+  int LENEXT
+  int DIST
+  int DISTEXT
+  int COPY
+  int LIT
+  int WASH
+  int END
+  int BADCODE
+  Int32[] inflate_mask
+  int mode
+  int len
+  Int32[] tree
+  int tree_index
+  int need
+  int lit
+  int get_Renamed
+  int dist
+  byte lbits
+  byte dbits
+  Int32[] ltree
+  int ltree_index
+  Int32[] dtree
+  int dtree_index
+Свойства:
+Методы:
+  void .ctor(int bl, int bd, Int32[] tl, int tl_index, Int32[] td, int td_index, ZStream z)
+  void .ctor(int bl, int bd, Int32[] tl, Int32[] td, ZStream z)
+  int proc(InfBlocks s, ZStream z, int r)
+  void free(ZStream z)
+  int inflate_fast(int bl, int bd, Int32[] tl, int tl_index, Int32[] td, int td_index, InfBlocks s, ZStream z)
+  void .cctor()
+--------------------------------------------------
+Класс: zlib.Inflate
+Наследуется от: object
+Поля:
+  int MAX_WBITS
+  int PRESET_DICT
+  int Z_NO_FLUSH
+  int Z_PARTIAL_FLUSH
+  int Z_SYNC_FLUSH
+  int Z_FULL_FLUSH
+  int Z_FINISH
+  int Z_DEFLATED
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_ERRNO
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_MEM_ERROR
+  int Z_BUF_ERROR
+  int Z_VERSION_ERROR
+  int METHOD
+  int FLAG
+  int DICT4
+  int DICT3
+  int DICT2
+  int DICT1
+  int DICT0
+  int BLOCKS
+  int CHECK4
+  int CHECK3
+  int CHECK2
+  int CHECK1
+  int DONE
+  int BAD
+  int mode
+  int method
+  Int64[] was
+  long need
+  int marker
+  int nowrap
+  int wbits
+  InfBlocks blocks
+  Byte[] mark
+Свойства:
+Методы:
+  int inflateReset(ZStream z)
+  int inflateEnd(ZStream z)
+  int inflateInit(ZStream z, int w)
+  int inflate(ZStream z, int f)
+  int inflateSetDictionary(ZStream z, Byte[] dictionary, int dictLength)
+  int inflateSync(ZStream z)
+  int inflateSyncPoint(ZStream z)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: zlib.InfTree
+Наследуется от: object
+Поля:
+  int MANY
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_ERRNO
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_MEM_ERROR
+  int Z_BUF_ERROR
+  int Z_VERSION_ERROR
+  int fixed_bl
+  int fixed_bd
+  int BMAX
+  Int32[] fixed_tl
+  Int32[] fixed_td
+  Int32[] cplens
+  Int32[] cplext
+  Int32[] cpdist
+  Int32[] cpdext
+Свойства:
+Методы:
+  int huft_build(Int32[] b, int bindex, int n, int s, Int32[] d, Int32[] e, Int32[] t, Int32[] m, Int32[] hp, Int32[] hn, Int32[] v)
+  int inflate_trees_bits(Int32[] c, Int32[] bb, Int32[] tb, Int32[] hp, ZStream z)
+  int inflate_trees_dynamic(int nl, int nd, Int32[] c, Int32[] bl, Int32[] bd, Int32[] tl, Int32[] td, Int32[] hp, ZStream z)
+  int inflate_trees_fixed(Int32[] bl, Int32[] bd, Int32[][] tl, Int32[][] td, ZStream z)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: zlib.StaticTree
+Наследуется от: object
+Поля:
+  int MAX_BITS
+  int BL_CODES
+  int D_CODES
+  int LITERALS
+  int LENGTH_CODES
+  int MAX_BL_BITS
+  int L_CODES
+  Int16[] static_ltree
+  Int16[] static_dtree
+  StaticTree static_l_desc
+  StaticTree static_d_desc
+  StaticTree static_bl_desc
+  Int16[] static_tree
+  Int32[] extra_bits
+  int extra_base
+  int elems
+  int max_length
+Свойства:
+Методы:
+  void .ctor(Int16[] static_tree, Int32[] extra_bits, int extra_base, int elems, int max_length)
+  void .cctor()
+--------------------------------------------------
+Класс: zlib.SupportClass
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  long Identity(long literal)
+  ulong Identity(ulong literal)
+  float Identity(float literal)
+  double Identity(double literal)
+  int URShift(int number, int bits)
+  int URShift(int number, long bits)
+  long URShift(long number, int bits)
+  long URShift(long number, long bits)
+  int ReadInput(Stream sourceStream, Byte[] target, int start, int count)
+  int ReadInput(TextReader sourceTextReader, Byte[] target, int start, int count)
+  Byte[] ToByteArray(string sourceString)
+  Char[] ToCharArray(Byte[] byteArray)
+  void Serialize(Stream stream, object objectToSend)
+  void Serialize(BinaryWriter binaryWriter, object objectToSend)
+  object Deserialize(BinaryReader binaryReader)
+  void WriteStackTrace(Exception throwable, TextWriter stream)
+  void .ctor()
+--------------------------------------------------
+Класс: zlib.Tree
+Наследуется от: object
+Поля:
+  int MAX_BITS
+  int BL_CODES
+  int D_CODES
+  int LITERALS
+  int LENGTH_CODES
+  int MAX_BL_BITS
+  int END_BLOCK
+  int REP_3_6
+  int REPZ_3_10
+  int REPZ_11_138
+  int Buf_size
+  int DIST_CODE_LEN
+  int L_CODES
+  int HEAP_SIZE
+  Int32[] extra_lbits
+  Int32[] extra_dbits
+  Int32[] extra_blbits
+  Byte[] bl_order
+  Byte[] _dist_code
+  Byte[] _length_code
+  Int32[] base_length
+  Int32[] base_dist
+  Int16[] dyn_tree
+  int max_code
+  StaticTree stat_desc
+Свойства:
+Методы:
+  int d_code(int dist)
+  void gen_bitlen(Deflate s)
+  void build_tree(Deflate s)
+  void gen_codes(Int16[] tree, int max_code, Int16[] bl_count)
+  int bi_reverse(int code, int len)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: zlib.ZInputStream
+Наследуется от: BinaryReader
+Поля:
+  long maxInput
+  ZStream z
+  int bufsize
+  int flush
+  Byte[] buf
+  Byte[] buf1
+  bool compress
+  Stream in_Renamed
+  bool nomoreinput
+Свойства:
+  int FlushMode
+  long TotalIn
+  long TotalOut
+Методы:
+  void InitBlock()
+  int get_FlushMode()
+  void set_FlushMode(int value)
+  long get_TotalIn()
+  long get_TotalOut()
+  void .ctor(Stream in_Renamed)
+  void .ctor(Stream in_Renamed, int level)
+  int Read()
+  int read(Byte[] b, int off, int len)
+  long skip(long n)
+  void Close()
+--------------------------------------------------
+Класс: zlib.zlibConst
+Наследуется от: object
+Поля:
+  string version_Renamed_Field
+  int Z_NO_COMPRESSION
+  int Z_BEST_SPEED
+  int Z_BEST_COMPRESSION
+  int Z_DEFAULT_COMPRESSION
+  int Z_FILTERED
+  int Z_HUFFMAN_ONLY
+  int Z_DEFAULT_STRATEGY
+  int Z_NO_FLUSH
+  int Z_PARTIAL_FLUSH
+  int Z_SYNC_FLUSH
+  int Z_FULL_FLUSH
+  int Z_FINISH
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_ERRNO
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_MEM_ERROR
+  int Z_BUF_ERROR
+  int Z_VERSION_ERROR
+Свойства:
+Методы:
+  string version()
+  void .ctor()
+--------------------------------------------------
+Класс: zlib.ZOutputStream
+Наследуется от: Stream
+Поля:
+  ZStream z
+  int bufsize
+  int flush_Renamed_Field
+  Byte[] buf
+  Byte[] buf1
+  bool compress
+  Stream out_Renamed
+Свойства:
+  int FlushMode
+  long TotalIn
+  long TotalOut
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void InitBlock()
+  int get_FlushMode()
+  void set_FlushMode(int value)
+  long get_TotalIn()
+  long get_TotalOut()
+  void .ctor(Stream out_Renamed)
+  void .ctor(Stream out_Renamed, int level)
+  void WriteByte(int b)
+  void WriteByte(byte b)
+  void Write(Byte[] b1, int off, int len)
+  void finish()
+  void end()
+  void Close()
+  void Flush()
+  int Read(Byte[] buffer, int offset, int count)
+  void SetLength(long value)
+  long Seek(long offset, SeekOrigin origin)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+--------------------------------------------------
+Класс: zlib.ZStream
+Наследуется от: object
+Поля:
+  int MAX_WBITS
+  int Z_NO_FLUSH
+  int Z_PARTIAL_FLUSH
+  int Z_SYNC_FLUSH
+  int Z_FULL_FLUSH
+  int Z_FINISH
+  int MAX_MEM_LEVEL
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_ERRNO
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_MEM_ERROR
+  int Z_BUF_ERROR
+  int Z_VERSION_ERROR
+  int DEF_WBITS
+  Byte[] next_in
+  int next_in_index
+  int avail_in
+  long total_in
+  Byte[] next_out
+  int next_out_index
+  int avail_out
+  long total_out
+  string msg
+  Deflate dstate
+  Inflate istate
+  int data_type
+  long adler
+  Adler32 _adler
+Свойства:
+Методы:
+  int inflateInit()
+  int inflateInit(int w)
+  int inflate(int f)
+  int inflateEnd()
+  int inflateSync()
+  int inflateSetDictionary(Byte[] dictionary, int dictLength)
+  int deflateInit(int level)
+  int deflateInit(int level, int bits)
+  int deflate(int flush)
+  int deflateEnd()
+  int deflateParams(int level, int strategy)
+  int deflateSetDictionary(Byte[] dictionary, int dictLength)
+  void flush_pending()
+  int read_buf(Byte[] buf, int start, int size)
+  void free()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: zlib.ZStreamException
+Наследуется от: IOException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string s)
+--------------------------------------------------
+Класс: MySql.Data.MySqlClient.Properties.Resources
+Наследуется от: object
+Поля:
+  ResourceManager resourceMan
+  CultureInfo resourceCulture
+Свойства:
+  ResourceManager ResourceManager
+  CultureInfo Culture
+  string AdapterIsNull
+  string AdapterSelectIsNull
+  string AttemptToAccessBeforeRead
+  string AuthenticationFailed
+  string AuthenticationMethodNotSupported
+  string BadVersionFormat
+  string BufferCannotBeNull
+  string BufferNotLargeEnough
+  string CancelNeeds50
+  string CancelNotSupported
+  string CanNotDeriveParametersForTextCommands
+  string CBMultiTableNotSupported
+  string CBNoKeyColumn
+  string ChaosNotSupported
+  string CommandTextNotInitialized
+  string ConnectionAlreadyOpen
+  string ConnectionBroken
+  string ConnectionMustBeOpen
+  string ConnectionNotOpen
+  string ConnectionNotSet
+  string CouldNotFindColumnName
+  string CountCannotBeNegative
+  string CSNoSetLength
+  string DataNotInSupportedFormat
+  string DataReaderOpen
+  string DefaultEncodingNotFound
+  string DistributedTxnNotSupported
+  string ErrorCreatingSocket
+  string FatalErrorDuringExecute
+  string FatalErrorDuringRead
+  string FatalErrorReadingResult
+  string FileBasedCertificateNotSupported
+  string FromAndLengthTooBig
+  string FromIndexMustBeValid
+  string GetHostEntryFailed
+  string HardProcQuery
+  string ImproperValueFormat
+  string IncorrectTransmission
+  string IndexAndLengthTooBig
+  string IndexMustBeValid
+  string InvalidColumnOrdinal
+  string InvalidConnectionStringValue
+  string InvalidMicrosecondValue
+  string InvalidMillisecondValue
+  string InvalidProcName
+  string InvalidValueForBoolean
+  string KeywordNoNull
+  string KeywordNotSupported
+  string keywords
+  string MixedParameterNamingNotAllowed
+  string MoreThanOneOPRow
+  string MultipleConnectionsInTransactionNotSupported
+  string NamedPipeNoSeek
+  string NamedPipeNoSetLength
+  string NewValueShouldBeMySqlParameter
+  string NextResultIsClosed
+  string NoBodiesAndTypeNotSet
+  string NoNestedTransactions
+  string NoServerSSLSupport
+  string NoUnixSocketsOnWindows
+  string NoWindowsIdentity
+  string ObjectDisposed
+  string OffsetCannotBeNegative
+  string OffsetMustBeValid
+  string OldPasswordsNotSupported
+  string ParameterAlreadyDefined
+  string ParameterCannotBeNegative
+  string ParameterCannotBeNull
+  string ParameterIndexNotFound
+  string ParameterIsInvalid
+  string ParameterMustBeDefined
+  string ParameterNotFoundDuringPrepare
+  string PasswordMustHaveLegalChars
+  string PerfMonCategoryHelp
+  string PerfMonCategoryName
+  string PerfMonHardProcHelp
+  string PerfMonHardProcName
+  string PerfMonSoftProcHelp
+  string PerfMonSoftProcName
+  string ProcAndFuncSameName
+  string QueryTooLarge
+  string ReadFromStreamFailed
+  string ReadingPriorColumnUsingSeqAccess
+  string ReplicatedConnectionsAllowOnlyReadonlyStatements
+  string Replication_ConnectionAttemptFailed
+  string Replication_NoAvailableServer
+  string ReplicationGroupNotFound
+  string ReplicationServerNotFound
+  string RoutineNotFound
+  string RoutineRequiresReturnParameter
+  string ServerTooOld
+  string SnapshotNotSupported
+  string SocketNoSeek
+  string SoftProcQuery
+  string SPNotSupported
+  string StreamAlreadyClosed
+  string StreamNoRead
+  string StreamNoWrite
+  string Timeout
+  string TimeoutGettingConnection
+  string TraceCloseConnection
+  string TraceErrorMoreThanMaxValueConnections
+  string TraceFetchError
+  string TraceOpenConnection
+  string TraceOpenResultError
+  string TraceQueryDone
+  string TraceQueryNormalized
+  string TraceQueryOpened
+  string TraceResult
+  string TraceResultClosed
+  string TraceSetDatabase
+  string TraceStatementClosed
+  string TraceStatementExecuted
+  string TraceStatementPrepared
+  string TraceUAWarningBadIndex
+  string TraceUAWarningFieldConversion
+  string TraceUAWarningNoIndex
+  string TraceUAWarningSkippedColumns
+  string TraceUAWarningSkippedRows
+  string TraceWarning
+  string TypeIsNotCommandInterceptor
+  string TypeIsNotExceptionInterceptor
+  string UnableToConnectToHost
+  string UnableToCreateAuthPlugin
+  string UnableToDeriveParameters
+  string UnableToEnableQueryAnalysis
+  string UnableToEnumerateUDF
+  string UnableToExecuteSP
+  string UnableToParseFK
+  string UnableToRetrieveParameters
+  string UnableToStartSecondAsyncOp
+  string UnixSocketsNotSupported
+  string UnknownAuthenticationMethod
+  string UnknownConnectionProtocol
+  string ValueNotCorrectType
+  string ValueNotSupportedForGuid
+  string WinAuthNotSupportOnPlatform
+  string WriteToStreamFailed
+  string WrongParameterName
+Методы:
+  void .ctor()
+  ResourceManager get_ResourceManager()
+  CultureInfo get_Culture()
+  void set_Culture(CultureInfo value)
+  string get_AdapterIsNull()
+  string get_AdapterSelectIsNull()
+  string get_AttemptToAccessBeforeRead()
+  string get_AuthenticationFailed()
+  string get_AuthenticationMethodNotSupported()
+  string get_BadVersionFormat()
+  string get_BufferCannotBeNull()
+  string get_BufferNotLargeEnough()
+  string get_CancelNeeds50()
+  string get_CancelNotSupported()
+  string get_CanNotDeriveParametersForTextCommands()
+  string get_CBMultiTableNotSupported()
+  string get_CBNoKeyColumn()
+  string get_ChaosNotSupported()
+  string get_CommandTextNotInitialized()
+  string get_ConnectionAlreadyOpen()
+  string get_ConnectionBroken()
+  string get_ConnectionMustBeOpen()
+  string get_ConnectionNotOpen()
+  string get_ConnectionNotSet()
+  string get_CouldNotFindColumnName()
+  string get_CountCannotBeNegative()
+  string get_CSNoSetLength()
+  string get_DataNotInSupportedFormat()
+  string get_DataReaderOpen()
+  string get_DefaultEncodingNotFound()
+  string get_DistributedTxnNotSupported()
+  string get_ErrorCreatingSocket()
+  string get_FatalErrorDuringExecute()
+  string get_FatalErrorDuringRead()
+  string get_FatalErrorReadingResult()
+  string get_FileBasedCertificateNotSupported()
+  string get_FromAndLengthTooBig()
+  string get_FromIndexMustBeValid()
+  string get_GetHostEntryFailed()
+  string get_HardProcQuery()
+  string get_ImproperValueFormat()
+  string get_IncorrectTransmission()
+  string get_IndexAndLengthTooBig()
+  string get_IndexMustBeValid()
+  string get_InvalidColumnOrdinal()
+  string get_InvalidConnectionStringValue()
+  string get_InvalidMicrosecondValue()
+  string get_InvalidMillisecondValue()
+  string get_InvalidProcName()
+  string get_InvalidValueForBoolean()
+  string get_KeywordNoNull()
+  string get_KeywordNotSupported()
+  string get_keywords()
+  string get_MixedParameterNamingNotAllowed()
+  string get_MoreThanOneOPRow()
+  string get_MultipleConnectionsInTransactionNotSupported()
+  string get_NamedPipeNoSeek()
+  string get_NamedPipeNoSetLength()
+  string get_NewValueShouldBeMySqlParameter()
+  string get_NextResultIsClosed()
+  string get_NoBodiesAndTypeNotSet()
+  string get_NoNestedTransactions()
+  string get_NoServerSSLSupport()
+  string get_NoUnixSocketsOnWindows()
+  string get_NoWindowsIdentity()
+  string get_ObjectDisposed()
+  string get_OffsetCannotBeNegative()
+  string get_OffsetMustBeValid()
+  string get_OldPasswordsNotSupported()
+  string get_ParameterAlreadyDefined()
+  string get_ParameterCannotBeNegative()
+  string get_ParameterCannotBeNull()
+  string get_ParameterIndexNotFound()
+  string get_ParameterIsInvalid()
+  string get_ParameterMustBeDefined()
+  string get_ParameterNotFoundDuringPrepare()
+  string get_PasswordMustHaveLegalChars()
+  string get_PerfMonCategoryHelp()
+  string get_PerfMonCategoryName()
+  string get_PerfMonHardProcHelp()
+  string get_PerfMonHardProcName()
+  string get_PerfMonSoftProcHelp()
+  string get_PerfMonSoftProcName()
+  string get_ProcAndFuncSameName()
+  string get_QueryTooLarge()
+  string get_ReadFromStreamFailed()
+  string get_ReadingPriorColumnUsingSeqAccess()
+  string get_ReplicatedConnectionsAllowOnlyReadonlyStatements()
+  string get_Replication_ConnectionAttemptFailed()
+  string get_Replication_NoAvailableServer()
+  string get_ReplicationGroupNotFound()
+  string get_ReplicationServerNotFound()
+  string get_RoutineNotFound()
+  string get_RoutineRequiresReturnParameter()
+  string get_ServerTooOld()
+  string get_SnapshotNotSupported()
+  string get_SocketNoSeek()
+  string get_SoftProcQuery()
+  string get_SPNotSupported()
+  string get_StreamAlreadyClosed()
+  string get_StreamNoRead()
+  string get_StreamNoWrite()
+  string get_Timeout()
+  string get_TimeoutGettingConnection()
+  string get_TraceCloseConnection()
+  string get_TraceErrorMoreThanMaxValueConnections()
+  string get_TraceFetchError()
+  string get_TraceOpenConnection()
+  string get_TraceOpenResultError()
+  string get_TraceQueryDone()
+  string get_TraceQueryNormalized()
+  string get_TraceQueryOpened()
+  string get_TraceResult()
+  string get_TraceResultClosed()
+  string get_TraceSetDatabase()
+  string get_TraceStatementClosed()
+  string get_TraceStatementExecuted()
+  string get_TraceStatementPrepared()
+  string get_TraceUAWarningBadIndex()
+  string get_TraceUAWarningFieldConversion()
+  string get_TraceUAWarningNoIndex()
+  string get_TraceUAWarningSkippedColumns()
+  string get_TraceUAWarningSkippedRows()
+  string get_TraceWarning()
+  string get_TypeIsNotCommandInterceptor()
+  string get_TypeIsNotExceptionInterceptor()
+  string get_UnableToConnectToHost()
+  string get_UnableToCreateAuthPlugin()
+  string get_UnableToDeriveParameters()
+  string get_UnableToEnableQueryAnalysis()
+  string get_UnableToEnumerateUDF()
+  string get_UnableToExecuteSP()
+  string get_UnableToParseFK()
+  string get_UnableToRetrieveParameters()
+  string get_UnableToStartSecondAsyncOp()
+  string get_UnixSocketsNotSupported()
+  string get_UnknownAuthenticationMethod()
+  string get_UnknownConnectionProtocol()
+  string get_ValueNotCorrectType()
+  string get_ValueNotSupportedForGuid()
+  string get_WinAuthNotSupportOnPlatform()
+  string get_WriteToStreamFailed()
+  string get_WrongParameterName()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>{8D7380B3-D3CF-4BD8-BE32-4C584F371B44}
+Наследуется от: object
+Поля:
+  Dictionary`2<string, int> $$method0x60003b4-1
+  Dictionary`2<string, int> $$method0x600045c-1
+  Dictionary`2<string, int> $$method0x60006ba-1
+  Dictionary`2<string, int> $$method0x60006bb-1
+  Dictionary`2<string, int> $$method0x60006bd-1
+  __StaticArrayInitTypeSize=48 $$method0x60006cb-1
+  __StaticArrayInitTypeSize=68 $$method0x60008e7-1
+  __StaticArrayInitTypeSize=76 $$method0x60008e7-2
+  __StaticArrayInitTypeSize=68 $$method0x60008e8-1
+  __StaticArrayInitTypeSize=6144 $$method0x60008ea-1
+  __StaticArrayInitTypeSize=384 $$method0x60008ea-2
+  __StaticArrayInitTypeSize=124 $$method0x60008ea-3
+  __StaticArrayInitTypeSize=124 $$method0x60008ea-4
+  __StaticArrayInitTypeSize=120 $$method0x60008ea-5
+  __StaticArrayInitTypeSize=120 $$method0x60008ea-6
+  __StaticArrayInitTypeSize=1152 $$method0x60007f0-1
+  __StaticArrayInitTypeSize=120 $$method0x60007f0-2
+  __StaticArrayInitTypeSize=116 $$method0x60008eb-1
+  __StaticArrayInitTypeSize=120 $$method0x60008eb-2
+  __StaticArrayInitTypeSize=76 $$method0x60008eb-3
+  __StaticArrayInitTypeSize=19 $$method0x60008eb-4
+  __StaticArrayInitTypeSize=512 $$method0x60008eb-5
+  __StaticArrayInitTypeSize=256 $$method0x60008eb-6
+  __StaticArrayInitTypeSize=116 $$method0x60008eb-7
+  __StaticArrayInitTypeSize=120 $$method0x60008eb-8
+Свойства:
+Методы:
+--------------------------------------------------

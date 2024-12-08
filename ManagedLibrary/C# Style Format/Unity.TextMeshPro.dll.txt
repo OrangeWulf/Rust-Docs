@@ -1,0 +1,2999 @@
+public enum TMPro._HorizontalAlignmentOptions : Enum {
+    public int value__;
+    public static _HorizontalAlignmentOptions Left;
+    public static _HorizontalAlignmentOptions Center;
+    public static _HorizontalAlignmentOptions Right;
+    public static _HorizontalAlignmentOptions Justified;
+    public static _HorizontalAlignmentOptions Flush;
+    public static _HorizontalAlignmentOptions Geometry;
+}
+public enum TMPro._VerticalAlignmentOptions : Enum {
+    public int value__;
+    public static _VerticalAlignmentOptions Top;
+    public static _VerticalAlignmentOptions Middle;
+    public static _VerticalAlignmentOptions Bottom;
+    public static _VerticalAlignmentOptions Baseline;
+    public static _VerticalAlignmentOptions Geometry;
+    public static _VerticalAlignmentOptions Capline;
+}
+public enum TMPro.AtlasPopulationMode : Enum {
+    public int value__;
+    public static AtlasPopulationMode Static;
+    public static AtlasPopulationMode Dynamic;
+}
+public class TMPro.CaretInfo : ValueType {
+    public int index;
+    public CaretPosition position;
+    public CaretInfo(int index, CaretPosition position);
+}
+public enum TMPro.CaretPosition : Enum {
+    public int value__;
+    public static CaretPosition None;
+    public static CaretPosition Left;
+    public static CaretPosition Right;
+}
+public enum TMPro.ColorMode : Enum {
+    public int value__;
+    public static ColorMode Single;
+    public static ColorMode HorizontalGradient;
+    public static ColorMode VerticalGradient;
+    public static ColorMode FourCornersGradient;
+}
+internal class TMPro.ColorTween : ValueType {
+    private ColorTweenCallback m_Target;
+    private Color m_StartColor;
+    private Color m_TargetColor;
+    private ColorTweenMode m_TweenMode;
+    private float m_Duration;
+    private bool m_IgnoreTimeScale;
+    public Color startColor { get; public set; }
+    public Color targetColor { get; public set; }
+    public ColorTweenMode tweenMode { get; public set; }
+    public float duration { get; public set; }
+    public bool ignoreTimeScale { get; public set; }
+    public Color get_startColor();
+    public void set_startColor(Color value);
+    public Color get_targetColor();
+    public void set_targetColor(Color value);
+    public ColorTweenMode get_tweenMode();
+    public void set_tweenMode(ColorTweenMode value);
+    public sealed virtual float get_duration();
+    public void set_duration(float value);
+    public sealed virtual bool get_ignoreTimeScale();
+    public void set_ignoreTimeScale(bool value);
+    public sealed virtual void TweenValue(float floatPercentage);
+    public void AddOnChangedCallback(UnityAction`1<Color> callback);
+    public bool GetIgnoreTimescale();
+    public float GetDuration();
+    public sealed virtual bool ValidTarget();
+}
+public enum TMPro.Compute_DistanceTransform_EventTypes : Enum {
+    public int value__;
+    public static Compute_DistanceTransform_EventTypes Processing;
+    public static Compute_DistanceTransform_EventTypes Completed;
+}
+public class TMPro.Compute_DT_EventArgs : object {
+    public Compute_DistanceTransform_EventTypes EventType;
+    public float ProgressPercentage;
+    public Color[] Colors;
+    public Compute_DT_EventArgs(Compute_DistanceTransform_EventTypes type, float progress);
+    public Compute_DT_EventArgs(Compute_DistanceTransform_EventTypes type, Color[] colors);
+}
+public class TMPro.Extents : ValueType {
+    public Vector2 min;
+    public Vector2 max;
+    public Extents(Vector2 min, Vector2 max);
+    public virtual string ToString();
+}
+public class TMPro.FaceInfo_Legacy : object {
+    public string Name;
+    public float PointSize;
+    public float Scale;
+    public int CharacterCount;
+    public float LineHeight;
+    public float Baseline;
+    public float Ascender;
+    public float CapHeight;
+    public float Descender;
+    public float CenterLine;
+    public float SuperscriptOffset;
+    public float SubscriptOffset;
+    public float SubSize;
+    public float Underline;
+    public float UnderlineThickness;
+    public float strikethrough;
+    public float strikethroughThickness;
+    public float TabWidth;
+    public float Padding;
+    public float AtlasWidth;
+    public float AtlasHeight;
+}
+public class TMPro.FastAction : object {
+    private LinkedList`1<Action> delegates;
+    private Dictionary`2<Action, LinkedListNode`1<Action>> lookup;
+    public void Add(Action rhs);
+    public void Remove(Action rhs);
+    public void Call();
+}
+public class TMPro.FastAction`1 : object {
+    private LinkedList`1<Action`1<A>> delegates;
+    private Dictionary`2<Action`1<A>, LinkedListNode`1<Action`1<A>>> lookup;
+    public void Add(Action`1<A> rhs);
+    public void Remove(Action`1<A> rhs);
+    public void Call(A a);
+}
+public class TMPro.FastAction`2 : object {
+    private LinkedList`1<Action`2<A, B>> delegates;
+    private Dictionary`2<Action`2<A, B>, LinkedListNode`1<Action`2<A, B>>> lookup;
+    public void Add(Action`2<A, B> rhs);
+    public void Remove(Action`2<A, B> rhs);
+    public void Call(A a, B b);
+}
+public class TMPro.FastAction`3 : object {
+    private LinkedList`1<Action`3<A, B, C>> delegates;
+    private Dictionary`2<Action`3<A, B, C>, LinkedListNode`1<Action`3<A, B, C>>> lookup;
+    public void Add(Action`3<A, B, C> rhs);
+    public void Remove(Action`3<A, B, C> rhs);
+    public void Call(A a, B b, C c);
+}
+internal class TMPro.FloatTween : ValueType {
+    private FloatTweenCallback m_Target;
+    private float m_StartValue;
+    private float m_TargetValue;
+    private float m_Duration;
+    private bool m_IgnoreTimeScale;
+    public float startValue { get; public set; }
+    public float targetValue { get; public set; }
+    public float duration { get; public set; }
+    public bool ignoreTimeScale { get; public set; }
+    public float get_startValue();
+    public void set_startValue(float value);
+    public float get_targetValue();
+    public void set_targetValue(float value);
+    public sealed virtual float get_duration();
+    public void set_duration(float value);
+    public sealed virtual bool get_ignoreTimeScale();
+    public void set_ignoreTimeScale(bool value);
+    public sealed virtual void TweenValue(float floatPercentage);
+    public void AddOnChangedCallback(UnityAction`1<float> callback);
+    public bool GetIgnoreTimescale();
+    public float GetDuration();
+    public sealed virtual bool ValidTarget();
+}
+public class TMPro.FontAssetCreationSettings : ValueType {
+    public string sourceFontFileName;
+    public string sourceFontFileGUID;
+    public int pointSizeSamplingMode;
+    public int pointSize;
+    public int padding;
+    public int packingMode;
+    public int atlasWidth;
+    public int atlasHeight;
+    public int characterSetSelectionMode;
+    public string characterSequence;
+    public string referencedFontAssetGUID;
+    public string referencedTextAssetGUID;
+    public int fontStyle;
+    public float fontStyleModifier;
+    public int renderMode;
+    public bool includeFontFeatures;
+    internal FontAssetCreationSettings(string sourceFontFileGUID, int pointSize, int pointSizeSamplingMode, int padding, int packingMode, int atlasWidth, int atlasHeight, int characterSelectionMode, string characterSet, int renderMode);
+}
+public enum TMPro.FontFeatureLookupFlags : Enum {
+    public int value__;
+    public static FontFeatureLookupFlags IgnoreLigatures;
+    public static FontFeatureLookupFlags IgnoreSpacingAdjustments;
+}
+public enum TMPro.FontStyles : Enum {
+    public int value__;
+    public static FontStyles Normal;
+    public static FontStyles Bold;
+    public static FontStyles Italic;
+    public static FontStyles Underline;
+    public static FontStyles LowerCase;
+    public static FontStyles UpperCase;
+    public static FontStyles SmallCaps;
+    public static FontStyles Strikethrough;
+    public static FontStyles Superscript;
+    public static FontStyles Subscript;
+    public static FontStyles Highlight;
+}
+public enum TMPro.FontWeight : Enum {
+    public int value__;
+    public static FontWeight Thin;
+    public static FontWeight ExtraLight;
+    public static FontWeight Light;
+    public static FontWeight Regular;
+    public static FontWeight Medium;
+    public static FontWeight SemiBold;
+    public static FontWeight Bold;
+    public static FontWeight Heavy;
+    public static FontWeight Black;
+}
+public class TMPro.GlyphPairKey : ValueType {
+    public UInt32 firstGlyphIndex;
+    public UInt32 secondGlyphIndex;
+    public long key;
+    public GlyphPairKey(UInt32 firstGlyphIndex, UInt32 secondGlyphIndex);
+    internal GlyphPairKey(TMP_GlyphPairAdjustmentRecord record);
+}
+public class TMPro.GlyphValueRecord_Legacy : ValueType {
+    public float xPlacement;
+    public float yPlacement;
+    public float xAdvance;
+    public float yAdvance;
+    internal GlyphValueRecord_Legacy(GlyphValueRecord valueRecord);
+    public static GlyphValueRecord_Legacy op_Addition(GlyphValueRecord_Legacy a, GlyphValueRecord_Legacy b);
+}
+public interface TMPro.ITextElement {
+    public Material sharedMaterial { get; }
+    public abstract virtual Material get_sharedMaterial();
+    public abstract virtual void Rebuild(CanvasUpdate update);
+    public abstract virtual int GetInstanceID();
+}
+internal interface TMPro.ITweenValue {
+    public bool ignoreTimeScale { get; }
+    public float duration { get; }
+    public abstract virtual void TweenValue(float floatPercentage);
+    public abstract virtual bool get_ignoreTimeScale();
+    public abstract virtual float get_duration();
+    public abstract virtual bool ValidTarget();
+}
+public class TMPro.KerningPair : object {
+    [FormerlySerializedAsAttribute("AscII_Left")]
+[SerializeField]
+private UInt32 m_FirstGlyph;
+    [SerializeField]
+private GlyphValueRecord_Legacy m_FirstGlyphAdjustments;
+    [FormerlySerializedAsAttribute("AscII_Right")]
+[SerializeField]
+private UInt32 m_SecondGlyph;
+    [SerializeField]
+private GlyphValueRecord_Legacy m_SecondGlyphAdjustments;
+    [FormerlySerializedAsAttribute("XadvanceOffset")]
+public float xOffset;
+    internal static KerningPair empty;
+    [SerializeField]
+private bool m_IgnoreSpacingAdjustments;
+    public UInt32 firstGlyph { get; public set; }
+    public GlyphValueRecord_Legacy firstGlyphAdjustments { get; }
+    public UInt32 secondGlyph { get; public set; }
+    public GlyphValueRecord_Legacy secondGlyphAdjustments { get; }
+    public bool ignoreSpacingAdjustments { get; }
+    public KerningPair(UInt32 left, UInt32 right, float offset);
+    public KerningPair(UInt32 firstGlyph, GlyphValueRecord_Legacy firstGlyphAdjustments, UInt32 secondGlyph, GlyphValueRecord_Legacy secondGlyphAdjustments);
+    private static KerningPair();
+    public UInt32 get_firstGlyph();
+    public void set_firstGlyph(UInt32 value);
+    public GlyphValueRecord_Legacy get_firstGlyphAdjustments();
+    public UInt32 get_secondGlyph();
+    public void set_secondGlyph(UInt32 value);
+    public GlyphValueRecord_Legacy get_secondGlyphAdjustments();
+    public bool get_ignoreSpacingAdjustments();
+    internal void ConvertLegacyKerningData();
+}
+public class TMPro.KerningPairKey : ValueType {
+    public UInt32 ascii_Left;
+    public UInt32 ascii_Right;
+    public UInt32 key;
+    public KerningPairKey(UInt32 ascii_left, UInt32 ascii_right);
+}
+public class TMPro.KerningTable : object {
+    public List`1<KerningPair> kerningPairs;
+    public void AddKerningPair();
+    public int AddKerningPair(UInt32 first, UInt32 second, float offset);
+    public int AddGlyphPairAdjustmentRecord(UInt32 first, GlyphValueRecord_Legacy firstAdjustments, UInt32 second, GlyphValueRecord_Legacy secondAdjustments);
+    public void RemoveKerningPair(int left, int right);
+    public void RemoveKerningPair(int index);
+    public void SortKerningPairs();
+}
+public enum TMPro.MaskingOffsetMode : Enum {
+    public int value__;
+    public static MaskingOffsetMode Percentage;
+    public static MaskingOffsetMode Pixel;
+}
+public enum TMPro.MaskingTypes : Enum {
+    public int value__;
+    public static MaskingTypes MaskOff;
+    public static MaskingTypes MaskHard;
+    public static MaskingTypes MaskSoft;
+}
+public class TMPro.MaterialReference : ValueType {
+    public int index;
+    public TMP_FontAsset fontAsset;
+    public Material material;
+    public bool isDefaultMaterial;
+    public bool isFallbackMaterial;
+    public Material fallbackMaterial;
+    public float padding;
+    public int referenceCount;
+    public MaterialReference(int index, TMP_FontAsset fontAsset, Material material, float padding);
+    public static bool Contains(MaterialReference[] materialReferences, TMP_FontAsset fontAsset);
+    public static int AddMaterialReference(Material material, TMP_FontAsset fontAsset, MaterialReference[] materialReferences, Dictionary`2<int, int> materialReferenceIndexLookup);
+    public static int AddMaterialReference(Material material, MaterialReference[] materialReferences, Dictionary`2<int, int> materialReferenceIndexLookup);
+}
+public class TMPro.MaterialReferenceManager : object {
+    private static MaterialReferenceManager s_Instance;
+    private Dictionary`2<int, Material> m_FontMaterialReferenceLookup;
+    private Dictionary`2<int, TMP_FontAsset> m_FontAssetReferenceLookup;
+    private Dictionary`2<int, TMP_ColorGradient> m_ColorGradientReferenceLookup;
+    public static MaterialReferenceManager instance { get; }
+    public static MaterialReferenceManager get_instance();
+    public static void AddFontAsset(TMP_FontAsset fontAsset);
+    private void AddFontAssetInternal(TMP_FontAsset fontAsset);
+    public static void AddFontMaterial(int hashCode, Material material);
+    private void AddFontMaterialInternal(int hashCode, Material material);
+    public static void AddColorGradientPreset(int hashCode, TMP_ColorGradient spriteAsset);
+    private void AddColorGradientPreset_Internal(int hashCode, TMP_ColorGradient spriteAsset);
+    public bool Contains(TMP_FontAsset font);
+    public static bool TryGetFontAsset(int hashCode, TMP_FontAsset& fontAsset);
+    private bool TryGetFontAssetInternal(int hashCode, TMP_FontAsset& fontAsset);
+    public static bool TryGetColorGradientPreset(int hashCode, TMP_ColorGradient& gradientPreset);
+    private bool TryGetColorGradientPresetInternal(int hashCode, TMP_ColorGradient& gradientPreset);
+    public static bool TryGetMaterial(int hashCode, Material& material);
+    private bool TryGetMaterialInternal(int hashCode, Material& material);
+}
+public class TMPro.Mesh_Extents : ValueType {
+    public Vector2 min;
+    public Vector2 max;
+    public Mesh_Extents(Vector2 min, Vector2 max);
+    public virtual string ToString();
+}
+internal enum TMPro.RichTextTag : Enum {
+    public UInt32 value__;
+    public static RichTextTag BOLD;
+    public static RichTextTag SLASH_BOLD;
+    public static RichTextTag ITALIC;
+    public static RichTextTag SLASH_ITALIC;
+    public static RichTextTag UNDERLINE;
+    public static RichTextTag SLASH_UNDERLINE;
+    public static RichTextTag STRIKETHROUGH;
+    public static RichTextTag SLASH_STRIKETHROUGH;
+    public static RichTextTag COLOR;
+    public static RichTextTag SLASH_COLOR;
+    public static RichTextTag SIZE;
+    public static RichTextTag SLASH_SIZE;
+    public static RichTextTag SPRITE;
+    public static RichTextTag BR;
+    public static RichTextTag STYLE;
+    public static RichTextTag SLASH_STYLE;
+    public static RichTextTag FONT;
+    public static RichTextTag SLASH_FONT;
+    public static RichTextTag LINK;
+    public static RichTextTag SLASH_LINK;
+    public static RichTextTag FONT_WEIGHT;
+    public static RichTextTag SLASH_FONT_WEIGHT;
+    public static RichTextTag LIGA;
+    public static RichTextTag SLASH_LIGA;
+    public static RichTextTag FRAC;
+    public static RichTextTag SLASH_FRAC;
+    public static RichTextTag NAME;
+    public static RichTextTag INDEX;
+    public static RichTextTag TINT;
+    public static RichTextTag ANIM;
+    public static RichTextTag MATERIAL;
+    public static RichTextTag RED;
+    public static RichTextTag GREEN;
+    public static RichTextTag BLUE;
+    public static RichTextTag YELLOW;
+    public static RichTextTag ORANGE;
+    public static RichTextTag PLUS;
+    public static RichTextTag MINUS;
+    public static RichTextTag PX;
+    public static RichTextTag PLUS_PX;
+    public static RichTextTag MINUS_PX;
+    public static RichTextTag EM;
+    public static RichTextTag PLUS_EM;
+    public static RichTextTag MINUS_EM;
+    public static RichTextTag PCT;
+    public static RichTextTag PLUS_PCT;
+    public static RichTextTag MINUS_PCT;
+    public static RichTextTag PERCENTAGE;
+    public static RichTextTag PLUS_PERCENTAGE;
+    public static RichTextTag MINUS_PERCENTAGE;
+    public static RichTextTag TRUE;
+    public static RichTextTag FALSE;
+    public static RichTextTag DEFAULT;
+}
+public class TMPro.RichTextTagAttribute : ValueType {
+    public int nameHashCode;
+    public int valueHashCode;
+    public TagValueType valueType;
+    public int valueStartIndex;
+    public int valueLength;
+    public TagUnitType unitType;
+}
+internal static class TMPro.SetPropertyUtility : object {
+    public static bool SetColor(Color& currentValue, Color newValue);
+    public static bool SetEquatableStruct(T& currentValue, T newValue);
+    public static bool SetStruct(T& currentValue, T newValue);
+    public static bool SetClass(T& currentValue, T newValue);
+}
+public static class TMPro.ShaderUtilities : object {
+    public static int ID_MainTex;
+    public static int ID_FaceTex;
+    public static int ID_FaceColor;
+    public static int ID_FaceDilate;
+    public static int ID_Shininess;
+    public static int ID_UnderlayColor;
+    public static int ID_UnderlayOffsetX;
+    public static int ID_UnderlayOffsetY;
+    public static int ID_UnderlayDilate;
+    public static int ID_UnderlaySoftness;
+    public static int ID_WeightNormal;
+    public static int ID_WeightBold;
+    public static int ID_OutlineTex;
+    public static int ID_OutlineWidth;
+    public static int ID_OutlineSoftness;
+    public static int ID_OutlineColor;
+    public static int ID_Padding;
+    public static int ID_GradientScale;
+    public static int ID_ScaleX;
+    public static int ID_ScaleY;
+    public static int ID_PerspectiveFilter;
+    public static int ID_Sharpness;
+    public static int ID_TextureWidth;
+    public static int ID_TextureHeight;
+    public static int ID_BevelAmount;
+    public static int ID_GlowColor;
+    public static int ID_GlowOffset;
+    public static int ID_GlowPower;
+    public static int ID_GlowOuter;
+    public static int ID_LightAngle;
+    public static int ID_EnvMap;
+    public static int ID_EnvMatrix;
+    public static int ID_EnvMatrixRotation;
+    public static int ID_MaskCoord;
+    public static int ID_ClipRect;
+    public static int ID_MaskSoftnessX;
+    public static int ID_MaskSoftnessY;
+    public static int ID_VertexOffsetX;
+    public static int ID_VertexOffsetY;
+    public static int ID_UseClipRect;
+    public static int ID_StencilID;
+    public static int ID_StencilOp;
+    public static int ID_StencilComp;
+    public static int ID_StencilReadMask;
+    public static int ID_StencilWriteMask;
+    public static int ID_ShaderFlags;
+    public static int ID_ScaleRatio_A;
+    public static int ID_ScaleRatio_B;
+    public static int ID_ScaleRatio_C;
+    public static string Keyword_Bevel;
+    public static string Keyword_Glow;
+    public static string Keyword_Underlay;
+    public static string Keyword_Ratios;
+    public static string Keyword_MASK_SOFT;
+    public static string Keyword_MASK_HARD;
+    public static string Keyword_MASK_TEX;
+    public static string Keyword_Outline;
+    public static string ShaderTag_ZTestMode;
+    public static string ShaderTag_CullMode;
+    private static float m_clamp;
+    public static bool isInitialized;
+    private static Shader k_ShaderRef_MobileSDF;
+    private static Shader k_ShaderRef_MobileBitmap;
+    internal static Shader ShaderRef_MobileSDF { get; }
+    internal static Shader ShaderRef_MobileBitmap { get; }
+    private static ShaderUtilities();
+    internal static Shader get_ShaderRef_MobileSDF();
+    internal static Shader get_ShaderRef_MobileBitmap();
+    public static void GetShaderPropertyIDs();
+    public static void UpdateShaderRatios(Material mat);
+    public static Vector4 GetFontExtent(Material material);
+    public static bool IsMaskingEnabled(Material material);
+    public static float GetPadding(Material material, bool enableExtraPadding, bool isBold);
+    public static float GetPadding(Material[] materials, bool enableExtraPadding, bool isBold);
+}
+public class TMPro.TagAttribute : ValueType {
+    public int startIndex;
+    public int length;
+    public int hashCode;
+}
+public enum TMPro.TagUnitType : Enum {
+    public int value__;
+    public static TagUnitType Pixels;
+    public static TagUnitType FontUnits;
+    public static TagUnitType Percentage;
+}
+public enum TMPro.TagValueType : Enum {
+    public int value__;
+    public static TagValueType None;
+    public static TagValueType NumericalValue;
+    public static TagValueType StringValue;
+    public static TagValueType ColorValue;
+}
+public enum TMPro.TextAlignmentOptions : Enum {
+    public int value__;
+    public static TextAlignmentOptions TopLeft;
+    public static TextAlignmentOptions Top;
+    public static TextAlignmentOptions TopRight;
+    public static TextAlignmentOptions TopJustified;
+    public static TextAlignmentOptions TopFlush;
+    public static TextAlignmentOptions TopGeoAligned;
+    public static TextAlignmentOptions Left;
+    public static TextAlignmentOptions Center;
+    public static TextAlignmentOptions Right;
+    public static TextAlignmentOptions Justified;
+    public static TextAlignmentOptions Flush;
+    public static TextAlignmentOptions CenterGeoAligned;
+    public static TextAlignmentOptions BottomLeft;
+    public static TextAlignmentOptions Bottom;
+    public static TextAlignmentOptions BottomRight;
+    public static TextAlignmentOptions BottomJustified;
+    public static TextAlignmentOptions BottomFlush;
+    public static TextAlignmentOptions BottomGeoAligned;
+    public static TextAlignmentOptions BaselineLeft;
+    public static TextAlignmentOptions Baseline;
+    public static TextAlignmentOptions BaselineRight;
+    public static TextAlignmentOptions BaselineJustified;
+    public static TextAlignmentOptions BaselineFlush;
+    public static TextAlignmentOptions BaselineGeoAligned;
+    public static TextAlignmentOptions MidlineLeft;
+    public static TextAlignmentOptions Midline;
+    public static TextAlignmentOptions MidlineRight;
+    public static TextAlignmentOptions MidlineJustified;
+    public static TextAlignmentOptions MidlineFlush;
+    public static TextAlignmentOptions MidlineGeoAligned;
+    public static TextAlignmentOptions CaplineLeft;
+    public static TextAlignmentOptions Capline;
+    public static TextAlignmentOptions CaplineRight;
+    public static TextAlignmentOptions CaplineJustified;
+    public static TextAlignmentOptions CaplineFlush;
+    public static TextAlignmentOptions CaplineGeoAligned;
+}
+[AddComponentMenu("Layout/Text Container")]
+[RequireComponent("UnityEngine.RectTransform")]
+public class TMPro.TextContainer : UIBehaviour {
+    private bool m_hasChanged;
+    [SerializeField]
+private Vector2 m_pivot;
+    [SerializeField]
+private TextContainerAnchors m_anchorPosition;
+    [SerializeField]
+private Rect m_rect;
+    private bool m_isDefaultWidth;
+    private bool m_isDefaultHeight;
+    private bool m_isAutoFitting;
+    private Vector3[] m_corners;
+    private Vector3[] m_worldCorners;
+    [SerializeField]
+private Vector4 m_margins;
+    private RectTransform m_rectTransform;
+    private static Vector2 k_defaultSize;
+    private TextMeshPro m_textMeshPro;
+    public bool hasChanged { get; public set; }
+    public Vector2 pivot { get; public set; }
+    public TextContainerAnchors anchorPosition { get; public set; }
+    public Rect rect { get; public set; }
+    public Vector2 size { get; public set; }
+    public float width { get; public set; }
+    public float height { get; public set; }
+    public bool isDefaultWidth { get; }
+    public bool isDefaultHeight { get; }
+    public bool isAutoFitting { get; public set; }
+    public Vector3[] corners { get; }
+    public Vector3[] worldCorners { get; }
+    public Vector4 margins { get; public set; }
+    public RectTransform rectTransform { get; }
+    public TextMeshPro textMeshPro { get; }
+    private static TextContainer();
+    public bool get_hasChanged();
+    public void set_hasChanged(bool value);
+    public Vector2 get_pivot();
+    public void set_pivot(Vector2 value);
+    public TextContainerAnchors get_anchorPosition();
+    public void set_anchorPosition(TextContainerAnchors value);
+    public Rect get_rect();
+    public void set_rect(Rect value);
+    public Vector2 get_size();
+    public void set_size(Vector2 value);
+    public float get_width();
+    public void set_width(float value);
+    public float get_height();
+    public void set_height(float value);
+    public bool get_isDefaultWidth();
+    public bool get_isDefaultHeight();
+    public bool get_isAutoFitting();
+    public void set_isAutoFitting(bool value);
+    public Vector3[] get_corners();
+    public Vector3[] get_worldCorners();
+    public Vector4 get_margins();
+    public void set_margins(Vector4 value);
+    public RectTransform get_rectTransform();
+    public TextMeshPro get_textMeshPro();
+    protected virtual void Awake();
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    private void OnContainerChanged();
+    protected virtual void OnRectTransformDimensionsChange();
+    private void SetRect(Vector2 size);
+    private void UpdateCorners();
+    private Vector2 GetPivot(TextContainerAnchors anchor);
+    private TextContainerAnchors GetAnchorPosition(Vector2 pivot);
+}
+public enum TMPro.TextContainerAnchors : Enum {
+    public int value__;
+    public static TextContainerAnchors TopLeft;
+    public static TextContainerAnchors Top;
+    public static TextContainerAnchors TopRight;
+    public static TextContainerAnchors Left;
+    public static TextContainerAnchors Middle;
+    public static TextContainerAnchors Right;
+    public static TextContainerAnchors BottomLeft;
+    public static TextContainerAnchors Bottom;
+    public static TextContainerAnchors BottomRight;
+    public static TextContainerAnchors Custom;
+}
+public enum TMPro.TextElementType : Enum {
+    public byte value__;
+    public static TextElementType Character;
+    public static TextElementType Sprite;
+}
+[AddComponentMenu("")]
+[DisallowMultipleComponent]
+[ExecuteAlways]
+[RequireComponent("UnityEngine.MeshRenderer")]
+[RequireComponent("UnityEngine.MeshFilter")]
+public class TMPro.TextMeshPro : TMP_Text {
+    private bool m_currentAutoSizeMode;
+    [SerializeField]
+private bool m_hasFontAssetChanged;
+    private float m_previousLossyScaleY;
+    [SerializeField]
+private Renderer m_renderer;
+    private MeshFilter m_meshFilter;
+    private bool m_isFirstAllocation;
+    private int m_max_characters;
+    private int m_max_numberOfLines;
+    [SerializeField]
+protected TMP_SubMesh[] m_subTextObjects;
+    private bool m_isMaskingEnabled;
+    private bool isMaskUpdateRequired;
+    [SerializeField]
+private MaskingTypes m_maskType;
+    private Matrix4x4 m_EnvMapMatrix;
+    private Vector3[] m_RectTransformCorners;
+    private bool m_isRegisteredForEvents;
+    private int loopCountA;
+    public int sortingLayerID { get; public set; }
+    public int sortingOrder { get; public set; }
+    public bool autoSizeTextContainer { get; public set; }
+    [ObsoleteAttribute("The TextContainer is now obsolete. Use the RectTransform instead.")]
+public TextContainer textContainer { get; }
+    public Transform transform { get; }
+    public Renderer renderer { get; }
+    public Mesh mesh { get; }
+    public MeshFilter meshFilter { get; }
+    public MaskingTypes maskType { get; public set; }
+    public int get_sortingLayerID();
+    public void set_sortingLayerID(int value);
+    public int get_sortingOrder();
+    public void set_sortingOrder(int value);
+    public virtual bool get_autoSizeTextContainer();
+    public virtual void set_autoSizeTextContainer(bool value);
+    public TextContainer get_textContainer();
+    public Transform get_transform();
+    public Renderer get_renderer();
+    public virtual Mesh get_mesh();
+    public MeshFilter get_meshFilter();
+    public MaskingTypes get_maskType();
+    public void set_maskType(MaskingTypes value);
+    public void SetMask(MaskingTypes type, Vector4 maskCoords);
+    public void SetMask(MaskingTypes type, Vector4 maskCoords, float softnessX, float softnessY);
+    public virtual void SetVerticesDirty();
+    public virtual void SetLayoutDirty();
+    public virtual void SetMaterialDirty();
+    public virtual void SetAllDirty();
+    public virtual void Rebuild(CanvasUpdate update);
+    protected virtual void UpdateMaterial();
+    public virtual void UpdateMeshPadding();
+    public virtual void ForceMeshUpdate();
+    public virtual void ForceMeshUpdate(bool ignoreInactive);
+    public virtual TMP_TextInfo GetTextInfo(string text);
+    public virtual void ClearMesh(bool updateMesh);
+    public virtual void UpdateGeometry(Mesh mesh, int index);
+    public virtual void UpdateVertexData(TMP_VertexDataUpdateFlags flags);
+    public virtual void UpdateVertexData();
+    public void UpdateFontAsset();
+    public sealed virtual void CalculateLayoutInputHorizontal();
+    public sealed virtual void CalculateLayoutInputVertical();
+    protected virtual void Awake();
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    protected virtual void OnDestroy();
+    protected virtual void LoadFontAsset();
+    private void UpdateEnvMapMatrix();
+    private void SetMask(MaskingTypes maskType);
+    private void SetMaskCoordinates(Vector4 coords);
+    private void SetMaskCoordinates(Vector4 coords, float softX, float softY);
+    private void EnableMasking();
+    private void DisableMasking();
+    private void UpdateMask();
+    protected virtual Material GetMaterial(Material mat);
+    protected virtual Material[] GetMaterials(Material[] mats);
+    protected virtual void SetSharedMaterial(Material mat);
+    protected virtual Material[] GetSharedMaterials();
+    protected virtual void SetSharedMaterials(Material[] materials);
+    protected virtual void SetOutlineThickness(float thickness);
+    protected virtual void SetFaceColor(Color32 color);
+    protected virtual void SetOutlineColor(Color32 color);
+    private void CreateMaterialInstance();
+    protected virtual void SetShaderDepth();
+    protected virtual void SetCulling();
+    private void SetPerspectiveCorrection();
+    protected virtual float GetPaddingForMaterial(Material mat);
+    protected virtual float GetPaddingForMaterial();
+    protected virtual int SetArraySizes(UnicodeChar[] chars);
+    public virtual void ComputeMarginSize();
+    protected virtual void OnDidApplyAnimationProperties();
+    protected virtual void OnTransformParentChanged();
+    protected virtual void OnRectTransformDimensionsChange();
+    internal virtual void InternalUpdate();
+    private void OnPreRenderObject();
+    protected virtual void GenerateTextMesh();
+    protected virtual Vector3[] GetTextContainerLocalCorners();
+    private void SetMeshFilters(bool state);
+    protected virtual void SetActiveSubMeshes(bool state);
+    protected virtual void ClearSubMeshObjects();
+    protected virtual Bounds GetCompoundBounds();
+    private void UpdateSDFScale(float scaleDelta);
+    protected virtual void AdjustLineOffset(int startIndex, int endIndex, float offset);
+}
+[AddComponentMenu("", "11")]
+[DisallowMultipleComponent]
+[ExecuteAlways]
+[RequireComponent("UnityEngine.RectTransform")]
+[RequireComponent("UnityEngine.CanvasRenderer")]
+public class TMPro.TextMeshProUGUI : TMP_Text {
+    private bool m_isRebuildingLayout;
+    [CompilerGeneratedAttribute]
+private Action`1<TMP_TextInfo> OnPreRenderText;
+    [SerializeField]
+private bool m_hasFontAssetChanged;
+    [SerializeField]
+protected TMP_SubMeshUI[] m_subTextObjects;
+    private float m_previousLossyScaleY;
+    private Vector3[] m_RectTransformCorners;
+    private CanvasRenderer m_canvasRenderer;
+    private Canvas m_canvas;
+    private bool m_isFirstAllocation;
+    private int m_max_characters;
+    private bool m_isMaskingEnabled;
+    [SerializeField]
+private Material m_baseMaterial;
+    private bool m_isScrollRegionSet;
+    private int m_stencilID;
+    [SerializeField]
+private Vector4 m_maskOffset;
+    private Matrix4x4 m_EnvMapMatrix;
+    private bool m_isRegisteredForEvents;
+    private int m_recursiveCountA;
+    private int loopCountA;
+    [CompilerGeneratedAttribute]
+private bool <blockRectTransformChange>k__BackingField;
+    public Material materialForRendering { get; }
+    public bool autoSizeTextContainer { get; public set; }
+    public Mesh mesh { get; }
+    public CanvasRenderer canvasRenderer { get; }
+    public Vector4 maskOffset { get; public set; }
+    public bool blockRectTransformChange { get; public set; }
+    public virtual Material get_materialForRendering();
+    public virtual bool get_autoSizeTextContainer();
+    public virtual void set_autoSizeTextContainer(bool value);
+    public virtual Mesh get_mesh();
+    public CanvasRenderer get_canvasRenderer();
+    public sealed virtual void CalculateLayoutInputHorizontal();
+    public sealed virtual void CalculateLayoutInputVertical();
+    public virtual void SetVerticesDirty();
+    public virtual void SetLayoutDirty();
+    public virtual void SetMaterialDirty();
+    public virtual void SetAllDirty();
+    public virtual void Rebuild(CanvasUpdate update);
+    private void UpdateSubObjectPivot();
+    public virtual Material GetModifiedMaterial(Material baseMaterial);
+    protected virtual void UpdateMaterial();
+    public Vector4 get_maskOffset();
+    public void set_maskOffset(Vector4 value);
+    public virtual void RecalculateClipping();
+    public virtual void RecalculateMasking();
+    public virtual void Cull(Rect clipRect, bool validRect);
+    [CompilerGeneratedAttribute]
+public virtual void add_OnPreRenderText(Action`1<TMP_TextInfo> value);
+    [CompilerGeneratedAttribute]
+public virtual void remove_OnPreRenderText(Action`1<TMP_TextInfo> value);
+    public virtual void UpdateMeshPadding();
+    protected virtual void InternalCrossFadeColor(Color targetColor, float duration, bool ignoreTimeScale, bool useAlpha);
+    protected virtual void InternalCrossFadeAlpha(float alpha, float duration, bool ignoreTimeScale);
+    public virtual void ForceMeshUpdate();
+    public virtual void ForceMeshUpdate(bool ignoreInactive);
+    public virtual TMP_TextInfo GetTextInfo(string text);
+    public virtual void ClearMesh();
+    public virtual void UpdateGeometry(Mesh mesh, int index);
+    public virtual void UpdateVertexData(TMP_VertexDataUpdateFlags flags);
+    public virtual void UpdateVertexData();
+    public void UpdateFontAsset();
+    protected virtual void Awake();
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    protected virtual void OnDestroy();
+    protected virtual void LoadFontAsset();
+    private Canvas GetCanvas();
+    private void EnableMasking();
+    private void DisableMasking();
+    private void UpdateMask();
+    protected virtual Material GetMaterial(Material mat);
+    protected virtual Material[] GetMaterials(Material[] mats);
+    protected virtual void SetSharedMaterial(Material mat);
+    protected virtual Material[] GetSharedMaterials();
+    protected virtual void SetSharedMaterials(Material[] materials);
+    protected virtual void SetOutlineThickness(float thickness);
+    protected virtual void SetFaceColor(Color32 color);
+    protected virtual void SetOutlineColor(Color32 color);
+    protected virtual void SetShaderDepth();
+    protected virtual void SetCulling();
+    private void SetPerspectiveCorrection();
+    protected virtual float GetPaddingForMaterial(Material mat);
+    protected virtual float GetPaddingForMaterial();
+    private void SetMeshArrays(int size);
+    protected virtual int SetArraySizes(UnicodeChar[] chars);
+    public virtual void ComputeMarginSize();
+    protected virtual void OnDidApplyAnimationProperties();
+    protected virtual void OnCanvasHierarchyChanged();
+    protected virtual void OnTransformParentChanged();
+    protected virtual void OnRectTransformDimensionsChange();
+    [CompilerGeneratedAttribute]
+public bool get_blockRectTransformChange();
+    [CompilerGeneratedAttribute]
+public void set_blockRectTransformChange(bool value);
+    internal virtual void InternalUpdate();
+    private void OnPreRenderCanvas();
+    protected virtual void GenerateTextMesh();
+    protected virtual Vector3[] GetTextContainerLocalCorners();
+    protected virtual void SetActiveSubMeshes(bool state);
+    protected virtual Bounds GetCompoundBounds();
+    private void UpdateSDFScale(float scaleDelta);
+    protected virtual void AdjustLineOffset(int startIndex, int endIndex, float offset);
+}
+public enum TMPro.TextOverflowModes : Enum {
+    public int value__;
+    public static TextOverflowModes Overflow;
+    public static TextOverflowModes Ellipsis;
+    public static TextOverflowModes Masking;
+    public static TextOverflowModes Truncate;
+    public static TextOverflowModes ScrollRect;
+    public static TextOverflowModes Page;
+    public static TextOverflowModes Linked;
+}
+public enum TMPro.TextRenderFlags : Enum {
+    public int value__;
+    public static TextRenderFlags DontRender;
+    public static TextRenderFlags Render;
+}
+public enum TMPro.TextureMappingOptions : Enum {
+    public int value__;
+    public static TextureMappingOptions Character;
+    public static TextureMappingOptions Line;
+    public static TextureMappingOptions Paragraph;
+    public static TextureMappingOptions MatchAspect;
+}
+public class TMPro.TMP_Asset : ScriptableObject {
+    public int hashCode;
+    public Material material;
+    public int materialHashCode;
+}
+public class TMPro.TMP_Character : TMP_TextElement {
+    public TMP_Character(UInt32 unicode, Glyph glyph);
+    internal TMP_Character(UInt32 unicode, UInt32 glyphIndex);
+}
+public class TMPro.TMP_CharacterInfo : ValueType {
+    public char character;
+    public int index;
+    public int stringLength;
+    public TMP_TextElementType elementType;
+    public TMP_TextElement textElement;
+    public TMP_FontAsset fontAsset;
+    public Material material;
+    public int materialReferenceIndex;
+    public bool isUsingAlternateTypeface;
+    public float pointSize;
+    public int lineNumber;
+    public int pageNumber;
+    public int vertexIndex;
+    public TMP_Vertex vertex_BL;
+    public TMP_Vertex vertex_TL;
+    public TMP_Vertex vertex_TR;
+    public TMP_Vertex vertex_BR;
+    public Vector3 topLeft;
+    public Vector3 bottomLeft;
+    public Vector3 topRight;
+    public Vector3 bottomRight;
+    public float origin;
+    public float ascender;
+    public float baseLine;
+    public float descender;
+    public float xAdvance;
+    public float aspectRatio;
+    public float scale;
+    public Color32 color;
+    public Color32 underlineColor;
+    public Color32 strikethroughColor;
+    public Color32 highlightColor;
+    public FontStyles style;
+    public bool isVisible;
+}
+public class TMPro.TMP_ColorGradient : ScriptableObject {
+    public ColorMode colorMode;
+    public Color topLeft;
+    public Color topRight;
+    public Color bottomLeft;
+    public Color bottomRight;
+    private static ColorMode k_DefaultColorMode;
+    private static Color k_DefaultColor;
+    public TMP_ColorGradient(Color color);
+    public TMP_ColorGradient(Color color0, Color color1, Color color2, Color color3);
+    private static TMP_ColorGradient();
+}
+public static class TMPro.TMP_DefaultControls : object {
+    private static float kWidth;
+    private static float kThickHeight;
+    private static float kThinHeight;
+    private static Vector2 s_ThickElementSize;
+    private static Vector2 s_ThinElementSize;
+    private static Color s_DefaultSelectableColor;
+    private static Color s_TextColor;
+    private static TMP_DefaultControls();
+    private static GameObject CreateUIElementRoot(string name, Vector2 size);
+    private static GameObject CreateUIObject(string name, GameObject parent);
+    private static void SetDefaultTextValues(TMP_Text lbl);
+    private static void SetDefaultColorTransitionValues(Selectable slider);
+    private static void SetParentAndAlign(GameObject child, GameObject parent);
+    private static void SetLayerRecursively(GameObject go, int layer);
+    public static GameObject CreateScrollbar(Resources resources);
+    public static GameObject CreateButton(Resources resources);
+    public static GameObject CreateText(Resources resources);
+    public static GameObject CreateInputField(Resources resources);
+}
+public class TMPro.TMP_FontAsset : TMP_Asset {
+    [SerializeField]
+private string m_Version;
+    [SerializeField]
+internal string m_SourceFontFileGUID;
+    [SerializeField]
+private Font m_SourceFontFile;
+    [SerializeField]
+private AtlasPopulationMode m_AtlasPopulationMode;
+    [SerializeField]
+private FaceInfo m_FaceInfo;
+    [SerializeField]
+private List`1<Glyph> m_GlyphTable;
+    private Dictionary`2<UInt32, Glyph> m_GlyphLookupDictionary;
+    [SerializeField]
+private List`1<TMP_Character> m_CharacterTable;
+    private Dictionary`2<UInt32, TMP_Character> m_CharacterLookupDictionary;
+    private Texture2D m_AtlasTexture;
+    [SerializeField]
+private Texture2D[] m_AtlasTextures;
+    [SerializeField]
+internal int m_AtlasTextureIndex;
+    [SerializeField]
+private List`1<GlyphRect> m_UsedGlyphRects;
+    [SerializeField]
+private List`1<GlyphRect> m_FreeGlyphRects;
+    [SerializeField]
+private FaceInfo_Legacy m_fontInfo;
+    [SerializeField]
+public Texture2D atlas;
+    [SerializeField]
+private int m_AtlasWidth;
+    [SerializeField]
+private int m_AtlasHeight;
+    [SerializeField]
+private int m_AtlasPadding;
+    [SerializeField]
+private GlyphRenderMode m_AtlasRenderMode;
+    [SerializeField]
+internal List`1<TMP_Glyph> m_glyphInfoList;
+    [FormerlySerializedAsAttribute("m_kerningInfo")]
+[SerializeField]
+internal KerningTable m_KerningTable;
+    [SerializeField]
+private TMP_FontFeatureTable m_FontFeatureTable;
+    [SerializeField]
+private List`1<TMP_FontAsset> fallbackFontAssets;
+    [SerializeField]
+public List`1<TMP_FontAsset> m_FallbackFontAssetTable;
+    [SerializeField]
+internal FontAssetCreationSettings m_CreationSettings;
+    [SerializeField]
+private TMP_FontWeightPair[] m_FontWeightTable;
+    [SerializeField]
+private TMP_FontWeightPair[] fontWeights;
+    public float normalStyle;
+    public float normalSpacingOffset;
+    public float boldStyle;
+    public float boldSpacing;
+    public byte italicStyle;
+    public byte tabSize;
+    private byte m_oldTabSize;
+    internal bool m_IsFontAssetLookupTablesDirty;
+    private List`1<Glyph> m_GlyphsToPack;
+    private List`1<Glyph> m_GlyphsPacked;
+    private List`1<Glyph> m_GlyphsToRender;
+    private List`1<UInt32> m_GlyphIndexList;
+    private List`1<TMP_Character> m_CharactersToAdd;
+    internal static UInt32[] s_GlyphIndexArray;
+    internal static List`1<UInt32> s_MissingCharacterList;
+    public string version { get; internal set; }
+    public Font sourceFontFile { get; internal set; }
+    public AtlasPopulationMode atlasPopulationMode { get; public set; }
+    public FaceInfo faceInfo { get; internal set; }
+    public List`1<Glyph> glyphTable { get; internal set; }
+    public Dictionary`2<UInt32, Glyph> glyphLookupTable { get; }
+    public List`1<TMP_Character> characterTable { get; internal set; }
+    public Dictionary`2<UInt32, TMP_Character> characterLookupTable { get; }
+    public Texture2D atlasTexture { get; }
+    public Texture2D[] atlasTextures { get; public set; }
+    internal List`1<GlyphRect> usedGlyphRects { get; internal set; }
+    internal List`1<GlyphRect> freeGlyphRects { get; internal set; }
+    [ObsoleteAttribute("The fontInfo property and underlying type is now obsolete. Please use the faceInfo property and FaceInfo type instead.")]
+public FaceInfo_Legacy fontInfo { get; }
+    public int atlasWidth { get; internal set; }
+    public int atlasHeight { get; internal set; }
+    public int atlasPadding { get; internal set; }
+    public GlyphRenderMode atlasRenderMode { get; internal set; }
+    public TMP_FontFeatureTable fontFeatureTable { get; internal set; }
+    public List`1<TMP_FontAsset> fallbackFontAssetTable { get; public set; }
+    public FontAssetCreationSettings creationSettings { get; public set; }
+    public TMP_FontWeightPair[] fontWeightTable { get; internal set; }
+    private static TMP_FontAsset();
+    public string get_version();
+    internal void set_version(string value);
+    public Font get_sourceFontFile();
+    internal void set_sourceFontFile(Font value);
+    public AtlasPopulationMode get_atlasPopulationMode();
+    public void set_atlasPopulationMode(AtlasPopulationMode value);
+    public FaceInfo get_faceInfo();
+    internal void set_faceInfo(FaceInfo value);
+    public List`1<Glyph> get_glyphTable();
+    internal void set_glyphTable(List`1<Glyph> value);
+    public Dictionary`2<UInt32, Glyph> get_glyphLookupTable();
+    public List`1<TMP_Character> get_characterTable();
+    internal void set_characterTable(List`1<TMP_Character> value);
+    public Dictionary`2<UInt32, TMP_Character> get_characterLookupTable();
+    public Texture2D get_atlasTexture();
+    public Texture2D[] get_atlasTextures();
+    public void set_atlasTextures(Texture2D[] value);
+    internal List`1<GlyphRect> get_usedGlyphRects();
+    internal void set_usedGlyphRects(List`1<GlyphRect> value);
+    internal List`1<GlyphRect> get_freeGlyphRects();
+    internal void set_freeGlyphRects(List`1<GlyphRect> value);
+    public FaceInfo_Legacy get_fontInfo();
+    public int get_atlasWidth();
+    internal void set_atlasWidth(int value);
+    public int get_atlasHeight();
+    internal void set_atlasHeight(int value);
+    public int get_atlasPadding();
+    internal void set_atlasPadding(int value);
+    public GlyphRenderMode get_atlasRenderMode();
+    internal void set_atlasRenderMode(GlyphRenderMode value);
+    public TMP_FontFeatureTable get_fontFeatureTable();
+    internal void set_fontFeatureTable(TMP_FontFeatureTable value);
+    public List`1<TMP_FontAsset> get_fallbackFontAssetTable();
+    public void set_fallbackFontAssetTable(List`1<TMP_FontAsset> value);
+    public FontAssetCreationSettings get_creationSettings();
+    public void set_creationSettings(FontAssetCreationSettings value);
+    public TMP_FontWeightPair[] get_fontWeightTable();
+    internal void set_fontWeightTable(TMP_FontWeightPair[] value);
+    public static TMP_FontAsset CreateFontAsset(Font font);
+    public static TMP_FontAsset CreateFontAsset(Font font, int samplingPointSize, int atlasPadding, GlyphRenderMode renderMode, int atlasWidth, int atlasHeight, AtlasPopulationMode atlasPopulationMode);
+    private void Awake();
+    internal void InitializeDictionaryLookupTables();
+    public void ReadFontAssetDefinition();
+    internal void SortCharacterTable();
+    internal void SortGlyphTable();
+    internal void SortGlyphAndCharacterTables();
+    public bool HasCharacter(int character);
+    public bool HasCharacter(char character);
+    public bool HasCharacter(char character, bool searchFallbacks);
+    private bool HasCharacter_Internal(char character, bool searchFallbacks);
+    public bool HasCharacters(string text, List`1& missingCharacters);
+    public bool HasCharacters(string text);
+    public static string GetCharacters(TMP_FontAsset fontAsset);
+    public static Int32[] GetCharactersArray(TMP_FontAsset fontAsset);
+    public bool TryAddCharacters(UInt32[] unicodes);
+    public bool TryAddCharacters(UInt32[] unicodes, UInt32[]& missingUnicodes);
+    public bool TryAddCharacters(string characters);
+    public bool TryAddCharacters(string characters, String& missingCharacters);
+    internal bool TryAddCharacter_Internal(UInt32 unicode);
+    internal TMP_Character AddCharacter_Internal(UInt32 unicode, Glyph glyph);
+    internal bool TryAddCharacterInternal(UInt32 unicode, TMP_Character& character);
+    internal UInt32 GetGlyphIndex(UInt32 unicode);
+    internal void UpdateAtlasTexture();
+    internal void UpdateGlyphAdjustmentRecords(UInt32 unicode, UInt32 glyphIndex);
+    public void ClearFontAssetData(bool setAtlasSizeToZero);
+    private void UpgradeFontAsset();
+    private void UpgradeGlyphAdjustmentTableToFontFeatureTable();
+}
+public class TMPro.TMP_FontAssetUtilities : object {
+    private static TMP_FontAssetUtilities s_Instance;
+    private static List`1<int> k_SearchedFontAssets;
+    private static bool k_IsFontEngineInitialized;
+    public static TMP_FontAssetUtilities instance { get; }
+    private static TMP_FontAssetUtilities();
+    public static TMP_FontAssetUtilities get_instance();
+    public static TMP_Character GetCharacterFromFontAsset(UInt32 unicode, TMP_FontAsset sourceFontAsset, bool includeFallbacks, FontStyles fontStyle, FontWeight fontWeight, Boolean& isAlternativeTypeface, TMP_FontAsset& fontAsset);
+    private static TMP_Character GetCharacterFromFontAsset_Internal(UInt32 unicode, TMP_FontAsset sourceFontAsset, bool includeFallbacks, FontStyles fontStyle, FontWeight fontWeight, Boolean& isAlternativeTypeface, TMP_FontAsset& fontAsset);
+    public static TMP_Character GetCharacterFromFontAssets(UInt32 unicode, List`1<TMP_FontAsset> fontAssets, bool includeFallbacks, FontStyles fontStyle, FontWeight fontWeight, Boolean& isAlternativeTypeface, TMP_FontAsset& fontAsset);
+    private static bool TryGetCharacterFromFontFile(UInt32 unicode, TMP_FontAsset fontAsset, TMP_Character& character);
+    public static bool TryGetGlyphFromFontFile(UInt32 glyphIndex, TMP_FontAsset fontAsset, Glyph& glyph);
+}
+public class TMPro.TMP_FontFeatureTable : object {
+    [SerializeField]
+internal List`1<TMP_GlyphPairAdjustmentRecord> m_GlyphPairAdjustmentRecords;
+    internal Dictionary`2<long, TMP_GlyphPairAdjustmentRecord> m_GlyphPairAdjustmentRecordLookupDictionary;
+    internal List`1<TMP_GlyphPairAdjustmentRecord> glyphPairAdjustmentRecords { get; internal set; }
+    internal List`1<TMP_GlyphPairAdjustmentRecord> get_glyphPairAdjustmentRecords();
+    internal void set_glyphPairAdjustmentRecords(List`1<TMP_GlyphPairAdjustmentRecord> value);
+    public void SortGlyphPairAdjustmentRecords();
+}
+public class TMPro.TMP_FontStyleStack : ValueType {
+    public byte bold;
+    public byte italic;
+    public byte underline;
+    public byte strikethrough;
+    public byte highlight;
+    public byte superscript;
+    public byte subscript;
+    public byte uppercase;
+    public byte lowercase;
+    public byte smallcaps;
+    public void Clear();
+    public byte Add(FontStyles style);
+    public byte Remove(FontStyles style);
+}
+public static class TMPro.TMP_FontUtilities : object {
+    private static List`1<int> k_searchedFontAssets;
+    public static TMP_FontAsset SearchForCharacter(TMP_FontAsset font, UInt32 unicode, TMP_Character& character);
+    public static TMP_FontAsset SearchForCharacter(List`1<TMP_FontAsset> fonts, UInt32 unicode, TMP_Character& character);
+    private static TMP_FontAsset SearchForCharacterInternal(TMP_FontAsset font, UInt32 unicode, TMP_Character& character);
+    private static TMP_FontAsset SearchForCharacterInternal(List`1<TMP_FontAsset> fonts, UInt32 unicode, TMP_Character& character);
+}
+public class TMPro.TMP_FontWeightPair : ValueType {
+    public TMP_FontAsset regularTypeface;
+    public TMP_FontAsset italicTypeface;
+}
+public class TMPro.TMP_Glyph : TMP_TextElement_Legacy {
+    public static TMP_Glyph Clone(TMP_Glyph source);
+}
+public class TMPro.TMP_GlyphAdjustmentRecord : ValueType {
+    [SerializeField]
+private UInt32 m_GlyphIndex;
+    [SerializeField]
+private TMP_GlyphValueRecord m_GlyphValueRecord;
+    public UInt32 glyphIndex { get; public set; }
+    public TMP_GlyphValueRecord glyphValueRecord { get; public set; }
+    public TMP_GlyphAdjustmentRecord(UInt32 glyphIndex, TMP_GlyphValueRecord glyphValueRecord);
+    internal TMP_GlyphAdjustmentRecord(GlyphAdjustmentRecord adjustmentRecord);
+    public UInt32 get_glyphIndex();
+    public void set_glyphIndex(UInt32 value);
+    public TMP_GlyphValueRecord get_glyphValueRecord();
+    public void set_glyphValueRecord(TMP_GlyphValueRecord value);
+}
+public class TMPro.TMP_GlyphPairAdjustmentRecord : object {
+    [SerializeField]
+private TMP_GlyphAdjustmentRecord m_FirstAdjustmentRecord;
+    [SerializeField]
+private TMP_GlyphAdjustmentRecord m_SecondAdjustmentRecord;
+    [SerializeField]
+private FontFeatureLookupFlags m_FeatureLookupFlags;
+    public TMP_GlyphAdjustmentRecord firstAdjustmentRecord { get; public set; }
+    public TMP_GlyphAdjustmentRecord secondAdjustmentRecord { get; public set; }
+    public FontFeatureLookupFlags featureLookupFlags { get; public set; }
+    public TMP_GlyphPairAdjustmentRecord(TMP_GlyphAdjustmentRecord firstAdjustmentRecord, TMP_GlyphAdjustmentRecord secondAdjustmentRecord);
+    internal TMP_GlyphPairAdjustmentRecord(GlyphPairAdjustmentRecord glyphPairAdjustmentRecord);
+    public TMP_GlyphAdjustmentRecord get_firstAdjustmentRecord();
+    public void set_firstAdjustmentRecord(TMP_GlyphAdjustmentRecord value);
+    public TMP_GlyphAdjustmentRecord get_secondAdjustmentRecord();
+    public void set_secondAdjustmentRecord(TMP_GlyphAdjustmentRecord value);
+    public FontFeatureLookupFlags get_featureLookupFlags();
+    public void set_featureLookupFlags(FontFeatureLookupFlags value);
+}
+public class TMPro.TMP_GlyphValueRecord : ValueType {
+    [SerializeField]
+private float m_XPlacement;
+    [SerializeField]
+private float m_YPlacement;
+    [SerializeField]
+private float m_XAdvance;
+    [SerializeField]
+private float m_YAdvance;
+    public float xPlacement { get; public set; }
+    public float yPlacement { get; public set; }
+    public float xAdvance { get; public set; }
+    public float yAdvance { get; public set; }
+    public TMP_GlyphValueRecord(float xPlacement, float yPlacement, float xAdvance, float yAdvance);
+    internal TMP_GlyphValueRecord(GlyphValueRecord_Legacy valueRecord);
+    internal TMP_GlyphValueRecord(GlyphValueRecord valueRecord);
+    public float get_xPlacement();
+    public void set_xPlacement(float value);
+    public float get_yPlacement();
+    public void set_yPlacement(float value);
+    public float get_xAdvance();
+    public void set_xAdvance(float value);
+    public float get_yAdvance();
+    public void set_yAdvance(float value);
+    public static TMP_GlyphValueRecord op_Addition(TMP_GlyphValueRecord a, TMP_GlyphValueRecord b);
+}
+[AddComponentMenu("", "11")]
+public class TMPro.TMP_InputField : Selectable {
+    protected TouchScreenKeyboard m_SoftKeyboard;
+    private static Char[] kSeparators;
+    [SerializeField]
+protected RectTransform m_TextViewport;
+    [SerializeField]
+protected TMP_Text m_TextComponent;
+    protected RectTransform m_TextComponentRectTransform;
+    [SerializeField]
+protected Graphic m_Placeholder;
+    [SerializeField]
+protected Scrollbar m_VerticalScrollbar;
+    [SerializeField]
+protected TMP_ScrollbarEventHandler m_VerticalScrollbarEventHandler;
+    private bool m_IsDrivenByLayoutComponents;
+    private float m_ScrollPosition;
+    [SerializeField]
+protected float m_ScrollSensitivity;
+    [SerializeField]
+private ContentType m_ContentType;
+    [SerializeField]
+private InputType m_InputType;
+    [SerializeField]
+private char m_AsteriskChar;
+    [SerializeField]
+private TouchScreenKeyboardType m_KeyboardType;
+    [SerializeField]
+private LineType m_LineType;
+    [SerializeField]
+private bool m_HideMobileInput;
+    [SerializeField]
+private bool m_HideSoftKeyboard;
+    [SerializeField]
+private CharacterValidation m_CharacterValidation;
+    [SerializeField]
+private string m_RegexValue;
+    [SerializeField]
+private float m_GlobalPointSize;
+    [SerializeField]
+private int m_CharacterLimit;
+    [SerializeField]
+private SubmitEvent m_OnEndEdit;
+    [SerializeField]
+private SubmitEvent m_OnSubmit;
+    [SerializeField]
+private SelectionEvent m_OnSelect;
+    [SerializeField]
+private SelectionEvent m_OnDeselect;
+    [SerializeField]
+private TextSelectionEvent m_OnTextSelection;
+    [SerializeField]
+private TextSelectionEvent m_OnEndTextSelection;
+    [SerializeField]
+private OnChangeEvent m_OnValueChanged;
+    [SerializeField]
+private TouchScreenKeyboardEvent m_OnTouchScreenKeyboardStatusChanged;
+    [SerializeField]
+private OnValidateInput m_OnValidateInput;
+    [SerializeField]
+private Color m_CaretColor;
+    [SerializeField]
+private bool m_CustomCaretColor;
+    [SerializeField]
+private Color m_SelectionColor;
+    [SerializeField]
+[TextAreaAttribute("5", "10")]
+protected string m_Text;
+    [RangeAttribute("0", "4")]
+[SerializeField]
+private float m_CaretBlinkRate;
+    [RangeAttribute("1", "5")]
+[SerializeField]
+private int m_CaretWidth;
+    [SerializeField]
+private bool m_ReadOnly;
+    [SerializeField]
+private bool m_RichText;
+    protected int m_StringPosition;
+    protected int m_StringSelectPosition;
+    protected int m_CaretPosition;
+    protected int m_CaretSelectPosition;
+    private RectTransform caretRectTrans;
+    protected UIVertex[] m_CursorVerts;
+    private CanvasRenderer m_CachedInputRenderer;
+    private Vector2 m_LastPosition;
+    protected Mesh m_Mesh;
+    private bool m_AllowInput;
+    private bool m_ShouldActivateNextUpdate;
+    private bool m_UpdateDrag;
+    private bool m_DragPositionOutOfBounds;
+    private static float kHScrollSpeed;
+    private static float kVScrollSpeed;
+    protected bool m_CaretVisible;
+    private Coroutine m_BlinkCoroutine;
+    private float m_BlinkStartTime;
+    private Coroutine m_DragCoroutine;
+    private string m_OriginalText;
+    private bool m_WasCanceled;
+    private bool m_HasDoneFocusTransition;
+    private WaitForSecondsRealtime m_WaitForSecondsRealtime;
+    private bool m_PreventCallback;
+    private bool m_TouchKeyboardAllowsInPlaceEditing;
+    private bool m_IsTextComponentUpdateRequired;
+    private bool m_IsScrollbarUpdateRequired;
+    private bool m_IsUpdatingScrollbarValues;
+    private bool m_isLastKeyBackspace;
+    private float m_PointerDownClickStartTime;
+    private float m_KeyDownStartTime;
+    private float m_DoubleClickDelay;
+    private static string kEmailSpecialCharacters;
+    [SerializeField]
+protected TMP_FontAsset m_GlobalFontAsset;
+    [SerializeField]
+protected bool m_OnFocusSelectAll;
+    protected bool m_isSelectAll;
+    [SerializeField]
+protected bool m_ResetOnDeActivation;
+    private bool m_SelectionStillActive;
+    private bool m_ReleaseSelection;
+    private GameObject m_SelectedObject;
+    [SerializeField]
+private bool m_RestoreOriginalTextOnEscape;
+    [SerializeField]
+protected bool m_isRichTextEditingAllowed;
+    [SerializeField]
+protected int m_LineLimit;
+    [SerializeField]
+protected TMP_InputValidator m_InputValidator;
+    private bool m_isSelected;
+    private bool m_IsStringPositionDirty;
+    private bool m_IsCaretPositionDirty;
+    private bool m_forceRectTransformAdjustment;
+    private Event m_ProcessingEvent;
+    private bool isRunningSubstitution;
+    private BaseInput inputSystem { get; }
+    private string compositionString { get; }
+    protected Mesh mesh { get; }
+    public bool shouldHideMobileInput { get; public set; }
+    public bool shouldHideSoftKeyboard { get; public set; }
+    public string text { get; public set; }
+    public bool isFocused { get; }
+    public float caretBlinkRate { get; public set; }
+    public int caretWidth { get; public set; }
+    public RectTransform textViewport { get; public set; }
+    public TMP_Text textComponent { get; public set; }
+    public Graphic placeholder { get; public set; }
+    public Scrollbar verticalScrollbar { get; public set; }
+    public float scrollSensitivity { get; public set; }
+    public Color caretColor { get; public set; }
+    public bool customCaretColor { get; public set; }
+    public Color selectionColor { get; public set; }
+    public SubmitEvent onEndEdit { get; public set; }
+    public SubmitEvent onSubmit { get; public set; }
+    public SelectionEvent onSelect { get; public set; }
+    public SelectionEvent onDeselect { get; public set; }
+    public TextSelectionEvent onTextSelection { get; public set; }
+    public TextSelectionEvent onEndTextSelection { get; public set; }
+    public OnChangeEvent onValueChanged { get; public set; }
+    public TouchScreenKeyboardEvent onTouchScreenKeyboardStatusChanged { get; public set; }
+    public OnValidateInput onValidateInput { get; public set; }
+    public int characterLimit { get; public set; }
+    public float pointSize { get; public set; }
+    public TMP_FontAsset fontAsset { get; public set; }
+    public bool onFocusSelectAll { get; public set; }
+    public bool resetOnDeActivation { get; public set; }
+    public bool restoreOriginalTextOnEscape { get; public set; }
+    public bool isRichTextEditingAllowed { get; public set; }
+    public ContentType contentType { get; public set; }
+    public LineType lineType { get; public set; }
+    public int lineLimit { get; public set; }
+    public InputType inputType { get; public set; }
+    public TouchScreenKeyboardType keyboardType { get; public set; }
+    public CharacterValidation characterValidation { get; public set; }
+    public TMP_InputValidator inputValidator { get; public set; }
+    public bool readOnly { get; public set; }
+    public bool richText { get; public set; }
+    public bool multiLine { get; }
+    public char asteriskChar { get; public set; }
+    public bool wasCanceled { get; }
+    protected int caretPositionInternal { get; protected set; }
+    protected int stringPositionInternal { get; protected set; }
+    protected int caretSelectPositionInternal { get; protected set; }
+    protected int stringSelectPositionInternal { get; protected set; }
+    private bool hasSelection { get; }
+    public int caretPosition { get; public set; }
+    public int selectionAnchorPosition { get; public set; }
+    public int selectionFocusPosition { get; public set; }
+    public int stringPosition { get; public set; }
+    public int selectionStringAnchorPosition { get; public set; }
+    public int selectionStringFocusPosition { get; public set; }
+    private static string clipboard { get; private set; }
+    public float minWidth { get; }
+    public float preferredWidth { get; }
+    public float flexibleWidth { get; }
+    public float minHeight { get; }
+    public float preferredHeight { get; }
+    public float flexibleHeight { get; }
+    public int layoutPriority { get; }
+    private static TMP_InputField();
+    private BaseInput get_inputSystem();
+    private string get_compositionString();
+    protected Mesh get_mesh();
+    public bool get_shouldHideMobileInput();
+    public void set_shouldHideMobileInput(bool value);
+    public bool get_shouldHideSoftKeyboard();
+    public void set_shouldHideSoftKeyboard(bool value);
+    private bool isKeyboardUsingEvents();
+    public string get_text();
+    public void set_text(string value);
+    public void SetTextWithoutNotify(string input);
+    private void SetText(string value, bool sendCallback);
+    public bool get_isFocused();
+    public float get_caretBlinkRate();
+    public void set_caretBlinkRate(float value);
+    public int get_caretWidth();
+    public void set_caretWidth(int value);
+    public RectTransform get_textViewport();
+    public void set_textViewport(RectTransform value);
+    public TMP_Text get_textComponent();
+    public void set_textComponent(TMP_Text value);
+    public Graphic get_placeholder();
+    public void set_placeholder(Graphic value);
+    public Scrollbar get_verticalScrollbar();
+    public void set_verticalScrollbar(Scrollbar value);
+    public float get_scrollSensitivity();
+    public void set_scrollSensitivity(float value);
+    public Color get_caretColor();
+    public void set_caretColor(Color value);
+    public bool get_customCaretColor();
+    public void set_customCaretColor(bool value);
+    public Color get_selectionColor();
+    public void set_selectionColor(Color value);
+    public SubmitEvent get_onEndEdit();
+    public void set_onEndEdit(SubmitEvent value);
+    public SubmitEvent get_onSubmit();
+    public void set_onSubmit(SubmitEvent value);
+    public SelectionEvent get_onSelect();
+    public void set_onSelect(SelectionEvent value);
+    public SelectionEvent get_onDeselect();
+    public void set_onDeselect(SelectionEvent value);
+    public TextSelectionEvent get_onTextSelection();
+    public void set_onTextSelection(TextSelectionEvent value);
+    public TextSelectionEvent get_onEndTextSelection();
+    public void set_onEndTextSelection(TextSelectionEvent value);
+    public OnChangeEvent get_onValueChanged();
+    public void set_onValueChanged(OnChangeEvent value);
+    public TouchScreenKeyboardEvent get_onTouchScreenKeyboardStatusChanged();
+    public void set_onTouchScreenKeyboardStatusChanged(TouchScreenKeyboardEvent value);
+    public OnValidateInput get_onValidateInput();
+    public void set_onValidateInput(OnValidateInput value);
+    public int get_characterLimit();
+    public void set_characterLimit(int value);
+    public float get_pointSize();
+    public void set_pointSize(float value);
+    public TMP_FontAsset get_fontAsset();
+    public void set_fontAsset(TMP_FontAsset value);
+    public bool get_onFocusSelectAll();
+    public void set_onFocusSelectAll(bool value);
+    public bool get_resetOnDeActivation();
+    public void set_resetOnDeActivation(bool value);
+    public bool get_restoreOriginalTextOnEscape();
+    public void set_restoreOriginalTextOnEscape(bool value);
+    public bool get_isRichTextEditingAllowed();
+    public void set_isRichTextEditingAllowed(bool value);
+    public ContentType get_contentType();
+    public void set_contentType(ContentType value);
+    public LineType get_lineType();
+    public void set_lineType(LineType value);
+    public int get_lineLimit();
+    public void set_lineLimit(int value);
+    public InputType get_inputType();
+    public void set_inputType(InputType value);
+    public TouchScreenKeyboardType get_keyboardType();
+    public void set_keyboardType(TouchScreenKeyboardType value);
+    public CharacterValidation get_characterValidation();
+    public void set_characterValidation(CharacterValidation value);
+    public TMP_InputValidator get_inputValidator();
+    public void set_inputValidator(TMP_InputValidator value);
+    public bool get_readOnly();
+    public void set_readOnly(bool value);
+    public bool get_richText();
+    public void set_richText(bool value);
+    public bool get_multiLine();
+    public char get_asteriskChar();
+    public void set_asteriskChar(char value);
+    public bool get_wasCanceled();
+    protected void ClampStringPos(Int32& pos);
+    protected void ClampCaretPos(Int32& pos);
+    protected int get_caretPositionInternal();
+    protected void set_caretPositionInternal(int value);
+    protected int get_stringPositionInternal();
+    protected void set_stringPositionInternal(int value);
+    protected int get_caretSelectPositionInternal();
+    protected void set_caretSelectPositionInternal(int value);
+    protected int get_stringSelectPositionInternal();
+    protected void set_stringSelectPositionInternal(int value);
+    private bool get_hasSelection();
+    public int get_caretPosition();
+    public void set_caretPosition(int value);
+    public int get_selectionAnchorPosition();
+    public void set_selectionAnchorPosition(int value);
+    public int get_selectionFocusPosition();
+    public void set_selectionFocusPosition(int value);
+    public int get_stringPosition();
+    public void set_stringPosition(int value);
+    public int get_selectionStringAnchorPosition();
+    public void set_selectionStringAnchorPosition(int value);
+    public int get_selectionStringFocusPosition();
+    public void set_selectionStringFocusPosition(int value);
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    private void ON_TEXT_CHANGED(Object obj);
+    [IteratorStateMachineAttribute("TMPro.TMP_InputField/<CaretBlink>d__267")]
+private IEnumerator CaretBlink();
+    private void SetCaretVisible();
+    private void SetCaretActive();
+    protected void OnFocus();
+    protected void SelectAll();
+    public void MoveTextEnd(bool shift);
+    public void MoveTextStart(bool shift);
+    public void MoveToEndOfLine(bool shift, bool ctrl);
+    public void MoveToStartOfLine(bool shift, bool ctrl);
+    private static string get_clipboard();
+    private static void set_clipboard(string value);
+    private bool InPlaceEditing();
+    private void UpdateStringPositionFromKeyboard();
+    protected virtual void LateUpdate();
+    private bool MayDrag(PointerEventData eventData);
+    public virtual void OnBeginDrag(PointerEventData eventData);
+    public virtual void OnDrag(PointerEventData eventData);
+    [IteratorStateMachineAttribute("TMPro.TMP_InputField/<MouseDragOutsideRect>d__285")]
+private IEnumerator MouseDragOutsideRect(PointerEventData eventData);
+    public virtual void OnEndDrag(PointerEventData eventData);
+    public virtual void OnPointerDown(PointerEventData eventData);
+    protected EditState KeyPressed(Event evt);
+    protected virtual bool ShouldAcceptReturn();
+    protected virtual bool IsValidChar(char c);
+    public void ProcessEvent(Event e);
+    public virtual void OnUpdateSelected(BaseEventData eventData);
+    public virtual void OnScroll(PointerEventData eventData);
+    private string GetSelectedString();
+    private int FindNextWordBegin();
+    private void MoveRight(bool shift, bool ctrl);
+    private int FindPrevWordBegin();
+    private void MoveLeft(bool shift, bool ctrl);
+    private int LineUpCharacterPosition(int originalPos, bool goToFirstChar);
+    private int LineDownCharacterPosition(int originalPos, bool goToLastChar);
+    private int PageUpCharacterPosition(int originalPos, bool goToFirstChar);
+    private int PageDownCharacterPosition(int originalPos, bool goToLastChar);
+    private void MoveDown(bool shift);
+    protected virtual void MoveDown(bool shift, bool goToLastChar);
+    private void MoveUp(bool shift);
+    protected virtual void MoveUp(bool shift, bool goToFirstChar);
+    private void MovePageUp(bool shift);
+    private void MovePageUp(bool shift, bool goToFirstChar);
+    private void MovePageDown(bool shift);
+    private void MovePageDown(bool shift, bool goToLastChar);
+    private void Delete();
+    private void DeleteKey();
+    private void Backspace();
+    protected virtual void Append(string input);
+    protected virtual void Append(char input);
+    private void Insert(char c);
+    private void UpdateTouchKeyboardFromEditChanges();
+    private void SendOnValueChangedAndUpdateLabel();
+    private void SendOnValueChanged();
+    protected void SendOnEndEdit();
+    protected void SendOnSubmit();
+    protected void SendOnFocus();
+    protected void SendOnFocusLost();
+    protected void SendOnTextSelection();
+    protected void SendOnEndTextSelection();
+    protected void SendTouchScreenKeyboardStatusChanged();
+    protected void UpdateLabel();
+    protected virtual bool ApplyStringSubstitutions(String& inputString);
+    protected virtual bool OverrideTextSet(string textToDisplay);
+    private void UpdateScrollbar();
+    private void OnScrollbarValueChange(float value);
+    private void AdjustTextPositionRelativeToViewport(float relativePosition);
+    private int GetCaretPositionFromStringIndex(int stringIndex);
+    private int GetMinCaretPositionFromStringIndex(int stringIndex);
+    private int GetMaxCaretPositionFromStringIndex(int stringIndex);
+    private int GetStringIndexFromCaretPosition(int caretPosition);
+    public void ForceLabelUpdate();
+    private void MarkGeometryAsDirty();
+    public virtual void Rebuild(CanvasUpdate update);
+    public virtual void LayoutComplete();
+    public virtual void GraphicUpdateComplete();
+    private void UpdateGeometry();
+    private void AssignPositioningIfNeeded();
+    private void OnFillVBO(Mesh vbo);
+    private void GenerateCaret(VertexHelper vbo, Vector2 roundingOffset);
+    private void CreateCursorVerts();
+    private void GenerateHightlight(VertexHelper vbo, Vector2 roundingOffset);
+    private void AdjustRectTransformRelativeToViewport(Vector2 startPosition, float height, bool isCharVisible);
+    protected char Validate(string text, int pos, char ch);
+    public void ActivateInputField();
+    private void ActivateInputFieldInternal();
+    public virtual void OnSelect(BaseEventData eventData);
+    public virtual void OnPointerClick(PointerEventData eventData);
+    public void OnControlClick();
+    public void ReleaseSelection();
+    public void DeactivateInputField(bool clearSelection);
+    public virtual void OnDeselect(BaseEventData eventData);
+    public virtual void OnSubmit(BaseEventData eventData);
+    private void EnforceContentType();
+    private void SetTextComponentWrapMode();
+    private void SetTextComponentRichTextMode();
+    private void SetToCustomIfContentTypeIsNot(ContentType[] allowedContentTypes);
+    private void SetToCustom();
+    private void SetToCustom(CharacterValidation characterValidation);
+    protected virtual void DoStateTransition(SelectionState state, bool instant);
+    public virtual void CalculateLayoutInputHorizontal();
+    public virtual void CalculateLayoutInputVertical();
+    public virtual float get_minWidth();
+    public virtual float get_preferredWidth();
+    public virtual float get_flexibleWidth();
+    public virtual float get_minHeight();
+    public virtual float get_preferredHeight();
+    public virtual float get_flexibleHeight();
+    public virtual int get_layoutPriority();
+    public void SetGlobalPointSize(float pointSize);
+    public void SetGlobalFontAsset(TMP_FontAsset fontAsset);
+    private sealed virtual override Transform UnityEngine.UI.ICanvasElement.get_transform();
+}
+public abstract class TMPro.TMP_InputValidator : ScriptableObject {
+    public abstract virtual char Validate(String& text, Int32& pos, char ch);
+}
+public class TMPro.TMP_LineInfo : ValueType {
+    internal int controlCharacterCount;
+    public int characterCount;
+    public int visibleCharacterCount;
+    public int spaceCount;
+    public int wordCount;
+    public int firstCharacterIndex;
+    public int firstVisibleCharacterIndex;
+    public int lastCharacterIndex;
+    public int lastVisibleCharacterIndex;
+    public float length;
+    public float lineHeight;
+    public float ascender;
+    public float baseline;
+    public float descender;
+    public float maxAdvance;
+    public float width;
+    public float marginLeft;
+    public float marginRight;
+    public TextAlignmentOptions alignment;
+    public Extents lineExtents;
+}
+public class TMPro.TMP_LinkInfo : ValueType {
+    public TMP_Text textComponent;
+    public int hashCode;
+    public int linkIdFirstCharacterIndex;
+    public int linkIdLength;
+    public int linkTextfirstCharacterIndex;
+    public int linkTextLength;
+    internal Char[] linkID;
+    internal void SetLinkID(Char[] text, int startIndex, int length);
+    public string GetLinkText();
+    public string GetLinkID();
+}
+internal static class TMPro.TMP_ListPool`1 : object {
+    private static TMP_ObjectPool`1<List`1<T>> s_ListPool;
+    private static TMP_ListPool`1();
+    public static List`1<T> Get();
+    public static void Release(List`1<T> toRelease);
+}
+public static class TMPro.TMP_MaterialManager : object {
+    private static List`1<MaskingMaterial> m_materialList;
+    private static Dictionary`2<long, FallbackMaterial> m_fallbackMaterials;
+    private static Dictionary`2<int, long> m_fallbackMaterialLookup;
+    private static List`1<FallbackMaterial> m_fallbackCleanupList;
+    private static bool isFallbackListDirty;
+    private static TMP_MaterialManager();
+    private static void OnPreRender(Camera cam);
+    private static void OnPreRenderCanvas();
+    public static Material GetStencilMaterial(Material baseMaterial, int stencilID);
+    public static void ReleaseStencilMaterial(Material stencilMaterial);
+    public static Material GetBaseMaterial(Material stencilMaterial);
+    public static Material SetStencil(Material material, int stencilID);
+    public static void AddMaskingMaterial(Material baseMaterial, Material stencilMaterial, int stencilID);
+    public static void RemoveStencilMaterial(Material stencilMaterial);
+    public static void ReleaseBaseMaterial(Material baseMaterial);
+    public static void ClearMaterials();
+    public static int GetStencilID(GameObject obj);
+    public static Material GetMaterialForRendering(MaskableGraphic graphic, Material baseMaterial);
+    private static Transform FindRootSortOverrideCanvas(Transform start);
+    public static Material GetFallbackMaterial(Material sourceMaterial, Material targetMaterial);
+    public static void AddFallbackMaterialReference(Material targetMaterial);
+    public static void RemoveFallbackMaterialReference(Material targetMaterial);
+    public static void CleanupFallbackMaterials();
+    public static void ReleaseFallbackMaterial(Material fallackMaterial);
+    public static void CopyMaterialPresetProperties(Material source, Material destination);
+}
+public static class TMPro.TMP_Math : object {
+    public static float FLOAT_MAX;
+    public static float FLOAT_MIN;
+    public static int INT_MAX;
+    public static int INT_MIN;
+    public static float FLOAT_UNSET;
+    public static int INT_UNSET;
+    public static Vector2 MAX_16BIT;
+    public static Vector2 MIN_16BIT;
+    private static TMP_Math();
+    public static bool Approximately(float a, float b);
+}
+public class TMPro.TMP_MeshInfo : ValueType {
+    private static Color32 s_DefaultColor;
+    private static Vector3 s_DefaultNormal;
+    private static Vector4 s_DefaultTangent;
+    private static Bounds s_DefaultBounds;
+    public Mesh mesh;
+    public int vertexCount;
+    public Vector3[] vertices;
+    public Vector3[] normals;
+    public Vector4[] tangents;
+    public Vector2[] uvs0;
+    public Vector2[] uvs2;
+    public Color32[] colors32;
+    public Int32[] triangles;
+    public TMP_MeshInfo(Mesh mesh, int size);
+    public TMP_MeshInfo(Mesh mesh, int size, bool isVolumetric);
+    private static TMP_MeshInfo();
+    public void ResizeMeshInfo(int size);
+    public void ResizeMeshInfo(int size, bool isVolumetric);
+    public void Clear();
+    public void Clear(bool uploadChanges);
+    public void ClearUnusedVertices();
+    public void ClearUnusedVertices(int startIndex);
+    public void ClearUnusedVertices(int startIndex, bool updateMesh);
+    public void SortGeometry(VertexSortingOrder order);
+    public void SortGeometry(IList`1<int> sortingOrder);
+    public void SwapVertexData(int src, int dst);
+}
+internal class TMPro.TMP_ObjectPool`1 : object {
+    private Stack`1<T> m_Stack;
+    private UnityAction`1<T> m_ActionOnGet;
+    private UnityAction`1<T> m_ActionOnRelease;
+    [CompilerGeneratedAttribute]
+private int <countAll>k__BackingField;
+    public int countAll { get; private set; }
+    public int countActive { get; }
+    public int countInactive { get; }
+    public TMP_ObjectPool`1(UnityAction`1<T> actionOnGet, UnityAction`1<T> actionOnRelease);
+    [CompilerGeneratedAttribute]
+public int get_countAll();
+    [CompilerGeneratedAttribute]
+private void set_countAll(int value);
+    public int get_countActive();
+    public int get_countInactive();
+    public T Get();
+    public void Release(T element);
+}
+public class TMPro.TMP_PageInfo : ValueType {
+    public int firstCharacterIndex;
+    public int lastCharacterIndex;
+    public float ascender;
+    public float baseLine;
+    public float descender;
+}
+public class TMPro.TMP_RichTextTagStack`1 : ValueType {
+    public T[] m_ItemStack;
+    public int m_Index;
+    private int m_Capacity;
+    private T m_DefaultItem;
+    private static int k_DefaultCapacity;
+    public TMP_RichTextTagStack`1(T[] tagStack);
+    public TMP_RichTextTagStack`1(int capacity);
+    public void Clear();
+    public void SetDefault(T item);
+    public void Add(T item);
+    public T Remove();
+    public void Push(T item);
+    public T Pop();
+    public T Peek();
+    public T CurrentItem();
+    public T PreviousItem();
+}
+public class TMPro.TMP_ScrollbarEventHandler : MonoBehaviour {
+    public bool isSelected;
+    public sealed virtual void OnPointerClick(PointerEventData eventData);
+    public sealed virtual void OnSelect(BaseEventData eventData);
+    public sealed virtual void OnDeselect(BaseEventData eventData);
+}
+public class TMPro.TMP_SelectionCaret : MaskableGraphic {
+    public virtual void Cull(Rect clipRect, bool validRect);
+}
+public class TMPro.TMP_Settings : ScriptableObject {
+    private static TMP_Settings s_Instance;
+    [SerializeField]
+private bool m_enableWordWrapping;
+    [SerializeField]
+private bool m_enableKerning;
+    [SerializeField]
+private bool m_enableExtraPadding;
+    [SerializeField]
+private bool m_enableTintAllSprites;
+    [SerializeField]
+private bool m_EnableRaycastTarget;
+    [SerializeField]
+private bool m_GetFontFeaturesAtRuntime;
+    [SerializeField]
+private int m_missingGlyphCharacter;
+    [SerializeField]
+private bool m_warningsDisabled;
+    [SerializeField]
+private TMP_FontAsset m_defaultFontAsset;
+    [SerializeField]
+private string m_defaultFontAssetPath;
+    [SerializeField]
+private float m_defaultFontSize;
+    [SerializeField]
+private float m_defaultAutoSizeMinRatio;
+    [SerializeField]
+private float m_defaultAutoSizeMaxRatio;
+    [SerializeField]
+private Vector2 m_defaultTextMeshProTextContainerSize;
+    [SerializeField]
+private Vector2 m_defaultTextMeshProUITextContainerSize;
+    [SerializeField]
+private bool m_autoSizeTextContainer;
+    [SerializeField]
+private List`1<TMP_FontAsset> m_fallbackFontAssets;
+    [SerializeField]
+private bool m_matchMaterialPreset;
+    [SerializeField]
+private string m_defaultColorGradientPresetsPath;
+    [SerializeField]
+private bool m_enableEmojiSupport;
+    [SerializeField]
+private TextAsset m_leadingCharacters;
+    [SerializeField]
+private TextAsset m_followingCharacters;
+    [SerializeField]
+private LineBreakingTable m_linebreakingRules;
+    public static string version { get; }
+    public static bool enableWordWrapping { get; }
+    public static bool enableKerning { get; }
+    public static bool enableExtraPadding { get; }
+    public static bool enableTintAllSprites { get; }
+    public static bool enableRaycastTarget { get; }
+    public static bool getFontFeaturesAtRuntime { get; }
+    public static int missingGlyphCharacter { get; public set; }
+    public static bool warningsDisabled { get; }
+    public static TMP_FontAsset defaultFontAsset { get; }
+    public static string defaultFontAssetPath { get; }
+    public static float defaultFontSize { get; }
+    public static float defaultTextAutoSizingMinRatio { get; }
+    public static float defaultTextAutoSizingMaxRatio { get; }
+    public static Vector2 defaultTextMeshProTextContainerSize { get; }
+    public static Vector2 defaultTextMeshProUITextContainerSize { get; }
+    public static bool autoSizeTextContainer { get; }
+    public static List`1<TMP_FontAsset> fallbackFontAssets { get; }
+    public static bool matchMaterialPreset { get; }
+    public static string defaultColorGradientPresetsPath { get; }
+    public static bool enableEmojiSupport { get; public set; }
+    public static TextAsset leadingCharacters { get; }
+    public static TextAsset followingCharacters { get; }
+    public static LineBreakingTable linebreakingRules { get; }
+    public static TMP_Settings instance { get; }
+    public static string get_version();
+    public static bool get_enableWordWrapping();
+    public static bool get_enableKerning();
+    public static bool get_enableExtraPadding();
+    public static bool get_enableTintAllSprites();
+    public static bool get_enableRaycastTarget();
+    public static bool get_getFontFeaturesAtRuntime();
+    public static int get_missingGlyphCharacter();
+    public static void set_missingGlyphCharacter(int value);
+    public static bool get_warningsDisabled();
+    public static TMP_FontAsset get_defaultFontAsset();
+    public static string get_defaultFontAssetPath();
+    public static float get_defaultFontSize();
+    public static float get_defaultTextAutoSizingMinRatio();
+    public static float get_defaultTextAutoSizingMaxRatio();
+    public static Vector2 get_defaultTextMeshProTextContainerSize();
+    public static Vector2 get_defaultTextMeshProUITextContainerSize();
+    public static bool get_autoSizeTextContainer();
+    public static List`1<TMP_FontAsset> get_fallbackFontAssets();
+    public static bool get_matchMaterialPreset();
+    public static string get_defaultColorGradientPresetsPath();
+    public static bool get_enableEmojiSupport();
+    public static void set_enableEmojiSupport(bool value);
+    public static TextAsset get_leadingCharacters();
+    public static TextAsset get_followingCharacters();
+    public static LineBreakingTable get_linebreakingRules();
+    public static TMP_Settings get_instance();
+    public static TMP_Settings LoadDefaultSettings();
+    public static TMP_Settings GetSettings();
+    public static TMP_FontAsset GetFontAsset();
+    public static void LoadLinebreakingRules();
+    private static Dictionary`2<int, char> GetCharacters(TextAsset file);
+}
+public class TMPro.TMP_SpriteInfo : ValueType {
+    public int spriteIndex;
+    public int characterIndex;
+    public int vertexIndex;
+}
+[ExecuteAlways]
+[RequireComponent("UnityEngine.MeshRenderer")]
+[RequireComponent("UnityEngine.MeshFilter")]
+public class TMPro.TMP_SubMesh : MonoBehaviour {
+    [SerializeField]
+private TMP_FontAsset m_fontAsset;
+    [SerializeField]
+private Material m_material;
+    [SerializeField]
+private Material m_sharedMaterial;
+    private Material m_fallbackMaterial;
+    private Material m_fallbackSourceMaterial;
+    [SerializeField]
+private bool m_isDefaultMaterial;
+    [SerializeField]
+private float m_padding;
+    [SerializeField]
+private Renderer m_renderer;
+    [SerializeField]
+private MeshFilter m_meshFilter;
+    private Mesh m_mesh;
+    [SerializeField]
+private TextMeshPro m_TextComponent;
+    private bool m_isRegisteredForEvents;
+    public TMP_FontAsset fontAsset { get; public set; }
+    public Material material { get; public set; }
+    public Material sharedMaterial { get; public set; }
+    public Material fallbackMaterial { get; public set; }
+    public Material fallbackSourceMaterial { get; public set; }
+    public bool isDefaultMaterial { get; public set; }
+    public float padding { get; public set; }
+    public Renderer renderer { get; }
+    public MeshFilter meshFilter { get; }
+    public Mesh mesh { get; public set; }
+    public TMP_FontAsset get_fontAsset();
+    public void set_fontAsset(TMP_FontAsset value);
+    public Material get_material();
+    public void set_material(Material value);
+    public Material get_sharedMaterial();
+    public void set_sharedMaterial(Material value);
+    public Material get_fallbackMaterial();
+    public void set_fallbackMaterial(Material value);
+    public Material get_fallbackSourceMaterial();
+    public void set_fallbackSourceMaterial(Material value);
+    public bool get_isDefaultMaterial();
+    public void set_isDefaultMaterial(bool value);
+    public float get_padding();
+    public void set_padding(float value);
+    public Renderer get_renderer();
+    public MeshFilter get_meshFilter();
+    public Mesh get_mesh();
+    public void set_mesh(Mesh value);
+    private void OnEnable();
+    private void OnDisable();
+    private void OnDestroy();
+    public static TMP_SubMesh AddSubTextObject(TextMeshPro textComponent, MaterialReference materialReference);
+    public void DestroySelf();
+    private Material GetMaterial(Material mat);
+    private Material CreateMaterialInstance(Material source);
+    private Material GetSharedMaterial();
+    private void SetSharedMaterial(Material mat);
+    public float GetPaddingForMaterial();
+    public void UpdateMeshPadding(bool isExtraPadding, bool isUsingBold);
+    public void SetVerticesDirty();
+    public void SetMaterialDirty();
+    protected void UpdateMaterial();
+}
+[ExecuteAlways]
+public class TMPro.TMP_SubMeshUI : MaskableGraphic {
+    [SerializeField]
+private TMP_FontAsset m_fontAsset;
+    [SerializeField]
+private Material m_material;
+    [SerializeField]
+private Material m_sharedMaterial;
+    private Material m_fallbackMaterial;
+    private Material m_fallbackSourceMaterial;
+    [SerializeField]
+private bool m_isDefaultMaterial;
+    [SerializeField]
+private float m_padding;
+    [SerializeField]
+private CanvasRenderer m_canvasRenderer;
+    private Mesh m_mesh;
+    [SerializeField]
+private TextMeshProUGUI m_TextComponent;
+    private bool m_isRegisteredForEvents;
+    private bool m_materialDirty;
+    [SerializeField]
+private int m_materialReferenceIndex;
+    public TMP_FontAsset fontAsset { get; public set; }
+    public Texture mainTexture { get; }
+    public Material material { get; public set; }
+    public Material sharedMaterial { get; public set; }
+    public Material fallbackMaterial { get; public set; }
+    public Material fallbackSourceMaterial { get; public set; }
+    public Material materialForRendering { get; }
+    public bool isDefaultMaterial { get; public set; }
+    public float padding { get; public set; }
+    public CanvasRenderer canvasRenderer { get; }
+    public Mesh mesh { get; public set; }
+    public TMP_FontAsset get_fontAsset();
+    public void set_fontAsset(TMP_FontAsset value);
+    public virtual Texture get_mainTexture();
+    public virtual Material get_material();
+    public virtual void set_material(Material value);
+    public Material get_sharedMaterial();
+    public void set_sharedMaterial(Material value);
+    public Material get_fallbackMaterial();
+    public void set_fallbackMaterial(Material value);
+    public Material get_fallbackSourceMaterial();
+    public void set_fallbackSourceMaterial(Material value);
+    public virtual Material get_materialForRendering();
+    public bool get_isDefaultMaterial();
+    public void set_isDefaultMaterial(bool value);
+    public float get_padding();
+    public void set_padding(float value);
+    public CanvasRenderer get_canvasRenderer();
+    public Mesh get_mesh();
+    public void set_mesh(Mesh value);
+    public static TMP_SubMeshUI AddSubTextObject(TextMeshProUGUI textComponent, MaterialReference materialReference);
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    protected virtual void OnDestroy();
+    protected virtual void OnTransformParentChanged();
+    public virtual Material GetModifiedMaterial(Material baseMaterial);
+    public float GetPaddingForMaterial();
+    public float GetPaddingForMaterial(Material mat);
+    public void UpdateMeshPadding(bool isExtraPadding, bool isUsingBold);
+    public virtual void SetAllDirty();
+    public virtual void SetVerticesDirty();
+    public virtual void SetLayoutDirty();
+    public virtual void SetMaterialDirty();
+    public void SetPivotDirty();
+    public virtual void Cull(Rect clipRect, bool validRect);
+    protected virtual void UpdateGeometry();
+    public virtual void Rebuild(CanvasUpdate update);
+    public void RefreshMaterial();
+    protected virtual void UpdateMaterial();
+    public virtual void RecalculateClipping();
+    public virtual void RecalculateMasking();
+    private Material GetMaterial();
+    private Material GetMaterial(Material mat);
+    private Material CreateMaterialInstance(Material source);
+    private Material GetSharedMaterial();
+    private void SetSharedMaterial(Material mat);
+}
+public abstract class TMPro.TMP_Text : MaskableGraphic {
+    [SerializeField]
+[TextAreaAttribute("5", "10")]
+protected string m_text;
+    [SerializeField]
+protected bool m_isRightToLeft;
+    [SerializeField]
+protected TMP_FontAsset m_fontAsset;
+    protected TMP_FontAsset m_currentFontAsset;
+    protected bool m_isSDFShader;
+    [SerializeField]
+protected Material m_sharedMaterial;
+    protected Material m_currentMaterial;
+    protected MaterialReference[] m_materialReferences;
+    protected Dictionary`2<int, int> m_materialReferenceIndexLookup;
+    protected TMP_RichTextTagStack`1<MaterialReference> m_materialReferenceStack;
+    protected int m_currentMaterialIndex;
+    [SerializeField]
+protected Material[] m_fontSharedMaterials;
+    [SerializeField]
+protected Material m_fontMaterial;
+    [SerializeField]
+protected Material[] m_fontMaterials;
+    protected bool m_isMaterialDirty;
+    [ColorUsageAttribute("True", "True")]
+[SerializeField]
+protected Color32 m_fontColor32;
+    [ColorUsageAttribute("True", "True")]
+[SerializeField]
+protected Color m_fontColor;
+    protected static Color32 s_colorWhite;
+    protected Color32 m_underlineColor;
+    protected Color32 m_strikethroughColor;
+    protected Color32 m_highlightColor;
+    protected Vector4 m_highlightPadding;
+    [SerializeField]
+protected bool m_enableVertexGradient;
+    [SerializeField]
+protected ColorMode m_colorMode;
+    [SerializeField]
+protected VertexGradient m_fontColorGradient;
+    [SerializeField]
+protected TMP_ColorGradient m_fontColorGradientPreset;
+    [SerializeField]
+protected bool m_overrideHtmlColors;
+    [SerializeField]
+protected Color32 m_faceColor;
+    [SerializeField]
+protected Color32 m_outlineColor;
+    protected float m_outlineWidth;
+    [SerializeField]
+protected float m_fontSize;
+    protected float m_currentFontSize;
+    [SerializeField]
+protected float m_fontSizeBase;
+    protected TMP_RichTextTagStack`1<float> m_sizeStack;
+    [SerializeField]
+protected FontWeight m_fontWeight;
+    protected FontWeight m_FontWeightInternal;
+    protected TMP_RichTextTagStack`1<FontWeight> m_FontWeightStack;
+    [SerializeField]
+protected bool m_enableAutoSizing;
+    protected float m_maxFontSize;
+    protected float m_minFontSize;
+    [SerializeField]
+protected float m_fontSizeMin;
+    [SerializeField]
+protected float m_fontSizeMax;
+    [SerializeField]
+protected FontStyles m_fontStyle;
+    protected FontStyles m_FontStyleInternal;
+    protected TMP_FontStyleStack m_fontStyleStack;
+    protected bool m_isUsingBold;
+    [FormerlySerializedAsAttribute("m_lineJustification")]
+[SerializeField]
+protected TextAlignmentOptions m_textAlignment;
+    protected TextAlignmentOptions m_lineJustification;
+    protected TMP_RichTextTagStack`1<TextAlignmentOptions> m_lineJustificationStack;
+    protected Vector3[] m_textContainerLocalCorners;
+    [SerializeField]
+protected float m_characterSpacing;
+    protected float m_cSpacing;
+    protected float m_monoSpacing;
+    [SerializeField]
+protected float m_wordSpacing;
+    [SerializeField]
+protected float m_lineSpacing;
+    protected float m_lineSpacingDelta;
+    protected float m_lineHeight;
+    [SerializeField]
+protected float m_lineSpacingMax;
+    [SerializeField]
+protected float m_paragraphSpacing;
+    [SerializeField]
+protected float m_charWidthMaxAdj;
+    protected float m_charWidthAdjDelta;
+    [SerializeField]
+protected bool m_enableWordWrapping;
+    protected bool m_isCharacterWrappingEnabled;
+    protected bool m_isNonBreakingSpace;
+    protected bool m_isIgnoringAlignment;
+    [SerializeField]
+protected float m_wordWrappingRatios;
+    [SerializeField]
+protected TextOverflowModes m_overflowMode;
+    [SerializeField]
+protected int m_firstOverflowCharacterIndex;
+    [SerializeField]
+protected TMP_Text m_linkedTextComponent;
+    [SerializeField]
+protected bool m_isLinkedTextComponent;
+    [SerializeField]
+protected bool m_isTextTruncated;
+    [SerializeField]
+protected bool m_enableKerning;
+    [SerializeField]
+protected bool m_enableExtraPadding;
+    [SerializeField]
+protected bool checkPaddingRequired;
+    [SerializeField]
+protected bool m_isRichText;
+    protected bool m_isOverlay;
+    [SerializeField]
+protected bool m_isOrthographic;
+    [SerializeField]
+protected bool m_isCullingEnabled;
+    [SerializeField]
+protected bool m_ignoreRectMaskCulling;
+    [SerializeField]
+protected bool m_ignoreCulling;
+    [SerializeField]
+protected TextureMappingOptions m_horizontalMapping;
+    [SerializeField]
+protected TextureMappingOptions m_verticalMapping;
+    [SerializeField]
+protected float m_uvLineOffset;
+    protected TextRenderFlags m_renderMode;
+    [SerializeField]
+protected VertexSortingOrder m_geometrySortingOrder;
+    [SerializeField]
+protected bool m_VertexBufferAutoSizeReduction;
+    [SerializeField]
+protected int m_firstVisibleCharacter;
+    protected int m_maxVisibleCharacters;
+    protected int m_maxVisibleWords;
+    protected int m_maxVisibleLines;
+    [SerializeField]
+protected bool m_useMaxVisibleDescender;
+    [SerializeField]
+protected int m_pageToDisplay;
+    protected bool m_isNewPage;
+    [SerializeField]
+protected Vector4 m_margin;
+    protected float m_marginLeft;
+    protected float m_marginRight;
+    protected float m_marginWidth;
+    protected float m_marginHeight;
+    protected float m_width;
+    [SerializeField]
+protected TMP_TextInfo m_textInfo;
+    protected bool m_havePropertiesChanged;
+    [SerializeField]
+protected bool m_isUsingLegacyAnimationComponent;
+    protected Transform m_transform;
+    protected RectTransform m_rectTransform;
+    [CompilerGeneratedAttribute]
+private bool <autoSizeTextContainer>k__BackingField;
+    protected bool m_autoSizeTextContainer;
+    protected Mesh m_mesh;
+    [SerializeField]
+protected bool m_isVolumetricText;
+    protected float m_flexibleHeight;
+    protected float m_flexibleWidth;
+    protected float m_minWidth;
+    protected float m_minHeight;
+    protected float m_maxWidth;
+    protected float m_maxHeight;
+    protected LayoutElement m_LayoutElement;
+    protected float m_preferredWidth;
+    protected float m_renderedWidth;
+    protected bool m_isPreferredWidthDirty;
+    protected float m_preferredHeight;
+    protected float m_renderedHeight;
+    protected bool m_isPreferredHeightDirty;
+    protected bool m_isCalculatingPreferredValues;
+    private int m_recursiveCount;
+    [CompilerGeneratedAttribute]
+private Action`1<TMP_TextInfo> OnPreRenderText;
+    protected int m_layoutPriority;
+    protected bool m_isCalculateSizeRequired;
+    protected bool m_isLayoutDirty;
+    protected bool m_verticesAlreadyDirty;
+    protected bool m_layoutAlreadyDirty;
+    protected bool m_isAwake;
+    internal bool m_isWaitingOnResourceLoad;
+    internal bool m_isInputParsingRequired;
+    protected string old_text;
+    protected float m_fontScale;
+    protected float m_fontScaleMultiplier;
+    protected Char[] m_htmlTag;
+    protected RichTextTagAttribute[] m_xmlAttribute;
+    protected Single[] m_attributeParameterValues;
+    protected float tag_LineIndent;
+    protected float tag_Indent;
+    protected TMP_RichTextTagStack`1<float> m_indentStack;
+    protected bool tag_NoParsing;
+    protected bool m_isParsingText;
+    protected Matrix4x4 m_FXMatrix;
+    protected bool m_isFXMatrixSet;
+    protected UnicodeChar[] m_TextParsingBuffer;
+    private TMP_CharacterInfo[] m_internalCharacterInfo;
+    protected int m_totalCharacterCount;
+    protected WordWrapState m_SavedWordWrapState;
+    protected WordWrapState m_SavedLineState;
+    protected int m_characterCount;
+    protected int m_firstCharacterOfLine;
+    protected int m_firstVisibleCharacterOfLine;
+    protected int m_lastCharacterOfLine;
+    protected int m_lastVisibleCharacterOfLine;
+    protected int m_lineNumber;
+    protected int m_lineVisibleCharacterCount;
+    protected int m_pageNumber;
+    protected float m_maxAscender;
+    protected float m_maxCapHeight;
+    protected float m_maxDescender;
+    protected float m_maxLineAscender;
+    protected float m_maxLineDescender;
+    protected float m_startOfLineAscender;
+    protected float m_lineOffset;
+    protected Extents m_meshExtents;
+    protected Color32 m_htmlColor;
+    protected TMP_RichTextTagStack`1<Color32> m_colorStack;
+    protected TMP_RichTextTagStack`1<Color32> m_underlineColorStack;
+    protected TMP_RichTextTagStack`1<Color32> m_strikethroughColorStack;
+    protected TMP_RichTextTagStack`1<Color32> m_highlightColorStack;
+    protected TMP_ColorGradient m_colorGradientPreset;
+    protected TMP_RichTextTagStack`1<TMP_ColorGradient> m_colorGradientStack;
+    protected float m_tabSpacing;
+    protected float m_spacing;
+    protected TMP_RichTextTagStack`1<int> m_styleStack;
+    protected TMP_RichTextTagStack`1<int> m_actionStack;
+    protected float m_padding;
+    protected float m_baselineOffset;
+    protected TMP_RichTextTagStack`1<float> m_baselineOffsetStack;
+    protected float m_xAdvance;
+    protected TMP_TextElementType m_textElementType;
+    protected TMP_TextElement m_cached_TextElement;
+    protected TMP_Character m_cached_Underline_Character;
+    protected TMP_Character m_cached_Ellipsis_Character;
+    protected int m_spriteCount;
+    protected int m_spriteIndex;
+    protected int m_spriteAnimationID;
+    protected bool m_ignoreActiveState;
+    protected static Vector2 k_LargePositiveVector2;
+    protected static Vector2 k_LargeNegativeVector2;
+    protected static float k_LargePositiveFloat;
+    protected static float k_LargeNegativeFloat;
+    protected static int k_LargePositiveInt;
+    protected static int k_LargeNegativeInt;
+    public string text { get; public set; }
+    public bool isRightToLeftText { get; public set; }
+    public TMP_FontAsset font { get; public set; }
+    public Material fontSharedMaterial { get; public set; }
+    public Material[] fontSharedMaterials { get; public set; }
+    public Material fontMaterial { get; public set; }
+    public Material[] fontMaterials { get; public set; }
+    public Color color { get; public set; }
+    public float alpha { get; public set; }
+    public bool enableVertexGradient { get; public set; }
+    public VertexGradient colorGradient { get; public set; }
+    public TMP_ColorGradient colorGradientPreset { get; public set; }
+    public bool overrideColorTags { get; public set; }
+    public Color32 faceColor { get; public set; }
+    public Color32 outlineColor { get; public set; }
+    public float outlineWidth { get; public set; }
+    public float fontSize { get; public set; }
+    public float fontScale { get; }
+    public FontWeight fontWeight { get; public set; }
+    public float pixelsPerUnit { get; }
+    public bool enableAutoSizing { get; public set; }
+    public float fontSizeMin { get; public set; }
+    public float fontSizeMax { get; public set; }
+    public FontStyles fontStyle { get; public set; }
+    public bool isUsingBold { get; }
+    public TextAlignmentOptions alignment { get; public set; }
+    public float characterSpacing { get; public set; }
+    public float wordSpacing { get; public set; }
+    public float lineSpacing { get; public set; }
+    public float lineSpacingAdjustment { get; public set; }
+    public float paragraphSpacing { get; public set; }
+    public float characterWidthAdjustment { get; public set; }
+    public bool enableWordWrapping { get; public set; }
+    public float wordWrappingRatios { get; public set; }
+    public TextOverflowModes overflowMode { get; public set; }
+    public bool isTextOverflowing { get; }
+    public int firstOverflowCharacterIndex { get; }
+    public TMP_Text linkedTextComponent { get; public set; }
+    public bool isLinkedTextComponent { get; public set; }
+    public bool isTextTruncated { get; }
+    public bool enableKerning { get; public set; }
+    public bool extraPadding { get; public set; }
+    public bool richText { get; public set; }
+    public bool isOverlay { get; public set; }
+    public bool isOrthographic { get; public set; }
+    public bool enableCulling { get; public set; }
+    public bool ignoreRectMaskCulling { get; public set; }
+    public bool ignoreVisibility { get; public set; }
+    public TextureMappingOptions horizontalMapping { get; public set; }
+    public TextureMappingOptions verticalMapping { get; public set; }
+    public float mappingUvLineOffset { get; public set; }
+    public TextRenderFlags renderMode { get; public set; }
+    public VertexSortingOrder geometrySortingOrder { get; public set; }
+    public bool vertexBufferAutoSizeReduction { get; public set; }
+    public int firstVisibleCharacter { get; public set; }
+    public int maxVisibleCharacters { get; public set; }
+    public int maxVisibleWords { get; public set; }
+    public int maxVisibleLines { get; public set; }
+    public bool useMaxVisibleDescender { get; public set; }
+    public int pageToDisplay { get; public set; }
+    public Vector4 margin { get; public set; }
+    public TMP_TextInfo textInfo { get; }
+    public bool havePropertiesChanged { get; public set; }
+    public bool isUsingLegacyAnimationComponent { get; public set; }
+    public Transform transform { get; }
+    public RectTransform rectTransform { get; }
+    public bool autoSizeTextContainer { get; public set; }
+    public Mesh mesh { get; }
+    public bool isVolumetricText { get; public set; }
+    public Bounds bounds { get; }
+    public Bounds textBounds { get; }
+    public float flexibleHeight { get; }
+    public float flexibleWidth { get; }
+    public float minWidth { get; }
+    public float minHeight { get; }
+    public float maxWidth { get; }
+    public float maxHeight { get; }
+    protected LayoutElement layoutElement { get; }
+    public float preferredWidth { get; }
+    public float preferredHeight { get; }
+    public float renderedWidth { get; }
+    public float renderedHeight { get; }
+    public int layoutPriority { get; }
+    private static TMP_Text();
+    public string get_text();
+    public void set_text(string value);
+    public bool get_isRightToLeftText();
+    public void set_isRightToLeftText(bool value);
+    public TMP_FontAsset get_font();
+    public void set_font(TMP_FontAsset value);
+    public virtual Material get_fontSharedMaterial();
+    public virtual void set_fontSharedMaterial(Material value);
+    public virtual Material[] get_fontSharedMaterials();
+    public virtual void set_fontSharedMaterials(Material[] value);
+    public Material get_fontMaterial();
+    public void set_fontMaterial(Material value);
+    public virtual Material[] get_fontMaterials();
+    public virtual void set_fontMaterials(Material[] value);
+    public virtual Color get_color();
+    public virtual void set_color(Color value);
+    public float get_alpha();
+    public void set_alpha(float value);
+    public bool get_enableVertexGradient();
+    public void set_enableVertexGradient(bool value);
+    public VertexGradient get_colorGradient();
+    public void set_colorGradient(VertexGradient value);
+    public TMP_ColorGradient get_colorGradientPreset();
+    public void set_colorGradientPreset(TMP_ColorGradient value);
+    public bool get_overrideColorTags();
+    public void set_overrideColorTags(bool value);
+    public Color32 get_faceColor();
+    public void set_faceColor(Color32 value);
+    public Color32 get_outlineColor();
+    public void set_outlineColor(Color32 value);
+    public float get_outlineWidth();
+    public void set_outlineWidth(float value);
+    public float get_fontSize();
+    public void set_fontSize(float value);
+    public float get_fontScale();
+    public FontWeight get_fontWeight();
+    public void set_fontWeight(FontWeight value);
+    public float get_pixelsPerUnit();
+    public bool get_enableAutoSizing();
+    public void set_enableAutoSizing(bool value);
+    public float get_fontSizeMin();
+    public void set_fontSizeMin(float value);
+    public float get_fontSizeMax();
+    public void set_fontSizeMax(float value);
+    public FontStyles get_fontStyle();
+    public void set_fontStyle(FontStyles value);
+    public bool get_isUsingBold();
+    public TextAlignmentOptions get_alignment();
+    public void set_alignment(TextAlignmentOptions value);
+    public float get_characterSpacing();
+    public void set_characterSpacing(float value);
+    public float get_wordSpacing();
+    public void set_wordSpacing(float value);
+    public float get_lineSpacing();
+    public void set_lineSpacing(float value);
+    public float get_lineSpacingAdjustment();
+    public void set_lineSpacingAdjustment(float value);
+    public float get_paragraphSpacing();
+    public void set_paragraphSpacing(float value);
+    public float get_characterWidthAdjustment();
+    public void set_characterWidthAdjustment(float value);
+    public bool get_enableWordWrapping();
+    public void set_enableWordWrapping(bool value);
+    public float get_wordWrappingRatios();
+    public void set_wordWrappingRatios(float value);
+    public TextOverflowModes get_overflowMode();
+    public void set_overflowMode(TextOverflowModes value);
+    public bool get_isTextOverflowing();
+    public int get_firstOverflowCharacterIndex();
+    public TMP_Text get_linkedTextComponent();
+    public void set_linkedTextComponent(TMP_Text value);
+    public bool get_isLinkedTextComponent();
+    public void set_isLinkedTextComponent(bool value);
+    public bool get_isTextTruncated();
+    public bool get_enableKerning();
+    public void set_enableKerning(bool value);
+    public bool get_extraPadding();
+    public void set_extraPadding(bool value);
+    public bool get_richText();
+    public void set_richText(bool value);
+    public bool get_isOverlay();
+    public void set_isOverlay(bool value);
+    public bool get_isOrthographic();
+    public void set_isOrthographic(bool value);
+    public bool get_enableCulling();
+    public void set_enableCulling(bool value);
+    public bool get_ignoreRectMaskCulling();
+    public void set_ignoreRectMaskCulling(bool value);
+    public bool get_ignoreVisibility();
+    public void set_ignoreVisibility(bool value);
+    public TextureMappingOptions get_horizontalMapping();
+    public void set_horizontalMapping(TextureMappingOptions value);
+    public TextureMappingOptions get_verticalMapping();
+    public void set_verticalMapping(TextureMappingOptions value);
+    public float get_mappingUvLineOffset();
+    public void set_mappingUvLineOffset(float value);
+    public TextRenderFlags get_renderMode();
+    public void set_renderMode(TextRenderFlags value);
+    public VertexSortingOrder get_geometrySortingOrder();
+    public void set_geometrySortingOrder(VertexSortingOrder value);
+    public bool get_vertexBufferAutoSizeReduction();
+    public void set_vertexBufferAutoSizeReduction(bool value);
+    public int get_firstVisibleCharacter();
+    public void set_firstVisibleCharacter(int value);
+    public int get_maxVisibleCharacters();
+    public void set_maxVisibleCharacters(int value);
+    public int get_maxVisibleWords();
+    public void set_maxVisibleWords(int value);
+    public int get_maxVisibleLines();
+    public void set_maxVisibleLines(int value);
+    public bool get_useMaxVisibleDescender();
+    public void set_useMaxVisibleDescender(bool value);
+    public int get_pageToDisplay();
+    public void set_pageToDisplay(int value);
+    public virtual Vector4 get_margin();
+    public virtual void set_margin(Vector4 value);
+    public TMP_TextInfo get_textInfo();
+    public bool get_havePropertiesChanged();
+    public void set_havePropertiesChanged(bool value);
+    public bool get_isUsingLegacyAnimationComponent();
+    public void set_isUsingLegacyAnimationComponent(bool value);
+    public Transform get_transform();
+    public RectTransform get_rectTransform();
+    [CompilerGeneratedAttribute]
+public virtual bool get_autoSizeTextContainer();
+    [CompilerGeneratedAttribute]
+public virtual void set_autoSizeTextContainer(bool value);
+    public virtual Mesh get_mesh();
+    public bool get_isVolumetricText();
+    public void set_isVolumetricText(bool value);
+    public Bounds get_bounds();
+    public Bounds get_textBounds();
+    public sealed virtual float get_flexibleHeight();
+    public sealed virtual float get_flexibleWidth();
+    public sealed virtual float get_minWidth();
+    public sealed virtual float get_minHeight();
+    public float get_maxWidth();
+    public float get_maxHeight();
+    protected LayoutElement get_layoutElement();
+    public virtual float get_preferredWidth();
+    public virtual float get_preferredHeight();
+    public virtual float get_renderedWidth();
+    public virtual float get_renderedHeight();
+    [CompilerGeneratedAttribute]
+public virtual void add_OnPreRenderText(Action`1<TMP_TextInfo> value);
+    [CompilerGeneratedAttribute]
+public virtual void remove_OnPreRenderText(Action`1<TMP_TextInfo> value);
+    public sealed virtual int get_layoutPriority();
+    protected virtual void LoadFontAsset();
+    protected virtual void SetSharedMaterial(Material mat);
+    protected virtual Material GetMaterial(Material mat);
+    protected virtual void SetFontBaseMaterial(Material mat);
+    protected virtual Material[] GetSharedMaterials();
+    protected virtual void SetSharedMaterials(Material[] materials);
+    protected virtual Material[] GetMaterials(Material[] mats);
+    protected virtual Material CreateMaterialInstance(Material source);
+    protected void SetVertexColorGradient(TMP_ColorGradient gradient);
+    protected void SetTextSortingOrder(VertexSortingOrder order);
+    protected void SetTextSortingOrder(Int32[] order);
+    protected virtual void SetFaceColor(Color32 color);
+    protected virtual void SetOutlineColor(Color32 color);
+    protected virtual void SetOutlineThickness(float thickness);
+    protected virtual void SetShaderDepth();
+    protected virtual void SetCulling();
+    protected virtual float GetPaddingForMaterial();
+    protected virtual float GetPaddingForMaterial(Material mat);
+    protected virtual Vector3[] GetTextContainerLocalCorners();
+    public virtual void ForceMeshUpdate();
+    public virtual void ForceMeshUpdate(bool ignoreActiveState);
+    internal void SetTextInternal(string text);
+    public virtual void UpdateGeometry(Mesh mesh, int index);
+    public virtual void UpdateVertexData(TMP_VertexDataUpdateFlags flags);
+    public virtual void UpdateVertexData();
+    public virtual void SetVertices(Vector3[] vertices);
+    public virtual void UpdateMeshPadding();
+    public virtual void CrossFadeColor(Color targetColor, float duration, bool ignoreTimeScale, bool useAlpha);
+    public virtual void CrossFadeAlpha(float alpha, float duration, bool ignoreTimeScale);
+    protected virtual void InternalCrossFadeColor(Color targetColor, float duration, bool ignoreTimeScale, bool useAlpha);
+    protected virtual void InternalCrossFadeAlpha(float alpha, float duration, bool ignoreTimeScale);
+    protected void ParseInputText();
+    protected void StringToCharArray(string sourceText, UnicodeChar[]& charBuffer);
+    protected void StringBuilderToIntArray(StringBuilder sourceText, UnicodeChar[]& charBuffer);
+    private bool IsTagName(String& text, string tag, int index);
+    private bool IsTagName(Char[]& text, string tag, int index);
+    private bool IsTagName(Int32[]& text, string tag, int index);
+    private bool IsTagName(StringBuilder& text, string tag, int index);
+    private int GetTagHashCode(String& text, int index, Int32& closeIndex);
+    private int GetTagHashCode(Char[]& text, int index, Int32& closeIndex);
+    private int GetTagHashCode(Int32[]& text, int index, Int32& closeIndex);
+    private int GetTagHashCode(StringBuilder& text, int index, Int32& closeIndex);
+    private void ResizeInternalArray(T[]& array);
+    protected virtual int SetArraySizes(UnicodeChar[] chars);
+    protected virtual void GenerateTextMesh();
+    public Vector2 GetPreferredValues();
+    public Vector2 GetPreferredValues(float width, float height);
+    public Vector2 GetPreferredValues(string text);
+    public Vector2 GetPreferredValues(string text, float width, float height);
+    protected float GetPreferredWidth();
+    protected float GetPreferredWidth(Vector2 margin);
+    protected float GetPreferredHeight();
+    protected float GetPreferredHeight(Vector2 margin);
+    public Vector2 GetRenderedValues();
+    public Vector2 GetRenderedValues(bool onlyVisibleCharacters);
+    protected float GetRenderedWidth();
+    protected float GetRenderedWidth(bool onlyVisibleCharacters);
+    protected float GetRenderedHeight();
+    protected float GetRenderedHeight(bool onlyVisibleCharacters);
+    protected virtual Vector2 CalculatePreferredValues(float defaultFontSize, Vector2 marginSize, bool ignoreTextAutoSizing);
+    protected virtual Bounds GetCompoundBounds();
+    protected Bounds GetTextBounds();
+    protected Bounds GetTextBounds(bool onlyVisibleCharacters);
+    protected virtual void AdjustLineOffset(int startIndex, int endIndex, float offset);
+    protected void ResizeLineExtents(int size);
+    public virtual TMP_TextInfo GetTextInfo(string text);
+    public virtual void ComputeMarginSize();
+    protected void SaveWordWrappingState(WordWrapState& state, int index, int count);
+    protected int RestoreWordWrappingState(WordWrapState& state);
+    protected virtual void SaveGlyphVertexInfo(float padding, float style_padding, Color32 vertexColor);
+    protected virtual void FillCharacterVertexBuffers(int i, int index_X4);
+    protected virtual void FillCharacterVertexBuffers(int i, int index_X4, bool isVolumetric);
+    protected virtual void DrawUnderlineMesh(Vector3 start, Vector3 end, Int32& index, float startScale, float endScale, float maxScale, float sdfScale, Color32 underlineColor);
+    protected virtual void DrawTextHighlight(Vector3 start, Vector3 end, Int32& index, Color32 highlightColor);
+    protected void LoadDefaultSettings();
+    protected void GetSpecialCharacters(TMP_FontAsset fontAsset);
+    protected void ReplaceTagWithCharacter(Int32[] chars, int insertionIndex, int tagLength, char c);
+    protected TMP_FontAsset GetFontAssetForWeight(int fontWeight);
+    protected virtual void SetActiveSubMeshes(bool state);
+    protected virtual void ClearSubMeshObjects();
+    public virtual void ClearMesh();
+    public virtual void ClearMesh(bool uploadGeometry);
+    public virtual string GetParsedText();
+    protected Vector2 PackUV(float x, float y, float scale);
+    protected float PackUV(float x, float y);
+    internal virtual void InternalUpdate();
+    protected int HexToInt(char hex);
+    protected int GetUTF16(string text, int i);
+    protected int GetUTF16(StringBuilder text, int i);
+    protected int GetUTF32(string text, int i);
+    protected int GetUTF32(StringBuilder text, int i);
+    protected Color32 HexCharsToColor(Char[] hexChars, int tagCount);
+    protected Color32 HexCharsToColor(Char[] hexChars, int startIndex, int length);
+    private int GetAttributeParameters(Char[] chars, int startIndex, int length, Single[]& parameters);
+    protected float ConvertToFloat(Char[] chars, int startIndex, int length);
+    protected float ConvertToFloat(Char[] chars, int startIndex, int length, Int32& lastIndex);
+    protected bool ValidateHtmlTag(UnicodeChar[] chars, int startIndex, Int32& endIndex);
+}
+public class TMPro.TMP_TextElement : object {
+    [SerializeField]
+protected TextElementType m_ElementType;
+    [SerializeField]
+private UInt32 m_Unicode;
+    private Glyph m_Glyph;
+    [SerializeField]
+private UInt32 m_GlyphIndex;
+    [SerializeField]
+private float m_Scale;
+    public TextElementType elementType { get; }
+    public UInt32 unicode { get; public set; }
+    public Glyph glyph { get; public set; }
+    public UInt32 glyphIndex { get; public set; }
+    public float scale { get; public set; }
+    public TextElementType get_elementType();
+    public UInt32 get_unicode();
+    public void set_unicode(UInt32 value);
+    public Glyph get_glyph();
+    public void set_glyph(Glyph value);
+    public UInt32 get_glyphIndex();
+    public void set_glyphIndex(UInt32 value);
+    public float get_scale();
+    public void set_scale(float value);
+}
+public class TMPro.TMP_TextElement_Legacy : object {
+    public int id;
+    public float x;
+    public float y;
+    public float width;
+    public float height;
+    public float xOffset;
+    public float yOffset;
+    public float xAdvance;
+    public float scale;
+}
+public enum TMPro.TMP_TextElementType : Enum {
+    public int value__;
+    public static TMP_TextElementType Character;
+    public static TMP_TextElementType Unused;
+}
+public class TMPro.TMP_TextInfo : object {
+    private static Vector2 k_InfinityVectorPositive;
+    private static Vector2 k_InfinityVectorNegative;
+    public TMP_Text textComponent;
+    public int characterCount;
+    public int spriteCount;
+    public int spaceCount;
+    public int wordCount;
+    public int linkCount;
+    public int lineCount;
+    public int pageCount;
+    public int materialCount;
+    public TMP_CharacterInfo[] characterInfo;
+    public TMP_WordInfo[] wordInfo;
+    public TMP_LinkInfo[] linkInfo;
+    public TMP_LineInfo[] lineInfo;
+    public TMP_PageInfo[] pageInfo;
+    public TMP_MeshInfo[] meshInfo;
+    private TMP_MeshInfo[] m_CachedMeshInfo;
+    public TMP_TextInfo(TMP_Text textComponent);
+    private static TMP_TextInfo();
+    public void Clear();
+    public void ClearMeshInfo(bool updateMesh);
+    public void ClearAllMeshInfo();
+    public void ResetVertexLayout(bool isVolumetric);
+    public void ClearUnusedVertices(MaterialReference[] materials);
+    public void ClearLineInfo();
+    public TMP_MeshInfo[] CopyMeshInfoVertexData();
+    public static void Resize(T[]& array, int size);
+    public static void Resize(T[]& array, int size, bool isBlockAllocated);
+}
+public class TMPro.TMP_TextParsingUtilities : object {
+    private static TMP_TextParsingUtilities s_Instance;
+    private static string k_LookupStringL;
+    private static string k_LookupStringU;
+    public static TMP_TextParsingUtilities instance { get; }
+    private static TMP_TextParsingUtilities();
+    public static TMP_TextParsingUtilities get_instance();
+    public static UInt32 GetHashCode(string s);
+    public static int GetHashCodeCaseSensitive(string s);
+    public static char ToLowerASCIIFast(char c);
+    public static char ToUpperASCIIFast(char c);
+    public static UInt32 ToUpperASCIIFast(UInt32 c);
+    public static UInt32 ToLowerASCIIFast(UInt32 c);
+    public static bool IsHighSurrogate(UInt32 c);
+    public static bool IsLowSurrogate(UInt32 c);
+}
+public static class TMPro.TMP_TextUtilities : object {
+    private static Vector3[] m_rectWorldCorners;
+    private static string k_lookupStringL;
+    private static string k_lookupStringU;
+    private static TMP_TextUtilities();
+    public static int GetCursorIndexFromPosition(TMP_Text textComponent, Vector3 position, Camera camera);
+    public static int GetCursorIndexFromPosition(TMP_Text textComponent, Vector3 position, Camera camera, CaretPosition& cursor);
+    public static int FindNearestLine(TMP_Text text, Vector3 position, Camera camera);
+    public static int FindNearestCharacterOnLine(TMP_Text text, Vector3 position, int line, Camera camera, bool visibleOnly);
+    public static bool IsIntersectingRectTransform(RectTransform rectTransform, Vector3 position, Camera camera);
+    public static int FindIntersectingCharacter(TMP_Text text, Vector3 position, Camera camera, bool visibleOnly);
+    public static int FindNearestCharacter(TMP_Text text, Vector3 position, Camera camera, bool visibleOnly);
+    public static int FindIntersectingWord(TMP_Text text, Vector3 position, Camera camera);
+    public static int FindNearestWord(TMP_Text text, Vector3 position, Camera camera);
+    public static int FindIntersectingLine(TMP_Text text, Vector3 position, Camera camera);
+    public static int FindIntersectingLink(TMP_Text text, Vector3 position, Camera camera);
+    public static int FindNearestLink(TMP_Text text, Vector3 position, Camera camera);
+    private static bool PointIntersectRectangle(Vector3 m, Vector3 a, Vector3 b, Vector3 c, Vector3 d);
+    public static bool ScreenPointToWorldPointInRectangle(Transform transform, Vector2 screenPoint, Camera cam, Vector3& worldPoint);
+    private static bool IntersectLinePlane(LineSegment line, Vector3 point, Vector3 normal, Vector3& intersectingPoint);
+    public static float DistanceToLine(Vector3 a, Vector3 b, Vector3 point);
+    public static char ToLowerFast(char c);
+    public static char ToUpperFast(char c);
+    public static int GetSimpleHashCode(string s);
+    public static UInt32 GetSimpleHashCodeLowercase(string s);
+    public static int HexToInt(char hex);
+    public static int StringHexToInt(string s);
+}
+public class TMPro.TMP_UpdateManager : object {
+    private static TMP_UpdateManager s_Instance;
+    private List`1<TMP_Text> m_LayoutRebuildQueue;
+    private Dictionary`2<int, int> m_LayoutQueueLookup;
+    private List`1<TMP_Text> m_GraphicRebuildQueue;
+    private Dictionary`2<int, int> m_GraphicQueueLookup;
+    private List`1<TMP_Text> m_InternalUpdateQueue;
+    private Dictionary`2<int, int> m_InternalUpdateLookup;
+    public static TMP_UpdateManager instance { get; }
+    public static TMP_UpdateManager get_instance();
+    internal static void RegisterTextObjectForUpdate(TMP_Text textObject);
+    private void InternalRegisterTextObjectForUpdate(TMP_Text textObject);
+    public static void RegisterTextElementForLayoutRebuild(TMP_Text element);
+    private bool InternalRegisterTextElementForLayoutRebuild(TMP_Text element);
+    public static void RegisterTextElementForGraphicRebuild(TMP_Text element);
+    private bool InternalRegisterTextElementForGraphicRebuild(TMP_Text element);
+    private void OnBeginFrameRendering(ScriptableRenderContext renderContext, Camera[] cameras);
+    private void OnCameraPreCull(Camera cam);
+    private void DoRebuilds();
+    internal static void UnRegisterTextObjectForUpdate(TMP_Text textObject);
+    public static void UnRegisterTextElementForRebuild(TMP_Text element);
+    private void InternalUnRegisterTextElementForGraphicRebuild(TMP_Text element);
+    private void InternalUnRegisterTextElementForLayoutRebuild(TMP_Text element);
+    private void InternalUnRegisterTextObjectForUpdate(TMP_Text textObject);
+}
+public class TMPro.TMP_UpdateRegistry : object {
+    private static TMP_UpdateRegistry s_Instance;
+    private List`1<ICanvasElement> m_LayoutRebuildQueue;
+    private Dictionary`2<int, int> m_LayoutQueueLookup;
+    private List`1<ICanvasElement> m_GraphicRebuildQueue;
+    private Dictionary`2<int, int> m_GraphicQueueLookup;
+    public static TMP_UpdateRegistry instance { get; }
+    public static TMP_UpdateRegistry get_instance();
+    public static void RegisterCanvasElementForLayoutRebuild(ICanvasElement element);
+    private bool InternalRegisterCanvasElementForLayoutRebuild(ICanvasElement element);
+    public static void RegisterCanvasElementForGraphicRebuild(ICanvasElement element);
+    private bool InternalRegisterCanvasElementForGraphicRebuild(ICanvasElement element);
+    private void PerformUpdateForCanvasRendererObjects();
+    private void PerformUpdateForMeshRendererObjects();
+    public static void UnRegisterCanvasElementForRebuild(ICanvasElement element);
+    private void InternalUnRegisterCanvasElementForLayoutRebuild(ICanvasElement element);
+    private void InternalUnRegisterCanvasElementForGraphicRebuild(ICanvasElement element);
+}
+public class TMPro.TMP_Vertex : ValueType {
+    public Vector3 position;
+    public Vector2 uv;
+    public Vector2 uv2;
+    public Vector2 uv4;
+    public Color32 color;
+}
+public enum TMPro.TMP_VertexDataUpdateFlags : Enum {
+    public int value__;
+    public static TMP_VertexDataUpdateFlags None;
+    public static TMP_VertexDataUpdateFlags Vertices;
+    public static TMP_VertexDataUpdateFlags Uv0;
+    public static TMP_VertexDataUpdateFlags Uv2;
+    public static TMP_VertexDataUpdateFlags Uv4;
+    public static TMP_VertexDataUpdateFlags Colors32;
+    public static TMP_VertexDataUpdateFlags All;
+}
+public class TMPro.TMP_WordInfo : ValueType {
+    public TMP_Text textComponent;
+    public int firstCharacterIndex;
+    public int lastCharacterIndex;
+    public int characterCount;
+    public string GetWord();
+}
+public static class TMPro.TMPro_EventManager : object {
+    public static FastAction`2<object, Compute_DT_EventArgs> COMPUTE_DT_EVENT;
+    public static FastAction`2<bool, Material> MATERIAL_PROPERTY_EVENT;
+    public static FastAction`2<bool, TMP_FontAsset> FONT_PROPERTY_EVENT;
+    public static FastAction`2<bool, Object> SPRITE_ASSET_PROPERTY_EVENT;
+    public static FastAction`2<bool, TextMeshPro> TEXTMESHPRO_PROPERTY_EVENT;
+    public static FastAction`3<GameObject, Material, Material> DRAG_AND_DROP_MATERIAL_EVENT;
+    public static FastAction`1<bool> TEXT_STYLE_PROPERTY_EVENT;
+    public static FastAction`1<TMP_ColorGradient> COLOR_GRADIENT_PROPERTY_EVENT;
+    public static FastAction TMP_SETTINGS_PROPERTY_EVENT;
+    public static FastAction RESOURCE_LOAD_EVENT;
+    public static FastAction`2<bool, TextMeshProUGUI> TEXTMESHPRO_UGUI_PROPERTY_EVENT;
+    public static FastAction OnPreRenderObject_Event;
+    public static FastAction`1<Object> TEXT_CHANGED_EVENT;
+    private static TMPro_EventManager();
+    public static void ON_PRE_RENDER_OBJECT_CHANGED();
+    public static void ON_MATERIAL_PROPERTY_CHANGED(bool isChanged, Material mat);
+    public static void ON_FONT_PROPERTY_CHANGED(bool isChanged, TMP_FontAsset font);
+    public static void ON_SPRITE_ASSET_PROPERTY_CHANGED(bool isChanged, Object obj);
+    public static void ON_TEXTMESHPRO_PROPERTY_CHANGED(bool isChanged, TextMeshPro obj);
+    public static void ON_DRAG_AND_DROP_MATERIAL_CHANGED(GameObject sender, Material currentMaterial, Material newMaterial);
+    public static void ON_TEXT_STYLE_PROPERTY_CHANGED(bool isChanged);
+    public static void ON_COLOR_GRAIDENT_PROPERTY_CHANGED(TMP_ColorGradient gradient);
+    public static void ON_TEXT_CHANGED(Object obj);
+    public static void ON_TMP_SETTINGS_CHANGED();
+    public static void ON_RESOURCES_LOADED();
+    public static void ON_TEXTMESHPRO_UGUI_PROPERTY_CHANGED(bool isChanged, TextMeshProUGUI obj);
+    public static void ON_COMPUTE_DT_EVENT(object Sender, Compute_DT_EventArgs e);
+}
+[ExtensionAttribute]
+public static class TMPro.TMPro_ExtensionMethods : object {
+    [ExtensionAttribute]
+public static string ArrayToString(Char[] chars);
+    [ExtensionAttribute]
+public static string IntToString(Int32[] unicodes);
+    [ExtensionAttribute]
+public static string IntToString(Int32[] unicodes, int start, int length);
+    [ExtensionAttribute]
+public static int FindInstanceID(List`1<T> list, T target);
+    [ExtensionAttribute]
+public static bool Compare(Color32 a, Color32 b);
+    [ExtensionAttribute]
+public static bool CompareRGB(Color32 a, Color32 b);
+    [ExtensionAttribute]
+public static bool Compare(Color a, Color b);
+    [ExtensionAttribute]
+public static bool CompareRGB(Color a, Color b);
+    [ExtensionAttribute]
+public static Color32 Multiply(Color32 c1, Color32 c2);
+    [ExtensionAttribute]
+public static Color32 Tint(Color32 c1, Color32 c2);
+    [ExtensionAttribute]
+public static Color32 Tint(Color32 c1, float tint);
+    [ExtensionAttribute]
+public static bool Compare(Vector3 v1, Vector3 v2, int accuracy);
+    [ExtensionAttribute]
+public static bool Compare(Quaternion q1, Quaternion q2, int accuracy);
+}
+internal class TMPro.TweenRunner`1 : object {
+    protected MonoBehaviour m_CoroutineContainer;
+    protected IEnumerator m_Tween;
+    [IteratorStateMachineAttribute("TMPro.TweenRunner`1/<Start>d__2")]
+private static IEnumerator Start(T tweenInfo);
+    public void Init(MonoBehaviour coroutineContainer);
+    public void StartTween(T info);
+    public void StopTween();
+}
+internal enum TMPro.UnicodeCharacter : Enum {
+    public UInt32 value__;
+    public static UnicodeCharacter HYPHEN_MINUS;
+    public static UnicodeCharacter SOFT_HYPHEN;
+    public static UnicodeCharacter HYPHEN;
+    public static UnicodeCharacter NON_BREAKING_HYPHEN;
+    public static UnicodeCharacter ZERO_WIDTH_SPACE;
+    public static UnicodeCharacter RIGHT_SINGLE_QUOTATION;
+    public static UnicodeCharacter APOSTROPHE;
+    public static UnicodeCharacter WORD_JOINER;
+}
+public class TMPro.VertexGradient : ValueType {
+    public Color topLeft;
+    public Color topRight;
+    public Color bottomLeft;
+    public Color bottomRight;
+    public VertexGradient(Color color);
+    public VertexGradient(Color color0, Color color1, Color color2, Color color3);
+}
+public enum TMPro.VertexSortingOrder : Enum {
+    public int value__;
+    public static VertexSortingOrder Normal;
+    public static VertexSortingOrder Reverse;
+}
+public class TMPro.WordWrapState : ValueType {
+    public int previous_WordBreak;
+    public int total_CharacterCount;
+    public int visible_CharacterCount;
+    public int visible_SpriteCount;
+    public int visible_LinkCount;
+    public int firstCharacterIndex;
+    public int firstVisibleCharacterIndex;
+    public int lastCharacterIndex;
+    public int lastVisibleCharIndex;
+    public int lineNumber;
+    public float maxCapHeight;
+    public float maxAscender;
+    public float maxDescender;
+    public float maxLineAscender;
+    public float maxLineDescender;
+    public float previousLineAscender;
+    public float xAdvance;
+    public float preferredWidth;
+    public float preferredHeight;
+    public float previousLineScale;
+    public int wordCount;
+    public FontStyles fontStyle;
+    public float fontScale;
+    public float fontScaleMultiplier;
+    public float currentFontSize;
+    public float baselineOffset;
+    public float lineOffset;
+    public TMP_TextInfo textInfo;
+    public TMP_LineInfo lineInfo;
+    public Color32 vertexColor;
+    public Color32 underlineColor;
+    public Color32 strikethroughColor;
+    public Color32 highlightColor;
+    public TMP_FontStyleStack basicStyleStack;
+    public TMP_RichTextTagStack`1<Color32> colorStack;
+    public TMP_RichTextTagStack`1<Color32> underlineColorStack;
+    public TMP_RichTextTagStack`1<Color32> strikethroughColorStack;
+    public TMP_RichTextTagStack`1<Color32> highlightColorStack;
+    public TMP_RichTextTagStack`1<TMP_ColorGradient> colorGradientStack;
+    public TMP_RichTextTagStack`1<float> sizeStack;
+    public TMP_RichTextTagStack`1<float> indentStack;
+    public TMP_RichTextTagStack`1<FontWeight> fontWeightStack;
+    public TMP_RichTextTagStack`1<int> styleStack;
+    public TMP_RichTextTagStack`1<float> baselineStack;
+    public TMP_RichTextTagStack`1<int> actionStack;
+    public TMP_RichTextTagStack`1<MaterialReference> materialReferenceStack;
+    public TMP_RichTextTagStack`1<TextAlignmentOptions> lineJustificationStack;
+    public int spriteAnimationID;
+    public TMP_FontAsset currentFontAsset;
+    public Material currentMaterial;
+    public int currentMaterialIndex;
+    public Extents meshExtents;
+    public bool tagNoParsing;
+    public bool isNonBreakingSpace;
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

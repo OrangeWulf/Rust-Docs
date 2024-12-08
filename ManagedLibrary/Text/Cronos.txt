@@ -1,0 +1,215 @@
+Сборка: Cronos.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Cronos.CalendarHelper
+Наследуется от: object
+Поля:
+  int DaysPerWeekCount
+  long TicksPerMillisecond
+  long TicksPerSecond
+  long TicksPerMinute
+  long TicksPerHour
+  long TicksPerDay
+  int DaysPerYear
+  int DaysPer4Years
+  int DaysPer100Years
+  int DaysPer400Years
+  Int32[] DaysToMonth365
+  Int32[] DaysToMonth366
+  Int32[] DaysInMonth
+Свойства:
+Методы:
+  bool IsGreaterThan(int year1, int month1, int day1, int year2, int month2, int day2)
+  long DateTimeToTicks(int year, int month, int day, int hour, int minute, int second)
+  void FillDateTimeParts(long ticks, Int32& second, Int32& minute, Int32& hour, Int32& day, Int32& month, Int32& year)
+  DayOfWeek GetDayOfWeek(int year, int month, int day)
+  int GetDaysInMonth(int year, int month)
+  int MoveToNearestWeekDay(int year, int month, int day)
+  bool IsNthDayOfWeek(int day, int n)
+  bool IsLastDayOfWeek(int year, int month, int day)
+  void .cctor()
+--------------------------------------------------
+Класс: Cronos.CronExpression
+Наследуется от: object
+Поля:
+  long NotFound
+  int MinNthDayOfWeek
+  int MaxNthDayOfWeek
+  int SundayBits
+  int MaxYear
+  TimeZoneInfo UtcTimeZone
+  CronExpression Yearly
+  CronExpression Weekly
+  CronExpression Monthly
+  CronExpression Daily
+  CronExpression Hourly
+  CronExpression Minutely
+  CronExpression Secondly
+  Int32[] DeBruijnPositions
+  long _second
+  long _minute
+  int _hour
+  int _dayOfMonth
+  short _month
+  byte _dayOfWeek
+  byte _nthDayOfWeek
+  byte _lastMonthOffset
+  CronExpressionFlag _flags
+Свойства:
+Методы:
+  void .ctor()
+  CronExpression Parse(string expression)
+  CronExpression Parse(string expression, CronFormat format)
+  Nullable`1<DateTime> GetNextOccurrence(DateTime fromUtc, bool inclusive)
+  IEnumerable`1<DateTime> GetOccurrences(DateTime fromUtc, DateTime toUtc, bool fromInclusive, bool toInclusive)
+  Nullable`1<DateTime> GetNextOccurrence(DateTime fromUtc, TimeZoneInfo zone, bool inclusive)
+  IEnumerable`1<DateTime> GetOccurrences(DateTime fromUtc, DateTime toUtc, TimeZoneInfo zone, bool fromInclusive, bool toInclusive)
+  Nullable`1<DateTimeOffset> GetNextOccurrence(DateTimeOffset from, TimeZoneInfo zone, bool inclusive)
+  IEnumerable`1<DateTimeOffset> GetOccurrences(DateTimeOffset from, DateTimeOffset to, TimeZoneInfo zone, bool fromInclusive, bool toInclusive)
+  string ToString()
+  bool Equals(CronExpression other)
+  bool Equals(object obj)
+  int GetHashCode()
+  bool op_Equality(CronExpression left, CronExpression right)
+  bool op_Inequality(CronExpression left, CronExpression right)
+  Nullable`1<DateTimeOffset> GetOccurrenceConsideringTimeZone(DateTimeOffset fromUtc, TimeZoneInfo zone, bool inclusive)
+  long FindOccurrence(long startTimeTicks, long endTimeTicks, bool startInclusive)
+  long FindOccurrence(long ticks, bool startInclusive)
+  bool Move(long fieldBits, Int32& fieldValue)
+  int GetLastDayOfMonth(int year, int month)
+  bool IsDayOfWeekMatch(int year, int month, int day)
+  int GetFirstSet(long value)
+  bool HasFlag(CronExpressionFlag value)
+  void SkipWhiteSpaces(Char*& pointer)
+  void ParseWhiteSpace(CronField prevField, Char*& pointer)
+  void ParseEndOfString(Char*& pointer)
+  CronExpression ParseMacro(Char*& pointer)
+  long ParseField(CronField field, Char*& pointer, CronExpressionFlag& flags)
+  long ParseDayOfMonth(Char*& pointer, CronExpressionFlag& flags, Byte& lastDayOffset)
+  long ParseDayOfWeek(Char*& pointer, CronExpressionFlag& flags, Byte& nthWeekDay)
+  long ParseStar(CronField field, Char*& pointer)
+  long ParseList(CronField field, Char*& pointer, CronExpressionFlag& flags)
+  long ParseRange(CronField field, Char*& pointer, int low, CronExpressionFlag& flags)
+  long ParseStep(CronField field, Char*& pointer, int low, int high)
+  long ParseLastDayOfMonth(CronField field, Char*& pointer, CronExpressionFlag& flags, Byte& lastMonthOffset)
+  long ParseNthWeekDay(CronField field, Char*& pointer, int dayOfWeek, CronExpressionFlag& flags, Byte& nthDayOfWeek)
+  long ParseLastWeekDay(int dayOfWeek, CronExpressionFlag& flags)
+  bool Accept(Char*& pointer, char character)
+  bool AcceptCharacter(Char*& pointer, char character)
+  int ParseNumber(CronField field, Char*& pointer, int low, int high)
+  int ParseValue(CronField field, Char*& pointer)
+  StringBuilder AppendFieldValue(StringBuilder expressionBuilder, CronField field, long fieldValue)
+  StringBuilder AppendDayOfMonth(StringBuilder expressionBuilder, int domValue)
+  void AppendDayOfWeek(StringBuilder expressionBuilder, int dowValue)
+  long GetBits(CronField field, int num1, int num2, int step)
+  long GetRangeBits(int low, int high, int step)
+  long GetReversedRangeBits(CronField field, int num1, int num2, int step)
+  long GetBit(int num1)
+  int GetNumber(Char*& pointer, Int32[] names)
+  void ThrowFormatException(CronField field, string format, Object[] args)
+  void ThrowFormatException(string format, Object[] args)
+  void ThrowFromShouldBeLessThanToException(string fromName, string toName)
+  void ThrowWrongDateTimeKindException(string paramName)
+  bool GetBit(long value, int index)
+  void SetBit(Int64& value, int index)
+  bool IsEndOfString(int code)
+  bool IsWhiteSpace(int code)
+  bool IsDigit(int code)
+  bool IsLetter(int code)
+  int GetNumeric(int code)
+  int ToUpper(int code)
+  void .cctor()
+--------------------------------------------------
+Класс: Cronos.CronExpressionFlag
+Наследуется от: Enum
+Поля:
+  byte value__
+  CronExpressionFlag DayOfMonthLast
+  CronExpressionFlag DayOfWeekLast
+  CronExpressionFlag Interval
+  CronExpressionFlag NearestWeekday
+  CronExpressionFlag NthDayOfWeek
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Cronos.CronField
+Наследуется от: object
+Поля:
+  String[] MonthNames
+  String[] DayOfWeekNames
+  Int32[] MonthNamesArray
+  Int32[] DayOfWeekNamesArray
+  CronField DaysOfWeek
+  CronField Months
+  CronField DaysOfMonth
+  CronField Hours
+  CronField Minutes
+  CronField Seconds
+  string Name
+  int First
+  int Last
+  Int32[] Names
+  bool CanDefineInterval
+  long AllBits
+Свойства:
+Методы:
+  void .cctor()
+  void .ctor(string name, int first, int last, Int32[] names, bool canDefineInterval)
+  string ToString()
+--------------------------------------------------
+Класс: Cronos.CronFormat
+Наследуется от: Enum
+Поля:
+  int value__
+  CronFormat Standard
+  CronFormat IncludeSeconds
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Cronos.CronFormatException
+Наследуется от: FormatException
+Поля:
+Свойства:
+Методы:
+  void .ctor(string message)
+  void .ctor(CronField field, string message)
+--------------------------------------------------
+Класс: Cronos.DateTimeHelper
+Наследуется от: object
+Поля:
+  TimeSpan OneSecond
+Свойства:
+Методы:
+  DateTimeOffset FloorToSeconds(DateTimeOffset dateTimeOffset)
+  bool IsRound(DateTimeOffset dateTimeOffset)
+  long GetExtraTicks(long ticks)
+  void .cctor()
+--------------------------------------------------
+Класс: Cronos.TimeZoneHelper
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool IsAmbiguousTime(TimeZoneInfo zone, DateTime ambiguousTime)
+  TimeSpan GetDaylightOffset(TimeZoneInfo zone, DateTime ambiguousDateTime)
+  DateTimeOffset GetDaylightTimeStart(TimeZoneInfo zone, DateTime invalidDateTime)
+  DateTimeOffset GetStandardTimeStart(TimeZoneInfo zone, DateTime ambiguousTime, TimeSpan daylightOffset)
+  DateTimeOffset GetAmbiguousIntervalEnd(TimeZoneInfo zone, DateTime ambiguousTime)
+  DateTimeOffset GetDaylightTimeEnd(TimeZoneInfo zone, DateTime ambiguousTime, TimeSpan daylightOffset)
+  TimeSpan[] GetAmbiguousOffsets(TimeZoneInfo zone, DateTime ambiguousTime)
+  DateTime GetDstTransitionEndDateTime(TimeZoneInfo zone, DateTime ambiguousDateTime)
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=256 C064A0675745A590601A9FE93D1139F3B1E6844F
+  __StaticArrayInitTypeSize=52 DD3AEFEADB1CD615F3017763F1568179FEE640B0
+  __StaticArrayInitTypeSize=52 E717C7863929C05635209E3B43225AC98276D317
+  __StaticArrayInitTypeSize=52 E92B39D8233061927D9ACDE54665E68E7535635A
+Свойства:
+Методы:
+--------------------------------------------------

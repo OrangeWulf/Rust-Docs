@@ -1,0 +1,135 @@
+internal static class Consts : object {
+    public static string MonoVersion;
+    public static string MonoCompany;
+    public static string MonoProduct;
+    public static string MonoCopyright;
+    public static string FxVersion;
+    public static string VsVersion;
+    public static string FxFileVersion;
+    public static string VsFileVersion;
+    public static string AssemblyI18N;
+    public static string AssemblyMicrosoft_VisualStudio;
+    public static string AssemblyMicrosoft_VisualStudio_Web;
+    public static string AssemblyMicrosoft_VSDesigner;
+    public static string AssemblyMono_Http;
+    public static string AssemblyMono_Posix;
+    public static string AssemblyMono_Security;
+    public static string AssemblyMono_Messaging_RabbitMQ;
+    public static string AssemblyCorlib;
+    public static string AssemblySystem;
+    public static string AssemblySystem_Data;
+    public static string AssemblySystem_Design;
+    public static string AssemblySystem_DirectoryServices;
+    public static string AssemblySystem_Drawing;
+    public static string AssemblySystem_Drawing_Design;
+    public static string AssemblySystem_Messaging;
+    public static string AssemblySystem_Security;
+    public static string AssemblySystem_ServiceProcess;
+    public static string AssemblySystem_Web;
+    public static string AssemblySystem_Windows_Forms;
+    public static string AssemblySystem_Core;
+}
+public abstract class I18N.Common.ByteEncoding : MonoEncoding {
+    protected Char[] toChars;
+    protected string encodingName;
+    protected string bodyName;
+    protected string headerName;
+    protected string webName;
+    protected bool isBrowserDisplay;
+    protected bool isBrowserSave;
+    protected bool isMailNewsDisplay;
+    protected bool isMailNewsSave;
+    protected int windowsCodePage;
+    private static Byte[] isNormalized;
+    private static Byte[] isNormalizedComputed;
+    private static Byte[] normalization_bytes;
+    public bool IsSingleByte { get; }
+    public string BodyName { get; }
+    public string EncodingName { get; }
+    public string HeaderName { get; }
+    public bool IsBrowserDisplay { get; }
+    public bool IsBrowserSave { get; }
+    public bool IsMailNewsDisplay { get; }
+    public bool IsMailNewsSave { get; }
+    public string WebName { get; }
+    public int WindowsCodePage { get; }
+    protected ByteEncoding(int codePage, Char[] toChars, string encodingName, string bodyName, string headerName, string webName, bool isBrowserDisplay, bool isBrowserSave, bool isMailNewsDisplay, bool isMailNewsSave, int windowsCodePage);
+    public virtual bool IsAlwaysNormalized(NormalizationForm form);
+    public virtual bool get_IsSingleByte();
+    public virtual int GetByteCount(string s);
+    public virtual int GetByteCountImpl(Char* chars, int count);
+    protected abstract virtual void ToBytes(Char* chars, int charCount, Byte* bytes, int byteCount);
+    protected virtual void ToBytes(Char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex);
+    public virtual int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount);
+    public virtual int GetCharCount(Byte[] bytes, int index, int count);
+    public virtual int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex);
+    public virtual int GetMaxByteCount(int charCount);
+    public virtual int GetMaxCharCount(int byteCount);
+    public virtual string GetString(Byte[] bytes, int index, int count);
+    public virtual string GetString(Byte[] bytes);
+    public virtual string get_BodyName();
+    public virtual string get_EncodingName();
+    public virtual string get_HeaderName();
+    public virtual bool get_IsBrowserDisplay();
+    public virtual bool get_IsBrowserSave();
+    public virtual bool get_IsMailNewsDisplay();
+    public virtual bool get_IsMailNewsSave();
+    public virtual string get_WebName();
+    public virtual int get_WindowsCodePage();
+}
+public class I18N.Common.Handlers : object {
+    public static String[] List;
+    private static Hashtable aliases;
+    private static Handlers();
+    public static string GetAlias(string name);
+    private static void BuildHash();
+}
+public class I18N.Common.Manager : object {
+    private static string hex;
+    private static Manager manager;
+    private Hashtable handlers;
+    private Hashtable active;
+    private Hashtable assemblies;
+    private static object lockobj;
+    public static Manager PrimaryManager { get; }
+    private static Manager();
+    public static Manager get_PrimaryManager();
+    private static string Normalize(string name);
+    public Encoding GetEncoding(int codePage);
+    public Encoding GetEncoding(string name);
+    public CultureInfo GetCulture(int culture, bool useUserOverride);
+    public CultureInfo GetCulture(string name, bool useUserOverride);
+    internal object Instantiate(string name);
+    private void LoadClassList();
+    private void LoadInternalClasses();
+}
+public abstract class I18N.Common.MonoEncoder : Encoder {
+    private MonoEncoding encoding;
+    public MonoEncoder(MonoEncoding encoding);
+    public virtual int GetByteCount(Char[] chars, int index, int count, bool refresh);
+    public virtual int GetBytes(Char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex, bool flush);
+    public abstract virtual int GetByteCountImpl(Char* chars, int charCount, bool refresh);
+    public abstract virtual int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount, bool refresh);
+    public virtual int GetBytes(Char* chars, int charCount, Byte* bytes, int byteCount, bool flush);
+    public void HandleFallback(Char* chars, Int32& charIndex, Int32& charCount, Byte* bytes, Int32& byteIndex, Int32& byteCount);
+}
+public abstract class I18N.Common.MonoEncoding : Encoding {
+    private int win_code_page;
+    public int WindowsCodePage { get; }
+    public MonoEncoding(int codePage);
+    public MonoEncoding(int codePage, int windowsCodePage);
+    public virtual int get_WindowsCodePage();
+    public void HandleFallback(EncoderFallbackBuffer& buffer, Char* chars, Int32& charIndex, Int32& charCount, Byte* bytes, Int32& byteIndex, Int32& byteCount);
+    public virtual int GetByteCount(Char[] chars, int index, int count);
+    public virtual int GetBytes(Char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex);
+    public virtual int GetBytes(string s, int charIndex, int charCount, Byte[] bytes, int byteIndex);
+    public virtual int GetByteCount(Char* chars, int count);
+    public virtual int GetBytes(Char* chars, int charCount, Byte* bytes, int byteCount);
+    public abstract virtual int GetByteCountImpl(Char* chars, int charCount);
+    public abstract virtual int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount);
+}
+public class I18N.Common.Strings : object {
+    [CompilerGeneratedAttribute]
+private static Dictionary`2<string, int> <>f__switch$map0;
+    public static string GetString(string tag);
+}

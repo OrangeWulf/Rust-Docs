@@ -1,0 +1,396 @@
+Сборка: System.Threading.Channels.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: FxResources.System.Threading.Channels.SR
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.VoidResult
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.SR
+Наследуется от: object
+Поля:
+  ResourceManager s_resourceManager
+  Type <ResourceType>k__BackingField
+Свойства:
+  ResourceManager ResourceManager
+  Type ResourceType
+  string ChannelClosedException_DefaultMessage
+  string InvalidOperation_IncompleteAsyncOperation
+  string InvalidOperation_MultipleContinuations
+  string InvalidOperation_IncorrectToken
+Методы:
+  ResourceManager get_ResourceManager()
+  bool UsingResourceKeys()
+  string GetResourceString(string resourceKey, string defaultString)
+  string Format(string resourceFormat, Object[] args)
+  string Format(string resourceFormat, object p1)
+  string Format(string resourceFormat, object p1, object p2)
+  string Format(string resourceFormat, object p1, object p2, object p3)
+  Type get_ResourceType()
+  string get_ChannelClosedException_DefaultMessage()
+  string get_InvalidOperation_IncompleteAsyncOperation()
+  string get_InvalidOperation_MultipleContinuations()
+  string get_InvalidOperation_IncorrectToken()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Runtime.CompilerServices.__BlockReflectionAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Threading.Channels.BoundedChannel`1
+Наследуется от: Channel`1<T>
+Поля:
+  BoundedChannelFullMode _mode
+  TaskCompletionSource`1<VoidResult> _completion
+  int _bufferedCapacity
+  Dequeue`1<T> _items
+  Dequeue`1<AsyncOperation`1<T>> _blockedReaders
+  Dequeue`1<VoidAsyncOperationWithData`1<T>> _blockedWriters
+  AsyncOperation`1<bool> _waitingReadersTail
+  AsyncOperation`1<bool> _waitingWritersTail
+  bool _runContinuationsAsynchronously
+  Exception _doneWriting
+Свойства:
+  object SyncObj
+  int ItemsCountForDebugger
+  bool ChannelIsClosedForDebugger
+Методы:
+  object get_SyncObj()
+  void .ctor(int bufferedCapacity, BoundedChannelFullMode mode, bool runContinuationsAsynchronously)
+  void AssertInvariants()
+  int get_ItemsCountForDebugger()
+  bool get_ChannelIsClosedForDebugger()
+  IEnumerator`1<T> System.Threading.Channels.IDebugEnumerable<T>.GetEnumerator()
+--------------------------------------------------
+Класс: System.Threading.Channels.BoundedChannelFullMode
+Наследуется от: Enum
+Поля:
+  int value__
+  BoundedChannelFullMode Wait
+  BoundedChannelFullMode DropNewest
+  BoundedChannelFullMode DropOldest
+  BoundedChannelFullMode DropWrite
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Threading.Channels.Channel
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Channel`1<T> CreateUnbounded()
+  Channel`1<T> CreateUnbounded(UnboundedChannelOptions options)
+  Channel`1<T> CreateBounded(int capacity)
+  Channel`1<T> CreateBounded(BoundedChannelOptions options)
+--------------------------------------------------
+Класс: System.Threading.Channels.ChannelClosedException
+Наследуется от: InvalidOperationException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(Exception innerException)
+  void .ctor(string message, Exception innerException)
+--------------------------------------------------
+Класс: System.Threading.Channels.ChannelOptions
+Наследуется от: object
+Поля:
+  bool <SingleWriter>k__BackingField
+  bool <SingleReader>k__BackingField
+  bool <AllowSynchronousContinuations>k__BackingField
+Свойства:
+  bool SingleWriter
+  bool SingleReader
+  bool AllowSynchronousContinuations
+Методы:
+  bool get_SingleWriter()
+  void set_SingleWriter(bool value)
+  bool get_SingleReader()
+  void set_SingleReader(bool value)
+  bool get_AllowSynchronousContinuations()
+  void set_AllowSynchronousContinuations(bool value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Threading.Channels.BoundedChannelOptions
+Наследуется от: ChannelOptions
+Поля:
+  int _capacity
+  BoundedChannelFullMode _mode
+Свойства:
+  int Capacity
+  BoundedChannelFullMode FullMode
+Методы:
+  void .ctor(int capacity)
+  int get_Capacity()
+  void set_Capacity(int value)
+  BoundedChannelFullMode get_FullMode()
+  void set_FullMode(BoundedChannelFullMode value)
+--------------------------------------------------
+Класс: System.Threading.Channels.UnboundedChannelOptions
+Наследуется от: ChannelOptions
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Threading.Channels.ChannelReader`1
+Наследуется от: object
+Поля:
+Свойства:
+  Task Completion
+Методы:
+  Task get_Completion()
+  bool TryRead(T& item)
+  ValueTask`1<bool> WaitToReadAsync(CancellationToken cancellationToken)
+  ValueTask`1<T> ReadAsync(CancellationToken cancellationToken)
+  void .ctor()
+  ValueTask`1<T> <ReadAsync>g__ReadAsyncCore|4_0(CancellationToken ct)
+--------------------------------------------------
+Класс: System.Threading.Channels.ChannelUtilities
+Наследуется от: object
+Поля:
+  Exception s_doneWritingSentinel
+  Task`1<bool> s_trueTask
+  Task`1<bool> s_falseTask
+  Task s_neverCompletingTask
+Свойства:
+Методы:
+  void Complete(TaskCompletionSource`1<VoidResult> tcs, Exception error)
+  ValueTask`1<T> GetInvalidCompletionValueTask(Exception error)
+  ValueTask`1<bool> QueueWaiter(AsyncOperation`1& tail, AsyncOperation`1<bool> waiter)
+  void WakeUpWaiters(AsyncOperation`1& listTail, bool result, Exception error)
+  void FailOperations(Dequeue`1<T> operations, Exception error)
+  Exception CreateInvalidCompletionException(Exception inner)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Threading.Channels.ChannelWriter`1
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool TryComplete(Exception error)
+  bool TryWrite(T item)
+  ValueTask`1<bool> WaitToWriteAsync(CancellationToken cancellationToken)
+  ValueTask WriteAsync(T item, CancellationToken cancellationToken)
+  Task WriteAsyncCore(T innerItem, CancellationToken ct)
+  void Complete(Exception error)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Threading.Channels.Channel`1
+Наследуется от: Channel`2<T, T>
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Threading.Channels.Channel`2
+Наследуется от: object
+Поля:
+  ChannelReader`1<TRead> <Reader>k__BackingField
+  ChannelWriter`1<TWrite> <Writer>k__BackingField
+Свойства:
+  ChannelReader`1<TRead> Reader
+  ChannelWriter`1<TWrite> Writer
+Методы:
+  ChannelReader`1<TRead> get_Reader()
+  void set_Reader(ChannelReader`1<TRead> value)
+  ChannelWriter`1<TWrite> get_Writer()
+  void set_Writer(ChannelWriter`1<TWrite> value)
+  ChannelReader`1<TRead> op_Implicit(Channel`2<TWrite, TRead> channel)
+  ChannelWriter`1<TWrite> op_Implicit(Channel`2<TWrite, TRead> channel)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Threading.Channels.IDebugEnumerable`1
+Поля:
+Свойства:
+Методы:
+  IEnumerator`1<T> GetEnumerator()
+--------------------------------------------------
+Класс: System.Threading.Channels.DebugEnumeratorDebugView`1
+Наследуется от: object
+Поля:
+  T[] <Items>k__BackingField
+Свойства:
+  T[] Items
+Методы:
+  void .ctor(IDebugEnumerable`1<T> enumerable)
+  T[] get_Items()
+--------------------------------------------------
+Класс: System.Threading.Channels.AsyncOperation
+Наследуется от: object
+Поля:
+  Action`1<object> s_availableSentinel
+  Action`1<object> s_completedSentinel
+Свойства:
+Методы:
+  void ThrowIncompleteOperationException()
+  void ThrowMultipleContinuations()
+  void ThrowIncorrectCurrentIdException()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Threading.Channels.AsyncOperation`1
+Наследуется от: AsyncOperation
+Поля:
+  CancellationTokenRegistration _registration
+  bool _pooled
+  bool _runContinuationsAsynchronously
+  Int32 modreq(System.Runtime.CompilerServices.IsVolatile) _completionReserved
+  TResult _result
+  ExceptionDispatchInfo _error
+  Action`1<object> _continuation
+  object _continuationState
+  object _schedulingContext
+  ExecutionContext _executionContext
+  short _currentId
+  AsyncOperation`1<TResult> <Next>k__BackingField
+  CancellationToken <CancellationToken>k__BackingField
+Свойства:
+  AsyncOperation`1<TResult> Next
+  CancellationToken CancellationToken
+  ValueTask ValueTask
+  ValueTask`1<TResult> ValueTaskOfT
+  bool IsCompleted
+Методы:
+  void .ctor(bool runContinuationsAsynchronously, CancellationToken cancellationToken, bool pooled)
+  AsyncOperation`1<TResult> get_Next()
+  void set_Next(AsyncOperation`1<TResult> value)
+  CancellationToken get_CancellationToken()
+  ValueTask get_ValueTask()
+  ValueTask`1<TResult> get_ValueTaskOfT()
+  ValueTaskSourceStatus GetStatus(short token)
+  bool get_IsCompleted()
+  TResult GetResult(short token)
+  void System.Threading.Tasks.Sources.IValueTaskSource.GetResult(short token)
+  bool TryOwnAndReset()
+  void OnCompleted(Action`1<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
+  void UnregisterCancellation()
+  bool TrySetResult(TResult item)
+  bool TrySetException(Exception exception)
+  bool TrySetCanceled(CancellationToken cancellationToken)
+  bool TryReserveCompletionIfCancelable()
+  void SignalCompletion()
+  void SignalCompletionCore()
+  void SetCompletionAndInvokeContinuation()
+--------------------------------------------------
+Класс: System.Threading.Channels.VoidAsyncOperationWithData`1
+Наследуется от: AsyncOperation`1<VoidResult>
+Поля:
+  TData <Item>k__BackingField
+Свойства:
+  TData Item
+Методы:
+  void .ctor(bool runContinuationsAsynchronously, CancellationToken cancellationToken, bool pooled)
+  TData get_Item()
+  void set_Item(TData value)
+--------------------------------------------------
+Класс: System.Threading.Channels.SingleConsumerUnboundedChannel`1
+Наследуется от: Channel`1<T>
+Поля:
+  TaskCompletionSource`1<VoidResult> _completion
+  SingleProducerSingleConsumerQueue`1<T> _items
+  bool _runContinuationsAsynchronously
+  Exception modreq(System.Runtime.CompilerServices.IsVolatile) _doneWriting
+  AsyncOperation`1<T> _blockedReader
+  AsyncOperation`1<bool> _waitingReader
+Свойства:
+  object SyncObj
+  int ItemsCountForDebugger
+  bool ChannelIsClosedForDebugger
+Методы:
+  void .ctor(bool runContinuationsAsynchronously)
+  object get_SyncObj()
+  int get_ItemsCountForDebugger()
+  bool get_ChannelIsClosedForDebugger()
+  IEnumerator`1<T> System.Threading.Channels.IDebugEnumerable<T>.GetEnumerator()
+--------------------------------------------------
+Класс: System.Threading.Channels.UnboundedChannel`1
+Наследуется от: Channel`1<T>
+Поля:
+  TaskCompletionSource`1<VoidResult> _completion
+  ConcurrentQueue`1<T> _items
+  Dequeue`1<AsyncOperation`1<T>> _blockedReaders
+  bool _runContinuationsAsynchronously
+  AsyncOperation`1<bool> _waitingReadersTail
+  Exception _doneWriting
+Свойства:
+  object SyncObj
+  int ItemsCountForDebugger
+  bool ChannelIsClosedForDebugger
+Методы:
+  void .ctor(bool runContinuationsAsynchronously)
+  object get_SyncObj()
+  void AssertInvariants()
+  int get_ItemsCountForDebugger()
+  bool get_ChannelIsClosedForDebugger()
+  IEnumerator`1<T> System.Threading.Channels.IDebugEnumerable<T>.GetEnumerator()
+--------------------------------------------------
+Класс: System.Collections.Concurrent.SingleProducerSingleConsumerQueue`1
+Наследуется от: object
+Поля:
+  int InitialSegmentSize
+  int MaxSegmentSize
+  Segment modreq(System.Runtime.CompilerServices.IsVolatile) _head
+  Segment modreq(System.Runtime.CompilerServices.IsVolatile) _tail
+Свойства:
+  bool IsEmpty
+  int Count
+Методы:
+  void .ctor()
+  void Enqueue(T item)
+  void EnqueueSlow(T item, Segment& segment)
+  bool TryDequeue(T& result)
+  bool TryDequeueSlow(Segment& segment, T[]& array, T& result)
+  bool get_IsEmpty()
+  IEnumerator`1<T> GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  int get_Count()
+--------------------------------------------------
+Класс: System.Collections.Concurrent.PaddingHelpers
+Наследуется от: object
+Поля:
+  int CACHE_LINE_SIZE
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Collections.Concurrent.PaddingFor32
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Collections.Generic.Dequeue`1
+Наследуется от: object
+Поля:
+  T[] _array
+  int _head
+  int _tail
+  int _size
+Свойства:
+  int Count
+  bool IsEmpty
+Методы:
+  int get_Count()
+  bool get_IsEmpty()
+  void EnqueueTail(T item)
+  T DequeueHead()
+  T DequeueTail()
+  IEnumerator`1<T> GetEnumerator()
+  void Grow()
+  void .ctor()
+--------------------------------------------------

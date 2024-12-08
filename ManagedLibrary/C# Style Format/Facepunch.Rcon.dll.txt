@@ -1,0 +1,118 @@
+[Factory("rcon")]
+public class Facepunch.Rcon.Listener : object {
+    [ServerVar]
+public static int MaxPasswordFailures;
+    [ServerVar]
+public static float BanDuration;
+    [ServerVar]
+public static bool PermanentBanFailedIPs;
+    [ServerVar]
+public static bool LogFailedAttempts;
+    public string Password;
+    public int Port;
+    public string Address;
+    public string SslCertificate;
+    public string SslCertificatePassword;
+    public string BansFile;
+    public Action`3<IPAddress, int, string> OnMessage;
+    private int nextClientId;
+    private Dictionary`2<int, RconConnection> clients;
+    private List`1<int> deadClients;
+    private WebSocketServer server;
+    public Dictionary`2<IPAddress, FailedIPData> FailedIPs;
+    public List`1<IPNetwork> BannedNetworks;
+    private static Listener();
+    public bool BanIP(string addressNetwork);
+    public bool UnbanIP(string addressNetwork);
+    public void ClearFailedIPData();
+    public void UpdateFailedIPData(IPAddress IP, FailedIPData data);
+    public bool IsBannedIP(IPAddress IP);
+    public FailedIPData GetFailedIPData(IPAddress IP);
+    public void SaveBans();
+    public void LoadBans();
+    public void Start();
+    public void Shutdown();
+    public void BroadcastMessage(string str);
+    public void SendMessage(int target, string str);
+    public IList`1<IPNetwork> GetBannedNetworks();
+    public Dictionary`2<IPAddress, FailedIPData> GetFailedIPs();
+    public IList`1<RconClientStats> GetClientStats();
+}
+public class Facepunch.Rcon.RconClientStats : ValueType {
+    public int ConnectionId;
+    public string IP;
+    public int Port;
+    public DateTime ConnectedAt;
+    public int BroadcastedMessages;
+    public int SentMessages;
+    public int RecievedMessages;
+}
+internal class Facepunch.Rcon.RconConnection : object {
+    [CompilerGeneratedAttribute]
+private IWebSocketConnection <Socket>k__BackingField;
+    public RconClientStats Stats;
+    public int ConnectionId { get; }
+    public IWebSocketConnection Socket { get; }
+    public RconConnection(IWebSocketConnection connection, int connectionId);
+    public int get_ConnectionId();
+    [CompilerGeneratedAttribute]
+public IWebSocketConnection get_Socket();
+}
+public class Facepunch.Rust.Profiling.RconConnectionAttempt : ValueType {
+    public string IP;
+    public int Port;
+    public int ConnectionId;
+    public bool Success;
+    public string PasswordAttempt;
+}
+public class Facepunch.Rust.Profiling.RconDisconnects : ValueType {
+    public string IP;
+    public int Port;
+    public int ConnectionId;
+}
+public class Facepunch.Rust.Profiling.RconMessageStats : ValueType {
+    public string IP;
+    public int Port;
+    public int ConnectionId;
+    public string Message;
+    public int MessageLength;
+}
+public static class Facepunch.Rust.Profiling.RconProfiler : object {
+    public static int mode;
+    public static int ClampedMessageLength;
+    public static TimeSpan ExecutionTime;
+    private static RconProfilerStats currentStats;
+    private static int lastClientCount;
+    private static object Lock;
+    private static RconProfiler();
+    public static void OnRconMessage(string ip, int port, int connectionId, string message);
+    public static void OnNewConnection(IWebSocketConnection socket, int connectionId);
+    public static void OnFailedConnection(IWebSocketConnection socket, string passwordAttempt);
+    public static void OnDisconnect(string ip, int port, int connectionId);
+    public static void OnError(IWebSocketConnection socket);
+    public static void UpdateClientCount(int count);
+    private static void LogConnection(IWebSocketConnection socket, int connectionId, bool success, string passwordAttempt);
+    public static RconProfilerStats GetCurrentStats(bool reset);
+    public static void Reset();
+}
+public class Facepunch.Rust.Profiling.RconProfilerStats : object {
+    public static RconProfilerStats Default;
+    public int MessageCount;
+    public long MessageLengthSum;
+    public int ConnectionCount;
+    public int NewConnectionCount;
+    public int FailedConnectionCount;
+    public int ErrorCount;
+    public List`1<RconMessageStats> Messages;
+    public List`1<RconConnectionAttempt> ConnectionAttempts;
+    public List`1<RconDisconnects> Disconnects;
+    private static RconProfilerStats();
+    public sealed virtual void EnterPool();
+    public sealed virtual void LeavePool();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

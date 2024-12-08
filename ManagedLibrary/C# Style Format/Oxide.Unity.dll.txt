@@ -1,0 +1,67 @@
+[ExtensionAttribute]
+public static class Oxide.Core.Unity.ExtensionMethods : object {
+    [ExtensionAttribute]
+public static Vector3 ToVector3(string vector3);
+    [ExtensionAttribute]
+public static LogType ToLogType(LogType logType);
+}
+public class Oxide.Core.Unity.Logging.UnityLogger : Logger {
+    private Thread mainThread;
+    protected virtual void ProcessMessage(LogMessage message);
+}
+public class Oxide.Core.Unity.Plugins.UnityCore : CSPlugin {
+    private UnityLogger logger;
+    [HookMethodAttribute("InitLogging")]
+private void InitLogging();
+    public void Print(string message);
+    public void PrintWarning(string message);
+    public void PrintError(string message);
+    [CompilerGeneratedAttribute]
+private void <InitLogging>b__2_0();
+}
+public class Oxide.Core.Unity.Plugins.UnityPluginLoader : PluginLoader {
+    public Type[] CorePlugins { get; }
+    public virtual Type[] get_CorePlugins();
+}
+public class Oxide.Core.Unity.UnityExtension : Extension {
+    internal static Assembly Assembly;
+    internal static AssemblyName AssemblyName;
+    internal static VersionNumber AssemblyVersion;
+    internal static string AssemblyAuthors;
+    public bool IsCoreExtension { get; }
+    public string Name { get; }
+    public string Author { get; }
+    public VersionNumber Version { get; }
+    public UnityExtension(ExtensionManager manager);
+    private static UnityExtension();
+    public virtual bool get_IsCoreExtension();
+    public virtual string get_Name();
+    public virtual string get_Author();
+    public virtual VersionNumber get_Version();
+    public virtual void Load();
+    public virtual void LoadPluginWatchers(string pluginDirectory);
+    public virtual void OnModLoad();
+}
+public class Oxide.Core.Unity.UnityScript : MonoBehaviour {
+    [CompilerGeneratedAttribute]
+private static GameObject <Instance>k__BackingField;
+    [CompilerGeneratedAttribute]
+private static float <RealtimeSinceStartup>k__BackingField;
+    private OxideMod oxideMod;
+    public static GameObject Instance { get; private set; }
+    public static float RealtimeSinceStartup { get; private set; }
+    [CompilerGeneratedAttribute]
+public static GameObject get_Instance();
+    [CompilerGeneratedAttribute]
+private static void set_Instance(GameObject value);
+    [CompilerGeneratedAttribute]
+public static float get_RealtimeSinceStartup();
+    [CompilerGeneratedAttribute]
+private static void set_RealtimeSinceStartup(float value);
+    public static void Create();
+    private void Awake();
+    private void Update();
+    private void OnDestroy();
+    private void OnApplicationQuit();
+    private void LogMessageReceived(string message, string stackTrace, LogType type);
+}

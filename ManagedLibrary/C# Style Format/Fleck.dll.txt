@@ -1,0 +1,566 @@
+public class Fleck.BinaryDataHandler : MulticastDelegate {
+    public BinaryDataHandler(object object, IntPtr method);
+    public virtual void Invoke(Span`1<byte> data);
+    public virtual IAsyncResult BeginInvoke(Span`1<byte> data, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class Fleck.ConnectionNotAvailableException : Exception {
+    public ConnectionNotAvailableException(string message);
+    public ConnectionNotAvailableException(string message, Exception innerException);
+}
+public class Fleck.FleckLog : object {
+    public static LogLevel Level;
+    public static Action`3<LogLevel, string, Exception> LogAction;
+    private static FleckLog();
+    public static void Warn(string message, Exception ex);
+    public static void Error(string message, Exception ex);
+    [ConditionalAttribute("DEBUG")]
+public static void Debug(string message, Exception ex);
+    [ConditionalAttribute("DEBUG")]
+public static void Info(string message, Exception ex);
+}
+public enum Fleck.FrameType : Enum {
+    public byte value__;
+    public static FrameType Continuation;
+    public static FrameType Text;
+    public static FrameType Binary;
+    public static FrameType Close;
+    public static FrameType Ping;
+    public static FrameType Pong;
+}
+[ExtensionAttribute]
+public static class Fleck.FrameTypeExtensions : object {
+    [ExtensionAttribute]
+public static bool IsDefined(FrameType type);
+}
+public class Fleck.HandlerFactory : object {
+    public static IHandler BuildHandler(WebSocketHttpRequest request, IWebSocketConnection connection);
+    public static string GetVersion(WebSocketHttpRequest request);
+}
+internal class Fleck.Handlers.Hybi13Handler : object {
+    private static string WebSocketResponseGuid;
+    private static Encoding UTF8;
+    private static SHA1 SHA1;
+    private static ThreadLocal`1<StringBuilder> StringBuilder;
+    private WebSocketHttpRequest _request;
+    private IWebSocketConnection _connection;
+    private Byte[] _data;
+    private int _dataLen;
+    private Nullable`1<FrameType> _frameType;
+    private Byte[] _message;
+    private int _messageLen;
+    public Hybi13Handler(WebSocketHttpRequest request, IWebSocketConnection connection);
+    private static Hybi13Handler();
+    public sealed virtual void Dispose();
+    public sealed virtual void Receive(Span`1<byte> newData);
+    public sealed virtual MemoryBuffer CreateHandshake();
+    public sealed virtual MemoryBuffer FrameText(string text);
+    public sealed virtual MemoryBuffer FrameText(MemoryBuffer utf8StringBytes);
+    public sealed virtual MemoryBuffer FrameBinary(MemoryBuffer bytes);
+    public sealed virtual MemoryBuffer FramePing(MemoryBuffer bytes);
+    public sealed virtual MemoryBuffer FramePong(MemoryBuffer bytes);
+    public sealed virtual MemoryBuffer FrameClose(ushort code);
+    private static MemoryBuffer FrameData(MemoryBuffer payload, FrameType frameType);
+    private static MemoryBuffer FrameData(Span`1<byte> payload, FrameType frameType);
+    private void ReceiveData();
+    private void ProcessFrame(FrameType frameType, ArraySegment`1<byte> buffer);
+    private void Clear();
+    internal static string CreateResponseKey(string requestKey);
+    internal static string ReadUTF8PayloadData(ArraySegment`1<byte> bytes);
+}
+internal static class Fleck.Helpers.FleckRuntime : object {
+    public static bool IsRunningOnMono();
+    public static bool IsRunningOnWindows();
+}
+public interface Fleck.IHandler {
+    public abstract virtual void Receive(Span`1<byte> newData);
+    public abstract virtual MemoryBuffer CreateHandshake();
+    public abstract virtual MemoryBuffer FrameText(string text);
+    public abstract virtual MemoryBuffer FrameText(MemoryBuffer utf8StringBytes);
+    public abstract virtual MemoryBuffer FrameBinary(MemoryBuffer bytes);
+    public abstract virtual MemoryBuffer FramePing(MemoryBuffer bytes);
+    public abstract virtual MemoryBuffer FramePong(MemoryBuffer bytes);
+    public abstract virtual MemoryBuffer FrameClose(ushort code);
+}
+[ExtensionAttribute]
+internal static class Fleck.IntExtensions : object {
+    [ExtensionAttribute]
+public static IMemoryOwner`1<byte> ToBigEndianBytes(int source);
+    [ExtensionAttribute]
+public static int ToLittleEndianInt(Span`1<byte> source);
+    private static IMemoryOwner`1<byte> CopyToMemory(T value);
+    private static T CopyFromMemory(Span`1<byte> memory);
+}
+public interface Fleck.ISocket {
+    public bool Connected { get; }
+    public IPAddress RemoteIpAddress { get; }
+    public int RemotePort { get; }
+    public Stream Stream { get; }
+    public bool NoDelay { get; public set; }
+    public EndPoint LocalEndPoint { get; }
+    public abstract virtual bool get_Connected();
+    public abstract virtual IPAddress get_RemoteIpAddress();
+    public abstract virtual int get_RemotePort();
+    public abstract virtual Stream get_Stream();
+    public abstract virtual bool get_NoDelay();
+    public abstract virtual void set_NoDelay(bool value);
+    public abstract virtual EndPoint get_LocalEndPoint();
+    public abstract virtual Task`1<ISocket> Accept(Action`1<ISocket> callback, Action`1<Exception> error);
+    public abstract virtual Task Authenticate(X509Certificate2 certificate, SslProtocols enabledSslProtocols, Action callback, Action`1<Exception> error);
+    public abstract virtual void Dispose();
+    public abstract virtual void Close();
+    public abstract virtual void Bind(EndPoint ipLocal);
+    public abstract virtual void Listen(int backlog);
+}
+public interface Fleck.IWebSocketConnection {
+    public Action OnOpen { get; public set; }
+    public Action OnClose { get; public set; }
+    public Action`1<string> OnMessage { get; public set; }
+    public BinaryDataHandler OnBinary { get; public set; }
+    public BinaryDataHandler OnPing { get; public set; }
+    public BinaryDataHandler OnPong { get; public set; }
+    public Action`1<Exception> OnError { get; public set; }
+    public IWebSocketConnectionInfo ConnectionInfo { get; }
+    public bool IsAvailable { get; }
+    public abstract virtual Action get_OnOpen();
+    public abstract virtual void set_OnOpen(Action value);
+    public abstract virtual Action get_OnClose();
+    public abstract virtual void set_OnClose(Action value);
+    public abstract virtual Action`1<string> get_OnMessage();
+    public abstract virtual void set_OnMessage(Action`1<string> value);
+    public abstract virtual BinaryDataHandler get_OnBinary();
+    public abstract virtual void set_OnBinary(BinaryDataHandler value);
+    public abstract virtual BinaryDataHandler get_OnPing();
+    public abstract virtual void set_OnPing(BinaryDataHandler value);
+    public abstract virtual BinaryDataHandler get_OnPong();
+    public abstract virtual void set_OnPong(BinaryDataHandler value);
+    public abstract virtual Action`1<Exception> get_OnError();
+    public abstract virtual void set_OnError(Action`1<Exception> value);
+    public abstract virtual void Send(string message);
+    public abstract virtual void Send(MemoryBuffer message);
+    public abstract virtual void SendPing(MemoryBuffer message);
+    public abstract virtual void SendPong(MemoryBuffer message);
+    public abstract virtual void Close();
+    public abstract virtual IWebSocketConnectionInfo get_ConnectionInfo();
+    public abstract virtual bool get_IsAvailable();
+}
+public interface Fleck.IWebSocketConnectionInfo {
+    public Guid Id { get; }
+    public string SubProtocol { get; }
+    public string Origin { get; }
+    public string Host { get; }
+    public string Path { get; }
+    public IPAddress ClientIpAddress { get; }
+    public int ClientPort { get; }
+    public abstract virtual Guid get_Id();
+    public abstract virtual string get_SubProtocol();
+    public abstract virtual string get_Origin();
+    public abstract virtual string get_Host();
+    public abstract virtual string get_Path();
+    public abstract virtual IPAddress get_ClientIpAddress();
+    public abstract virtual int get_ClientPort();
+}
+public interface Fleck.IWebSocketServer {
+    public abstract virtual void Start(Action`1<IWebSocketConnection> config);
+}
+public enum Fleck.LogLevel : Enum {
+    public int value__;
+    public static LogLevel Debug;
+    public static LogLevel Info;
+    public static LogLevel Warn;
+    public static LogLevel Error;
+}
+public class Fleck.MemoryBuffer : ValueType {
+    [CompilerGeneratedAttribute]
+private Byte[] <Data>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <Length>k__BackingField;
+    private bool _fromPool;
+    public Byte[] Data { get; private set; }
+    public int Length { get; private set; }
+    public MemoryBuffer(int minimumLength);
+    internal MemoryBuffer(Byte[] data, int length, bool fromPool);
+    [CompilerGeneratedAttribute]
+public Byte[] get_Data();
+    [CompilerGeneratedAttribute]
+private void set_Data(Byte[] value);
+    [CompilerGeneratedAttribute]
+public int get_Length();
+    [CompilerGeneratedAttribute]
+private void set_Length(int value);
+    public void Dispose();
+    public MemoryBuffer DontDispose();
+    public MemoryBuffer Slice(int newLength);
+    public static Span`1<byte> op_Implicit(MemoryBuffer buffer);
+}
+public class Fleck.QueuedStream : Stream {
+    private Stream _stream;
+    private Queue`1<WriteData> _queue;
+    private int _pendingWrite;
+    private bool _disposed;
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public QueuedStream(Stream stream);
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual int Read(Byte[] buffer, int offset, int count);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long value);
+    public virtual void Write(Byte[] buffer, int offset, int count);
+    public virtual IAsyncResult BeginRead(Byte[] buffer, int offset, int count, AsyncCallback callback, object state);
+    public virtual IAsyncResult BeginWrite(Byte[] buffer, int offset, int count, AsyncCallback callback, object state);
+    public virtual int EndRead(IAsyncResult asyncResult);
+    public virtual void EndWrite(IAsyncResult asyncResult);
+    public virtual void Flush();
+    public virtual void Close();
+    protected virtual void Dispose(bool disposing);
+    private IAsyncResult BeginWriteInternal(Byte[] buffer, int offset, int count, AsyncCallback callback, object state, WriteData queued);
+}
+public class Fleck.RequestParser : object {
+    private static string pattern;
+    private static Regex _regex;
+    private static RequestParser();
+    public static WebSocketHttpRequest Parse(ArraySegment`1<byte> bytes);
+    public static WebSocketHttpRequest Parse(ArraySegment`1<byte> bytes, string scheme);
+}
+public class Fleck.SocketWrapper : object {
+    public static UInt32 KeepAliveInterval;
+    public static UInt32 RetryInterval;
+    private static Byte[] keepAliveValues;
+    private Socket _socket;
+    private CancellationTokenSource _tokenSource;
+    private TaskFactory _taskFactory;
+    [CompilerGeneratedAttribute]
+private Stream <Stream>k__BackingField;
+    public IPAddress RemoteIpAddress { get; }
+    public int RemotePort { get; }
+    public bool Connected { get; }
+    public Stream Stream { get; private set; }
+    public bool NoDelay { get; public set; }
+    public EndPoint LocalEndPoint { get; }
+    private static SocketWrapper();
+    public SocketWrapper(Socket socket);
+    public sealed virtual IPAddress get_RemoteIpAddress();
+    public sealed virtual int get_RemotePort();
+    public sealed virtual Task Authenticate(X509Certificate2 certificate, SslProtocols enabledSslProtocols, Action callback, Action`1<Exception> error);
+    public sealed virtual void Listen(int backlog);
+    public sealed virtual void Bind(EndPoint endPoint);
+    public sealed virtual bool get_Connected();
+    [CompilerGeneratedAttribute]
+public sealed virtual Stream get_Stream();
+    [CompilerGeneratedAttribute]
+private void set_Stream(Stream value);
+    public sealed virtual bool get_NoDelay();
+    public sealed virtual void set_NoDelay(bool value);
+    public sealed virtual EndPoint get_LocalEndPoint();
+    public sealed virtual Task`1<ISocket> Accept(Action`1<ISocket> callback, Action`1<Exception> error);
+    public sealed virtual void Dispose();
+    public sealed virtual void Close();
+}
+[IsByRefLikeAttribute]
+[ObsoleteAttribute("Types with embedded references are not supported in this version of your compiler.", "True")]
+internal class Fleck.SpanWriter : ValueType {
+    private Span`1<byte> _data;
+    [CompilerGeneratedAttribute]
+private int <Length>k__BackingField;
+    public int Length { get; private set; }
+    public SpanWriter(Span`1<byte> data);
+    [CompilerGeneratedAttribute]
+public int get_Length();
+    [CompilerGeneratedAttribute]
+private void set_Length(int value);
+    public void Write(T value, bool reverse);
+    public void Write(Span`1<T> values);
+}
+public class Fleck.WebSocketConnection : object {
+    private static int ReadSize;
+    [CompilerGeneratedAttribute]
+private ISocket <Socket>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IHandler <Handler>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action <OnOpen>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action <OnClose>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<string> <OnMessage>k__BackingField;
+    [CompilerGeneratedAttribute]
+private BinaryDataHandler <OnBinary>k__BackingField;
+    [CompilerGeneratedAttribute]
+private BinaryDataHandler <OnPing>k__BackingField;
+    [CompilerGeneratedAttribute]
+private BinaryDataHandler <OnPong>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<Exception> <OnError>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IWebSocketConnectionInfo <ConnectionInfo>k__BackingField;
+    private Action`1<IWebSocketConnection> _initialize;
+    private Func`3<IWebSocketConnection, WebSocketHttpRequest, IHandler> _handlerFactory;
+    private Func`2<ArraySegment`1<byte>, WebSocketHttpRequest> _parseRequest;
+    private Byte[] _receiveBuffer;
+    private int _receiveOffset;
+    private bool _closing;
+    private bool _closed;
+    public ISocket Socket { get; public set; }
+    public IHandler Handler { get; public set; }
+    public Action OnOpen { get; public set; }
+    public Action OnClose { get; public set; }
+    public Action`1<string> OnMessage { get; public set; }
+    public BinaryDataHandler OnBinary { get; public set; }
+    public BinaryDataHandler OnPing { get; public set; }
+    public BinaryDataHandler OnPong { get; public set; }
+    public Action`1<Exception> OnError { get; public set; }
+    public IWebSocketConnectionInfo ConnectionInfo { get; private set; }
+    public bool IsAvailable { get; }
+    public WebSocketConnection(ISocket socket, Action`1<IWebSocketConnection> initialize, Func`2<ArraySegment`1<byte>, WebSocketHttpRequest> parseRequest, Func`3<IWebSocketConnection, WebSocketHttpRequest, IHandler> handlerFactory);
+    [CompilerGeneratedAttribute]
+public ISocket get_Socket();
+    [CompilerGeneratedAttribute]
+public void set_Socket(ISocket value);
+    [CompilerGeneratedAttribute]
+public IHandler get_Handler();
+    [CompilerGeneratedAttribute]
+public void set_Handler(IHandler value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Action get_OnOpen();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_OnOpen(Action value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Action get_OnClose();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_OnClose(Action value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Action`1<string> get_OnMessage();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_OnMessage(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual BinaryDataHandler get_OnBinary();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_OnBinary(BinaryDataHandler value);
+    [CompilerGeneratedAttribute]
+public sealed virtual BinaryDataHandler get_OnPing();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_OnPing(BinaryDataHandler value);
+    [CompilerGeneratedAttribute]
+public sealed virtual BinaryDataHandler get_OnPong();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_OnPong(BinaryDataHandler value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Action`1<Exception> get_OnError();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_OnError(Action`1<Exception> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual IWebSocketConnectionInfo get_ConnectionInfo();
+    [CompilerGeneratedAttribute]
+private void set_ConnectionInfo(IWebSocketConnectionInfo value);
+    public sealed virtual bool get_IsAvailable();
+    public sealed virtual void Send(string message);
+    public void SendText(MemoryBuffer utf8StringBytes);
+    public sealed virtual void Send(MemoryBuffer message);
+    public sealed virtual void SendPing(MemoryBuffer message);
+    public sealed virtual void SendPong(MemoryBuffer message);
+    private void SendImpl(MemoryBuffer buffer);
+    public sealed virtual void Close();
+    public void Close(ushort code);
+    public bool CreateHandler(ArraySegment`1<byte> data);
+    public void StartReceiving();
+    private void HandleReadSuccess(int bytesRead);
+    private void HandleReadError(Exception e);
+    private void Receive(Byte[] buffer, int offset);
+    private void HandleWriteError(Exception e);
+    private void SendBytes(MemoryBuffer bytes, Action`2<WebSocketConnection, bool> callback);
+    private void CloseSocket();
+}
+public class Fleck.WebSocketConnectionInfo : object {
+    [CompilerGeneratedAttribute]
+private string <SubProtocol>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Origin>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Host>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Path>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IPAddress <ClientIpAddress>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <ClientPort>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Guid <Id>k__BackingField;
+    public string SubProtocol { get; private set; }
+    public string Origin { get; private set; }
+    public string Host { get; private set; }
+    public string Path { get; private set; }
+    public IPAddress ClientIpAddress { get; public set; }
+    public int ClientPort { get; public set; }
+    public Guid Id { get; public set; }
+    public static WebSocketConnectionInfo Create(WebSocketHttpRequest request, IPAddress clientIp, int clientPort);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_SubProtocol();
+    [CompilerGeneratedAttribute]
+private void set_SubProtocol(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Origin();
+    [CompilerGeneratedAttribute]
+private void set_Origin(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Host();
+    [CompilerGeneratedAttribute]
+private void set_Host(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Path();
+    [CompilerGeneratedAttribute]
+private void set_Path(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual IPAddress get_ClientIpAddress();
+    [CompilerGeneratedAttribute]
+public void set_ClientIpAddress(IPAddress value);
+    [CompilerGeneratedAttribute]
+public sealed virtual int get_ClientPort();
+    [CompilerGeneratedAttribute]
+public void set_ClientPort(int value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Guid get_Id();
+    [CompilerGeneratedAttribute]
+public void set_Id(Guid value);
+}
+public class Fleck.WebSocketException : Exception {
+    [CompilerGeneratedAttribute]
+private ushort <StatusCode>k__BackingField;
+    public ushort StatusCode { get; private set; }
+    public WebSocketException(ushort statusCode);
+    public WebSocketException(ushort statusCode, string message);
+    public WebSocketException(ushort statusCode, string message, Exception innerException);
+    [CompilerGeneratedAttribute]
+public ushort get_StatusCode();
+    [CompilerGeneratedAttribute]
+private void set_StatusCode(ushort value);
+}
+[DefaultMemberAttribute("Item")]
+public class Fleck.WebSocketHttpRequest : object {
+    [CompilerGeneratedAttribute]
+private string <Method>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Path>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Scheme>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IDictionary`2<string, string> <Headers>k__BackingField;
+    public string Method { get; public set; }
+    public string Path { get; public set; }
+    public string Scheme { get; public set; }
+    public string Item { get; }
+    public IDictionary`2<string, string> Headers { get; }
+    [CompilerGeneratedAttribute]
+public string get_Method();
+    [CompilerGeneratedAttribute]
+public void set_Method(string value);
+    [CompilerGeneratedAttribute]
+public string get_Path();
+    [CompilerGeneratedAttribute]
+public void set_Path(string value);
+    [CompilerGeneratedAttribute]
+public string get_Scheme();
+    [CompilerGeneratedAttribute]
+public void set_Scheme(string value);
+    public string get_Item(string name);
+    [CompilerGeneratedAttribute]
+public IDictionary`2<string, string> get_Headers();
+}
+public class Fleck.WebSocketServer : object {
+    private string _scheme;
+    private IPAddress _locationIP;
+    private Action`1<IWebSocketConnection> _config;
+    [CompilerGeneratedAttribute]
+private ISocket <ListenerSocket>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Location>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <SupportDualStack>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <Port>k__BackingField;
+    [CompilerGeneratedAttribute]
+private X509Certificate2 <Certificate>k__BackingField;
+    [CompilerGeneratedAttribute]
+private SslProtocols <EnabledSslProtocols>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <RestartAfterListenError>k__BackingField;
+    public ISocket ListenerSocket { get; public set; }
+    public string Location { get; }
+    public bool SupportDualStack { get; }
+    public int Port { get; private set; }
+    public X509Certificate2 Certificate { get; public set; }
+    public SslProtocols EnabledSslProtocols { get; public set; }
+    public bool RestartAfterListenError { get; public set; }
+    public bool IsSecure { get; }
+    public WebSocketServer(string location, bool supportDualStack);
+    [CompilerGeneratedAttribute]
+public ISocket get_ListenerSocket();
+    [CompilerGeneratedAttribute]
+public void set_ListenerSocket(ISocket value);
+    [CompilerGeneratedAttribute]
+public string get_Location();
+    [CompilerGeneratedAttribute]
+public bool get_SupportDualStack();
+    [CompilerGeneratedAttribute]
+public int get_Port();
+    [CompilerGeneratedAttribute]
+private void set_Port(int value);
+    [CompilerGeneratedAttribute]
+public X509Certificate2 get_Certificate();
+    [CompilerGeneratedAttribute]
+public void set_Certificate(X509Certificate2 value);
+    [CompilerGeneratedAttribute]
+public SslProtocols get_EnabledSslProtocols();
+    [CompilerGeneratedAttribute]
+public void set_EnabledSslProtocols(SslProtocols value);
+    [CompilerGeneratedAttribute]
+public bool get_RestartAfterListenError();
+    [CompilerGeneratedAttribute]
+public void set_RestartAfterListenError(bool value);
+    public bool get_IsSecure();
+    public sealed virtual void Dispose();
+    private IPAddress ParseIPAddress(Uri uri);
+    public sealed virtual void Start(Action`1<IWebSocketConnection> config);
+    private void ListenForClients();
+    private void OnClientConnect(ISocket clientSocket);
+    [CompilerGeneratedAttribute]
+private void <ListenForClients>b__35_0(Exception e);
+    [CompilerGeneratedAttribute]
+private WebSocketHttpRequest <OnClientConnect>b__36_0(ArraySegment`1<byte> bytes);
+}
+public static class Fleck.WebSocketStatusCodes : object {
+    public static ushort NormalClosure;
+    public static ushort GoingAway;
+    public static ushort ProtocolError;
+    public static ushort UnsupportedDataType;
+    public static ushort NoStatusReceived;
+    public static ushort AbnormalClosure;
+    public static ushort InvalidFramePayloadData;
+    public static ushort PolicyViolation;
+    public static ushort MessageTooBig;
+    public static ushort MandatoryExt;
+    public static ushort InternalServerError;
+    public static ushort TLSHandshake;
+    public static ushort ApplicationError;
+    public static UInt16[] ValidCloseCodes;
+    private static WebSocketStatusCodes();
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.IsByRefLikeAttribute : Attribute {
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.IsUnmanagedAttribute : Attribute {
+}

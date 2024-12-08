@@ -1,0 +1,567 @@
+Сборка: I18N.CJK.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Consts
+Наследуется от: object
+Поля:
+  string MonoVersion
+  string MonoCompany
+  string MonoProduct
+  string MonoCopyright
+  string FxVersion
+  string VsVersion
+  string FxFileVersion
+  string VsFileVersion
+  string AssemblyI18N
+  string AssemblyMicrosoft_VisualStudio
+  string AssemblyMicrosoft_VisualStudio_Web
+  string AssemblyMicrosoft_VSDesigner
+  string AssemblyMono_Http
+  string AssemblyMono_Posix
+  string AssemblyMono_Security
+  string AssemblyMono_Messaging_RabbitMQ
+  string AssemblyCorlib
+  string AssemblySystem
+  string AssemblySystem_Data
+  string AssemblySystem_Design
+  string AssemblySystem_DirectoryServices
+  string AssemblySystem_Drawing
+  string AssemblySystem_Drawing_Design
+  string AssemblySystem_Messaging
+  string AssemblySystem_Security
+  string AssemblySystem_ServiceProcess
+  string AssemblySystem_Web
+  string AssemblySystem_Windows_Forms
+  string AssemblySystem_Core
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: I18N.CJK.CP932
+Наследуется от: MonoEncoding
+Поля:
+  int SHIFTJIS_CODE_PAGE
+Свойства:
+  string BodyName
+  string EncodingName
+  string HeaderName
+  bool IsBrowserDisplay
+  bool IsBrowserSave
+  bool IsMailNewsDisplay
+  bool IsMailNewsSave
+  string WebName
+  int WindowsCodePage
+Методы:
+  void .ctor()
+  int GetByteCountImpl(Char* chars, int count)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  int GetMaxByteCount(int charCount)
+  int GetMaxCharCount(int byteCount)
+  Decoder GetDecoder()
+  string get_BodyName()
+  string get_EncodingName()
+  string get_HeaderName()
+  bool get_IsBrowserDisplay()
+  bool get_IsBrowserSave()
+  bool get_IsMailNewsDisplay()
+  bool get_IsMailNewsSave()
+  string get_WebName()
+  int get_WindowsCodePage()
+--------------------------------------------------
+Класс: I18N.CJK.CP932Decoder
+Наследуется от: DbcsDecoder
+Поля:
+  JISConvert convert
+  int last_byte_count
+  int last_byte_chars
+Свойства:
+Методы:
+  void .ctor(JISConvert convert)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetCharCount(Byte[] bytes, int index, int count, bool refresh)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex, bool refresh)
+--------------------------------------------------
+Класс: I18N.CJK.ENCshift_jis
+Наследуется от: CP932
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.CP50220
+Наследуется от: ISO2022JPEncoding
+Поля:
+Свойства:
+  string EncodingName
+Методы:
+  void .ctor()
+  string get_EncodingName()
+--------------------------------------------------
+Класс: I18N.CJK.CP50221
+Наследуется от: ISO2022JPEncoding
+Поля:
+Свойства:
+  string EncodingName
+Методы:
+  void .ctor()
+  string get_EncodingName()
+--------------------------------------------------
+Класс: I18N.CJK.CP50222
+Наследуется от: ISO2022JPEncoding
+Поля:
+Свойства:
+  string EncodingName
+Методы:
+  void .ctor()
+  string get_EncodingName()
+--------------------------------------------------
+Класс: I18N.CJK.ISO2022JPEncoding
+Наследуется от: MonoEncoding
+Поля:
+  bool allow_1byte_kana
+  bool allow_shift_io
+Свойства:
+  string BodyName
+  string HeaderName
+  string WebName
+Методы:
+  void .ctor(int codePage, bool allow1ByteKana, bool allowShiftIO)
+  string get_BodyName()
+  string get_HeaderName()
+  string get_WebName()
+  int GetMaxByteCount(int charCount)
+  int GetMaxCharCount(int byteCount)
+  int GetByteCount(Char[] chars, int charIndex, int charCount)
+  int GetByteCountImpl(Char* chars, int count)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+--------------------------------------------------
+Класс: I18N.CJK.ISO2022JPMode
+Наследуется от: Enum
+Поля:
+  int value__
+  ISO2022JPMode ASCII
+  ISO2022JPMode JISX0208
+  ISO2022JPMode JISX0201
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: I18N.CJK.ISO2022JPEncoder
+Наследуется от: MonoEncoder
+Поля:
+  JISConvert convert
+  bool allow_1byte_kana
+  bool allow_shift_io
+  ISO2022JPMode m
+  bool shifted_in_count
+  bool shifted_in_conv
+  Char[] full_width_map
+Свойства:
+Методы:
+  void .ctor(MonoEncoding owner, bool allow1ByteKana, bool allowShiftIO)
+  void .cctor()
+  int GetByteCountImpl(Char* chars, int charCount, bool flush)
+  void SwitchMode(Byte* bytes, Int32& byteIndex, Int32& byteCount, ISO2022JPMode& cur, ISO2022JPMode next)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount, bool flush)
+  void Reset()
+--------------------------------------------------
+Класс: I18N.CJK.ISO2022JPDecoder
+Наследуется от: Decoder
+Поля:
+  JISConvert convert
+  bool allow_shift_io
+  ISO2022JPMode m
+  bool shifted_in_conv
+  bool shifted_in_count
+Свойства:
+Методы:
+  void .ctor(bool allow1ByteKana, bool allowShiftIO)
+  void .cctor()
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int ToChar(int value)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  void Reset()
+--------------------------------------------------
+Класс: I18N.CJK.ENCiso_2022_jp
+Наследуется от: CP50220
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.CP51932
+Наследуется от: MonoEncoding
+Поля:
+  int EUC_JP_CODE_PAGE
+Свойства:
+  string BodyName
+  string EncodingName
+  string HeaderName
+  bool IsBrowserDisplay
+  bool IsBrowserSave
+  bool IsMailNewsDisplay
+  bool IsMailNewsSave
+  string WebName
+Методы:
+  void .ctor()
+  int GetByteCount(Char[] chars, int index, int length)
+  int GetByteCountImpl(Char* chars, int count)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  int GetMaxByteCount(int charCount)
+  int GetMaxCharCount(int byteCount)
+  Encoder GetEncoder()
+  Decoder GetDecoder()
+  string get_BodyName()
+  string get_EncodingName()
+  string get_HeaderName()
+  bool get_IsBrowserDisplay()
+  bool get_IsBrowserSave()
+  bool get_IsMailNewsDisplay()
+  bool get_IsMailNewsSave()
+  string get_WebName()
+--------------------------------------------------
+Класс: I18N.CJK.CP51932Encoder
+Наследуется от: MonoEncoder
+Поля:
+Свойства:
+Методы:
+  void .ctor(MonoEncoding encoding)
+  int GetByteCountImpl(Char* chars, int count, bool refresh)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount, bool refresh)
+--------------------------------------------------
+Класс: I18N.CJK.CP51932Decoder
+Наследуется от: DbcsDecoder
+Поля:
+  int last_count
+  int last_bytes
+Свойства:
+Методы:
+  void .ctor()
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetCharCount(Byte[] bytes, int index, int count, bool refresh)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex, bool refresh)
+  Exception Insufficient()
+--------------------------------------------------
+Класс: I18N.CJK.ENCeuc_jp
+Наследуется от: CP51932
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.CP936
+Наследуется от: DbcsEncoding
+Поля:
+  int GB2312_CODE_PAGE
+Свойства:
+  string BodyName
+  string EncodingName
+  string HeaderName
+  bool IsBrowserDisplay
+  bool IsBrowserSave
+  bool IsMailNewsDisplay
+  bool IsMailNewsSave
+  string WebName
+Методы:
+  void .ctor()
+  DbcsConvert GetConvert()
+  int GetByteCountImpl(Char* chars, int count)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  Decoder GetDecoder()
+  string get_BodyName()
+  string get_EncodingName()
+  string get_HeaderName()
+  bool get_IsBrowserDisplay()
+  bool get_IsBrowserSave()
+  bool get_IsMailNewsDisplay()
+  bool get_IsMailNewsSave()
+  string get_WebName()
+--------------------------------------------------
+Класс: I18N.CJK.CP936Decoder
+Наследуется от: DbcsDecoder
+Поля:
+  int last_byte_count
+  int last_byte_bytes
+Свойства:
+Методы:
+  void .ctor(DbcsConvert convert)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetCharCount(Byte[] bytes, int index, int count, bool refresh)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex, bool refresh)
+--------------------------------------------------
+Класс: I18N.CJK.ENCgb2312
+Наследуется от: CP936
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.CP949
+Наследуется от: KoreanEncoding
+Поля:
+  int UHC_CODE_PAGE
+Свойства:
+  string BodyName
+  string EncodingName
+  string HeaderName
+  string WebName
+Методы:
+  void .ctor()
+  string get_BodyName()
+  string get_EncodingName()
+  string get_HeaderName()
+  string get_WebName()
+--------------------------------------------------
+Класс: I18N.CJK.CP51949
+Наследуется от: KoreanEncoding
+Поля:
+  int EUCKR_CODE_PAGE
+Свойства:
+  string BodyName
+  string EncodingName
+  string HeaderName
+  string WebName
+Методы:
+  void .ctor()
+  string get_BodyName()
+  string get_EncodingName()
+  string get_HeaderName()
+  string get_WebName()
+--------------------------------------------------
+Класс: I18N.CJK.KoreanEncoding
+Наследуется от: DbcsEncoding
+Поля:
+  bool useUHC
+Свойства:
+Методы:
+  void .ctor(int codepage, bool useUHC)
+  DbcsConvert GetConvert()
+  int GetByteCountImpl(Char* chars, int count)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  Decoder GetDecoder()
+--------------------------------------------------
+Класс: I18N.CJK.ENCuhc
+Наследуется от: CP949
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.ENCeuc_kr
+Наследуется от: CP51949
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.CP950
+Наследуется от: DbcsEncoding
+Поля:
+  int BIG5_CODE_PAGE
+Свойства:
+  string BodyName
+  string EncodingName
+  string HeaderName
+  string WebName
+Методы:
+  void .ctor()
+  DbcsConvert GetConvert()
+  int GetByteCountImpl(Char* chars, int count)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  Decoder GetDecoder()
+  string get_BodyName()
+  string get_EncodingName()
+  string get_HeaderName()
+  string get_WebName()
+--------------------------------------------------
+Класс: I18N.CJK.ENCbig5
+Наследуется от: CP950
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.CodeTable
+Наследуется от: object
+Поля:
+  Stream stream
+Свойства:
+Методы:
+  void .ctor(string name)
+  void Dispose()
+  Byte[] GetSection(int num)
+--------------------------------------------------
+Класс: I18N.CJK.DbcsEncoding
+Наследуется от: MonoEncoding
+Поля:
+Свойства:
+  bool IsBrowserDisplay
+  bool IsBrowserSave
+  bool IsMailNewsDisplay
+  bool IsMailNewsSave
+Методы:
+  void .ctor(int codePage)
+  void .ctor(int codePage, int windowsCodePage)
+  DbcsConvert GetConvert()
+  int GetByteCount(Char[] chars, int index, int count)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  int GetMaxByteCount(int charCount)
+  int GetMaxCharCount(int byteCount)
+  bool get_IsBrowserDisplay()
+  bool get_IsBrowserSave()
+  bool get_IsMailNewsDisplay()
+  bool get_IsMailNewsSave()
+--------------------------------------------------
+Класс: I18N.CJK.DbcsConvert
+Наследуется от: object
+Поля:
+  Byte[] n2u
+  Byte[] u2n
+  DbcsConvert Gb2312
+  DbcsConvert Big5
+  DbcsConvert KS
+Свойства:
+Методы:
+  void .ctor(string fileName)
+  void .cctor()
+--------------------------------------------------
+Класс: I18N.CJK.ENCgb18030
+Наследуется от: GB18030Encoding
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.CP54936
+Наследуется от: GB18030Encoding
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: I18N.CJK.GB18030Encoding
+Наследуется от: MonoEncoding
+Поля:
+Свойства:
+  string EncodingName
+  string HeaderName
+  string BodyName
+  string WebName
+  bool IsMailNewsDisplay
+  bool IsMailNewsSave
+  bool IsBrowserDisplay
+  bool IsBrowserSave
+Методы:
+  void .ctor()
+  string get_EncodingName()
+  string get_HeaderName()
+  string get_BodyName()
+  string get_WebName()
+  bool get_IsMailNewsDisplay()
+  bool get_IsMailNewsSave()
+  bool get_IsBrowserDisplay()
+  bool get_IsBrowserSave()
+  int GetMaxByteCount(int len)
+  int GetMaxCharCount(int len)
+  int GetByteCount(Char[] chars, int index, int length)
+  int GetByteCountImpl(Char* chars, int count)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetCharCount(Byte[] bytes, int start, int len)
+  int GetChars(Byte[] bytes, int byteIdx, int srclen, Char[] chars, int charIdx)
+  Encoder GetEncoder()
+  Decoder GetDecoder()
+--------------------------------------------------
+Класс: I18N.CJK.GB18030Decoder
+Наследуется от: DbcsDecoder
+Поля:
+  DbcsConvert gb2312
+Свойства:
+Методы:
+  void .ctor()
+  void .cctor()
+  int GetCharCount(Byte[] bytes, int start, int len)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+--------------------------------------------------
+Класс: I18N.CJK.GB18030Encoder
+Наследуется от: MonoEncoder
+Поля:
+  DbcsConvert gb2312
+  char incomplete_byte_count
+  char incomplete_bytes
+Свойства:
+Методы:
+  void .ctor(MonoEncoding owner)
+  void .cctor()
+  int GetByteCountImpl(Char* chars, int count, bool refresh)
+  int GetBytesImpl(Char* chars, int charCount, Byte* bytes, int byteCount, bool refresh)
+--------------------------------------------------
+Класс: I18N.CJK.GB18030Source
+Наследуется от: object
+Поля:
+  Byte* gbx2uni
+  Byte* uni2gbx
+  int gbx2uniSize
+  int uni2gbxSize
+  long gbxBase
+  long gbxSuppBase
+  GB18030Map[] ranges
+Свойства:
+Методы:
+  void .ctor()
+  void .cctor()
+  void Unlinear(Byte[] bytes, int start, long gbx)
+  void Unlinear(Byte* bytes, long gbx)
+  long FromGBX(Byte[] bytes, int start)
+  long FromUCSSurrogate(int cp)
+  long FromUCS(int cp)
+  long FromGBXRaw(byte b1, byte b2, byte b3, byte b4, bool supp)
+  int ToUcsRaw(int idx)
+  long ToGbxRaw(int idx)
+--------------------------------------------------
+Класс: I18N.CJK.JISConvert
+Наследуется от: object
+Поля:
+  int JISX0208_To_Unicode
+  int JISX0212_To_Unicode
+  int CJK_To_JIS
+  int Greek_To_JIS
+  int Extra_To_JIS
+  Byte[] jisx0208ToUnicode
+  Byte[] jisx0212ToUnicode
+  Byte[] cjkToJis
+  Byte[] greekToJis
+  Byte[] extraToJis
+  JISConvert convert
+  object lockobj
+Свойства:
+  JISConvert Convert
+Методы:
+  void .ctor()
+  void .cctor()
+  JISConvert get_Convert()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  $ArrayType$132 $$field-0
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------

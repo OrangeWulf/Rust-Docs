@@ -1,0 +1,1379 @@
+Сборка: GA.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.EGAErrorSeverity
+Наследуется от: Enum
+Поля:
+  int value__
+  EGAErrorSeverity Undefined
+  EGAErrorSeverity Debug
+  EGAErrorSeverity Info
+  EGAErrorSeverity Warning
+  EGAErrorSeverity Error
+  EGAErrorSeverity Critical
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.EGAGender
+Наследуется от: Enum
+Поля:
+  int value__
+  EGAGender Undefined
+  EGAGender Male
+  EGAGender Female
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.EGALoggerMessageType
+Наследуется от: Enum
+Поля:
+  int value__
+  EGALoggerMessageType Error
+  EGALoggerMessageType Warning
+  EGALoggerMessageType Info
+  EGALoggerMessageType Debug
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.EGAResourceFlowType
+Наследуется от: Enum
+Поля:
+  int value__
+  EGAResourceFlowType Undefined
+  EGAResourceFlowType Source
+  EGAResourceFlowType Sink
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.GameAnalytics
+Наследуется от: object
+Поля:
+  bool _endThread
+Свойства:
+Методы:
+  void .cctor()
+  void ConfigureAvailableCustomDimensions01(String[] customDimensions)
+  void ConfigureAvailableCustomDimensions02(String[] customDimensions)
+  void ConfigureAvailableCustomDimensions03(String[] customDimensions)
+  void ConfigureAvailableResourceCurrencies(String[] resourceCurrencies)
+  void ConfigureAvailableResourceItemTypes(String[] resourceItemTypes)
+  void ConfigureBuild(string build)
+  void ConfigureSdkGameEngineVersion(string sdkGameEngineVersion)
+  void ConfigureGameEngineVersion(string gameEngineVersion)
+  void ConfigureUserId(string uId)
+  void Initialize(string gameKey, string gameSecret)
+  void AddBusinessEvent(string currency, int amount, string itemType, string itemId, string cartType)
+  void AddResourceEvent(EGAResourceFlowType flowType, string currency, float amount, string itemType, string itemId)
+  void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01)
+  void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, double score)
+  void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02)
+  void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, double score)
+  void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03)
+  void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03, double score)
+  void AddDesignEvent(string eventId, IDictionary`2<string, object> fields)
+  void AddDesignEvent(string eventId, double value)
+  void AddErrorEvent(EGAErrorSeverity severity, string message)
+  void SetEnabledManualSessionHandling(bool flag)
+  void SetEnabledEventSubmission(bool flag)
+  void SetCustomDimension01(string dimension)
+  void SetCustomDimension02(string dimension)
+  void SetCustomDimension03(string dimension)
+  void SetFacebookId(string facebookId)
+  void SetGender(EGAGender gender)
+  void SetBirthYear(int birthYear)
+  void StartSession()
+  void EndSession()
+  void OnResume()
+  void OnSuspend()
+  void OnQuit()
+  string GetCommandCenterValueAsString(string key, string defaultValue)
+  bool IsCommandCenterReady()
+  void AddCommandCenterListener(ICommandCenterListener listener)
+  void RemoveCommandCenterListener(ICommandCenterListener listener)
+  string GetConfigurationsAsString()
+  bool IsSdkReady(bool needsInitialized)
+  bool IsSdkReady(bool needsInitialized, bool warn)
+  bool IsSdkReady(bool needsInitialized, bool warn, string message)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.ICommandCenterListener
+Поля:
+Свойства:
+Методы:
+  void OnCommandCenterUpdated()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.TimedBlock
+Наследуется от: object
+Поля:
+  DateTime deadline
+  Action block
+  string blockName
+Свойства:
+Методы:
+  void .ctor(DateTime deadline, Action block, string blockName)
+  int CompareTo(TimedBlock other)
+  string ToString()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Validators.GAValidator
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool ValidateBusinessEvent(string currency, long amount, string cartType, string itemType, string itemId)
+  bool ValidateResourceEvent(EGAResourceFlowType flowType, string currency, long amount, string itemType, string itemId)
+  bool ValidateProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03)
+  bool ValidateDesignEvent(string eventId, double value)
+  bool ValidateErrorEvent(EGAErrorSeverity severity, string message)
+  bool ValidateSdkErrorEvent(string gameKey, string gameSecret, EGASdkErrorType type)
+  bool ValidateKeys(string gameKey, string gameSecret)
+  bool ValidateCurrency(string currency)
+  bool ValidateEventPartLength(string eventPart, bool allowNull)
+  bool ValidateEventPartCharacters(string eventPart)
+  bool ValidateEventIdLength(string eventId)
+  bool ValidateEventIdCharacters(string eventId)
+  JSONObject ValidateAndCleanInitRequestResponse(JSONNode initResponse)
+  bool ValidateBuild(string build)
+  bool ValidateSdkWrapperVersion(string wrapperVersion)
+  bool ValidateEngineVersion(string engineVersion)
+  bool ValidateUserId(string uId)
+  bool ValidateShortString(string shortString, bool canBeEmpty)
+  bool ValidateString(string s, bool canBeEmpty)
+  bool ValidateLongString(string longString, bool canBeEmpty)
+  bool ValidateConnectionType(string connectionType)
+  bool ValidateCustomDimensions(String[] customDimensions)
+  bool ValidateResourceCurrencies(String[] resourceCurrencies)
+  bool ValidateResourceItemTypes(String[] resourceItemTypes)
+  bool ValidateDimension01(string dimension01)
+  bool ValidateDimension02(string dimension02)
+  bool ValidateDimension03(string dimension03)
+  bool ValidateArrayOfStrings(long maxCount, long maxStringLength, bool allowNoValues, string logTag, String[] arrayOfStrings)
+  bool ValidateFacebookId(string facebookId)
+  bool ValidateGender(EGAGender gender)
+  bool ValidateBirthyear(long birthYear)
+  bool ValidateClientTs(long clientTs)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.GAUtilities
+Наследуется от: object
+Поля:
+  DateTime origin
+Свойства:
+Методы:
+  Byte[] GzipCompress(string data)
+  string HmacWithKey(string key, Byte[] data)
+  bool StringMatch(string s, string pattern)
+  string JoinStringArray(String[] v, string delimiter)
+  bool StringArrayContainsString(String[] array, string search)
+  long TimeIntervalSince1970()
+  string ArrayOfObjectsToJsonString(List`1<JSONNode> arr)
+  void CopyTo(Stream input, Stream output)
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONNodeType
+Наследуется от: Enum
+Поля:
+  int value__
+  JSONNodeType Array
+  JSONNodeType Object
+  JSONNodeType String
+  JSONNodeType Number
+  JSONNodeType NullValue
+  JSONNodeType Boolean
+  JSONNodeType None
+  JSONNodeType Custom
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONTextMode
+Наследуется от: Enum
+Поля:
+  int value__
+  JSONTextMode Compact
+  JSONTextMode Indent
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONNode
+Наследуется от: object
+Поля:
+  bool forceASCII
+  bool longAsString
+  StringBuilder m_EscapeBuilder
+Свойства:
+  JSONNodeType Tag
+  JSONNode Item
+  JSONNode Item
+  string Value
+  int Count
+  bool IsNumber
+  bool IsString
+  bool IsBoolean
+  bool IsNull
+  bool IsArray
+  bool IsObject
+  bool Inline
+  IEnumerable`1<JSONNode> Children
+  IEnumerable`1<JSONNode> DeepChildren
+  IEnumerable`1<KeyValuePair`2<string, JSONNode>> Linq
+  KeyEnumerator Keys
+  ValueEnumerator Values
+  double AsDouble
+  int AsInt
+  float AsFloat
+  bool AsBool
+  long AsLong
+  JSONArray AsArray
+  JSONObject AsObject
+  StringBuilder EscapeBuilder
+Методы:
+  JSONNodeType get_Tag()
+  JSONNode get_Item(int aIndex)
+  void set_Item(int aIndex, JSONNode value)
+  JSONNode get_Item(string aKey)
+  void set_Item(string aKey, JSONNode value)
+  string get_Value()
+  void set_Value(string value)
+  int get_Count()
+  bool get_IsNumber()
+  bool get_IsString()
+  bool get_IsBoolean()
+  bool get_IsNull()
+  bool get_IsArray()
+  bool get_IsObject()
+  bool get_Inline()
+  void set_Inline(bool value)
+  void Add(string aKey, JSONNode aItem)
+  void Add(JSONNode aItem)
+  JSONNode Remove(string aKey)
+  JSONNode Remove(int aIndex)
+  JSONNode Remove(JSONNode aNode)
+  IEnumerable`1<JSONNode> get_Children()
+  IEnumerable`1<JSONNode> get_DeepChildren()
+  string ToString()
+  string ToString(int aIndent)
+  void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode)
+  Enumerator GetEnumerator()
+  IEnumerable`1<KeyValuePair`2<string, JSONNode>> get_Linq()
+  KeyEnumerator get_Keys()
+  ValueEnumerator get_Values()
+  double get_AsDouble()
+  void set_AsDouble(double value)
+  int get_AsInt()
+  void set_AsInt(int value)
+  float get_AsFloat()
+  void set_AsFloat(float value)
+  bool get_AsBool()
+  void set_AsBool(bool value)
+  long get_AsLong()
+  void set_AsLong(long value)
+  JSONArray get_AsArray()
+  JSONObject get_AsObject()
+  JSONNode op_Implicit(string s)
+  string op_Implicit(JSONNode d)
+  JSONNode op_Implicit(double n)
+  double op_Implicit(JSONNode d)
+  JSONNode op_Implicit(float n)
+  float op_Implicit(JSONNode d)
+  JSONNode op_Implicit(int n)
+  int op_Implicit(JSONNode d)
+  JSONNode op_Implicit(long n)
+  long op_Implicit(JSONNode d)
+  JSONNode op_Implicit(bool b)
+  bool op_Implicit(JSONNode d)
+  JSONNode op_Implicit(KeyValuePair`2<string, JSONNode> aKeyValue)
+  bool op_Equality(JSONNode a, object b)
+  bool op_Inequality(JSONNode a, object b)
+  bool Equals(object obj)
+  int GetHashCode()
+  StringBuilder get_EscapeBuilder()
+  string Escape(string aText)
+  JSONNode ParseElement(string token, bool quoted)
+  JSONNode Parse(string aJSON)
+  void SerializeBinary(BinaryWriter aWriter)
+  void SaveToBinaryStream(Stream aData)
+  void SaveToCompressedStream(Stream aData)
+  void SaveToCompressedFile(string aFileName)
+  string SaveToCompressedBase64()
+  string SaveToBinaryBase64()
+  JSONNode DeserializeBinary(BinaryReader aReader)
+  JSONNode LoadFromCompressedFile(string aFileName)
+  JSONNode LoadFromCompressedStream(Stream aData)
+  JSONNode LoadFromCompressedBase64(string aBase64)
+  JSONNode LoadFromBinaryStream(Stream aData)
+  JSONNode LoadFromBinaryBase64(string aBase64)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONArray
+Наследуется от: JSONNode
+Поля:
+  List`1<JSONNode> m_List
+  bool inline
+Свойства:
+  bool Inline
+  JSONNodeType Tag
+  bool IsArray
+  JSONNode Item
+  JSONNode Item
+  int Count
+  IEnumerable`1<JSONNode> Children
+Методы:
+  bool get_Inline()
+  void set_Inline(bool value)
+  JSONNodeType get_Tag()
+  bool get_IsArray()
+  Enumerator GetEnumerator()
+  JSONNode get_Item(int aIndex)
+  void set_Item(int aIndex, JSONNode value)
+  JSONNode get_Item(string aKey)
+  void set_Item(string aKey, JSONNode value)
+  int get_Count()
+  void Add(string aKey, JSONNode aItem)
+  JSONNode Remove(int aIndex)
+  JSONNode Remove(JSONNode aNode)
+  IEnumerable`1<JSONNode> get_Children()
+  void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode)
+  void SerializeBinary(BinaryWriter aWriter)
+  void .ctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONObject
+Наследуется от: JSONNode
+Поля:
+  Dictionary`2<string, JSONNode> m_Dict
+  bool inline
+Свойства:
+  bool Inline
+  JSONNodeType Tag
+  bool IsObject
+  JSONNode Item
+  JSONNode Item
+  int Count
+  IEnumerable`1<JSONNode> Children
+Методы:
+  bool get_Inline()
+  void set_Inline(bool value)
+  JSONNodeType get_Tag()
+  bool get_IsObject()
+  Enumerator GetEnumerator()
+  JSONNode get_Item(string aKey)
+  void set_Item(string aKey, JSONNode value)
+  JSONNode get_Item(int aIndex)
+  void set_Item(int aIndex, JSONNode value)
+  int get_Count()
+  void Add(string aKey, JSONNode aItem)
+  JSONNode Remove(string aKey)
+  JSONNode Remove(int aIndex)
+  JSONNode Remove(JSONNode aNode)
+  IEnumerable`1<JSONNode> get_Children()
+  void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode)
+  void SerializeBinary(BinaryWriter aWriter)
+  void .ctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONString
+Наследуется от: JSONNode
+Поля:
+  string m_Data
+Свойства:
+  JSONNodeType Tag
+  bool IsString
+  string Value
+Методы:
+  JSONNodeType get_Tag()
+  bool get_IsString()
+  Enumerator GetEnumerator()
+  string get_Value()
+  void set_Value(string value)
+  void .ctor(string aData)
+  void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode)
+  bool Equals(object obj)
+  int GetHashCode()
+  void SerializeBinary(BinaryWriter aWriter)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONNumber
+Наследуется от: JSONNode
+Поля:
+  double m_Data
+Свойства:
+  JSONNodeType Tag
+  bool IsNumber
+  string Value
+  double AsDouble
+  long AsLong
+Методы:
+  JSONNodeType get_Tag()
+  bool get_IsNumber()
+  Enumerator GetEnumerator()
+  string get_Value()
+  void set_Value(string value)
+  double get_AsDouble()
+  void set_AsDouble(double value)
+  long get_AsLong()
+  void set_AsLong(long value)
+  void .ctor(double aData)
+  void .ctor(string aData)
+  void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode)
+  bool IsNumeric(object value)
+  bool Equals(object obj)
+  int GetHashCode()
+  void SerializeBinary(BinaryWriter aWriter)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONBool
+Наследуется от: JSONNode
+Поля:
+  bool m_Data
+Свойства:
+  JSONNodeType Tag
+  bool IsBoolean
+  string Value
+  bool AsBool
+Методы:
+  JSONNodeType get_Tag()
+  bool get_IsBoolean()
+  Enumerator GetEnumerator()
+  string get_Value()
+  void set_Value(string value)
+  bool get_AsBool()
+  void set_AsBool(bool value)
+  void .ctor(bool aData)
+  void .ctor(string aData)
+  void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode)
+  bool Equals(object obj)
+  int GetHashCode()
+  void SerializeBinary(BinaryWriter aWriter)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONNull
+Наследуется от: JSONNode
+Поля:
+  JSONNull m_StaticInstance
+  bool reuseSameInstance
+Свойства:
+  JSONNodeType Tag
+  bool IsNull
+  string Value
+  bool AsBool
+Методы:
+  JSONNull CreateOrGet()
+  void .ctor()
+  JSONNodeType get_Tag()
+  bool get_IsNull()
+  Enumerator GetEnumerator()
+  string get_Value()
+  void set_Value(string value)
+  bool get_AsBool()
+  void set_AsBool(bool value)
+  bool Equals(object obj)
+  int GetHashCode()
+  void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode)
+  void SerializeBinary(BinaryWriter aWriter)
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSONLazyCreator
+Наследуется от: JSONNode
+Поля:
+  JSONNode m_Node
+  string m_Key
+Свойства:
+  JSONNodeType Tag
+  JSONNode Item
+  JSONNode Item
+  int AsInt
+  float AsFloat
+  double AsDouble
+  long AsLong
+  bool AsBool
+  JSONArray AsArray
+  JSONObject AsObject
+Методы:
+  JSONNodeType get_Tag()
+  Enumerator GetEnumerator()
+  void .ctor(JSONNode aNode)
+  void .ctor(JSONNode aNode, string aKey)
+  T Set(T aVal)
+  JSONNode get_Item(int aIndex)
+  void set_Item(int aIndex, JSONNode value)
+  JSONNode get_Item(string aKey)
+  void set_Item(string aKey, JSONNode value)
+  void Add(JSONNode aItem)
+  void Add(string aKey, JSONNode aItem)
+  bool op_Equality(JSONLazyCreator a, object b)
+  bool op_Inequality(JSONLazyCreator a, object b)
+  bool Equals(object obj)
+  int GetHashCode()
+  int get_AsInt()
+  void set_AsInt(int value)
+  float get_AsFloat()
+  void set_AsFloat(float value)
+  double get_AsDouble()
+  void set_AsDouble(double value)
+  long get_AsLong()
+  void set_AsLong(long value)
+  bool get_AsBool()
+  void set_AsBool(bool value)
+  JSONArray get_AsArray()
+  JSONObject get_AsObject()
+  void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode)
+  void SerializeBinary(BinaryWriter aWriter)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.JSON
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  JSONNode Parse(string aJSON)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.SharpZipBaseException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string msg)
+  void .ctor(string message, Exception innerException)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.GZip.GZipConstants
+Наследуется от: object
+Поля:
+  int GZIP_MAGIC
+  int FTEXT
+  int FHCRC
+  int FEXTRA
+  int FNAME
+  int FCOMMENT
+Свойства:
+Методы:
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.GZip.GZipOutputStream
+Наследуется от: DeflaterOutputStream
+Поля:
+  Crc32 crc
+Свойства:
+Методы:
+  void .ctor(Stream baseOutputStream)
+  void .ctor(Stream baseOutputStream, int size)
+  void WriteHeader()
+  void Write(Byte[] buf, int off, int len)
+  void Close()
+  void SetLevel(int level)
+  int GetLevel()
+  void Finish()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Compression.Deflater
+Наследуется от: object
+Поля:
+  int BEST_COMPRESSION
+  int BEST_SPEED
+  int DEFAULT_COMPRESSION
+  int NO_COMPRESSION
+  int DEFLATED
+  int IS_SETDICT
+  int IS_FLUSHING
+  int IS_FINISHING
+  int INIT_STATE
+  int SETDICT_STATE
+  int BUSY_STATE
+  int FLUSHING_STATE
+  int FINISHING_STATE
+  int FINISHED_STATE
+  int CLOSED_STATE
+  int level
+  bool noZlibHeaderOrFooter
+  int state
+  long totalOut
+  DeflaterPending pending
+  DeflaterEngine engine
+Свойства:
+  int Adler
+  int TotalIn
+  long TotalOut
+  bool IsFinished
+  bool IsNeedingInput
+Методы:
+  void .ctor()
+  void .ctor(int lvl)
+  void .ctor(int level, bool noZlibHeaderOrFooter)
+  void Reset()
+  int get_Adler()
+  int get_TotalIn()
+  long get_TotalOut()
+  void Flush()
+  void Finish()
+  bool get_IsFinished()
+  bool get_IsNeedingInput()
+  void SetInput(Byte[] input)
+  void SetInput(Byte[] input, int off, int len)
+  void SetLevel(int lvl)
+  int GetLevel()
+  void SetStrategy(DeflateStrategy strategy)
+  int Deflate(Byte[] output)
+  int Deflate(Byte[] output, int offset, int length)
+  void SetDictionary(Byte[] dict)
+  void SetDictionary(Byte[] dict, int offset, int length)
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflaterConstants
+Наследуется от: object
+Поля:
+  bool DEBUGGING
+  int STORED_BLOCK
+  int STATIC_TREES
+  int DYN_TREES
+  int PRESET_DICT
+  int DEFAULT_MEM_LEVEL
+  int MAX_MATCH
+  int MIN_MATCH
+  int MAX_WBITS
+  int WSIZE
+  int WMASK
+  int HASH_BITS
+  int HASH_SIZE
+  int HASH_MASK
+  int HASH_SHIFT
+  int MIN_LOOKAHEAD
+  int MAX_DIST
+  int PENDING_BUF_SIZE
+  int MAX_BLOCK_SIZE
+  int DEFLATE_STORED
+  int DEFLATE_FAST
+  int DEFLATE_SLOW
+  Int32[] GOOD_LENGTH
+  Int32[] MAX_LAZY
+  Int32[] NICE_LENGTH
+  Int32[] MAX_CHAIN
+  Int32[] COMPR_FUNC
+Свойства:
+Методы:
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflateStrategy
+Наследуется от: Enum
+Поля:
+  int value__
+  DeflateStrategy Default
+  DeflateStrategy Filtered
+  DeflateStrategy HuffmanOnly
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflaterEngine
+Наследуется от: DeflaterConstants
+Поля:
+  int TOO_FAR
+  int ins_h
+  Int16[] head
+  Int16[] prev
+  int matchStart
+  int matchLen
+  bool prevAvailable
+  int blockStart
+  int strstart
+  int lookahead
+  Byte[] window
+  DeflateStrategy strategy
+  int max_chain
+  int max_lazy
+  int niceLength
+  int goodLength
+  int comprFunc
+  Byte[] inputBuf
+  int totalIn
+  int inputOff
+  int inputEnd
+  DeflaterPending pending
+  DeflaterHuffman huffman
+  Adler32 adler
+Свойства:
+  int Adler
+  int TotalIn
+  DeflateStrategy Strategy
+Методы:
+  void .ctor(DeflaterPending pending)
+  void Reset()
+  void ResetAdler()
+  int get_Adler()
+  int get_TotalIn()
+  DeflateStrategy get_Strategy()
+  void set_Strategy(DeflateStrategy value)
+  void SetLevel(int lvl)
+  void UpdateHash()
+  int InsertString()
+  void SlideWindow()
+  void FillWindow()
+  bool FindLongestMatch(int curMatch)
+  void SetDictionary(Byte[] buffer, int offset, int length)
+  bool DeflateStored(bool flush, bool finish)
+  bool DeflateFast(bool flush, bool finish)
+  bool DeflateSlow(bool flush, bool finish)
+  bool Deflate(bool flush, bool finish)
+  void SetInput(Byte[] buf, int off, int len)
+  bool NeedsInput()
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflaterHuffman
+Наследуется от: object
+Поля:
+  int BUFSIZE
+  int LITERAL_NUM
+  int DIST_NUM
+  int BITLEN_NUM
+  int REP_3_6
+  int REP_3_10
+  int REP_11_138
+  int EOF_SYMBOL
+  Int32[] BL_ORDER
+  Byte[] bit4Reverse
+  DeflaterPending pending
+  Tree literalTree
+  Tree distTree
+  Tree blTree
+  Int16[] d_buf
+  Byte[] l_buf
+  int last_lit
+  int extra_bits
+  Int16[] staticLCodes
+  Byte[] staticLLength
+  Int16[] staticDCodes
+  Byte[] staticDLength
+Свойства:
+Методы:
+  short BitReverse(int toReverse)
+  void .cctor()
+  void .ctor(DeflaterPending pending)
+  void Reset()
+  int Lcode(int len)
+  int Dcode(int distance)
+  void SendAllTrees(int blTreeCodes)
+  void CompressBlock()
+  void FlushStoredBlock(Byte[] stored, int storedOffset, int storedLength, bool lastBlock)
+  void FlushBlock(Byte[] stored, int storedOffset, int storedLength, bool lastBlock)
+  bool IsFull()
+  bool TallyLit(int lit)
+  bool TallyDist(int dist, int len)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflaterPending
+Наследуется от: PendingBuffer
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Compression.PendingBuffer
+Наследуется от: object
+Поля:
+  Byte[] buf
+  int start
+  int end
+  UInt32 bits
+  int bitCount
+Свойства:
+  int BitCount
+  bool IsFlushed
+Методы:
+  void .ctor()
+  void .ctor(int bufsize)
+  void Reset()
+  void WriteByte(int b)
+  void WriteShort(int s)
+  void WriteInt(int s)
+  void WriteBlock(Byte[] block, int offset, int len)
+  int get_BitCount()
+  void AlignToByte()
+  void WriteBits(int b, int count)
+  void WriteShortMSB(int s)
+  bool get_IsFlushed()
+  int Flush(Byte[] output, int offset, int length)
+  Byte[] ToByteArray()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Compression.Streams.DeflaterOutputStream
+Наследуется от: Stream
+Поля:
+  Byte[] buf
+  Deflater def
+  Stream baseOutputStream
+  bool isClosed
+  bool isStreamOwner
+  string password
+  UInt32[] keys
+Свойства:
+  bool IsStreamOwner
+  bool CanPatchEntries
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+  string Password
+Методы:
+  bool get_IsStreamOwner()
+  void set_IsStreamOwner(bool value)
+  bool get_CanPatchEntries()
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long val)
+  int ReadByte()
+  int Read(Byte[] b, int off, int len)
+  IAsyncResult BeginRead(Byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+  IAsyncResult BeginWrite(Byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+  void Deflate()
+  void .ctor(Stream baseOutputStream)
+  void .ctor(Stream baseOutputStream, Deflater defl)
+  void .ctor(Stream baseOutputStream, Deflater deflater, int bufsize)
+  void Flush()
+  void Finish()
+  void Close()
+  void WriteByte(byte bval)
+  void Write(Byte[] buf, int off, int len)
+  string get_Password()
+  void set_Password(string value)
+  byte EncryptByte()
+  void EncryptBlock(Byte[] buffer, int offset, int length)
+  void InitializePassword(string password)
+  void UpdateKeys(byte ch)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Checksums.Adler32
+Наследуется от: object
+Поля:
+  UInt32 BASE
+  UInt32 checksum
+Свойства:
+  long Value
+Методы:
+  long get_Value()
+  void .ctor()
+  void Reset()
+  void Update(int bval)
+  void Update(Byte[] buffer)
+  void Update(Byte[] buf, int off, int len)
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Checksums.Crc32
+Наследуется от: object
+Поля:
+  UInt32 CrcSeed
+  UInt32[] CrcTable
+  UInt32 crc
+Свойства:
+  long Value
+Методы:
+  UInt32 ComputeCrc32(UInt32 oldCrc, byte bval)
+  long get_Value()
+  void set_Value(long value)
+  void Reset()
+  void Update(int bval)
+  void Update(Byte[] buffer)
+  void Update(Byte[] buf, int off, int len)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Utilities.Zip.Checksums.IChecksum
+Поля:
+Свойства:
+  long Value
+Методы:
+  long get_Value()
+  void Reset()
+  void Update(int bval)
+  void Update(Byte[] buffer)
+  void Update(Byte[] buf, int off, int len)
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Threading.GAThreading
+Наследуется от: object
+Поля:
+  bool endThread
+  DateTime threadDeadline
+  GAThreading _instance
+  int ThreadWaitTimeInMs
+  PriorityQueue`2<long, TimedBlock> blocks
+  object threadLock
+  TimedBlock scheduledBlock
+  bool hasScheduledBlockRun
+  Thread thread
+Свойства:
+  GAThreading Instance
+Методы:
+  void .ctor()
+  void Finalize()
+  GAThreading get_Instance()
+  void RunBlocks()
+  void Run()
+  void PerformTaskOnGAThread(string blockName, Action taskBlock)
+  void PerformTaskOnGAThread(string blockName, Action taskBlock, long delayInSeconds)
+  void ScheduleTimer(double interval, string blockName, Action callback)
+  void AddTimedBlock(TimedBlock timedBlock)
+  TimedBlock GetNextBlock()
+  TimedBlock GetScheduledBlock()
+  void StartThread()
+  void StopThread()
+  void WaitForThreadFinish()
+  bool IsThreadFinished()
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Threading.PriorityQueue`2
+Наследуется от: object
+Поля:
+  SortedDictionary`2<TPriority, Queue`1<TItem>> _subqueues
+Свойства:
+  bool HasItems
+  int Count
+Методы:
+  void .ctor(IComparer`1<TPriority> priorityComparer)
+  void .ctor()
+  void Enqueue(TPriority priority, TItem item)
+  void AddQueueOfPriority(TPriority priority)
+  TItem Peek()
+  bool get_HasItems()
+  TItem Dequeue()
+  TItem DequeueFromHighPriorityQueue()
+  int get_Count()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Store.GAStore
+Наследуется от: object
+Поля:
+  bool InMemory
+  long MaxDbSizeBytes
+  long MaxDbSizeBytesBeforeTrim
+  GAStore _instance
+  string dbPath
+  SqliteConnection <SqlDatabase>k__BackingField
+  bool <DbReady>k__BackingField
+  bool _tableReady
+Свойства:
+  GAStore Instance
+  SqliteConnection SqlDatabase
+  bool DbReady
+  bool IsTableReady
+  bool IsDbTooLargeForEvents
+  long DbSizeBytes
+Методы:
+  GAStore get_Instance()
+  SqliteConnection get_SqlDatabase()
+  void set_SqlDatabase(SqliteConnection value)
+  bool get_DbReady()
+  void set_DbReady(bool value)
+  bool get_IsTableReady()
+  void set_IsTableReady(bool value)
+  bool get_IsDbTooLargeForEvents()
+  void .ctor()
+  JSONArray ExecuteQuerySync(string sql)
+  JSONArray ExecuteQuerySync(string sql, Dictionary`2<string, object> parameters)
+  JSONArray ExecuteQuerySync(string sql, Dictionary`2<string, object> parameters, bool useTransaction)
+  bool EnsureDatabase(bool dropDatabase, string key)
+  void SetState(string key, string value)
+  long get_DbSizeBytes()
+  void TrimEventTable()
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.State.GAState
+Наследуется от: object
+Поля:
+  string CategorySdkError
+  int MaxCustomFieldsCount
+  int MaxCustomFieldsKeyLength
+  int MaxCustomFieldsValueStringLength
+  GAState _instance
+  string _userId
+  string _identifier
+  bool _initialized
+  long _sessionStart
+  int _sessionNum
+  int _transactionNum
+  string _sessionId
+  string _currentCustomDimension01
+  string _currentCustomDimension02
+  string _currentCustomDimension03
+  string _gameKey
+  string _gameSecret
+  String[] _availableCustomDimensions01
+  String[] _availableCustomDimensions02
+  String[] _availableCustomDimensions03
+  String[] _availableResourceCurrencies
+  String[] _availableResourceItemTypes
+  string _build
+  bool _useManualSessionHandling
+  bool _isEventSubmissionEnabled
+  bool <Enabled>k__BackingField
+  string <FacebookId>k__BackingField
+  string <Gender>k__BackingField
+  int <BirthYear>k__BackingField
+  JSONNode <SdkConfigCached>k__BackingField
+  bool <InitAuthorized>k__BackingField
+  long <ClientServerTimeOffset>k__BackingField
+  long <SuspendBlockId>k__BackingField
+  string _defaultUserId
+  Dictionary`2<string, int> progressionTries
+  JSONNode sdkConfigDefault
+  JSONNode sdkConfig
+  JSONNode sdkConfigCached
+  JSONNode configurations
+  bool commandCenterIsReady
+  List`1<ICommandCenterListener> commandCenterListeners
+  object configurationsLock
+  string InMemoryPrefix
+  string DefaultUserIdKey
+  string SessionNumKey
+  string TransactionNumKey
+  string FacebookIdKey
+  string GenderKey
+  string BirthYearKey
+  string Dimension01Key
+  string Dimension02Key
+  string Dimension03Key
+  string SdkConfigCachedKey
+Свойства:
+  GAState Instance
+  string UserId
+  string Identifier
+  bool Initialized
+  long SessionStart
+  int SessionNum
+  int TransactionNum
+  string SessionId
+  string CurrentCustomDimension01
+  string CurrentCustomDimension02
+  string CurrentCustomDimension03
+  string GameKey
+  string GameSecret
+  String[] AvailableCustomDimensions01
+  String[] AvailableCustomDimensions02
+  String[] AvailableCustomDimensions03
+  String[] AvailableResourceCurrencies
+  String[] AvailableResourceItemTypes
+  string Build
+  bool UseManualSessionHandling
+  bool IsEventSubmissionEnabled
+  bool Enabled
+  string FacebookId
+  string Gender
+  int BirthYear
+  JSONNode SdkConfigCached
+  bool InitAuthorized
+  long ClientServerTimeOffset
+  long SuspendBlockId
+  string DefaultUserId
+  JSONNode SdkConfig
+Методы:
+  GAState get_Instance()
+  string get_UserId()
+  void set_UserId(string value)
+  string get_Identifier()
+  void set_Identifier(string value)
+  bool get_Initialized()
+  void set_Initialized(bool value)
+  long get_SessionStart()
+  void set_SessionStart(long value)
+  int get_SessionNum()
+  void set_SessionNum(int value)
+  int get_TransactionNum()
+  void set_TransactionNum(int value)
+  string get_SessionId()
+  void set_SessionId(string value)
+  string get_CurrentCustomDimension01()
+  void set_CurrentCustomDimension01(string value)
+  string get_CurrentCustomDimension02()
+  void set_CurrentCustomDimension02(string value)
+  string get_CurrentCustomDimension03()
+  void set_CurrentCustomDimension03(string value)
+  string get_GameKey()
+  void set_GameKey(string value)
+  string get_GameSecret()
+  void set_GameSecret(string value)
+  String[] get_AvailableCustomDimensions01()
+  void set_AvailableCustomDimensions01(String[] value)
+  String[] get_AvailableCustomDimensions02()
+  void set_AvailableCustomDimensions02(String[] value)
+  String[] get_AvailableCustomDimensions03()
+  void set_AvailableCustomDimensions03(String[] value)
+  String[] get_AvailableResourceCurrencies()
+  void set_AvailableResourceCurrencies(String[] value)
+  String[] get_AvailableResourceItemTypes()
+  void set_AvailableResourceItemTypes(String[] value)
+  string get_Build()
+  void set_Build(string value)
+  bool get_UseManualSessionHandling()
+  void set_UseManualSessionHandling(bool value)
+  bool get_IsEventSubmissionEnabled()
+  void set_IsEventSubmissionEnabled(bool value)
+  bool get_Enabled()
+  void set_Enabled(bool value)
+  string get_FacebookId()
+  void set_FacebookId(string value)
+  string get_Gender()
+  void set_Gender(string value)
+  int get_BirthYear()
+  void set_BirthYear(int value)
+  JSONNode get_SdkConfigCached()
+  void set_SdkConfigCached(JSONNode value)
+  bool get_InitAuthorized()
+  void set_InitAuthorized(bool value)
+  long get_ClientServerTimeOffset()
+  void set_ClientServerTimeOffset(long value)
+  long get_SuspendBlockId()
+  void set_SuspendBlockId(long value)
+  string get_DefaultUserId()
+  void set_DefaultUserId(string value)
+  JSONNode get_SdkConfig()
+  void .ctor()
+  void Finalize()
+  bool IsEnabled()
+  void SetCustomDimension01(string dimension)
+  void SetCustomDimension02(string dimension)
+  void SetCustomDimension03(string dimension)
+  void SetFacebookId(string facebookId)
+  void SetGender(EGAGender gender)
+  void SetBirthYear(int birthYear)
+  void IncrementSessionNum()
+  void IncrementTransactionNum()
+  void IncrementProgressionTries(string progression)
+  int GetProgressionTries(string progression)
+  void ClearProgressionTries(string progression)
+  bool HasAvailableCustomDimensions01(string dimension1)
+  bool HasAvailableCustomDimensions02(string dimension2)
+  bool HasAvailableCustomDimensions03(string dimension3)
+  bool HasAvailableResourceCurrency(string currency)
+  bool HasAvailableResourceItemType(string itemType)
+  void SetKeys(string gameKey, string gameSecret)
+  void SetManualSessionHandling(bool flag)
+  void SetEnabledEventSubmission(bool flag)
+  void InternalInitialize()
+  void EndSessionAndStopQueue(bool endThread)
+  void ResumeSessionAndStartQueue()
+  JSONObject GetEventAnnotations()
+  JSONObject GetInitAnnotations()
+  long GetClientTsAdjusted()
+  bool SessionIsStarted()
+  JSONObject ValidateAndCleanCustomFields(IDictionary`2<string, object> fields)
+  string GetConfigurationStringValue(string key, string defaultValue)
+  bool IsCommandCenterReady()
+  void AddCommandCenterListener(ICommandCenterListener listener)
+  void RemoveCommandCenterListener(ICommandCenterListener listener)
+  string GetConfigurationsAsString()
+  void CacheIdentifier()
+  void EnsurePersistedStates()
+  void StartNewSession()
+  void StartNewSession(EGAHTTPApiResponse initResponse, JSONObject initResponseDict)
+  void ValidateAndFixCurrentDimensions()
+  long CalculateServerTimeOffset(long serverTs)
+  void PopulateConfigurations(JSONNode sdkConfig)
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Logging.GALogger
+Наследуется от: object
+Поля:
+  GALogger _instance
+  string Tag
+Свойства:
+  GALogger Instance
+Методы:
+  GALogger get_Instance()
+  void .ctor()
+  void I(string format)
+  void W(string format)
+  void E(string format)
+  void II(string format)
+  void D(string format)
+  void SendNotificationMessage(string message, EGALoggerMessageType type)
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Http.EGAHTTPApiResponse
+Наследуется от: Enum
+Поля:
+  int value__
+  EGAHTTPApiResponse NoResponse
+  EGAHTTPApiResponse BadResponse
+  EGAHTTPApiResponse RequestTimeout
+  EGAHTTPApiResponse JsonEncodeFailed
+  EGAHTTPApiResponse JsonDecodeFailed
+  EGAHTTPApiResponse InternalServerError
+  EGAHTTPApiResponse BadRequest
+  EGAHTTPApiResponse Unauthorized
+  EGAHTTPApiResponse UnknownResponseCode
+  EGAHTTPApiResponse Ok
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Http.EGASdkErrorType
+Наследуется от: Enum
+Поля:
+  int value__
+  EGASdkErrorType Undefined
+  EGASdkErrorType Rejected
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Http.GAHTTPApi
+Наследуется от: object
+Поля:
+  GAHTTPApi _instance
+  string protocol
+  string hostName
+  string version
+  string baseUrl
+  string initializeUrlPath
+  string eventsUrlPath
+  bool useGzip
+Свойства:
+  GAHTTPApi Instance
+Методы:
+  string getBaseUrl()
+  GAHTTPApi get_Instance()
+  void .ctor()
+  bool MyRemoteCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+  KeyValuePair`2<EGAHTTPApiResponse, JSONObject> RequestInitReturningDict()
+  KeyValuePair`2<EGAHTTPApiResponse, JSONNode> SendEventsInArray(List`1<JSONNode> eventArray)
+  Byte[] CreatePayloadData(string payload, bool gzip)
+  string SdkErrorTypeToString(EGASdkErrorType value)
+  HttpWebRequest CreateRequest(string url, Byte[] payloadData, bool gzip)
+  EGAHTTPApiResponse ProcessRequestResponse(HttpStatusCode responseCode, string responseMessage, string body, string requestId)
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Events.GAEvents
+Наследуется от: object
+Поля:
+  GAEvents _instance
+  string CategorySessionStart
+  string CategorySessionEnd
+  string CategoryDesign
+  string CategoryBusiness
+  string CategoryProgression
+  string CategoryResource
+  string CategoryError
+  bool isRunning
+  bool keepRunning
+  double ProcessEventsIntervalInSeconds
+  int MaxEventCount
+Свойства:
+  GAEvents Instance
+Методы:
+  GAEvents get_Instance()
+  void .ctor()
+  void StopEventQueue()
+  void EnsureEventQueueIsRunning()
+  void AddSessionStartEvent()
+  void AddSessionEndEvent()
+  void AddBusinessEvent(string currency, int amount, string itemType, string itemId, string cartType, IDictionary`2<string, object> fields)
+  void AddResourceEvent(EGAResourceFlowType flowType, string currency, double amount, string itemType, string itemId, IDictionary`2<string, object> fields)
+  void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03, double score, bool sendScore, IDictionary`2<string, object> fields)
+  void AddDesignEvent(string eventId, double value, bool sendValue, IDictionary`2<string, object> fields)
+  void AddErrorEvent(EGAErrorSeverity severity, string message, IDictionary`2<string, object> fields)
+  void ProcessEventQueue()
+  void ProcessEvents(string category, bool performCleanUp)
+  void ProcessEvents(EGAHTTPApiResponse responseEnum, JSONNode dataDict, string putbackSql, string deleteSql, int eventCount)
+  void CleanupEvents()
+  void FixMissingSessionEndEvents()
+  void AddEventToStore(JSONObject eventData)
+  void AddDimensionsToEvent(JSONObject eventData)
+  void AddFieldsToEvent(JSONObject eventData, JSONObject fields)
+  string ResourceFlowTypeToString(EGAResourceFlowType value)
+  string ProgressionStatusToString(ProgressionStatus value)
+  void UpdateSessionTime()
+  string ErrorSeverityToString(EGAErrorSeverity value)
+  void .cctor()
+--------------------------------------------------
+Класс: GameAnalyticsSDK.Net.Device.GADevice
+Наследуется от: object
+Поля:
+  string _sdkWrapperVersion
+  string _buildPlatform
+  string _deviceModel
+  string _writablepath
+  string _osVersion
+  string _deviceManufacturer
+  string <SdkGameEngineVersion>k__BackingField
+  string <GameEngineVersion>k__BackingField
+  string <ConnectionType>k__BackingField
+Свойства:
+  string SdkGameEngineVersion
+  string GameEngineVersion
+  string ConnectionType
+  string RelevantSdkVersion
+  string BuildPlatform
+  string OSVersion
+  string DeviceModel
+  string DeviceManufacturer
+  string WritablePath
+Методы:
+  void Touch()
+  string get_SdkGameEngineVersion()
+  void set_SdkGameEngineVersion(string value)
+  string get_GameEngineVersion()
+  void set_GameEngineVersion(string value)
+  string get_ConnectionType()
+  void set_ConnectionType(string value)
+  string get_RelevantSdkVersion()
+  string get_BuildPlatform()
+  string get_OSVersion()
+  string get_DeviceModel()
+  string get_DeviceManufacturer()
+  string get_WritablePath()
+  void UpdateConnectionType()
+  string GetOSVersionString()
+  string GetPersistentPath()
+  string UnityRuntimePlatformToString(RuntimePlatform platform)
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.GA
+Наследуется от: object
+Поля:
+  bool initialized
+  bool <Logging>k__BackingField
+  string <CustomUserId>k__BackingField
+  string <Build>k__BackingField
+  string <Device>k__BackingField
+Свойства:
+  bool Logging
+  string CustomUserId
+  string Build
+  string Device
+Методы:
+  bool get_Logging()
+  void set_Logging(bool value)
+  string get_CustomUserId()
+  void set_CustomUserId(string value)
+  string get_Build()
+  void set_Build(string value)
+  string get_Device()
+  void set_Device(string value)
+  void Initialize(string gameKey, string gameSecret)
+  void DesignEvent(string eventName)
+  void DesignEvent(string eventName, float eventValue)
+  void BusinessEvent(string currency, int amount, string itemType, string itemId, string cartType)
+  void ProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03, double score)
+  void ProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03)
+  void Shutdown()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.ProgressionStatus
+Наследуется от: Enum
+Поля:
+  int value__
+  ProgressionStatus Undefined
+  ProgressionStatus Start
+  ProgressionStatus Complete
+  ProgressionStatus Fail
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=40 00C40B3F013EDA60390F2E849C4581815A9419E4
+  __StaticArrayInitTypeSize=40 03B569C38E3CD6B720388919D43735A904012C52
+  __StaticArrayInitTypeSize=76 1FDC8DB567F5AAA7068D0D2A601CD71657CBDF38
+  __StaticArrayInitTypeSize=1024 373B494F210C656134C5728D551D4C97B013EB33
+  __StaticArrayInitTypeSize=12 61951014FB17C5BF74F45401CA5C6D4C7205CF11
+  __StaticArrayInitTypeSize=40 6BC4EAB0D604C8D4599021AD611C5DBA7FF7E306
+  __StaticArrayInitTypeSize=16 89CE0E8EA590FD37283D6BEFD9E6805C8C47ADBD
+  __StaticArrayInitTypeSize=40 DB7C763C9670DD0F6ED34B75B3410A39D835F964
+  __StaticArrayInitTypeSize=40 ED032026472FF77A8A17BA4AFF3FC57AF4B4BF79
+Свойства:
+Методы:
+--------------------------------------------------

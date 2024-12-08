@@ -1,0 +1,1218 @@
+public static class Facepunch.GA : object {
+    internal static bool initialized;
+    [CompilerGeneratedAttribute]
+private static bool <Logging>k__BackingField;
+    [CompilerGeneratedAttribute]
+private static string <CustomUserId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private static string <Build>k__BackingField;
+    [CompilerGeneratedAttribute]
+private static string <Device>k__BackingField;
+    public static bool Logging { get; public set; }
+    public static string CustomUserId { get; public set; }
+    public static string Build { get; public set; }
+    public static string Device { get; public set; }
+    private static GA();
+    [CompilerGeneratedAttribute]
+public static bool get_Logging();
+    [CompilerGeneratedAttribute]
+public static void set_Logging(bool value);
+    [CompilerGeneratedAttribute]
+public static string get_CustomUserId();
+    [CompilerGeneratedAttribute]
+public static void set_CustomUserId(string value);
+    [CompilerGeneratedAttribute]
+public static string get_Build();
+    [CompilerGeneratedAttribute]
+public static void set_Build(string value);
+    [CompilerGeneratedAttribute]
+public static string get_Device();
+    [CompilerGeneratedAttribute]
+public static void set_Device(string value);
+    public static void Initialize(string gameKey, string gameSecret);
+    public static void DesignEvent(string eventName);
+    public static void DesignEvent(string eventName, float eventValue);
+    public static void BusinessEvent(string currency, int amount, string itemType, string itemId, string cartType);
+    public static void ProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03, double score);
+    public static void ProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03);
+    public static void Shutdown();
+}
+public enum Facepunch.ProgressionStatus : Enum {
+    public int value__;
+    public static ProgressionStatus Undefined;
+    public static ProgressionStatus Start;
+    public static ProgressionStatus Complete;
+    public static ProgressionStatus Fail;
+}
+internal static class GameAnalyticsSDK.Net.Device.GADevice : object {
+    private static string _sdkWrapperVersion;
+    private static string _buildPlatform;
+    private static string _deviceModel;
+    private static string _writablepath;
+    private static string _osVersion;
+    private static string _deviceManufacturer;
+    [CompilerGeneratedAttribute]
+private static string <SdkGameEngineVersion>k__BackingField;
+    [CompilerGeneratedAttribute]
+private static string <GameEngineVersion>k__BackingField;
+    [CompilerGeneratedAttribute]
+private static string <ConnectionType>k__BackingField;
+    private static string SdkGameEngineVersion { get; public set; }
+    public static string GameEngineVersion { get; public set; }
+    public static string ConnectionType { get; public set; }
+    public static string RelevantSdkVersion { get; }
+    public static string BuildPlatform { get; }
+    public static string OSVersion { get; }
+    public static string DeviceModel { get; }
+    public static string DeviceManufacturer { get; }
+    public static string WritablePath { get; }
+    private static GADevice();
+    public static void Touch();
+    [CompilerGeneratedAttribute]
+private static string get_SdkGameEngineVersion();
+    [CompilerGeneratedAttribute]
+public static void set_SdkGameEngineVersion(string value);
+    [CompilerGeneratedAttribute]
+public static string get_GameEngineVersion();
+    [CompilerGeneratedAttribute]
+public static void set_GameEngineVersion(string value);
+    [CompilerGeneratedAttribute]
+public static string get_ConnectionType();
+    [CompilerGeneratedAttribute]
+public static void set_ConnectionType(string value);
+    public static string get_RelevantSdkVersion();
+    public static string get_BuildPlatform();
+    public static string get_OSVersion();
+    public static string get_DeviceModel();
+    public static string get_DeviceManufacturer();
+    public static string get_WritablePath();
+    public static void UpdateConnectionType();
+    private static string GetOSVersionString();
+    private static string GetPersistentPath();
+    private static string UnityRuntimePlatformToString(RuntimePlatform platform);
+}
+internal enum GameAnalyticsSDK.Net.EGAErrorSeverity : Enum {
+    public int value__;
+    public static EGAErrorSeverity Undefined;
+    public static EGAErrorSeverity Debug;
+    public static EGAErrorSeverity Info;
+    public static EGAErrorSeverity Warning;
+    public static EGAErrorSeverity Error;
+    public static EGAErrorSeverity Critical;
+}
+internal enum GameAnalyticsSDK.Net.EGAGender : Enum {
+    public int value__;
+    public static EGAGender Undefined;
+    public static EGAGender Male;
+    public static EGAGender Female;
+}
+internal enum GameAnalyticsSDK.Net.EGALoggerMessageType : Enum {
+    public int value__;
+    public static EGALoggerMessageType Error;
+    public static EGALoggerMessageType Warning;
+    public static EGALoggerMessageType Info;
+    public static EGALoggerMessageType Debug;
+}
+internal enum GameAnalyticsSDK.Net.EGAResourceFlowType : Enum {
+    public int value__;
+    public static EGAResourceFlowType Undefined;
+    public static EGAResourceFlowType Source;
+    public static EGAResourceFlowType Sink;
+}
+internal class GameAnalyticsSDK.Net.Events.GAEvents : object {
+    private static GAEvents _instance;
+    private static string CategorySessionStart;
+    private static string CategorySessionEnd;
+    private static string CategoryDesign;
+    private static string CategoryBusiness;
+    private static string CategoryProgression;
+    private static string CategoryResource;
+    private static string CategoryError;
+    private bool isRunning;
+    private bool keepRunning;
+    private static double ProcessEventsIntervalInSeconds;
+    private static int MaxEventCount;
+    private static GAEvents Instance { get; }
+    private static GAEvents();
+    private static GAEvents get_Instance();
+    public static void StopEventQueue();
+    public static void EnsureEventQueueIsRunning();
+    public static void AddSessionStartEvent();
+    public static void AddSessionEndEvent();
+    public static void AddBusinessEvent(string currency, int amount, string itemType, string itemId, string cartType, IDictionary`2<string, object> fields);
+    public static void AddResourceEvent(EGAResourceFlowType flowType, string currency, double amount, string itemType, string itemId, IDictionary`2<string, object> fields);
+    public static void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03, double score, bool sendScore, IDictionary`2<string, object> fields);
+    public static void AddDesignEvent(string eventId, double value, bool sendValue, IDictionary`2<string, object> fields);
+    public static void AddErrorEvent(EGAErrorSeverity severity, string message, IDictionary`2<string, object> fields);
+    private static void ProcessEventQueue();
+    private static void ProcessEvents(string category, bool performCleanUp);
+    public static void ProcessEvents(EGAHTTPApiResponse responseEnum, JSONNode dataDict, string putbackSql, string deleteSql, int eventCount);
+    private static void CleanupEvents();
+    private static void FixMissingSessionEndEvents();
+    private static void AddEventToStore(JSONObject eventData);
+    private static void AddDimensionsToEvent(JSONObject eventData);
+    private static void AddFieldsToEvent(JSONObject eventData, JSONObject fields);
+    private static string ResourceFlowTypeToString(EGAResourceFlowType value);
+    private static string ProgressionStatusToString(ProgressionStatus value);
+    private static void UpdateSessionTime();
+    private static string ErrorSeverityToString(EGAErrorSeverity value);
+}
+internal static class GameAnalyticsSDK.Net.GameAnalytics : object {
+    private static bool _endThread;
+    private static GameAnalytics();
+    public static void ConfigureAvailableCustomDimensions01(String[] customDimensions);
+    public static void ConfigureAvailableCustomDimensions02(String[] customDimensions);
+    public static void ConfigureAvailableCustomDimensions03(String[] customDimensions);
+    public static void ConfigureAvailableResourceCurrencies(String[] resourceCurrencies);
+    public static void ConfigureAvailableResourceItemTypes(String[] resourceItemTypes);
+    public static void ConfigureBuild(string build);
+    public static void ConfigureSdkGameEngineVersion(string sdkGameEngineVersion);
+    public static void ConfigureGameEngineVersion(string gameEngineVersion);
+    public static void ConfigureUserId(string uId);
+    public static void Initialize(string gameKey, string gameSecret);
+    public static void AddBusinessEvent(string currency, int amount, string itemType, string itemId, string cartType);
+    public static void AddResourceEvent(EGAResourceFlowType flowType, string currency, float amount, string itemType, string itemId);
+    public static void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01);
+    public static void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, double score);
+    public static void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02);
+    public static void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, double score);
+    public static void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03);
+    public static void AddProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03, double score);
+    public static void AddDesignEvent(string eventId, IDictionary`2<string, object> fields);
+    public static void AddDesignEvent(string eventId, double value);
+    public static void AddErrorEvent(EGAErrorSeverity severity, string message);
+    public static void SetEnabledManualSessionHandling(bool flag);
+    public static void SetEnabledEventSubmission(bool flag);
+    public static void SetCustomDimension01(string dimension);
+    public static void SetCustomDimension02(string dimension);
+    public static void SetCustomDimension03(string dimension);
+    public static void SetFacebookId(string facebookId);
+    public static void SetGender(EGAGender gender);
+    public static void SetBirthYear(int birthYear);
+    public static void StartSession();
+    public static void EndSession();
+    public static void OnResume();
+    public static void OnSuspend();
+    public static void OnQuit();
+    public static string GetCommandCenterValueAsString(string key, string defaultValue);
+    public static bool IsCommandCenterReady();
+    public static void AddCommandCenterListener(ICommandCenterListener listener);
+    public static void RemoveCommandCenterListener(ICommandCenterListener listener);
+    public static string GetConfigurationsAsString();
+    private static bool IsSdkReady(bool needsInitialized);
+    private static bool IsSdkReady(bool needsInitialized, bool warn);
+    private static bool IsSdkReady(bool needsInitialized, bool warn, string message);
+}
+internal enum GameAnalyticsSDK.Net.Http.EGAHTTPApiResponse : Enum {
+    public int value__;
+    public static EGAHTTPApiResponse NoResponse;
+    public static EGAHTTPApiResponse BadResponse;
+    public static EGAHTTPApiResponse RequestTimeout;
+    public static EGAHTTPApiResponse JsonEncodeFailed;
+    public static EGAHTTPApiResponse JsonDecodeFailed;
+    public static EGAHTTPApiResponse InternalServerError;
+    public static EGAHTTPApiResponse BadRequest;
+    public static EGAHTTPApiResponse Unauthorized;
+    public static EGAHTTPApiResponse UnknownResponseCode;
+    public static EGAHTTPApiResponse Ok;
+}
+internal enum GameAnalyticsSDK.Net.Http.EGASdkErrorType : Enum {
+    public int value__;
+    public static EGASdkErrorType Undefined;
+    public static EGASdkErrorType Rejected;
+}
+internal class GameAnalyticsSDK.Net.Http.GAHTTPApi : object {
+    private static GAHTTPApi _instance;
+    private static string protocol;
+    private static string hostName;
+    private static string version;
+    private static string baseUrl;
+    private static string initializeUrlPath;
+    private static string eventsUrlPath;
+    private bool useGzip;
+    public static GAHTTPApi Instance { get; }
+    private static GAHTTPApi();
+    private static string getBaseUrl();
+    public static GAHTTPApi get_Instance();
+    private bool MyRemoteCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors);
+    public KeyValuePair`2<EGAHTTPApiResponse, JSONObject> RequestInitReturningDict();
+    public KeyValuePair`2<EGAHTTPApiResponse, JSONNode> SendEventsInArray(List`1<JSONNode> eventArray);
+    private Byte[] CreatePayloadData(string payload, bool gzip);
+    private static string SdkErrorTypeToString(EGASdkErrorType value);
+    private HttpWebRequest CreateRequest(string url, Byte[] payloadData, bool gzip);
+    private EGAHTTPApiResponse ProcessRequestResponse(HttpStatusCode responseCode, string responseMessage, string body, string requestId);
+}
+internal interface GameAnalyticsSDK.Net.ICommandCenterListener {
+    public abstract virtual void OnCommandCenterUpdated();
+}
+internal class GameAnalyticsSDK.Net.Logging.GALogger : object {
+    private static GALogger _instance;
+    private static string Tag;
+    private static GALogger Instance { get; }
+    private static GALogger();
+    private static GALogger get_Instance();
+    public static void I(string format);
+    public static void W(string format);
+    public static void E(string format);
+    public static void II(string format);
+    public static void D(string format);
+    private void SendNotificationMessage(string message, EGALoggerMessageType type);
+}
+internal class GameAnalyticsSDK.Net.State.GAState : object {
+    private static string CategorySdkError;
+    private static int MaxCustomFieldsCount;
+    private static int MaxCustomFieldsKeyLength;
+    private static int MaxCustomFieldsValueStringLength;
+    private static GAState _instance;
+    private string _userId;
+    private string _identifier;
+    private bool _initialized;
+    private long _sessionStart;
+    private int _sessionNum;
+    private int _transactionNum;
+    private string _sessionId;
+    private string _currentCustomDimension01;
+    private string _currentCustomDimension02;
+    private string _currentCustomDimension03;
+    private string _gameKey;
+    private string _gameSecret;
+    private String[] _availableCustomDimensions01;
+    private String[] _availableCustomDimensions02;
+    private String[] _availableCustomDimensions03;
+    private String[] _availableResourceCurrencies;
+    private String[] _availableResourceItemTypes;
+    private string _build;
+    private bool _useManualSessionHandling;
+    private bool _isEventSubmissionEnabled;
+    [CompilerGeneratedAttribute]
+private bool <Enabled>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <FacebookId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Gender>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <BirthYear>k__BackingField;
+    [CompilerGeneratedAttribute]
+private JSONNode <SdkConfigCached>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <InitAuthorized>k__BackingField;
+    [CompilerGeneratedAttribute]
+private long <ClientServerTimeOffset>k__BackingField;
+    [CompilerGeneratedAttribute]
+private long <SuspendBlockId>k__BackingField;
+    private string _defaultUserId;
+    private Dictionary`2<string, int> progressionTries;
+    private JSONNode sdkConfigDefault;
+    private JSONNode sdkConfig;
+    private JSONNode sdkConfigCached;
+    private JSONNode configurations;
+    private bool commandCenterIsReady;
+    private List`1<ICommandCenterListener> commandCenterListeners;
+    private object configurationsLock;
+    public static string InMemoryPrefix;
+    private static string DefaultUserIdKey;
+    public static string SessionNumKey;
+    public static string TransactionNumKey;
+    private static string FacebookIdKey;
+    private static string GenderKey;
+    private static string BirthYearKey;
+    private static string Dimension01Key;
+    private static string Dimension02Key;
+    private static string Dimension03Key;
+    private static string SdkConfigCachedKey;
+    private static GAState Instance { get; }
+    private static string UserId { get; public set; }
+    public static string Identifier { get; private set; }
+    public static bool Initialized { get; private set; }
+    public static long SessionStart { get; private set; }
+    public static int SessionNum { get; private set; }
+    public static int TransactionNum { get; private set; }
+    public static string SessionId { get; private set; }
+    public static string CurrentCustomDimension01 { get; private set; }
+    public static string CurrentCustomDimension02 { get; private set; }
+    public static string CurrentCustomDimension03 { get; private set; }
+    public static string GameKey { get; private set; }
+    public static string GameSecret { get; private set; }
+    public static String[] AvailableCustomDimensions01 { get; public set; }
+    public static String[] AvailableCustomDimensions02 { get; public set; }
+    public static String[] AvailableCustomDimensions03 { get; public set; }
+    public static String[] AvailableResourceCurrencies { get; public set; }
+    public static String[] AvailableResourceItemTypes { get; public set; }
+    public static string Build { get; public set; }
+    public static bool UseManualSessionHandling { get; private set; }
+    public static bool IsEventSubmissionEnabled { get; private set; }
+    private bool Enabled { get; private set; }
+    private string FacebookId { get; private set; }
+    private string Gender { get; private set; }
+    private int BirthYear { get; private set; }
+    private JSONNode SdkConfigCached { get; private set; }
+    private bool InitAuthorized { get; private set; }
+    private long ClientServerTimeOffset { get; private set; }
+    private long SuspendBlockId { get; private set; }
+    private string DefaultUserId { get; private set; }
+    private static JSONNode SdkConfig { get; }
+    private static GAState();
+    private static GAState get_Instance();
+    private static string get_UserId();
+    public static void set_UserId(string value);
+    public static string get_Identifier();
+    private static void set_Identifier(string value);
+    public static bool get_Initialized();
+    private static void set_Initialized(bool value);
+    public static long get_SessionStart();
+    private static void set_SessionStart(long value);
+    public static int get_SessionNum();
+    private static void set_SessionNum(int value);
+    public static int get_TransactionNum();
+    private static void set_TransactionNum(int value);
+    public static string get_SessionId();
+    private static void set_SessionId(string value);
+    public static string get_CurrentCustomDimension01();
+    private static void set_CurrentCustomDimension01(string value);
+    public static string get_CurrentCustomDimension02();
+    private static void set_CurrentCustomDimension02(string value);
+    public static string get_CurrentCustomDimension03();
+    private static void set_CurrentCustomDimension03(string value);
+    public static string get_GameKey();
+    private static void set_GameKey(string value);
+    public static string get_GameSecret();
+    private static void set_GameSecret(string value);
+    public static String[] get_AvailableCustomDimensions01();
+    public static void set_AvailableCustomDimensions01(String[] value);
+    public static String[] get_AvailableCustomDimensions02();
+    public static void set_AvailableCustomDimensions02(String[] value);
+    public static String[] get_AvailableCustomDimensions03();
+    public static void set_AvailableCustomDimensions03(String[] value);
+    public static String[] get_AvailableResourceCurrencies();
+    public static void set_AvailableResourceCurrencies(String[] value);
+    public static String[] get_AvailableResourceItemTypes();
+    public static void set_AvailableResourceItemTypes(String[] value);
+    public static string get_Build();
+    public static void set_Build(string value);
+    public static bool get_UseManualSessionHandling();
+    private static void set_UseManualSessionHandling(bool value);
+    public static bool get_IsEventSubmissionEnabled();
+    private static void set_IsEventSubmissionEnabled(bool value);
+    [CompilerGeneratedAttribute]
+private bool get_Enabled();
+    [CompilerGeneratedAttribute]
+private void set_Enabled(bool value);
+    [CompilerGeneratedAttribute]
+private string get_FacebookId();
+    [CompilerGeneratedAttribute]
+private void set_FacebookId(string value);
+    [CompilerGeneratedAttribute]
+private string get_Gender();
+    [CompilerGeneratedAttribute]
+private void set_Gender(string value);
+    [CompilerGeneratedAttribute]
+private int get_BirthYear();
+    [CompilerGeneratedAttribute]
+private void set_BirthYear(int value);
+    [CompilerGeneratedAttribute]
+private JSONNode get_SdkConfigCached();
+    [CompilerGeneratedAttribute]
+private void set_SdkConfigCached(JSONNode value);
+    [CompilerGeneratedAttribute]
+private bool get_InitAuthorized();
+    [CompilerGeneratedAttribute]
+private void set_InitAuthorized(bool value);
+    [CompilerGeneratedAttribute]
+private long get_ClientServerTimeOffset();
+    [CompilerGeneratedAttribute]
+private void set_ClientServerTimeOffset(long value);
+    [CompilerGeneratedAttribute]
+private long get_SuspendBlockId();
+    [CompilerGeneratedAttribute]
+private void set_SuspendBlockId(long value);
+    private string get_DefaultUserId();
+    private void set_DefaultUserId(string value);
+    private static JSONNode get_SdkConfig();
+    protected virtual override void Finalize();
+    public static bool IsEnabled();
+    public static void SetCustomDimension01(string dimension);
+    public static void SetCustomDimension02(string dimension);
+    public static void SetCustomDimension03(string dimension);
+    public static void SetFacebookId(string facebookId);
+    public static void SetGender(EGAGender gender);
+    public static void SetBirthYear(int birthYear);
+    public static void IncrementSessionNum();
+    public static void IncrementTransactionNum();
+    public static void IncrementProgressionTries(string progression);
+    public static int GetProgressionTries(string progression);
+    public static void ClearProgressionTries(string progression);
+    public static bool HasAvailableCustomDimensions01(string dimension1);
+    public static bool HasAvailableCustomDimensions02(string dimension2);
+    public static bool HasAvailableCustomDimensions03(string dimension3);
+    public static bool HasAvailableResourceCurrency(string currency);
+    public static bool HasAvailableResourceItemType(string itemType);
+    public static void SetKeys(string gameKey, string gameSecret);
+    public static void SetManualSessionHandling(bool flag);
+    public static void SetEnabledEventSubmission(bool flag);
+    public static void InternalInitialize();
+    public static void EndSessionAndStopQueue(bool endThread);
+    public static void ResumeSessionAndStartQueue();
+    public static JSONObject GetEventAnnotations();
+    public static JSONObject GetInitAnnotations();
+    public static long GetClientTsAdjusted();
+    public static bool SessionIsStarted();
+    public static JSONObject ValidateAndCleanCustomFields(IDictionary`2<string, object> fields);
+    public static string GetConfigurationStringValue(string key, string defaultValue);
+    public static bool IsCommandCenterReady();
+    public static void AddCommandCenterListener(ICommandCenterListener listener);
+    public static void RemoveCommandCenterListener(ICommandCenterListener listener);
+    public static string GetConfigurationsAsString();
+    private static void CacheIdentifier();
+    private static void EnsurePersistedStates();
+    private static void StartNewSession();
+    public static void StartNewSession(EGAHTTPApiResponse initResponse, JSONObject initResponseDict);
+    private static void ValidateAndFixCurrentDimensions();
+    private static long CalculateServerTimeOffset(long serverTs);
+    private static void PopulateConfigurations(JSONNode sdkConfig);
+}
+internal class GameAnalyticsSDK.Net.Store.GAStore : object {
+    public static bool InMemory;
+    private static long MaxDbSizeBytes;
+    private static long MaxDbSizeBytesBeforeTrim;
+    private static GAStore _instance;
+    private string dbPath;
+    [CompilerGeneratedAttribute]
+private SqliteConnection <SqlDatabase>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <DbReady>k__BackingField;
+    private bool _tableReady;
+    private static GAStore Instance { get; }
+    private SqliteConnection SqlDatabase { get; private set; }
+    private bool DbReady { get; private set; }
+    public static bool IsTableReady { get; private set; }
+    public static bool IsDbTooLargeForEvents { get; }
+    public static long DbSizeBytes { get; }
+    private static GAStore();
+    private static GAStore get_Instance();
+    [CompilerGeneratedAttribute]
+private SqliteConnection get_SqlDatabase();
+    [CompilerGeneratedAttribute]
+private void set_SqlDatabase(SqliteConnection value);
+    [CompilerGeneratedAttribute]
+private bool get_DbReady();
+    [CompilerGeneratedAttribute]
+private void set_DbReady(bool value);
+    public static bool get_IsTableReady();
+    private static void set_IsTableReady(bool value);
+    public static bool get_IsDbTooLargeForEvents();
+    public static JSONArray ExecuteQuerySync(string sql);
+    public static JSONArray ExecuteQuerySync(string sql, Dictionary`2<string, object> parameters);
+    public static JSONArray ExecuteQuerySync(string sql, Dictionary`2<string, object> parameters, bool useTransaction);
+    public static bool EnsureDatabase(bool dropDatabase, string key);
+    public static void SetState(string key, string value);
+    public static long get_DbSizeBytes();
+    private static void TrimEventTable();
+}
+internal class GameAnalyticsSDK.Net.Threading.GAThreading : object {
+    private static bool endThread;
+    private static DateTime threadDeadline;
+    private static GAThreading _instance;
+    private static int ThreadWaitTimeInMs;
+    private PriorityQueue`2<long, TimedBlock> blocks;
+    private object threadLock;
+    private TimedBlock scheduledBlock;
+    private bool hasScheduledBlockRun;
+    private Thread thread;
+    private static GAThreading Instance { get; }
+    private static GAThreading();
+    protected virtual override void Finalize();
+    private static GAThreading get_Instance();
+    private static void RunBlocks();
+    public static void Run();
+    public static void PerformTaskOnGAThread(string blockName, Action taskBlock);
+    public static void PerformTaskOnGAThread(string blockName, Action taskBlock, long delayInSeconds);
+    public static void ScheduleTimer(double interval, string blockName, Action callback);
+    private void AddTimedBlock(TimedBlock timedBlock);
+    private static TimedBlock GetNextBlock();
+    private static TimedBlock GetScheduledBlock();
+    public static void StartThread();
+    public static void StopThread();
+    public static void WaitForThreadFinish();
+    public static bool IsThreadFinished();
+}
+internal class GameAnalyticsSDK.Net.Threading.PriorityQueue`2 : object {
+    private SortedDictionary`2<TPriority, Queue`1<TItem>> _subqueues;
+    public bool HasItems { get; }
+    public int Count { get; }
+    public PriorityQueue`2(IComparer`1<TPriority> priorityComparer);
+    public void Enqueue(TPriority priority, TItem item);
+    private void AddQueueOfPriority(TPriority priority);
+    public TItem Peek();
+    public bool get_HasItems();
+    public TItem Dequeue();
+    private TItem DequeueFromHighPriorityQueue();
+    public int get_Count();
+}
+internal class GameAnalyticsSDK.Net.TimedBlock : object {
+    public DateTime deadline;
+    public Action block;
+    public string blockName;
+    public TimedBlock(DateTime deadline, Action block, string blockName);
+    public sealed virtual int CompareTo(TimedBlock other);
+    public virtual string ToString();
+}
+[ExtensionAttribute]
+internal static class GameAnalyticsSDK.Net.Utilities.GAUtilities : object {
+    private static DateTime origin;
+    private static GAUtilities();
+    public static Byte[] GzipCompress(string data);
+    public static string HmacWithKey(string key, Byte[] data);
+    public static bool StringMatch(string s, string pattern);
+    public static string JoinStringArray(String[] v, string delimiter);
+    public static bool StringArrayContainsString(String[] array, string search);
+    public static long TimeIntervalSince1970();
+    public static string ArrayOfObjectsToJsonString(List`1<JSONNode> arr);
+    [ExtensionAttribute]
+public static void CopyTo(Stream input, Stream output);
+}
+internal static class GameAnalyticsSDK.Net.Utilities.JSON : object {
+    public static JSONNode Parse(string aJSON);
+}
+[DefaultMemberAttribute("Item")]
+internal class GameAnalyticsSDK.Net.Utilities.JSONArray : JSONNode {
+    private List`1<JSONNode> m_List;
+    private bool inline;
+    public bool Inline { get; public set; }
+    public JSONNodeType Tag { get; }
+    public bool IsArray { get; }
+    public JSONNode Item { get; public set; }
+    public JSONNode Item { get; public set; }
+    public int Count { get; }
+    public IEnumerable`1<JSONNode> Children { get; }
+    public virtual bool get_Inline();
+    public virtual void set_Inline(bool value);
+    public virtual JSONNodeType get_Tag();
+    public virtual bool get_IsArray();
+    public virtual Enumerator GetEnumerator();
+    public virtual JSONNode get_Item(int aIndex);
+    public virtual void set_Item(int aIndex, JSONNode value);
+    public virtual JSONNode get_Item(string aKey);
+    public virtual void set_Item(string aKey, JSONNode value);
+    public virtual int get_Count();
+    public virtual void Add(string aKey, JSONNode aItem);
+    public virtual JSONNode Remove(int aIndex);
+    public virtual JSONNode Remove(JSONNode aNode);
+    [IteratorStateMachineAttribute("GameAnalyticsSDK.Net.Utilities.JSONArray/<get_Children>d__22")]
+public virtual IEnumerable`1<JSONNode> get_Children();
+    internal virtual void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode);
+    public virtual void SerializeBinary(BinaryWriter aWriter);
+}
+internal class GameAnalyticsSDK.Net.Utilities.JSONBool : JSONNode {
+    private bool m_Data;
+    public JSONNodeType Tag { get; }
+    public bool IsBoolean { get; }
+    public string Value { get; public set; }
+    public bool AsBool { get; public set; }
+    public JSONBool(bool aData);
+    public JSONBool(string aData);
+    public virtual JSONNodeType get_Tag();
+    public virtual bool get_IsBoolean();
+    public virtual Enumerator GetEnumerator();
+    public virtual string get_Value();
+    public virtual void set_Value(string value);
+    public virtual bool get_AsBool();
+    public virtual void set_AsBool(bool value);
+    internal virtual void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public virtual void SerializeBinary(BinaryWriter aWriter);
+}
+[DefaultMemberAttribute("Item")]
+internal class GameAnalyticsSDK.Net.Utilities.JSONLazyCreator : JSONNode {
+    private JSONNode m_Node;
+    private string m_Key;
+    public JSONNodeType Tag { get; }
+    public JSONNode Item { get; public set; }
+    public JSONNode Item { get; public set; }
+    public int AsInt { get; public set; }
+    public float AsFloat { get; public set; }
+    public double AsDouble { get; public set; }
+    public long AsLong { get; public set; }
+    public bool AsBool { get; public set; }
+    public JSONArray AsArray { get; }
+    public JSONObject AsObject { get; }
+    public JSONLazyCreator(JSONNode aNode);
+    public JSONLazyCreator(JSONNode aNode, string aKey);
+    public virtual JSONNodeType get_Tag();
+    public virtual Enumerator GetEnumerator();
+    private T Set(T aVal);
+    public virtual JSONNode get_Item(int aIndex);
+    public virtual void set_Item(int aIndex, JSONNode value);
+    public virtual JSONNode get_Item(string aKey);
+    public virtual void set_Item(string aKey, JSONNode value);
+    public virtual void Add(JSONNode aItem);
+    public virtual void Add(string aKey, JSONNode aItem);
+    public static bool op_Equality(JSONLazyCreator a, object b);
+    public static bool op_Inequality(JSONLazyCreator a, object b);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public virtual int get_AsInt();
+    public virtual void set_AsInt(int value);
+    public virtual float get_AsFloat();
+    public virtual void set_AsFloat(float value);
+    public virtual double get_AsDouble();
+    public virtual void set_AsDouble(double value);
+    public virtual long get_AsLong();
+    public virtual void set_AsLong(long value);
+    public virtual bool get_AsBool();
+    public virtual void set_AsBool(bool value);
+    public virtual JSONArray get_AsArray();
+    public virtual JSONObject get_AsObject();
+    internal virtual void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode);
+    public virtual void SerializeBinary(BinaryWriter aWriter);
+}
+[DefaultMemberAttribute("Item")]
+internal abstract class GameAnalyticsSDK.Net.Utilities.JSONNode : object {
+    public static bool forceASCII;
+    public static bool longAsString;
+    [ThreadStaticAttribute]
+private static StringBuilder m_EscapeBuilder;
+    public JSONNodeType Tag { get; }
+    public JSONNode Item { get; public set; }
+    public JSONNode Item { get; public set; }
+    public string Value { get; public set; }
+    public int Count { get; }
+    public bool IsNumber { get; }
+    public bool IsString { get; }
+    public bool IsBoolean { get; }
+    public bool IsNull { get; }
+    public bool IsArray { get; }
+    public bool IsObject { get; }
+    public bool Inline { get; public set; }
+    public IEnumerable`1<JSONNode> Children { get; }
+    public IEnumerable`1<JSONNode> DeepChildren { get; }
+    public IEnumerable`1<KeyValuePair`2<string, JSONNode>> Linq { get; }
+    public KeyEnumerator Keys { get; }
+    public ValueEnumerator Values { get; }
+    public double AsDouble { get; public set; }
+    public int AsInt { get; public set; }
+    public float AsFloat { get; public set; }
+    public bool AsBool { get; public set; }
+    public long AsLong { get; public set; }
+    public JSONArray AsArray { get; }
+    public JSONObject AsObject { get; }
+    internal static StringBuilder EscapeBuilder { get; }
+    private static JSONNode();
+    public abstract virtual JSONNodeType get_Tag();
+    public virtual JSONNode get_Item(int aIndex);
+    public virtual void set_Item(int aIndex, JSONNode value);
+    public virtual JSONNode get_Item(string aKey);
+    public virtual void set_Item(string aKey, JSONNode value);
+    public virtual string get_Value();
+    public virtual void set_Value(string value);
+    public virtual int get_Count();
+    public virtual bool get_IsNumber();
+    public virtual bool get_IsString();
+    public virtual bool get_IsBoolean();
+    public virtual bool get_IsNull();
+    public virtual bool get_IsArray();
+    public virtual bool get_IsObject();
+    public virtual bool get_Inline();
+    public virtual void set_Inline(bool value);
+    public virtual void Add(string aKey, JSONNode aItem);
+    public virtual void Add(JSONNode aItem);
+    public virtual JSONNode Remove(string aKey);
+    public virtual JSONNode Remove(int aIndex);
+    public virtual JSONNode Remove(JSONNode aNode);
+    [IteratorStateMachineAttribute("GameAnalyticsSDK.Net.Utilities.JSONNode/<get_Children>d__40")]
+public virtual IEnumerable`1<JSONNode> get_Children();
+    [IteratorStateMachineAttribute("GameAnalyticsSDK.Net.Utilities.JSONNode/<get_DeepChildren>d__42")]
+public IEnumerable`1<JSONNode> get_DeepChildren();
+    public virtual string ToString();
+    public virtual string ToString(int aIndent);
+    internal abstract virtual void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode);
+    public abstract virtual Enumerator GetEnumerator();
+    public IEnumerable`1<KeyValuePair`2<string, JSONNode>> get_Linq();
+    public KeyEnumerator get_Keys();
+    public ValueEnumerator get_Values();
+    public virtual double get_AsDouble();
+    public virtual void set_AsDouble(double value);
+    public virtual int get_AsInt();
+    public virtual void set_AsInt(int value);
+    public virtual float get_AsFloat();
+    public virtual void set_AsFloat(float value);
+    public virtual bool get_AsBool();
+    public virtual void set_AsBool(bool value);
+    public virtual long get_AsLong();
+    public virtual void set_AsLong(long value);
+    public virtual JSONArray get_AsArray();
+    public virtual JSONObject get_AsObject();
+    public static JSONNode op_Implicit(string s);
+    public static string op_Implicit(JSONNode d);
+    public static JSONNode op_Implicit(double n);
+    public static double op_Implicit(JSONNode d);
+    public static JSONNode op_Implicit(float n);
+    public static float op_Implicit(JSONNode d);
+    public static JSONNode op_Implicit(int n);
+    public static int op_Implicit(JSONNode d);
+    public static JSONNode op_Implicit(long n);
+    public static long op_Implicit(JSONNode d);
+    public static JSONNode op_Implicit(bool b);
+    public static bool op_Implicit(JSONNode d);
+    public static JSONNode op_Implicit(KeyValuePair`2<string, JSONNode> aKeyValue);
+    public static bool op_Equality(JSONNode a, object b);
+    public static bool op_Inequality(JSONNode a, object b);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    internal static StringBuilder get_EscapeBuilder();
+    internal static string Escape(string aText);
+    private static JSONNode ParseElement(string token, bool quoted);
+    public static JSONNode Parse(string aJSON);
+    public abstract virtual void SerializeBinary(BinaryWriter aWriter);
+    public void SaveToBinaryStream(Stream aData);
+    public void SaveToCompressedStream(Stream aData);
+    public void SaveToCompressedFile(string aFileName);
+    public string SaveToCompressedBase64();
+    public string SaveToBinaryBase64();
+    public static JSONNode DeserializeBinary(BinaryReader aReader);
+    public static JSONNode LoadFromCompressedFile(string aFileName);
+    public static JSONNode LoadFromCompressedStream(Stream aData);
+    public static JSONNode LoadFromCompressedBase64(string aBase64);
+    public static JSONNode LoadFromBinaryStream(Stream aData);
+    public static JSONNode LoadFromBinaryBase64(string aBase64);
+}
+internal enum GameAnalyticsSDK.Net.Utilities.JSONNodeType : Enum {
+    public int value__;
+    public static JSONNodeType Array;
+    public static JSONNodeType Object;
+    public static JSONNodeType String;
+    public static JSONNodeType Number;
+    public static JSONNodeType NullValue;
+    public static JSONNodeType Boolean;
+    public static JSONNodeType None;
+    public static JSONNodeType Custom;
+}
+internal class GameAnalyticsSDK.Net.Utilities.JSONNull : JSONNode {
+    private static JSONNull m_StaticInstance;
+    public static bool reuseSameInstance;
+    public JSONNodeType Tag { get; }
+    public bool IsNull { get; }
+    public string Value { get; public set; }
+    public bool AsBool { get; public set; }
+    private static JSONNull();
+    public static JSONNull CreateOrGet();
+    public virtual JSONNodeType get_Tag();
+    public virtual bool get_IsNull();
+    public virtual Enumerator GetEnumerator();
+    public virtual string get_Value();
+    public virtual void set_Value(string value);
+    public virtual bool get_AsBool();
+    public virtual void set_AsBool(bool value);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    internal virtual void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode);
+    public virtual void SerializeBinary(BinaryWriter aWriter);
+}
+internal class GameAnalyticsSDK.Net.Utilities.JSONNumber : JSONNode {
+    private double m_Data;
+    public JSONNodeType Tag { get; }
+    public bool IsNumber { get; }
+    public string Value { get; public set; }
+    public double AsDouble { get; public set; }
+    public long AsLong { get; public set; }
+    public JSONNumber(double aData);
+    public JSONNumber(string aData);
+    public virtual JSONNodeType get_Tag();
+    public virtual bool get_IsNumber();
+    public virtual Enumerator GetEnumerator();
+    public virtual string get_Value();
+    public virtual void set_Value(string value);
+    public virtual double get_AsDouble();
+    public virtual void set_AsDouble(double value);
+    public virtual long get_AsLong();
+    public virtual void set_AsLong(long value);
+    internal virtual void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode);
+    private static bool IsNumeric(object value);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public virtual void SerializeBinary(BinaryWriter aWriter);
+}
+[DefaultMemberAttribute("Item")]
+internal class GameAnalyticsSDK.Net.Utilities.JSONObject : JSONNode {
+    private Dictionary`2<string, JSONNode> m_Dict;
+    private bool inline;
+    public bool Inline { get; public set; }
+    public JSONNodeType Tag { get; }
+    public bool IsObject { get; }
+    public JSONNode Item { get; public set; }
+    public JSONNode Item { get; public set; }
+    public int Count { get; }
+    public IEnumerable`1<JSONNode> Children { get; }
+    public virtual bool get_Inline();
+    public virtual void set_Inline(bool value);
+    public virtual JSONNodeType get_Tag();
+    public virtual bool get_IsObject();
+    public virtual Enumerator GetEnumerator();
+    public virtual JSONNode get_Item(string aKey);
+    public virtual void set_Item(string aKey, JSONNode value);
+    public virtual JSONNode get_Item(int aIndex);
+    public virtual void set_Item(int aIndex, JSONNode value);
+    public virtual int get_Count();
+    public virtual void Add(string aKey, JSONNode aItem);
+    public virtual JSONNode Remove(string aKey);
+    public virtual JSONNode Remove(int aIndex);
+    public virtual JSONNode Remove(JSONNode aNode);
+    [IteratorStateMachineAttribute("GameAnalyticsSDK.Net.Utilities.JSONObject/<get_Children>d__23")]
+public virtual IEnumerable`1<JSONNode> get_Children();
+    internal virtual void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode);
+    public virtual void SerializeBinary(BinaryWriter aWriter);
+}
+internal class GameAnalyticsSDK.Net.Utilities.JSONString : JSONNode {
+    private string m_Data;
+    public JSONNodeType Tag { get; }
+    public bool IsString { get; }
+    public string Value { get; public set; }
+    public JSONString(string aData);
+    public virtual JSONNodeType get_Tag();
+    public virtual bool get_IsString();
+    public virtual Enumerator GetEnumerator();
+    public virtual string get_Value();
+    public virtual void set_Value(string value);
+    internal virtual void WriteToStringBuilder(StringBuilder aSB, int aIndent, int aIndentInc, JSONTextMode aMode);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public virtual void SerializeBinary(BinaryWriter aWriter);
+}
+internal enum GameAnalyticsSDK.Net.Utilities.JSONTextMode : Enum {
+    public int value__;
+    public static JSONTextMode Compact;
+    public static JSONTextMode Indent;
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Checksums.Adler32 : object {
+    private static UInt32 BASE;
+    private UInt32 checksum;
+    public long Value { get; }
+    private static Adler32();
+    public sealed virtual long get_Value();
+    public sealed virtual void Reset();
+    public sealed virtual void Update(int bval);
+    public sealed virtual void Update(Byte[] buffer);
+    public sealed virtual void Update(Byte[] buf, int off, int len);
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Checksums.Crc32 : object {
+    private static UInt32 CrcSeed;
+    private static UInt32[] CrcTable;
+    private UInt32 crc;
+    public long Value { get; public set; }
+    private static Crc32();
+    internal static UInt32 ComputeCrc32(UInt32 oldCrc, byte bval);
+    public sealed virtual long get_Value();
+    public void set_Value(long value);
+    public sealed virtual void Reset();
+    public sealed virtual void Update(int bval);
+    public sealed virtual void Update(Byte[] buffer);
+    public sealed virtual void Update(Byte[] buf, int off, int len);
+}
+internal interface GameAnalyticsSDK.Net.Utilities.Zip.Checksums.IChecksum {
+    public long Value { get; }
+    public abstract virtual long get_Value();
+    public abstract virtual void Reset();
+    public abstract virtual void Update(int bval);
+    public abstract virtual void Update(Byte[] buffer);
+    public abstract virtual void Update(Byte[] buf, int off, int len);
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Compression.Deflater : object {
+    public static int BEST_COMPRESSION;
+    public static int BEST_SPEED;
+    public static int DEFAULT_COMPRESSION;
+    public static int NO_COMPRESSION;
+    public static int DEFLATED;
+    private static int IS_SETDICT;
+    private static int IS_FLUSHING;
+    private static int IS_FINISHING;
+    private static int INIT_STATE;
+    private static int SETDICT_STATE;
+    private static int BUSY_STATE;
+    private static int FLUSHING_STATE;
+    private static int FINISHING_STATE;
+    private static int FINISHED_STATE;
+    private static int CLOSED_STATE;
+    private int level;
+    private bool noZlibHeaderOrFooter;
+    private int state;
+    private long totalOut;
+    private DeflaterPending pending;
+    private DeflaterEngine engine;
+    public int Adler { get; }
+    public int TotalIn { get; }
+    public long TotalOut { get; }
+    public bool IsFinished { get; }
+    public bool IsNeedingInput { get; }
+    public Deflater(int lvl);
+    public Deflater(int level, bool noZlibHeaderOrFooter);
+    private static Deflater();
+    public void Reset();
+    public int get_Adler();
+    public int get_TotalIn();
+    public long get_TotalOut();
+    public void Flush();
+    public void Finish();
+    public bool get_IsFinished();
+    public bool get_IsNeedingInput();
+    public void SetInput(Byte[] input);
+    public void SetInput(Byte[] input, int off, int len);
+    public void SetLevel(int lvl);
+    public int GetLevel();
+    public void SetStrategy(DeflateStrategy strategy);
+    public int Deflate(Byte[] output);
+    public int Deflate(Byte[] output, int offset, int length);
+    public void SetDictionary(Byte[] dict);
+    public void SetDictionary(Byte[] dict, int offset, int length);
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflaterConstants : object {
+    public static bool DEBUGGING;
+    public static int STORED_BLOCK;
+    public static int STATIC_TREES;
+    public static int DYN_TREES;
+    public static int PRESET_DICT;
+    public static int DEFAULT_MEM_LEVEL;
+    public static int MAX_MATCH;
+    public static int MIN_MATCH;
+    public static int MAX_WBITS;
+    public static int WSIZE;
+    public static int WMASK;
+    public static int HASH_BITS;
+    public static int HASH_SIZE;
+    public static int HASH_MASK;
+    public static int HASH_SHIFT;
+    public static int MIN_LOOKAHEAD;
+    public static int MAX_DIST;
+    public static int PENDING_BUF_SIZE;
+    public static int MAX_BLOCK_SIZE;
+    public static int DEFLATE_STORED;
+    public static int DEFLATE_FAST;
+    public static int DEFLATE_SLOW;
+    public static Int32[] GOOD_LENGTH;
+    public static Int32[] MAX_LAZY;
+    public static Int32[] NICE_LENGTH;
+    public static Int32[] MAX_CHAIN;
+    public static Int32[] COMPR_FUNC;
+    private static DeflaterConstants();
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflaterEngine : DeflaterConstants {
+    private static int TOO_FAR;
+    private int ins_h;
+    private Int16[] head;
+    private Int16[] prev;
+    private int matchStart;
+    private int matchLen;
+    private bool prevAvailable;
+    private int blockStart;
+    private int strstart;
+    private int lookahead;
+    private Byte[] window;
+    private DeflateStrategy strategy;
+    private int max_chain;
+    private int max_lazy;
+    private int niceLength;
+    private int goodLength;
+    private int comprFunc;
+    private Byte[] inputBuf;
+    private int totalIn;
+    private int inputOff;
+    private int inputEnd;
+    private DeflaterPending pending;
+    private DeflaterHuffman huffman;
+    private Adler32 adler;
+    public int Adler { get; }
+    public int TotalIn { get; }
+    public DeflateStrategy Strategy { get; public set; }
+    public DeflaterEngine(DeflaterPending pending);
+    private static DeflaterEngine();
+    public void Reset();
+    public void ResetAdler();
+    public int get_Adler();
+    public int get_TotalIn();
+    public DeflateStrategy get_Strategy();
+    public void set_Strategy(DeflateStrategy value);
+    public void SetLevel(int lvl);
+    private void UpdateHash();
+    private int InsertString();
+    private void SlideWindow();
+    public void FillWindow();
+    private bool FindLongestMatch(int curMatch);
+    public void SetDictionary(Byte[] buffer, int offset, int length);
+    private bool DeflateStored(bool flush, bool finish);
+    private bool DeflateFast(bool flush, bool finish);
+    private bool DeflateSlow(bool flush, bool finish);
+    public bool Deflate(bool flush, bool finish);
+    public void SetInput(Byte[] buf, int off, int len);
+    public bool NeedsInput();
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflaterHuffman : object {
+    private static int BUFSIZE;
+    private static int LITERAL_NUM;
+    private static int DIST_NUM;
+    private static int BITLEN_NUM;
+    private static int REP_3_6;
+    private static int REP_3_10;
+    private static int REP_11_138;
+    private static int EOF_SYMBOL;
+    private static Int32[] BL_ORDER;
+    private static Byte[] bit4Reverse;
+    public DeflaterPending pending;
+    private Tree literalTree;
+    private Tree distTree;
+    private Tree blTree;
+    private Int16[] d_buf;
+    private Byte[] l_buf;
+    private int last_lit;
+    private int extra_bits;
+    private static Int16[] staticLCodes;
+    private static Byte[] staticLLength;
+    private static Int16[] staticDCodes;
+    private static Byte[] staticDLength;
+    private static DeflaterHuffman();
+    public DeflaterHuffman(DeflaterPending pending);
+    public static short BitReverse(int toReverse);
+    public void Reset();
+    private int Lcode(int len);
+    private int Dcode(int distance);
+    public void SendAllTrees(int blTreeCodes);
+    public void CompressBlock();
+    public void FlushStoredBlock(Byte[] stored, int storedOffset, int storedLength, bool lastBlock);
+    public void FlushBlock(Byte[] stored, int storedOffset, int storedLength, bool lastBlock);
+    public bool IsFull();
+    public bool TallyLit(int lit);
+    public bool TallyDist(int dist, int len);
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflaterPending : PendingBuffer {
+}
+internal enum GameAnalyticsSDK.Net.Utilities.Zip.Compression.DeflateStrategy : Enum {
+    public int value__;
+    public static DeflateStrategy Default;
+    public static DeflateStrategy Filtered;
+    public static DeflateStrategy HuffmanOnly;
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Compression.PendingBuffer : object {
+    protected Byte[] buf;
+    private int start;
+    private int end;
+    private UInt32 bits;
+    private int bitCount;
+    public int BitCount { get; }
+    public bool IsFlushed { get; }
+    public PendingBuffer(int bufsize);
+    public void Reset();
+    public void WriteByte(int b);
+    public void WriteShort(int s);
+    public void WriteInt(int s);
+    public void WriteBlock(Byte[] block, int offset, int len);
+    public int get_BitCount();
+    public void AlignToByte();
+    public void WriteBits(int b, int count);
+    public void WriteShortMSB(int s);
+    public bool get_IsFlushed();
+    public int Flush(Byte[] output, int offset, int length);
+    public Byte[] ToByteArray();
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.Compression.Streams.DeflaterOutputStream : Stream {
+    protected Byte[] buf;
+    protected Deflater def;
+    protected Stream baseOutputStream;
+    private bool isClosed;
+    private bool isStreamOwner;
+    private string password;
+    private UInt32[] keys;
+    public bool IsStreamOwner { get; public set; }
+    public bool CanPatchEntries { get; }
+    public bool CanRead { get; }
+    public bool CanSeek { get; }
+    public bool CanWrite { get; }
+    public long Length { get; }
+    public long Position { get; public set; }
+    public string Password { get; public set; }
+    public DeflaterOutputStream(Stream baseOutputStream);
+    public DeflaterOutputStream(Stream baseOutputStream, Deflater defl);
+    public DeflaterOutputStream(Stream baseOutputStream, Deflater deflater, int bufsize);
+    public bool get_IsStreamOwner();
+    public void set_IsStreamOwner(bool value);
+    public bool get_CanPatchEntries();
+    public virtual bool get_CanRead();
+    public virtual bool get_CanSeek();
+    public virtual bool get_CanWrite();
+    public virtual long get_Length();
+    public virtual long get_Position();
+    public virtual void set_Position(long value);
+    public virtual long Seek(long offset, SeekOrigin origin);
+    public virtual void SetLength(long val);
+    public virtual int ReadByte();
+    public virtual int Read(Byte[] b, int off, int len);
+    public virtual IAsyncResult BeginRead(Byte[] buffer, int offset, int count, AsyncCallback callback, object state);
+    public virtual IAsyncResult BeginWrite(Byte[] buffer, int offset, int count, AsyncCallback callback, object state);
+    protected void Deflate();
+    public virtual void Flush();
+    public virtual void Finish();
+    public virtual void Close();
+    public virtual void WriteByte(byte bval);
+    public virtual void Write(Byte[] buf, int off, int len);
+    public string get_Password();
+    public void set_Password(string value);
+    protected byte EncryptByte();
+    protected void EncryptBlock(Byte[] buffer, int offset, int length);
+    protected void InitializePassword(string password);
+    protected void UpdateKeys(byte ch);
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.GZip.GZipConstants : object {
+    public static int GZIP_MAGIC;
+    public static int FTEXT;
+    public static int FHCRC;
+    public static int FEXTRA;
+    public static int FNAME;
+    public static int FCOMMENT;
+    private static GZipConstants();
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.GZip.GZipOutputStream : DeflaterOutputStream {
+    protected Crc32 crc;
+    public GZipOutputStream(Stream baseOutputStream);
+    public GZipOutputStream(Stream baseOutputStream, int size);
+    private void WriteHeader();
+    public virtual void Write(Byte[] buf, int off, int len);
+    public virtual void Close();
+    public void SetLevel(int level);
+    public int GetLevel();
+    public virtual void Finish();
+}
+internal class GameAnalyticsSDK.Net.Utilities.Zip.SharpZipBaseException : Exception {
+    public SharpZipBaseException(string msg);
+    public SharpZipBaseException(string message, Exception innerException);
+}
+internal static class GameAnalyticsSDK.Net.Validators.GAValidator : object {
+    public static bool ValidateBusinessEvent(string currency, long amount, string cartType, string itemType, string itemId);
+    public static bool ValidateResourceEvent(EGAResourceFlowType flowType, string currency, long amount, string itemType, string itemId);
+    public static bool ValidateProgressionEvent(ProgressionStatus progressionStatus, string progression01, string progression02, string progression03);
+    public static bool ValidateDesignEvent(string eventId, double value);
+    public static bool ValidateErrorEvent(EGAErrorSeverity severity, string message);
+    public static bool ValidateSdkErrorEvent(string gameKey, string gameSecret, EGASdkErrorType type);
+    public static bool ValidateKeys(string gameKey, string gameSecret);
+    public static bool ValidateCurrency(string currency);
+    public static bool ValidateEventPartLength(string eventPart, bool allowNull);
+    public static bool ValidateEventPartCharacters(string eventPart);
+    public static bool ValidateEventIdLength(string eventId);
+    public static bool ValidateEventIdCharacters(string eventId);
+    public static JSONObject ValidateAndCleanInitRequestResponse(JSONNode initResponse);
+    public static bool ValidateBuild(string build);
+    public static bool ValidateSdkWrapperVersion(string wrapperVersion);
+    public static bool ValidateEngineVersion(string engineVersion);
+    public static bool ValidateUserId(string uId);
+    public static bool ValidateShortString(string shortString, bool canBeEmpty);
+    public static bool ValidateString(string s, bool canBeEmpty);
+    public static bool ValidateLongString(string longString, bool canBeEmpty);
+    public static bool ValidateConnectionType(string connectionType);
+    public static bool ValidateCustomDimensions(String[] customDimensions);
+    public static bool ValidateResourceCurrencies(String[] resourceCurrencies);
+    public static bool ValidateResourceItemTypes(String[] resourceItemTypes);
+    public static bool ValidateDimension01(string dimension01);
+    public static bool ValidateDimension02(string dimension02);
+    public static bool ValidateDimension03(string dimension03);
+    public static bool ValidateArrayOfStrings(long maxCount, long maxStringLength, bool allowNoValues, string logTag, String[] arrayOfStrings);
+    public static bool ValidateFacebookId(string facebookId);
+    public static bool ValidateGender(EGAGender gender);
+    public static bool ValidateBirthyear(long birthYear);
+    public static bool ValidateClientTs(long clientTs);
+}

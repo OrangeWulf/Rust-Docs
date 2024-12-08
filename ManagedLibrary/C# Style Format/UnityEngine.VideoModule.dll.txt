@@ -1,0 +1,472 @@
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Video/Public/Director/VideoClipPlayable.h")]
+[NativeHeaderAttribute("Modules/Video/Public/VideoClip.h")]
+[NativeHeaderAttribute("Modules/Video/Public/ScriptBindings/VideoClipPlayable.bindings.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("VideoClipPlayableBindings", "2")]
+public class UnityEngine.Experimental.Video.VideoClipPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    internal VideoClipPlayable(PlayableHandle handle);
+    public static VideoClipPlayable Create(PlayableGraph graph, VideoClip clip, bool looping);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, VideoClip clip, bool looping);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(VideoClipPlayable playable);
+    public static VideoClipPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(VideoClipPlayable other);
+    public VideoClip GetClip();
+    public void SetClip(VideoClip value);
+    public bool GetLooped();
+    public void SetLooped(bool value);
+    public bool IsPlaying();
+    public double GetStartDelay();
+    internal void SetStartDelay(double value);
+    public double GetPauseDelay();
+    internal void GetPauseDelay(double value);
+    public void Seek(double startTime, double startDelay);
+    public void Seek(double startTime, double startDelay, double duration);
+    private void ValidateStartDelayInternal(double startDelay);
+    [NativeThrowsAttribute]
+private static VideoClip GetClipInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetClipInternal(PlayableHandle& hdl, VideoClip clip);
+    [NativeThrowsAttribute]
+private static bool GetLoopedInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetLoopedInternal(PlayableHandle& hdl, bool looped);
+    [NativeThrowsAttribute]
+private static bool GetIsPlayingInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static double GetStartDelayInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetStartDelayInternal(PlayableHandle& hdl, double delay);
+    [NativeThrowsAttribute]
+private static double GetPauseDelayInternal(PlayableHandle& hdl);
+    [NativeThrowsAttribute]
+private static void SetPauseDelayInternal(PlayableHandle& hdl, double delay);
+    [NativeThrowsAttribute]
+private static bool InternalCreateVideoClipPlayable(PlayableGraph& graph, VideoClip clip, bool looping, PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static bool ValidateType(PlayableHandle& hdl);
+}
+[ExtensionAttribute]
+[NativeHeaderAttribute("VideoScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/Video/Public/VideoPlayer.h")]
+[NativeHeaderAttribute("Modules/Video/Public/ScriptBindings/VideoPlayerExtensions.bindings.h")]
+[StaticAccessorAttribute("VideoPlayerExtensionsBindings", "2")]
+public static class UnityEngine.Experimental.Video.VideoPlayerExtensions : object {
+    [ExtensionAttribute]
+public static AudioSampleProvider GetAudioSampleProvider(VideoPlayer vp, ushort trackIndex);
+    [ExtensionAttribute]
+internal static UInt32 InternalGetAudioSampleProviderId(VideoPlayer vp, ushort trackIndex);
+}
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Video.Video3DLayout : Enum {
+    public int value__;
+    public static Video3DLayout No3D;
+    public static Video3DLayout SideBySide3D;
+    public static Video3DLayout OverUnder3D;
+}
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Video.VideoAspectRatio : Enum {
+    public int value__;
+    public static VideoAspectRatio NoScaling;
+    public static VideoAspectRatio FitVertically;
+    public static VideoAspectRatio FitHorizontally;
+    public static VideoAspectRatio FitInside;
+    public static VideoAspectRatio FitOutside;
+    public static VideoAspectRatio Stretch;
+}
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Video.VideoAudioOutputMode : Enum {
+    public int value__;
+    public static VideoAudioOutputMode None;
+    public static VideoAudioOutputMode AudioSource;
+    public static VideoAudioOutputMode Direct;
+    public static VideoAudioOutputMode APIOnly;
+}
+[NativeHeaderAttribute("Modules/Video/Public/VideoClip.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Video.VideoClip : Object {
+    public string originalPath { get; }
+    public ulong frameCount { get; }
+    public double frameRate { get; }
+    [NativeNameAttribute("Duration")]
+public double length { get; }
+    public UInt32 width { get; }
+    public UInt32 height { get; }
+    public UInt32 pixelAspectRatioNumerator { get; }
+    public UInt32 pixelAspectRatioDenominator { get; }
+    public bool sRGB { get; }
+    public ushort audioTrackCount { get; }
+    public string get_originalPath();
+    public ulong get_frameCount();
+    public double get_frameRate();
+    public double get_length();
+    public UInt32 get_width();
+    public UInt32 get_height();
+    public UInt32 get_pixelAspectRatioNumerator();
+    public UInt32 get_pixelAspectRatioDenominator();
+    [NativeNameAttribute("IssRGB")]
+public bool get_sRGB();
+    public ushort get_audioTrackCount();
+    public ushort GetAudioChannelCount(ushort audioTrackIdx);
+    public UInt32 GetAudioSampleRate(ushort audioTrackIdx);
+    public string GetAudioLanguage(ushort audioTrackIdx);
+}
+[NativeHeaderAttribute("Modules/Video/Public/VideoPlayer.h")]
+[RequireComponent("UnityEngine.Transform")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Video.VideoPlayer : Behaviour {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private EventHandler prepareCompleted;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private EventHandler loopPointReached;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private EventHandler started;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private EventHandler frameDropped;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ErrorEventHandler errorReceived;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private EventHandler seekCompleted;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private TimeEventHandler clockResyncOccurred;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private FrameReadyEventHandler frameReady;
+    public VideoSource source { get; public set; }
+    public VideoTimeUpdateMode timeUpdateMode { get; public set; }
+    [NativeNameAttribute("VideoUrl")]
+public string url { get; public set; }
+    [NativeNameAttribute("VideoClip")]
+public VideoClip clip { get; public set; }
+    public VideoRenderMode renderMode { get; public set; }
+    public bool canSetTimeUpdateMode { get; }
+    [NativeHeaderAttribute("Runtime/Camera/Camera.h")]
+public Camera targetCamera { get; public set; }
+    [NativeHeaderAttribute("Runtime/Graphics/RenderTexture.h")]
+public RenderTexture targetTexture { get; public set; }
+    [NativeHeaderAttribute("Runtime/Graphics/Renderer.h")]
+public Renderer targetMaterialRenderer { get; public set; }
+    public string targetMaterialProperty { get; public set; }
+    public VideoAspectRatio aspectRatio { get; public set; }
+    public float targetCameraAlpha { get; public set; }
+    public Video3DLayout targetCamera3DLayout { get; public set; }
+    [NativeHeaderAttribute("Runtime/Graphics/Texture.h")]
+public Texture texture { get; }
+    public bool isPrepared { get; }
+    public bool waitForFirstFrame { get; public set; }
+    public bool playOnAwake { get; public set; }
+    public bool isPlaying { get; }
+    public bool isPaused { get; }
+    public bool canSetTime { get; }
+    [NativeNameAttribute("SecPosition")]
+public double time { get; public set; }
+    [NativeNameAttribute("FramePosition")]
+public long frame { get; public set; }
+    public double clockTime { get; }
+    public bool canStep { get; }
+    public bool canSetPlaybackSpeed { get; }
+    public float playbackSpeed { get; public set; }
+    [NativeNameAttribute("Loop")]
+public bool isLooping { get; public set; }
+    [ObsoleteAttribute("VideoPlayer.canSetTimeSource is deprecated. Use canSetTimeUpdateMode instead. (UnityUpgradable) -> canSetTimeUpdateMode")]
+public bool canSetTimeSource { get; }
+    [ObsoleteAttribute("VideoPlayer.timeSource is deprecated. Use timeUpdateMode instead. (UnityUpgradable) -> timeUpdateMode")]
+public VideoTimeSource timeSource { get; public set; }
+    public VideoTimeReference timeReference { get; public set; }
+    public double externalReferenceTime { get; public set; }
+    public bool canSetSkipOnDrop { get; }
+    public bool skipOnDrop { get; public set; }
+    public ulong frameCount { get; }
+    public float frameRate { get; }
+    [NativeNameAttribute("Duration")]
+public double length { get; }
+    public UInt32 width { get; }
+    public UInt32 height { get; }
+    public UInt32 pixelAspectRatioNumerator { get; }
+    public UInt32 pixelAspectRatioDenominator { get; }
+    public ushort audioTrackCount { get; }
+    public static ushort controlledAudioTrackMaxCount { get; }
+    public ushort controlledAudioTrackCount { get; public set; }
+    public VideoAudioOutputMode audioOutputMode { get; public set; }
+    public bool canSetDirectAudioVolume { get; }
+    public bool sendFrameReadyEvents { get; public set; }
+    public VideoSource get_source();
+    public void set_source(VideoSource value);
+    public VideoTimeUpdateMode get_timeUpdateMode();
+    public void set_timeUpdateMode(VideoTimeUpdateMode value);
+    public string get_url();
+    public void set_url(string value);
+    public VideoClip get_clip();
+    public void set_clip(VideoClip value);
+    public VideoRenderMode get_renderMode();
+    public void set_renderMode(VideoRenderMode value);
+    [NativeNameAttribute("CanSetTimeUpdateMode")]
+public bool get_canSetTimeUpdateMode();
+    public Camera get_targetCamera();
+    public void set_targetCamera(Camera value);
+    public RenderTexture get_targetTexture();
+    public void set_targetTexture(RenderTexture value);
+    public Renderer get_targetMaterialRenderer();
+    public void set_targetMaterialRenderer(Renderer value);
+    public string get_targetMaterialProperty();
+    public void set_targetMaterialProperty(string value);
+    public VideoAspectRatio get_aspectRatio();
+    public void set_aspectRatio(VideoAspectRatio value);
+    public float get_targetCameraAlpha();
+    public void set_targetCameraAlpha(float value);
+    public Video3DLayout get_targetCamera3DLayout();
+    public void set_targetCamera3DLayout(Video3DLayout value);
+    public Texture get_texture();
+    public void Prepare();
+    [NativeNameAttribute("IsPrepared")]
+public bool get_isPrepared();
+    public bool get_waitForFirstFrame();
+    public void set_waitForFirstFrame(bool value);
+    public bool get_playOnAwake();
+    public void set_playOnAwake(bool value);
+    public void Play();
+    public void Pause();
+    public void Stop();
+    [NativeNameAttribute("IsPlaying")]
+public bool get_isPlaying();
+    [NativeNameAttribute("IsPaused")]
+public bool get_isPaused();
+    [NativeNameAttribute("CanSetTime")]
+public bool get_canSetTime();
+    public double get_time();
+    public void set_time(double value);
+    public long get_frame();
+    public void set_frame(long value);
+    public double get_clockTime();
+    [NativeNameAttribute("CanStep")]
+public bool get_canStep();
+    public void StepForward();
+    [NativeNameAttribute("CanSetPlaybackSpeed")]
+public bool get_canSetPlaybackSpeed();
+    public float get_playbackSpeed();
+    public void set_playbackSpeed(float value);
+    public bool get_isLooping();
+    public void set_isLooping(bool value);
+    [NativeNameAttribute("CanSetTimeSource")]
+public bool get_canSetTimeSource();
+    public VideoTimeSource get_timeSource();
+    public void set_timeSource(VideoTimeSource value);
+    public VideoTimeReference get_timeReference();
+    public void set_timeReference(VideoTimeReference value);
+    public double get_externalReferenceTime();
+    public void set_externalReferenceTime(double value);
+    [NativeNameAttribute("CanSetSkipOnDrop")]
+public bool get_canSetSkipOnDrop();
+    public bool get_skipOnDrop();
+    public void set_skipOnDrop(bool value);
+    public ulong get_frameCount();
+    public float get_frameRate();
+    public double get_length();
+    public UInt32 get_width();
+    public UInt32 get_height();
+    public UInt32 get_pixelAspectRatioNumerator();
+    public UInt32 get_pixelAspectRatioDenominator();
+    public ushort get_audioTrackCount();
+    public string GetAudioLanguageCode(ushort trackIndex);
+    public ushort GetAudioChannelCount(ushort trackIndex);
+    public UInt32 GetAudioSampleRate(ushort trackIndex);
+    public static ushort get_controlledAudioTrackMaxCount();
+    public ushort get_controlledAudioTrackCount();
+    public void set_controlledAudioTrackCount(ushort value);
+    private ushort GetControlledAudioTrackCount();
+    private void SetControlledAudioTrackCount(ushort value);
+    public void EnableAudioTrack(ushort trackIndex, bool enabled);
+    public bool IsAudioTrackEnabled(ushort trackIndex);
+    public VideoAudioOutputMode get_audioOutputMode();
+    public void set_audioOutputMode(VideoAudioOutputMode value);
+    [NativeNameAttribute("CanSetDirectAudioVolume")]
+public bool get_canSetDirectAudioVolume();
+    public float GetDirectAudioVolume(ushort trackIndex);
+    public void SetDirectAudioVolume(ushort trackIndex, float volume);
+    public bool GetDirectAudioMute(ushort trackIndex);
+    public void SetDirectAudioMute(ushort trackIndex, bool mute);
+    [NativeHeaderAttribute("Modules/Audio/Public/AudioSource.h")]
+public AudioSource GetTargetAudioSource(ushort trackIndex);
+    public void SetTargetAudioSource(ushort trackIndex, AudioSource source);
+    [CompilerGeneratedAttribute]
+public void add_prepareCompleted(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_prepareCompleted(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void add_loopPointReached(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_loopPointReached(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void add_started(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_started(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void add_frameDropped(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_frameDropped(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void add_errorReceived(ErrorEventHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_errorReceived(ErrorEventHandler value);
+    [CompilerGeneratedAttribute]
+public void add_seekCompleted(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_seekCompleted(EventHandler value);
+    [CompilerGeneratedAttribute]
+public void add_clockResyncOccurred(TimeEventHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_clockResyncOccurred(TimeEventHandler value);
+    [NativeNameAttribute("AreFrameReadyEventsEnabled")]
+public bool get_sendFrameReadyEvents();
+    [NativeNameAttribute("EnableFrameReadyEvents")]
+public void set_sendFrameReadyEvents(bool value);
+    [CompilerGeneratedAttribute]
+public void add_frameReady(FrameReadyEventHandler value);
+    [CompilerGeneratedAttribute]
+public void remove_frameReady(FrameReadyEventHandler value);
+    [RequiredByNativeCodeAttribute]
+private static void InvokePrepareCompletedCallback_Internal(VideoPlayer source);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeFrameReadyCallback_Internal(VideoPlayer source, long frameIdx);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeLoopPointReachedCallback_Internal(VideoPlayer source);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeStartedCallback_Internal(VideoPlayer source);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeFrameDroppedCallback_Internal(VideoPlayer source);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeErrorReceivedCallback_Internal(VideoPlayer source, string errorStr);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeSeekCompletedCallback_Internal(VideoPlayer source);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeClockResyncOccurredCallback_Internal(VideoPlayer source, double seconds);
+}
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Video.VideoRenderMode : Enum {
+    public int value__;
+    public static VideoRenderMode CameraFarPlane;
+    public static VideoRenderMode CameraNearPlane;
+    public static VideoRenderMode RenderTexture;
+    public static VideoRenderMode MaterialOverride;
+    public static VideoRenderMode APIOnly;
+}
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Video.VideoSource : Enum {
+    public int value__;
+    public static VideoSource VideoClip;
+    public static VideoSource Url;
+}
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Video.VideoTimeReference : Enum {
+    public int value__;
+    public static VideoTimeReference Freerun;
+    public static VideoTimeReference InternalTime;
+    public static VideoTimeReference ExternalTime;
+}
+[ObsoleteAttribute("VideoTimeSource is deprecated. Use TimeUpdateMode instead. (UnityUpgradable) -> VideoTimeUpdateMode")]
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Video.VideoTimeSource : Enum {
+    public int value__;
+    [ObsoleteAttribute("AudioDSPTimeSource is deprecated. Use DSPTime instead. (UnityUpgradable) -> DSPTime")]
+public static VideoTimeSource AudioDSPTimeSource;
+    [ObsoleteAttribute("GameTimeSource is deprecated. Use GameTime instead. (UnityUpgradable) -> GameTime")]
+public static VideoTimeSource GameTimeSource;
+}
+[RequiredByNativeCodeAttribute]
+public enum UnityEngine.Video.VideoTimeUpdateMode : Enum {
+    public int value__;
+    public static VideoTimeUpdateMode DSPTime;
+    public static VideoTimeUpdateMode GameTime;
+    public static VideoTimeUpdateMode UnscaledGameTime;
+}
+[UsedByNativeCodeAttribute]
+internal enum UnityEngineInternal.Video.VideoAlphaLayout : Enum {
+    public int value__;
+    public static VideoAlphaLayout Native;
+    public static VideoAlphaLayout Split;
+}
+[UsedByNativeCodeAttribute]
+internal enum UnityEngineInternal.Video.VideoError : Enum {
+    public int value__;
+    public static VideoError NoErr;
+    public static VideoError OutOfMemoryErr;
+    public static VideoError CantReadFile;
+    public static VideoError CantWriteFile;
+    public static VideoError BadParams;
+    public static VideoError NoData;
+    public static VideoError BadPermissions;
+    public static VideoError DeviceNotAvailable;
+    public static VideoError ResourceNotAvailable;
+    public static VideoError NetworkErr;
+}
+[UsedByNativeCodeAttribute]
+internal enum UnityEngineInternal.Video.VideoPixelFormat : Enum {
+    public int value__;
+    public static VideoPixelFormat RGB;
+    public static VideoPixelFormat RGBA;
+    public static VideoPixelFormat YUV;
+    public static VideoPixelFormat YUVA;
+}
+[NativeHeaderAttribute("Modules/Video/Public/Base/MediaComponent.h")]
+[UsedByNativeCodeAttribute]
+internal class UnityEngineInternal.Video.VideoPlayback : object {
+    internal IntPtr m_Ptr;
+    public void StartPlayback();
+    public void PausePlayback();
+    public void StopPlayback();
+    public VideoError GetStatus();
+    public bool IsReady();
+    public bool IsPlaying();
+    public void Step();
+    public bool CanStep();
+    public UInt32 GetWidth();
+    public UInt32 GetHeight();
+    public float GetFrameRate();
+    public float GetDuration();
+    public ulong GetFrameCount();
+    public UInt32 GetPixelAspectRatioNumerator();
+    public UInt32 GetPixelAspectRatioDenominator();
+    public VideoPixelFormat GetPixelFormat();
+    public bool CanNotSkipOnDrop();
+    public void SetSkipOnDrop(bool skipOnDrop);
+    public bool GetTexture(Texture texture, Int64& outputFrameNum);
+    public void SeekToFrame(long frameIndex, Callback seekCompletedCallback);
+    public void SeekToTime(double secs, Callback seekCompletedCallback);
+    public float GetPlaybackSpeed();
+    public void SetPlaybackSpeed(float value);
+    public bool GetLoop();
+    public void SetLoop(bool value);
+    public void SetAdjustToLinearSpace(bool enable);
+    [NativeHeaderAttribute("Modules/Audio/Public/AudioSource.h")]
+public ushort GetAudioTrackCount();
+    public ushort GetAudioChannelCount(ushort trackIdx);
+    public UInt32 GetAudioSampleRate(ushort trackIdx);
+    public string GetAudioLanguageCode(ushort trackIdx);
+    public void SetAudioTarget(ushort trackIdx, bool enabled, bool softwareOutput, AudioSource audioSource);
+    private UInt32 GetAudioSampleProviderId(ushort trackIndex);
+    public AudioSampleProvider GetAudioSampleProvider(ushort trackIndex);
+    internal static bool PlatformSupportsH265();
+}
+[NativeHeaderAttribute("Modules/Video/Public/Base/VideoMediaPlayback.h")]
+[UsedByNativeCodeAttribute]
+internal class UnityEngineInternal.Video.VideoPlaybackMgr : object {
+    internal IntPtr m_Ptr;
+    public ulong videoPlaybackCount { get; }
+    public sealed virtual void Dispose();
+    private static IntPtr Internal_Create();
+    private static void Internal_Destroy(IntPtr ptr);
+    public VideoPlayback CreateVideoPlayback(string fileName, MessageCallback errorCallback, Callback readyCallback, Callback reachedEndCallback, bool splitAlpha);
+    public void ReleaseVideoPlayback(VideoPlayback playback);
+    public ulong get_videoPlaybackCount();
+    public void Update();
+    internal static void ProcessOSMainLoopMessagesForTesting();
+}

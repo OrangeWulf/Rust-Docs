@@ -1,0 +1,2235 @@
+internal class Microsoft.Cci.Pdb.AlignSym : ValueType {
+}
+internal class Microsoft.Cci.Pdb.AnnotationSym : ValueType {
+    internal UInt32 off;
+    internal ushort seg;
+    internal ushort csz;
+    internal String[] rgsz;
+}
+internal class Microsoft.Cci.Pdb.AttrManyRegSym : ValueType {
+    internal UInt32 typind;
+    internal UInt32 offCod;
+    internal ushort segCod;
+    internal ushort flags;
+    internal byte count;
+    internal Byte[] reg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.AttrManyRegSym2 : ValueType {
+    internal UInt32 typind;
+    internal UInt32 offCod;
+    internal ushort segCod;
+    internal ushort flags;
+    internal ushort count;
+    internal UInt16[] reg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.AttrRegRel : ValueType {
+    internal UInt32 off;
+    internal UInt32 typind;
+    internal ushort reg;
+    internal UInt32 offCod;
+    internal ushort segCod;
+    internal ushort flags;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.AttrRegSym : ValueType {
+    internal UInt32 typind;
+    internal UInt32 offCod;
+    internal ushort segCod;
+    internal ushort flags;
+    internal ushort reg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.AttrSlotSym : ValueType {
+    internal UInt32 index;
+    internal UInt32 typind;
+    internal UInt32 offCod;
+    internal ushort segCod;
+    internal ushort flags;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.BitAccess : object {
+    private Byte[] buffer;
+    private int offset;
+    internal Byte[] Buffer { get; }
+    internal int Position { get; internal set; }
+    internal BitAccess(int capacity);
+    internal BitAccess(Byte[] buffer);
+    internal Byte[] get_Buffer();
+    internal void FillBuffer(Stream stream, int capacity);
+    internal void Append(Stream stream, int count);
+    internal int get_Position();
+    internal void set_Position(int value);
+    internal void MinCapacity(int capacity);
+    internal void Align(int alignment);
+    internal void ReadInt16(Int16& value);
+    internal void ReadInt8(SByte& value);
+    internal void ReadInt32(Int32& value);
+    internal void ReadInt64(Int64& value);
+    internal void ReadUInt16(UInt16& value);
+    internal void ReadUInt8(Byte& value);
+    internal void ReadUInt32(UInt32& value);
+    internal void ReadUInt64(UInt64& value);
+    internal void ReadInt32(Int32[] values);
+    internal void ReadUInt32(UInt32[] values);
+    internal void ReadBytes(Byte[] bytes);
+    internal float ReadFloat();
+    internal double ReadDouble();
+    internal decimal ReadDecimal();
+    internal void ReadBString(String& value);
+    internal string ReadBString(int len);
+    internal void ReadCString(String& value);
+    internal void SkipCString(String& value);
+    internal void ReadGuid(Guid& guid);
+    internal string ReadString();
+}
+internal class Microsoft.Cci.Pdb.BitSet : ValueType {
+    private int size;
+    private UInt32[] words;
+    internal bool IsEmpty { get; }
+    internal BitSet(BitAccess bits);
+    internal bool IsSet(int index);
+    private static UInt32 GetBit(int index);
+    internal bool get_IsEmpty();
+}
+internal class Microsoft.Cci.Pdb.BlockSym32 : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 len;
+    internal UInt32 off;
+    internal ushort seg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.BpRelSym32 : ValueType {
+    internal int off;
+    internal UInt32 typind;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.CallsiteInfo : ValueType {
+    internal int off;
+    internal ushort ect;
+    internal ushort pad0;
+    internal UInt32 typind;
+}
+internal class Microsoft.Cci.Pdb.CFlagSym : ValueType {
+    internal byte machine;
+    internal byte language;
+    internal ushort flags;
+    internal string ver;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CFLAGSYM_FLAGS : Enum {
+    public ushort value__;
+    public static CFLAGSYM_FLAGS pcode;
+    public static CFLAGSYM_FLAGS floatprec;
+    public static CFLAGSYM_FLAGS floatpkg;
+    public static CFLAGSYM_FLAGS ambdata;
+    public static CFLAGSYM_FLAGS ambcode;
+    public static CFLAGSYM_FLAGS mode32;
+}
+internal class Microsoft.Cci.Pdb.CoffGroupSym : ValueType {
+    internal UInt32 cb;
+    internal UInt32 characteristics;
+    internal UInt32 off;
+    internal ushort seg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.CompileSym : ValueType {
+    internal UInt32 flags;
+    internal ushort machine;
+    internal ushort verFEMajor;
+    internal ushort verFEMinor;
+    internal ushort verFEBuild;
+    internal ushort verMajor;
+    internal ushort verMinor;
+    internal ushort verBuild;
+    internal string verSt;
+    internal String[] verArgs;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.COMPILESYM_FLAGS : Enum {
+    public UInt32 value__;
+    public static COMPILESYM_FLAGS iLanguage;
+    public static COMPILESYM_FLAGS fEC;
+    public static COMPILESYM_FLAGS fNoDbgInfo;
+    public static COMPILESYM_FLAGS fLTCG;
+    public static COMPILESYM_FLAGS fNoDataAlign;
+    public static COMPILESYM_FLAGS fManagedPresent;
+    public static COMPILESYM_FLAGS fSecurityChecks;
+    public static COMPILESYM_FLAGS fHotPatch;
+    public static COMPILESYM_FLAGS fCVTCIL;
+    public static COMPILESYM_FLAGS fMSILModule;
+}
+internal class Microsoft.Cci.Pdb.ConstSym : ValueType {
+    internal UInt32 typind;
+    internal ushort value;
+    internal string name;
+}
+internal enum Microsoft.Cci.Pdb.CV_CFL_CODE : Enum {
+    public int value__;
+    public static CV_CFL_CODE CV_CFL_CNEAR;
+    public static CV_CFL_CODE CV_CFL_CFAR;
+    public static CV_CFL_CODE CV_CFL_CHUGE;
+}
+internal enum Microsoft.Cci.Pdb.CV_CFL_DATA : Enum {
+    public int value__;
+    public static CV_CFL_DATA CV_CFL_DNEAR;
+    public static CV_CFL_DATA CV_CFL_DFAR;
+    public static CV_CFL_DATA CV_CFL_DHUGE;
+}
+internal enum Microsoft.Cci.Pdb.CV_CFL_FPKG : Enum {
+    public int value__;
+    public static CV_CFL_FPKG CV_CFL_NDP;
+    public static CV_CFL_FPKG CV_CFL_EMU;
+    public static CV_CFL_FPKG CV_CFL_ALT;
+}
+internal class Microsoft.Cci.Pdb.CV_Column : ValueType {
+    internal ushort offColumnStart;
+    internal ushort offColumnEnd;
+}
+internal enum Microsoft.Cci.Pdb.CV_cookietype : Enum {
+    public int value__;
+    public static CV_cookietype CV_COOKIETYPE_COPY;
+    public static CV_cookietype CV_COOKIETYPE_XOR_SP;
+    public static CV_cookietype CV_COOKIETYPE_XOR_BP;
+    public static CV_cookietype CV_COOKIETYPE_XOR_R13;
+}
+internal enum Microsoft.Cci.Pdb.CV_DISCARDED : Enum {
+    public UInt32 value__;
+    public static CV_DISCARDED CV_DISCARDED_UNKNOWN;
+    public static CV_DISCARDED CV_DISCARDED_NOT_SELECTED;
+    public static CV_DISCARDED CV_DISCARDED_NOT_REFERENCED;
+}
+internal class Microsoft.Cci.Pdb.CV_EXPROCFLAGS : ValueType {
+    internal byte flags;
+    internal byte reserved;
+}
+internal enum Microsoft.Cci.Pdb.CV_FILE_CHECKSUM_TYPE : Enum {
+    public byte value__;
+    public static CV_FILE_CHECKSUM_TYPE None;
+    public static CV_FILE_CHECKSUM_TYPE MD5;
+}
+internal class Microsoft.Cci.Pdb.CV_FileCheckSum : ValueType {
+    internal UInt32 name;
+    internal byte len;
+    internal byte type;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_fldattr : Enum {
+    public int value__;
+    public static CV_fldattr access;
+    public static CV_fldattr mprop;
+    public static CV_fldattr pseudo;
+    public static CV_fldattr noinherit;
+    public static CV_fldattr noconstruct;
+    public static CV_fldattr compgenx;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_GENERIC_FLAG : Enum {
+    public ushort value__;
+    public static CV_GENERIC_FLAG cstyle;
+    public static CV_GENERIC_FLAG rsclean;
+}
+internal enum Microsoft.Cci.Pdb.CV_GENERIC_STYLE : Enum {
+    public int value__;
+    public static CV_GENERIC_STYLE CV_GENERIC_VOID;
+    public static CV_GENERIC_STYLE CV_GENERIC_REG;
+    public static CV_GENERIC_STYLE CV_GENERIC_ICAN;
+    public static CV_GENERIC_STYLE CV_GENERIC_ICAF;
+    public static CV_GENERIC_STYLE CV_GENERIC_IRAN;
+    public static CV_GENERIC_STYLE CV_GENERIC_IRAF;
+    public static CV_GENERIC_STYLE CV_GENERIC_UNUSED;
+}
+internal enum Microsoft.Cci.Pdb.CV_int : Enum {
+    public int value__;
+    public static CV_int CV_RI_CHAR;
+    public static CV_int CV_RI_INT1;
+    public static CV_int CV_RI_WCHAR;
+    public static CV_int CV_RI_UINT1;
+    public static CV_int CV_RI_INT2;
+    public static CV_int CV_RI_UINT2;
+    public static CV_int CV_RI_INT4;
+    public static CV_int CV_RI_UINT4;
+    public static CV_int CV_RI_INT8;
+    public static CV_int CV_RI_UINT8;
+    public static CV_int CV_RI_INT16;
+    public static CV_int CV_RI_UINT16;
+}
+internal enum Microsoft.Cci.Pdb.CV_integral : Enum {
+    public int value__;
+    public static CV_integral CV_IN_1BYTE;
+    public static CV_integral CV_IN_2BYTE;
+    public static CV_integral CV_IN_4BYTE;
+    public static CV_integral CV_IN_8BYTE;
+    public static CV_integral CV_IN_16BYTE;
+}
+internal enum Microsoft.Cci.Pdb.CV_LABEL_TYPE : Enum {
+    public int value__;
+    public static CV_LABEL_TYPE CV_LABEL_NEAR;
+    public static CV_LABEL_TYPE CV_LABEL_FAR;
+}
+internal class Microsoft.Cci.Pdb.CV_Line : ValueType {
+    internal UInt32 offset;
+    internal UInt32 flags;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_Line_Flags : Enum {
+    public UInt32 value__;
+    public static CV_Line_Flags linenumStart;
+    public static CV_Line_Flags deltaLineEnd;
+    public static CV_Line_Flags fStatement;
+}
+internal enum Microsoft.Cci.Pdb.CV_LINE_SUBSECTION_FLAGS : Enum {
+    public ushort value__;
+    public static CV_LINE_SUBSECTION_FLAGS CV_LINES_HAVE_COLUMNS;
+}
+internal class Microsoft.Cci.Pdb.CV_LineSection : ValueType {
+    internal UInt32 off;
+    internal ushort sec;
+    internal ushort flags;
+    internal UInt32 cod;
+}
+internal class Microsoft.Cci.Pdb.CV_lvar_addr_range : ValueType {
+    internal UInt32 offStart;
+    internal ushort isectStart;
+    internal UInt32 cbRange;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_LVARFLAGS : Enum {
+    public ushort value__;
+    public static CV_LVARFLAGS fIsParam;
+    public static CV_LVARFLAGS fAddrTaken;
+    public static CV_LVARFLAGS fCompGenx;
+    public static CV_LVARFLAGS fIsAggregate;
+    public static CV_LVARFLAGS fIsAggregated;
+    public static CV_LVARFLAGS fIsAliased;
+    public static CV_LVARFLAGS fIsAlias;
+}
+internal enum Microsoft.Cci.Pdb.CV_methodprop : Enum {
+    public int value__;
+    public static CV_methodprop CV_MTvanilla;
+    public static CV_methodprop CV_MTvirtual;
+    public static CV_methodprop CV_MTstatic;
+    public static CV_methodprop CV_MTfriend;
+    public static CV_methodprop CV_MTintro;
+    public static CV_methodprop CV_MTpurevirt;
+    public static CV_methodprop CV_MTpureintro;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_modifier : Enum {
+    public ushort value__;
+    public static CV_modifier MOD_const;
+    public static CV_modifier MOD_volatile;
+    public static CV_modifier MOD_unaligned;
+}
+internal class Microsoft.Cci.Pdb.CV_PDMR32_NVVFCN : ValueType {
+    internal int mdisp;
+}
+internal class Microsoft.Cci.Pdb.CV_PDMR32_VBASE : ValueType {
+    internal int mdisp;
+    internal int pdisp;
+    internal int vdisp;
+}
+internal class Microsoft.Cci.Pdb.CV_PMFR32_NVMA : ValueType {
+    internal UInt32 off;
+    internal int disp;
+}
+internal class Microsoft.Cci.Pdb.CV_PMFR32_NVSA : ValueType {
+    internal UInt32 off;
+}
+internal class Microsoft.Cci.Pdb.CV_PMFR32_VBASE : ValueType {
+    internal UInt32 off;
+    internal int mdisp;
+    internal int pdisp;
+    internal int vdisp;
+}
+internal enum Microsoft.Cci.Pdb.CV_pmtype : Enum {
+    public int value__;
+    public static CV_pmtype CV_PMTYPE_Undef;
+    public static CV_pmtype CV_PMTYPE_D_Single;
+    public static CV_pmtype CV_PMTYPE_D_Multiple;
+    public static CV_pmtype CV_PMTYPE_D_Virtual;
+    public static CV_pmtype CV_PMTYPE_D_General;
+    public static CV_pmtype CV_PMTYPE_F_Single;
+    public static CV_pmtype CV_PMTYPE_F_Multiple;
+    public static CV_pmtype CV_PMTYPE_F_Virtual;
+    public static CV_pmtype CV_PMTYPE_F_General;
+}
+internal class Microsoft.Cci.Pdb.CV_PRIMITIVE_TYPE : ValueType {
+    private static UInt32 CV_MMASK;
+    private static UInt32 CV_TMASK;
+    private static UInt32 CV_SMASK;
+    private static int CV_MSHIFT;
+    private static int CV_TSHIFT;
+    private static int CV_SSHIFT;
+    private static UInt32 CV_FIRST_NONPRIM;
+}
+internal enum Microsoft.Cci.Pdb.CV_prmode : Enum {
+    public int value__;
+    public static CV_prmode CV_TM_DIRECT;
+    public static CV_prmode CV_TM_NPTR32;
+    public static CV_prmode CV_TM_NPTR64;
+    public static CV_prmode CV_TM_NPTR128;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_PROCFLAGS : Enum {
+    public byte value__;
+    public static CV_PROCFLAGS CV_PFLAG_NOFPO;
+    public static CV_PROCFLAGS CV_PFLAG_INT;
+    public static CV_PROCFLAGS CV_PFLAG_FAR;
+    public static CV_PROCFLAGS CV_PFLAG_NEVER;
+    public static CV_PROCFLAGS CV_PFLAG_NOTREACHED;
+    public static CV_PROCFLAGS CV_PFLAG_CUST_CALL;
+    public static CV_PROCFLAGS CV_PFLAG_NOINLINE;
+    public static CV_PROCFLAGS CV_PFLAG_OPTDBGINFO;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_prop : Enum {
+    public ushort value__;
+    public static CV_prop packed;
+    public static CV_prop ctor;
+    public static CV_prop ovlops;
+    public static CV_prop isnested;
+    public static CV_prop cnested;
+    public static CV_prop opassign;
+    public static CV_prop opcast;
+    public static CV_prop fwdref;
+    public static CV_prop scoped;
+}
+internal enum Microsoft.Cci.Pdb.CV_ptrmode : Enum {
+    public int value__;
+    public static CV_ptrmode CV_PTR_MODE_PTR;
+    public static CV_ptrmode CV_PTR_MODE_REF;
+    public static CV_ptrmode CV_PTR_MODE_PMEM;
+    public static CV_ptrmode CV_PTR_MODE_PMFUNC;
+    public static CV_ptrmode CV_PTR_MODE_RESERVED;
+}
+internal enum Microsoft.Cci.Pdb.CV_ptrtype : Enum {
+    public int value__;
+    public static CV_ptrtype CV_PTR_BASE_SEG;
+    public static CV_ptrtype CV_PTR_BASE_VAL;
+    public static CV_ptrtype CV_PTR_BASE_SEGVAL;
+    public static CV_ptrtype CV_PTR_BASE_ADDR;
+    public static CV_ptrtype CV_PTR_BASE_SEGADDR;
+    public static CV_ptrtype CV_PTR_BASE_TYPE;
+    public static CV_ptrtype CV_PTR_BASE_SELF;
+    public static CV_ptrtype CV_PTR_NEAR32;
+    public static CV_ptrtype CV_PTR_64;
+    public static CV_ptrtype CV_PTR_UNUSEDPTR;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_PUBSYMFLAGS : Enum {
+    public UInt32 value__;
+    public static CV_PUBSYMFLAGS fNone;
+    public static CV_PUBSYMFLAGS fCode;
+    public static CV_PUBSYMFLAGS fFunction;
+    public static CV_PUBSYMFLAGS fManaged;
+    public static CV_PUBSYMFLAGS fMSIL;
+}
+internal enum Microsoft.Cci.Pdb.CV_real : Enum {
+    public int value__;
+    public static CV_real CV_RC_REAL32;
+    public static CV_real CV_RC_REAL64;
+    public static CV_real CV_RC_REAL80;
+    public static CV_real CV_RC_REAL128;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.CV_SEPCODEFLAGS : Enum {
+    public UInt32 value__;
+    public static CV_SEPCODEFLAGS fIsLexicalScope;
+    public static CV_SEPCODEFLAGS fReturnsToParent;
+}
+internal enum Microsoft.Cci.Pdb.CV_SIGNATURE : Enum {
+    public int value__;
+    public static CV_SIGNATURE C6;
+    public static CV_SIGNATURE C7;
+    public static CV_SIGNATURE C11;
+    public static CV_SIGNATURE C13;
+    public static CV_SIGNATURE RESERVERD;
+}
+internal class Microsoft.Cci.Pdb.CV_SourceFile : ValueType {
+    internal UInt32 index;
+    internal UInt32 count;
+    internal UInt32 linsiz;
+}
+internal enum Microsoft.Cci.Pdb.CV_special : Enum {
+    public int value__;
+    public static CV_special CV_SP_NOTYPE;
+    public static CV_special CV_SP_ABS;
+    public static CV_special CV_SP_SEGMENT;
+    public static CV_special CV_SP_VOID;
+    public static CV_special CV_SP_CURRENCY;
+    public static CV_special CV_SP_NBASICSTR;
+    public static CV_special CV_SP_FBASICSTR;
+    public static CV_special CV_SP_NOTTRANS;
+    public static CV_special CV_SP_HRESULT;
+}
+internal enum Microsoft.Cci.Pdb.CV_special2 : Enum {
+    public int value__;
+    public static CV_special2 CV_S2_BIT;
+    public static CV_special2 CV_S2_PASCHAR;
+}
+internal enum Microsoft.Cci.Pdb.CV_type : Enum {
+    public int value__;
+    public static CV_type CV_SPECIAL;
+    public static CV_type CV_SIGNED;
+    public static CV_type CV_UNSIGNED;
+    public static CV_type CV_BOOLEAN;
+    public static CV_type CV_REAL;
+    public static CV_type CV_COMPLEX;
+    public static CV_type CV_SPECIAL2;
+    public static CV_type CV_INT;
+    public static CV_type CV_CVRESERVED;
+}
+internal enum Microsoft.Cci.Pdb.CV_VTS_desc : Enum {
+    public int value__;
+    public static CV_VTS_desc CV_VTS_near;
+    public static CV_VTS_desc CV_VTS_far;
+    public static CV_VTS_desc CV_VTS_thin;
+    public static CV_VTS_desc CV_VTS_outer;
+    public static CV_VTS_desc CV_VTS_meta;
+    public static CV_VTS_desc CV_VTS_near32;
+    public static CV_VTS_desc CV_VTS_far32;
+    public static CV_VTS_desc CV_VTS_unused;
+}
+internal class Microsoft.Cci.Pdb.DatasSym32 : ValueType {
+    internal UInt32 typind;
+    internal UInt32 off;
+    internal ushort seg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.DataStream : object {
+    internal int contentSize;
+    internal Int32[] pages;
+    internal int Length { get; }
+    internal DataStream(int contentSize, BitAccess bits, int count);
+    internal void Read(PdbReader reader, BitAccess bits);
+    internal void Read(PdbReader reader, int position, Byte[] bytes, int offset, int data);
+    internal int get_Length();
+}
+internal class Microsoft.Cci.Pdb.DbiDbgHdr : ValueType {
+    internal ushort snFPO;
+    internal ushort snException;
+    internal ushort snFixup;
+    internal ushort snOmapToSrc;
+    internal ushort snOmapFromSrc;
+    internal ushort snSectionHdr;
+    internal ushort snTokenRidMap;
+    internal ushort snXdata;
+    internal ushort snPdata;
+    internal ushort snNewFPO;
+    internal ushort snSectionHdrOrig;
+    internal DbiDbgHdr(BitAccess bits);
+}
+internal class Microsoft.Cci.Pdb.DbiHeader : ValueType {
+    internal int sig;
+    internal int ver;
+    internal int age;
+    internal short gssymStream;
+    internal ushort vers;
+    internal short pssymStream;
+    internal ushort pdbver;
+    internal short symrecStream;
+    internal ushort pdbver2;
+    internal int gpmodiSize;
+    internal int secconSize;
+    internal int secmapSize;
+    internal int filinfSize;
+    internal int tsmapSize;
+    internal int mfcIndex;
+    internal int dbghdrSize;
+    internal int ecinfoSize;
+    internal ushort flags;
+    internal ushort machine;
+    internal int reserved;
+    internal DbiHeader(BitAccess bits);
+}
+internal class Microsoft.Cci.Pdb.DbiModuleInfo : object {
+    internal int opened;
+    internal ushort flags;
+    internal short stream;
+    internal int cbSyms;
+    internal int cbOldLines;
+    internal int cbLines;
+    internal short files;
+    internal short pad1;
+    internal UInt32 offsets;
+    internal int niSource;
+    internal int niCompiler;
+    internal string moduleName;
+    internal string objectName;
+    internal DbiModuleInfo(BitAccess bits, bool readStrings);
+}
+internal class Microsoft.Cci.Pdb.DbiSecCon : ValueType {
+    internal short section;
+    internal short pad1;
+    internal int offset;
+    internal int size;
+    internal UInt32 flags;
+    internal short module;
+    internal short pad2;
+    internal UInt32 dataCrc;
+    internal UInt32 relocCrc;
+    internal DbiSecCon(BitAccess bits);
+}
+internal enum Microsoft.Cci.Pdb.DEBUG_S_SUBSECTION : Enum {
+    public int value__;
+    public static DEBUG_S_SUBSECTION SYMBOLS;
+    public static DEBUG_S_SUBSECTION LINES;
+    public static DEBUG_S_SUBSECTION STRINGTABLE;
+    public static DEBUG_S_SUBSECTION FILECHKSMS;
+    public static DEBUG_S_SUBSECTION FRAMEDATA;
+}
+internal enum Microsoft.Cci.Pdb.DEBUG_S_SUBSECTION_TYPE : Enum {
+    public UInt32 value__;
+    public static DEBUG_S_SUBSECTION_TYPE DEBUG_S_IGNORE;
+    public static DEBUG_S_SUBSECTION_TYPE DEBUG_S_SYMBOLS;
+    public static DEBUG_S_SUBSECTION_TYPE DEBUG_S_LINES;
+    public static DEBUG_S_SUBSECTION_TYPE DEBUG_S_STRINGTABLE;
+    public static DEBUG_S_SUBSECTION_TYPE DEBUG_S_FILECHKSMS;
+    public static DEBUG_S_SUBSECTION_TYPE DEBUG_S_FRAMEDATA;
+}
+internal class Microsoft.Cci.Pdb.DefRangeSym : ValueType {
+    internal UInt32 id;
+    internal UInt32 program;
+    internal CV_lvar_addr_range range;
+}
+internal class Microsoft.Cci.Pdb.DefRangeSym2 : ValueType {
+    internal UInt32 id;
+    internal UInt32 program;
+    internal ushort count;
+    internal CV_lvar_addr_range[] range;
+}
+internal class Microsoft.Cci.Pdb.DiscardedSym : ValueType {
+    internal CV_DISCARDED iscarded;
+    internal UInt32 fileid;
+    internal UInt32 linenum;
+    internal Byte[] data;
+}
+internal class Microsoft.Cci.Pdb.EndArgSym : ValueType {
+}
+internal class Microsoft.Cci.Pdb.EntryThisSym : ValueType {
+    internal byte thissym;
+}
+internal class Microsoft.Cci.Pdb.ExportSym : ValueType {
+    internal ushort ordinal;
+    internal ushort flags;
+    internal string name;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.EXPORTSYM_FLAGS : Enum {
+    public ushort value__;
+    public static EXPORTSYM_FLAGS fConstant;
+    public static EXPORTSYM_FLAGS fData;
+    public static EXPORTSYM_FLAGS fPrivate;
+    public static EXPORTSYM_FLAGS fNoName;
+    public static EXPORTSYM_FLAGS fOrdinal;
+    public static EXPORTSYM_FLAGS fForwarder;
+}
+internal class Microsoft.Cci.Pdb.FLOAT10 : ValueType {
+    internal byte Data_0;
+    internal byte Data_1;
+    internal byte Data_2;
+    internal byte Data_3;
+    internal byte Data_4;
+    internal byte Data_5;
+    internal byte Data_6;
+    internal byte Data_7;
+    internal byte Data_8;
+    internal byte Data_9;
+}
+internal class Microsoft.Cci.Pdb.FrameCookie : ValueType {
+    internal int off;
+    internal ushort reg;
+    internal int cookietype;
+    internal byte flags;
+}
+internal class Microsoft.Cci.Pdb.FrameData : ValueType {
+    internal UInt32 ulRvaStart;
+    internal UInt32 cbBlock;
+    internal UInt32 cbLocals;
+    internal UInt32 cbParams;
+    internal UInt32 cbStkMax;
+    internal UInt32 frameFunc;
+    internal ushort cbProlog;
+    internal ushort cbSavedRegs;
+    internal UInt32 flags;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.FRAMEDATA_FLAGS : Enum {
+    public UInt32 value__;
+    public static FRAMEDATA_FLAGS fHasSEH;
+    public static FRAMEDATA_FLAGS fHasEH;
+    public static FRAMEDATA_FLAGS fIsFunctionStart;
+}
+internal class Microsoft.Cci.Pdb.FrameProcSym : ValueType {
+    internal UInt32 cbFrame;
+    internal UInt32 cbPad;
+    internal UInt32 offPad;
+    internal UInt32 cbSaveRegs;
+    internal UInt32 offExHdlr;
+    internal ushort secExHdlr;
+    internal UInt32 flags;
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.FRAMEPROCSYM_FLAGS : Enum {
+    public UInt32 value__;
+    public static FRAMEPROCSYM_FLAGS fHasAlloca;
+    public static FRAMEPROCSYM_FLAGS fHasSetJmp;
+    public static FRAMEPROCSYM_FLAGS fHasLongJmp;
+    public static FRAMEPROCSYM_FLAGS fHasInlAsm;
+    public static FRAMEPROCSYM_FLAGS fHasEH;
+    public static FRAMEPROCSYM_FLAGS fInlSpec;
+    public static FRAMEPROCSYM_FLAGS fHasSEH;
+    public static FRAMEPROCSYM_FLAGS fNaked;
+    public static FRAMEPROCSYM_FLAGS fSecurityChecks;
+    public static FRAMEPROCSYM_FLAGS fAsyncEH;
+    public static FRAMEPROCSYM_FLAGS fGSNoStackOrdering;
+    public static FRAMEPROCSYM_FLAGS fWasInlined;
+}
+internal class Microsoft.Cci.Pdb.FrameRelSym : ValueType {
+    internal int off;
+    internal UInt32 typind;
+    internal UInt32 offCod;
+    internal ushort segCod;
+    internal ushort flags;
+    internal string name;
+}
+internal interface Microsoft.Cci.Pdb.ILocalScope {
+    public UInt32 Offset { get; }
+    public UInt32 Length { get; }
+    public abstract virtual UInt32 get_Offset();
+    public abstract virtual UInt32 get_Length();
+}
+internal interface Microsoft.Cci.Pdb.IName {
+    public int UniqueKey { get; }
+    public int UniqueKeyIgnoringCase { get; }
+    public string Value { get; }
+    public abstract virtual int get_UniqueKey();
+    public abstract virtual int get_UniqueKeyIgnoringCase();
+    public abstract virtual string get_Value();
+}
+internal interface Microsoft.Cci.Pdb.INamespaceScope {
+    public IEnumerable`1<IUsedNamespace> UsedNamespaces { get; }
+    public abstract virtual IEnumerable`1<IUsedNamespace> get_UsedNamespaces();
+}
+[DefaultMemberAttribute("Item")]
+internal class Microsoft.Cci.Pdb.IntHashTable : object {
+    private static Int32[] primes;
+    private bucket[] buckets;
+    private int count;
+    private int occupancy;
+    private int loadsize;
+    private int loadFactorPerc;
+    private int version;
+    internal object Item { get; }
+    internal IntHashTable(int capacity, int loadFactorPerc);
+    private static IntHashTable();
+    private static int GetPrime(int minSize);
+    private static UInt32 InitHash(int key, int hashsize, UInt32& seed, UInt32& incr);
+    internal void Add(int key, object value);
+    internal object get_Item(int key);
+    private void expand();
+    private void rehash();
+    private void rehash(int newsize);
+    private void Insert(int key, object nvalue, bool add);
+    private void putEntry(bucket[] newBuckets, int key, object nvalue, int hashcode);
+}
+internal interface Microsoft.Cci.Pdb.IUsedNamespace {
+    public IName Alias { get; }
+    public IName NamespaceName { get; }
+    public abstract virtual IName get_Alias();
+    public abstract virtual IName get_NamespaceName();
+}
+internal class Microsoft.Cci.Pdb.LabelSym32 : ValueType {
+    internal UInt32 off;
+    internal ushort seg;
+    internal byte flags;
+    internal string name;
+}
+internal enum Microsoft.Cci.Pdb.LEAF : Enum {
+    public int value__;
+    public static LEAF LF_VTSHAPE;
+    public static LEAF LF_COBOL1;
+    public static LEAF LF_LABEL;
+    public static LEAF LF_NULL;
+    public static LEAF LF_NOTTRAN;
+    public static LEAF LF_ENDPRECOMP;
+    public static LEAF LF_TYPESERVER_ST;
+    public static LEAF LF_LIST;
+    public static LEAF LF_REFSYM;
+    public static LEAF LF_ENUMERATE_ST;
+    public static LEAF LF_TI16_MAX;
+    public static LEAF LF_MODIFIER;
+    public static LEAF LF_POINTER;
+    public static LEAF LF_ARRAY_ST;
+    public static LEAF LF_CLASS_ST;
+    public static LEAF LF_STRUCTURE_ST;
+    public static LEAF LF_UNION_ST;
+    public static LEAF LF_ENUM_ST;
+    public static LEAF LF_PROCEDURE;
+    public static LEAF LF_MFUNCTION;
+    public static LEAF LF_COBOL0;
+    public static LEAF LF_BARRAY;
+    public static LEAF LF_DIMARRAY_ST;
+    public static LEAF LF_VFTPATH;
+    public static LEAF LF_PRECOMP_ST;
+    public static LEAF LF_OEM;
+    public static LEAF LF_ALIAS_ST;
+    public static LEAF LF_OEM2;
+    public static LEAF LF_SKIP;
+    public static LEAF LF_ARGLIST;
+    public static LEAF LF_DEFARG_ST;
+    public static LEAF LF_FIELDLIST;
+    public static LEAF LF_DERIVED;
+    public static LEAF LF_BITFIELD;
+    public static LEAF LF_METHODLIST;
+    public static LEAF LF_DIMCONU;
+    public static LEAF LF_DIMCONLU;
+    public static LEAF LF_DIMVARU;
+    public static LEAF LF_DIMVARLU;
+    public static LEAF LF_BCLASS;
+    public static LEAF LF_VBCLASS;
+    public static LEAF LF_IVBCLASS;
+    public static LEAF LF_FRIENDFCN_ST;
+    public static LEAF LF_INDEX;
+    public static LEAF LF_MEMBER_ST;
+    public static LEAF LF_STMEMBER_ST;
+    public static LEAF LF_METHOD_ST;
+    public static LEAF LF_NESTTYPE_ST;
+    public static LEAF LF_VFUNCTAB;
+    public static LEAF LF_FRIENDCLS;
+    public static LEAF LF_ONEMETHOD_ST;
+    public static LEAF LF_VFUNCOFF;
+    public static LEAF LF_NESTTYPEEX_ST;
+    public static LEAF LF_MEMBERMODIFY_ST;
+    public static LEAF LF_MANAGED_ST;
+    public static LEAF LF_ST_MAX;
+    public static LEAF LF_TYPESERVER;
+    public static LEAF LF_ENUMERATE;
+    public static LEAF LF_ARRAY;
+    public static LEAF LF_CLASS;
+    public static LEAF LF_STRUCTURE;
+    public static LEAF LF_UNION;
+    public static LEAF LF_ENUM;
+    public static LEAF LF_DIMARRAY;
+    public static LEAF LF_PRECOMP;
+    public static LEAF LF_ALIAS;
+    public static LEAF LF_DEFARG;
+    public static LEAF LF_FRIENDFCN;
+    public static LEAF LF_MEMBER;
+    public static LEAF LF_STMEMBER;
+    public static LEAF LF_METHOD;
+    public static LEAF LF_NESTTYPE;
+    public static LEAF LF_ONEMETHOD;
+    public static LEAF LF_NESTTYPEEX;
+    public static LEAF LF_MEMBERMODIFY;
+    public static LEAF LF_MANAGED;
+    public static LEAF LF_TYPESERVER2;
+    public static LEAF LF_NUMERIC;
+    public static LEAF LF_CHAR;
+    public static LEAF LF_SHORT;
+    public static LEAF LF_USHORT;
+    public static LEAF LF_LONG;
+    public static LEAF LF_ULONG;
+    public static LEAF LF_REAL32;
+    public static LEAF LF_REAL64;
+    public static LEAF LF_REAL80;
+    public static LEAF LF_REAL128;
+    public static LEAF LF_QUADWORD;
+    public static LEAF LF_UQUADWORD;
+    public static LEAF LF_COMPLEX32;
+    public static LEAF LF_COMPLEX64;
+    public static LEAF LF_COMPLEX80;
+    public static LEAF LF_COMPLEX128;
+    public static LEAF LF_VARSTRING;
+    public static LEAF LF_OCTWORD;
+    public static LEAF LF_UOCTWORD;
+    public static LEAF LF_DECIMAL;
+    public static LEAF LF_DATE;
+    public static LEAF LF_UTF8STRING;
+    public static LEAF LF_PAD0;
+    public static LEAF LF_PAD1;
+    public static LEAF LF_PAD2;
+    public static LEAF LF_PAD3;
+    public static LEAF LF_PAD4;
+    public static LEAF LF_PAD5;
+    public static LEAF LF_PAD6;
+    public static LEAF LF_PAD7;
+    public static LEAF LF_PAD8;
+    public static LEAF LF_PAD9;
+    public static LEAF LF_PAD10;
+    public static LEAF LF_PAD11;
+    public static LEAF LF_PAD12;
+    public static LEAF LF_PAD13;
+    public static LEAF LF_PAD14;
+    public static LEAF LF_PAD15;
+}
+internal class Microsoft.Cci.Pdb.LeafAlias : ValueType {
+    internal UInt32 utype;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafArgList : ValueType {
+    internal UInt32 count;
+    internal UInt32[] arg;
+}
+internal class Microsoft.Cci.Pdb.LeafArray : ValueType {
+    internal UInt32 elemtype;
+    internal UInt32 idxtype;
+    internal Byte[] data;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafBArray : ValueType {
+    internal UInt32 utype;
+}
+internal class Microsoft.Cci.Pdb.LeafBClass : ValueType {
+    internal ushort attr;
+    internal UInt32 index;
+    internal Byte[] offset;
+}
+internal class Microsoft.Cci.Pdb.LeafBitfield : ValueType {
+    internal UInt32 type;
+    internal byte length;
+    internal byte position;
+}
+internal class Microsoft.Cci.Pdb.LeafChar : ValueType {
+    internal sbyte val;
+}
+internal class Microsoft.Cci.Pdb.LeafClass : ValueType {
+    internal ushort count;
+    internal ushort property;
+    internal UInt32 field;
+    internal UInt32 derived;
+    internal UInt32 vshape;
+    internal Byte[] data;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafCmplx128 : ValueType {
+    internal ulong val0_real;
+    internal ulong val1_real;
+    internal ulong val0_imag;
+    internal ulong val1_imag;
+}
+internal class Microsoft.Cci.Pdb.LeafCmplx32 : ValueType {
+    internal float val_real;
+    internal float val_imag;
+}
+internal class Microsoft.Cci.Pdb.LeafCmplx64 : ValueType {
+    internal double val_real;
+    internal double val_imag;
+}
+internal class Microsoft.Cci.Pdb.LeafCmplx80 : ValueType {
+    internal FLOAT10 val_real;
+    internal FLOAT10 val_imag;
+}
+internal class Microsoft.Cci.Pdb.LeafCobol0 : ValueType {
+    internal UInt32 type;
+    internal Byte[] data;
+}
+internal class Microsoft.Cci.Pdb.LeafCobol1 : ValueType {
+    internal Byte[] data;
+}
+internal class Microsoft.Cci.Pdb.LeafDefArg : ValueType {
+    internal UInt32 type;
+    internal Byte[] expr;
+}
+internal class Microsoft.Cci.Pdb.LeafDerived : ValueType {
+    internal UInt32 count;
+    internal UInt32[] drvdcls;
+}
+internal class Microsoft.Cci.Pdb.LeafDimArray : ValueType {
+    internal UInt32 utype;
+    internal UInt32 diminfo;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafDimCon : ValueType {
+    internal UInt32 typ;
+    internal ushort rank;
+    internal Byte[] dim;
+}
+internal class Microsoft.Cci.Pdb.LeafDimVar : ValueType {
+    internal UInt32 rank;
+    internal UInt32 typ;
+    internal UInt32[] dim;
+}
+internal class Microsoft.Cci.Pdb.LeafEndPreComp : ValueType {
+    internal UInt32 signature;
+}
+internal class Microsoft.Cci.Pdb.LeafEnum : ValueType {
+    internal ushort count;
+    internal ushort property;
+    internal UInt32 utype;
+    internal UInt32 field;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafEnumerate : ValueType {
+    internal ushort attr;
+    internal Byte[] value;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafFieldList : ValueType {
+    internal Char[] data;
+}
+internal class Microsoft.Cci.Pdb.LeafFriendCls : ValueType {
+    internal ushort pad0;
+    internal UInt32 index;
+}
+internal class Microsoft.Cci.Pdb.LeafFriendFcn : ValueType {
+    internal ushort pad0;
+    internal UInt32 index;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafIndex : ValueType {
+    internal ushort pad0;
+    internal UInt32 index;
+}
+internal class Microsoft.Cci.Pdb.LeafLabel : ValueType {
+    internal ushort mode;
+}
+internal class Microsoft.Cci.Pdb.LeafList : ValueType {
+    internal Byte[] data;
+}
+internal class Microsoft.Cci.Pdb.LeafLong : ValueType {
+    internal int val;
+}
+internal class Microsoft.Cci.Pdb.LeafManaged : ValueType {
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafMember : ValueType {
+    internal ushort attr;
+    internal UInt32 index;
+    internal Byte[] offset;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafMemberModify : ValueType {
+    internal ushort attr;
+    internal UInt32 index;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafMethod : ValueType {
+    internal ushort count;
+    internal UInt32 mList;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafMethodList : ValueType {
+    internal Byte[] mList;
+}
+internal class Microsoft.Cci.Pdb.LeafMFunc : ValueType {
+    internal UInt32 rvtype;
+    internal UInt32 classtype;
+    internal UInt32 thistype;
+    internal byte calltype;
+    internal byte reserved;
+    internal ushort parmcount;
+    internal UInt32 arglist;
+    internal int thisadjust;
+}
+internal class Microsoft.Cci.Pdb.LeafModifier : ValueType {
+    internal UInt32 type;
+    internal CV_modifier attr;
+}
+internal class Microsoft.Cci.Pdb.LeafNestType : ValueType {
+    internal ushort pad0;
+    internal UInt32 index;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafNestTypeEx : ValueType {
+    internal ushort attr;
+    internal UInt32 index;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafOct : ValueType {
+    internal ulong val0;
+    internal ulong val1;
+}
+internal class Microsoft.Cci.Pdb.LeafOEM : ValueType {
+    internal ushort cvOEM;
+    internal ushort recOEM;
+    internal UInt32 count;
+    internal UInt32[] index;
+}
+internal class Microsoft.Cci.Pdb.LeafOEM2 : ValueType {
+    internal Guid idOem;
+    internal UInt32 count;
+    internal UInt32[] index;
+}
+internal class Microsoft.Cci.Pdb.LeafOneMethod : ValueType {
+    internal ushort attr;
+    internal UInt32 index;
+    internal UInt32[] vbaseoff;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafPad : ValueType {
+    internal byte leaf;
+}
+internal class Microsoft.Cci.Pdb.LeafPointer : ValueType {
+}
+[FlagsAttribute]
+internal enum Microsoft.Cci.Pdb.LeafPointerAttr : Enum {
+    public UInt32 value__;
+    public static LeafPointerAttr ptrtype;
+    public static LeafPointerAttr ptrmode;
+    public static LeafPointerAttr isflat32;
+    public static LeafPointerAttr isvolatile;
+    public static LeafPointerAttr isconst;
+    public static LeafPointerAttr isunaligned;
+    public static LeafPointerAttr isrestrict;
+}
+internal class Microsoft.Cci.Pdb.LeafPreComp : ValueType {
+    internal UInt32 start;
+    internal UInt32 count;
+    internal UInt32 signature;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafProc : ValueType {
+    internal UInt32 rvtype;
+    internal byte calltype;
+    internal byte reserved;
+    internal ushort parmcount;
+    internal UInt32 arglist;
+}
+internal class Microsoft.Cci.Pdb.LeafQuad : ValueType {
+    internal long val;
+}
+internal class Microsoft.Cci.Pdb.LeafReal128 : ValueType {
+    internal ulong val0;
+    internal ulong val1;
+}
+internal class Microsoft.Cci.Pdb.LeafReal32 : ValueType {
+    internal float val;
+}
+internal class Microsoft.Cci.Pdb.LeafReal64 : ValueType {
+    internal double val;
+}
+internal class Microsoft.Cci.Pdb.LeafReal80 : ValueType {
+    internal FLOAT10 val;
+}
+internal class Microsoft.Cci.Pdb.LeafRefSym : ValueType {
+    internal Byte[] Sym;
+}
+internal class Microsoft.Cci.Pdb.LeafShort : ValueType {
+    internal short val;
+}
+internal class Microsoft.Cci.Pdb.LeafSkip : ValueType {
+    internal UInt32 type;
+    internal Byte[] data;
+}
+internal class Microsoft.Cci.Pdb.LeafSTMember : ValueType {
+    internal ushort attr;
+    internal UInt32 index;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafTypeServer : ValueType {
+    internal UInt32 signature;
+    internal UInt32 age;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafTypeServer2 : ValueType {
+    internal Guid sig70;
+    internal UInt32 age;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafULong : ValueType {
+    internal UInt32 val;
+}
+internal class Microsoft.Cci.Pdb.LeafUnion : ValueType {
+    internal ushort count;
+    internal ushort property;
+    internal UInt32 field;
+    internal Byte[] data;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.LeafUOct : ValueType {
+    internal ulong val0;
+    internal ulong val1;
+}
+internal class Microsoft.Cci.Pdb.LeafUQuad : ValueType {
+    internal ulong val;
+}
+internal class Microsoft.Cci.Pdb.LeafUShort : ValueType {
+    internal ushort val;
+}
+internal class Microsoft.Cci.Pdb.LeafVarString : ValueType {
+    internal ushort len;
+    internal Byte[] value;
+}
+internal class Microsoft.Cci.Pdb.LeafVBClass : ValueType {
+    internal ushort attr;
+    internal UInt32 index;
+    internal UInt32 vbptr;
+    internal Byte[] vbpoff;
+}
+internal class Microsoft.Cci.Pdb.LeafVFTPath : ValueType {
+    internal UInt32 count;
+    internal UInt32[] bases;
+}
+internal class Microsoft.Cci.Pdb.LeafVFuncOff : ValueType {
+    internal ushort pad0;
+    internal UInt32 type;
+    internal int offset;
+}
+internal class Microsoft.Cci.Pdb.LeafVFuncTab : ValueType {
+    internal ushort pad0;
+    internal UInt32 type;
+}
+internal class Microsoft.Cci.Pdb.LeafVTShape : ValueType {
+    internal ushort count;
+    internal Byte[] desc;
+}
+internal class Microsoft.Cci.Pdb.LocalSym : ValueType {
+    internal UInt32 id;
+    internal UInt32 typind;
+    internal ushort flags;
+    internal UInt32 idParent;
+    internal UInt32 offParent;
+    internal UInt32 expr;
+    internal UInt32 pad0;
+    internal UInt32 pad1;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ManProcSym : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 next;
+    internal UInt32 len;
+    internal UInt32 dbgStart;
+    internal UInt32 dbgEnd;
+    internal UInt32 token;
+    internal UInt32 off;
+    internal ushort seg;
+    internal byte flags;
+    internal ushort retReg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ManProcSymMips : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 next;
+    internal UInt32 len;
+    internal UInt32 dbgStart;
+    internal UInt32 dbgEnd;
+    internal UInt32 regSave;
+    internal UInt32 fpSave;
+    internal UInt32 intOff;
+    internal UInt32 fpOff;
+    internal UInt32 token;
+    internal UInt32 off;
+    internal ushort seg;
+    internal byte retReg;
+    internal byte frameReg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ManyRegSym : ValueType {
+    internal UInt32 typind;
+    internal byte count;
+    internal Byte[] reg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ManyRegSym2 : ValueType {
+    internal UInt32 typind;
+    internal ushort count;
+    internal UInt16[] reg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ManyTypRef : ValueType {
+    internal UInt32 typind;
+}
+internal class Microsoft.Cci.Pdb.mlMethod : ValueType {
+    internal ushort attr;
+    internal ushort pad0;
+    internal UInt32 index;
+    internal UInt32[] vbaseoff;
+}
+internal class Microsoft.Cci.Pdb.MsfDirectory : object {
+    internal DataStream[] streams;
+    internal MsfDirectory(PdbReader reader, PdbFileHeader head, BitAccess bits);
+}
+internal class Microsoft.Cci.Pdb.ObjNameSym : ValueType {
+    internal UInt32 signature;
+    internal string name;
+}
+internal enum Microsoft.Cci.Pdb.OEM_ID : Enum {
+    public int value__;
+    public static OEM_ID OEM_MS_FORTRAN90;
+    public static OEM_ID OEM_ODI;
+    public static OEM_ID OEM_THOMSON_SOFTWARE;
+    public static OEM_ID OEM_ODI_REC_BASELIST;
+}
+internal class Microsoft.Cci.Pdb.OemSymbol : ValueType {
+    internal Guid idOem;
+    internal UInt32 typind;
+    internal Byte[] rgl;
+}
+internal class Microsoft.Cci.Pdb.PdbConstant : object {
+    internal string name;
+    internal UInt32 token;
+    internal object value;
+    internal PdbConstant(string name, UInt32 token, object value);
+    internal PdbConstant(BitAccess bits);
+}
+internal class Microsoft.Cci.Pdb.PdbDebugException : IOException {
+    internal PdbDebugException(string format, Object[] args);
+}
+internal class Microsoft.Cci.Pdb.PdbException : IOException {
+    internal PdbException(string format, Object[] args);
+}
+internal class Microsoft.Cci.Pdb.PdbFile : object {
+    private static Guid BasicLanguageGuid;
+    public static Guid SymDocumentType_Text;
+    private static PdbFile();
+    private static void LoadInjectedSourceInformation(BitAccess bits, Guid& doctype, Guid& language, Guid& vendor, Guid& checksumAlgo, Byte[]& checksum);
+    private static Dictionary`2<string, int> LoadNameIndex(BitAccess bits, Int32& age, Guid& guid);
+    private static IntHashTable LoadNameStream(BitAccess bits);
+    private static int FindFunction(PdbFunction[] funcs, ushort sec, UInt32 off);
+    private static void LoadManagedLines(PdbFunction[] funcs, IntHashTable names, BitAccess bits, MsfDirectory dir, Dictionary`2<string, int> nameIndex, PdbReader reader, UInt32 limit, Dictionary`2<string, PdbSource> sourceCache);
+    private static void LoadFuncsFromDbiModule(BitAccess bits, DbiModuleInfo info, IntHashTable names, List`1<PdbFunction> funcList, bool readStrings, MsfDirectory dir, Dictionary`2<string, int> nameIndex, PdbReader reader, Dictionary`2<string, PdbSource> sourceCache);
+    private static void LoadDbiStream(BitAccess bits, DbiModuleInfo[]& modules, DbiDbgHdr& header, bool readStrings);
+    internal static PdbInfo LoadFunctions(Stream read);
+    private static void LoadTokenToSourceInfo(BitAccess bits, DbiModuleInfo module, IntHashTable names, MsfDirectory dir, Dictionary`2<string, int> nameIndex, PdbReader reader, Dictionary`2<UInt32, PdbTokenLine> tokenToSourceMapping, Dictionary`2<string, PdbSource> sourceCache);
+    private static IntHashTable ReadSourceFileInfo(BitAccess bits, UInt32 limit, IntHashTable names, MsfDirectory dir, Dictionary`2<string, int> nameIndex, PdbReader reader, Dictionary`2<string, PdbSource> sourceCache);
+}
+internal class Microsoft.Cci.Pdb.PdbFileHeader : object {
+    private Byte[] windowsPdbMagic;
+    internal Byte[] magic;
+    internal int pageSize;
+    internal int freePageMap;
+    internal int pagesUsed;
+    internal int directorySize;
+    internal int zero;
+    internal Int32[] directoryRoot;
+    internal PdbFileHeader(Stream reader, BitAccess bits);
+}
+internal class Microsoft.Cci.Pdb.PdbFunction : object {
+    internal static Guid msilMetaData;
+    internal static IComparer byAddress;
+    internal static IComparer byAddressAndToken;
+    internal UInt32 token;
+    internal UInt32 slotToken;
+    internal UInt32 tokenOfMethodWhoseUsingInfoAppliesToThisMethod;
+    internal UInt32 segment;
+    internal UInt32 address;
+    internal UInt32 length;
+    internal PdbScope[] scopes;
+    internal PdbSlot[] slots;
+    internal PdbConstant[] constants;
+    internal String[] usedNamespaces;
+    internal PdbLines[] lines;
+    internal UInt16[] usingCounts;
+    internal IEnumerable`1<INamespaceScope> namespaceScopes;
+    internal string iteratorClass;
+    internal List`1<ILocalScope> iteratorScopes;
+    internal PdbSynchronizationInformation synchronizationInformation;
+    private bool visualBasicScopesAdjusted;
+    internal PdbFunction(ManProcSym proc, BitAccess bits);
+    private static PdbFunction();
+    private static string StripNamespace(string module);
+    internal void AdjustVisualBasicScopes();
+    private void AdjustVisualBasicScopes(PdbScope[] scopes);
+    internal static PdbFunction[] LoadManagedFunctions(BitAccess bits, UInt32 limit, bool readStrings);
+    internal static void CountScopesAndSlots(BitAccess bits, UInt32 limit, Int32& constants, Int32& scopes, Int32& slots, Int32& usedNamespaces);
+    internal void ReadMD2CustomMetadata(BitAccess bits);
+    private void ReadCustomMetadata(BitAccess bits);
+    private void ReadForwardIterator(BitAccess bits);
+    private void ReadIteratorLocals(BitAccess bits);
+    private void ReadForwardInfo(BitAccess bits);
+    private void ReadUsingInfo(BitAccess bits);
+}
+internal class Microsoft.Cci.Pdb.PdbInfo : object {
+    public PdbFunction[] Functions;
+    public Dictionary`2<UInt32, PdbTokenLine> TokenToSourceMapping;
+    public string SourceServerData;
+    public int Age;
+    public Guid Guid;
+    public Byte[] SourceLinkData;
+}
+internal class Microsoft.Cci.Pdb.PdbIteratorScope : object {
+    private UInt32 offset;
+    private UInt32 length;
+    public UInt32 Offset { get; }
+    public UInt32 Length { get; }
+    internal PdbIteratorScope(UInt32 offset, UInt32 length);
+    public sealed virtual UInt32 get_Offset();
+    public sealed virtual UInt32 get_Length();
+}
+internal class Microsoft.Cci.Pdb.PdbLine : ValueType {
+    internal UInt32 offset;
+    internal UInt32 lineBegin;
+    internal UInt32 lineEnd;
+    internal ushort colBegin;
+    internal ushort colEnd;
+    internal PdbLine(UInt32 offset, UInt32 lineBegin, ushort colBegin, UInt32 lineEnd, ushort colEnd);
+}
+internal class Microsoft.Cci.Pdb.PdbLines : object {
+    internal PdbSource file;
+    internal PdbLine[] lines;
+    internal PdbLines(PdbSource file, UInt32 count);
+}
+internal class Microsoft.Cci.Pdb.PdbReader : object {
+    internal int pageSize;
+    internal Stream reader;
+    internal PdbReader(Stream reader, int pageSize);
+    internal void Seek(int page, int offset);
+    internal void Read(Byte[] bytes, int offset, int count);
+    internal int PagesFromSize(int size);
+}
+internal class Microsoft.Cci.Pdb.PdbScope : object {
+    internal PdbConstant[] constants;
+    internal PdbSlot[] slots;
+    internal PdbScope[] scopes;
+    internal String[] usedNamespaces;
+    internal UInt32 address;
+    internal UInt32 offset;
+    internal UInt32 length;
+    internal PdbScope(UInt32 address, UInt32 offset, UInt32 length, PdbSlot[] slots, PdbConstant[] constants, String[] usedNamespaces);
+    internal PdbScope(UInt32 address, UInt32 length, PdbSlot[] slots, PdbConstant[] constants, String[] usedNamespaces);
+    internal PdbScope(UInt32 funcOffset, BlockSym32 block, BitAccess bits, UInt32& typind);
+}
+internal class Microsoft.Cci.Pdb.PdbSlot : object {
+    internal UInt32 slot;
+    internal UInt32 typeToken;
+    internal string name;
+    internal ushort flags;
+    internal PdbSlot(UInt32 slot, UInt32 typeToken, string name, ushort flags);
+    internal PdbSlot(BitAccess bits);
+}
+internal class Microsoft.Cci.Pdb.PdbSource : object {
+    internal string name;
+    internal Guid doctype;
+    internal Guid language;
+    internal Guid vendor;
+    internal Guid checksumAlgorithm;
+    internal Byte[] checksum;
+    internal PdbSource(string name, Guid doctype, Guid language, Guid vendor, Guid checksumAlgorithm, Byte[] checksum);
+}
+internal class Microsoft.Cci.Pdb.PdbSynchronizationInformation : object {
+    internal UInt32 kickoffMethodToken;
+    internal UInt32 generatedCatchHandlerIlOffset;
+    internal PdbSynchronizationPoint[] synchronizationPoints;
+    public UInt32 GeneratedCatchHandlerOffset { get; }
+    internal PdbSynchronizationInformation(BitAccess bits);
+    public UInt32 get_GeneratedCatchHandlerOffset();
+}
+internal class Microsoft.Cci.Pdb.PdbSynchronizationPoint : object {
+    internal UInt32 synchronizeOffset;
+    internal UInt32 continuationMethodToken;
+    internal UInt32 continuationOffset;
+    public UInt32 SynchronizeOffset { get; }
+    public UInt32 ContinuationOffset { get; }
+    internal PdbSynchronizationPoint(BitAccess bits);
+    public UInt32 get_SynchronizeOffset();
+    public UInt32 get_ContinuationOffset();
+}
+internal class Microsoft.Cci.Pdb.PdbTokenLine : object {
+    internal UInt32 token;
+    internal UInt32 file_id;
+    internal UInt32 line;
+    internal UInt32 column;
+    internal UInt32 endLine;
+    internal UInt32 endColumn;
+    internal PdbSource sourceFile;
+    internal PdbTokenLine nextLine;
+    internal PdbTokenLine(UInt32 token, UInt32 file_id, UInt32 line, UInt32 column, UInt32 endLine, UInt32 endColumn);
+}
+internal class Microsoft.Cci.Pdb.ProcSym32 : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 next;
+    internal UInt32 len;
+    internal UInt32 dbgStart;
+    internal UInt32 dbgEnd;
+    internal UInt32 typind;
+    internal UInt32 off;
+    internal ushort seg;
+    internal byte flags;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ProcSymIa64 : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 next;
+    internal UInt32 len;
+    internal UInt32 dbgStart;
+    internal UInt32 dbgEnd;
+    internal UInt32 typind;
+    internal UInt32 off;
+    internal ushort seg;
+    internal ushort retReg;
+    internal byte flags;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ProcSymMips : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 next;
+    internal UInt32 len;
+    internal UInt32 dbgStart;
+    internal UInt32 dbgEnd;
+    internal UInt32 regSave;
+    internal UInt32 fpSave;
+    internal UInt32 intOff;
+    internal UInt32 fpOff;
+    internal UInt32 typind;
+    internal UInt32 off;
+    internal ushort seg;
+    internal byte retReg;
+    internal byte frameReg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.PubSym32 : ValueType {
+    internal UInt32 flags;
+    internal UInt32 off;
+    internal ushort seg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.RefSym : ValueType {
+    internal UInt32 sumName;
+    internal UInt32 ibSym;
+    internal ushort imod;
+    internal ushort usFill;
+}
+internal class Microsoft.Cci.Pdb.RefSym2 : ValueType {
+    internal UInt32 sumName;
+    internal UInt32 ibSym;
+    internal ushort imod;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.RegRel32 : ValueType {
+    internal UInt32 off;
+    internal UInt32 typind;
+    internal ushort reg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.RegSym : ValueType {
+    internal UInt32 typind;
+    internal ushort reg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ReturnSym : ValueType {
+    internal CV_GENERIC_FLAG flags;
+    internal byte style;
+}
+internal class Microsoft.Cci.Pdb.SearchSym : ValueType {
+    internal UInt32 startsym;
+    internal ushort seg;
+}
+internal class Microsoft.Cci.Pdb.SectionSym : ValueType {
+    internal ushort isec;
+    internal byte align;
+    internal byte bReserved;
+    internal UInt32 rva;
+    internal UInt32 cb;
+    internal UInt32 characteristics;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.SepCodSym : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 length;
+    internal UInt32 scf;
+    internal UInt32 off;
+    internal UInt32 offParent;
+    internal ushort sec;
+    internal ushort secParent;
+}
+internal class Microsoft.Cci.Pdb.Slink32 : ValueType {
+    internal UInt32 framesize;
+    internal int off;
+    internal ushort reg;
+}
+internal class Microsoft.Cci.Pdb.SlotSym32 : ValueType {
+    internal UInt32 index;
+    internal UInt32 typind;
+    internal string name;
+}
+internal enum Microsoft.Cci.Pdb.SYM : Enum {
+    public int value__;
+    public static SYM S_END;
+    public static SYM S_OEM;
+    public static SYM S_REGISTER_ST;
+    public static SYM S_CONSTANT_ST;
+    public static SYM S_UDT_ST;
+    public static SYM S_COBOLUDT_ST;
+    public static SYM S_MANYREG_ST;
+    public static SYM S_BPREL32_ST;
+    public static SYM S_LDATA32_ST;
+    public static SYM S_GDATA32_ST;
+    public static SYM S_PUB32_ST;
+    public static SYM S_LPROC32_ST;
+    public static SYM S_GPROC32_ST;
+    public static SYM S_VFTABLE32;
+    public static SYM S_REGREL32_ST;
+    public static SYM S_LTHREAD32_ST;
+    public static SYM S_GTHREAD32_ST;
+    public static SYM S_LPROCMIPS_ST;
+    public static SYM S_GPROCMIPS_ST;
+    public static SYM S_FRAMEPROC;
+    public static SYM S_COMPILE2_ST;
+    public static SYM S_MANYREG2_ST;
+    public static SYM S_LPROCIA64_ST;
+    public static SYM S_GPROCIA64_ST;
+    public static SYM S_LOCALSLOT_ST;
+    public static SYM S_PARAMSLOT_ST;
+    public static SYM S_ANNOTATION;
+    public static SYM S_GMANPROC_ST;
+    public static SYM S_LMANPROC_ST;
+    public static SYM S_RESERVED1;
+    public static SYM S_RESERVED2;
+    public static SYM S_RESERVED3;
+    public static SYM S_RESERVED4;
+    public static SYM S_LMANDATA_ST;
+    public static SYM S_GMANDATA_ST;
+    public static SYM S_MANFRAMEREL_ST;
+    public static SYM S_MANREGISTER_ST;
+    public static SYM S_MANSLOT_ST;
+    public static SYM S_MANMANYREG_ST;
+    public static SYM S_MANREGREL_ST;
+    public static SYM S_MANMANYREG2_ST;
+    public static SYM S_MANTYPREF;
+    public static SYM S_UNAMESPACE_ST;
+    public static SYM S_ST_MAX;
+    public static SYM S_OBJNAME;
+    public static SYM S_THUNK32;
+    public static SYM S_BLOCK32;
+    public static SYM S_WITH32;
+    public static SYM S_LABEL32;
+    public static SYM S_REGISTER;
+    public static SYM S_CONSTANT;
+    public static SYM S_UDT;
+    public static SYM S_COBOLUDT;
+    public static SYM S_MANYREG;
+    public static SYM S_BPREL32;
+    public static SYM S_LDATA32;
+    public static SYM S_GDATA32;
+    public static SYM S_PUB32;
+    public static SYM S_LPROC32;
+    public static SYM S_GPROC32;
+    public static SYM S_REGREL32;
+    public static SYM S_LTHREAD32;
+    public static SYM S_GTHREAD32;
+    public static SYM S_LPROCMIPS;
+    public static SYM S_GPROCMIPS;
+    public static SYM S_COMPILE2;
+    public static SYM S_MANYREG2;
+    public static SYM S_LPROCIA64;
+    public static SYM S_GPROCIA64;
+    public static SYM S_LOCALSLOT;
+    public static SYM S_SLOT;
+    public static SYM S_PARAMSLOT;
+    public static SYM S_LMANDATA;
+    public static SYM S_GMANDATA;
+    public static SYM S_MANFRAMEREL;
+    public static SYM S_MANREGISTER;
+    public static SYM S_MANSLOT;
+    public static SYM S_MANMANYREG;
+    public static SYM S_MANREGREL;
+    public static SYM S_MANMANYREG2;
+    public static SYM S_UNAMESPACE;
+    public static SYM S_PROCREF;
+    public static SYM S_DATAREF;
+    public static SYM S_LPROCREF;
+    public static SYM S_ANNOTATIONREF;
+    public static SYM S_TOKENREF;
+    public static SYM S_GMANPROC;
+    public static SYM S_LMANPROC;
+    public static SYM S_TRAMPOLINE;
+    public static SYM S_MANCONSTANT;
+    public static SYM S_ATTR_FRAMEREL;
+    public static SYM S_ATTR_REGISTER;
+    public static SYM S_ATTR_REGREL;
+    public static SYM S_ATTR_MANYREG;
+    public static SYM S_SEPCODE;
+    public static SYM S_LOCAL;
+    public static SYM S_DEFRANGE;
+    public static SYM S_DEFRANGE2;
+    public static SYM S_SECTION;
+    public static SYM S_COFFGROUP;
+    public static SYM S_EXPORT;
+    public static SYM S_CALLSITEINFO;
+    public static SYM S_FRAMECOOKIE;
+    public static SYM S_DISCARDED;
+    public static SYM S_RECTYPE_MAX;
+    public static SYM S_RECTYPE_LAST;
+}
+internal class Microsoft.Cci.Pdb.SYMTYPE : ValueType {
+    internal ushort reclen;
+    internal ushort rectyp;
+}
+internal class Microsoft.Cci.Pdb.ThreadSym32 : ValueType {
+    internal UInt32 typind;
+    internal UInt32 off;
+    internal ushort seg;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.ThunkSym32 : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 next;
+    internal UInt32 off;
+    internal ushort seg;
+    internal ushort len;
+    internal byte ord;
+    internal string name;
+    internal Byte[] variant;
+}
+internal enum Microsoft.Cci.Pdb.TRAMP : Enum {
+    public int value__;
+    public static TRAMP trampIncremental;
+    public static TRAMP trampBranchIsland;
+}
+internal class Microsoft.Cci.Pdb.TrampolineSym : ValueType {
+    internal ushort trampType;
+    internal ushort cbThunk;
+    internal UInt32 offThunk;
+    internal UInt32 offTarget;
+    internal ushort sectThunk;
+    internal ushort sectTarget;
+}
+internal enum Microsoft.Cci.Pdb.TYPE_ENUM : Enum {
+    public int value__;
+    public static TYPE_ENUM T_NOTYPE;
+    public static TYPE_ENUM T_ABS;
+    public static TYPE_ENUM T_SEGMENT;
+    public static TYPE_ENUM T_VOID;
+    public static TYPE_ENUM T_HRESULT;
+    public static TYPE_ENUM T_32PHRESULT;
+    public static TYPE_ENUM T_64PHRESULT;
+    public static TYPE_ENUM T_PVOID;
+    public static TYPE_ENUM T_PFVOID;
+    public static TYPE_ENUM T_PHVOID;
+    public static TYPE_ENUM T_32PVOID;
+    public static TYPE_ENUM T_64PVOID;
+    public static TYPE_ENUM T_CURRENCY;
+    public static TYPE_ENUM T_NOTTRANS;
+    public static TYPE_ENUM T_BIT;
+    public static TYPE_ENUM T_PASCHAR;
+    public static TYPE_ENUM T_CHAR;
+    public static TYPE_ENUM T_32PCHAR;
+    public static TYPE_ENUM T_64PCHAR;
+    public static TYPE_ENUM T_UCHAR;
+    public static TYPE_ENUM T_32PUCHAR;
+    public static TYPE_ENUM T_64PUCHAR;
+    public static TYPE_ENUM T_RCHAR;
+    public static TYPE_ENUM T_32PRCHAR;
+    public static TYPE_ENUM T_64PRCHAR;
+    public static TYPE_ENUM T_WCHAR;
+    public static TYPE_ENUM T_32PWCHAR;
+    public static TYPE_ENUM T_64PWCHAR;
+    public static TYPE_ENUM T_INT1;
+    public static TYPE_ENUM T_32PINT1;
+    public static TYPE_ENUM T_64PINT1;
+    public static TYPE_ENUM T_UINT1;
+    public static TYPE_ENUM T_32PUINT1;
+    public static TYPE_ENUM T_64PUINT1;
+    public static TYPE_ENUM T_SHORT;
+    public static TYPE_ENUM T_32PSHORT;
+    public static TYPE_ENUM T_64PSHORT;
+    public static TYPE_ENUM T_USHORT;
+    public static TYPE_ENUM T_32PUSHORT;
+    public static TYPE_ENUM T_64PUSHORT;
+    public static TYPE_ENUM T_INT2;
+    public static TYPE_ENUM T_32PINT2;
+    public static TYPE_ENUM T_64PINT2;
+    public static TYPE_ENUM T_UINT2;
+    public static TYPE_ENUM T_32PUINT2;
+    public static TYPE_ENUM T_64PUINT2;
+    public static TYPE_ENUM T_LONG;
+    public static TYPE_ENUM T_ULONG;
+    public static TYPE_ENUM T_32PLONG;
+    public static TYPE_ENUM T_32PULONG;
+    public static TYPE_ENUM T_64PLONG;
+    public static TYPE_ENUM T_64PULONG;
+    public static TYPE_ENUM T_INT4;
+    public static TYPE_ENUM T_32PINT4;
+    public static TYPE_ENUM T_64PINT4;
+    public static TYPE_ENUM T_UINT4;
+    public static TYPE_ENUM T_32PUINT4;
+    public static TYPE_ENUM T_64PUINT4;
+    public static TYPE_ENUM T_QUAD;
+    public static TYPE_ENUM T_32PQUAD;
+    public static TYPE_ENUM T_64PQUAD;
+    public static TYPE_ENUM T_UQUAD;
+    public static TYPE_ENUM T_32PUQUAD;
+    public static TYPE_ENUM T_64PUQUAD;
+    public static TYPE_ENUM T_INT8;
+    public static TYPE_ENUM T_32PINT8;
+    public static TYPE_ENUM T_64PINT8;
+    public static TYPE_ENUM T_UINT8;
+    public static TYPE_ENUM T_32PUINT8;
+    public static TYPE_ENUM T_64PUINT8;
+    public static TYPE_ENUM T_OCT;
+    public static TYPE_ENUM T_32POCT;
+    public static TYPE_ENUM T_64POCT;
+    public static TYPE_ENUM T_UOCT;
+    public static TYPE_ENUM T_32PUOCT;
+    public static TYPE_ENUM T_64PUOCT;
+    public static TYPE_ENUM T_INT16;
+    public static TYPE_ENUM T_32PINT16;
+    public static TYPE_ENUM T_64PINT16;
+    public static TYPE_ENUM T_UINT16;
+    public static TYPE_ENUM T_32PUINT16;
+    public static TYPE_ENUM T_64PUINT16;
+    public static TYPE_ENUM T_REAL32;
+    public static TYPE_ENUM T_32PREAL32;
+    public static TYPE_ENUM T_64PREAL32;
+    public static TYPE_ENUM T_REAL64;
+    public static TYPE_ENUM T_32PREAL64;
+    public static TYPE_ENUM T_64PREAL64;
+    public static TYPE_ENUM T_REAL80;
+    public static TYPE_ENUM T_32PREAL80;
+    public static TYPE_ENUM T_64PREAL80;
+    public static TYPE_ENUM T_REAL128;
+    public static TYPE_ENUM T_32PREAL128;
+    public static TYPE_ENUM T_64PREAL128;
+    public static TYPE_ENUM T_CPLX32;
+    public static TYPE_ENUM T_32PCPLX32;
+    public static TYPE_ENUM T_64PCPLX32;
+    public static TYPE_ENUM T_CPLX64;
+    public static TYPE_ENUM T_32PCPLX64;
+    public static TYPE_ENUM T_64PCPLX64;
+    public static TYPE_ENUM T_CPLX80;
+    public static TYPE_ENUM T_32PCPLX80;
+    public static TYPE_ENUM T_64PCPLX80;
+    public static TYPE_ENUM T_CPLX128;
+    public static TYPE_ENUM T_32PCPLX128;
+    public static TYPE_ENUM T_64PCPLX128;
+    public static TYPE_ENUM T_BOOL08;
+    public static TYPE_ENUM T_32PBOOL08;
+    public static TYPE_ENUM T_64PBOOL08;
+    public static TYPE_ENUM T_BOOL16;
+    public static TYPE_ENUM T_32PBOOL16;
+    public static TYPE_ENUM T_64PBOOL16;
+    public static TYPE_ENUM T_BOOL32;
+    public static TYPE_ENUM T_32PBOOL32;
+    public static TYPE_ENUM T_64PBOOL32;
+    public static TYPE_ENUM T_BOOL64;
+    public static TYPE_ENUM T_32PBOOL64;
+    public static TYPE_ENUM T_64PBOOL64;
+}
+internal class Microsoft.Cci.Pdb.TYPTYPE : ValueType {
+    internal ushort len;
+    internal ushort leaf;
+}
+internal class Microsoft.Cci.Pdb.UdtSym : ValueType {
+    internal UInt32 typind;
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.UnamespaceSym : ValueType {
+    internal string name;
+}
+internal class Microsoft.Cci.Pdb.VpathSym32 : ValueType {
+    internal UInt32 root;
+    internal UInt32 path;
+    internal UInt32 off;
+    internal ushort seg;
+}
+internal class Microsoft.Cci.Pdb.WithSym32 : ValueType {
+    internal UInt32 parent;
+    internal UInt32 end;
+    internal UInt32 len;
+    internal UInt32 off;
+    internal ushort seg;
+    internal string expr;
+}
+internal class Microsoft.Cci.Pdb.XFixupData : ValueType {
+    internal ushort wType;
+    internal ushort wExtra;
+    internal UInt32 rva;
+    internal UInt32 rvaTarget;
+}
+internal enum Mono.Cecil.Pdb.CustomMetadataType : Enum {
+    public byte value__;
+    public static CustomMetadataType UsingInfo;
+    public static CustomMetadataType ForwardInfo;
+    public static CustomMetadataType IteratorScopes;
+    public static CustomMetadataType ForwardIterator;
+}
+internal class Mono.Cecil.Pdb.CustomMetadataWriter : object {
+    private SymWriter sym_writer;
+    private MemoryStream stream;
+    private BinaryStreamWriter writer;
+    private int count;
+    private static byte version;
+    public CustomMetadataWriter(SymWriter sym_writer);
+    public void WriteUsingInfo(ImportDebugInformation import_info);
+    public void WriteForwardInfo(MetadataToken import_parent);
+    public void WriteIteratorScopes(StateMachineScopeDebugInformation state_machine, MethodDebugInformation debug_info);
+    public void WriteForwardIterator(TypeReference type);
+    private void Write(CustomMetadataType type, Action write);
+    public void WriteCustomMetadata();
+    public sealed virtual void Dispose();
+}
+[GuidAttribute("BA3FEE4C-ECB9-4e41-83B7-183FA41CD859")]
+[InterfaceTypeAttribute("1")]
+internal interface Mono.Cecil.Pdb.IMetaDataEmit {
+    public abstract virtual void SetModuleProps(string szName);
+    public abstract virtual void Save(string szFile, UInt32 dwSaveFlags);
+    public abstract virtual void SaveToStream(IntPtr pIStream, UInt32 dwSaveFlags);
+    public abstract virtual UInt32 GetSaveSize(UInt32 fSave);
+    public abstract virtual UInt32 DefineTypeDef(IntPtr szTypeDef, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements);
+    public abstract virtual UInt32 DefineNestedType(IntPtr szTypeDef, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements, UInt32 tdEncloser);
+    public abstract virtual void SetHandler(object pUnk);
+    public abstract virtual UInt32 DefineMethod(UInt32 td, IntPtr zName, UInt32 dwMethodFlags, IntPtr pvSigBlob, UInt32 cbSigBlob, UInt32 ulCodeRVA, UInt32 dwImplFlags);
+    public abstract virtual void DefineMethodImpl(UInt32 td, UInt32 tkBody, UInt32 tkDecl);
+    public abstract virtual UInt32 DefineTypeRefByName(UInt32 tkResolutionScope, IntPtr szName);
+    public abstract virtual UInt32 DefineImportType(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport pImport, UInt32 tdImport, IntPtr pAssemEmit);
+    public abstract virtual UInt32 DefineMemberRef(UInt32 tkImport, string szName, IntPtr pvSigBlob, UInt32 cbSigBlob);
+    public abstract virtual UInt32 DefineImportMember(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport pImport, UInt32 mbMember, IntPtr pAssemEmit, UInt32 tkParent);
+    public abstract virtual UInt32 DefineEvent(UInt32 td, string szEvent, UInt32 dwEventFlags, UInt32 tkEventType, UInt32 mdAddOn, UInt32 mdRemoveOn, UInt32 mdFire, IntPtr rmdOtherMethods);
+    public abstract virtual void SetClassLayout(UInt32 td, UInt32 dwPackSize, IntPtr rFieldOffsets, UInt32 ulClassSize);
+    public abstract virtual void DeleteClassLayout(UInt32 td);
+    public abstract virtual void SetFieldMarshal(UInt32 tk, IntPtr pvNativeType, UInt32 cbNativeType);
+    public abstract virtual void DeleteFieldMarshal(UInt32 tk);
+    public abstract virtual UInt32 DefinePermissionSet(UInt32 tk, UInt32 dwAction, IntPtr pvPermission, UInt32 cbPermission);
+    public abstract virtual void SetRVA(UInt32 md, UInt32 ulRVA);
+    public abstract virtual UInt32 GetTokenFromSig(IntPtr pvSig, UInt32 cbSig);
+    public abstract virtual UInt32 DefineModuleRef(string szName);
+    public abstract virtual void SetParent(UInt32 mr, UInt32 tk);
+    public abstract virtual UInt32 GetTokenFromTypeSpec(IntPtr pvSig, UInt32 cbSig);
+    public abstract virtual void SaveToMemory(IntPtr pbData, UInt32 cbData);
+    public abstract virtual UInt32 DefineUserString(string szString, UInt32 cchString);
+    public abstract virtual void DeleteToken(UInt32 tkObj);
+    public abstract virtual void SetMethodProps(UInt32 md, UInt32 dwMethodFlags, UInt32 ulCodeRVA, UInt32 dwImplFlags);
+    public abstract virtual void SetTypeDefProps(UInt32 td, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements);
+    public abstract virtual void SetEventProps(UInt32 ev, UInt32 dwEventFlags, UInt32 tkEventType, UInt32 mdAddOn, UInt32 mdRemoveOn, UInt32 mdFire, IntPtr rmdOtherMethods);
+    public abstract virtual UInt32 SetPermissionSetProps(UInt32 tk, UInt32 dwAction, IntPtr pvPermission, UInt32 cbPermission);
+    public abstract virtual void DefinePinvokeMap(UInt32 tk, UInt32 dwMappingFlags, string szImportName, UInt32 mrImportDLL);
+    public abstract virtual void SetPinvokeMap(UInt32 tk, UInt32 dwMappingFlags, string szImportName, UInt32 mrImportDLL);
+    public abstract virtual void DeletePinvokeMap(UInt32 tk);
+    public abstract virtual UInt32 DefineCustomAttribute(UInt32 tkObj, UInt32 tkType, IntPtr pCustomAttribute, UInt32 cbCustomAttribute);
+    public abstract virtual void SetCustomAttributeValue(UInt32 pcv, IntPtr pCustomAttribute, UInt32 cbCustomAttribute);
+    public abstract virtual UInt32 DefineField(UInt32 td, string szName, UInt32 dwFieldFlags, IntPtr pvSigBlob, UInt32 cbSigBlob, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue);
+    public abstract virtual UInt32 DefineProperty(UInt32 td, string szProperty, UInt32 dwPropFlags, IntPtr pvSig, UInt32 cbSig, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue, UInt32 mdSetter, UInt32 mdGetter, IntPtr rmdOtherMethods);
+    public abstract virtual UInt32 DefineParam(UInt32 md, UInt32 ulParamSeq, string szName, UInt32 dwParamFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue);
+    public abstract virtual void SetFieldProps(UInt32 fd, UInt32 dwFieldFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue);
+    public abstract virtual void SetPropertyProps(UInt32 pr, UInt32 dwPropFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue, UInt32 mdSetter, UInt32 mdGetter, IntPtr rmdOtherMethods);
+    public abstract virtual void SetParamProps(UInt32 pd, string szName, UInt32 dwParamFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue);
+    public abstract virtual UInt32 DefineSecurityAttributeSet(UInt32 tkObj, IntPtr rSecAttrs, UInt32 cSecAttrs);
+    public abstract virtual void ApplyEditAndContinue(object pImport);
+    public abstract virtual UInt32 TranslateSigWithScope(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport import, IntPtr pbSigBlob, UInt32 cbSigBlob, IntPtr pAssemEmit, IMetaDataEmit emit, IntPtr pvTranslatedSig, UInt32 cbTranslatedSigMax);
+    public abstract virtual void SetMethodImplFlags(UInt32 md, UInt32 dwImplFlags);
+    public abstract virtual void SetFieldRVA(UInt32 fd, UInt32 ulRVA);
+    public abstract virtual void Merge(IMetaDataImport pImport, IntPtr pHostMapToken, object pHandler);
+    public abstract virtual void MergeEnd();
+}
+[GuidAttribute("7DAC8207-D3AE-4c75-9B67-92801A497D44")]
+[InterfaceTypeAttribute("1")]
+internal interface Mono.Cecil.Pdb.IMetaDataImport {
+    public abstract virtual void CloseEnum(UInt32 hEnum);
+    public abstract virtual UInt32 CountEnum(UInt32 hEnum);
+    public abstract virtual void ResetEnum(UInt32 hEnum, UInt32 ulPos);
+    public abstract virtual UInt32 EnumTypeDefs(UInt32& phEnum, UInt32[] rTypeDefs, UInt32 cMax);
+    public abstract virtual UInt32 EnumInterfaceImpls(UInt32& phEnum, UInt32 td, UInt32[] rImpls, UInt32 cMax);
+    public abstract virtual UInt32 EnumTypeRefs(UInt32& phEnum, UInt32[] rTypeRefs, UInt32 cMax);
+    public abstract virtual UInt32 FindTypeDefByName(string szTypeDef, UInt32 tkEnclosingClass);
+    public abstract virtual Guid GetScopeProps(StringBuilder szName, UInt32 cchName, UInt32& pchName);
+    public abstract virtual UInt32 GetModuleFromScope();
+    public abstract virtual UInt32 GetTypeDefProps(UInt32 td, Char* szTypeDef, UInt32 cchTypeDef, UInt32* pchTypeDef, UInt32* pdwTypeDefFlags, UInt32* ptkExtends);
+    public abstract virtual UInt32 GetInterfaceImplProps(UInt32 iiImpl, UInt32& pClass);
+    public abstract virtual UInt32 GetTypeRefProps(UInt32 tr, UInt32& ptkResolutionScope, StringBuilder szName, UInt32 cchName);
+    public abstract virtual UInt32 ResolveTypeRef(UInt32 tr, Guid& riid, Object& ppIScope);
+    public abstract virtual UInt32 EnumMembers(UInt32& phEnum, UInt32 cl, UInt32[] rMembers, UInt32 cMax);
+    public abstract virtual UInt32 EnumMembersWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rMembers, UInt32 cMax);
+    public abstract virtual UInt32 EnumMethods(UInt32& phEnum, UInt32 cl, IntPtr rMethods, UInt32 cMax);
+    public abstract virtual UInt32 EnumMethodsWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rMethods, UInt32 cMax);
+    public abstract virtual UInt32 EnumFields(UInt32& phEnum, UInt32 cl, IntPtr rFields, UInt32 cMax);
+    public abstract virtual UInt32 EnumFieldsWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rFields, UInt32 cMax);
+    public abstract virtual UInt32 EnumParams(UInt32& phEnum, UInt32 mb, UInt32[] rParams, UInt32 cMax);
+    public abstract virtual UInt32 EnumMemberRefs(UInt32& phEnum, UInt32 tkParent, UInt32[] rMemberRefs, UInt32 cMax);
+    public abstract virtual UInt32 EnumMethodImpls(UInt32& phEnum, UInt32 td, UInt32[] rMethodBody, UInt32[] rMethodDecl, UInt32 cMax);
+    public abstract virtual UInt32 EnumPermissionSets(UInt32& phEnum, UInt32 tk, UInt32 dwActions, UInt32[] rPermission, UInt32 cMax);
+    public abstract virtual UInt32 FindMember(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob);
+    public abstract virtual UInt32 FindMethod(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob);
+    public abstract virtual UInt32 FindField(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob);
+    public abstract virtual UInt32 FindMemberRef(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob);
+    public abstract virtual UInt32 GetMethodProps(UInt32 mb, UInt32* pClass, Char* szMethod, UInt32 cchMethod, UInt32* pchMethod, UInt32* pdwAttr, IntPtr ppvSigBlob, IntPtr pcbSigBlob, UInt32* pulCodeRVA, UInt32* pdwImplFlags);
+    public abstract virtual UInt32 GetMemberRefProps(UInt32 mr, UInt32& ptk, StringBuilder szMember, UInt32 cchMember, UInt32& pchMember, IntPtr& ppvSigBlob);
+    public abstract virtual UInt32 EnumProperties(UInt32& phEnum, UInt32 td, IntPtr rProperties, UInt32 cMax);
+    public abstract virtual UInt32 EnumEvents(UInt32& phEnum, UInt32 td, IntPtr rEvents, UInt32 cMax);
+    public abstract virtual UInt32 GetEventProps(UInt32 ev, UInt32& pClass, StringBuilder szEvent, UInt32 cchEvent, UInt32& pchEvent, UInt32& pdwEventFlags, UInt32& ptkEventType, UInt32& pmdAddOn, UInt32& pmdRemoveOn, UInt32& pmdFire, UInt32[] rmdOtherMethod, UInt32 cMax);
+    public abstract virtual UInt32 EnumMethodSemantics(UInt32& phEnum, UInt32 mb, UInt32[] rEventProp, UInt32 cMax);
+    public abstract virtual UInt32 GetMethodSemantics(UInt32 mb, UInt32 tkEventProp);
+    public abstract virtual UInt32 GetClassLayout(UInt32 td, UInt32& pdwPackSize, IntPtr rFieldOffset, UInt32 cMax, UInt32& pcFieldOffset);
+    public abstract virtual UInt32 GetFieldMarshal(UInt32 tk, IntPtr& ppvNativeType);
+    public abstract virtual UInt32 GetRVA(UInt32 tk, UInt32& pulCodeRVA);
+    public abstract virtual UInt32 GetPermissionSetProps(UInt32 pm, UInt32& pdwAction, IntPtr& ppvPermission);
+    public abstract virtual UInt32 GetSigFromToken(UInt32 mdSig, IntPtr& ppvSig);
+    public abstract virtual UInt32 GetModuleRefProps(UInt32 mur, StringBuilder szName, UInt32 cchName);
+    public abstract virtual UInt32 EnumModuleRefs(UInt32& phEnum, UInt32[] rModuleRefs, UInt32 cmax);
+    public abstract virtual UInt32 GetTypeSpecFromToken(UInt32 typespec, IntPtr& ppvSig);
+    public abstract virtual UInt32 GetNameFromToken(UInt32 tk);
+    public abstract virtual UInt32 EnumUnresolvedMethods(UInt32& phEnum, UInt32[] rMethods, UInt32 cMax);
+    public abstract virtual UInt32 GetUserString(UInt32 stk, StringBuilder szString, UInt32 cchString);
+    public abstract virtual UInt32 GetPinvokeMap(UInt32 tk, UInt32& pdwMappingFlags, StringBuilder szImportName, UInt32 cchImportName, UInt32& pchImportName);
+    public abstract virtual UInt32 EnumSignatures(UInt32& phEnum, UInt32[] rSignatures, UInt32 cmax);
+    public abstract virtual UInt32 EnumTypeSpecs(UInt32& phEnum, UInt32[] rTypeSpecs, UInt32 cmax);
+    public abstract virtual UInt32 EnumUserStrings(UInt32& phEnum, UInt32[] rStrings, UInt32 cmax);
+    public abstract virtual int GetParamForMethodIndex(UInt32 md, UInt32 ulParamSeq, UInt32& pParam);
+    public abstract virtual UInt32 EnumCustomAttributes(UInt32& phEnum, UInt32 tk, UInt32 tkType, UInt32[] rCustomAttributes, UInt32 cMax);
+    public abstract virtual UInt32 GetCustomAttributeProps(UInt32 cv, UInt32& ptkObj, UInt32& ptkType, IntPtr& ppBlob);
+    public abstract virtual UInt32 FindTypeRef(UInt32 tkResolutionScope, string szName);
+    public abstract virtual UInt32 GetMemberProps(UInt32 mb, UInt32& pClass, StringBuilder szMember, UInt32 cchMember, UInt32& pchMember, UInt32& pdwAttr, IntPtr& ppvSigBlob, UInt32& pcbSigBlob, UInt32& pulCodeRVA, UInt32& pdwImplFlags, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue);
+    public abstract virtual UInt32 GetFieldProps(UInt32 mb, UInt32& pClass, StringBuilder szField, UInt32 cchField, UInt32& pchField, UInt32& pdwAttr, IntPtr& ppvSigBlob, UInt32& pcbSigBlob, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue);
+    public abstract virtual UInt32 GetPropertyProps(UInt32 prop, UInt32& pClass, StringBuilder szProperty, UInt32 cchProperty, UInt32& pchProperty, UInt32& pdwPropFlags, IntPtr& ppvSig, UInt32& pbSig, UInt32& pdwCPlusTypeFlag, IntPtr& ppDefaultValue, UInt32& pcchDefaultValue, UInt32& pmdSetter, UInt32& pmdGetter, UInt32[] rmdOtherMethod, UInt32 cMax);
+    public abstract virtual UInt32 GetParamProps(UInt32 tk, UInt32& pmd, UInt32& pulSequence, StringBuilder szName, UInt32 cchName, UInt32& pchName, UInt32& pdwAttr, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue);
+    public abstract virtual UInt32 GetCustomAttributeByName(UInt32 tkObj, string szName, IntPtr& ppData);
+    public abstract virtual bool IsValidToken(UInt32 tk);
+    public abstract virtual UInt32 GetNestedClassProps(UInt32 tdNestedClass, UInt32* ptdEnclosingClass);
+    public abstract virtual UInt32 GetNativeCallConvFromSig(IntPtr pvSig, UInt32 cbSig);
+    public abstract virtual int IsGlobal(UInt32 pd);
+}
+[GuidAttribute("B01FAFEB-C450-3A4D-BEEC-B4CEEC01E006")]
+[InterfaceTypeAttribute("1")]
+internal interface Mono.Cecil.Pdb.ISymUnmanagedDocumentWriter {
+    public abstract virtual void SetSource(UInt32 sourceSize, Byte[] source);
+    public abstract virtual void SetCheckSum(Guid algorithmId, UInt32 checkSumSize, Byte[] checkSum);
+}
+[GuidAttribute("0B97726E-9E6D-4f05-9A26-424022093CAA")]
+[InterfaceTypeAttribute("1")]
+internal interface Mono.Cecil.Pdb.ISymUnmanagedWriter2 {
+    public abstract virtual void DefineDocument(string url, Guid& langauge, Guid& languageVendor, Guid& documentType, ISymUnmanagedDocumentWriter& pRetVal);
+    public abstract virtual void SetUserEntryPoint(int methodToken);
+    public abstract virtual void OpenMethod(int methodToken);
+    public abstract virtual void CloseMethod();
+    public abstract virtual void OpenScope(int startOffset, Int32& pRetVal);
+    public abstract virtual void CloseScope(int endOffset);
+    public abstract virtual void SetScopeRange_Placeholder();
+    public abstract virtual void DefineLocalVariable_Placeholder();
+    public abstract virtual void DefineParameter_Placeholder();
+    public abstract virtual void DefineField_Placeholder();
+    public abstract virtual void DefineGlobalVariable_Placeholder();
+    public abstract virtual void Close();
+    public abstract virtual void SetSymAttribute(UInt32 parent, string name, UInt32 data, IntPtr signature);
+    public abstract virtual void OpenNamespace(string name);
+    public abstract virtual void CloseNamespace();
+    public abstract virtual void UsingNamespace(string fullName);
+    public abstract virtual void SetMethodSourceRange_Placeholder();
+    public abstract virtual void Initialize(object emitter, string filename, IStream pIStream, bool fFullBuild);
+    public abstract virtual void GetDebugInfo(ImageDebugDirectory& pIDD, int cData, Int32& pcData, Byte[] data);
+    public abstract virtual void DefineSequencePoints(ISymUnmanagedDocumentWriter document, int spCount, Int32[] offsets, Int32[] lines, Int32[] columns, Int32[] endLines, Int32[] endColumns);
+    public abstract virtual void RemapToken_Placeholder();
+    public abstract virtual void Initialize2_Placeholder();
+    public abstract virtual void DefineConstant_Placeholder();
+    public abstract virtual void Abort_Placeholder();
+    public abstract virtual void DefineLocalVariable2(string name, int attributes, int sigToken, int addrKind, int addr1, int addr2, int addr3, int startOffset, int endOffset);
+    public abstract virtual void DefineGlobalVariable2_Placeholder();
+    public abstract virtual void DefineConstant2(string name, object variant, int sigToken);
+}
+internal class Mono.Cecil.Pdb.ModuleMetadata : object {
+    private ModuleDefinition module;
+    private Dictionary`2<UInt32, TypeDefinition> types;
+    private Dictionary`2<UInt32, MethodDefinition> methods;
+    private static UInt32 S_OK;
+    private static UInt32 E_FAIL;
+    public ModuleMetadata(ModuleDefinition module);
+    private bool TryGetType(UInt32 token, TypeDefinition& type);
+    private bool TryGetMethod(UInt32 token, MethodDefinition& method);
+    private void InitializeMetadata(ModuleDefinition module);
+    private void InitializeMethods(TypeDefinition type);
+    public sealed virtual void SetModuleProps(string szName);
+    public sealed virtual void Save(string szFile, UInt32 dwSaveFlags);
+    public sealed virtual void SaveToStream(IntPtr pIStream, UInt32 dwSaveFlags);
+    public sealed virtual UInt32 GetSaveSize(UInt32 fSave);
+    public sealed virtual UInt32 DefineTypeDef(IntPtr szTypeDef, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements);
+    public sealed virtual UInt32 DefineNestedType(IntPtr szTypeDef, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements, UInt32 tdEncloser);
+    public sealed virtual void SetHandler(object pUnk);
+    public sealed virtual UInt32 DefineMethod(UInt32 td, IntPtr zName, UInt32 dwMethodFlags, IntPtr pvSigBlob, UInt32 cbSigBlob, UInt32 ulCodeRVA, UInt32 dwImplFlags);
+    public sealed virtual void DefineMethodImpl(UInt32 td, UInt32 tkBody, UInt32 tkDecl);
+    public sealed virtual UInt32 DefineTypeRefByName(UInt32 tkResolutionScope, IntPtr szName);
+    public sealed virtual UInt32 DefineImportType(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport pImport, UInt32 tdImport, IntPtr pAssemEmit);
+    public sealed virtual UInt32 DefineMemberRef(UInt32 tkImport, string szName, IntPtr pvSigBlob, UInt32 cbSigBlob);
+    public sealed virtual UInt32 DefineImportMember(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport pImport, UInt32 mbMember, IntPtr pAssemEmit, UInt32 tkParent);
+    public sealed virtual UInt32 DefineEvent(UInt32 td, string szEvent, UInt32 dwEventFlags, UInt32 tkEventType, UInt32 mdAddOn, UInt32 mdRemoveOn, UInt32 mdFire, IntPtr rmdOtherMethods);
+    public sealed virtual void SetClassLayout(UInt32 td, UInt32 dwPackSize, IntPtr rFieldOffsets, UInt32 ulClassSize);
+    public sealed virtual void DeleteClassLayout(UInt32 td);
+    public sealed virtual void SetFieldMarshal(UInt32 tk, IntPtr pvNativeType, UInt32 cbNativeType);
+    public sealed virtual void DeleteFieldMarshal(UInt32 tk);
+    public sealed virtual UInt32 DefinePermissionSet(UInt32 tk, UInt32 dwAction, IntPtr pvPermission, UInt32 cbPermission);
+    public sealed virtual void SetRVA(UInt32 md, UInt32 ulRVA);
+    public sealed virtual UInt32 GetTokenFromSig(IntPtr pvSig, UInt32 cbSig);
+    public sealed virtual UInt32 DefineModuleRef(string szName);
+    public sealed virtual void SetParent(UInt32 mr, UInt32 tk);
+    public sealed virtual UInt32 GetTokenFromTypeSpec(IntPtr pvSig, UInt32 cbSig);
+    public sealed virtual void SaveToMemory(IntPtr pbData, UInt32 cbData);
+    public sealed virtual UInt32 DefineUserString(string szString, UInt32 cchString);
+    public sealed virtual void DeleteToken(UInt32 tkObj);
+    public sealed virtual void SetMethodProps(UInt32 md, UInt32 dwMethodFlags, UInt32 ulCodeRVA, UInt32 dwImplFlags);
+    public sealed virtual void SetTypeDefProps(UInt32 td, UInt32 dwTypeDefFlags, UInt32 tkExtends, IntPtr rtkImplements);
+    public sealed virtual void SetEventProps(UInt32 ev, UInt32 dwEventFlags, UInt32 tkEventType, UInt32 mdAddOn, UInt32 mdRemoveOn, UInt32 mdFire, IntPtr rmdOtherMethods);
+    public sealed virtual UInt32 SetPermissionSetProps(UInt32 tk, UInt32 dwAction, IntPtr pvPermission, UInt32 cbPermission);
+    public sealed virtual void DefinePinvokeMap(UInt32 tk, UInt32 dwMappingFlags, string szImportName, UInt32 mrImportDLL);
+    public sealed virtual void SetPinvokeMap(UInt32 tk, UInt32 dwMappingFlags, string szImportName, UInt32 mrImportDLL);
+    public sealed virtual void DeletePinvokeMap(UInt32 tk);
+    public sealed virtual UInt32 DefineCustomAttribute(UInt32 tkObj, UInt32 tkType, IntPtr pCustomAttribute, UInt32 cbCustomAttribute);
+    public sealed virtual void SetCustomAttributeValue(UInt32 pcv, IntPtr pCustomAttribute, UInt32 cbCustomAttribute);
+    public sealed virtual UInt32 DefineField(UInt32 td, string szName, UInt32 dwFieldFlags, IntPtr pvSigBlob, UInt32 cbSigBlob, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue);
+    public sealed virtual UInt32 DefineProperty(UInt32 td, string szProperty, UInt32 dwPropFlags, IntPtr pvSig, UInt32 cbSig, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue, UInt32 mdSetter, UInt32 mdGetter, IntPtr rmdOtherMethods);
+    public sealed virtual UInt32 DefineParam(UInt32 md, UInt32 ulParamSeq, string szName, UInt32 dwParamFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue);
+    public sealed virtual void SetFieldProps(UInt32 fd, UInt32 dwFieldFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue);
+    public sealed virtual void SetPropertyProps(UInt32 pr, UInt32 dwPropFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue, UInt32 mdSetter, UInt32 mdGetter, IntPtr rmdOtherMethods);
+    public sealed virtual void SetParamProps(UInt32 pd, string szName, UInt32 dwParamFlags, UInt32 dwCPlusTypeFlag, IntPtr pValue, UInt32 cchValue);
+    public sealed virtual UInt32 DefineSecurityAttributeSet(UInt32 tkObj, IntPtr rSecAttrs, UInt32 cSecAttrs);
+    public sealed virtual void ApplyEditAndContinue(object pImport);
+    public sealed virtual UInt32 TranslateSigWithScope(IntPtr pAssemImport, IntPtr pbHashValue, UInt32 cbHashValue, IMetaDataImport import, IntPtr pbSigBlob, UInt32 cbSigBlob, IntPtr pAssemEmit, IMetaDataEmit emit, IntPtr pvTranslatedSig, UInt32 cbTranslatedSigMax);
+    public sealed virtual void SetMethodImplFlags(UInt32 md, UInt32 dwImplFlags);
+    public sealed virtual void SetFieldRVA(UInt32 fd, UInt32 ulRVA);
+    public sealed virtual void Merge(IMetaDataImport pImport, IntPtr pHostMapToken, object pHandler);
+    public sealed virtual void MergeEnd();
+    public sealed virtual void CloseEnum(UInt32 hEnum);
+    public sealed virtual UInt32 CountEnum(UInt32 hEnum);
+    public sealed virtual void ResetEnum(UInt32 hEnum, UInt32 ulPos);
+    public sealed virtual UInt32 EnumTypeDefs(UInt32& phEnum, UInt32[] rTypeDefs, UInt32 cMax);
+    public sealed virtual UInt32 EnumInterfaceImpls(UInt32& phEnum, UInt32 td, UInt32[] rImpls, UInt32 cMax);
+    public sealed virtual UInt32 EnumTypeRefs(UInt32& phEnum, UInt32[] rTypeRefs, UInt32 cMax);
+    public sealed virtual UInt32 FindTypeDefByName(string szTypeDef, UInt32 tkEnclosingClass);
+    public sealed virtual Guid GetScopeProps(StringBuilder szName, UInt32 cchName, UInt32& pchName);
+    public sealed virtual UInt32 GetModuleFromScope();
+    public sealed virtual UInt32 GetTypeDefProps(UInt32 td, Char* szTypeDef, UInt32 cchTypeDef, UInt32* pchTypeDef, UInt32* pdwTypeDefFlags, UInt32* ptkExtends);
+    public sealed virtual UInt32 GetInterfaceImplProps(UInt32 iiImpl, UInt32& pClass);
+    public sealed virtual UInt32 GetTypeRefProps(UInt32 tr, UInt32& ptkResolutionScope, StringBuilder szName, UInt32 cchName);
+    public sealed virtual UInt32 ResolveTypeRef(UInt32 tr, Guid& riid, Object& ppIScope);
+    public sealed virtual UInt32 EnumMembers(UInt32& phEnum, UInt32 cl, UInt32[] rMembers, UInt32 cMax);
+    public sealed virtual UInt32 EnumMembersWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rMembers, UInt32 cMax);
+    public sealed virtual UInt32 EnumMethods(UInt32& phEnum, UInt32 cl, IntPtr rMethods, UInt32 cMax);
+    public sealed virtual UInt32 EnumMethodsWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rMethods, UInt32 cMax);
+    public sealed virtual UInt32 EnumFields(UInt32& phEnum, UInt32 cl, IntPtr rFields, UInt32 cMax);
+    public sealed virtual UInt32 EnumFieldsWithName(UInt32& phEnum, UInt32 cl, string szName, UInt32[] rFields, UInt32 cMax);
+    public sealed virtual UInt32 EnumParams(UInt32& phEnum, UInt32 mb, UInt32[] rParams, UInt32 cMax);
+    public sealed virtual UInt32 EnumMemberRefs(UInt32& phEnum, UInt32 tkParent, UInt32[] rMemberRefs, UInt32 cMax);
+    public sealed virtual UInt32 EnumMethodImpls(UInt32& phEnum, UInt32 td, UInt32[] rMethodBody, UInt32[] rMethodDecl, UInt32 cMax);
+    public sealed virtual UInt32 EnumPermissionSets(UInt32& phEnum, UInt32 tk, UInt32 dwActions, UInt32[] rPermission, UInt32 cMax);
+    public sealed virtual UInt32 FindMember(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob);
+    public sealed virtual UInt32 FindMethod(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob);
+    public sealed virtual UInt32 FindField(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob);
+    public sealed virtual UInt32 FindMemberRef(UInt32 td, string szName, Byte[] pvSigBlob, UInt32 cbSigBlob);
+    public sealed virtual UInt32 GetMethodProps(UInt32 mb, UInt32* pClass, Char* szMethod, UInt32 cchMethod, UInt32* pchMethod, UInt32* pdwAttr, IntPtr ppvSigBlob, IntPtr pcbSigBlob, UInt32* pulCodeRVA, UInt32* pdwImplFlags);
+    private static void WriteNameBuffer(string name, Char* buffer, UInt32 bufferLength, UInt32* actualLength);
+    public sealed virtual UInt32 GetMemberRefProps(UInt32 mr, UInt32& ptk, StringBuilder szMember, UInt32 cchMember, UInt32& pchMember, IntPtr& ppvSigBlob);
+    public sealed virtual UInt32 EnumProperties(UInt32& phEnum, UInt32 td, IntPtr rProperties, UInt32 cMax);
+    public sealed virtual UInt32 EnumEvents(UInt32& phEnum, UInt32 td, IntPtr rEvents, UInt32 cMax);
+    public sealed virtual UInt32 GetEventProps(UInt32 ev, UInt32& pClass, StringBuilder szEvent, UInt32 cchEvent, UInt32& pchEvent, UInt32& pdwEventFlags, UInt32& ptkEventType, UInt32& pmdAddOn, UInt32& pmdRemoveOn, UInt32& pmdFire, UInt32[] rmdOtherMethod, UInt32 cMax);
+    public sealed virtual UInt32 EnumMethodSemantics(UInt32& phEnum, UInt32 mb, UInt32[] rEventProp, UInt32 cMax);
+    public sealed virtual UInt32 GetMethodSemantics(UInt32 mb, UInt32 tkEventProp);
+    public sealed virtual UInt32 GetClassLayout(UInt32 td, UInt32& pdwPackSize, IntPtr rFieldOffset, UInt32 cMax, UInt32& pcFieldOffset);
+    public sealed virtual UInt32 GetFieldMarshal(UInt32 tk, IntPtr& ppvNativeType);
+    public sealed virtual UInt32 GetRVA(UInt32 tk, UInt32& pulCodeRVA);
+    public sealed virtual UInt32 GetPermissionSetProps(UInt32 pm, UInt32& pdwAction, IntPtr& ppvPermission);
+    public sealed virtual UInt32 GetSigFromToken(UInt32 mdSig, IntPtr& ppvSig);
+    public sealed virtual UInt32 GetModuleRefProps(UInt32 mur, StringBuilder szName, UInt32 cchName);
+    public sealed virtual UInt32 EnumModuleRefs(UInt32& phEnum, UInt32[] rModuleRefs, UInt32 cmax);
+    public sealed virtual UInt32 GetTypeSpecFromToken(UInt32 typespec, IntPtr& ppvSig);
+    public sealed virtual UInt32 GetNameFromToken(UInt32 tk);
+    public sealed virtual UInt32 EnumUnresolvedMethods(UInt32& phEnum, UInt32[] rMethods, UInt32 cMax);
+    public sealed virtual UInt32 GetUserString(UInt32 stk, StringBuilder szString, UInt32 cchString);
+    public sealed virtual UInt32 GetPinvokeMap(UInt32 tk, UInt32& pdwMappingFlags, StringBuilder szImportName, UInt32 cchImportName, UInt32& pchImportName);
+    public sealed virtual UInt32 EnumSignatures(UInt32& phEnum, UInt32[] rSignatures, UInt32 cmax);
+    public sealed virtual UInt32 EnumTypeSpecs(UInt32& phEnum, UInt32[] rTypeSpecs, UInt32 cmax);
+    public sealed virtual UInt32 EnumUserStrings(UInt32& phEnum, UInt32[] rStrings, UInt32 cmax);
+    public sealed virtual int GetParamForMethodIndex(UInt32 md, UInt32 ulParamSeq, UInt32& pParam);
+    public sealed virtual UInt32 EnumCustomAttributes(UInt32& phEnum, UInt32 tk, UInt32 tkType, UInt32[] rCustomAttributes, UInt32 cMax);
+    public sealed virtual UInt32 GetCustomAttributeProps(UInt32 cv, UInt32& ptkObj, UInt32& ptkType, IntPtr& ppBlob);
+    public sealed virtual UInt32 FindTypeRef(UInt32 tkResolutionScope, string szName);
+    public sealed virtual UInt32 GetMemberProps(UInt32 mb, UInt32& pClass, StringBuilder szMember, UInt32 cchMember, UInt32& pchMember, UInt32& pdwAttr, IntPtr& ppvSigBlob, UInt32& pcbSigBlob, UInt32& pulCodeRVA, UInt32& pdwImplFlags, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue);
+    public sealed virtual UInt32 GetFieldProps(UInt32 mb, UInt32& pClass, StringBuilder szField, UInt32 cchField, UInt32& pchField, UInt32& pdwAttr, IntPtr& ppvSigBlob, UInt32& pcbSigBlob, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue);
+    public sealed virtual UInt32 GetPropertyProps(UInt32 prop, UInt32& pClass, StringBuilder szProperty, UInt32 cchProperty, UInt32& pchProperty, UInt32& pdwPropFlags, IntPtr& ppvSig, UInt32& pbSig, UInt32& pdwCPlusTypeFlag, IntPtr& ppDefaultValue, UInt32& pcchDefaultValue, UInt32& pmdSetter, UInt32& pmdGetter, UInt32[] rmdOtherMethod, UInt32 cMax);
+    public sealed virtual UInt32 GetParamProps(UInt32 tk, UInt32& pmd, UInt32& pulSequence, StringBuilder szName, UInt32 cchName, UInt32& pchName, UInt32& pdwAttr, UInt32& pdwCPlusTypeFlag, IntPtr& ppValue);
+    public sealed virtual UInt32 GetCustomAttributeByName(UInt32 tkObj, string szName, IntPtr& ppData);
+    public sealed virtual bool IsValidToken(UInt32 tk);
+    public sealed virtual UInt32 GetNestedClassProps(UInt32 tdNestedClass, UInt32* ptdEnclosingClass);
+    public sealed virtual UInt32 GetNativeCallConvFromSig(IntPtr pvSig, UInt32 cbSig);
+    public sealed virtual int IsGlobal(UInt32 pd);
+}
+public class Mono.Cecil.Pdb.NativePdbReader : object {
+    private Disposable`1<Stream> pdb_file;
+    private Dictionary`2<string, Document> documents;
+    private Dictionary`2<UInt32, PdbFunction> functions;
+    private Dictionary`2<PdbScope, ImportDebugInformation> imports;
+    internal NativePdbReader(Disposable`1<Stream> file);
+    public sealed virtual ISymbolWriterProvider GetWriterProvider();
+    public sealed virtual bool ProcessDebugHeader(ImageDebugHeader header);
+    private static bool IsMatchingEntry(PdbInfo info, ImageDebugHeaderEntry entry);
+    private static int ReadInt32(Byte[] bytes, int start);
+    public sealed virtual MethodDebugInformation Read(MethodDefinition method);
+    private Collection`1<ScopeDebugInformation> ReadScopeAndLocals(PdbScope[] scopes, MethodDebugInformation info);
+    private ScopeDebugInformation ReadScopeAndLocals(PdbScope scope, MethodDebugInformation info);
+    private static bool AddScope(Collection`1<ScopeDebugInformation> scopes, ScopeDebugInformation scope);
+    private ImportDebugInformation GetImport(UInt32 token, ModuleDefinition module);
+    private static ImportDebugInformation GetImport(PdbScope scope, ModuleDefinition module);
+    private void ReadSequencePoints(PdbFunction function, MethodDebugInformation info);
+    private void ReadLines(PdbLines lines, MethodDebugInformation info);
+    private static void ReadLine(PdbLine line, Document document, MethodDebugInformation info);
+    private Document GetDocument(PdbSource source);
+    public sealed virtual void Dispose();
+}
+public class Mono.Cecil.Pdb.NativePdbReaderProvider : object {
+    public sealed virtual ISymbolReader GetSymbolReader(ModuleDefinition module, string fileName);
+    public sealed virtual ISymbolReader GetSymbolReader(ModuleDefinition module, Stream symbolStream);
+}
+public class Mono.Cecil.Pdb.NativePdbWriter : object {
+    private ModuleDefinition module;
+    private MetadataBuilder metadata;
+    private SymWriter writer;
+    private Dictionary`2<string, SymDocumentWriter> documents;
+    private Dictionary`2<ImportDebugInformation, MetadataToken> import_info_to_parent;
+    private ImageDebugDirectory debug_directory;
+    private Byte[] debug_info;
+    internal NativePdbWriter(ModuleDefinition module, SymWriter writer);
+    public sealed virtual ISymbolReaderProvider GetReaderProvider();
+    public sealed virtual ImageDebugHeader GetDebugHeader();
+    public sealed virtual void Write(MethodDebugInformation info);
+    private void DefineCustomMetadata(MethodDebugInformation info, MetadataToken import_parent);
+    private void DefineAsyncCustomMetadata(MethodDebugInformation info);
+    private void DefineScope(ScopeDebugInformation scope, MethodDebugInformation info, MetadataToken& import_parent);
+    private void DefineSequencePoints(Collection`1<SequencePoint> sequence_points);
+    private void DefineLocalVariable(VariableDebugInformation variable, int local_var_token, int start_offset, int end_offset);
+    private void DefineConstant(ConstantDebugInformation constant);
+    private SymDocumentWriter GetDocument(Document document);
+    public sealed virtual void Write();
+    public sealed virtual void Dispose();
+}
+public class Mono.Cecil.Pdb.NativePdbWriterProvider : object {
+    public sealed virtual ISymbolWriter GetSymbolWriter(ModuleDefinition module, string fileName);
+    private static SymWriter CreateWriter(ModuleDefinition module, string pdb);
+    public sealed virtual ISymbolWriter GetSymbolWriter(ModuleDefinition module, Stream symbolStream);
+}
+public class Mono.Cecil.Pdb.PdbReaderProvider : object {
+    public sealed virtual ISymbolReader GetSymbolReader(ModuleDefinition module, string fileName);
+    public sealed virtual ISymbolReader GetSymbolReader(ModuleDefinition module, Stream symbolStream);
+}
+public class Mono.Cecil.Pdb.PdbWriterProvider : object {
+    public sealed virtual ISymbolWriter GetSymbolWriter(ModuleDefinition module, string fileName);
+    private static bool HasPortablePdbSymbols(ModuleDefinition module);
+    public sealed virtual ISymbolWriter GetSymbolWriter(ModuleDefinition module, Stream symbolStream);
+}
+internal class Mono.Cecil.Pdb.SymDocumentWriter : object {
+    private ISymUnmanagedDocumentWriter writer;
+    public ISymUnmanagedDocumentWriter Writer { get; }
+    public SymDocumentWriter(ISymUnmanagedDocumentWriter writer);
+    public ISymUnmanagedDocumentWriter get_Writer();
+    public void SetSource(Byte[] source);
+    public void SetCheckSum(Guid hashAlgo, Byte[] checkSum);
+}
+internal class Mono.Cecil.Pdb.SymWriter : object {
+    private static Guid s_symUnmangedWriterIID;
+    private static Guid s_CorSymWriter_SxS_ClassID;
+    private ISymUnmanagedWriter2 writer;
+    private Collection`1<ISymUnmanagedDocumentWriter> documents;
+    private static SymWriter();
+    private static int CoCreateInstance(Guid& rclsid, object pUnkOuter, UInt32 dwClsContext, Guid& riid, Object& ppv);
+    public Byte[] GetDebugInfo(ImageDebugDirectory& idd);
+    public void DefineLocalVariable2(string name, VariableAttributes attributes, int sigToken, int addr1, int addr2, int addr3, int startOffset, int endOffset);
+    public void DefineConstant2(string name, object value, int sigToken);
+    public void Close();
+    public void CloseMethod();
+    public void CloseNamespace();
+    public void CloseScope(int endOffset);
+    public SymDocumentWriter DefineDocument(string url, Guid language, Guid languageVendor, Guid documentType);
+    public void DefineSequencePoints(SymDocumentWriter document, Int32[] offsets, Int32[] lines, Int32[] columns, Int32[] endLines, Int32[] endColumns);
+    public void Initialize(object emitter, string filename, bool fFullBuild);
+    public void SetUserEntryPoint(int methodToken);
+    public void OpenMethod(int methodToken);
+    public void OpenNamespace(string name);
+    public int OpenScope(int startOffset);
+    public void UsingNamespace(string fullName);
+    public void DefineCustomMetadata(string name, Byte[] metadata);
+}

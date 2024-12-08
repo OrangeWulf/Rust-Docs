@@ -1,0 +1,1665 @@
+Сборка: Facepunch.Nexus.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.CodeAnalysis.EmbeddedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Runtime.CompilerServices.IsReadOnlyAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.ApiResult
+Наследуется от: ValueType
+Поля:
+  HttpStatusCode <StatusCode>k__BackingField
+Свойства:
+  HttpStatusCode StatusCode
+  bool IsSuccess
+Методы:
+  HttpStatusCode get_StatusCode()
+  bool get_IsSuccess()
+  void .ctor(HttpStatusCode statusCode)
+  void EnsureSuccessful()
+--------------------------------------------------
+Класс: Facepunch.Nexus.ApiResult`1
+Наследуется от: ValueType
+Поля:
+  HttpStatusCode <StatusCode>k__BackingField
+  T _response
+  bool _hasResponse
+Свойства:
+  HttpStatusCode StatusCode
+  bool IsSuccess
+  T Response
+Методы:
+  HttpStatusCode get_StatusCode()
+  bool get_IsSuccess()
+  void .ctor(HttpStatusCode statusCode, T response)
+  void .ctor(HttpStatusCode statusCode)
+  void EnsureSuccessful()
+  void EnsureSuccessfulWithResponse()
+  T get_Response()
+  bool TryGetResponse(T& response)
+--------------------------------------------------
+Класс: Facepunch.Nexus.BaseNexusClient
+Наследуется от: NexusAnonymousClient
+Поля:
+  NexusVariableChangedHandler OnVariableChanged
+  NexusErrorHandler OnError
+  IClockProvider Clock
+  CancellationToken CancellationToken
+  CancellationTokenSource _cts
+  double _updateInterval
+  bool _disposed
+  bool _started
+Свойства:
+  bool ShouldUpdateVariables
+Методы:
+  void add_OnVariableChanged(NexusVariableChangedHandler value)
+  void remove_OnVariableChanged(NexusVariableChangedHandler value)
+  void add_OnError(NexusErrorHandler value)
+  void remove_OnError(NexusErrorHandler value)
+  void .ctor(INexusConnector connector, IClockProvider clock, double updateInterval)
+  void Finalize()
+  void Dispose()
+  void Dispose(bool disposing)
+  Task Start()
+  ValueTask Initialize(CancellationToken ct)
+  ValueTask Update(CancellationToken ct)
+  Task UpdateLoop(CancellationToken ct)
+  bool get_ShouldUpdateVariables()
+  void UpdateVariables(VariableContainer container, Dictionary`2<string, VariableData> updatedData)
+  void DispatchVariableChanged(string key)
+  void DispatchError(Exception exception)
+--------------------------------------------------
+Класс: Facepunch.Nexus.BaseNexusPlayerClient
+Наследуется от: BaseNexusClient
+Поля:
+  VariableContainer NexusVariables
+  VariableContainer ZoneVariables
+  VariableContainer PlayerVariables
+  int <NexusId>k__BackingField
+  string <ZoneKey>k__BackingField
+  NexusDetails <Nexus>k__BackingField
+  PlayerDetails <Player>k__BackingField
+Свойства:
+  int NexusId
+  string ZoneKey
+  NexusDetails Nexus
+  NexusZoneDetails Zone
+  PlayerDetails Player
+  bool ShouldUpdateVariables
+Методы:
+  int get_NexusId()
+  void set_NexusId(int value)
+  string get_ZoneKey()
+  void set_ZoneKey(string value)
+  NexusDetails get_Nexus()
+  void set_Nexus(NexusDetails value)
+  NexusZoneDetails get_Zone()
+  PlayerDetails get_Player()
+  void set_Player(PlayerDetails value)
+  void .ctor(INexusConnector connector, IClockProvider clock, double updateInterval)
+  ValueTask`1<PlayerDetails> GetPlayerDetails(int nexusId)
+  ValueTask`1<PlayerDetails> SelectNexus(int nexusId)
+  ValueTask Initialize(CancellationToken ct)
+  void Reset()
+  bool get_ShouldUpdateVariables()
+  bool TryGetNexusVariable(string key, Variable& variable)
+  bool TryGetZoneVariable(string key, Variable& variable)
+  bool TryGetPlayerVariable(string key, Variable& variable)
+  void OnNexusDetailsUpdated(int nexusId, NexusDetails details)
+  NexusZoneDetails FindZone(NexusDetails nexus, string zoneKey)
+--------------------------------------------------
+Класс: Facepunch.Nexus.CachedValue
+Наследуется от: object
+Поля:
+  double CacheExpirySeconds
+  IClockProvider Clock
+Свойства:
+Методы:
+  void .ctor(IClockProvider clock)
+--------------------------------------------------
+Класс: Facepunch.Nexus.CachedValue`1
+Наследуется от: CachedValue
+Поля:
+  double _expiryTime
+  bool _hasValue
+  TValue _value
+Свойства:
+Методы:
+  void .ctor(IClockProvider clock)
+  bool TryGetValue(TValue& value)
+  TValue& modreq(System.Runtime.InteropServices.InAttribute) Update(TValue& value)
+  void Invalidate()
+--------------------------------------------------
+Класс: Facepunch.Nexus.CachedValue`2
+Наследуется от: CachedValue
+Поля:
+  Dictionary`2<TKey, ValueTuple`2<TValue, double>> _values
+Свойства:
+Методы:
+  void .ctor(IClockProvider clock)
+  bool TryGetValue(TKey& key, TValue& value)
+  TValue& modreq(System.Runtime.InteropServices.InAttribute) Update(TKey& key, TValue& value)
+  void Invalidate(TKey& key)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusClanResultCode
+Наследуется от: Enum
+Поля:
+  int value__
+  NexusClanResultCode Fail
+  NexusClanResultCode Success
+  NexusClanResultCode NoClan
+  NexusClanResultCode NotFound
+  NexusClanResultCode NoPermission
+  NexusClanResultCode DuplicateName
+  NexusClanResultCode RoleNotEmpty
+  NexusClanResultCode CannotSwapLeader
+  NexusClanResultCode CannotDeleteLeader
+  NexusClanResultCode CannotKickLeader
+  NexusClanResultCode CannotDemoteLeader
+  NexusClanResultCode AlreadyInAClan
+  NexusClanResultCode ClanIsFull
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusClanResult`1
+Наследуется от: ValueType
+Поля:
+  NexusClanResultCode <ResultCode>k__BackingField
+  T _response
+  bool _hasResponse
+Свойства:
+  NexusClanResultCode ResultCode
+  bool IsSuccess
+Методы:
+  NexusClanResultCode get_ResultCode()
+  bool get_IsSuccess()
+  void .ctor(NexusClanResultCode resultCode)
+  void .ctor(T response)
+  bool TryGetResponse(T& response)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusInitializedHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(BaseNexusClient sender)
+  IAsyncResult BeginInvoke(BaseNexusClient sender, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusVariableChangedHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(BaseNexusClient sender, string variableKey)
+  IAsyncResult BeginInvoke(BaseNexusClient sender, string variableKey, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusErrorHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(BaseNexusClient sender, Exception exception)
+  IAsyncResult BeginInvoke(BaseNexusClient sender, Exception exception, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Facepunch.Nexus.INexusClanEventListener
+Поля:
+Свойства:
+Методы:
+  void OnDisbanded(ClanDisbandedEvent& modreq(System.Runtime.InteropServices.InAttribute) args)
+  void OnInvitation(ClanInvitedEvent& modreq(System.Runtime.InteropServices.InAttribute) args)
+  void OnJoined(ClanJoinedEvent& modreq(System.Runtime.InteropServices.InAttribute) args)
+  void OnKicked(ClanKickedEvent& modreq(System.Runtime.InteropServices.InAttribute) args)
+  void OnChanged(ClanChangedEvent& modreq(System.Runtime.InteropServices.InAttribute) args)
+  void OnUnload(Int64& modreq(System.Runtime.InteropServices.InAttribute) clanId)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusAnonymousClient
+Наследуется от: object
+Поля:
+  INexusConnector _connector
+  CachedValue`1<List`1<Nexus>> _cachedNexusList
+  CachedValue`2<int, NexusDetails> _cachedNexusDetails
+Свойства:
+Методы:
+  void .ctor(INexusLogger logger, IClockProvider clock, string baseUrl)
+  void .ctor(INexusConnector connector, IClockProvider clock)
+  ValueTask`1<IEnumerable`1<Nexus>> GetNexusList(string publicKey, NexusRealm realm)
+  ValueTask`1<NexusDetails> GetNexusDetails(int nexusId)
+  void OnNexusDetailsUpdated(int nexusId, NexusDetails details)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusClan
+Наследуется от: object
+Поля:
+  double RefreshInterval
+  long <ClanId>k__BackingField
+  string <Name>k__BackingField
+  long <Created>k__BackingField
+  string <Creator>k__BackingField
+  List`1<NexusClanRole> <Roles>k__BackingField
+  List`1<NexusClanMember> <Members>k__BackingField
+  int <MaxMemberCount>k__BackingField
+  List`1<ClanInvite> <Invites>k__BackingField
+  NexusZoneClient _client
+  INexusZoneConnector _zoneConnector
+  IClockProvider _clockProvider
+  INexusLogger _logger
+  VariableContainer _variables
+  double _lastRefreshed
+Свойства:
+  long ClanId
+  string Name
+  long Created
+  string Creator
+  List`1<NexusClanRole> Roles
+  List`1<NexusClanMember> Members
+  int MaxMemberCount
+  List`1<ClanInvite> Invites
+  IEnumerable`1<KeyValuePair`2<string, Variable>> Variables
+Методы:
+  long get_ClanId()
+  string get_Name()
+  void set_Name(string value)
+  long get_Created()
+  void set_Created(long value)
+  string get_Creator()
+  void set_Creator(string value)
+  List`1<NexusClanRole> get_Roles()
+  List`1<NexusClanMember> get_Members()
+  int get_MaxMemberCount()
+  void set_MaxMemberCount(int value)
+  List`1<ClanInvite> get_Invites()
+  void .ctor(NexusZoneClient client, INexusZoneConnector zoneConnector, IClockProvider clockProvider, INexusLogger logger, long clanId)
+  bool UpdateFromModel(ClanDetails& details)
+  void RefreshIfNeeded()
+  void Refresh()
+  IEnumerable`1<KeyValuePair`2<string, Variable>> get_Variables()
+  bool TryGetVariable(string key, Variable& variable)
+  Task`1<NexusClanResultCode> UpdateVariables(ClanVariablesUpdate update)
+  Task`1<NexusClanResultCode> UpdatePlayerVariables(string playerId, ClanVariablesUpdate update)
+  Task`1<NexusClanResult`1<List`1<ClanLogEntry>>> GetLogs(string byPlayerId, int limit)
+  Task`1<NexusClanResultCode> AddLog(string eventKey, string arg1, string arg2, string arg3, string arg4)
+  Task`1<NexusClanResultCode> UpdateLastSeen(string playerId)
+  Task`1<NexusClanResultCode> Invite(string playerId, string byPlayerId)
+  Task`1<NexusClanResultCode> CancelInvite(string playerId, string byPlayerId)
+  Task`1<NexusClanResultCode> AcceptInvite(string playerId)
+  Task`1<NexusClanResultCode> Kick(string playerId, string byPlayerId)
+  Task`1<NexusClanResultCode> SetPlayerRole(string playerId, int newRoleId, string byPlayerId)
+  Task`1<NexusClanResultCode> CreateRole(ClanRoleParameters parameters, string byPlayerId)
+  Task`1<NexusClanResultCode> UpdateRole(int roleId, ClanRoleParameters parameters, string byPlayerId)
+  Task`1<NexusClanResultCode> DeleteRole(int roleId, string byPlayerId)
+  Task`1<NexusClanResultCode> SwapRoleRanks(int roleIdA, int roleIdB, string byPlayerId)
+  Task`1<NexusClanResultCode> Disband(string byPlayerId)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusClanMember
+Наследуется от: object
+Поля:
+  string <PlayerId>k__BackingField
+  int <RoleId>k__BackingField
+  long <Joined>k__BackingField
+  long <LastSeen>k__BackingField
+  VariableContainer _variables
+Свойства:
+  string PlayerId
+  int RoleId
+  long Joined
+  long LastSeen
+  IEnumerable`1<KeyValuePair`2<string, Variable>> Variables
+Методы:
+  string get_PlayerId()
+  void set_PlayerId(string value)
+  int get_RoleId()
+  void set_RoleId(int value)
+  long get_Joined()
+  void set_Joined(long value)
+  long get_LastSeen()
+  void set_LastSeen(long value)
+  void .ctor(ClanMember details)
+  IEnumerable`1<KeyValuePair`2<string, Variable>> get_Variables()
+  bool TryGetVariable(string key, Variable& variable)
+  bool UpdateFromModel(ClanMember details)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusClanRole
+Наследуется от: object
+Поля:
+  int <RoleId>k__BackingField
+  int <Rank>k__BackingField
+  string <Name>k__BackingField
+  bool <CanInvite>k__BackingField
+  bool <CanKick>k__BackingField
+  bool <CanPromote>k__BackingField
+  bool <CanDemote>k__BackingField
+  bool <CanAccessLogs>k__BackingField
+  VariableContainer _variables
+Свойства:
+  int RoleId
+  int Rank
+  string Name
+  bool CanInvite
+  bool CanKick
+  bool CanPromote
+  bool CanDemote
+  bool CanAccessLogs
+  IEnumerable`1<KeyValuePair`2<string, Variable>> Variables
+Методы:
+  int get_RoleId()
+  void set_RoleId(int value)
+  int get_Rank()
+  void set_Rank(int value)
+  string get_Name()
+  void set_Name(string value)
+  bool get_CanInvite()
+  void set_CanInvite(bool value)
+  bool get_CanKick()
+  void set_CanKick(bool value)
+  bool get_CanPromote()
+  void set_CanPromote(bool value)
+  bool get_CanDemote()
+  void set_CanDemote(bool value)
+  bool get_CanAccessLogs()
+  void set_CanAccessLogs(bool value)
+  void .ctor(ClanRole details)
+  IEnumerable`1<KeyValuePair`2<string, Variable>> get_Variables()
+  bool TryGetVariable(string key, Variable& variable)
+  bool UpdateFromModel(ClanRole details)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusLoginResult
+Наследуется от: ValueType
+Поля:
+  ZonePlayerLogin _login
+Свойства:
+  string PlayerId
+  long LastSeen
+  Dictionary`2<string, VariableData> Variables
+  string AssignedZoneKey
+  bool IsRedirect
+  string RedirectIpAddress
+  int RedirectGamePort
+  int RedirectQueryPort
+Методы:
+  void .ctor(ZonePlayerLogin login)
+  string get_PlayerId()
+  long get_LastSeen()
+  Dictionary`2<string, VariableData> get_Variables()
+  string get_AssignedZoneKey()
+  bool get_IsRedirect()
+  string get_RedirectIpAddress()
+  int get_RedirectGamePort()
+  int get_RedirectQueryPort()
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusMessage
+Наследуется от: ValueType
+Поля:
+  string _stringData
+  Byte[] _binaryData
+  string <MessageId>k__BackingField
+  Uuid <Id>k__BackingField
+  string <ContentType>k__BackingField
+Свойства:
+  string MessageId
+  Uuid Id
+  string ContentType
+  bool IsString
+  bool IsBinary
+  string AsString
+  Byte[] AsBinary
+Методы:
+  string get_MessageId()
+  Uuid get_Id()
+  string get_ContentType()
+  bool get_IsString()
+  bool get_IsBinary()
+  string get_AsString()
+  Byte[] get_AsBinary()
+  void .ctor(string messageId, Guid id, string contentType, string data)
+  void .ctor(string messageId, Guid id, string contentType, Byte[] data)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusPlayer
+Наследуется от: object
+Поля:
+  double RefreshInterval
+  INexusLogger _logger
+  INexusZoneConnector _zoneConnector
+  IClockProvider _clockProvider
+  VariableContainer _variables
+  double _lastRefreshed
+  string <PlayerId>k__BackingField
+  string <AssignedZoneKey>k__BackingField
+Свойства:
+  string PlayerId
+  string AssignedZoneKey
+  IEnumerable`1<KeyValuePair`2<string, Variable>> Variables
+Методы:
+  string get_PlayerId()
+  string get_AssignedZoneKey()
+  void set_AssignedZoneKey(string value)
+  void .ctor(INexusLogger logger, INexusZoneConnector zoneConnector, IClockProvider clockProvider, string playerId)
+  bool TryGetVariable(string key, Variable& variable)
+  Task SetVariable(string key, string value, bool isTransient, bool isSecret)
+  Task SetVariable(string key, Byte[] value, bool isTransient, bool isSecret)
+  IEnumerable`1<KeyValuePair`2<string, Variable>> get_Variables()
+  void RefreshIfNeeded()
+  void RefreshInBackground()
+  Task Refresh()
+  void UpdateZone(string assignedZoneKey)
+  void UpdateVariables(Dictionary`2<string, VariableData> variables)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusPlayerClient
+Наследуется от: BaseNexusPlayerClient
+Поля:
+  INexusPlayerConnector _connector
+  AuthHandler _authHandler
+  CachedValue`2<int, PlayerDetails> _cachedPlayerInfo
+Свойства:
+Методы:
+  void .ctor(INexusLogger logger, string baseUrl, AuthHandler authHandler)
+  void .ctor(INexusPlayerConnector connector, IClockProvider clock, double updateInterval, AuthHandler authHandler)
+  ValueTask Update(CancellationToken ct)
+  ValueTask`1<PlayerDetails> GetPlayerDetails(int nexusId)
+--------------------------------------------------
+Класс: Facepunch.Nexus.NexusZoneClient
+Наследуется от: BaseNexusClient
+Поля:
+  INexusClanEventListener <ClanEventListener>k__BackingField
+  INexusLogger _logger
+  INexusZoneConnector _connector
+  INexusSocketConnector _socket
+  IClockProvider _clock
+  VariableContainer _nexusVariables
+  VariableContainer _zoneVariables
+  CachedValue`1<ZoneDetails> _cachedZoneInfo
+  CachedValue`1<NexusDetails> _cachedNexusInfo
+  Dictionary`2<string, NexusPlayer> _players
+  Dictionary`2<long, NexusClan> _clans
+  ZoneDetails <Zone>k__BackingField
+  NexusDetails <Nexus>k__BackingField
+Свойства:
+  INexusClanEventListener ClanEventListener
+  ZoneDetails Zone
+  NexusDetails Nexus
+Методы:
+  INexusClanEventListener get_ClanEventListener()
+  void set_ClanEventListener(INexusClanEventListener value)
+  ValueTask`1<NexusClanResult`1<NexusClan>> GetClan(long clanId)
+  ValueTask`1<NexusClanResult`1<NexusClan>> GetClanByMember(string playerId)
+  bool TryGetClan(long clanId, NexusClan& clan)
+  ValueTask`1<NexusClanResult`1<NexusClan>> CreateClan(ClanCreateParameters parameters)
+  ValueTask`1<NexusClanResult`1<List`1<ClanInvitation>>> ListClanInvitations(string playerId)
+  void HandleClanEvent(NexusMessage& message)
+  void RefreshClan(long clanId)
+  NexusClan UpsertClan(ClanDetails& details)
+  void UpdateClan(NexusClan clan, ClanDetails& details)
+  void RemoveClan(long clanId)
+  ZoneDetails get_Zone()
+  void set_Zone(ZoneDetails value)
+  NexusDetails get_Nexus()
+  void set_Nexus(NexusDetails value)
+  void .ctor(INexusLogger logger, string baseUrl, string secretKey, int lockDuration)
+  void .ctor(INexusLogger logger, INexusZoneConnector connector, INexusSocketConnector socket, IClockProvider clock, double updateInterval)
+  void Dispose(bool disposing)
+  ValueTask Initialize(CancellationToken ct)
+  ValueTask Update(CancellationToken ct)
+  void StartListening()
+  bool TryGetNexusVariable(string key, Variable& variable)
+  bool TryGetZoneVariable(string key, Variable& variable)
+  Task SetNexusVariable(string key, string value, bool isTransient, bool isSecret)
+  Task SetNexusVariable(string key, Byte[] value, bool isTransient, bool isSecret)
+  Task SetZoneVariable(string key, string value, bool isTransient, bool isSecret)
+  Task SetZoneVariable(string key, Byte[] value, bool isTransient, bool isSecret)
+  Task`1<List`1<string>> FindPlayersWithVariable(string key, string value)
+  Task`1<NexusLoginResult> PlayerLogin(string playerId)
+  void PlayerLogout(string playerId)
+  ValueTask`1<NexusPlayer> GetPlayer(string playerId)
+  bool TryGetPlayer(string playerId, NexusPlayer& player)
+  Task Assign(string playerId, string toZone)
+  Task RegisterTransfers(string toZone, IEnumerable`1<string> playerIds)
+  Task CompleteTransfers(IEnumerable`1<string> playerIds)
+  bool TryReceiveMessage(NexusMessage& message)
+  void AcknowledgeMessage(NexusMessage& message)
+  Task SendMessage(string toZone, Uuid id, string message, Nullable`1<int> ttl)
+  Task SendMessage(string toZone, Uuid id, Memory`1<byte> message, Nullable`1<int> ttl)
+  Task`1<ZoneMapCheckResult> CheckUploadedMap()
+  Task UploadMap(string key, Byte[] pngMapImage)
+  ValueTask`1<ZoneDetails> GetZoneDetails()
+  ValueTask`1<NexusDetails> GetNexusDetails(int nexusId)
+  void AssertInitialized()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Util
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  T Update(T& currentValue, T& newValue, Boolean& changed)
+  bool Resize(List`1<T> list, int newCount)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Uuid
+Наследуется от: ValueType
+Поля:
+  Uuid Empty
+  int <NodeId>k__BackingField
+  int <Sequence>k__BackingField
+  ulong <Timestamp>k__BackingField
+  object _syncRoot
+  int _nodeId
+  int _sequence
+  ulong _previousTimestamp
+Свойства:
+  int NodeId
+  int Sequence
+  ulong Timestamp
+Методы:
+  int get_NodeId()
+  void set_NodeId(int value)
+  int get_Sequence()
+  void set_Sequence(int value)
+  ulong get_Timestamp()
+  void set_Timestamp(ulong value)
+  void .ctor(int nodeId, int sequence, ulong timestamp)
+  string ToString()
+  Uuid op_Implicit(Guid guid)
+  Guid op_Implicit(Uuid uuid)
+  bool Equals(Uuid other)
+  bool Equals(object obj)
+  int GetHashCode()
+  bool op_Equality(Uuid left, Uuid right)
+  bool op_Inequality(Uuid left, Uuid right)
+  void .cctor()
+  Uuid Generate()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Variable
+Наследуется от: object
+Поля:
+  string _rawValue
+  Byte[] _binaryValue
+  VariableType <Type>k__BackingField
+  long <LastUpdated>k__BackingField
+Свойства:
+  VariableType Type
+  long LastUpdated
+Методы:
+  VariableType get_Type()
+  void set_Type(VariableType value)
+  long get_LastUpdated()
+  void set_LastUpdated(long value)
+  bool Set(string value, long lastUpdated)
+  bool Set(Byte[] value, long lastUpdated)
+  bool UpdateFromModel(VariableData data)
+  string GetAsString()
+  Byte[] GetAsBinary()
+  bool op_Equality(Variable variable, string value)
+  bool op_Inequality(Variable variable, string value)
+  bool op_Equality(Variable variable, Byte[] value)
+  bool op_Inequality(Variable variable, Byte[] value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.VariableContainer
+Наследуется от: object
+Поля:
+  Dictionary`2<string, Variable> _variables
+Свойства:
+  int Count
+Методы:
+  int get_Count()
+  void .ctor()
+  bool UpdateFromModel(Dictionary`2<string, VariableData> data, HashSet`1<string> changedKeys)
+  bool UpdateFromModel(string key, VariableData data)
+  bool TryGet(string key, Variable& variable)
+  bool Set(string key, string value)
+  bool Set(string key, Byte[] value)
+  void Remove(string key)
+  void Clear()
+  Enumerator<string, Variable> GetEnumerator()
+  IEnumerator`1<KeyValuePair`2<string, Variable>> System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<System.String,Facepunch.Nexus.Variable>>.GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Time.DefaultClockProvider
+Наследуется от: object
+Поля:
+  DefaultClockProvider <Instance>k__BackingField
+Свойства:
+  DefaultClockProvider Instance
+  double Timestamp
+Методы:
+  DefaultClockProvider get_Instance()
+  double get_Timestamp()
+  Task Delay(double seconds)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Time.IClockProvider
+Поля:
+Свойства:
+  double Timestamp
+Методы:
+  double get_Timestamp()
+  Task Delay(double seconds)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanCreateParameters
+Наследуется от: ValueType
+Поля:
+  string <ClanName>k__BackingField
+  string <ClanNameNormalized>k__BackingField
+  string <LeaderPlayerId>k__BackingField
+  string <LeaderRoleName>k__BackingField
+  string <MemberRoleName>k__BackingField
+  List`1<VariableUpdate> <ClanVariables>k__BackingField
+  List`1<VariableUpdate> <LeaderRoleVariables>k__BackingField
+  List`1<VariableUpdate> <MemberRoleVariables>k__BackingField
+Свойства:
+  string ClanName
+  string ClanNameNormalized
+  string LeaderPlayerId
+  string LeaderRoleName
+  string MemberRoleName
+  List`1<VariableUpdate> ClanVariables
+  List`1<VariableUpdate> LeaderRoleVariables
+  List`1<VariableUpdate> MemberRoleVariables
+Методы:
+  string get_ClanName()
+  void set_ClanName(string value)
+  string get_ClanNameNormalized()
+  void set_ClanNameNormalized(string value)
+  string get_LeaderPlayerId()
+  void set_LeaderPlayerId(string value)
+  string get_LeaderRoleName()
+  void set_LeaderRoleName(string value)
+  string get_MemberRoleName()
+  void set_MemberRoleName(string value)
+  List`1<VariableUpdate> get_ClanVariables()
+  void set_ClanVariables(List`1<VariableUpdate> value)
+  List`1<VariableUpdate> get_LeaderRoleVariables()
+  void set_LeaderRoleVariables(List`1<VariableUpdate> value)
+  List`1<VariableUpdate> get_MemberRoleVariables()
+  void set_MemberRoleVariables(List`1<VariableUpdate> value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanRole
+Наследуется от: ValueType
+Поля:
+  int <RoleId>k__BackingField
+  int <Rank>k__BackingField
+  string <Name>k__BackingField
+  bool <CanInvite>k__BackingField
+  bool <CanKick>k__BackingField
+  bool <CanPromote>k__BackingField
+  bool <CanDemote>k__BackingField
+  bool <CanAccessLogs>k__BackingField
+  VariableDictionary <Variables>k__BackingField
+Свойства:
+  int RoleId
+  int Rank
+  string Name
+  bool CanInvite
+  bool CanKick
+  bool CanPromote
+  bool CanDemote
+  bool CanAccessLogs
+  VariableDictionary Variables
+Методы:
+  int get_RoleId()
+  void set_RoleId(int value)
+  int get_Rank()
+  void set_Rank(int value)
+  string get_Name()
+  void set_Name(string value)
+  bool get_CanInvite()
+  void set_CanInvite(bool value)
+  bool get_CanKick()
+  void set_CanKick(bool value)
+  bool get_CanPromote()
+  void set_CanPromote(bool value)
+  bool get_CanDemote()
+  void set_CanDemote(bool value)
+  bool get_CanAccessLogs()
+  void set_CanAccessLogs(bool value)
+  VariableDictionary get_Variables()
+  void set_Variables(VariableDictionary value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanMember
+Наследуется от: ValueType
+Поля:
+  string <PlayerId>k__BackingField
+  int <RoleId>k__BackingField
+  long <Joined>k__BackingField
+  long <LastSeen>k__BackingField
+  VariableDictionary <Variables>k__BackingField
+Свойства:
+  string PlayerId
+  int RoleId
+  long Joined
+  long LastSeen
+  VariableDictionary Variables
+Методы:
+  string get_PlayerId()
+  void set_PlayerId(string value)
+  int get_RoleId()
+  void set_RoleId(int value)
+  long get_Joined()
+  void set_Joined(long value)
+  long get_LastSeen()
+  void set_LastSeen(long value)
+  VariableDictionary get_Variables()
+  void set_Variables(VariableDictionary value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanInvite
+Наследуется от: ValueType
+Поля:
+  string <PlayerId>k__BackingField
+  string <RecruiterPlayerId>k__BackingField
+  long <Created>k__BackingField
+Свойства:
+  string PlayerId
+  string RecruiterPlayerId
+  long Created
+Методы:
+  string get_PlayerId()
+  void set_PlayerId(string value)
+  string get_RecruiterPlayerId()
+  void set_RecruiterPlayerId(string value)
+  long get_Created()
+  void set_Created(long value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanDetails
+Наследуется от: ValueType
+Поля:
+  long <ClanId>k__BackingField
+  string <Name>k__BackingField
+  long <Created>k__BackingField
+  string <Creator>k__BackingField
+  List`1<ClanRole> <Roles>k__BackingField
+  List`1<ClanMember> <Members>k__BackingField
+  int <MaxMemberCount>k__BackingField
+  List`1<ClanInvite> <Invites>k__BackingField
+  VariableDictionary <Variables>k__BackingField
+Свойства:
+  long ClanId
+  string Name
+  long Created
+  string Creator
+  List`1<ClanRole> Roles
+  List`1<ClanMember> Members
+  int MaxMemberCount
+  List`1<ClanInvite> Invites
+  VariableDictionary Variables
+Методы:
+  long get_ClanId()
+  void set_ClanId(long value)
+  string get_Name()
+  void set_Name(string value)
+  long get_Created()
+  void set_Created(long value)
+  string get_Creator()
+  void set_Creator(string value)
+  List`1<ClanRole> get_Roles()
+  void set_Roles(List`1<ClanRole> value)
+  List`1<ClanMember> get_Members()
+  void set_Members(List`1<ClanMember> value)
+  int get_MaxMemberCount()
+  void set_MaxMemberCount(int value)
+  List`1<ClanInvite> get_Invites()
+  void set_Invites(List`1<ClanInvite> value)
+  VariableDictionary get_Variables()
+  void set_Variables(VariableDictionary value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanDisbandedEvent
+Наследуется от: ValueType
+Поля:
+  long <ClanId>k__BackingField
+  List`1<string> <Members>k__BackingField
+Свойства:
+  long ClanId
+  List`1<string> Members
+Методы:
+  long get_ClanId()
+  void set_ClanId(long value)
+  List`1<string> get_Members()
+  void set_Members(List`1<string> value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanInvitedEvent
+Наследуется от: ValueType
+Поля:
+  long <ClanId>k__BackingField
+  string <PlayerId>k__BackingField
+Свойства:
+  long ClanId
+  string PlayerId
+Методы:
+  long get_ClanId()
+  void set_ClanId(long value)
+  string get_PlayerId()
+  void set_PlayerId(string value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanJoinedEvent
+Наследуется от: ValueType
+Поля:
+  long <ClanId>k__BackingField
+  string <PlayerId>k__BackingField
+Свойства:
+  long ClanId
+  string PlayerId
+Методы:
+  long get_ClanId()
+  void set_ClanId(long value)
+  string get_PlayerId()
+  void set_PlayerId(string value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanKickedEvent
+Наследуется от: ValueType
+Поля:
+  long <ClanId>k__BackingField
+  string <PlayerId>k__BackingField
+Свойства:
+  long ClanId
+  string PlayerId
+Методы:
+  long get_ClanId()
+  void set_ClanId(long value)
+  string get_PlayerId()
+  void set_PlayerId(string value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanChangedEvent
+Наследуется от: ValueType
+Поля:
+  long <ClanId>k__BackingField
+Свойства:
+  long ClanId
+Методы:
+  long get_ClanId()
+  void set_ClanId(long value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanInvitation
+Наследуется от: ValueType
+Поля:
+  long <ClanId>k__BackingField
+  string <RecruiterPlayerId>k__BackingField
+  long <Timestamp>k__BackingField
+Свойства:
+  long ClanId
+  string RecruiterPlayerId
+  long Timestamp
+Методы:
+  long get_ClanId()
+  void set_ClanId(long value)
+  string get_RecruiterPlayerId()
+  void set_RecruiterPlayerId(string value)
+  long get_Timestamp()
+  void set_Timestamp(long value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanLogEntry
+Наследуется от: ValueType
+Поля:
+  long <Timestamp>k__BackingField
+  string <EventKey>k__BackingField
+  string <Arg1>k__BackingField
+  string <Arg2>k__BackingField
+  string <Arg3>k__BackingField
+  string <Arg4>k__BackingField
+Свойства:
+  long Timestamp
+  string EventKey
+  string Arg1
+  string Arg2
+  string Arg3
+  string Arg4
+Методы:
+  long get_Timestamp()
+  void set_Timestamp(long value)
+  string get_EventKey()
+  void set_EventKey(string value)
+  string get_Arg1()
+  void set_Arg1(string value)
+  string get_Arg2()
+  void set_Arg2(string value)
+  string get_Arg3()
+  void set_Arg3(string value)
+  string get_Arg4()
+  void set_Arg4(string value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanRoleParameters
+Наследуется от: ValueType
+Поля:
+  string <Name>k__BackingField
+  bool <CanInvite>k__BackingField
+  bool <CanKick>k__BackingField
+  bool <CanPromote>k__BackingField
+  bool <CanDemote>k__BackingField
+  bool <CanAccessLogs>k__BackingField
+  List`1<VariableUpdate> <Variables>k__BackingField
+Свойства:
+  string Name
+  bool CanInvite
+  bool CanKick
+  bool CanPromote
+  bool CanDemote
+  bool CanAccessLogs
+  List`1<VariableUpdate> Variables
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  bool get_CanInvite()
+  void set_CanInvite(bool value)
+  bool get_CanKick()
+  void set_CanKick(bool value)
+  bool get_CanPromote()
+  void set_CanPromote(bool value)
+  bool get_CanDemote()
+  void set_CanDemote(bool value)
+  bool get_CanAccessLogs()
+  void set_CanAccessLogs(bool value)
+  List`1<VariableUpdate> get_Variables()
+  void set_Variables(List`1<VariableUpdate> value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ClanVariablesUpdate
+Наследуется от: ValueType
+Поля:
+  List`1<VariableUpdate> <Variables>k__BackingField
+  string <EventKey>k__BackingField
+  string <Arg1>k__BackingField
+  string <Arg2>k__BackingField
+  string <Arg3>k__BackingField
+  string <Arg4>k__BackingField
+Свойства:
+  List`1<VariableUpdate> Variables
+  string EventKey
+  string Arg1
+  string Arg2
+  string Arg3
+  string Arg4
+Методы:
+  List`1<VariableUpdate> get_Variables()
+  void set_Variables(List`1<VariableUpdate> value)
+  string get_EventKey()
+  void set_EventKey(string value)
+  string get_Arg1()
+  void set_Arg1(string value)
+  string get_Arg2()
+  void set_Arg2(string value)
+  string get_Arg3()
+  void set_Arg3(string value)
+  string get_Arg4()
+  void set_Arg4(string value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.CompleteTransfersRequest
+Наследуется от: ValueType
+Поля:
+  IEnumerable`1<string> <PlayerIds>k__BackingField
+Свойства:
+  IEnumerable`1<string> PlayerIds
+Методы:
+  IEnumerable`1<string> get_PlayerIds()
+  void set_PlayerIds(IEnumerable`1<string> value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.CompleteTransfersResponse
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.IncomingMessage
+Наследуется от: ValueType
+Поля:
+  string <MessageId>k__BackingField
+  string <ContentType>k__BackingField
+  Byte[] <Data>k__BackingField
+Свойства:
+  string MessageId
+  Guid Id
+  string ContentType
+  Byte[] Data
+Методы:
+  string get_MessageId()
+  void set_MessageId(string value)
+  Guid get_Id()
+  string get_ContentType()
+  void set_ContentType(string value)
+  Byte[] get_Data()
+  void set_Data(Byte[] value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.NexusDetails
+Наследуется от: object
+Поля:
+  string <Name>k__BackingField
+  long <LastReset>k__BackingField
+  int <MaxPlayers>k__BackingField
+  int <OnlinePlayers>k__BackingField
+  int <QueuedPlayers>k__BackingField
+  int <Build>k__BackingField
+  int <Protocol>k__BackingField
+  List`1<NexusZoneDetails> <Zones>k__BackingField
+  VariableDictionary <Variables>k__BackingField
+Свойства:
+  string Name
+  long LastReset
+  int MaxPlayers
+  int OnlinePlayers
+  int QueuedPlayers
+  int Build
+  int Protocol
+  List`1<NexusZoneDetails> Zones
+  VariableDictionary Variables
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  long get_LastReset()
+  void set_LastReset(long value)
+  int get_MaxPlayers()
+  void set_MaxPlayers(int value)
+  int get_OnlinePlayers()
+  void set_OnlinePlayers(int value)
+  int get_QueuedPlayers()
+  void set_QueuedPlayers(int value)
+  int get_Build()
+  void set_Build(int value)
+  int get_Protocol()
+  void set_Protocol(int value)
+  List`1<NexusZoneDetails> get_Zones()
+  void set_Zones(List`1<NexusZoneDetails> value)
+  VariableDictionary get_Variables()
+  void set_Variables(VariableDictionary value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.NexusZoneDetails
+Наследуется от: object
+Поля:
+  int <Id>k__BackingField
+  string <Key>k__BackingField
+  string <Name>k__BackingField
+  double <PositionX>k__BackingField
+  double <PositionY>k__BackingField
+  string <IpAddress>k__BackingField
+  int <GamePort>k__BackingField
+  int <QueryPort>k__BackingField
+  int <MaxPlayers>k__BackingField
+  int <OnlinePlayers>k__BackingField
+  int <QueuedPlayers>k__BackingField
+  int <Build>k__BackingField
+  int <Protocol>k__BackingField
+  VariableDictionary <Variables>k__BackingField
+Свойства:
+  int Id
+  string Key
+  string Name
+  double PositionX
+  double PositionY
+  string IpAddress
+  int GamePort
+  int QueryPort
+  int MaxPlayers
+  int OnlinePlayers
+  int QueuedPlayers
+  int Build
+  int Protocol
+  VariableDictionary Variables
+Методы:
+  int get_Id()
+  void set_Id(int value)
+  string get_Key()
+  void set_Key(string value)
+  string get_Name()
+  void set_Name(string value)
+  double get_PositionX()
+  void set_PositionX(double value)
+  double get_PositionY()
+  void set_PositionY(double value)
+  string get_IpAddress()
+  void set_IpAddress(string value)
+  int get_GamePort()
+  void set_GamePort(int value)
+  int get_QueryPort()
+  void set_QueryPort(int value)
+  int get_MaxPlayers()
+  void set_MaxPlayers(int value)
+  int get_OnlinePlayers()
+  void set_OnlinePlayers(int value)
+  int get_QueuedPlayers()
+  void set_QueuedPlayers(int value)
+  int get_Build()
+  void set_Build(int value)
+  int get_Protocol()
+  void set_Protocol(int value)
+  VariableDictionary get_Variables()
+  void set_Variables(VariableDictionary value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.NexusListing
+Наследуется от: ValueType
+Поля:
+  List`1<Nexus> <Nexuses>k__BackingField
+Свойства:
+  List`1<Nexus> Nexuses
+Методы:
+  List`1<Nexus> get_Nexuses()
+  void set_Nexuses(List`1<Nexus> value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.Nexus
+Наследуется от: object
+Поля:
+  int <NexusId>k__BackingField
+  string <Name>k__BackingField
+  long <LastReset>k__BackingField
+  int <ZoneCount>k__BackingField
+  int <MaxPlayers>k__BackingField
+  int <OnlinePlayers>k__BackingField
+  int <QueuedPlayers>k__BackingField
+  int <Build>k__BackingField
+  int <Protocol>k__BackingField
+  string <Tags>k__BackingField
+Свойства:
+  int NexusId
+  string Name
+  long LastReset
+  int ZoneCount
+  int MaxPlayers
+  int OnlinePlayers
+  int QueuedPlayers
+  int Build
+  int Protocol
+  string Tags
+Методы:
+  int get_NexusId()
+  void set_NexusId(int value)
+  string get_Name()
+  void set_Name(string value)
+  long get_LastReset()
+  void set_LastReset(long value)
+  int get_ZoneCount()
+  void set_ZoneCount(int value)
+  int get_MaxPlayers()
+  void set_MaxPlayers(int value)
+  int get_OnlinePlayers()
+  void set_OnlinePlayers(int value)
+  int get_QueuedPlayers()
+  void set_QueuedPlayers(int value)
+  int get_Build()
+  void set_Build(int value)
+  int get_Protocol()
+  void set_Protocol(int value)
+  string get_Tags()
+  void set_Tags(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.NexusRealm
+Наследуется от: Enum
+Поля:
+  byte value__
+  NexusRealm Development
+  NexusRealm Staging
+  NexusRealm Production
+  NexusRealm Count
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.PlayerDetails
+Наследуется от: object
+Поля:
+  string <PlayerId>k__BackingField
+  long <LastSeen>k__BackingField
+  string <AssignedZoneKey>k__BackingField
+  VariableDictionary <Variables>k__BackingField
+  string <ConnectZoneKey>k__BackingField
+  string <ConnectIpAddress>k__BackingField
+  Nullable`1<int> <ConnectGamePort>k__BackingField
+  Nullable`1<int> <ConnectQueryPort>k__BackingField
+Свойства:
+  string PlayerId
+  long LastSeen
+  string AssignedZoneKey
+  VariableDictionary Variables
+  string ConnectZoneKey
+  string ConnectIpAddress
+  Nullable`1<int> ConnectGamePort
+  Nullable`1<int> ConnectQueryPort
+Методы:
+  string get_PlayerId()
+  void set_PlayerId(string value)
+  long get_LastSeen()
+  void set_LastSeen(long value)
+  string get_AssignedZoneKey()
+  void set_AssignedZoneKey(string value)
+  VariableDictionary get_Variables()
+  void set_Variables(VariableDictionary value)
+  string get_ConnectZoneKey()
+  void set_ConnectZoneKey(string value)
+  string get_ConnectIpAddress()
+  void set_ConnectIpAddress(string value)
+  Nullable`1<int> get_ConnectGamePort()
+  void set_ConnectGamePort(Nullable`1<int> value)
+  Nullable`1<int> get_ConnectQueryPort()
+  void set_ConnectQueryPort(Nullable`1<int> value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.RegisterTransfersRequest
+Наследуется от: ValueType
+Поля:
+  IEnumerable`1<string> <PlayerIds>k__BackingField
+  string <ToZoneKey>k__BackingField
+Свойства:
+  IEnumerable`1<string> PlayerIds
+  string ToZoneKey
+Методы:
+  IEnumerable`1<string> get_PlayerIds()
+  void set_PlayerIds(IEnumerable`1<string> value)
+  string get_ToZoneKey()
+  void set_ToZoneKey(string value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.RegisterTransfersResponse
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.VariableType
+Наследуется от: Enum
+Поля:
+  byte value__
+  VariableType Binary
+  VariableType String
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.VariableData
+Наследуется от: ValueType
+Поля:
+  string <Value>k__BackingField
+  VariableType <Type>k__BackingField
+  long <LastUpdated>k__BackingField
+Свойства:
+  string Value
+  VariableType Type
+  long LastUpdated
+Методы:
+  string get_Value()
+  void set_Value(string value)
+  VariableType get_Type()
+  void set_Type(VariableType value)
+  long get_LastUpdated()
+  void set_LastUpdated(long value)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.VariableDictionary
+Наследуется от: Dictionary`2<string, VariableData>
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.VariableUpdate
+Наследуется от: ValueType
+Поля:
+  string <Key>k__BackingField
+  VariableType <Type>k__BackingField
+  Nullable`1<bool> <Transient>k__BackingField
+  Nullable`1<bool> <Secret>k__BackingField
+  Memory`1<byte> _binaryValue
+  string _stringValue
+Свойства:
+  string Key
+  VariableType Type
+  Nullable`1<bool> Transient
+  Nullable`1<bool> Secret
+  string Value
+Методы:
+  string get_Key()
+  VariableType get_Type()
+  Nullable`1<bool> get_Transient()
+  Nullable`1<bool> get_Secret()
+  string get_Value()
+  void .ctor(string key, Memory`1<byte> value, Nullable`1<bool> transient, Nullable`1<bool> secret)
+  void .ctor(string key, string value, Nullable`1<bool> transient, Nullable`1<bool> secret)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ZoneDetails
+Наследуется от: object
+Поля:
+  int <NexusId>k__BackingField
+  int <ZoneId>k__BackingField
+  string <Key>k__BackingField
+  string <Name>k__BackingField
+  double <PositionX>k__BackingField
+  double <PositionY>k__BackingField
+  VariableDictionary <Variables>k__BackingField
+  string <NexusName>k__BackingField
+  VariableDictionary <NexusVariables>k__BackingField
+Свойства:
+  int NexusId
+  int ZoneId
+  string Key
+  string Name
+  double PositionX
+  double PositionY
+  VariableDictionary Variables
+  string NexusName
+  VariableDictionary NexusVariables
+Методы:
+  int get_NexusId()
+  void set_NexusId(int value)
+  int get_ZoneId()
+  void set_ZoneId(int value)
+  string get_Key()
+  void set_Key(string value)
+  string get_Name()
+  void set_Name(string value)
+  double get_PositionX()
+  void set_PositionX(double value)
+  double get_PositionY()
+  void set_PositionY(double value)
+  VariableDictionary get_Variables()
+  void set_Variables(VariableDictionary value)
+  string get_NexusName()
+  void set_NexusName(string value)
+  VariableDictionary get_NexusVariables()
+  void set_NexusVariables(VariableDictionary value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ZoneMapCheckResult
+Наследуется от: object
+Поля:
+  string <Key>k__BackingField
+  DateTimeOffset <LastUpdated>k__BackingField
+Свойства:
+  string Key
+  DateTimeOffset LastUpdated
+Методы:
+  string get_Key()
+  void set_Key(string value)
+  DateTimeOffset get_LastUpdated()
+  void set_LastUpdated(DateTimeOffset value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ZonePlayerDetails
+Наследуется от: object
+Поля:
+  string <PlayerId>k__BackingField
+  long <LastSeen>k__BackingField
+  Dictionary`2<string, VariableData> <Variables>k__BackingField
+  string <AssignedZoneKey>k__BackingField
+Свойства:
+  string PlayerId
+  long LastSeen
+  Dictionary`2<string, VariableData> Variables
+  string AssignedZoneKey
+Методы:
+  string get_PlayerId()
+  void set_PlayerId(string value)
+  long get_LastSeen()
+  void set_LastSeen(long value)
+  Dictionary`2<string, VariableData> get_Variables()
+  void set_Variables(Dictionary`2<string, VariableData> value)
+  string get_AssignedZoneKey()
+  void set_AssignedZoneKey(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Models.ZonePlayerLogin
+Наследуется от: ZonePlayerDetails
+Поля:
+  string <RedirectIpAddress>k__BackingField
+  Nullable`1<int> <RedirectGamePort>k__BackingField
+  Nullable`1<int> <RedirectQueryPort>k__BackingField
+Свойства:
+  string RedirectIpAddress
+  Nullable`1<int> RedirectGamePort
+  Nullable`1<int> RedirectQueryPort
+Методы:
+  string get_RedirectIpAddress()
+  void set_RedirectIpAddress(string value)
+  Nullable`1<int> get_RedirectGamePort()
+  void set_RedirectGamePort(Nullable`1<int> value)
+  Nullable`1<int> get_RedirectQueryPort()
+  void set_RedirectQueryPort(Nullable`1<int> value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Logging.ConsoleLogger
+Наследуется от: object
+Поля:
+  ConsoleLogger <Instance>k__BackingField
+Свойства:
+  ConsoleLogger Instance
+Методы:
+  ConsoleLogger get_Instance()
+  void .ctor()
+  void Log(NexusLogLevel level, string message, Exception exception)
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Logging.INexusLogger
+Поля:
+Свойства:
+Методы:
+  void Log(NexusLogLevel level, string message, Exception exception)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Logging.NexusLoggerExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void LogInfo(INexusLogger logger, string message)
+  void LogWarn(INexusLogger logger, string message, Exception exception)
+  void LogError(INexusLogger logger, string message, Exception exception)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Logging.NexusLogLevel
+Наследуется от: Enum
+Поля:
+  int value__
+  NexusLogLevel Info
+  NexusLogLevel Warn
+  NexusLogLevel Error
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Nexus.Logging.NullLogger
+Наследуется от: object
+Поля:
+  NullLogger <Instance>k__BackingField
+Свойства:
+  NullLogger Instance
+Методы:
+  NullLogger get_Instance()
+  void .ctor()
+  void Log(NexusLogLevel level, string message, Exception exception)
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Connector.INexusConnector
+Поля:
+Свойства:
+Методы:
+  Task`1<NexusListing> ListNexuses(string publicKey, NexusRealm realm)
+  Task`1<NexusDetails> GetNexus(int nexusId)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Connector.NexusConnector
+Наследуется от: object
+Поля:
+  int MaxRetryCount
+  double BaseRetryDelay
+  INexusLogger Logger
+  string BaseUrl
+  HttpClient HttpClient
+  Task`1<int> CompletedDummyTask
+Свойства:
+Методы:
+  void .ctor(INexusLogger logger, string baseUrl)
+  Task`1<NexusListing> ListNexuses(string publicKey, NexusRealm realm)
+  Task`1<NexusDetails> GetNexus(int nexusId)
+  Task`1<ApiResult`1<TResponse>> GetRequest(string url, string authToken)
+  Task`1<ApiResult`1<TResponse>> PostRequest(string url, string authToken)
+  Task`1<ApiResult`1<TResponse>> PostRequest(string url, TRequest requestBody, string authToken)
+  Task`1<ApiResult`1<TResponse>> DeleteRequest(string url, string authToken)
+  Task`1<ApiResult> PostRequestWithoutResponse(string url, TRequest requestBody, string authToken)
+  Task`1<ApiResult> PostRequestWithoutResponse(string url, string authToken)
+  Task`1<ApiResult> PostRequestRawWithoutResponse(string url, string payload, string payloadMimeType, string authToken)
+  Task`1<ApiResult> PostRequestRawWithoutResponse(string url, ArraySegment`1<byte> payload, string payloadMimeType, string authToken)
+  Task`1<ApiResult> DeleteRequestWithoutResponse(string url, string authToken)
+  Task`1<ApiResult`1<TResponse>> SendRequest(Request& request, string authToken)
+  Task`1<ApiResult> SendRequestWithoutResponse(Request request, string authToken)
+  Task`1<ApiResult`1<TResponse>> SendRequestImpl(Request request, string authToken, Func`2<HttpResponseMessage, Task`1<TResponse>> responseReader)
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Nexus.Connector.INexusPlayerConnector
+Поля:
+Свойства:
+Методы:
+  Task`1<PlayerDetails> GetPlayerDetails(int nexusId, string playerAuthToken)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Connector.NexusPlayerConnector
+Наследуется от: NexusConnector
+Поля:
+  string _playerInfoEndpoint
+Свойства:
+Методы:
+  void .ctor(INexusLogger logger, string baseUrl)
+  Task`1<PlayerDetails> GetPlayerDetails(int nexusId, string playerAuthToken)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Connector.INexusSocketConnector
+Поля:
+Свойства:
+  bool IsStarted
+  bool IsConnected
+Методы:
+  bool get_IsStarted()
+  bool get_IsConnected()
+  void Start()
+  bool TryReceive(NexusMessage& message)
+  void Acknowledge(string messageId)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Connector.NexusSocketConnector
+Наследуется от: object
+Поля:
+  int MaxMessageIdLength
+  INexusLogger _logger
+  CancellationTokenSource _cts
+  Uri _socketEndpoint
+  string _secretKey
+  Queue`1<NexusMessage> _incoming
+  Channel`1<string> _outgoing
+  bool _started
+  ClientWebSocket _socket
+Свойства:
+  bool IsStarted
+  bool IsConnected
+Методы:
+  bool get_IsStarted()
+  bool get_IsConnected()
+  void .ctor(INexusLogger logger, string baseUrl, string secretKey, int lockDuration)
+  void Dispose()
+  void Start()
+  bool TryReceive(NexusMessage& message)
+  void Acknowledge(string messageId)
+  Task ReconnectLoop(CancellationToken ct)
+  Task HandleIncoming(CancellationToken ct)
+  Task HandleOutgoing(CancellationToken ct)
+  Task`1<ClientWebSocket> Connect(CancellationToken ct)
+  Task <Start>b__15_0()
+  NexusMessage <HandleIncoming>g__ReadMessage|19_0(Byte[] buffer, int length)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Connector.INexusZoneConnector
+Поля:
+Свойства:
+Методы:
+  Task`1<ZoneDetails> GetZoneDetails()
+  Task`1<ZonePlayerDetails> GetPlayerDetails(string playerId)
+  Task`1<ZonePlayerLogin> PlayerLogin(string playerId)
+  Task Assign(string playerId, string toZone)
+  Task RegisterTransfers(string toZone, IEnumerable`1<string> playerIds)
+  Task CompleteTransfers(IEnumerable`1<string> playerIds)
+  Task SendMessage(string toZone, Guid id, string message, Nullable`1<int> ttl, string contentType)
+  Task SendMessage(string toZone, Guid id, Memory`1<byte> message, Nullable`1<int> ttl, string contentType)
+  Task SetNexusVariable(string key, string value, bool transient, bool secret)
+  Task SetNexusVariable(string key, Memory`1<byte> value, bool transient, bool secret)
+  Task SetZoneVariable(string key, string value, bool transient, bool secret)
+  Task SetZoneVariable(string key, Memory`1<byte> value, bool transient, bool secret)
+  Task SetPlayerVariable(string playerId, string key, string value, bool transient, bool secret)
+  Task SetPlayerVariable(string playerId, string key, Memory`1<byte> value, bool transient, bool secret)
+  Task`1<List`1<string>> FindPlayersWithVariable(string key, string value)
+  Task`1<ZoneMapCheckResult> CheckUploadedMap()
+  Task UploadMap(string key, Byte[] pngMapImage)
+  Task`1<ApiResult`1<ClanDetails>> CreateClan(ClanCreateParameters parameters)
+  Task`1<ApiResult`1<ClanDetails>> GetClan(long clanId)
+  Task`1<ApiResult`1<ClanDetails>> GetClanByMember(string playerId)
+  Task`1<ApiResult> DisbandClan(long clanId, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> UpdateClanVariables(long clanId, ClanVariablesUpdate update)
+  Task`1<ApiResult`1<ClanDetails>> CreateRole(long clanId, ClanRoleParameters parameters, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> UpdateRole(long clanId, int roleId, ClanRoleParameters parameters, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> DeleteRole(long clanId, int roleId, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> SwapRoleRanks(long clanId, int roleIdA, int roleIdB, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> CreateInvite(long clanId, string playerId, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> AcceptInvite(long clanId, string playerId)
+  Task`1<ApiResult`1<ClanDetails>> CancelInvite(long clanId, string playerId, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> Kick(long clanId, string playerId, string byPlayerId)
+  Task`1<ApiResult`1<List`1<ClanInvitation>>> ListInvitations(string playerId)
+  Task`1<ApiResult> UpdateLastSeen(long clanId, string playerId)
+  Task`1<ApiResult`1<ClanDetails>> UpdatePlayerClanVariables(long clanId, string playerId, ClanVariablesUpdate update)
+  Task`1<ApiResult`1<ClanDetails>> SetPlayerRole(long clanId, string playerId, int roleId, string byPlayerId)
+  Task`1<ApiResult`1<List`1<ClanLogEntry>>> GetClanLogs(long clanId, string byPlayerId, int limit)
+  Task`1<ApiResult> AddClanLog(long clanId, string eventKey, string arg1, string arg2, string arg3, string arg4)
+--------------------------------------------------
+Класс: Facepunch.Nexus.Connector.NexusZoneConnector
+Наследуется от: NexusConnector
+Поля:
+  string _getZoneInfoEndpoint
+  string _getPlayerInfoEndpoint
+  string _playerLoginEndpoint
+  string _assignEndpoint
+  string _registerTransferEndpoint
+  string _completeTransferEndpoint
+  string _messageEndpoint
+  string _setNexusVariableEndpoint
+  string _setZoneVariableEndpoint
+  string _setPlayerVariableEndpoint
+  string _findPlayersWithVariableEndpoint
+  string _mapEndpoint
+  string _clanEndpoint
+Свойства:
+Методы:
+  void .ctor(INexusLogger logger, string baseUrl, string secretKey)
+  Task`1<ZoneDetails> GetZoneDetails()
+  Task`1<ZonePlayerDetails> GetPlayerDetails(string playerId)
+  Task`1<ZonePlayerLogin> PlayerLogin(string playerId)
+  Task Assign(string playerId, string toZone)
+  Task RegisterTransfers(string toZone, IEnumerable`1<string> playerIds)
+  Task CompleteTransfers(IEnumerable`1<string> playerIds)
+  Task SendMessage(string toZone, Guid id, string message, Nullable`1<int> ttl, string contentType)
+  Task SendMessage(string toZone, Guid id, Memory`1<byte> message, Nullable`1<int> ttl, string contentType)
+  Task SetNexusVariable(string key, string value, bool transient, bool secret)
+  Task SetNexusVariable(string key, Memory`1<byte> value, bool transient, bool secret)
+  Task SetZoneVariable(string key, string value, bool transient, bool secret)
+  Task SetZoneVariable(string key, Memory`1<byte> value, bool transient, bool secret)
+  Task SetPlayerVariable(string playerId, string key, string value, bool transient, bool secret)
+  Task SetPlayerVariable(string playerId, string key, Memory`1<byte> value, bool transient, bool secret)
+  Task SetVariableImpl(string endpoint, string key, string value, bool transient, bool secret)
+  Task SetVariableImpl(string endpoint, string key, Memory`1<byte> value, bool transient, bool secret)
+  Task`1<List`1<string>> FindPlayersWithVariable(string key, string value)
+  Task`1<ZoneMapCheckResult> CheckUploadedMap()
+  Task UploadMap(string key, Byte[] pngMapImage)
+  Task`1<ApiResult`1<ClanDetails>> CreateClan(ClanCreateParameters parameters)
+  Task`1<ApiResult`1<ClanDetails>> GetClan(long clanId)
+  Task`1<ApiResult`1<ClanDetails>> GetClanByMember(string playerId)
+  Task`1<ApiResult> DisbandClan(long clanId, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> UpdateClanVariables(long clanId, ClanVariablesUpdate update)
+  Task`1<ApiResult`1<ClanDetails>> CreateRole(long clanId, ClanRoleParameters parameters, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> UpdateRole(long clanId, int roleId, ClanRoleParameters parameters, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> DeleteRole(long clanId, int roleId, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> SwapRoleRanks(long clanId, int roleIdA, int roleIdB, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> CreateInvite(long clanId, string playerId, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> AcceptInvite(long clanId, string playerId)
+  Task`1<ApiResult`1<ClanDetails>> CancelInvite(long clanId, string playerId, string byPlayerId)
+  Task`1<ApiResult`1<ClanDetails>> Kick(long clanId, string playerId, string byPlayerId)
+  Task`1<ApiResult`1<List`1<ClanInvitation>>> ListInvitations(string playerId)
+  Task`1<ApiResult> UpdateLastSeen(long clanId, string playerId)
+  Task`1<ApiResult`1<ClanDetails>> UpdatePlayerClanVariables(long clanId, string playerId, ClanVariablesUpdate update)
+  Task`1<ApiResult`1<ClanDetails>> SetPlayerRole(long clanId, string playerId, int roleId, string byPlayerId)
+  Task`1<ApiResult`1<List`1<ClanLogEntry>>> GetClanLogs(long clanId, string byPlayerId, int limit)
+  Task`1<ApiResult> AddClanLog(long clanId, string eventKey, string arg1, string arg2, string arg3, string arg4)
+--------------------------------------------------

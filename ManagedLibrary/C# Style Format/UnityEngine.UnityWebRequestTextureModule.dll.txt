@@ -1,0 +1,21 @@
+[NativeHeaderAttribute("Modules/UnityWebRequestTexture/Public/DownloadHandlerTexture.h")]
+public class UnityEngine.Networking.DownloadHandlerTexture : DownloadHandler {
+    private NativeArray`1<byte> m_NativeData;
+    private bool mNonReadable;
+    public Texture2D texture { get; }
+    public DownloadHandlerTexture(bool readable);
+    private static IntPtr Create(DownloadHandlerTexture obj, bool readable);
+    private void InternalCreateTexture(bool readable);
+    protected virtual NativeArray`1<byte> GetNativeData();
+    public virtual void Dispose();
+    public Texture2D get_texture();
+    [NativeThrowsAttribute]
+private Texture2D InternalGetTextureNative();
+    public static Texture2D GetContent(UnityWebRequest www);
+}
+public static class UnityEngine.Networking.UnityWebRequestTexture : object {
+    public static UnityWebRequest GetTexture(string uri);
+    public static UnityWebRequest GetTexture(Uri uri);
+    public static UnityWebRequest GetTexture(string uri, bool nonReadable);
+    public static UnityWebRequest GetTexture(Uri uri, bool nonReadable);
+}

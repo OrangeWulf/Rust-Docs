@@ -1,0 +1,3138 @@
+[DefaultMemberAttribute("Item")]
+[NativeHeaderAttribute("Modules/Animation/Animation.h")]
+public class UnityEngine.Animation : Behaviour {
+    public AnimationClip clip { get; public set; }
+    public bool playAutomatically { get; public set; }
+    public WrapMode wrapMode { get; public set; }
+    public bool isPlaying { get; }
+    public AnimationState Item { get; }
+    public bool animatePhysics { get; public set; }
+    [ObsoleteAttribute("Use cullingType instead")]
+public bool animateOnlyIfVisible { get; public set; }
+    public AnimationCullingType cullingType { get; public set; }
+    public Bounds localBounds { get; public set; }
+    public AnimationClip get_clip();
+    public void set_clip(AnimationClip value);
+    public bool get_playAutomatically();
+    public void set_playAutomatically(bool value);
+    public WrapMode get_wrapMode();
+    public void set_wrapMode(WrapMode value);
+    public void Stop();
+    public void Stop(string name);
+    [NativeNameAttribute("Stop")]
+private void StopNamed(string name);
+    public void Rewind();
+    public void Rewind(string name);
+    [NativeNameAttribute("Rewind")]
+private void RewindNamed(string name);
+    public void Sample();
+    [NativeNameAttribute("IsPlaying")]
+public bool get_isPlaying();
+    public bool IsPlaying(string name);
+    public AnimationState get_Item(string name);
+    [ExcludeFromDocsAttribute]
+public bool Play();
+    public bool Play(PlayMode mode);
+    [NativeNameAttribute("Play")]
+private bool PlayDefaultAnimation(PlayMode mode);
+    [ExcludeFromDocsAttribute]
+public bool Play(string animation);
+    public bool Play(string animation, PlayMode mode);
+    [ExcludeFromDocsAttribute]
+public void CrossFade(string animation);
+    [ExcludeFromDocsAttribute]
+public void CrossFade(string animation, float fadeLength);
+    public void CrossFade(string animation, float fadeLength, PlayMode mode);
+    [ExcludeFromDocsAttribute]
+public void Blend(string animation);
+    [ExcludeFromDocsAttribute]
+public void Blend(string animation, float targetWeight);
+    public void Blend(string animation, float targetWeight, float fadeLength);
+    [ExcludeFromDocsAttribute]
+public AnimationState CrossFadeQueued(string animation);
+    [ExcludeFromDocsAttribute]
+public AnimationState CrossFadeQueued(string animation, float fadeLength);
+    [ExcludeFromDocsAttribute]
+public AnimationState CrossFadeQueued(string animation, float fadeLength, QueueMode queue);
+    [FreeFunctionAttribute("AnimationBindings::CrossFadeQueuedImpl")]
+public AnimationState CrossFadeQueued(string animation, float fadeLength, QueueMode queue, PlayMode mode);
+    [ExcludeFromDocsAttribute]
+public AnimationState PlayQueued(string animation);
+    [ExcludeFromDocsAttribute]
+public AnimationState PlayQueued(string animation, QueueMode queue);
+    [FreeFunctionAttribute("AnimationBindings::PlayQueuedImpl")]
+public AnimationState PlayQueued(string animation, QueueMode queue, PlayMode mode);
+    public void AddClip(AnimationClip clip, string newName);
+    [ExcludeFromDocsAttribute]
+public void AddClip(AnimationClip clip, string newName, int firstFrame, int lastFrame);
+    public void AddClip(AnimationClip clip, string newName, int firstFrame, int lastFrame, bool addLoopFrame);
+    public void RemoveClip(AnimationClip clip);
+    public void RemoveClip(string clipName);
+    [NativeNameAttribute("RemoveClip")]
+private void RemoveClipNamed(string clipName);
+    public int GetClipCount();
+    [ObsoleteAttribute("use PlayMode instead of AnimationPlayMode.")]
+public bool Play(AnimationPlayMode mode);
+    [ObsoleteAttribute("use PlayMode instead of AnimationPlayMode.")]
+public bool Play(string animation, AnimationPlayMode mode);
+    public void SyncLayer(int layer);
+    public sealed virtual IEnumerator GetEnumerator();
+    [FreeFunctionAttribute("AnimationBindings::GetState")]
+internal AnimationState GetState(string name);
+    [FreeFunctionAttribute("AnimationBindings::GetStateAtIndex")]
+internal AnimationState GetStateAtIndex(int index);
+    [NativeNameAttribute("GetAnimationStateCount")]
+internal int GetStateCount();
+    public AnimationClip GetClip(string name);
+    public bool get_animatePhysics();
+    public void set_animatePhysics(bool value);
+    [FreeFunctionAttribute("AnimationBindings::GetAnimateOnlyIfVisible")]
+public bool get_animateOnlyIfVisible();
+    [FreeFunctionAttribute("AnimationBindings::SetAnimateOnlyIfVisible")]
+public void set_animateOnlyIfVisible(bool value);
+    public AnimationCullingType get_cullingType();
+    public void set_cullingType(AnimationCullingType value);
+    [NativeNameAttribute("GetLocalAABB")]
+public Bounds get_localBounds();
+    [NativeNameAttribute("SetLocalAABB")]
+public void set_localBounds(Bounds value);
+    private void get_localBounds_Injected(Bounds& ret);
+    private void set_localBounds_Injected(Bounds& value);
+}
+public enum UnityEngine.AnimationBlendMode : Enum {
+    public int value__;
+    public static AnimationBlendMode Blend;
+    public static AnimationBlendMode Additive;
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationClip.bindings.h")]
+[NativeTypeAttribute("Modules/Animation/AnimationClip.h")]
+public class UnityEngine.AnimationClip : Motion {
+    [NativePropertyAttribute("Length", "False", "0")]
+public float length { get; }
+    [NativePropertyAttribute("StartTime", "False", "0")]
+internal float startTime { get; }
+    [NativePropertyAttribute("StopTime", "False", "0")]
+internal float stopTime { get; }
+    [NativePropertyAttribute("SampleRate", "False", "0")]
+public float frameRate { get; public set; }
+    [NativePropertyAttribute("WrapMode", "False", "0")]
+public WrapMode wrapMode { get; public set; }
+    [NativePropertyAttribute("Bounds", "False", "0")]
+public Bounds localBounds { get; public set; }
+    public bool legacy { get; public set; }
+    public bool humanMotion { get; }
+    public bool empty { get; }
+    public bool hasGenericRootTransform { get; }
+    public bool hasMotionFloatCurves { get; }
+    public bool hasMotionCurves { get; }
+    public bool hasRootCurves { get; }
+    internal bool hasRootMotion { get; }
+    public AnimationEvent[] events { get; public set; }
+    [FreeFunctionAttribute("AnimationClipBindings::Internal_CreateAnimationClip")]
+private static void Internal_CreateAnimationClip(AnimationClip self);
+    public void SampleAnimation(GameObject go, float time);
+    [FreeFunctionAttribute]
+[NativeHeaderAttribute("Modules/Animation/AnimationUtility.h")]
+internal static void SampleAnimation(GameObject go, AnimationClip clip, float inTime, WrapMode wrapMode);
+    public float get_length();
+    internal float get_startTime();
+    internal float get_stopTime();
+    public float get_frameRate();
+    public void set_frameRate(float value);
+    [FreeFunctionAttribute("AnimationClipBindings::Internal_SetCurve")]
+public void SetCurve(string relativePath, Type type, string propertyName, AnimationCurve curve);
+    public void EnsureQuaternionContinuity();
+    public void ClearCurves();
+    public WrapMode get_wrapMode();
+    public void set_wrapMode(WrapMode value);
+    public Bounds get_localBounds();
+    public void set_localBounds(Bounds value);
+    [NativeMethodAttribute("IsLegacy")]
+public bool get_legacy();
+    [NativeMethodAttribute("SetLegacy")]
+public void set_legacy(bool value);
+    [NativeMethodAttribute("IsHumanMotion")]
+public bool get_humanMotion();
+    [NativeMethodAttribute("IsEmpty")]
+public bool get_empty();
+    [NativeMethodAttribute("HasGenericRootTransform")]
+public bool get_hasGenericRootTransform();
+    [NativeMethodAttribute("HasMotionFloatCurves")]
+public bool get_hasMotionFloatCurves();
+    [NativeMethodAttribute("HasMotionCurves")]
+public bool get_hasMotionCurves();
+    [NativeMethodAttribute("HasRootCurves")]
+public bool get_hasRootCurves();
+    [FreeFunctionAttribute]
+internal bool get_hasRootMotion();
+    public void AddEvent(AnimationEvent evt);
+    [FreeFunctionAttribute]
+private void AddEventInternal(object evt);
+    public AnimationEvent[] get_events();
+    public void set_events(AnimationEvent[] value);
+    [FreeFunctionAttribute]
+private void SetEventsInternal(Array value);
+    [FreeFunctionAttribute]
+private Array GetEventsInternal();
+    private void get_localBounds_Injected(Bounds& ret);
+    private void set_localBounds_Injected(Bounds& value);
+}
+[ObsoleteAttribute("This class is not used anymore. See AnimatorOverrideController.GetOverrides() and AnimatorOverrideController.ApplyOverrides()")]
+public class UnityEngine.AnimationClipPair : object {
+    public AnimationClip originalClip;
+    public AnimationClip overrideClip;
+}
+public enum UnityEngine.AnimationCullingType : Enum {
+    public int value__;
+    public static AnimationCullingType AlwaysAnimate;
+    public static AnimationCullingType BasedOnRenderers;
+    [ObsoleteAttribute("Enum member AnimatorCullingMode.BasedOnClipBounds has been deprecated. Use AnimationCullingType.AlwaysAnimate or AnimationCullingType.BasedOnRenderers instead")]
+public static AnimationCullingType BasedOnClipBounds;
+    [ObsoleteAttribute("Enum member AnimatorCullingMode.BasedOnUserBounds has been deprecated. Use AnimationCullingType.AlwaysAnimate or AnimationCullingType.BasedOnRenderers instead")]
+public static AnimationCullingType BasedOnUserBounds;
+}
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.AnimationEvent : object {
+    internal float m_Time;
+    internal string m_FunctionName;
+    internal string m_StringParameter;
+    internal Object m_ObjectReferenceParameter;
+    internal float m_FloatParameter;
+    internal int m_IntParameter;
+    internal int m_MessageOptions;
+    internal AnimationEventSource m_Source;
+    internal AnimationState m_StateSender;
+    internal AnimatorStateInfo m_AnimatorStateInfo;
+    internal AnimatorClipInfo m_AnimatorClipInfo;
+    [ObsoleteAttribute("Use stringParameter instead")]
+public string data { get; public set; }
+    public string stringParameter { get; public set; }
+    public float floatParameter { get; public set; }
+    public int intParameter { get; public set; }
+    public Object objectReferenceParameter { get; public set; }
+    public string functionName { get; public set; }
+    public float time { get; public set; }
+    public SendMessageOptions messageOptions { get; public set; }
+    public bool isFiredByLegacy { get; }
+    public bool isFiredByAnimator { get; }
+    public AnimationState animationState { get; }
+    public AnimatorStateInfo animatorStateInfo { get; }
+    public AnimatorClipInfo animatorClipInfo { get; }
+    public string get_data();
+    public void set_data(string value);
+    public string get_stringParameter();
+    public void set_stringParameter(string value);
+    public float get_floatParameter();
+    public void set_floatParameter(float value);
+    public int get_intParameter();
+    public void set_intParameter(int value);
+    public Object get_objectReferenceParameter();
+    public void set_objectReferenceParameter(Object value);
+    public string get_functionName();
+    public void set_functionName(string value);
+    public float get_time();
+    public void set_time(float value);
+    public SendMessageOptions get_messageOptions();
+    public void set_messageOptions(SendMessageOptions value);
+    public bool get_isFiredByLegacy();
+    public bool get_isFiredByAnimator();
+    public AnimationState get_animationState();
+    public AnimatorStateInfo get_animatorStateInfo();
+    public AnimatorClipInfo get_animatorClipInfo();
+    internal int GetHash();
+}
+internal enum UnityEngine.AnimationEventSource : Enum {
+    public int value__;
+    public static AnimationEventSource NoSource;
+    public static AnimationEventSource Legacy;
+    public static AnimationEventSource Animator;
+}
+public enum UnityEngine.AnimationPlayMode : Enum {
+    public int value__;
+    public static AnimationPlayMode Stop;
+    public static AnimationPlayMode Queue;
+    public static AnimationPlayMode Mix;
+}
+[NativeHeaderAttribute("Modules/Animation/Constraints/AimConstraint.h")]
+[NativeHeaderAttribute("Modules/Animation/Constraints/Constraint.bindings.h")]
+[RequireComponent("UnityEngine.Transform")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Animations.AimConstraint : Behaviour {
+    public float weight { get; public set; }
+    public bool constraintActive { get; public set; }
+    public bool locked { get; public set; }
+    public Vector3 rotationAtRest { get; public set; }
+    public Vector3 rotationOffset { get; public set; }
+    public Axis rotationAxis { get; public set; }
+    public Vector3 aimVector { get; public set; }
+    public Vector3 upVector { get; public set; }
+    public Vector3 worldUpVector { get; public set; }
+    public Transform worldUpObject { get; public set; }
+    public WorldUpType worldUpType { get; public set; }
+    public int sourceCount { get; }
+    private static void Internal_Create(AimConstraint self);
+    public sealed virtual float get_weight();
+    public sealed virtual void set_weight(float value);
+    public sealed virtual bool get_constraintActive();
+    public sealed virtual void set_constraintActive(bool value);
+    public sealed virtual bool get_locked();
+    public sealed virtual void set_locked(bool value);
+    public Vector3 get_rotationAtRest();
+    public void set_rotationAtRest(Vector3 value);
+    public Vector3 get_rotationOffset();
+    public void set_rotationOffset(Vector3 value);
+    public Axis get_rotationAxis();
+    public void set_rotationAxis(Axis value);
+    public Vector3 get_aimVector();
+    public void set_aimVector(Vector3 value);
+    public Vector3 get_upVector();
+    public void set_upVector(Vector3 value);
+    public Vector3 get_worldUpVector();
+    public void set_worldUpVector(Vector3 value);
+    public Transform get_worldUpObject();
+    public void set_worldUpObject(Transform value);
+    public WorldUpType get_worldUpType();
+    public void set_worldUpType(WorldUpType value);
+    public sealed virtual int get_sourceCount();
+    [FreeFunctionAttribute("ConstraintBindings::GetSourceCount")]
+private static int GetSourceCountInternal(AimConstraint self);
+    [FreeFunctionAttribute]
+public sealed virtual void GetSources(List`1<ConstraintSource> sources);
+    public sealed virtual void SetSources(List`1<ConstraintSource> sources);
+    [FreeFunctionAttribute("ConstraintBindings::SetSources")]
+private static void SetSourcesInternal(AimConstraint self, List`1<ConstraintSource> sources);
+    public sealed virtual int AddSource(ConstraintSource source);
+    public sealed virtual void RemoveSource(int index);
+    [NativeNameAttribute("RemoveSource")]
+private void RemoveSourceInternal(int index);
+    public sealed virtual ConstraintSource GetSource(int index);
+    [NativeNameAttribute("GetSource")]
+private ConstraintSource GetSourceInternal(int index);
+    public sealed virtual void SetSource(int index, ConstraintSource source);
+    [NativeNameAttribute("SetSource")]
+private void SetSourceInternal(int index, ConstraintSource source);
+    private void ValidateSourceIndex(int index);
+    private void get_rotationAtRest_Injected(Vector3& ret);
+    private void set_rotationAtRest_Injected(Vector3& value);
+    private void get_rotationOffset_Injected(Vector3& ret);
+    private void set_rotationOffset_Injected(Vector3& value);
+    private void get_aimVector_Injected(Vector3& ret);
+    private void set_aimVector_Injected(Vector3& value);
+    private void get_upVector_Injected(Vector3& ret);
+    private void set_upVector_Injected(Vector3& value);
+    private void get_worldUpVector_Injected(Vector3& ret);
+    private void set_worldUpVector_Injected(Vector3& value);
+    private sealed virtual int AddSource_Injected(ConstraintSource& source);
+    private void GetSourceInternal_Injected(int index, ConstraintSource& ret);
+    private void SetSourceInternal_Injected(int index, ConstraintSource& source);
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationClipPlayable.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationClipPlayable.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationClipPlayableBindings", "2")]
+public class UnityEngine.Animations.AnimationClipPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    internal AnimationClipPlayable(PlayableHandle handle);
+    public static AnimationClipPlayable Create(PlayableGraph graph, AnimationClip clip);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, AnimationClip clip);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AnimationClipPlayable playable);
+    public static AnimationClipPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimationClipPlayable other);
+    public AnimationClip GetAnimationClip();
+    public bool GetApplyFootIK();
+    public void SetApplyFootIK(bool value);
+    public bool GetApplyPlayableIK();
+    public void SetApplyPlayableIK(bool value);
+    internal bool GetRemoveStartOffset();
+    internal void SetRemoveStartOffset(bool value);
+    internal bool GetOverrideLoopTime();
+    internal void SetOverrideLoopTime(bool value);
+    internal bool GetLoopTime();
+    internal void SetLoopTime(bool value);
+    internal float GetSampleRate();
+    internal void SetSampleRate(float value);
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, AnimationClip clip, PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static AnimationClip GetAnimationClipInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static bool GetApplyFootIKInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetApplyFootIKInternal(PlayableHandle& handle, bool value);
+    [NativeThrowsAttribute]
+private static bool GetApplyPlayableIKInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetApplyPlayableIKInternal(PlayableHandle& handle, bool value);
+    [NativeThrowsAttribute]
+private static bool GetRemoveStartOffsetInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetRemoveStartOffsetInternal(PlayableHandle& handle, bool value);
+    [NativeThrowsAttribute]
+private static bool GetOverrideLoopTimeInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetOverrideLoopTimeInternal(PlayableHandle& handle, bool value);
+    [NativeThrowsAttribute]
+private static bool GetLoopTimeInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetLoopTimeInternal(PlayableHandle& handle, bool value);
+    [NativeThrowsAttribute]
+private static float GetSampleRateInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetSampleRateInternal(PlayableHandle& handle, float value);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, AnimationClip clip, PlayableHandle& handle);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationHumanStream.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationHumanStream.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Animations.AnimationHumanStream : ValueType {
+    private IntPtr stream;
+    public bool isValid { get; }
+    public float humanScale { get; }
+    public float leftFootHeight { get; }
+    public float rightFootHeight { get; }
+    public Vector3 bodyLocalPosition { get; public set; }
+    public Quaternion bodyLocalRotation { get; public set; }
+    public Vector3 bodyPosition { get; public set; }
+    public Quaternion bodyRotation { get; public set; }
+    public Vector3 leftFootVelocity { get; }
+    public Vector3 rightFootVelocity { get; }
+    public bool get_isValid();
+    private void ThrowIfInvalid();
+    public float get_humanScale();
+    public float get_leftFootHeight();
+    public float get_rightFootHeight();
+    public Vector3 get_bodyLocalPosition();
+    public void set_bodyLocalPosition(Vector3 value);
+    public Quaternion get_bodyLocalRotation();
+    public void set_bodyLocalRotation(Quaternion value);
+    public Vector3 get_bodyPosition();
+    public void set_bodyPosition(Vector3 value);
+    public Quaternion get_bodyRotation();
+    public void set_bodyRotation(Quaternion value);
+    public float GetMuscle(MuscleHandle muscle);
+    public void SetMuscle(MuscleHandle muscle, float value);
+    public Vector3 get_leftFootVelocity();
+    public Vector3 get_rightFootVelocity();
+    public void ResetToStancePose();
+    public Vector3 GetGoalPositionFromPose(AvatarIKGoal index);
+    public Quaternion GetGoalRotationFromPose(AvatarIKGoal index);
+    public Vector3 GetGoalLocalPosition(AvatarIKGoal index);
+    public void SetGoalLocalPosition(AvatarIKGoal index, Vector3 pos);
+    public Quaternion GetGoalLocalRotation(AvatarIKGoal index);
+    public void SetGoalLocalRotation(AvatarIKGoal index, Quaternion rot);
+    public Vector3 GetGoalPosition(AvatarIKGoal index);
+    public void SetGoalPosition(AvatarIKGoal index, Vector3 pos);
+    public Quaternion GetGoalRotation(AvatarIKGoal index);
+    public void SetGoalRotation(AvatarIKGoal index, Quaternion rot);
+    public void SetGoalWeightPosition(AvatarIKGoal index, float value);
+    public void SetGoalWeightRotation(AvatarIKGoal index, float value);
+    public float GetGoalWeightPosition(AvatarIKGoal index);
+    public float GetGoalWeightRotation(AvatarIKGoal index);
+    public Vector3 GetHintPosition(AvatarIKHint index);
+    public void SetHintPosition(AvatarIKHint index, Vector3 pos);
+    public void SetHintWeightPosition(AvatarIKHint index, float value);
+    public float GetHintWeightPosition(AvatarIKHint index);
+    public void SetLookAtPosition(Vector3 lookAtPosition);
+    public void SetLookAtClampWeight(float weight);
+    public void SetLookAtBodyWeight(float weight);
+    public void SetLookAtHeadWeight(float weight);
+    public void SetLookAtEyesWeight(float weight);
+    public void SolveIK();
+    [NativeMethodAttribute]
+private float GetHumanScale();
+    [NativeMethodAttribute]
+private float GetFootHeight(bool left);
+    [NativeMethodAttribute]
+private void InternalResetToStancePose();
+    [NativeMethodAttribute]
+private Vector3 InternalGetGoalPositionFromPose(AvatarIKGoal index);
+    [NativeMethodAttribute]
+private Quaternion InternalGetGoalRotationFromPose(AvatarIKGoal index);
+    [NativeMethodAttribute]
+private Vector3 InternalGetBodyLocalPosition();
+    [NativeMethodAttribute]
+private void InternalSetBodyLocalPosition(Vector3 value);
+    [NativeMethodAttribute]
+private Quaternion InternalGetBodyLocalRotation();
+    [NativeMethodAttribute]
+private void InternalSetBodyLocalRotation(Quaternion value);
+    [NativeMethodAttribute]
+private Vector3 InternalGetBodyPosition();
+    [NativeMethodAttribute]
+private void InternalSetBodyPosition(Vector3 value);
+    [NativeMethodAttribute]
+private Quaternion InternalGetBodyRotation();
+    [NativeMethodAttribute]
+private void InternalSetBodyRotation(Quaternion value);
+    [NativeMethodAttribute]
+private float InternalGetMuscle(MuscleHandle muscle);
+    [NativeMethodAttribute]
+private void InternalSetMuscle(MuscleHandle muscle, float value);
+    [NativeMethodAttribute]
+private Vector3 GetLeftFootVelocity();
+    [NativeMethodAttribute]
+private Vector3 GetRightFootVelocity();
+    [NativeMethodAttribute]
+private Vector3 InternalGetGoalLocalPosition(AvatarIKGoal index);
+    [NativeMethodAttribute]
+private void InternalSetGoalLocalPosition(AvatarIKGoal index, Vector3 pos);
+    [NativeMethodAttribute]
+private Quaternion InternalGetGoalLocalRotation(AvatarIKGoal index);
+    [NativeMethodAttribute]
+private void InternalSetGoalLocalRotation(AvatarIKGoal index, Quaternion rot);
+    [NativeMethodAttribute]
+private Vector3 InternalGetGoalPosition(AvatarIKGoal index);
+    [NativeMethodAttribute]
+private void InternalSetGoalPosition(AvatarIKGoal index, Vector3 pos);
+    [NativeMethodAttribute]
+private Quaternion InternalGetGoalRotation(AvatarIKGoal index);
+    [NativeMethodAttribute]
+private void InternalSetGoalRotation(AvatarIKGoal index, Quaternion rot);
+    [NativeMethodAttribute]
+private void InternalSetGoalWeightPosition(AvatarIKGoal index, float value);
+    [NativeMethodAttribute]
+private void InternalSetGoalWeightRotation(AvatarIKGoal index, float value);
+    [NativeMethodAttribute]
+private float InternalGetGoalWeightPosition(AvatarIKGoal index);
+    [NativeMethodAttribute]
+private float InternalGetGoalWeightRotation(AvatarIKGoal index);
+    [NativeMethodAttribute]
+private Vector3 InternalGetHintPosition(AvatarIKHint index);
+    [NativeMethodAttribute]
+private void InternalSetHintPosition(AvatarIKHint index, Vector3 pos);
+    [NativeMethodAttribute]
+private void InternalSetHintWeightPosition(AvatarIKHint index, float value);
+    [NativeMethodAttribute]
+private float InternalGetHintWeightPosition(AvatarIKHint index);
+    [NativeMethodAttribute]
+private void InternalSetLookAtPosition(Vector3 lookAtPosition);
+    [NativeMethodAttribute]
+private void InternalSetLookAtClampWeight(float weight);
+    [NativeMethodAttribute]
+private void InternalSetLookAtBodyWeight(float weight);
+    [NativeMethodAttribute]
+private void InternalSetLookAtHeadWeight(float weight);
+    [NativeMethodAttribute]
+private void InternalSetLookAtEyesWeight(float weight);
+    [NativeMethodAttribute]
+private void InternalSolveIK();
+    private static float GetHumanScale_Injected(AnimationHumanStream& _unity_self);
+    private static float GetFootHeight_Injected(AnimationHumanStream& _unity_self, bool left);
+    private static void InternalResetToStancePose_Injected(AnimationHumanStream& _unity_self);
+    private static void InternalGetGoalPositionFromPose_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Vector3& ret);
+    private static void InternalGetGoalRotationFromPose_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Quaternion& ret);
+    private static void InternalGetBodyLocalPosition_Injected(AnimationHumanStream& _unity_self, Vector3& ret);
+    private static void InternalSetBodyLocalPosition_Injected(AnimationHumanStream& _unity_self, Vector3& value);
+    private static void InternalGetBodyLocalRotation_Injected(AnimationHumanStream& _unity_self, Quaternion& ret);
+    private static void InternalSetBodyLocalRotation_Injected(AnimationHumanStream& _unity_self, Quaternion& value);
+    private static void InternalGetBodyPosition_Injected(AnimationHumanStream& _unity_self, Vector3& ret);
+    private static void InternalSetBodyPosition_Injected(AnimationHumanStream& _unity_self, Vector3& value);
+    private static void InternalGetBodyRotation_Injected(AnimationHumanStream& _unity_self, Quaternion& ret);
+    private static void InternalSetBodyRotation_Injected(AnimationHumanStream& _unity_self, Quaternion& value);
+    private static float InternalGetMuscle_Injected(AnimationHumanStream& _unity_self, MuscleHandle& muscle);
+    private static void InternalSetMuscle_Injected(AnimationHumanStream& _unity_self, MuscleHandle& muscle, float value);
+    private static void GetLeftFootVelocity_Injected(AnimationHumanStream& _unity_self, Vector3& ret);
+    private static void GetRightFootVelocity_Injected(AnimationHumanStream& _unity_self, Vector3& ret);
+    private static void InternalGetGoalLocalPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Vector3& ret);
+    private static void InternalSetGoalLocalPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Vector3& pos);
+    private static void InternalGetGoalLocalRotation_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Quaternion& ret);
+    private static void InternalSetGoalLocalRotation_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Quaternion& rot);
+    private static void InternalGetGoalPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Vector3& ret);
+    private static void InternalSetGoalPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Vector3& pos);
+    private static void InternalGetGoalRotation_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Quaternion& ret);
+    private static void InternalSetGoalRotation_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, Quaternion& rot);
+    private static void InternalSetGoalWeightPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, float value);
+    private static void InternalSetGoalWeightRotation_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index, float value);
+    private static float InternalGetGoalWeightPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index);
+    private static float InternalGetGoalWeightRotation_Injected(AnimationHumanStream& _unity_self, AvatarIKGoal index);
+    private static void InternalGetHintPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKHint index, Vector3& ret);
+    private static void InternalSetHintPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKHint index, Vector3& pos);
+    private static void InternalSetHintWeightPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKHint index, float value);
+    private static float InternalGetHintWeightPosition_Injected(AnimationHumanStream& _unity_self, AvatarIKHint index);
+    private static void InternalSetLookAtPosition_Injected(AnimationHumanStream& _unity_self, Vector3& lookAtPosition);
+    private static void InternalSetLookAtClampWeight_Injected(AnimationHumanStream& _unity_self, float weight);
+    private static void InternalSetLookAtBodyWeight_Injected(AnimationHumanStream& _unity_self, float weight);
+    private static void InternalSetLookAtHeadWeight_Injected(AnimationHumanStream& _unity_self, float weight);
+    private static void InternalSetLookAtEyesWeight_Injected(AnimationHumanStream& _unity_self, float weight);
+    private static void InternalSolveIK_Injected(AnimationHumanStream& _unity_self);
+}
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationLayerMixerPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationLayerMixerPlayable.bindings.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationLayerMixerPlayableBindings", "2")]
+public class UnityEngine.Animations.AnimationLayerMixerPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    private static AnimationLayerMixerPlayable m_NullPlayable;
+    public static AnimationLayerMixerPlayable Null { get; }
+    internal AnimationLayerMixerPlayable(PlayableHandle handle, bool singleLayerOptimization);
+    private static AnimationLayerMixerPlayable();
+    public static AnimationLayerMixerPlayable get_Null();
+    public static AnimationLayerMixerPlayable Create(PlayableGraph graph, int inputCount);
+    public static AnimationLayerMixerPlayable Create(PlayableGraph graph, int inputCount, bool singleLayerOptimization);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, int inputCount);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AnimationLayerMixerPlayable playable);
+    public static AnimationLayerMixerPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimationLayerMixerPlayable other);
+    public bool IsLayerAdditive(UInt32 layerIndex);
+    public void SetLayerAdditive(UInt32 layerIndex, bool value);
+    public void SetLayerMaskFromAvatarMask(UInt32 layerIndex, AvatarMask mask);
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static bool IsLayerAdditiveInternal(PlayableHandle& handle, UInt32 layerIndex);
+    [NativeThrowsAttribute]
+private static void SetLayerAdditiveInternal(PlayableHandle& handle, UInt32 layerIndex, bool value);
+    [NativeThrowsAttribute]
+private static void SetSingleLayerOptimizationInternal(PlayableHandle& handle, bool value);
+    [NativeThrowsAttribute]
+private static void SetLayerMaskFromAvatarMaskInternal(PlayableHandle& handle, UInt32 layerIndex, AvatarMask mask);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, PlayableHandle& handle);
+}
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationMixerPlayable.h")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationMixerPlayable.bindings.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationMixerPlayableBindings", "2")]
+public class UnityEngine.Animations.AnimationMixerPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    private static AnimationMixerPlayable m_NullPlayable;
+    public static AnimationMixerPlayable Null { get; }
+    internal AnimationMixerPlayable(PlayableHandle handle);
+    private static AnimationMixerPlayable();
+    public static AnimationMixerPlayable get_Null();
+    [ObsoleteAttribute("normalizeWeights is obsolete. It has no effect and will be removed.")]
+public static AnimationMixerPlayable Create(PlayableGraph graph, int inputCount, bool normalizeWeights);
+    public static AnimationMixerPlayable Create(PlayableGraph graph, int inputCount);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, int inputCount);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AnimationMixerPlayable playable);
+    public static AnimationMixerPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimationMixerPlayable other);
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, PlayableHandle& handle);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, PlayableHandle& handle);
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationMotionXToDeltaPlayable.bindings.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationMotionXToDeltaPlayableBindings", "2")]
+internal class UnityEngine.Animations.AnimationMotionXToDeltaPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    private static AnimationMotionXToDeltaPlayable m_NullPlayable;
+    public static AnimationMotionXToDeltaPlayable Null { get; }
+    private AnimationMotionXToDeltaPlayable(PlayableHandle handle);
+    private static AnimationMotionXToDeltaPlayable();
+    public static AnimationMotionXToDeltaPlayable get_Null();
+    public static AnimationMotionXToDeltaPlayable Create(PlayableGraph graph);
+    private static PlayableHandle CreateHandle(PlayableGraph graph);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AnimationMotionXToDeltaPlayable playable);
+    public static AnimationMotionXToDeltaPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimationMotionXToDeltaPlayable other);
+    public bool IsAbsoluteMotion();
+    public void SetAbsoluteMotion(bool value);
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static bool IsAbsoluteMotionInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetAbsoluteMotionInternal(PlayableHandle& handle, bool value);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, PlayableHandle& handle);
+}
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationOffsetPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationOffsetPlayable.bindings.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationOffsetPlayableBindings", "2")]
+internal class UnityEngine.Animations.AnimationOffsetPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    private static AnimationOffsetPlayable m_NullPlayable;
+    public static AnimationOffsetPlayable Null { get; }
+    internal AnimationOffsetPlayable(PlayableHandle handle);
+    private static AnimationOffsetPlayable();
+    public static AnimationOffsetPlayable get_Null();
+    public static AnimationOffsetPlayable Create(PlayableGraph graph, Vector3 position, Quaternion rotation, int inputCount);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, Vector3 position, Quaternion rotation, int inputCount);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AnimationOffsetPlayable playable);
+    public static AnimationOffsetPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimationOffsetPlayable other);
+    public Vector3 GetPosition();
+    public void SetPosition(Vector3 value);
+    public Quaternion GetRotation();
+    public void SetRotation(Quaternion value);
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, Vector3 position, Quaternion rotation, PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static Vector3 GetPositionInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetPositionInternal(PlayableHandle& handle, Vector3 value);
+    [NativeThrowsAttribute]
+private static Quaternion GetRotationInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetRotationInternal(PlayableHandle& handle, Quaternion value);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, Vector3& position, Quaternion& rotation, PlayableHandle& handle);
+    private static void GetPositionInternal_Injected(PlayableHandle& handle, Vector3& ret);
+    private static void SetPositionInternal_Injected(PlayableHandle& handle, Vector3& value);
+    private static void GetRotationInternal_Injected(PlayableHandle& handle, Quaternion& ret);
+    private static void SetRotationInternal_Injected(PlayableHandle& handle, Quaternion& value);
+}
+public static class UnityEngine.Animations.AnimationPlayableBinding : object {
+    public static PlayableBinding Create(string name, Object key);
+    private static PlayableOutput CreateAnimationOutput(PlayableGraph graph, string name);
+}
+[ExtensionAttribute]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/AnimationClip.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationPlayableExtensions.h")]
+public static class UnityEngine.Animations.AnimationPlayableExtensions : object {
+    [ExtensionAttribute]
+public static void SetAnimatedProperties(U playable, AnimationClip clip);
+    [NativeThrowsAttribute]
+internal static void SetAnimatedPropertiesInternal(PlayableHandle& playable, AnimationClip animatedProperties);
+}
+[ExtensionAttribute]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayableOutput.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationPlayableGraphExtensions.bindings.h")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/Animator.h")]
+[StaticAccessorAttribute("AnimationPlayableGraphExtensionsBindings", "2")]
+internal static class UnityEngine.Animations.AnimationPlayableGraphExtensions : object {
+    [ExtensionAttribute]
+internal static void SyncUpdateAndTimeMode(PlayableGraph graph, Animator animator);
+    [ExtensionAttribute]
+internal static void DestroyOutput(PlayableGraph graph, PlayableOutputHandle handle);
+    [NativeThrowsAttribute]
+internal static bool InternalCreateAnimationOutput(PlayableGraph& graph, string name, PlayableOutputHandle& handle);
+    [NativeThrowsAttribute]
+internal static void InternalSyncUpdateAndTimeMode(PlayableGraph& graph, Animator animator);
+    [NativeThrowsAttribute]
+private static void InternalDestroyOutput(PlayableGraph& graph, PlayableOutputHandle& handle);
+    [NativeThrowsAttribute]
+private static int InternalAnimationOutputCount(PlayableGraph& graph);
+    [NativeThrowsAttribute]
+private static bool InternalGetAnimationOutput(PlayableGraph& graph, int index, PlayableOutputHandle& handle);
+}
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationPlayableOutput.h")]
+[NativeHeaderAttribute("Modules/Animation/Animator.h")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayableGraph.h")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayableOutput.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationPlayableOutput.bindings.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationPlayableOutputBindings", "2")]
+public class UnityEngine.Animations.AnimationPlayableOutput : ValueType {
+    private PlayableOutputHandle m_Handle;
+    public static AnimationPlayableOutput Null { get; }
+    internal AnimationPlayableOutput(PlayableOutputHandle handle);
+    public static AnimationPlayableOutput Create(PlayableGraph graph, string name, Animator target);
+    public static AnimationPlayableOutput get_Null();
+    public sealed virtual PlayableOutputHandle GetHandle();
+    public static PlayableOutput op_Implicit(AnimationPlayableOutput output);
+    public static AnimationPlayableOutput op_Explicit(PlayableOutput output);
+    public Animator GetTarget();
+    public void SetTarget(Animator value);
+    [NativeThrowsAttribute]
+private static Animator InternalGetTarget(PlayableOutputHandle& handle);
+    [NativeThrowsAttribute]
+private static void InternalSetTarget(PlayableOutputHandle& handle, Animator target);
+}
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationPosePlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationPosePlayable.bindings.h")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationPosePlayableBindings", "2")]
+internal class UnityEngine.Animations.AnimationPosePlayable : ValueType {
+    private PlayableHandle m_Handle;
+    private static AnimationPosePlayable m_NullPlayable;
+    public static AnimationPosePlayable Null { get; }
+    internal AnimationPosePlayable(PlayableHandle handle);
+    private static AnimationPosePlayable();
+    public static AnimationPosePlayable get_Null();
+    public static AnimationPosePlayable Create(PlayableGraph graph);
+    private static PlayableHandle CreateHandle(PlayableGraph graph);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AnimationPosePlayable playable);
+    public static AnimationPosePlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimationPosePlayable other);
+    public bool GetMustReadPreviousPose();
+    public void SetMustReadPreviousPose(bool value);
+    public bool GetReadDefaultPose();
+    public void SetReadDefaultPose(bool value);
+    public bool GetApplyFootIK();
+    public void SetApplyFootIK(bool value);
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static bool GetMustReadPreviousPoseInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetMustReadPreviousPoseInternal(PlayableHandle& handle, bool value);
+    [NativeThrowsAttribute]
+private static bool GetReadDefaultPoseInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetReadDefaultPoseInternal(PlayableHandle& handle, bool value);
+    [NativeThrowsAttribute]
+private static bool GetApplyFootIKInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static void SetApplyFootIKInternal(PlayableHandle& handle, bool value);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, PlayableHandle& handle);
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationRemoveScalePlayable.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationRemoveScalePlayable.h")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationRemoveScalePlayableBindings", "2")]
+internal class UnityEngine.Animations.AnimationRemoveScalePlayable : ValueType {
+    private PlayableHandle m_Handle;
+    private static AnimationRemoveScalePlayable m_NullPlayable;
+    public static AnimationRemoveScalePlayable Null { get; }
+    internal AnimationRemoveScalePlayable(PlayableHandle handle);
+    private static AnimationRemoveScalePlayable();
+    public static AnimationRemoveScalePlayable get_Null();
+    public static AnimationRemoveScalePlayable Create(PlayableGraph graph, int inputCount);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, int inputCount);
+    public sealed virtual PlayableHandle GetHandle();
+    public static Playable op_Implicit(AnimationRemoveScalePlayable playable);
+    public static AnimationRemoveScalePlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimationRemoveScalePlayable other);
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, PlayableHandle& handle);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, PlayableHandle& handle);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationStreamHandles.bindings.h")]
+public static class UnityEngine.Animations.AnimationSceneHandleUtility : object {
+    public static void ReadInts(AnimationStream stream, NativeArray`1<PropertySceneHandle> handles, NativeArray`1<int> buffer);
+    public static void ReadFloats(AnimationStream stream, NativeArray`1<PropertySceneHandle> handles, NativeArray`1<float> buffer);
+    internal static int ValidateAndGetArrayCount(AnimationStream& stream, NativeArray`1<T0> handles, NativeArray`1<T1> buffer);
+    [NativeMethodAttribute]
+private static void ReadSceneIntsInternal(AnimationStream& stream, Void* propertySceneHandles, Void* intBuffer, int count);
+    [NativeMethodAttribute]
+private static void ReadSceneFloatsInternal(AnimationStream& stream, Void* propertySceneHandles, Void* floatBuffer, int count);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationScriptPlayable.bindings.h")]
+[NativeHeaderAttribute("Runtime/Director/Core/HPlayableGraph.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimationScriptPlayableBindings", "2")]
+public class UnityEngine.Animations.AnimationScriptPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    private static AnimationScriptPlayable m_NullPlayable;
+    public static AnimationScriptPlayable Null { get; }
+    internal AnimationScriptPlayable(PlayableHandle handle);
+    private static AnimationScriptPlayable();
+    public static AnimationScriptPlayable get_Null();
+    public static AnimationScriptPlayable Create(PlayableGraph graph, T jobData, int inputCount);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, int inputCount);
+    public sealed virtual PlayableHandle GetHandle();
+    private void CheckJobTypeValidity();
+    public sealed virtual T GetJobData();
+    public sealed virtual void SetJobData(T jobData);
+    public static Playable op_Implicit(AnimationScriptPlayable playable);
+    public static AnimationScriptPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimationScriptPlayable other);
+    public void SetProcessInputs(bool value);
+    public bool GetProcessInputs();
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, PlayableHandle& handle, IntPtr jobReflectionData);
+    [NativeThrowsAttribute]
+private static void SetProcessInputsInternal(PlayableHandle handle, bool value);
+    [NativeThrowsAttribute]
+private static bool GetProcessInputsInternal(PlayableHandle handle);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, PlayableHandle& handle, IntPtr jobReflectionData);
+    private static void SetProcessInputsInternal_Injected(PlayableHandle& handle, bool value);
+    private static bool GetProcessInputsInternal_Injected(PlayableHandle& handle);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationStream.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationStream.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Animations.AnimationStream : ValueType {
+    private UInt32 m_AnimatorBindingsVersion;
+    private IntPtr constant;
+    private IntPtr input;
+    private IntPtr output;
+    private IntPtr workspace;
+    private IntPtr inputStreamAccessor;
+    private IntPtr animationHandleBinder;
+    internal static int InvalidIndex;
+    internal UInt32 animatorBindingsVersion { get; }
+    public bool isValid { get; }
+    public float deltaTime { get; }
+    public Vector3 velocity { get; public set; }
+    public Vector3 angularVelocity { get; public set; }
+    public Vector3 rootMotionPosition { get; }
+    public Quaternion rootMotionRotation { get; }
+    public bool isHumanStream { get; }
+    public int inputStreamCount { get; }
+    internal UInt32 get_animatorBindingsVersion();
+    public bool get_isValid();
+    internal void CheckIsValid();
+    public float get_deltaTime();
+    public Vector3 get_velocity();
+    public void set_velocity(Vector3 value);
+    public Vector3 get_angularVelocity();
+    public void set_angularVelocity(Vector3 value);
+    public Vector3 get_rootMotionPosition();
+    public Quaternion get_rootMotionRotation();
+    public bool get_isHumanStream();
+    public AnimationHumanStream AsHuman();
+    public int get_inputStreamCount();
+    public AnimationStream GetInputStream(int index);
+    public float GetInputWeight(int index);
+    public void CopyAnimationStreamMotion(AnimationStream animationStream);
+    private void ReadSceneTransforms();
+    private void WriteSceneTransforms();
+    [NativeMethodAttribute]
+private void CopyAnimationStreamMotionInternal(AnimationStream animationStream);
+    [NativeMethodAttribute]
+private float GetDeltaTime();
+    [NativeMethodAttribute]
+private bool GetIsHumanStream();
+    [NativeMethodAttribute]
+private Vector3 GetVelocity();
+    [NativeMethodAttribute]
+private void SetVelocity(Vector3 velocity);
+    [NativeMethodAttribute]
+private Vector3 GetAngularVelocity();
+    [NativeMethodAttribute]
+private void SetAngularVelocity(Vector3 velocity);
+    [NativeMethodAttribute]
+private Vector3 GetRootMotionPosition();
+    [NativeMethodAttribute]
+private Quaternion GetRootMotionRotation();
+    [NativeMethodAttribute]
+private int GetInputStreamCount();
+    [NativeMethodAttribute]
+private AnimationStream InternalGetInputStream(int index);
+    [NativeMethodAttribute]
+private float InternalGetInputWeight(int index);
+    [NativeMethodAttribute]
+private AnimationHumanStream GetHumanStream();
+    [NativeMethodAttribute]
+private void InternalReadSceneTransforms();
+    [NativeMethodAttribute]
+private void InternalWriteSceneTransforms();
+    private static void CopyAnimationStreamMotionInternal_Injected(AnimationStream& _unity_self, AnimationStream& animationStream);
+    private static float GetDeltaTime_Injected(AnimationStream& _unity_self);
+    private static bool GetIsHumanStream_Injected(AnimationStream& _unity_self);
+    private static void GetVelocity_Injected(AnimationStream& _unity_self, Vector3& ret);
+    private static void SetVelocity_Injected(AnimationStream& _unity_self, Vector3& velocity);
+    private static void GetAngularVelocity_Injected(AnimationStream& _unity_self, Vector3& ret);
+    private static void SetAngularVelocity_Injected(AnimationStream& _unity_self, Vector3& velocity);
+    private static void GetRootMotionPosition_Injected(AnimationStream& _unity_self, Vector3& ret);
+    private static void GetRootMotionRotation_Injected(AnimationStream& _unity_self, Quaternion& ret);
+    private static int GetInputStreamCount_Injected(AnimationStream& _unity_self);
+    private static void InternalGetInputStream_Injected(AnimationStream& _unity_self, int index, AnimationStream& ret);
+    private static float InternalGetInputWeight_Injected(AnimationStream& _unity_self, int index);
+    private static void GetHumanStream_Injected(AnimationStream& _unity_self, AnimationHumanStream& ret);
+    private static void InternalReadSceneTransforms_Injected(AnimationStream& _unity_self);
+    private static void InternalWriteSceneTransforms_Injected(AnimationStream& _unity_self);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationStreamHandles.bindings.h")]
+public static class UnityEngine.Animations.AnimationStreamHandleUtility : object {
+    public static void WriteInts(AnimationStream stream, NativeArray`1<PropertyStreamHandle> handles, NativeArray`1<int> buffer, bool useMask);
+    public static void WriteFloats(AnimationStream stream, NativeArray`1<PropertyStreamHandle> handles, NativeArray`1<float> buffer, bool useMask);
+    public static void ReadInts(AnimationStream stream, NativeArray`1<PropertyStreamHandle> handles, NativeArray`1<int> buffer);
+    public static void ReadFloats(AnimationStream stream, NativeArray`1<PropertyStreamHandle> handles, NativeArray`1<float> buffer);
+    [NativeMethodAttribute]
+private static void ReadStreamIntsInternal(AnimationStream& stream, Void* propertyStreamHandles, Void* intBuffer, int count);
+    [NativeMethodAttribute]
+private static void ReadStreamFloatsInternal(AnimationStream& stream, Void* propertyStreamHandles, Void* floatBuffer, int count);
+    [NativeMethodAttribute]
+private static void WriteStreamIntsInternal(AnimationStream& stream, Void* propertyStreamHandles, Void* intBuffer, int count, bool useMask);
+    [NativeMethodAttribute]
+private static void WriteStreamFloatsInternal(AnimationStream& stream, Void* propertyStreamHandles, Void* floatBuffer, int count, bool useMask);
+}
+internal enum UnityEngine.Animations.AnimatorBindingsVersion : Enum {
+    public int value__;
+    public static AnimatorBindingsVersion kInvalidNotNative;
+    public static AnimatorBindingsVersion kInvalidUnresolved;
+    public static AnimatorBindingsVersion kValidMinVersion;
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/Animator.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimatorControllerPlayable.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimatorControllerPlayable.h")]
+[NativeHeaderAttribute("Modules/Animation/RuntimeAnimatorController.h")]
+[NativeHeaderAttribute("Modules/Animation/AnimatorInfo.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("AnimatorControllerPlayableBindings", "2")]
+public class UnityEngine.Animations.AnimatorControllerPlayable : ValueType {
+    private PlayableHandle m_Handle;
+    private static AnimatorControllerPlayable m_NullPlayable;
+    public static AnimatorControllerPlayable Null { get; }
+    internal AnimatorControllerPlayable(PlayableHandle handle);
+    private static AnimatorControllerPlayable();
+    public static AnimatorControllerPlayable get_Null();
+    public static AnimatorControllerPlayable Create(PlayableGraph graph, RuntimeAnimatorController controller);
+    private static PlayableHandle CreateHandle(PlayableGraph graph, RuntimeAnimatorController controller);
+    public sealed virtual PlayableHandle GetHandle();
+    public void SetHandle(PlayableHandle handle);
+    public static Playable op_Implicit(AnimatorControllerPlayable playable);
+    public static AnimatorControllerPlayable op_Explicit(Playable playable);
+    public sealed virtual bool Equals(AnimatorControllerPlayable other);
+    public float GetFloat(string name);
+    public float GetFloat(int id);
+    public void SetFloat(string name, float value);
+    public void SetFloat(int id, float value);
+    public bool GetBool(string name);
+    public bool GetBool(int id);
+    public void SetBool(string name, bool value);
+    public void SetBool(int id, bool value);
+    public int GetInteger(string name);
+    public int GetInteger(int id);
+    public void SetInteger(string name, int value);
+    public void SetInteger(int id, int value);
+    public void SetTrigger(string name);
+    public void SetTrigger(int id);
+    public void ResetTrigger(string name);
+    public void ResetTrigger(int id);
+    public bool IsParameterControlledByCurve(string name);
+    public bool IsParameterControlledByCurve(int id);
+    public int GetLayerCount();
+    public string GetLayerName(int layerIndex);
+    public int GetLayerIndex(string layerName);
+    public float GetLayerWeight(int layerIndex);
+    public void SetLayerWeight(int layerIndex, float weight);
+    public AnimatorStateInfo GetCurrentAnimatorStateInfo(int layerIndex);
+    public AnimatorStateInfo GetNextAnimatorStateInfo(int layerIndex);
+    public AnimatorTransitionInfo GetAnimatorTransitionInfo(int layerIndex);
+    public AnimatorClipInfo[] GetCurrentAnimatorClipInfo(int layerIndex);
+    public void GetCurrentAnimatorClipInfo(int layerIndex, List`1<AnimatorClipInfo> clips);
+    public void GetNextAnimatorClipInfo(int layerIndex, List`1<AnimatorClipInfo> clips);
+    [NativeThrowsAttribute]
+private static void GetAnimatorClipInfoInternal(PlayableHandle& handle, int layerIndex, bool isCurrent, object clips);
+    public int GetCurrentAnimatorClipInfoCount(int layerIndex);
+    public int GetNextAnimatorClipInfoCount(int layerIndex);
+    public AnimatorClipInfo[] GetNextAnimatorClipInfo(int layerIndex);
+    public bool IsInTransition(int layerIndex);
+    public int GetParameterCount();
+    public AnimatorControllerParameter GetParameter(int index);
+    public void CrossFadeInFixedTime(string stateName, float transitionDuration);
+    public void CrossFadeInFixedTime(string stateName, float transitionDuration, int layer);
+    public void CrossFadeInFixedTime(string stateName, float transitionDuration, int layer, float fixedTime);
+    public void CrossFadeInFixedTime(int stateNameHash, float transitionDuration);
+    public void CrossFadeInFixedTime(int stateNameHash, float transitionDuration, int layer);
+    public void CrossFadeInFixedTime(int stateNameHash, float transitionDuration, int layer, float fixedTime);
+    public void CrossFade(string stateName, float transitionDuration);
+    public void CrossFade(string stateName, float transitionDuration, int layer);
+    public void CrossFade(string stateName, float transitionDuration, int layer, float normalizedTime);
+    public void CrossFade(int stateNameHash, float transitionDuration);
+    public void CrossFade(int stateNameHash, float transitionDuration, int layer);
+    public void CrossFade(int stateNameHash, float transitionDuration, int layer, float normalizedTime);
+    public void PlayInFixedTime(string stateName);
+    public void PlayInFixedTime(string stateName, int layer);
+    public void PlayInFixedTime(string stateName, int layer, float fixedTime);
+    public void PlayInFixedTime(int stateNameHash);
+    public void PlayInFixedTime(int stateNameHash, int layer);
+    public void PlayInFixedTime(int stateNameHash, int layer, float fixedTime);
+    public void Play(string stateName);
+    public void Play(string stateName, int layer);
+    public void Play(string stateName, int layer, float normalizedTime);
+    public void Play(int stateNameHash);
+    public void Play(int stateNameHash, int layer);
+    public void Play(int stateNameHash, int layer, float normalizedTime);
+    public bool HasState(int layerIndex, int stateID);
+    internal string ResolveHash(int hash);
+    [NativeThrowsAttribute]
+private static bool CreateHandleInternal(PlayableGraph graph, RuntimeAnimatorController controller, PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static RuntimeAnimatorController GetAnimatorControllerInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static int GetLayerCountInternal(PlayableHandle& handle);
+    [NativeThrowsAttribute]
+private static string GetLayerNameInternal(PlayableHandle& handle, int layerIndex);
+    [NativeThrowsAttribute]
+private static int GetLayerIndexInternal(PlayableHandle& handle, string layerName);
+    [NativeThrowsAttribute]
+private static float GetLayerWeightInternal(PlayableHandle& handle, int layerIndex);
+    [NativeThrowsAttribute]
+private static void SetLayerWeightInternal(PlayableHandle& handle, int layerIndex, float weight);
+    [NativeThrowsAttribute]
+private static AnimatorStateInfo GetCurrentAnimatorStateInfoInternal(PlayableHandle& handle, int layerIndex);
+    [NativeThrowsAttribute]
+private static AnimatorStateInfo GetNextAnimatorStateInfoInternal(PlayableHandle& handle, int layerIndex);
+    [NativeThrowsAttribute]
+private static AnimatorTransitionInfo GetAnimatorTransitionInfoInternal(PlayableHandle& handle, int layerIndex);
+    [NativeThrowsAttribute]
+private static AnimatorClipInfo[] GetCurrentAnimatorClipInfoInternal(PlayableHandle& handle, int layerIndex);
+    [NativeThrowsAttribute]
+private static int GetAnimatorClipInfoCountInternal(PlayableHandle& handle, int layerIndex, bool current);
+    [NativeThrowsAttribute]
+private static AnimatorClipInfo[] GetNextAnimatorClipInfoInternal(PlayableHandle& handle, int layerIndex);
+    [NativeThrowsAttribute]
+private static string ResolveHashInternal(PlayableHandle& handle, int hash);
+    [NativeThrowsAttribute]
+private static bool IsInTransitionInternal(PlayableHandle& handle, int layerIndex);
+    [NativeThrowsAttribute]
+private static AnimatorControllerParameter GetParameterInternal(PlayableHandle& handle, int index);
+    [NativeThrowsAttribute]
+private static int GetParameterCountInternal(PlayableHandle& handle);
+    [ThreadSafeAttribute]
+private static int StringToHash(string name);
+    [NativeThrowsAttribute]
+private static void CrossFadeInFixedTimeInternal(PlayableHandle& handle, int stateNameHash, float transitionDuration, int layer, float fixedTime);
+    [NativeThrowsAttribute]
+private static void CrossFadeInternal(PlayableHandle& handle, int stateNameHash, float transitionDuration, int layer, float normalizedTime);
+    [NativeThrowsAttribute]
+private static void PlayInFixedTimeInternal(PlayableHandle& handle, int stateNameHash, int layer, float fixedTime);
+    [NativeThrowsAttribute]
+private static void PlayInternal(PlayableHandle& handle, int stateNameHash, int layer, float normalizedTime);
+    [NativeThrowsAttribute]
+private static bool HasStateInternal(PlayableHandle& handle, int layerIndex, int stateID);
+    [NativeThrowsAttribute]
+private static void SetFloatString(PlayableHandle& handle, string name, float value);
+    [NativeThrowsAttribute]
+private static void SetFloatID(PlayableHandle& handle, int id, float value);
+    [NativeThrowsAttribute]
+private static float GetFloatString(PlayableHandle& handle, string name);
+    [NativeThrowsAttribute]
+private static float GetFloatID(PlayableHandle& handle, int id);
+    [NativeThrowsAttribute]
+private static void SetBoolString(PlayableHandle& handle, string name, bool value);
+    [NativeThrowsAttribute]
+private static void SetBoolID(PlayableHandle& handle, int id, bool value);
+    [NativeThrowsAttribute]
+private static bool GetBoolString(PlayableHandle& handle, string name);
+    [NativeThrowsAttribute]
+private static bool GetBoolID(PlayableHandle& handle, int id);
+    [NativeThrowsAttribute]
+private static void SetIntegerString(PlayableHandle& handle, string name, int value);
+    [NativeThrowsAttribute]
+private static void SetIntegerID(PlayableHandle& handle, int id, int value);
+    [NativeThrowsAttribute]
+private static int GetIntegerString(PlayableHandle& handle, string name);
+    [NativeThrowsAttribute]
+private static int GetIntegerID(PlayableHandle& handle, int id);
+    [NativeThrowsAttribute]
+private static void SetTriggerString(PlayableHandle& handle, string name);
+    [NativeThrowsAttribute]
+private static void SetTriggerID(PlayableHandle& handle, int id);
+    [NativeThrowsAttribute]
+private static void ResetTriggerString(PlayableHandle& handle, string name);
+    [NativeThrowsAttribute]
+private static void ResetTriggerID(PlayableHandle& handle, int id);
+    [NativeThrowsAttribute]
+private static bool IsParameterControlledByCurveString(PlayableHandle& handle, string name);
+    [NativeThrowsAttribute]
+private static bool IsParameterControlledByCurveID(PlayableHandle& handle, int id);
+    private static bool CreateHandleInternal_Injected(PlayableGraph& graph, RuntimeAnimatorController controller, PlayableHandle& handle);
+    private static void GetCurrentAnimatorStateInfoInternal_Injected(PlayableHandle& handle, int layerIndex, AnimatorStateInfo& ret);
+    private static void GetNextAnimatorStateInfoInternal_Injected(PlayableHandle& handle, int layerIndex, AnimatorStateInfo& ret);
+    private static void GetAnimatorTransitionInfoInternal_Injected(PlayableHandle& handle, int layerIndex, AnimatorTransitionInfo& ret);
+}
+[ExtensionAttribute]
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimatorJobExtensions.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationStreamHandles.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationSceneHandles.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationStream.h")]
+[NativeHeaderAttribute("Modules/Animation/Animator.h")]
+[StaticAccessorAttribute("AnimatorJobExtensionsBindings", "2")]
+public static class UnityEngine.Animations.AnimatorJobExtensions : object {
+    [ExtensionAttribute]
+public static void AddJobDependency(Animator animator, JobHandle jobHandle);
+    [ExtensionAttribute]
+public static TransformStreamHandle BindStreamTransform(Animator animator, Transform transform);
+    [ExtensionAttribute]
+public static PropertyStreamHandle BindStreamProperty(Animator animator, Transform transform, Type type, string property);
+    [ExtensionAttribute]
+public static PropertyStreamHandle BindCustomStreamProperty(Animator animator, string property, CustomStreamPropertyType type);
+    [ExtensionAttribute]
+public static PropertyStreamHandle BindStreamProperty(Animator animator, Transform transform, Type type, string property, bool isObjectReference);
+    [ExtensionAttribute]
+public static TransformSceneHandle BindSceneTransform(Animator animator, Transform transform);
+    [ExtensionAttribute]
+public static PropertySceneHandle BindSceneProperty(Animator animator, Transform transform, Type type, string property);
+    [ExtensionAttribute]
+public static PropertySceneHandle BindSceneProperty(Animator animator, Transform transform, Type type, string property, bool isObjectReference);
+    [ExtensionAttribute]
+public static bool OpenAnimationStream(Animator animator, AnimationStream& stream);
+    [ExtensionAttribute]
+public static void CloseAnimationStream(Animator animator, AnimationStream& stream);
+    [ExtensionAttribute]
+public static void ResolveAllStreamHandles(Animator animator);
+    [ExtensionAttribute]
+public static void ResolveAllSceneHandles(Animator animator);
+    [ExtensionAttribute]
+internal static void UnbindAllHandles(Animator animator);
+    [ExtensionAttribute]
+public static void UnbindAllStreamHandles(Animator animator);
+    [ExtensionAttribute]
+public static void UnbindAllSceneHandles(Animator animator);
+    private static void InternalAddJobDependency(Animator animator, JobHandle jobHandle);
+    private static void InternalBindStreamTransform(Animator animator, Transform transform, TransformStreamHandle& transformStreamHandle);
+    private static void InternalBindStreamProperty(Animator animator, Transform transform, Type type, string property, bool isObjectReference, PropertyStreamHandle& propertyStreamHandle);
+    private static void InternalBindCustomStreamProperty(Animator animator, string property, CustomStreamPropertyType propertyType, PropertyStreamHandle& propertyStreamHandle);
+    private static void InternalBindSceneTransform(Animator animator, Transform transform, TransformSceneHandle& transformSceneHandle);
+    private static void InternalBindSceneProperty(Animator animator, Transform transform, Type type, string property, bool isObjectReference, PropertySceneHandle& propertySceneHandle);
+    private static bool InternalOpenAnimationStream(Animator animator, AnimationStream& stream);
+    private static void InternalCloseAnimationStream(Animator animator, AnimationStream& stream);
+    private static void InternalResolveAllStreamHandles(Animator animator);
+    private static void InternalResolveAllSceneHandles(Animator animator);
+    private static void InternalUnbindAllStreamHandles(Animator animator);
+    private static void InternalUnbindAllSceneHandles(Animator animator);
+    private static void InternalAddJobDependency_Injected(Animator animator, JobHandle& jobHandle);
+}
+[FlagsAttribute]
+[NativeTypeAttribute("Modules/Animation/Constraints/ConstraintEnums.h")]
+public enum UnityEngine.Animations.Axis : Enum {
+    public int value__;
+    public static Axis None;
+    public static Axis X;
+    public static Axis Y;
+    public static Axis Z;
+}
+internal enum UnityEngine.Animations.BindType : Enum {
+    public int value__;
+    public static BindType Unbound;
+    public static BindType Float;
+    public static BindType Bool;
+    public static BindType GameObjectActive;
+    public static BindType ObjectReference;
+    public static BindType Int;
+    public static BindType DiscreetInt;
+}
+[NativeHeaderAttribute("Modules/Animation/Constraints/Constraint.bindings.h")]
+[NativeTypeAttribute]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Animations.ConstraintSource : ValueType {
+    [NativeNameAttribute("sourceTransform")]
+private Transform m_SourceTransform;
+    [NativeNameAttribute("weight")]
+private float m_Weight;
+    public Transform sourceTransform { get; public set; }
+    public float weight { get; public set; }
+    public Transform get_sourceTransform();
+    public void set_sourceTransform(Transform value);
+    public float get_weight();
+    public void set_weight(float value);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+public enum UnityEngine.Animations.CustomStreamPropertyType : Enum {
+    public int value__;
+    public static CustomStreamPropertyType Float;
+    public static CustomStreamPropertyType Bool;
+    public static CustomStreamPropertyType Int;
+}
+[AttributeUsageAttribute("256")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Animations.DiscreteEvaluationAttribute : Attribute {
+}
+internal static class UnityEngine.Animations.DiscreteEvaluationAttributeUtilities : object {
+    public static int ConvertFloatToDiscreteInt(float f);
+    public static float ConvertDiscreteIntToFloat(int f);
+}
+[JobProducerTypeAttribute("UnityEngine.Animations.ProcessAnimationJobStruct`1")]
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+public interface UnityEngine.Animations.IAnimationJob {
+    public abstract virtual void ProcessAnimation(AnimationStream stream);
+    public abstract virtual void ProcessRootMotion(AnimationStream stream);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+public interface UnityEngine.Animations.IAnimationJobPlayable {
+    public abstract virtual T GetJobData();
+    public abstract virtual void SetJobData(T jobData);
+}
+[UsedByNativeCodeAttribute]
+internal interface UnityEngine.Animations.IAnimationPreviewable {
+    public abstract virtual void OnPreviewUpdate();
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+public interface UnityEngine.Animations.IAnimationWindowPreview {
+    public abstract virtual void StartPreview();
+    public abstract virtual void StopPreview();
+    public abstract virtual void UpdatePreviewGraph(PlayableGraph graph);
+    public abstract virtual Playable BuildPreviewGraph(PlayableGraph graph, Playable inputPlayable);
+}
+public interface UnityEngine.Animations.IConstraint {
+    public float weight { get; public set; }
+    public bool constraintActive { get; public set; }
+    public bool locked { get; public set; }
+    public int sourceCount { get; }
+    public abstract virtual float get_weight();
+    public abstract virtual void set_weight(float value);
+    public abstract virtual bool get_constraintActive();
+    public abstract virtual void set_constraintActive(bool value);
+    public abstract virtual bool get_locked();
+    public abstract virtual void set_locked(bool value);
+    public abstract virtual int get_sourceCount();
+    public abstract virtual int AddSource(ConstraintSource source);
+    public abstract virtual void RemoveSource(int index);
+    public abstract virtual ConstraintSource GetSource(int index);
+    public abstract virtual void SetSource(int index, ConstraintSource source);
+    public abstract virtual void GetSources(List`1<ConstraintSource> sources);
+    public abstract virtual void SetSources(List`1<ConstraintSource> sources);
+}
+internal interface UnityEngine.Animations.IConstraintInternal {
+}
+internal enum UnityEngine.Animations.JobMethodIndex : Enum {
+    public int value__;
+    public static JobMethodIndex ProcessRootMotionMethodIndex;
+    public static JobMethodIndex ProcessAnimationMethodIndex;
+    public static JobMethodIndex MethodIndexCount;
+}
+[NativeHeaderAttribute("Modules/Animation/Constraints/Constraint.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Constraints/LookAtConstraint.h")]
+[RequireComponent("UnityEngine.Transform")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Animations.LookAtConstraint : Behaviour {
+    public float weight { get; public set; }
+    public float roll { get; public set; }
+    public bool constraintActive { get; public set; }
+    public bool locked { get; public set; }
+    public Vector3 rotationAtRest { get; public set; }
+    public Vector3 rotationOffset { get; public set; }
+    public Transform worldUpObject { get; public set; }
+    public bool useUpObject { get; public set; }
+    public int sourceCount { get; }
+    private static void Internal_Create(LookAtConstraint self);
+    public sealed virtual float get_weight();
+    public sealed virtual void set_weight(float value);
+    public float get_roll();
+    public void set_roll(float value);
+    public sealed virtual bool get_constraintActive();
+    public sealed virtual void set_constraintActive(bool value);
+    public sealed virtual bool get_locked();
+    public sealed virtual void set_locked(bool value);
+    public Vector3 get_rotationAtRest();
+    public void set_rotationAtRest(Vector3 value);
+    public Vector3 get_rotationOffset();
+    public void set_rotationOffset(Vector3 value);
+    public Transform get_worldUpObject();
+    public void set_worldUpObject(Transform value);
+    public bool get_useUpObject();
+    public void set_useUpObject(bool value);
+    public sealed virtual int get_sourceCount();
+    [FreeFunctionAttribute("ConstraintBindings::GetSourceCount")]
+private static int GetSourceCountInternal(LookAtConstraint self);
+    [FreeFunctionAttribute]
+public sealed virtual void GetSources(List`1<ConstraintSource> sources);
+    public sealed virtual void SetSources(List`1<ConstraintSource> sources);
+    [FreeFunctionAttribute("ConstraintBindings::SetSources")]
+private static void SetSourcesInternal(LookAtConstraint self, List`1<ConstraintSource> sources);
+    public sealed virtual int AddSource(ConstraintSource source);
+    public sealed virtual void RemoveSource(int index);
+    [NativeNameAttribute("RemoveSource")]
+private void RemoveSourceInternal(int index);
+    public sealed virtual ConstraintSource GetSource(int index);
+    [NativeNameAttribute("GetSource")]
+private ConstraintSource GetSourceInternal(int index);
+    public sealed virtual void SetSource(int index, ConstraintSource source);
+    [NativeNameAttribute("SetSource")]
+private void SetSourceInternal(int index, ConstraintSource source);
+    private void ValidateSourceIndex(int index);
+    private void get_rotationAtRest_Injected(Vector3& ret);
+    private void set_rotationAtRest_Injected(Vector3& value);
+    private void get_rotationOffset_Injected(Vector3& ret);
+    private void set_rotationOffset_Injected(Vector3& value);
+    private sealed virtual int AddSource_Injected(ConstraintSource& source);
+    private void GetSourceInternal_Injected(int index, ConstraintSource& ret);
+    private void SetSourceInternal_Injected(int index, ConstraintSource& source);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/Animator.h")]
+[NativeHeaderAttribute("Modules/Animation/MuscleHandle.h")]
+public class UnityEngine.Animations.MuscleHandle : ValueType {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private HumanPartDof <humanPartDof>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <dof>k__BackingField;
+    public HumanPartDof humanPartDof { get; private set; }
+    public int dof { get; private set; }
+    public string name { get; }
+    public static int muscleHandleCount { get; }
+    public MuscleHandle(BodyDof bodyDof);
+    public MuscleHandle(HeadDof headDof);
+    public MuscleHandle(HumanPartDof partDof, LegDof legDof);
+    public MuscleHandle(HumanPartDof partDof, ArmDof armDof);
+    public MuscleHandle(HumanPartDof partDof, FingerDof fingerDof);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public HumanPartDof get_humanPartDof();
+    [CompilerGeneratedAttribute]
+private void set_humanPartDof(HumanPartDof value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public int get_dof();
+    [CompilerGeneratedAttribute]
+private void set_dof(int value);
+    public string get_name();
+    public static int get_muscleHandleCount();
+    public static void GetMuscleHandles(MuscleHandle[] muscleHandles);
+    private string GetName();
+    private static int GetMuscleHandleCount();
+    private static string GetName_Injected(MuscleHandle& _unity_self);
+}
+[AttributeUsageAttribute("260")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Animations.NotKeyableAttribute : Attribute {
+}
+[NativeHeaderAttribute("Modules/Animation/Constraints/Constraint.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Constraints/ParentConstraint.h")]
+[RequireComponent("UnityEngine.Transform")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Animations.ParentConstraint : Behaviour {
+    public float weight { get; public set; }
+    public bool constraintActive { get; public set; }
+    public bool locked { get; public set; }
+    public int sourceCount { get; }
+    public Vector3 translationAtRest { get; public set; }
+    public Vector3 rotationAtRest { get; public set; }
+    public Vector3[] translationOffsets { get; public set; }
+    public Vector3[] rotationOffsets { get; public set; }
+    public Axis translationAxis { get; public set; }
+    public Axis rotationAxis { get; public set; }
+    private static void Internal_Create(ParentConstraint self);
+    public sealed virtual float get_weight();
+    public sealed virtual void set_weight(float value);
+    public sealed virtual bool get_constraintActive();
+    public sealed virtual void set_constraintActive(bool value);
+    public sealed virtual bool get_locked();
+    public sealed virtual void set_locked(bool value);
+    public sealed virtual int get_sourceCount();
+    [FreeFunctionAttribute("ConstraintBindings::GetSourceCount")]
+private static int GetSourceCountInternal(ParentConstraint self);
+    public Vector3 get_translationAtRest();
+    public void set_translationAtRest(Vector3 value);
+    public Vector3 get_rotationAtRest();
+    public void set_rotationAtRest(Vector3 value);
+    public Vector3[] get_translationOffsets();
+    public void set_translationOffsets(Vector3[] value);
+    public Vector3[] get_rotationOffsets();
+    public void set_rotationOffsets(Vector3[] value);
+    public Axis get_translationAxis();
+    public void set_translationAxis(Axis value);
+    public Axis get_rotationAxis();
+    public void set_rotationAxis(Axis value);
+    public Vector3 GetTranslationOffset(int index);
+    public void SetTranslationOffset(int index, Vector3 value);
+    [NativeNameAttribute("GetTranslationOffset")]
+private Vector3 GetTranslationOffsetInternal(int index);
+    [NativeNameAttribute("SetTranslationOffset")]
+private void SetTranslationOffsetInternal(int index, Vector3 value);
+    public Vector3 GetRotationOffset(int index);
+    public void SetRotationOffset(int index, Vector3 value);
+    [NativeNameAttribute("GetRotationOffset")]
+private Vector3 GetRotationOffsetInternal(int index);
+    [NativeNameAttribute("SetRotationOffset")]
+private void SetRotationOffsetInternal(int index, Vector3 value);
+    private void ValidateSourceIndex(int index);
+    [FreeFunctionAttribute]
+public sealed virtual void GetSources(List`1<ConstraintSource> sources);
+    public sealed virtual void SetSources(List`1<ConstraintSource> sources);
+    [FreeFunctionAttribute("ConstraintBindings::SetSources")]
+private static void SetSourcesInternal(ParentConstraint self, List`1<ConstraintSource> sources);
+    public sealed virtual int AddSource(ConstraintSource source);
+    public sealed virtual void RemoveSource(int index);
+    [NativeNameAttribute("RemoveSource")]
+private void RemoveSourceInternal(int index);
+    public sealed virtual ConstraintSource GetSource(int index);
+    [NativeNameAttribute("GetSource")]
+private ConstraintSource GetSourceInternal(int index);
+    public sealed virtual void SetSource(int index, ConstraintSource source);
+    [NativeNameAttribute("SetSource")]
+private void SetSourceInternal(int index, ConstraintSource source);
+    private void get_translationAtRest_Injected(Vector3& ret);
+    private void set_translationAtRest_Injected(Vector3& value);
+    private void get_rotationAtRest_Injected(Vector3& ret);
+    private void set_rotationAtRest_Injected(Vector3& value);
+    private void GetTranslationOffsetInternal_Injected(int index, Vector3& ret);
+    private void SetTranslationOffsetInternal_Injected(int index, Vector3& value);
+    private void GetRotationOffsetInternal_Injected(int index, Vector3& ret);
+    private void SetRotationOffsetInternal_Injected(int index, Vector3& value);
+    private sealed virtual int AddSource_Injected(ConstraintSource& source);
+    private void GetSourceInternal_Injected(int index, ConstraintSource& ret);
+    private void SetSourceInternal_Injected(int index, ConstraintSource& source);
+}
+[NativeHeaderAttribute("Modules/Animation/Constraints/PositionConstraint.h")]
+[NativeHeaderAttribute("Modules/Animation/Constraints/Constraint.bindings.h")]
+[RequireComponent("UnityEngine.Transform")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Animations.PositionConstraint : Behaviour {
+    public float weight { get; public set; }
+    public Vector3 translationAtRest { get; public set; }
+    public Vector3 translationOffset { get; public set; }
+    public Axis translationAxis { get; public set; }
+    public bool constraintActive { get; public set; }
+    public bool locked { get; public set; }
+    public int sourceCount { get; }
+    private static void Internal_Create(PositionConstraint self);
+    public sealed virtual float get_weight();
+    public sealed virtual void set_weight(float value);
+    public Vector3 get_translationAtRest();
+    public void set_translationAtRest(Vector3 value);
+    public Vector3 get_translationOffset();
+    public void set_translationOffset(Vector3 value);
+    public Axis get_translationAxis();
+    public void set_translationAxis(Axis value);
+    public sealed virtual bool get_constraintActive();
+    public sealed virtual void set_constraintActive(bool value);
+    public sealed virtual bool get_locked();
+    public sealed virtual void set_locked(bool value);
+    public sealed virtual int get_sourceCount();
+    [FreeFunctionAttribute("ConstraintBindings::GetSourceCount")]
+private static int GetSourceCountInternal(PositionConstraint self);
+    [FreeFunctionAttribute]
+public sealed virtual void GetSources(List`1<ConstraintSource> sources);
+    public sealed virtual void SetSources(List`1<ConstraintSource> sources);
+    [FreeFunctionAttribute("ConstraintBindings::SetSources")]
+private static void SetSourcesInternal(PositionConstraint self, List`1<ConstraintSource> sources);
+    public sealed virtual int AddSource(ConstraintSource source);
+    public sealed virtual void RemoveSource(int index);
+    [NativeNameAttribute("RemoveSource")]
+private void RemoveSourceInternal(int index);
+    public sealed virtual ConstraintSource GetSource(int index);
+    [NativeNameAttribute("GetSource")]
+private ConstraintSource GetSourceInternal(int index);
+    public sealed virtual void SetSource(int index, ConstraintSource source);
+    [NativeNameAttribute("SetSource")]
+private void SetSourceInternal(int index, ConstraintSource source);
+    private void ValidateSourceIndex(int index);
+    private void get_translationAtRest_Injected(Vector3& ret);
+    private void set_translationAtRest_Injected(Vector3& value);
+    private void get_translationOffset_Injected(Vector3& ret);
+    private void set_translationOffset_Injected(Vector3& value);
+    private sealed virtual int AddSource_Injected(ConstraintSource& source);
+    private void GetSourceInternal_Injected(int index, ConstraintSource& ret);
+    private void SetSourceInternal_Injected(int index, ConstraintSource& source);
+}
+internal class UnityEngine.Animations.ProcessAnimationJobStruct`1 : ValueType {
+    private static IntPtr jobReflectionData;
+    public static IntPtr GetJobReflectionData();
+    public static void Execute(T& data, IntPtr animationStreamPtr, IntPtr methodIndex, JobRanges& ranges, int jobIndex);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationSceneHandles.h")]
+public class UnityEngine.Animations.PropertySceneHandle : ValueType {
+    private UInt32 valid;
+    private int handleIndex;
+    private bool createdByNative { get; }
+    private bool hasHandleIndex { get; }
+    public bool IsValid(AnimationStream stream);
+    private bool IsValidInternal(AnimationStream& stream);
+    private bool get_createdByNative();
+    private bool get_hasHandleIndex();
+    public void Resolve(AnimationStream stream);
+    public bool IsResolved(AnimationStream stream);
+    private void CheckIsValid(AnimationStream& stream);
+    public float GetFloat(AnimationStream stream);
+    [ObsoleteAttribute("SceneHandle is now read-only; it was problematic with the engine multithreading and determinism", "True")]
+public void SetFloat(AnimationStream stream, float value);
+    public int GetInt(AnimationStream stream);
+    [ObsoleteAttribute("SceneHandle is now read-only; it was problematic with the engine multithreading and determinism", "True")]
+public void SetInt(AnimationStream stream, int value);
+    public bool GetBool(AnimationStream stream);
+    [ObsoleteAttribute("SceneHandle is now read-only; it was problematic with the engine multithreading and determinism", "True")]
+public void SetBool(AnimationStream stream, bool value);
+    [ThreadSafeAttribute]
+private bool HasValidTransform(AnimationStream& stream);
+    [ThreadSafeAttribute]
+private bool IsBound(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void ResolveInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private float GetFloatInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private int GetIntInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private bool GetBoolInternal(AnimationStream& stream);
+    private static bool HasValidTransform_Injected(PropertySceneHandle& _unity_self, AnimationStream& stream);
+    private static bool IsBound_Injected(PropertySceneHandle& _unity_self, AnimationStream& stream);
+    private static void ResolveInternal_Injected(PropertySceneHandle& _unity_self, AnimationStream& stream);
+    private static float GetFloatInternal_Injected(PropertySceneHandle& _unity_self, AnimationStream& stream);
+    private static int GetIntInternal_Injected(PropertySceneHandle& _unity_self, AnimationStream& stream);
+    private static bool GetBoolInternal_Injected(PropertySceneHandle& _unity_self, AnimationStream& stream);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationStreamHandles.h")]
+public class UnityEngine.Animations.PropertyStreamHandle : ValueType {
+    private UInt32 m_AnimatorBindingsVersion;
+    private int handleIndex;
+    private int valueArrayIndex;
+    private int bindType;
+    private bool createdByNative { get; }
+    private bool hasHandleIndex { get; }
+    private bool hasValueArrayIndex { get; }
+    private bool hasBindType { get; }
+    internal UInt32 animatorBindingsVersion { get; private set; }
+    public bool IsValid(AnimationStream stream);
+    private bool IsValidInternal(AnimationStream& stream);
+    private bool get_createdByNative();
+    private bool IsSameVersionAsStream(AnimationStream& stream);
+    private bool get_hasHandleIndex();
+    private bool get_hasValueArrayIndex();
+    private bool get_hasBindType();
+    private void set_animatorBindingsVersion(UInt32 value);
+    internal UInt32 get_animatorBindingsVersion();
+    public void Resolve(AnimationStream stream);
+    public bool IsResolved(AnimationStream stream);
+    private bool IsResolvedInternal(AnimationStream& stream);
+    private void CheckIsValidAndResolve(AnimationStream& stream);
+    public float GetFloat(AnimationStream stream);
+    public void SetFloat(AnimationStream stream, float value);
+    public int GetInt(AnimationStream stream);
+    public void SetInt(AnimationStream stream, int value);
+    public bool GetBool(AnimationStream stream);
+    public void SetBool(AnimationStream stream, bool value);
+    public bool GetReadMask(AnimationStream stream);
+    [NativeMethodAttribute]
+private void ResolveInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private float GetFloatInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetFloatInternal(AnimationStream& stream, float value);
+    [NativeMethodAttribute]
+private int GetIntInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetIntInternal(AnimationStream& stream, int value);
+    [NativeMethodAttribute]
+private bool GetBoolInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetBoolInternal(AnimationStream& stream, bool value);
+    [NativeMethodAttribute]
+private bool GetReadMaskInternal(AnimationStream& stream);
+    private static void ResolveInternal_Injected(PropertyStreamHandle& _unity_self, AnimationStream& stream);
+    private static float GetFloatInternal_Injected(PropertyStreamHandle& _unity_self, AnimationStream& stream);
+    private static void SetFloatInternal_Injected(PropertyStreamHandle& _unity_self, AnimationStream& stream, float value);
+    private static int GetIntInternal_Injected(PropertyStreamHandle& _unity_self, AnimationStream& stream);
+    private static void SetIntInternal_Injected(PropertyStreamHandle& _unity_self, AnimationStream& stream, int value);
+    private static bool GetBoolInternal_Injected(PropertyStreamHandle& _unity_self, AnimationStream& stream);
+    private static void SetBoolInternal_Injected(PropertyStreamHandle& _unity_self, AnimationStream& stream, bool value);
+    private static bool GetReadMaskInternal_Injected(PropertyStreamHandle& _unity_self, AnimationStream& stream);
+}
+[NativeHeaderAttribute("Modules/Animation/Constraints/RotationConstraint.h")]
+[NativeHeaderAttribute("Modules/Animation/Constraints/Constraint.bindings.h")]
+[RequireComponent("UnityEngine.Transform")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Animations.RotationConstraint : Behaviour {
+    public float weight { get; public set; }
+    public Vector3 rotationAtRest { get; public set; }
+    public Vector3 rotationOffset { get; public set; }
+    public Axis rotationAxis { get; public set; }
+    public bool constraintActive { get; public set; }
+    public bool locked { get; public set; }
+    public int sourceCount { get; }
+    private static void Internal_Create(RotationConstraint self);
+    public sealed virtual float get_weight();
+    public sealed virtual void set_weight(float value);
+    public Vector3 get_rotationAtRest();
+    public void set_rotationAtRest(Vector3 value);
+    public Vector3 get_rotationOffset();
+    public void set_rotationOffset(Vector3 value);
+    public Axis get_rotationAxis();
+    public void set_rotationAxis(Axis value);
+    public sealed virtual bool get_constraintActive();
+    public sealed virtual void set_constraintActive(bool value);
+    public sealed virtual bool get_locked();
+    public sealed virtual void set_locked(bool value);
+    public sealed virtual int get_sourceCount();
+    [FreeFunctionAttribute("ConstraintBindings::GetSourceCount")]
+private static int GetSourceCountInternal(RotationConstraint self);
+    [FreeFunctionAttribute]
+public sealed virtual void GetSources(List`1<ConstraintSource> sources);
+    public sealed virtual void SetSources(List`1<ConstraintSource> sources);
+    [FreeFunctionAttribute("ConstraintBindings::SetSources")]
+private static void SetSourcesInternal(RotationConstraint self, List`1<ConstraintSource> sources);
+    public sealed virtual int AddSource(ConstraintSource source);
+    public sealed virtual void RemoveSource(int index);
+    [NativeNameAttribute("RemoveSource")]
+private void RemoveSourceInternal(int index);
+    public sealed virtual ConstraintSource GetSource(int index);
+    [NativeNameAttribute("GetSource")]
+private ConstraintSource GetSourceInternal(int index);
+    public sealed virtual void SetSource(int index, ConstraintSource source);
+    [NativeNameAttribute("SetSource")]
+private void SetSourceInternal(int index, ConstraintSource source);
+    private void ValidateSourceIndex(int index);
+    private void get_rotationAtRest_Injected(Vector3& ret);
+    private void set_rotationAtRest_Injected(Vector3& value);
+    private void get_rotationOffset_Injected(Vector3& ret);
+    private void set_rotationOffset_Injected(Vector3& value);
+    private sealed virtual int AddSource_Injected(ConstraintSource& source);
+    private void GetSourceInternal_Injected(int index, ConstraintSource& ret);
+    private void SetSourceInternal_Injected(int index, ConstraintSource& source);
+}
+[NativeHeaderAttribute("Modules/Animation/Constraints/Constraint.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Constraints/ScaleConstraint.h")]
+[RequireComponent("UnityEngine.Transform")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Animations.ScaleConstraint : Behaviour {
+    public float weight { get; public set; }
+    public Vector3 scaleAtRest { get; public set; }
+    public Vector3 scaleOffset { get; public set; }
+    public Axis scalingAxis { get; public set; }
+    public bool constraintActive { get; public set; }
+    public bool locked { get; public set; }
+    public int sourceCount { get; }
+    private static void Internal_Create(ScaleConstraint self);
+    public sealed virtual float get_weight();
+    public sealed virtual void set_weight(float value);
+    public Vector3 get_scaleAtRest();
+    public void set_scaleAtRest(Vector3 value);
+    public Vector3 get_scaleOffset();
+    public void set_scaleOffset(Vector3 value);
+    public Axis get_scalingAxis();
+    public void set_scalingAxis(Axis value);
+    public sealed virtual bool get_constraintActive();
+    public sealed virtual void set_constraintActive(bool value);
+    public sealed virtual bool get_locked();
+    public sealed virtual void set_locked(bool value);
+    public sealed virtual int get_sourceCount();
+    [FreeFunctionAttribute("ConstraintBindings::GetSourceCount")]
+private static int GetSourceCountInternal(ScaleConstraint self);
+    [FreeFunctionAttribute]
+public sealed virtual void GetSources(List`1<ConstraintSource> sources);
+    public sealed virtual void SetSources(List`1<ConstraintSource> sources);
+    [FreeFunctionAttribute("ConstraintBindings::SetSources")]
+private static void SetSourcesInternal(ScaleConstraint self, List`1<ConstraintSource> sources);
+    public sealed virtual int AddSource(ConstraintSource source);
+    public sealed virtual void RemoveSource(int index);
+    [NativeNameAttribute("RemoveSource")]
+private void RemoveSourceInternal(int index);
+    public sealed virtual ConstraintSource GetSource(int index);
+    [NativeNameAttribute("GetSource")]
+private ConstraintSource GetSourceInternal(int index);
+    public sealed virtual void SetSource(int index, ConstraintSource source);
+    [NativeNameAttribute("SetSource")]
+private void SetSourceInternal(int index, ConstraintSource source);
+    private void ValidateSourceIndex(int index);
+    private void get_scaleAtRest_Injected(Vector3& ret);
+    private void set_scaleAtRest_Injected(Vector3& value);
+    private void get_scaleOffset_Injected(Vector3& ret);
+    private void set_scaleOffset_Injected(Vector3& value);
+    private sealed virtual int AddSource_Injected(ConstraintSource& source);
+    private void GetSourceInternal_Injected(int index, ConstraintSource& ret);
+    private void SetSourceInternal_Injected(int index, ConstraintSource& source);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationSceneHandles.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationStreamHandles.bindings.h")]
+public class UnityEngine.Animations.TransformSceneHandle : ValueType {
+    private UInt32 valid;
+    private int transformSceneHandleDefinitionIndex;
+    private bool createdByNative { get; }
+    private bool hasTransformSceneHandleDefinitionIndex { get; }
+    public bool IsValid(AnimationStream stream);
+    private bool get_createdByNative();
+    private bool get_hasTransformSceneHandleDefinitionIndex();
+    private void CheckIsValid(AnimationStream& stream);
+    public Vector3 GetPosition(AnimationStream stream);
+    [ObsoleteAttribute("SceneHandle is now read-only; it was problematic with the engine multithreading and determinism", "True")]
+public void SetPosition(AnimationStream stream, Vector3 position);
+    public Vector3 GetLocalPosition(AnimationStream stream);
+    [ObsoleteAttribute("SceneHandle is now read-only; it was problematic with the engine multithreading and determinism", "True")]
+public void SetLocalPosition(AnimationStream stream, Vector3 position);
+    public Quaternion GetRotation(AnimationStream stream);
+    [ObsoleteAttribute("SceneHandle is now read-only; it was problematic with the engine multithreading and determinism", "True")]
+public void SetRotation(AnimationStream stream, Quaternion rotation);
+    public Quaternion GetLocalRotation(AnimationStream stream);
+    [ObsoleteAttribute("SceneHandle is now read-only; it was problematic with the engine multithreading and determinism", "True")]
+public void SetLocalRotation(AnimationStream stream, Quaternion rotation);
+    public Vector3 GetLocalScale(AnimationStream stream);
+    public void GetLocalTRS(AnimationStream stream, Vector3& position, Quaternion& rotation, Vector3& scale);
+    public Matrix4x4 GetLocalToParentMatrix(AnimationStream stream);
+    public void GetGlobalTR(AnimationStream stream, Vector3& position, Quaternion& rotation);
+    public Matrix4x4 GetLocalToWorldMatrix(AnimationStream stream);
+    [ObsoleteAttribute("SceneHandle is now read-only; it was problematic with the engine multithreading and determinism", "True")]
+public void SetLocalScale(AnimationStream stream, Vector3 scale);
+    [ThreadSafeAttribute]
+private bool HasValidTransform(AnimationStream& stream);
+    [NativeMethodAttribute]
+private Vector3 GetPositionInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private Vector3 GetLocalPositionInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private Quaternion GetRotationInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private Quaternion GetLocalRotationInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private Vector3 GetLocalScaleInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void GetLocalTRSInternal(AnimationStream& stream, Vector3& position, Quaternion& rotation, Vector3& scale);
+    [NativeMethodAttribute]
+private Matrix4x4 GetLocalToParentMatrixInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void GetGlobalTRInternal(AnimationStream& stream, Vector3& position, Quaternion& rotation);
+    [NativeMethodAttribute]
+private Matrix4x4 GetLocalToWorldMatrixInternal(AnimationStream& stream);
+    private static bool HasValidTransform_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream);
+    private static void GetPositionInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Vector3& ret);
+    private static void GetLocalPositionInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Vector3& ret);
+    private static void GetRotationInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Quaternion& ret);
+    private static void GetLocalRotationInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Quaternion& ret);
+    private static void GetLocalScaleInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Vector3& ret);
+    private static void GetLocalTRSInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Vector3& position, Quaternion& rotation, Vector3& scale);
+    private static void GetLocalToParentMatrixInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Matrix4x4& ret);
+    private static void GetGlobalTRInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Vector3& position, Quaternion& rotation);
+    private static void GetLocalToWorldMatrixInternal_Injected(TransformSceneHandle& _unity_self, AnimationStream& stream, Matrix4x4& ret);
+}
+[MovedFromAttribute("UnityEngine.Experimental.Animations")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationStreamHandles.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Director/AnimationStreamHandles.h")]
+public class UnityEngine.Animations.TransformStreamHandle : ValueType {
+    private UInt32 m_AnimatorBindingsVersion;
+    private int handleIndex;
+    private int skeletonIndex;
+    private bool createdByNative { get; }
+    private bool hasHandleIndex { get; }
+    private bool hasSkeletonIndex { get; }
+    internal UInt32 animatorBindingsVersion { get; private set; }
+    public bool IsValid(AnimationStream stream);
+    private bool IsValidInternal(AnimationStream& stream);
+    private bool get_createdByNative();
+    private bool IsSameVersionAsStream(AnimationStream& stream);
+    private bool get_hasHandleIndex();
+    private bool get_hasSkeletonIndex();
+    private void set_animatorBindingsVersion(UInt32 value);
+    internal UInt32 get_animatorBindingsVersion();
+    public void Resolve(AnimationStream stream);
+    public bool IsResolved(AnimationStream stream);
+    private bool IsResolvedInternal(AnimationStream& stream);
+    private void CheckIsValidAndResolve(AnimationStream& stream);
+    public Vector3 GetPosition(AnimationStream stream);
+    public void SetPosition(AnimationStream stream, Vector3 position);
+    public Quaternion GetRotation(AnimationStream stream);
+    public void SetRotation(AnimationStream stream, Quaternion rotation);
+    public Vector3 GetLocalPosition(AnimationStream stream);
+    public void SetLocalPosition(AnimationStream stream, Vector3 position);
+    public Quaternion GetLocalRotation(AnimationStream stream);
+    public void SetLocalRotation(AnimationStream stream, Quaternion rotation);
+    public Vector3 GetLocalScale(AnimationStream stream);
+    public void SetLocalScale(AnimationStream stream, Vector3 scale);
+    public Matrix4x4 GetLocalToParentMatrix(AnimationStream stream);
+    public bool GetPositionReadMask(AnimationStream stream);
+    public bool GetRotationReadMask(AnimationStream stream);
+    public bool GetScaleReadMask(AnimationStream stream);
+    public void GetLocalTRS(AnimationStream stream, Vector3& position, Quaternion& rotation, Vector3& scale);
+    public void SetLocalTRS(AnimationStream stream, Vector3 position, Quaternion rotation, Vector3 scale, bool useMask);
+    public void GetGlobalTR(AnimationStream stream, Vector3& position, Quaternion& rotation);
+    public Matrix4x4 GetLocalToWorldMatrix(AnimationStream stream);
+    public void SetGlobalTR(AnimationStream stream, Vector3 position, Quaternion rotation, bool useMask);
+    [NativeMethodAttribute]
+private void ResolveInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private Vector3 GetPositionInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetPositionInternal(AnimationStream& stream, Vector3 position);
+    [NativeMethodAttribute]
+private Quaternion GetRotationInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetRotationInternal(AnimationStream& stream, Quaternion rotation);
+    [NativeMethodAttribute]
+private Vector3 GetLocalPositionInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetLocalPositionInternal(AnimationStream& stream, Vector3 position);
+    [NativeMethodAttribute]
+private Quaternion GetLocalRotationInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetLocalRotationInternal(AnimationStream& stream, Quaternion rotation);
+    [NativeMethodAttribute]
+private Vector3 GetLocalScaleInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetLocalScaleInternal(AnimationStream& stream, Vector3 scale);
+    [NativeMethodAttribute]
+private Matrix4x4 GetLocalToParentMatrixInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private bool GetPositionReadMaskInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private bool GetRotationReadMaskInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private bool GetScaleReadMaskInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void GetLocalTRSInternal(AnimationStream& stream, Vector3& position, Quaternion& rotation, Vector3& scale);
+    [NativeMethodAttribute]
+private void SetLocalTRSInternal(AnimationStream& stream, Vector3 position, Quaternion rotation, Vector3 scale, bool useMask);
+    [NativeMethodAttribute]
+private void GetGlobalTRInternal(AnimationStream& stream, Vector3& position, Quaternion& rotation);
+    [NativeMethodAttribute]
+private Matrix4x4 GetLocalToWorldMatrixInternal(AnimationStream& stream);
+    [NativeMethodAttribute]
+private void SetGlobalTRInternal(AnimationStream& stream, Vector3 position, Quaternion rotation, bool useMask);
+    private static void ResolveInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream);
+    private static void GetPositionInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& ret);
+    private static void SetPositionInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& position);
+    private static void GetRotationInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Quaternion& ret);
+    private static void SetRotationInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Quaternion& rotation);
+    private static void GetLocalPositionInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& ret);
+    private static void SetLocalPositionInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& position);
+    private static void GetLocalRotationInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Quaternion& ret);
+    private static void SetLocalRotationInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Quaternion& rotation);
+    private static void GetLocalScaleInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& ret);
+    private static void SetLocalScaleInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& scale);
+    private static void GetLocalToParentMatrixInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Matrix4x4& ret);
+    private static bool GetPositionReadMaskInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream);
+    private static bool GetRotationReadMaskInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream);
+    private static bool GetScaleReadMaskInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream);
+    private static void GetLocalTRSInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& position, Quaternion& rotation, Vector3& scale);
+    private static void SetLocalTRSInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& position, Quaternion& rotation, Vector3& scale, bool useMask);
+    private static void GetGlobalTRInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& position, Quaternion& rotation);
+    private static void GetLocalToWorldMatrixInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Matrix4x4& ret);
+    private static void SetGlobalTRInternal_Injected(TransformStreamHandle& _unity_self, AnimationStream& stream, Vector3& position, Quaternion& rotation, bool useMask);
+}
+[NativeHeaderAttribute("Modules/Animation/AnimationState.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.AnimationState : TrackedReference {
+    public bool enabled { get; public set; }
+    public float weight { get; public set; }
+    public WrapMode wrapMode { get; public set; }
+    public float time { get; public set; }
+    public float normalizedTime { get; public set; }
+    public float speed { get; public set; }
+    public float normalizedSpeed { get; public set; }
+    public float length { get; }
+    public int layer { get; public set; }
+    public AnimationClip clip { get; }
+    public string name { get; public set; }
+    public AnimationBlendMode blendMode { get; public set; }
+    public bool get_enabled();
+    public void set_enabled(bool value);
+    public float get_weight();
+    public void set_weight(float value);
+    public WrapMode get_wrapMode();
+    public void set_wrapMode(WrapMode value);
+    public float get_time();
+    public void set_time(float value);
+    public float get_normalizedTime();
+    public void set_normalizedTime(float value);
+    public float get_speed();
+    public void set_speed(float value);
+    public float get_normalizedSpeed();
+    public void set_normalizedSpeed(float value);
+    public float get_length();
+    public int get_layer();
+    public void set_layer(int value);
+    public AnimationClip get_clip();
+    public string get_name();
+    public void set_name(string value);
+    public AnimationBlendMode get_blendMode();
+    public void set_blendMode(AnimationBlendMode value);
+    [ExcludeFromDocsAttribute]
+public void AddMixingTransform(Transform mix);
+    public void AddMixingTransform(Transform mix, bool recursive);
+    public void RemoveMixingTransform(Transform mix);
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimatorControllerParameter.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/Animator.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/Animator.bindings.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Animator : Behaviour {
+    public bool isOptimizable { get; }
+    public bool isHuman { get; }
+    public bool hasRootMotion { get; }
+    internal bool isRootPositionOrRotationControlledByCurves { get; }
+    public float humanScale { get; }
+    public bool isInitialized { get; }
+    public Vector3 deltaPosition { get; }
+    public Quaternion deltaRotation { get; }
+    public Vector3 velocity { get; }
+    public Vector3 angularVelocity { get; }
+    public Vector3 rootPosition { get; public set; }
+    public Quaternion rootRotation { get; public set; }
+    public bool applyRootMotion { get; public set; }
+    [ObsoleteAttribute("Animator.linearVelocityBlending is no longer used and has been deprecated.")]
+public bool linearVelocityBlending { get; public set; }
+    [ObsoleteAttribute("Animator.animatePhysics has been deprecated. Use Animator.updateMode instead.")]
+public bool animatePhysics { get; public set; }
+    public AnimatorUpdateMode updateMode { get; public set; }
+    public bool hasTransformHierarchy { get; }
+    internal bool allowConstantClipSamplingOptimization { get; internal set; }
+    public float gravityWeight { get; }
+    public Vector3 bodyPosition { get; public set; }
+    internal Vector3 bodyPositionInternal { get; internal set; }
+    public Quaternion bodyRotation { get; public set; }
+    internal Quaternion bodyRotationInternal { get; internal set; }
+    public bool stabilizeFeet { get; public set; }
+    public int layerCount { get; }
+    public AnimatorControllerParameter[] parameters { get; }
+    public int parameterCount { get; }
+    public float feetPivotActive { get; public set; }
+    public float pivotWeight { get; }
+    public Vector3 pivotPosition { get; }
+    public bool isMatchingTarget { get; }
+    public float speed { get; public set; }
+    public Vector3 targetPosition { get; }
+    public Quaternion targetRotation { get; }
+    public Transform avatarRoot { get; }
+    public AnimatorCullingMode cullingMode { get; public set; }
+    public float playbackTime { get; public set; }
+    public float recorderStartTime { get; public set; }
+    public float recorderStopTime { get; public set; }
+    public AnimatorRecorderMode recorderMode { get; }
+    public RuntimeAnimatorController runtimeAnimatorController { get; public set; }
+    public bool hasBoundPlayables { get; }
+    public Avatar avatar { get; public set; }
+    public PlayableGraph playableGraph { get; }
+    public bool layersAffectMassCenter { get; public set; }
+    public float leftFeetBottomHeight { get; }
+    public float rightFeetBottomHeight { get; }
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+internal bool supportsOnAnimatorMove { get; }
+    public bool logWarnings { get; public set; }
+    public bool fireEvents { get; public set; }
+    [ObsoleteAttribute("keepAnimatorControllerStateOnDisable is deprecated, use keepAnimatorStateOnDisable instead. (UnityUpgradable) -> keepAnimatorStateOnDisable", "False")]
+public bool keepAnimatorControllerStateOnDisable { get; public set; }
+    public bool keepAnimatorStateOnDisable { get; public set; }
+    public bool writeDefaultValuesOnDisable { get; public set; }
+    [NativeMethodAttribute("IsOptimizable")]
+public bool get_isOptimizable();
+    [NativeMethodAttribute("IsHuman")]
+public bool get_isHuman();
+    [NativeMethodAttribute("HasRootMotion")]
+public bool get_hasRootMotion();
+    [NativeMethodAttribute("IsRootTranslationOrRotationControllerByCurves")]
+internal bool get_isRootPositionOrRotationControlledByCurves();
+    public float get_humanScale();
+    [NativeMethodAttribute("IsInitialized")]
+public bool get_isInitialized();
+    public float GetFloat(string name);
+    public float GetFloat(int id);
+    public void SetFloat(string name, float value);
+    public void SetFloat(string name, float value, float dampTime, float deltaTime);
+    public void SetFloat(int id, float value);
+    public void SetFloat(int id, float value, float dampTime, float deltaTime);
+    public bool GetBool(string name);
+    public bool GetBool(int id);
+    public void SetBool(string name, bool value);
+    public void SetBool(int id, bool value);
+    public int GetInteger(string name);
+    public int GetInteger(int id);
+    public void SetInteger(string name, int value);
+    public void SetInteger(int id, int value);
+    public void SetTrigger(string name);
+    public void SetTrigger(int id);
+    public void ResetTrigger(string name);
+    public void ResetTrigger(int id);
+    public bool IsParameterControlledByCurve(string name);
+    public bool IsParameterControlledByCurve(int id);
+    public Vector3 get_deltaPosition();
+    public Quaternion get_deltaRotation();
+    public Vector3 get_velocity();
+    public Vector3 get_angularVelocity();
+    [NativeMethodAttribute("GetAvatarPosition")]
+public Vector3 get_rootPosition();
+    [NativeMethodAttribute("SetAvatarPosition")]
+public void set_rootPosition(Vector3 value);
+    [NativeMethodAttribute("GetAvatarRotation")]
+public Quaternion get_rootRotation();
+    [NativeMethodAttribute("SetAvatarRotation")]
+public void set_rootRotation(Quaternion value);
+    public bool get_applyRootMotion();
+    public void set_applyRootMotion(bool value);
+    public bool get_linearVelocityBlending();
+    public void set_linearVelocityBlending(bool value);
+    public bool get_animatePhysics();
+    public void set_animatePhysics(bool value);
+    public AnimatorUpdateMode get_updateMode();
+    public void set_updateMode(AnimatorUpdateMode value);
+    public bool get_hasTransformHierarchy();
+    internal bool get_allowConstantClipSamplingOptimization();
+    internal void set_allowConstantClipSamplingOptimization(bool value);
+    public float get_gravityWeight();
+    public Vector3 get_bodyPosition();
+    public void set_bodyPosition(Vector3 value);
+    [NativeMethodAttribute("GetBodyPosition")]
+internal Vector3 get_bodyPositionInternal();
+    [NativeMethodAttribute("SetBodyPosition")]
+internal void set_bodyPositionInternal(Vector3 value);
+    public Quaternion get_bodyRotation();
+    public void set_bodyRotation(Quaternion value);
+    [NativeMethodAttribute("GetBodyRotation")]
+internal Quaternion get_bodyRotationInternal();
+    [NativeMethodAttribute("SetBodyRotation")]
+internal void set_bodyRotationInternal(Quaternion value);
+    public Vector3 GetIKPosition(AvatarIKGoal goal);
+    private Vector3 GetGoalPosition(AvatarIKGoal goal);
+    public void SetIKPosition(AvatarIKGoal goal, Vector3 goalPosition);
+    private void SetGoalPosition(AvatarIKGoal goal, Vector3 goalPosition);
+    public Quaternion GetIKRotation(AvatarIKGoal goal);
+    private Quaternion GetGoalRotation(AvatarIKGoal goal);
+    public void SetIKRotation(AvatarIKGoal goal, Quaternion goalRotation);
+    private void SetGoalRotation(AvatarIKGoal goal, Quaternion goalRotation);
+    public float GetIKPositionWeight(AvatarIKGoal goal);
+    private float GetGoalWeightPosition(AvatarIKGoal goal);
+    public void SetIKPositionWeight(AvatarIKGoal goal, float value);
+    private void SetGoalWeightPosition(AvatarIKGoal goal, float value);
+    public float GetIKRotationWeight(AvatarIKGoal goal);
+    private float GetGoalWeightRotation(AvatarIKGoal goal);
+    public void SetIKRotationWeight(AvatarIKGoal goal, float value);
+    private void SetGoalWeightRotation(AvatarIKGoal goal, float value);
+    public Vector3 GetIKHintPosition(AvatarIKHint hint);
+    private Vector3 GetHintPosition(AvatarIKHint hint);
+    public void SetIKHintPosition(AvatarIKHint hint, Vector3 hintPosition);
+    private void SetHintPosition(AvatarIKHint hint, Vector3 hintPosition);
+    public float GetIKHintPositionWeight(AvatarIKHint hint);
+    private float GetHintWeightPosition(AvatarIKHint hint);
+    public void SetIKHintPositionWeight(AvatarIKHint hint, float value);
+    private void SetHintWeightPosition(AvatarIKHint hint, float value);
+    public void SetLookAtPosition(Vector3 lookAtPosition);
+    [NativeMethodAttribute("SetLookAtPosition")]
+private void SetLookAtPositionInternal(Vector3 lookAtPosition);
+    public void SetLookAtWeight(float weight);
+    public void SetLookAtWeight(float weight, float bodyWeight);
+    public void SetLookAtWeight(float weight, float bodyWeight, float headWeight);
+    public void SetLookAtWeight(float weight, float bodyWeight, float headWeight, float eyesWeight);
+    public void SetLookAtWeight(float weight, float bodyWeight, float headWeight, float eyesWeight, float clampWeight);
+    [NativeMethodAttribute("SetLookAtWeight")]
+private void SetLookAtWeightInternal(float weight, float bodyWeight, float headWeight, float eyesWeight, float clampWeight);
+    public void SetBoneLocalRotation(HumanBodyBones humanBoneId, Quaternion rotation);
+    [NativeMethodAttribute("SetBoneLocalRotation")]
+private void SetBoneLocalRotationInternal(int humanBoneId, Quaternion rotation);
+    private ScriptableObject GetBehaviour(Type type);
+    public T GetBehaviour();
+    private static T[] ConvertStateMachineBehaviour(ScriptableObject[] rawObjects);
+    public T[] GetBehaviours();
+    [FreeFunctionAttribute]
+internal ScriptableObject[] InternalGetBehaviours(Type type);
+    public StateMachineBehaviour[] GetBehaviours(int fullPathHash, int layerIndex);
+    [FreeFunctionAttribute]
+internal ScriptableObject[] InternalGetBehavioursByKey(int fullPathHash, int layerIndex, Type type);
+    public bool get_stabilizeFeet();
+    public void set_stabilizeFeet(bool value);
+    public int get_layerCount();
+    public string GetLayerName(int layerIndex);
+    public int GetLayerIndex(string layerName);
+    public float GetLayerWeight(int layerIndex);
+    public void SetLayerWeight(int layerIndex, float weight);
+    private void GetAnimatorStateInfo(int layerIndex, StateInfoIndex stateInfoIndex, AnimatorStateInfo& info);
+    public AnimatorStateInfo GetCurrentAnimatorStateInfo(int layerIndex);
+    public AnimatorStateInfo GetNextAnimatorStateInfo(int layerIndex);
+    private void GetAnimatorTransitionInfo(int layerIndex, AnimatorTransitionInfo& info);
+    public AnimatorTransitionInfo GetAnimatorTransitionInfo(int layerIndex);
+    internal int GetAnimatorClipInfoCount(int layerIndex, bool current);
+    public int GetCurrentAnimatorClipInfoCount(int layerIndex);
+    public int GetNextAnimatorClipInfoCount(int layerIndex);
+    [FreeFunctionAttribute]
+public AnimatorClipInfo[] GetCurrentAnimatorClipInfo(int layerIndex);
+    [FreeFunctionAttribute]
+public AnimatorClipInfo[] GetNextAnimatorClipInfo(int layerIndex);
+    public void GetCurrentAnimatorClipInfo(int layerIndex, List`1<AnimatorClipInfo> clips);
+    [FreeFunctionAttribute]
+private void GetAnimatorClipInfoInternal(int layerIndex, bool isCurrent, object clips);
+    public void GetNextAnimatorClipInfo(int layerIndex, List`1<AnimatorClipInfo> clips);
+    public bool IsInTransition(int layerIndex);
+    [FreeFunctionAttribute]
+public AnimatorControllerParameter[] get_parameters();
+    public int get_parameterCount();
+    [FreeFunctionAttribute]
+private AnimatorControllerParameter GetParameterInternal(int index);
+    public AnimatorControllerParameter GetParameter(int index);
+    public float get_feetPivotActive();
+    public void set_feetPivotActive(float value);
+    public float get_pivotWeight();
+    public Vector3 get_pivotPosition();
+    private void MatchTarget(Vector3 matchPosition, Quaternion matchRotation, int targetBodyPart, MatchTargetWeightMask weightMask, float startNormalizedTime, float targetNormalizedTime, bool completeMatch);
+    public void MatchTarget(Vector3 matchPosition, Quaternion matchRotation, AvatarTarget targetBodyPart, MatchTargetWeightMask weightMask, float startNormalizedTime);
+    public void MatchTarget(Vector3 matchPosition, Quaternion matchRotation, AvatarTarget targetBodyPart, MatchTargetWeightMask weightMask, float startNormalizedTime, float targetNormalizedTime);
+    public void MatchTarget(Vector3 matchPosition, Quaternion matchRotation, AvatarTarget targetBodyPart, MatchTargetWeightMask weightMask, float startNormalizedTime, float targetNormalizedTime, bool completeMatch);
+    public void InterruptMatchTarget();
+    public void InterruptMatchTarget(bool completeMatch);
+    [NativeMethodAttribute("IsMatchingTarget")]
+public bool get_isMatchingTarget();
+    public float get_speed();
+    public void set_speed(float value);
+    [ObsoleteAttribute("ForceStateNormalizedTime is deprecated. Please use Play or CrossFade instead.")]
+public void ForceStateNormalizedTime(float normalizedTime);
+    public void CrossFadeInFixedTime(string stateName, float fixedTransitionDuration);
+    public void CrossFadeInFixedTime(string stateName, float fixedTransitionDuration, int layer);
+    public void CrossFadeInFixedTime(string stateName, float fixedTransitionDuration, int layer, float fixedTimeOffset);
+    public void CrossFadeInFixedTime(string stateName, float fixedTransitionDuration, int layer, float fixedTimeOffset, float normalizedTransitionTime);
+    public void CrossFadeInFixedTime(int stateHashName, float fixedTransitionDuration, int layer, float fixedTimeOffset);
+    public void CrossFadeInFixedTime(int stateHashName, float fixedTransitionDuration, int layer);
+    public void CrossFadeInFixedTime(int stateHashName, float fixedTransitionDuration);
+    [FreeFunctionAttribute]
+public void CrossFadeInFixedTime(int stateHashName, float fixedTransitionDuration, int layer, float fixedTimeOffset, float normalizedTransitionTime);
+    [FreeFunctionAttribute]
+public void WriteDefaultValues();
+    public void CrossFade(string stateName, float normalizedTransitionDuration, int layer, float normalizedTimeOffset);
+    public void CrossFade(string stateName, float normalizedTransitionDuration, int layer);
+    public void CrossFade(string stateName, float normalizedTransitionDuration);
+    public void CrossFade(string stateName, float normalizedTransitionDuration, int layer, float normalizedTimeOffset, float normalizedTransitionTime);
+    [FreeFunctionAttribute]
+public void CrossFade(int stateHashName, float normalizedTransitionDuration, int layer, float normalizedTimeOffset, float normalizedTransitionTime);
+    public void CrossFade(int stateHashName, float normalizedTransitionDuration, int layer, float normalizedTimeOffset);
+    public void CrossFade(int stateHashName, float normalizedTransitionDuration, int layer);
+    public void CrossFade(int stateHashName, float normalizedTransitionDuration);
+    public void PlayInFixedTime(string stateName, int layer);
+    public void PlayInFixedTime(string stateName);
+    public void PlayInFixedTime(string stateName, int layer, float fixedTime);
+    [FreeFunctionAttribute]
+public void PlayInFixedTime(int stateNameHash, int layer, float fixedTime);
+    public void PlayInFixedTime(int stateNameHash, int layer);
+    public void PlayInFixedTime(int stateNameHash);
+    public void Play(string stateName, int layer);
+    public void Play(string stateName);
+    public void Play(string stateName, int layer, float normalizedTime);
+    [FreeFunctionAttribute]
+public void Play(int stateNameHash, int layer, float normalizedTime);
+    public void Play(int stateNameHash, int layer);
+    public void Play(int stateNameHash);
+    public void SetTarget(AvatarTarget targetIndex, float targetNormalizedTime);
+    public Vector3 get_targetPosition();
+    public Quaternion get_targetRotation();
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("Use mask and layers to control subset of transfroms in a skeleton.", "True")]
+public bool IsControlled(Transform transform);
+    internal bool IsBoneTransform(Transform transform);
+    public Transform get_avatarRoot();
+    public Transform GetBoneTransform(HumanBodyBones humanBoneId);
+    [NativeMethodAttribute("GetBoneTransform")]
+internal Transform GetBoneTransformInternal(int humanBoneId);
+    public AnimatorCullingMode get_cullingMode();
+    public void set_cullingMode(AnimatorCullingMode value);
+    public void StartPlayback();
+    public void StopPlayback();
+    public float get_playbackTime();
+    public void set_playbackTime(float value);
+    public void StartRecording(int frameCount);
+    public void StopRecording();
+    public float get_recorderStartTime();
+    public void set_recorderStartTime(float value);
+    private float GetRecorderStartTime();
+    public float get_recorderStopTime();
+    public void set_recorderStopTime(float value);
+    private float GetRecorderStopTime();
+    public AnimatorRecorderMode get_recorderMode();
+    public RuntimeAnimatorController get_runtimeAnimatorController();
+    public void set_runtimeAnimatorController(RuntimeAnimatorController value);
+    [NativeMethodAttribute("HasBoundPlayables")]
+public bool get_hasBoundPlayables();
+    internal void ClearInternalControllerPlayable();
+    public bool HasState(int layerIndex, int stateID);
+    [NativeMethodAttribute]
+public static int StringToHash(string name);
+    public Avatar get_avatar();
+    public void set_avatar(Avatar value);
+    internal string GetStats();
+    public PlayableGraph get_playableGraph();
+    [FreeFunctionAttribute]
+private void GetCurrentGraph(PlayableGraph& graph);
+    private void CheckIfInIKPass();
+    private bool IsInIKPass();
+    [FreeFunctionAttribute]
+private void SetFloatString(string name, float value);
+    [FreeFunctionAttribute]
+private void SetFloatID(int id, float value);
+    [FreeFunctionAttribute]
+private float GetFloatString(string name);
+    [FreeFunctionAttribute]
+private float GetFloatID(int id);
+    [FreeFunctionAttribute]
+private void SetBoolString(string name, bool value);
+    [FreeFunctionAttribute]
+private void SetBoolID(int id, bool value);
+    [FreeFunctionAttribute]
+private bool GetBoolString(string name);
+    [FreeFunctionAttribute]
+private bool GetBoolID(int id);
+    [FreeFunctionAttribute]
+private void SetIntegerString(string name, int value);
+    [FreeFunctionAttribute]
+private void SetIntegerID(int id, int value);
+    [FreeFunctionAttribute]
+private int GetIntegerString(string name);
+    [FreeFunctionAttribute]
+private int GetIntegerID(int id);
+    [FreeFunctionAttribute]
+private void SetTriggerString(string name);
+    [FreeFunctionAttribute]
+private void SetTriggerID(int id);
+    [FreeFunctionAttribute]
+private void ResetTriggerString(string name);
+    [FreeFunctionAttribute]
+private void ResetTriggerID(int id);
+    [FreeFunctionAttribute]
+private bool IsParameterControlledByCurveString(string name);
+    [FreeFunctionAttribute]
+private bool IsParameterControlledByCurveID(int id);
+    [FreeFunctionAttribute]
+private void SetFloatStringDamp(string name, float value, float dampTime, float deltaTime);
+    [FreeFunctionAttribute]
+private void SetFloatIDDamp(int id, float value, float dampTime, float deltaTime);
+    public bool get_layersAffectMassCenter();
+    public void set_layersAffectMassCenter(bool value);
+    public float get_leftFeetBottomHeight();
+    public float get_rightFeetBottomHeight();
+    [NativeMethodAttribute("SupportsOnAnimatorMove")]
+internal bool get_supportsOnAnimatorMove();
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+internal void OnUpdateModeChanged();
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+internal void OnCullingModeChanged();
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+internal void WriteDefaultPose();
+    [NativeMethodAttribute("UpdateWithDelta")]
+public void Update(float deltaTime);
+    public void Rebind();
+    private void Rebind(bool writeDefaultValues);
+    public void ApplyBuiltinRootMotion();
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+internal void EvaluateController();
+    private void EvaluateController(float deltaTime);
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+internal string GetCurrentStateName(int layerIndex);
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+internal string GetNextStateName(int layerIndex);
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+private string GetAnimatorStateName(int layerIndex, bool current);
+    internal string ResolveHash(int hash);
+    public bool get_logWarnings();
+    public void set_logWarnings(bool value);
+    public bool get_fireEvents();
+    public void set_fireEvents(bool value);
+    public bool get_keepAnimatorControllerStateOnDisable();
+    public void set_keepAnimatorControllerStateOnDisable(bool value);
+    public bool get_keepAnimatorStateOnDisable();
+    public void set_keepAnimatorStateOnDisable(bool value);
+    public bool get_writeDefaultValuesOnDisable();
+    public void set_writeDefaultValuesOnDisable(bool value);
+    [ObsoleteAttribute("GetVector is deprecated.")]
+public Vector3 GetVector(string name);
+    [ObsoleteAttribute("GetVector is deprecated.")]
+public Vector3 GetVector(int id);
+    [ObsoleteAttribute("SetVector is deprecated.")]
+public void SetVector(string name, Vector3 value);
+    [ObsoleteAttribute("SetVector is deprecated.")]
+public void SetVector(int id, Vector3 value);
+    [ObsoleteAttribute("GetQuaternion is deprecated.")]
+public Quaternion GetQuaternion(string name);
+    [ObsoleteAttribute("GetQuaternion is deprecated.")]
+public Quaternion GetQuaternion(int id);
+    [ObsoleteAttribute("SetQuaternion is deprecated.")]
+public void SetQuaternion(string name, Quaternion value);
+    [ObsoleteAttribute("SetQuaternion is deprecated.")]
+public void SetQuaternion(int id, Quaternion value);
+    private void get_deltaPosition_Injected(Vector3& ret);
+    private void get_deltaRotation_Injected(Quaternion& ret);
+    private void get_velocity_Injected(Vector3& ret);
+    private void get_angularVelocity_Injected(Vector3& ret);
+    private void get_rootPosition_Injected(Vector3& ret);
+    private void set_rootPosition_Injected(Vector3& value);
+    private void get_rootRotation_Injected(Quaternion& ret);
+    private void set_rootRotation_Injected(Quaternion& value);
+    private void get_bodyPositionInternal_Injected(Vector3& ret);
+    private void set_bodyPositionInternal_Injected(Vector3& value);
+    private void get_bodyRotationInternal_Injected(Quaternion& ret);
+    private void set_bodyRotationInternal_Injected(Quaternion& value);
+    private void GetGoalPosition_Injected(AvatarIKGoal goal, Vector3& ret);
+    private void SetGoalPosition_Injected(AvatarIKGoal goal, Vector3& goalPosition);
+    private void GetGoalRotation_Injected(AvatarIKGoal goal, Quaternion& ret);
+    private void SetGoalRotation_Injected(AvatarIKGoal goal, Quaternion& goalRotation);
+    private void GetHintPosition_Injected(AvatarIKHint hint, Vector3& ret);
+    private void SetHintPosition_Injected(AvatarIKHint hint, Vector3& hintPosition);
+    private void SetLookAtPositionInternal_Injected(Vector3& lookAtPosition);
+    private void SetBoneLocalRotationInternal_Injected(int humanBoneId, Quaternion& rotation);
+    private void get_pivotPosition_Injected(Vector3& ret);
+    private void MatchTarget_Injected(Vector3& matchPosition, Quaternion& matchRotation, int targetBodyPart, MatchTargetWeightMask& weightMask, float startNormalizedTime, float targetNormalizedTime, bool completeMatch);
+    private void get_targetPosition_Injected(Vector3& ret);
+    private void get_targetRotation_Injected(Quaternion& ret);
+}
+[NativeHeaderAttribute("Modules/Animation/AnimatorInfo.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/Animation.bindings.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.AnimatorClipInfo : ValueType {
+    private int m_ClipInstanceID;
+    private float m_Weight;
+    public AnimationClip clip { get; }
+    public float weight { get; }
+    public AnimationClip get_clip();
+    public float get_weight();
+    [FreeFunctionAttribute("AnimationBindings::InstanceIDToAnimationClipPPtr")]
+private static AnimationClip InstanceIDToAnimationClipPPtr(int instanceID);
+}
+[NativeAsStructAttribute]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimatorControllerParameter.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/AnimatorControllerParameter.h")]
+[NativeTypeAttribute("1", "MonoAnimatorControllerParameter")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.AnimatorControllerParameter : object {
+    internal string m_Name;
+    internal AnimatorControllerParameterType m_Type;
+    internal float m_DefaultFloat;
+    internal int m_DefaultInt;
+    internal bool m_DefaultBool;
+    public string name { get; }
+    public int nameHash { get; }
+    public AnimatorControllerParameterType type { get; public set; }
+    public float defaultFloat { get; public set; }
+    public int defaultInt { get; public set; }
+    public bool defaultBool { get; public set; }
+    public string get_name();
+    public int get_nameHash();
+    public AnimatorControllerParameterType get_type();
+    public void set_type(AnimatorControllerParameterType value);
+    public float get_defaultFloat();
+    public void set_defaultFloat(float value);
+    public int get_defaultInt();
+    public void set_defaultInt(int value);
+    public bool get_defaultBool();
+    public void set_defaultBool(bool value);
+    public virtual bool Equals(object o);
+    public virtual int GetHashCode();
+}
+public enum UnityEngine.AnimatorControllerParameterType : Enum {
+    public int value__;
+    public static AnimatorControllerParameterType Float;
+    public static AnimatorControllerParameterType Int;
+    public static AnimatorControllerParameterType Bool;
+    public static AnimatorControllerParameterType Trigger;
+}
+internal static class UnityEngine.AnimatorControllerParameterTypeConstants : object {
+    public static int InvalidType;
+}
+public enum UnityEngine.AnimatorCullingMode : Enum {
+    public int value__;
+    public static AnimatorCullingMode AlwaysAnimate;
+    public static AnimatorCullingMode CullUpdateTransforms;
+    public static AnimatorCullingMode CullCompletely;
+}
+[DefaultMemberAttribute("Item")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/Animation.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/AnimatorOverrideController.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.AnimatorOverrideController : RuntimeAnimatorController {
+    internal OnOverrideControllerDirtyCallback OnOverrideControllerDirty;
+    public RuntimeAnimatorController runtimeAnimatorController { get; public set; }
+    public AnimationClip Item { get; public set; }
+    public AnimationClip Item { get; public set; }
+    public int overridesCount { get; }
+    [ObsoleteAttribute("AnimatorOverrideController.clips property is deprecated. Use AnimatorOverrideController.GetOverrides and AnimatorOverrideController.ApplyOverrides instead.")]
+public AnimationClipPair[] clips { get; public set; }
+    public AnimatorOverrideController(RuntimeAnimatorController controller);
+    [FreeFunctionAttribute("AnimationBindings::CreateAnimatorOverrideController")]
+private static void Internal_Create(AnimatorOverrideController self, RuntimeAnimatorController controller);
+    [NativeMethodAttribute("GetAnimatorController")]
+public RuntimeAnimatorController get_runtimeAnimatorController();
+    [NativeMethodAttribute("SetAnimatorController")]
+public void set_runtimeAnimatorController(RuntimeAnimatorController value);
+    public AnimationClip get_Item(string name);
+    public void set_Item(string name, AnimationClip value);
+    [NativeMethodAttribute("GetClip")]
+private AnimationClip Internal_GetClipByName(string name, bool returnEffectiveClip);
+    [NativeMethodAttribute("SetClip")]
+private void Internal_SetClipByName(string name, AnimationClip clip);
+    public AnimationClip get_Item(AnimationClip clip);
+    public void set_Item(AnimationClip clip, AnimationClip value);
+    private AnimationClip GetClip(AnimationClip originalClip, bool returnEffectiveClip);
+    private void SetClip(AnimationClip originalClip, AnimationClip overrideClip, bool notify);
+    private void SendNotification();
+    private AnimationClip GetOriginalClip(int index);
+    private AnimationClip GetOverrideClip(AnimationClip originalClip);
+    [NativeMethodAttribute("GetOriginalClipsCount")]
+public int get_overridesCount();
+    public void GetOverrides(List`1<KeyValuePair`2<AnimationClip, AnimationClip>> overrides);
+    public void ApplyOverrides(IList`1<KeyValuePair`2<AnimationClip, AnimationClip>> overrides);
+    public AnimationClipPair[] get_clips();
+    public void set_clips(AnimationClipPair[] value);
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+internal void PerformOverrideClipListCleanup();
+    [NativeConditionalAttribute("UNITY_EDITOR")]
+[RequiredByNativeCodeAttribute]
+internal static void OnInvalidateOverrideController(AnimatorOverrideController controller);
+}
+public enum UnityEngine.AnimatorRecorderMode : Enum {
+    public int value__;
+    public static AnimatorRecorderMode Offline;
+    public static AnimatorRecorderMode Playback;
+    public static AnimatorRecorderMode Record;
+}
+[NativeHeaderAttribute("Modules/Animation/AnimatorInfo.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.AnimatorStateInfo : ValueType {
+    private int m_Name;
+    private int m_Path;
+    private int m_FullPath;
+    private float m_NormalizedTime;
+    private float m_Length;
+    private float m_Speed;
+    private float m_SpeedMultiplier;
+    private int m_Tag;
+    private int m_Loop;
+    public int fullPathHash { get; }
+    [ObsoleteAttribute("AnimatorStateInfo.nameHash has been deprecated. Use AnimatorStateInfo.fullPathHash instead.")]
+public int nameHash { get; }
+    public int shortNameHash { get; }
+    public float normalizedTime { get; }
+    public float length { get; }
+    public float speed { get; }
+    public float speedMultiplier { get; }
+    public int tagHash { get; }
+    public bool loop { get; }
+    public bool IsName(string name);
+    public int get_fullPathHash();
+    public int get_nameHash();
+    public int get_shortNameHash();
+    public float get_normalizedTime();
+    public float get_length();
+    public float get_speed();
+    public float get_speedMultiplier();
+    public int get_tagHash();
+    public bool IsTag(string tag);
+    public bool get_loop();
+}
+[NativeHeaderAttribute("Modules/Animation/AnimatorInfo.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.AnimatorTransitionInfo : ValueType {
+    [NativeNameAttribute("fullPathHash")]
+private int m_FullPath;
+    [NativeNameAttribute("userNameHash")]
+private int m_UserName;
+    [NativeNameAttribute("nameHash")]
+private int m_Name;
+    [NativeNameAttribute("hasFixedDuration")]
+private bool m_HasFixedDuration;
+    [NativeNameAttribute("duration")]
+private float m_Duration;
+    [NativeNameAttribute("normalizedTime")]
+private float m_NormalizedTime;
+    [NativeNameAttribute("anyState")]
+private bool m_AnyState;
+    [NativeNameAttribute("transitionType")]
+private int m_TransitionType;
+    public int fullPathHash { get; }
+    public int nameHash { get; }
+    public int userNameHash { get; }
+    public DurationUnit durationUnit { get; }
+    public float duration { get; }
+    public float normalizedTime { get; }
+    public bool anyState { get; }
+    internal bool entry { get; }
+    internal bool exit { get; }
+    public bool IsName(string name);
+    public bool IsUserName(string name);
+    public int get_fullPathHash();
+    public int get_nameHash();
+    public int get_userNameHash();
+    public DurationUnit get_durationUnit();
+    public float get_duration();
+    public float get_normalizedTime();
+    public bool get_anyState();
+    internal bool get_entry();
+    internal bool get_exit();
+}
+public enum UnityEngine.AnimatorUpdateMode : Enum {
+    public int value__;
+    public static AnimatorUpdateMode Normal;
+    public static AnimatorUpdateMode AnimatePhysics;
+    public static AnimatorUpdateMode UnscaledTime;
+}
+[NativeHeaderAttribute("Modules/Animation/OptimizeTransformHierarchy.h")]
+public class UnityEngine.AnimatorUtility : object {
+    [FreeFunctionAttribute]
+public static void OptimizeTransformHierarchy(GameObject go, String[] exposedTransforms);
+    [FreeFunctionAttribute]
+public static void DeoptimizeTransformHierarchy(GameObject go);
+}
+public enum UnityEngine.ArmDof : Enum {
+    public int value__;
+    public static ArmDof ShoulderDownUp;
+    public static ArmDof ShoulderFrontBack;
+    public static ArmDof ArmDownUp;
+    public static ArmDof ArmFrontBack;
+    public static ArmDof ArmRollInOut;
+    public static ArmDof ForeArmCloseOpen;
+    public static ArmDof ForeArmRollInOut;
+    public static ArmDof HandDownUp;
+    public static ArmDof HandInOut;
+    public static ArmDof LastArmDof;
+}
+[NativeHeaderAttribute("Modules/Animation/Avatar.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Avatar : Object {
+    public bool isValid { get; }
+    public bool isHuman { get; }
+    public HumanDescription humanDescription { get; }
+    [NativeMethodAttribute("IsValid")]
+public bool get_isValid();
+    [NativeMethodAttribute("IsHuman")]
+public bool get_isHuman();
+    public HumanDescription get_humanDescription();
+    internal void SetMuscleMinMax(int muscleId, float min, float max);
+    internal void SetParameter(int parameterId, float value);
+    internal float GetAxisLength(int humanId);
+    internal Quaternion GetPreRotation(int humanId);
+    internal Quaternion GetPostRotation(int humanId);
+    internal Quaternion GetZYPostQ(int humanId, Quaternion parentQ, Quaternion q);
+    internal Quaternion GetZYRoll(int humanId, Vector3 uvw);
+    internal Vector3 GetLimitSign(int humanId);
+    [NativeMethodAttribute("GetAxisLength")]
+internal float Internal_GetAxisLength(int humanId);
+    [NativeMethodAttribute("GetPreRotation")]
+internal Quaternion Internal_GetPreRotation(int humanId);
+    [NativeMethodAttribute("GetPostRotation")]
+internal Quaternion Internal_GetPostRotation(int humanId);
+    [NativeMethodAttribute("GetZYPostQ")]
+internal Quaternion Internal_GetZYPostQ(int humanId, Quaternion parentQ, Quaternion q);
+    [NativeMethodAttribute("GetZYRoll")]
+internal Quaternion Internal_GetZYRoll(int humanId, Vector3 uvw);
+    [NativeMethodAttribute("GetLimitSign")]
+internal Vector3 Internal_GetLimitSign(int humanId);
+    private void get_humanDescription_Injected(HumanDescription& ret);
+    private void Internal_GetPreRotation_Injected(int humanId, Quaternion& ret);
+    private void Internal_GetPostRotation_Injected(int humanId, Quaternion& ret);
+    private void Internal_GetZYPostQ_Injected(int humanId, Quaternion& parentQ, Quaternion& q, Quaternion& ret);
+    private void Internal_GetZYRoll_Injected(int humanId, Vector3& uvw, Quaternion& ret);
+    private void Internal_GetLimitSign_Injected(int humanId, Vector3& ret);
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AvatarBuilder.bindings.h")]
+public class UnityEngine.AvatarBuilder : object {
+    public static Avatar BuildHumanAvatar(GameObject go, HumanDescription humanDescription);
+    [FreeFunctionAttribute("AvatarBuilderBindings::BuildHumanAvatar")]
+private static Avatar BuildHumanAvatarInternal(GameObject go, HumanDescription humanDescription);
+    [FreeFunctionAttribute("AvatarBuilderBindings::BuildGenericAvatar")]
+public static Avatar BuildGenericAvatar(GameObject go, string rootMotionTransformName);
+    private static Avatar BuildHumanAvatarInternal_Injected(GameObject go, HumanDescription& humanDescription);
+}
+public enum UnityEngine.AvatarIKGoal : Enum {
+    public int value__;
+    public static AvatarIKGoal LeftFoot;
+    public static AvatarIKGoal RightFoot;
+    public static AvatarIKGoal LeftHand;
+    public static AvatarIKGoal RightHand;
+}
+public enum UnityEngine.AvatarIKHint : Enum {
+    public int value__;
+    public static AvatarIKHint LeftKnee;
+    public static AvatarIKHint RightKnee;
+    public static AvatarIKHint LeftElbow;
+    public static AvatarIKHint RightElbow;
+}
+[MovedFromAttribute("True", "UnityEditor.Animations", "UnityEditor", "")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/Animation.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/AvatarMask.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.AvatarMask : Object {
+    [ObsoleteAttribute("AvatarMask.humanoidBodyPartCount is deprecated, use AvatarMaskBodyPart.LastBodyPart instead.")]
+public int humanoidBodyPartCount { get; }
+    public int transformCount { get; public set; }
+    internal bool hasFeetIK { get; }
+    [FreeFunctionAttribute("AnimationBindings::CreateAvatarMask")]
+private static void Internal_Create(AvatarMask self);
+    public int get_humanoidBodyPartCount();
+    [NativeMethodAttribute("GetBodyPart")]
+public bool GetHumanoidBodyPartActive(AvatarMaskBodyPart index);
+    [NativeMethodAttribute("SetBodyPart")]
+public void SetHumanoidBodyPartActive(AvatarMaskBodyPart index, bool value);
+    public int get_transformCount();
+    public void set_transformCount(int value);
+    public void AddTransformPath(Transform transform);
+    public void AddTransformPath(Transform transform, bool recursive);
+    public void RemoveTransformPath(Transform transform);
+    public void RemoveTransformPath(Transform transform, bool recursive);
+    public string GetTransformPath(int index);
+    public void SetTransformPath(int index, string path);
+    private float GetTransformWeight(int index);
+    private void SetTransformWeight(int index, float weight);
+    public bool GetTransformActive(int index);
+    public void SetTransformActive(int index, bool value);
+    internal bool get_hasFeetIK();
+    internal void Copy(AvatarMask other);
+}
+[MovedFromAttribute("True", "UnityEditor.Animations", "UnityEditor", "")]
+public enum UnityEngine.AvatarMaskBodyPart : Enum {
+    public int value__;
+    public static AvatarMaskBodyPart Root;
+    public static AvatarMaskBodyPart Body;
+    public static AvatarMaskBodyPart Head;
+    public static AvatarMaskBodyPart LeftLeg;
+    public static AvatarMaskBodyPart RightLeg;
+    public static AvatarMaskBodyPart LeftArm;
+    public static AvatarMaskBodyPart RightArm;
+    public static AvatarMaskBodyPart LeftFingers;
+    public static AvatarMaskBodyPart RightFingers;
+    public static AvatarMaskBodyPart LeftFootIK;
+    public static AvatarMaskBodyPart RightFootIK;
+    public static AvatarMaskBodyPart LeftHandIK;
+    public static AvatarMaskBodyPart RightHandIK;
+    public static AvatarMaskBodyPart LastBodyPart;
+}
+public enum UnityEngine.AvatarTarget : Enum {
+    public int value__;
+    public static AvatarTarget Root;
+    public static AvatarTarget Body;
+    public static AvatarTarget LeftFoot;
+    public static AvatarTarget RightFoot;
+    public static AvatarTarget LeftHand;
+    public static AvatarTarget RightHand;
+}
+public enum UnityEngine.BodyDof : Enum {
+    public int value__;
+    public static BodyDof SpineFrontBack;
+    public static BodyDof SpineLeftRight;
+    public static BodyDof SpineRollLeftRight;
+    public static BodyDof ChestFrontBack;
+    public static BodyDof ChestLeftRight;
+    public static BodyDof ChestRollLeftRight;
+    public static BodyDof UpperChestFrontBack;
+    public static BodyDof UpperChestLeftRight;
+    public static BodyDof UpperChestRollLeftRight;
+    public static BodyDof LastBodyDof;
+}
+internal enum UnityEngine.Dof : Enum {
+    public int value__;
+    public static Dof BodyDofStart;
+    public static Dof HeadDofStart;
+    public static Dof LeftLegDofStart;
+    public static Dof RightLegDofStart;
+    public static Dof LeftArmDofStart;
+    public static Dof RightArmDofStart;
+    public static Dof LeftThumbDofStart;
+    public static Dof LeftIndexDofStart;
+    public static Dof LeftMiddleDofStart;
+    public static Dof LeftRingDofStart;
+    public static Dof LeftLittleDofStart;
+    public static Dof RightThumbDofStart;
+    public static Dof RightIndexDofStart;
+    public static Dof RightMiddleDofStart;
+    public static Dof RightRingDofStart;
+    public static Dof RightLittleDofStart;
+    public static Dof LastDof;
+}
+public enum UnityEngine.DurationUnit : Enum {
+    public int value__;
+    public static DurationUnit Fixed;
+    public static DurationUnit Normalized;
+}
+[ExtensionAttribute]
+[NativeHeaderAttribute("Modules/Animation/AnimatorDefines.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AnimationPlayableOutputExtensions.bindings.h")]
+[StaticAccessorAttribute("AnimationPlayableOutputExtensionsBindings", "2")]
+public static class UnityEngine.Experimental.Animations.AnimationPlayableOutputExtensions : object {
+    [ExtensionAttribute]
+public static AnimationStreamSource GetAnimationStreamSource(AnimationPlayableOutput output);
+    [ExtensionAttribute]
+public static void SetAnimationStreamSource(AnimationPlayableOutput output, AnimationStreamSource streamSource);
+    [ExtensionAttribute]
+public static ushort GetSortingOrder(AnimationPlayableOutput output);
+    [ExtensionAttribute]
+public static void SetSortingOrder(AnimationPlayableOutput output, ushort sortingOrder);
+    [NativeThrowsAttribute]
+private static AnimationStreamSource InternalGetAnimationStreamSource(PlayableOutputHandle output);
+    [NativeThrowsAttribute]
+private static void InternalSetAnimationStreamSource(PlayableOutputHandle output, AnimationStreamSource streamSource);
+    [NativeThrowsAttribute]
+private static int InternalGetSortingOrder(PlayableOutputHandle output);
+    [NativeThrowsAttribute]
+private static void InternalSetSortingOrder(PlayableOutputHandle output, int sortingOrder);
+    private static AnimationStreamSource InternalGetAnimationStreamSource_Injected(PlayableOutputHandle& output);
+    private static void InternalSetAnimationStreamSource_Injected(PlayableOutputHandle& output, AnimationStreamSource streamSource);
+    private static int InternalGetSortingOrder_Injected(PlayableOutputHandle& output);
+    private static void InternalSetSortingOrder_Injected(PlayableOutputHandle& output, int sortingOrder);
+}
+public enum UnityEngine.Experimental.Animations.AnimationStreamSource : Enum {
+    public int value__;
+    public static AnimationStreamSource DefaultValues;
+    public static AnimationStreamSource PreviousInputs;
+}
+public enum UnityEngine.FingerDof : Enum {
+    public int value__;
+    public static FingerDof ProximalDownUp;
+    public static FingerDof ProximalInOut;
+    public static FingerDof IntermediateCloseOpen;
+    public static FingerDof DistalCloseOpen;
+    public static FingerDof LastFingerDof;
+}
+public enum UnityEngine.HeadDof : Enum {
+    public int value__;
+    public static HeadDof NeckFrontBack;
+    public static HeadDof NeckLeftRight;
+    public static HeadDof NeckRollLeftRight;
+    public static HeadDof HeadFrontBack;
+    public static HeadDof HeadLeftRight;
+    public static HeadDof HeadRollLeftRight;
+    public static HeadDof LeftEyeDownUp;
+    public static HeadDof LeftEyeInOut;
+    public static HeadDof RightEyeDownUp;
+    public static HeadDof RightEyeInOut;
+    public static HeadDof JawDownUp;
+    public static HeadDof JawLeftRight;
+    public static HeadDof LastHeadDof;
+}
+public enum UnityEngine.HumanBodyBones : Enum {
+    public int value__;
+    public static HumanBodyBones Hips;
+    public static HumanBodyBones LeftUpperLeg;
+    public static HumanBodyBones RightUpperLeg;
+    public static HumanBodyBones LeftLowerLeg;
+    public static HumanBodyBones RightLowerLeg;
+    public static HumanBodyBones LeftFoot;
+    public static HumanBodyBones RightFoot;
+    public static HumanBodyBones Spine;
+    public static HumanBodyBones Chest;
+    public static HumanBodyBones UpperChest;
+    public static HumanBodyBones Neck;
+    public static HumanBodyBones Head;
+    public static HumanBodyBones LeftShoulder;
+    public static HumanBodyBones RightShoulder;
+    public static HumanBodyBones LeftUpperArm;
+    public static HumanBodyBones RightUpperArm;
+    public static HumanBodyBones LeftLowerArm;
+    public static HumanBodyBones RightLowerArm;
+    public static HumanBodyBones LeftHand;
+    public static HumanBodyBones RightHand;
+    public static HumanBodyBones LeftToes;
+    public static HumanBodyBones RightToes;
+    public static HumanBodyBones LeftEye;
+    public static HumanBodyBones RightEye;
+    public static HumanBodyBones Jaw;
+    public static HumanBodyBones LeftThumbProximal;
+    public static HumanBodyBones LeftThumbIntermediate;
+    public static HumanBodyBones LeftThumbDistal;
+    public static HumanBodyBones LeftIndexProximal;
+    public static HumanBodyBones LeftIndexIntermediate;
+    public static HumanBodyBones LeftIndexDistal;
+    public static HumanBodyBones LeftMiddleProximal;
+    public static HumanBodyBones LeftMiddleIntermediate;
+    public static HumanBodyBones LeftMiddleDistal;
+    public static HumanBodyBones LeftRingProximal;
+    public static HumanBodyBones LeftRingIntermediate;
+    public static HumanBodyBones LeftRingDistal;
+    public static HumanBodyBones LeftLittleProximal;
+    public static HumanBodyBones LeftLittleIntermediate;
+    public static HumanBodyBones LeftLittleDistal;
+    public static HumanBodyBones RightThumbProximal;
+    public static HumanBodyBones RightThumbIntermediate;
+    public static HumanBodyBones RightThumbDistal;
+    public static HumanBodyBones RightIndexProximal;
+    public static HumanBodyBones RightIndexIntermediate;
+    public static HumanBodyBones RightIndexDistal;
+    public static HumanBodyBones RightMiddleProximal;
+    public static HumanBodyBones RightMiddleIntermediate;
+    public static HumanBodyBones RightMiddleDistal;
+    public static HumanBodyBones RightRingProximal;
+    public static HumanBodyBones RightRingIntermediate;
+    public static HumanBodyBones RightRingDistal;
+    public static HumanBodyBones RightLittleProximal;
+    public static HumanBodyBones RightLittleIntermediate;
+    public static HumanBodyBones RightLittleDistal;
+    public static HumanBodyBones LastBone;
+}
+[NativeHeaderAttribute("Modules/Animation/HumanDescription.h")]
+[NativeTypeAttribute("1", "MonoHumanBone")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.HumanBone : ValueType {
+    private string m_BoneName;
+    private string m_HumanName;
+    [NativeNameAttribute("m_Limit")]
+public HumanLimit limit;
+    public string boneName { get; public set; }
+    public string humanName { get; public set; }
+    public string get_boneName();
+    public void set_boneName(string value);
+    public string get_humanName();
+    public void set_humanName(string value);
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AvatarBuilder.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/HumanDescription.h")]
+public class UnityEngine.HumanDescription : ValueType {
+    [NativeNameAttribute("m_Human")]
+public HumanBone[] human;
+    [NativeNameAttribute("m_Skeleton")]
+public SkeletonBone[] skeleton;
+    internal float m_ArmTwist;
+    internal float m_ForeArmTwist;
+    internal float m_UpperLegTwist;
+    internal float m_LegTwist;
+    internal float m_ArmStretch;
+    internal float m_LegStretch;
+    internal float m_FeetSpacing;
+    internal float m_GlobalScale;
+    internal string m_RootMotionBoneName;
+    internal bool m_HasTranslationDoF;
+    internal bool m_HasExtraRoot;
+    internal bool m_SkeletonHasParents;
+    public float upperArmTwist { get; public set; }
+    public float lowerArmTwist { get; public set; }
+    public float upperLegTwist { get; public set; }
+    public float lowerLegTwist { get; public set; }
+    public float armStretch { get; public set; }
+    public float legStretch { get; public set; }
+    public float feetSpacing { get; public set; }
+    public bool hasTranslationDoF { get; public set; }
+    public float get_upperArmTwist();
+    public void set_upperArmTwist(float value);
+    public float get_lowerArmTwist();
+    public void set_lowerArmTwist(float value);
+    public float get_upperLegTwist();
+    public void set_upperLegTwist(float value);
+    public float get_lowerLegTwist();
+    public void set_lowerLegTwist(float value);
+    public float get_armStretch();
+    public void set_armStretch(float value);
+    public float get_legStretch();
+    public void set_legStretch(float value);
+    public float get_feetSpacing();
+    public void set_feetSpacing(float value);
+    public bool get_hasTranslationDoF();
+    public void set_hasTranslationDoF(bool value);
+}
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/AvatarBuilder.bindings.h")]
+[NativeHeaderAttribute("Modules/Animation/HumanDescription.h")]
+[NativeTypeAttribute("1", "MonoHumanLimit")]
+public class UnityEngine.HumanLimit : ValueType {
+    private Vector3 m_Min;
+    private Vector3 m_Max;
+    private Vector3 m_Center;
+    private float m_AxisLength;
+    private int m_UseDefaultValues;
+    public bool useDefaultValues { get; public set; }
+    public Vector3 min { get; public set; }
+    public Vector3 max { get; public set; }
+    public Vector3 center { get; public set; }
+    public float axisLength { get; public set; }
+    public bool get_useDefaultValues();
+    public void set_useDefaultValues(bool value);
+    public Vector3 get_min();
+    public void set_min(Vector3 value);
+    public Vector3 get_max();
+    public void set_max(Vector3 value);
+    public Vector3 get_center();
+    public void set_center(Vector3 value);
+    public float get_axisLength();
+    public void set_axisLength(float value);
+}
+internal enum UnityEngine.HumanParameter : Enum {
+    public int value__;
+    public static HumanParameter UpperArmTwist;
+    public static HumanParameter LowerArmTwist;
+    public static HumanParameter UpperLegTwist;
+    public static HumanParameter LowerLegTwist;
+    public static HumanParameter ArmStretch;
+    public static HumanParameter LegStretch;
+    public static HumanParameter FeetSpacing;
+}
+public enum UnityEngine.HumanPartDof : Enum {
+    public int value__;
+    public static HumanPartDof Body;
+    public static HumanPartDof Head;
+    public static HumanPartDof LeftLeg;
+    public static HumanPartDof RightLeg;
+    public static HumanPartDof LeftArm;
+    public static HumanPartDof RightArm;
+    public static HumanPartDof LeftThumb;
+    public static HumanPartDof LeftIndex;
+    public static HumanPartDof LeftMiddle;
+    public static HumanPartDof LeftRing;
+    public static HumanPartDof LeftLittle;
+    public static HumanPartDof RightThumb;
+    public static HumanPartDof RightIndex;
+    public static HumanPartDof RightMiddle;
+    public static HumanPartDof RightRing;
+    public static HumanPartDof RightLittle;
+    public static HumanPartDof LastHumanPartDof;
+}
+public class UnityEngine.HumanPose : ValueType {
+    public Vector3 bodyPosition;
+    public Quaternion bodyRotation;
+    public Single[] muscles;
+    internal void Init();
+}
+[NativeHeaderAttribute("Modules/Animation/HumanPoseHandler.h")]
+[NativeHeaderAttribute("Modules/Animation/ScriptBindings/Animation.bindings.h")]
+public class UnityEngine.HumanPoseHandler : object {
+    internal IntPtr m_Ptr;
+    public HumanPoseHandler(Avatar avatar, Transform root);
+    public HumanPoseHandler(Avatar avatar, String[] jointPaths);
+    [FreeFunctionAttribute("AnimationBindings::CreateHumanPoseHandler")]
+private static IntPtr Internal_CreateFromRoot(Avatar avatar, Transform root);
+    [FreeFunctionAttribute("AnimationBindings::CreateHumanPoseHandler")]
+private static IntPtr Internal_CreateFromJointPaths(Avatar avatar, String[] jointPaths);
+    [FreeFunctionAttribute("AnimationBindings::DestroyHumanPoseHandler")]
+private static void Internal_Destroy(IntPtr ptr);
+    private void GetHumanPose(Vector3& bodyPosition, Quaternion& bodyRotation, Single[] muscles);
+    private void SetHumanPose(Vector3& bodyPosition, Quaternion& bodyRotation, Single[] muscles);
+    [ThreadSafeAttribute]
+private void GetInternalHumanPose(Vector3& bodyPosition, Quaternion& bodyRotation, Single[] muscles);
+    [ThreadSafeAttribute]
+private void SetInternalHumanPose(Vector3& bodyPosition, Quaternion& bodyRotation, Single[] muscles);
+    [ThreadSafeAttribute]
+private void GetInternalAvatarPose(Void* avatarPose, int avatarPoseLength);
+    [ThreadSafeAttribute]
+private void SetInternalAvatarPose(Void* avatarPose, int avatarPoseLength);
+    public sealed virtual void Dispose();
+    public void GetHumanPose(HumanPose& humanPose);
+    public void SetHumanPose(HumanPose& humanPose);
+    public void GetInternalHumanPose(HumanPose& humanPose);
+    public void SetInternalHumanPose(HumanPose& humanPose);
+    public void GetInternalAvatarPose(NativeArray`1<float> avatarPose);
+    public void SetInternalAvatarPose(NativeArray`1<float> avatarPose);
+}
+[NativeHeaderAttribute("Modules/Animation/HumanTrait.h")]
+public class UnityEngine.HumanTrait : object {
+    public static int MuscleCount { get; }
+    public static String[] MuscleName { get; }
+    public static int BoneCount { get; }
+    public static String[] BoneName { get; }
+    public static int RequiredBoneCount { get; }
+    public static int get_MuscleCount();
+    internal static int GetBoneIndexFromMono(int humanId);
+    internal static int GetBoneIndexToMono(int boneIndex);
+    [NativeMethodAttribute("GetMuscleNames")]
+public static String[] get_MuscleName();
+    public static int get_BoneCount();
+    [NativeMethodAttribute("MonoBoneNames")]
+public static String[] get_BoneName();
+    public static int MuscleFromBone(int i, int dofIndex);
+    [NativeMethodAttribute("MuscleFromBone")]
+private static int Internal_MuscleFromBone(int i, int dofIndex);
+    public static int BoneFromMuscle(int i);
+    [NativeMethodAttribute("BoneFromMuscle")]
+private static int Internal_BoneFromMuscle(int i);
+    public static bool RequiredBone(int i);
+    [NativeMethodAttribute("RequiredBone")]
+private static bool Internal_RequiredBone(int i);
+    [NativeMethodAttribute("RequiredBoneCount")]
+public static int get_RequiredBoneCount();
+    public static float GetMuscleDefaultMin(int i);
+    public static float GetMuscleDefaultMax(int i);
+    public static float GetBoneDefaultHierarchyMass(int i);
+    public static int GetParentBone(int i);
+    [NativeMethodAttribute("GetBoneHierarchyMass")]
+private static float Internal_GetBoneHierarchyMass(int i);
+    [NativeMethodAttribute("GetParent")]
+private static int Internal_GetParent(int i);
+}
+public interface UnityEngine.IAnimationClipSource {
+    public abstract virtual void GetAnimationClips(List`1<AnimationClip> results);
+}
+public enum UnityEngine.LegDof : Enum {
+    public int value__;
+    public static LegDof UpperLegFrontBack;
+    public static LegDof UpperLegInOut;
+    public static LegDof UpperLegRollInOut;
+    public static LegDof LegCloseOpen;
+    public static LegDof LegRollInOut;
+    public static LegDof FootCloseOpen;
+    public static LegDof FootInOut;
+    public static LegDof ToesUpDown;
+    public static LegDof LastLegDof;
+}
+[NativeHeaderAttribute("Modules/Animation/Animator.h")]
+public class UnityEngine.MatchTargetWeightMask : ValueType {
+    private Vector3 m_PositionXYZWeight;
+    private float m_RotationWeight;
+    public Vector3 positionXYZWeight { get; public set; }
+    public float rotationWeight { get; public set; }
+    public MatchTargetWeightMask(Vector3 positionXYZWeight, float rotationWeight);
+    public Vector3 get_positionXYZWeight();
+    public void set_positionXYZWeight(Vector3 value);
+    public float get_rotationWeight();
+    public void set_rotationWeight(float value);
+}
+[NativeHeaderAttribute("Modules/Animation/Motion.h")]
+public class UnityEngine.Motion : Object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private bool <isAnimatorMotion>k__BackingField;
+    public float averageDuration { get; }
+    public float averageAngularSpeed { get; }
+    public Vector3 averageSpeed { get; }
+    public float apparentSpeed { get; }
+    public bool isLooping { get; }
+    public bool legacy { get; }
+    public bool isHumanMotion { get; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("isAnimatorMotion is not supported anymore, please use !legacy instead.", "True")]
+public bool isAnimatorMotion { get; }
+    public float get_averageDuration();
+    public float get_averageAngularSpeed();
+    public Vector3 get_averageSpeed();
+    public float get_apparentSpeed();
+    [NativeMethodAttribute("IsLooping")]
+public bool get_isLooping();
+    [NativeMethodAttribute("IsLegacy")]
+public bool get_legacy();
+    [NativeMethodAttribute("IsHumanMotion")]
+public bool get_isHumanMotion();
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("ValidateIfRetargetable is not supported anymore, please use isHumanMotion instead.", "True")]
+public bool ValidateIfRetargetable(bool val);
+    [CompilerGeneratedAttribute]
+public bool get_isAnimatorMotion();
+    private void get_averageSpeed_Injected(Vector3& ret);
+}
+public static class UnityEngine.Playables.AnimationPlayableUtilities : object {
+    [ObsoleteAttribute("This function is no longer used as it overrides the Time Update Mode of the Playable Graph. Refer to the documentation for an example of an equivalent function.")]
+public static void Play(Animator animator, Playable playable, PlayableGraph graph);
+    public static AnimationClipPlayable PlayClip(Animator animator, AnimationClip clip, PlayableGraph& graph);
+    public static AnimationMixerPlayable PlayMixer(Animator animator, int inputCount, PlayableGraph& graph);
+    public static AnimationLayerMixerPlayable PlayLayerMixer(Animator animator, int inputCount, PlayableGraph& graph);
+    public static AnimatorControllerPlayable PlayAnimatorController(Animator animator, RuntimeAnimatorController controller, PlayableGraph& graph);
+}
+public enum UnityEngine.PlayMode : Enum {
+    public int value__;
+    public static PlayMode StopSameLayer;
+    public static PlayMode StopAll;
+}
+public enum UnityEngine.QueueMode : Enum {
+    public int value__;
+    public static QueueMode CompleteOthers;
+    public static QueueMode PlayNow;
+}
+[ExcludeFromObjectFactoryAttribute]
+[NativeHeaderAttribute("Modules/Animation/RuntimeAnimatorController.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.RuntimeAnimatorController : Object {
+    public AnimationClip[] animationClips { get; }
+    public AnimationClip[] get_animationClips();
+}
+[AttributeUsageAttribute("4")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.SharedBetweenAnimatorsAttribute : Attribute {
+}
+[NativeHeaderAttribute("Modules/Animation/HumanDescription.h")]
+[NativeTypeAttribute("1", "MonoSkeletonBone")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.SkeletonBone : ValueType {
+    [NativeNameAttribute("m_Name")]
+public string name;
+    [NativeNameAttribute("m_ParentName")]
+internal string parentName;
+    [NativeNameAttribute("m_Position")]
+public Vector3 position;
+    [NativeNameAttribute("m_Rotation")]
+public Quaternion rotation;
+    [NativeNameAttribute("m_Scale")]
+public Vector3 scale;
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("transformModified is no longer used and has been deprecated.", "True")]
+public int transformModified { get; public set; }
+    public int get_transformModified();
+    public void set_transformModified(int value);
+}
+internal enum UnityEngine.StateInfoIndex : Enum {
+    public int value__;
+    public static StateInfoIndex CurrentState;
+    public static StateInfoIndex NextState;
+    public static StateInfoIndex ExitState;
+    public static StateInfoIndex InterruptedState;
+}
+[RequiredByNativeCodeAttribute]
+public abstract class UnityEngine.StateMachineBehaviour : ScriptableObject {
+    public virtual void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex);
+    public virtual void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex);
+    public virtual void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex);
+    public virtual void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex);
+    public virtual void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex);
+    public virtual void OnStateMachineEnter(Animator animator, int stateMachinePathHash);
+    public virtual void OnStateMachineExit(Animator animator, int stateMachinePathHash);
+    public virtual void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller);
+    public virtual void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller);
+    public virtual void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller);
+    public virtual void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller);
+    public virtual void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex, AnimatorControllerPlayable controller);
+    public virtual void OnStateMachineEnter(Animator animator, int stateMachinePathHash, AnimatorControllerPlayable controller);
+    public virtual void OnStateMachineExit(Animator animator, int stateMachinePathHash, AnimatorControllerPlayable controller);
+}
+internal enum UnityEngine.TransitionType : Enum {
+    public int value__;
+    public static TransitionType Normal;
+    public static TransitionType Entry;
+    public static TransitionType Exit;
+}

@@ -1,0 +1,42 @@
+public static class HarmonyLoader : object {
+    private static string modPath;
+    private static Assembly harmonyAssembly;
+    private static List`1<HarmonyMod> loadedMods;
+    private static DefaultAssemblyResolver AssemblyResolver;
+    private static Dictionary`2<string, Assembly> assemblyNames;
+    private static HarmonyLoader();
+    public static IEnumerable`1<HarmonyModInfo> GetHarmonyMods();
+    private static string GetHarmonyPath();
+    private static void EnsureHarmonyIsLoaded();
+    [RuntimeInitializeOnLoadMethodAttribute("1")]
+public static void LoadHarmonyMods();
+    public static bool TryLoadMod(string dllName);
+    public static bool TryUnloadMod(string name);
+    private static void UnloadMod(HarmonyMod mod);
+    private static HarmonyMod GetMod(string name);
+    private static Assembly LoadAssembly(string assemblyPath);
+    private static bool IsKnownDependency(string assemblyName);
+    private static void ReportException(string harmonyId, Exception e);
+    private static void Log(string harmonyId, object message);
+    private static void LogError(string harmonyId, object message);
+    private static void LogError(object message);
+    private static void LogWarning(object message);
+}
+public class HarmonyModInfo : ValueType {
+    public string Name;
+    public string Version;
+}
+public interface IHarmonyModHooks {
+    public abstract virtual void OnLoaded(OnHarmonyModLoadedArgs args);
+    public abstract virtual void OnUnloaded(OnHarmonyModUnloadedArgs args);
+}
+public class OnHarmonyModLoadedArgs : object {
+}
+public class OnHarmonyModUnloadedArgs : object {
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

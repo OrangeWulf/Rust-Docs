@@ -1,0 +1,3609 @@
+internal abstract class Internal.Cryptography.DecryptorPal : object {
+    [CompilerGeneratedAttribute]
+private RecipientInfoCollection <RecipientInfos>k__BackingField;
+    public RecipientInfoCollection RecipientInfos { get; }
+    internal DecryptorPal(RecipientInfoCollection recipientInfos);
+    [CompilerGeneratedAttribute]
+public RecipientInfoCollection get_RecipientInfos();
+    public abstract virtual ContentInfo TryDecrypt(RecipientInfo recipientInfo, X509Certificate2 cert, X509Certificate2Collection originatorCerts, X509Certificate2Collection extraStore, Exception& exception);
+    public abstract virtual void Dispose();
+}
+[ExtensionAttribute]
+internal static class Internal.Cryptography.Helpers : object {
+    [ExtensionAttribute]
+internal static void AppendData(IncrementalHash hasher, ReadOnlySpan`1<byte> data);
+    internal static HashAlgorithmName GetDigestAlgorithm(Oid oid);
+    internal static HashAlgorithmName GetDigestAlgorithm(string oidValue);
+    internal static string GetOidFromHashAlgorithm(HashAlgorithmName algName);
+    [ExtensionAttribute]
+public static Byte[] Resize(Byte[] a, int size);
+    public static void RemoveAt(T[]& arr, int idx);
+    public static T[] NormalizeSet(T[] setItems, Action`1<Byte[]> encodedValueProcessor);
+    internal static Byte[] EncodeContentInfo(T value, string contentType, AsnEncodingRules ruleSet);
+    [ExtensionAttribute]
+public static CmsRecipientCollection DeepCopy(CmsRecipientCollection recipients);
+    [ExtensionAttribute]
+public static Byte[] UnicodeToOctetString(string s);
+    [ExtensionAttribute]
+public static string OctetStringToUnicode(Byte[] octets);
+    public static X509Certificate2Collection GetStoreCertificates(StoreName storeName, StoreLocation storeLocation, bool openExistingOnly);
+    [ExtensionAttribute]
+public static X509Certificate2 TryFindMatchingCertificate(X509Certificate2Collection certs, SubjectIdentifier recipientIdentifier);
+    private static bool AreByteArraysEqual(Byte[] ba1, Byte[] ba2);
+    [ExtensionAttribute]
+private static Byte[] ToSkiBytes(string skiString);
+    [ExtensionAttribute]
+public static string ToSkiString(Byte[] skiBytes);
+    [ExtensionAttribute]
+public static string ToBigEndianHex(ReadOnlySpan`1<byte> bytes);
+    [ExtensionAttribute]
+private static Byte[] ToSerialBytes(string serialString);
+    [ExtensionAttribute]
+public static string ToSerialString(Byte[] serialBytes);
+    private static string ToUpperHexString(ReadOnlySpan`1<byte> ba);
+    [ExtensionAttribute]
+private static Byte[] UpperHexStringToByteArray(string normalizedString);
+    private static byte UpperHexCharToNybble(char c);
+    public static Pkcs9AttributeObject CreateBestPkcs9AttributeObjectAvailable(Oid oid, Byte[] encodedAttribute);
+    private static T Upgrade(Pkcs9AttributeObject basicAttribute);
+    [ExtensionAttribute]
+public static Byte[] GetSubjectKeyIdentifier(X509Certificate2 certificate);
+    [ExtensionAttribute]
+internal static Byte[] OneShot(ICryptoTransform transform, Byte[] data);
+    [ExtensionAttribute]
+internal static Byte[] OneShot(ICryptoTransform transform, Byte[] data, int offset, int length);
+    private static ReadOnlyMemory`1<byte> GetSubjectPublicKeyInfo(X509Certificate2 certificate);
+}
+internal abstract class Internal.Cryptography.KeyAgreeRecipientInfoPal : RecipientInfoPal {
+    public DateTime Date { get; }
+    public SubjectIdentifierOrKey OriginatorIdentifierOrKey { get; }
+    public CryptographicAttributeObject OtherKeyAttribute { get; }
+    public abstract virtual DateTime get_Date();
+    public abstract virtual SubjectIdentifierOrKey get_OriginatorIdentifierOrKey();
+    public abstract virtual CryptographicAttributeObject get_OtherKeyAttribute();
+}
+internal static class Internal.Cryptography.KeyLengths : object {
+    public static int Rc2_40Bit;
+    public static int Rc2_56Bit;
+    public static int Rc2_64Bit;
+    public static int Rc2_128Bit;
+    public static int Rc4Max_128Bit;
+    public static int Des_64Bit;
+    public static int TripleDes_192Bit;
+    public static int DefaultKeyLengthForRc2AndRc4;
+}
+internal abstract class Internal.Cryptography.KeyTransRecipientInfoPal : RecipientInfoPal {
+}
+internal static class Internal.Cryptography.Oids : object {
+    public static string Rc2Cbc;
+    public static string Rc4;
+    public static string TripleDesCbc;
+    public static string DesCbc;
+    public static string Aes128Cbc;
+    public static string Aes192Cbc;
+    public static string Aes256Cbc;
+    public static string Rsa;
+    public static string RsaOaep;
+    public static string RsaPss;
+    public static string RsaPkcs1Sha1;
+    public static string RsaPkcs1Sha256;
+    public static string RsaPkcs1Sha384;
+    public static string RsaPkcs1Sha512;
+    public static string Esdh;
+    public static string SigningTime;
+    public static string ContentType;
+    public static string DocumentDescription;
+    public static string MessageDigest;
+    public static string CounterSigner;
+    public static string SigningCertificate;
+    public static string SigningCertificateV2;
+    public static string DocumentName;
+    public static string CmsRc2Wrap;
+    public static string Cms3DesWrap;
+    public static string Pkcs7Data;
+    public static string Pkcs7Signed;
+    public static string Pkcs7Enveloped;
+    public static string Pkcs7SignedEnveloped;
+    public static string Pkcs7Hashed;
+    public static string Pkcs7Encrypted;
+    public static string Md5;
+    public static string Sha1;
+    public static string Sha256;
+    public static string Sha384;
+    public static string Sha512;
+    public static string DsaPublicKey;
+    public static string DsaWithSha1;
+    public static string DsaWithSha256;
+    public static string DsaWithSha384;
+    public static string DsaWithSha512;
+    public static string EcPublicKey;
+    public static string ECDsaWithSha1;
+    public static string ECDsaWithSha256;
+    public static string ECDsaWithSha384;
+    public static string ECDsaWithSha512;
+    public static string Mgf1;
+    public static string SubjectKeyIdentifier;
+    public static string KeyUsage;
+    public static string TstInfo;
+    public static string TimeStampingPurpose;
+}
+[ExtensionAttribute]
+internal static class Internal.Cryptography.Pal.AnyOS.AsnHelpers : object {
+    [ExtensionAttribute]
+internal static SubjectIdentifierOrKey ToSubjectIdentifierOrKey(OriginatorIdentifierOrKeyAsn originator);
+    [ExtensionAttribute]
+internal static AlgorithmIdentifier ToPresentationObject(AlgorithmIdentifierAsn asn);
+}
+internal class Internal.Cryptography.Pal.AnyOS.ManagedPkcsPal : PkcsPal {
+    private static Byte[] s_invalidEmptyOid;
+    private static Byte[] s_rsaPkcsParameters;
+    private static Byte[] s_rsaOaepSha1Parameters;
+    private static ManagedPkcsPal();
+    public virtual Byte[] EncodeOctetString(Byte[] octets);
+    public virtual Byte[] DecodeOctetString(Byte[] encodedOctets);
+    public virtual Byte[] EncodeUtcTime(DateTime utcTime);
+    public virtual DateTime DecodeUtcTime(Byte[] encodedUtcTime);
+    public virtual string DecodeOid(Byte[] encodedOid);
+    public virtual Oid GetEncodedMessageType(Byte[] encodedMessage);
+    public virtual DecryptorPal Decode(Byte[] encodedMessage, Int32& version, ContentInfo& contentInfo, AlgorithmIdentifier& contentEncryptionAlgorithm, X509Certificate2Collection& originatorCerts, CryptographicAttributeObjectCollection& unprotectedAttributes);
+    public virtual Byte[] Encrypt(CmsRecipientCollection recipients, ContentInfo contentInfo, AlgorithmIdentifier contentEncryptionAlgorithm, X509Certificate2Collection originatorCerts, CryptographicAttributeObjectCollection unprotectedAttributes);
+    private static Byte[] Encrypt(CmsRecipientCollection recipients, ContentInfo contentInfo, AlgorithmIdentifier contentEncryptionAlgorithm, X509Certificate2Collection originatorCerts, CryptographicAttributeObjectCollection unprotectedAttributes, Byte[] encryptedContent, Byte[] cek, Byte[] parameterBytes);
+    private Byte[] EncryptContent(ContentInfo contentInfo, AlgorithmIdentifier contentEncryptionAlgorithm, Byte[]& cek, Byte[]& parameterBytes);
+    public virtual Exception CreateRecipientsNotFoundException();
+    public virtual Exception CreateRecipientInfosAfterEncryptException();
+    public virtual Exception CreateDecryptAfterEncryptException();
+    public virtual Exception CreateDecryptTwiceException();
+    private static Exception CreateInvalidMessageTypeException();
+    private static KeyTransRecipientInfoAsn MakeKtri(Byte[] cek, CmsRecipient recipient, Boolean& v0Recipient);
+    public virtual void AddCertsFromStoreForDecryption(X509Certificate2Collection certs);
+    public virtual Byte[] GetSubjectKeyIdentifier(X509Certificate2 certificate);
+    public virtual T GetPrivateKeyForSigning(X509Certificate2 certificate, bool silent);
+    public virtual T GetPrivateKeyForDecryption(X509Certificate2 certificate, bool silent);
+    private T GetPrivateKey(X509Certificate2 certificate);
+    private static SymmetricAlgorithm OpenAlgorithm(AlgorithmIdentifierAsn contentEncryptionAlgorithm);
+    private static SymmetricAlgorithm OpenAlgorithm(AlgorithmIdentifier algorithmIdentifier);
+    private static SymmetricAlgorithm OpenAlgorithm(Oid algorithmIdentifier);
+}
+internal abstract class Internal.Cryptography.PkcsPal : object {
+    private static PkcsPal s_instance;
+    public static PkcsPal Instance { get; }
+    private static PkcsPal();
+    public abstract virtual Byte[] Encrypt(CmsRecipientCollection recipients, ContentInfo contentInfo, AlgorithmIdentifier contentEncryptionAlgorithm, X509Certificate2Collection originatorCerts, CryptographicAttributeObjectCollection unprotectedAttributes);
+    public abstract virtual DecryptorPal Decode(Byte[] encodedMessage, Int32& version, ContentInfo& contentInfo, AlgorithmIdentifier& contentEncryptionAlgorithm, X509Certificate2Collection& originatorCerts, CryptographicAttributeObjectCollection& unprotectedAttributes);
+    public abstract virtual Byte[] EncodeOctetString(Byte[] octets);
+    public abstract virtual Byte[] DecodeOctetString(Byte[] encodedOctets);
+    public abstract virtual Byte[] EncodeUtcTime(DateTime utcTime);
+    public abstract virtual DateTime DecodeUtcTime(Byte[] encodedUtcTime);
+    public abstract virtual string DecodeOid(Byte[] encodedOid);
+    public abstract virtual Oid GetEncodedMessageType(Byte[] encodedMessage);
+    public abstract virtual void AddCertsFromStoreForDecryption(X509Certificate2Collection certs);
+    public abstract virtual Exception CreateRecipientsNotFoundException();
+    public abstract virtual Exception CreateRecipientInfosAfterEncryptException();
+    public abstract virtual Exception CreateDecryptAfterEncryptException();
+    public abstract virtual Exception CreateDecryptTwiceException();
+    public abstract virtual Byte[] GetSubjectKeyIdentifier(X509Certificate2 certificate);
+    public abstract virtual T GetPrivateKeyForSigning(X509Certificate2 certificate, bool silent);
+    public abstract virtual T GetPrivateKeyForDecryption(X509Certificate2 certificate, bool silent);
+    public static PkcsPal get_Instance();
+}
+internal abstract class Internal.Cryptography.RecipientInfoPal : object {
+    public Byte[] EncryptedKey { get; }
+    public AlgorithmIdentifier KeyEncryptionAlgorithm { get; }
+    public SubjectIdentifier RecipientIdentifier { get; }
+    public int Version { get; }
+    public abstract virtual Byte[] get_EncryptedKey();
+    public abstract virtual AlgorithmIdentifier get_KeyEncryptionAlgorithm();
+    public abstract virtual SubjectIdentifier get_RecipientIdentifier();
+    public abstract virtual int get_Version();
+}
+internal static class Mono.Security.Cryptography.ManagedProtection : object {
+    private static RSA user;
+    private static RSA machine;
+    private static object user_lock;
+    private static object machine_lock;
+    private static ManagedProtection();
+    public static Byte[] Protect(Byte[] userData, Byte[] optionalEntropy, DataProtectionScope scope);
+    public static Byte[] Unprotect(Byte[] encryptedData, Byte[] optionalEntropy, DataProtectionScope scope);
+    private static RSA GetKey(DataProtectionScope scope);
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.AnyValueAttribute : AsnTypeAttribute {
+}
+internal class System.Security.Cryptography.Asn1.Asn1Tag : ValueType {
+    private static byte ClassMask;
+    private static byte ConstructedMask;
+    private static byte ControlMask;
+    private static byte TagNumberMask;
+    internal static Asn1Tag EndOfContents;
+    internal static Asn1Tag Boolean;
+    internal static Asn1Tag Integer;
+    internal static Asn1Tag PrimitiveBitString;
+    internal static Asn1Tag ConstructedBitString;
+    internal static Asn1Tag PrimitiveOctetString;
+    internal static Asn1Tag ConstructedOctetString;
+    internal static Asn1Tag Null;
+    internal static Asn1Tag ObjectIdentifier;
+    internal static Asn1Tag Enumerated;
+    internal static Asn1Tag Sequence;
+    internal static Asn1Tag SetOf;
+    internal static Asn1Tag UtcTime;
+    internal static Asn1Tag GeneralizedTime;
+    private byte _controlFlags;
+    private int _tagValue;
+    public TagClass TagClass { get; }
+    public bool IsConstructed { get; }
+    public int TagValue { get; }
+    private Asn1Tag(byte controlFlags, int tagValue);
+    public Asn1Tag(UniversalTagNumber universalTagNumber, bool isConstructed);
+    public Asn1Tag(TagClass tagClass, int tagValue, bool isConstructed);
+    private static Asn1Tag();
+    public TagClass get_TagClass();
+    public bool get_IsConstructed();
+    public int get_TagValue();
+    public Asn1Tag AsConstructed();
+    public Asn1Tag AsPrimitive();
+    public static bool TryParse(ReadOnlySpan`1<byte> source, Asn1Tag& tag, Int32& bytesRead);
+    public int CalculateEncodedSize();
+    public bool TryWrite(Span`1<byte> destination, Int32& bytesWritten);
+    public sealed virtual bool Equals(Asn1Tag other);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static bool op_Equality(Asn1Tag left, Asn1Tag right);
+    public static bool op_Inequality(Asn1Tag left, Asn1Tag right);
+    public virtual string ToString();
+}
+internal class System.Security.Cryptography.Asn1.AsnAmbiguousFieldTypeException : AsnSerializationConstraintException {
+    public AsnAmbiguousFieldTypeException(FieldInfo fieldInfo, Type ambiguousType);
+}
+internal static class System.Security.Cryptography.Asn1.AsnCharacterStringEncodings : object {
+    private static Encoding s_utf8Encoding;
+    private static Encoding s_bmpEncoding;
+    private static Encoding s_ia5Encoding;
+    private static Encoding s_visibleStringEncoding;
+    private static Encoding s_printableStringEncoding;
+    private static AsnCharacterStringEncodings();
+    internal static Encoding GetEncoding(UniversalTagNumber encodingType);
+}
+internal abstract class System.Security.Cryptography.Asn1.AsnEncodingRuleAttribute : Attribute {
+}
+internal enum System.Security.Cryptography.Asn1.AsnEncodingRules : Enum {
+    public int value__;
+    public static AsnEncodingRules BER;
+    public static AsnEncodingRules CER;
+    public static AsnEncodingRules DER;
+}
+internal class System.Security.Cryptography.Asn1.AsnReader : object {
+    internal static int MaxCERSegmentSize;
+    private static int EndOfContentsEncodedLength;
+    private ReadOnlyMemory`1<byte> _data;
+    private AsnEncodingRules _ruleSet;
+    private static byte HmsState;
+    private static byte FracState;
+    private static byte SuffixState;
+    public bool HasData { get; }
+    public AsnReader(ReadOnlyMemory`1<byte> data, AsnEncodingRules ruleSet);
+    public bool get_HasData();
+    public void ThrowIfNotEmpty();
+    public static bool TryPeekTag(ReadOnlySpan`1<byte> source, Asn1Tag& tag, Int32& bytesRead);
+    public Asn1Tag PeekTag();
+    private static bool TryReadLength(ReadOnlySpan`1<byte> source, AsnEncodingRules ruleSet, Nullable`1& length, Int32& bytesRead);
+    internal Asn1Tag ReadTagAndLength(Nullable`1& contentsLength, Int32& bytesRead);
+    private static void ValidateEndOfContents(Asn1Tag tag, Nullable`1<int> length, int headerLength);
+    private int SeekEndOfContents(ReadOnlyMemory`1<byte> source);
+    public ReadOnlyMemory`1<byte> PeekEncodedValue();
+    public ReadOnlyMemory`1<byte> PeekContentBytes();
+    public ReadOnlyMemory`1<byte> GetEncodedValue();
+    private static bool ReadBooleanValue(ReadOnlySpan`1<byte> source, AsnEncodingRules ruleSet);
+    public bool ReadBoolean();
+    public bool ReadBoolean(Asn1Tag expectedTag);
+    private ReadOnlyMemory`1<byte> GetIntegerContents(Asn1Tag expectedTag, UniversalTagNumber tagNumber, Int32& headerLength);
+    public ReadOnlyMemory`1<byte> GetIntegerBytes();
+    public ReadOnlyMemory`1<byte> GetIntegerBytes(Asn1Tag expectedTag);
+    public BigInteger GetInteger();
+    public BigInteger GetInteger(Asn1Tag expectedTag);
+    private bool TryReadSignedInteger(int sizeLimit, Asn1Tag expectedTag, UniversalTagNumber tagNumber, Int64& value);
+    private bool TryReadUnsignedInteger(int sizeLimit, Asn1Tag expectedTag, UniversalTagNumber tagNumber, UInt64& value);
+    public bool TryReadInt32(Int32& value);
+    public bool TryReadInt32(Asn1Tag expectedTag, Int32& value);
+    public bool TryReadUInt32(UInt32& value);
+    public bool TryReadUInt32(Asn1Tag expectedTag, UInt32& value);
+    public bool TryReadInt64(Int64& value);
+    public bool TryReadInt64(Asn1Tag expectedTag, Int64& value);
+    public bool TryReadUInt64(UInt64& value);
+    public bool TryReadUInt64(Asn1Tag expectedTag, UInt64& value);
+    public bool TryReadInt16(Int16& value);
+    public bool TryReadInt16(Asn1Tag expectedTag, Int16& value);
+    public bool TryReadUInt16(UInt16& value);
+    public bool TryReadUInt16(Asn1Tag expectedTag, UInt16& value);
+    public bool TryReadInt8(SByte& value);
+    public bool TryReadInt8(Asn1Tag expectedTag, SByte& value);
+    public bool TryReadUInt8(Byte& value);
+    public bool TryReadUInt8(Asn1Tag expectedTag, Byte& value);
+    private void ParsePrimitiveBitStringContents(ReadOnlyMemory`1<byte> source, Int32& unusedBitCount, ReadOnlyMemory`1& value, Byte& normalizedLastByte);
+    private static void CopyBitStringValue(ReadOnlyMemory`1<byte> value, byte normalizedLastByte, Span`1<byte> destination);
+    private int CountConstructedBitString(ReadOnlyMemory`1<byte> source, bool isIndefinite);
+    private void CopyConstructedBitString(ReadOnlyMemory`1<byte> source, Span`1<byte> destination, bool isIndefinite, Int32& unusedBitCount, Int32& bytesRead, Int32& bytesWritten);
+    private int ProcessConstructedBitString(ReadOnlyMemory`1<byte> source, Span`1<byte> destination, BitStringCopyAction copyAction, bool isIndefinite, Int32& lastUnusedBitCount, Int32& bytesRead);
+    private bool TryCopyConstructedBitStringValue(ReadOnlyMemory`1<byte> source, Span`1<byte> dest, bool isIndefinite, Int32& unusedBitCount, Int32& bytesRead, Int32& bytesWritten);
+    private bool TryGetPrimitiveBitStringValue(Asn1Tag expectedTag, Asn1Tag& actualTag, Nullable`1& contentsLength, Int32& headerLength, Int32& unusedBitCount, ReadOnlyMemory`1& value, Byte& normalizedLastByte);
+    public bool TryGetPrimitiveBitStringValue(Int32& unusedBitCount, ReadOnlyMemory`1& contents);
+    public bool TryGetPrimitiveBitStringValue(Asn1Tag expectedTag, Int32& unusedBitCount, ReadOnlyMemory`1& value);
+    public bool TryCopyBitStringBytes(Span`1<byte> destination, Int32& unusedBitCount, Int32& bytesWritten);
+    public bool TryCopyBitStringBytes(Asn1Tag expectedTag, Span`1<byte> destination, Int32& unusedBitCount, Int32& bytesWritten);
+    public TFlagsEnum GetNamedBitListValue();
+    public TFlagsEnum GetNamedBitListValue(Asn1Tag expectedTag);
+    public Enum GetNamedBitListValue(Type tFlagsEnum);
+    public Enum GetNamedBitListValue(Asn1Tag expectedTag, Type tFlagsEnum);
+    private static long InterpretNamedBitListReversed(ReadOnlySpan`1<byte> valueSpan);
+    public ReadOnlyMemory`1<byte> GetEnumeratedBytes();
+    public ReadOnlyMemory`1<byte> GetEnumeratedBytes(Asn1Tag expectedTag);
+    public TEnum GetEnumeratedValue();
+    public TEnum GetEnumeratedValue(Asn1Tag expectedTag);
+    public Enum GetEnumeratedValue(Type tEnum);
+    public Enum GetEnumeratedValue(Asn1Tag expectedTag, Type tEnum);
+    private bool TryGetPrimitiveOctetStringBytes(Asn1Tag expectedTag, Asn1Tag& actualTag, Nullable`1& contentLength, Int32& headerLength, ReadOnlyMemory`1& contents, UniversalTagNumber universalTagNumber);
+    private bool TryGetPrimitiveOctetStringBytes(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, ReadOnlyMemory`1& contents);
+    public bool TryGetPrimitiveOctetStringBytes(ReadOnlyMemory`1& contents);
+    public bool TryGetPrimitiveOctetStringBytes(Asn1Tag expectedTag, ReadOnlyMemory`1& contents);
+    private int CountConstructedOctetString(ReadOnlyMemory`1<byte> source, bool isIndefinite);
+    private void CopyConstructedOctetString(ReadOnlyMemory`1<byte> source, Span`1<byte> destination, bool isIndefinite, Int32& bytesRead, Int32& bytesWritten);
+    private int CopyConstructedOctetString(ReadOnlyMemory`1<byte> source, Span`1<byte> destination, bool write, bool isIndefinite, Int32& bytesRead);
+    private bool TryCopyConstructedOctetStringContents(ReadOnlyMemory`1<byte> source, Span`1<byte> dest, bool isIndefinite, Int32& bytesRead, Int32& bytesWritten);
+    public bool TryCopyOctetStringBytes(Span`1<byte> destination, Int32& bytesWritten);
+    public bool TryCopyOctetStringBytes(Asn1Tag expectedTag, Span`1<byte> destination, Int32& bytesWritten);
+    public void ReadNull();
+    public void ReadNull(Asn1Tag expectedTag);
+    private static void ReadSubIdentifier(ReadOnlySpan`1<byte> source, Int32& bytesRead, Nullable`1& smallValue, Nullable`1& largeValue);
+    private string ReadObjectIdentifierAsString(Asn1Tag expectedTag, Int32& totalBytesRead);
+    public string ReadObjectIdentifierAsString();
+    public string ReadObjectIdentifierAsString(Asn1Tag expectedTag);
+    public Oid ReadObjectIdentifier(bool skipFriendlyName);
+    public Oid ReadObjectIdentifier(Asn1Tag expectedTag, bool skipFriendlyName);
+    private bool TryCopyCharacterStringBytes(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, Span`1<byte> destination, Int32& bytesRead, Int32& bytesWritten);
+    private static bool TryCopyCharacterString(ReadOnlySpan`1<byte> source, Span`1<char> destination, Encoding encoding, Int32& charsWritten);
+    private string GetCharacterString(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, Encoding encoding);
+    private bool TryCopyCharacterString(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, Encoding encoding, Span`1<char> destination, Int32& charsWritten);
+    public bool TryGetPrimitiveCharacterStringBytes(UniversalTagNumber encodingType, ReadOnlyMemory`1& contents);
+    public bool TryGetPrimitiveCharacterStringBytes(Asn1Tag expectedTag, UniversalTagNumber encodingType, ReadOnlyMemory`1& contents);
+    public bool TryCopyCharacterStringBytes(UniversalTagNumber encodingType, Span`1<byte> destination, Int32& bytesWritten);
+    public bool TryCopyCharacterStringBytes(Asn1Tag expectedTag, UniversalTagNumber encodingType, Span`1<byte> destination, Int32& bytesWritten);
+    public bool TryCopyCharacterString(UniversalTagNumber encodingType, Span`1<char> destination, Int32& charsWritten);
+    public bool TryCopyCharacterString(Asn1Tag expectedTag, UniversalTagNumber encodingType, Span`1<char> destination, Int32& charsWritten);
+    public string GetCharacterString(UniversalTagNumber encodingType);
+    public string GetCharacterString(Asn1Tag expectedTag, UniversalTagNumber encodingType);
+    public AsnReader ReadSequence();
+    public AsnReader ReadSequence(Asn1Tag expectedTag);
+    public AsnReader ReadSetOf(bool skipSortOrderValidation);
+    public AsnReader ReadSetOf(Asn1Tag expectedTag, bool skipSortOrderValidation);
+    private static int ParseNonNegativeIntAndSlice(ReadOnlySpan`1& data, int bytesToRead);
+    private static int ParseNonNegativeInt(ReadOnlySpan`1<byte> data);
+    private DateTimeOffset ParseUtcTime(ReadOnlySpan`1<byte> contentOctets, int twoDigitYearMax);
+    public DateTimeOffset GetUtcTime(int twoDigitYearMax);
+    public DateTimeOffset GetUtcTime(Asn1Tag expectedTag, int twoDigitYearMax);
+    private static Nullable`1<byte> ParseGeneralizedTime_GetNextState(byte octet);
+    private static DateTimeOffset ParseGeneralizedTime(AsnEncodingRules ruleSet, ReadOnlySpan`1<byte> contentOctets, bool disallowFractions);
+    public DateTimeOffset GetGeneralizedTime(bool disallowFractions);
+    public DateTimeOffset GetGeneralizedTime(Asn1Tag expectedTag, bool disallowFractions);
+    private ReadOnlySpan`1<byte> GetOctetStringContents(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, Int32& bytesRead, Byte[]& rented, Span`1<byte> tmpSpace);
+    private static ReadOnlySpan`1<byte> SliceAtMost(ReadOnlySpan`1<byte> source, int longestPermitted);
+    private static ReadOnlySpan`1<byte> Slice(ReadOnlySpan`1<byte> source, int offset, int length);
+    private static ReadOnlyMemory`1<byte> Slice(ReadOnlyMemory`1<byte> source, int offset, Nullable`1<int> length);
+    private static void CheckEncodingRules(AsnEncodingRules ruleSet);
+    private static void CheckExpectedTag(Asn1Tag tag, Asn1Tag expectedTag, UniversalTagNumber tagNumber);
+    private static void CheckCharacterStringEncodingType(UniversalTagNumber encodingType);
+}
+internal class System.Security.Cryptography.Asn1.AsnSerializationConstraintException : CryptographicException {
+    public AsnSerializationConstraintException(string message);
+    public AsnSerializationConstraintException(string message, Exception inner);
+}
+internal static class System.Security.Cryptography.Asn1.AsnSerializer : object {
+    private static BindingFlags FieldFlags;
+    private static ConcurrentDictionary`2<Type, FieldInfo[]> s_orderedFields;
+    private static AsnSerializer();
+    private static Deserializer TryOrFail(TryDeserializer`1<T> tryDeserializer);
+    private static FieldInfo[] GetOrderedFields(Type typeT);
+    private static ChoiceAttribute GetChoiceAttribute(Type typeT);
+    private static bool CanBeNull(Type t);
+    private static void PopulateChoiceLookup(Dictionary`2<ValueTuple`2<TagClass, int>, LinkedList`1<FieldInfo>> lookup, Type typeT, LinkedList`1<FieldInfo> currentSet);
+    private static void SerializeChoice(Type typeT, object value, AsnWriter writer);
+    private static object DeserializeChoice(AsnReader reader, Type typeT);
+    private static void SerializeCustomType(Type typeT, object value, AsnWriter writer, Asn1Tag tag);
+    private static object DeserializeCustomType(AsnReader reader, Type typeT, Asn1Tag expectedTag);
+    private static Deserializer ExplicitValueDeserializer(Deserializer valueDeserializer, Asn1Tag expectedTag);
+    private static object ExplicitValueDeserializer(AsnReader reader, Deserializer valueDeserializer, Asn1Tag expectedTag);
+    private static Deserializer DefaultValueDeserializer(Deserializer valueDeserializer, bool isOptional, Byte[] defaultContents, Nullable`1<Asn1Tag> expectedTag);
+    private static object DefaultValueDeserializer(AsnReader reader, Nullable`1<Asn1Tag> expectedTag, Deserializer valueDeserializer, Byte[] defaultContents, bool isOptional);
+    private static Serializer GetSerializer(Type typeT, FieldInfo fieldInfo);
+    private static Serializer GetSimpleSerializer(Type typeT, FieldInfo fieldInfo, Byte[]& defaultContents, Boolean& isOptional, Nullable`1& explicitTag);
+    private static Deserializer GetDeserializer(Type typeT, FieldInfo fieldInfo);
+    private static Deserializer GetSimpleDeserializer(Type typeT, FieldInfo fieldInfo, SerializerFieldData& fieldData);
+    private static object DefaultValue(Byte[] defaultContents, Deserializer valueDeserializer);
+    private static void GetFieldInfo(Type typeT, FieldInfo fieldInfo, SerializerFieldData& serializerFieldData);
+    private static Type UnpackIfNullable(Type typeT);
+    private static Deserializer GetPrimitiveDeserializer(Type typeT, Asn1Tag tag);
+    private static Serializer GetPrimitiveSerializer(Type typeT, Asn1Tag primitiveTag);
+    public static T Deserialize(ReadOnlyMemory`1<byte> source, AsnEncodingRules ruleSet);
+    public static T Deserialize(ReadOnlyMemory`1<byte> source, AsnEncodingRules ruleSet, Int32& bytesRead);
+    public static AsnWriter Serialize(T value, AsnEncodingRules ruleSet);
+    public static void Serialize(T value, AsnWriter existingWriter);
+}
+internal class System.Security.Cryptography.Asn1.AsnSerializerInvalidDefaultException : AsnSerializationConstraintException {
+    internal AsnSerializerInvalidDefaultException(Exception innerException);
+}
+internal abstract class System.Security.Cryptography.Asn1.AsnTypeAttribute : Attribute {
+}
+internal class System.Security.Cryptography.Asn1.AsnWriter : object {
+    private Byte[] _buffer;
+    private int _offset;
+    private Stack`1<ValueTuple`2<Asn1Tag, int>> _nestingStack;
+    [CompilerGeneratedAttribute]
+private AsnEncodingRules <RuleSet>k__BackingField;
+    public AsnEncodingRules RuleSet { get; }
+    public AsnWriter(AsnEncodingRules ruleSet);
+    [CompilerGeneratedAttribute]
+public AsnEncodingRules get_RuleSet();
+    public sealed virtual void Dispose();
+    private void EnsureWriteCapacity(int pendingCount);
+    private void WriteTag(Asn1Tag tag);
+    private void WriteLength(int length);
+    private static int GetEncodedLengthSubsequentByteCount(int length);
+    public void WriteEncodedValue(ReadOnlyMemory`1<byte> preEncodedValue);
+    private void WriteEndOfContents();
+    public void WriteBoolean(bool value);
+    public void WriteBoolean(Asn1Tag tag, bool value);
+    private void WriteBooleanCore(Asn1Tag tag, bool value);
+    public void WriteInteger(long value);
+    public void WriteInteger(ulong value);
+    public void WriteInteger(BigInteger value);
+    public void WriteInteger(ReadOnlySpan`1<byte> value);
+    public void WriteInteger(Asn1Tag tag, long value);
+    private void WriteIntegerCore(Asn1Tag tag, long value);
+    public void WriteInteger(Asn1Tag tag, ulong value);
+    private void WriteNonNegativeIntegerCore(Asn1Tag tag, ulong value);
+    public void WriteInteger(Asn1Tag tag, BigInteger value);
+    public void WriteInteger(Asn1Tag tag, ReadOnlySpan`1<byte> value);
+    private void WriteIntegerCore(Asn1Tag tag, ReadOnlySpan`1<byte> value);
+    private void WriteIntegerCore(Asn1Tag tag, BigInteger value);
+    public void WriteBitString(ReadOnlySpan`1<byte> bitString, int unusedBitCount);
+    public void WriteBitString(Asn1Tag tag, ReadOnlySpan`1<byte> bitString, int unusedBitCount);
+    private void WriteBitStringCore(Asn1Tag tag, ReadOnlySpan`1<byte> bitString, int unusedBitCount);
+    private void WriteConstructedCerBitString(Asn1Tag tag, ReadOnlySpan`1<byte> payload, int unusedBitCount);
+    public void WriteNamedBitList(object enumValue);
+    public void WriteNamedBitList(TEnum enumValue);
+    public void WriteNamedBitList(Asn1Tag tag, object enumValue);
+    public void WriteNamedBitList(Asn1Tag tag, TEnum enumValue);
+    private void WriteNamedBitList(Asn1Tag tag, Type tEnum, object enumValue);
+    private void WriteNamedBitList(Asn1Tag tag, ulong integralValue);
+    public void WriteOctetString(ReadOnlySpan`1<byte> octetString);
+    public void WriteOctetString(Asn1Tag tag, ReadOnlySpan`1<byte> octetString);
+    private void WriteOctetStringCore(Asn1Tag tag, ReadOnlySpan`1<byte> octetString);
+    private void WriteConstructedCerOctetString(Asn1Tag tag, ReadOnlySpan`1<byte> payload);
+    public void WriteNull();
+    public void WriteNull(Asn1Tag tag);
+    private void WriteNullCore(Asn1Tag tag);
+    public void WriteObjectIdentifier(Oid oid);
+    public void WriteObjectIdentifier(string oidValue);
+    public void WriteObjectIdentifier(ReadOnlySpan`1<char> oidValue);
+    public void WriteObjectIdentifier(Asn1Tag tag, Oid oid);
+    public void WriteObjectIdentifier(Asn1Tag tag, string oidValue);
+    public void WriteObjectIdentifier(Asn1Tag tag, ReadOnlySpan`1<char> oidValue);
+    private void WriteObjectIdentifierCore(Asn1Tag tag, ReadOnlySpan`1<char> oidValue);
+    private static BigInteger ParseSubIdentifier(ReadOnlySpan`1& oidValue);
+    private static int AtoI(char c);
+    private static int EncodeSubIdentifier(Span`1<byte> dest, BigInteger& subIdentifier);
+    public void WriteEnumeratedValue(object enumValue);
+    public void WriteEnumeratedValue(TEnum value);
+    public void WriteEnumeratedValue(Asn1Tag tag, object enumValue);
+    public void WriteEnumeratedValue(Asn1Tag tag, TEnum value);
+    private void WriteEnumeratedValue(Asn1Tag tag, Type tEnum, object enumValue);
+    public void PushSequence();
+    public void PushSequence(Asn1Tag tag);
+    private void PushSequenceCore(Asn1Tag tag);
+    public void PopSequence();
+    public void PopSequence(Asn1Tag tag);
+    private void PopSequenceCore(Asn1Tag tag);
+    public void PushSetOf();
+    public void PushSetOf(Asn1Tag tag);
+    private void PushSetOfCore(Asn1Tag tag);
+    public void PopSetOf();
+    public void PopSetOf(Asn1Tag tag);
+    private void PopSetOfCore(Asn1Tag tag);
+    public void WriteUtcTime(DateTimeOffset value);
+    public void WriteUtcTime(Asn1Tag tag, DateTimeOffset value);
+    public void WriteUtcTime(DateTimeOffset value, int minLegalYear);
+    private void WriteUtcTimeCore(Asn1Tag tag, DateTimeOffset value);
+    public void WriteGeneralizedTime(DateTimeOffset value, bool omitFractionalSeconds);
+    public void WriteGeneralizedTime(Asn1Tag tag, DateTimeOffset value, bool omitFractionalSeconds);
+    private void WriteGeneralizedTimeCore(Asn1Tag tag, DateTimeOffset value, bool omitFractionalSeconds);
+    public bool TryEncode(Span`1<byte> dest, Int32& bytesWritten);
+    public Byte[] Encode();
+    public ReadOnlySpan`1<byte> EncodeAsSpan();
+    private void PushTag(Asn1Tag tag);
+    private void PopTag(Asn1Tag tag, bool sortContents);
+    public void WriteCharacterString(UniversalTagNumber encodingType, string str);
+    public void WriteCharacterString(UniversalTagNumber encodingType, ReadOnlySpan`1<char> str);
+    public void WriteCharacterString(Asn1Tag tag, UniversalTagNumber encodingType, string str);
+    public void WriteCharacterString(Asn1Tag tag, UniversalTagNumber encodingType, ReadOnlySpan`1<char> str);
+    private void WriteCharacterStringCore(Asn1Tag tag, Encoding encoding, ReadOnlySpan`1<char> str);
+    private void WriteConstructedCerCharacterString(Asn1Tag tag, Encoding encoding, ReadOnlySpan`1<char> str, int size);
+    private static void SortContents(Byte[] buffer, int start, int end);
+    internal static void Reverse(Span`1<byte> span);
+    private static void CheckUniversalTag(Asn1Tag tag, UniversalTagNumber universalTagNumber);
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.BitStringAttribute : AsnTypeAttribute {
+}
+internal class System.Security.Cryptography.Asn1.BMPEncoding : SpanBasedEncoding {
+    protected virtual int GetBytes(ReadOnlySpan`1<char> chars, Span`1<byte> bytes, bool write);
+    protected virtual int GetChars(ReadOnlySpan`1<byte> bytes, Span`1<char> chars, bool write);
+    public virtual int GetMaxByteCount(int charCount);
+    public virtual int GetMaxCharCount(int byteCount);
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.BMPStringAttribute : AsnTypeAttribute {
+}
+[AttributeUsageAttribute("12")]
+internal class System.Security.Cryptography.Asn1.ChoiceAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <AllowNull>k__BackingField;
+    public bool AllowNull { get; public set; }
+    [CompilerGeneratedAttribute]
+public bool get_AllowNull();
+    [CompilerGeneratedAttribute]
+public void set_AllowNull(bool value);
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.DefaultValueAttribute : AsnEncodingRuleAttribute {
+    [CompilerGeneratedAttribute]
+private Byte[] <EncodedBytes>k__BackingField;
+    internal Byte[] EncodedBytes { get; }
+    public ReadOnlyMemory`1<byte> EncodedValue { get; }
+    public DefaultValueAttribute(Byte[] encodedValue);
+    [CompilerGeneratedAttribute]
+internal Byte[] get_EncodedBytes();
+    public ReadOnlyMemory`1<byte> get_EncodedValue();
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.ExpectedTagAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private TagClass <TagClass>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <TagValue>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <ExplicitTag>k__BackingField;
+    public TagClass TagClass { get; }
+    public int TagValue { get; }
+    public bool ExplicitTag { get; public set; }
+    public ExpectedTagAttribute(int tagValue);
+    public ExpectedTagAttribute(TagClass tagClass, int tagValue);
+    [CompilerGeneratedAttribute]
+public TagClass get_TagClass();
+    [CompilerGeneratedAttribute]
+public int get_TagValue();
+    [CompilerGeneratedAttribute]
+public bool get_ExplicitTag();
+    [CompilerGeneratedAttribute]
+public void set_ExplicitTag(bool value);
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.GeneralizedTimeAttribute : AsnTypeAttribute {
+    [CompilerGeneratedAttribute]
+private bool <DisallowFractions>k__BackingField;
+    public bool DisallowFractions { get; public set; }
+    [CompilerGeneratedAttribute]
+public bool get_DisallowFractions();
+    [CompilerGeneratedAttribute]
+public void set_DisallowFractions(bool value);
+}
+internal class System.Security.Cryptography.Asn1.IA5Encoding : RestrictedAsciiStringEncoding {
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.IA5StringAttribute : AsnTypeAttribute {
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.IntegerAttribute : AsnTypeAttribute {
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.ObjectIdentifierAttribute : AsnTypeAttribute {
+    [CompilerGeneratedAttribute]
+private bool <PopulateFriendlyName>k__BackingField;
+    public bool PopulateFriendlyName { get; public set; }
+    [CompilerGeneratedAttribute]
+public bool get_PopulateFriendlyName();
+    [CompilerGeneratedAttribute]
+public void set_PopulateFriendlyName(bool value);
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.OctetStringAttribute : AsnTypeAttribute {
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.OptionalValueAttribute : AsnEncodingRuleAttribute {
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.PrintableStringAttribute : AsnTypeAttribute {
+}
+internal class System.Security.Cryptography.Asn1.PrintableStringEncoding : RestrictedAsciiStringEncoding {
+}
+internal abstract class System.Security.Cryptography.Asn1.RestrictedAsciiStringEncoding : SpanBasedEncoding {
+    private Boolean[] _isAllowed;
+    protected RestrictedAsciiStringEncoding(byte minCharAllowed, byte maxCharAllowed);
+    protected RestrictedAsciiStringEncoding(IEnumerable`1<char> allowedChars);
+    public virtual int GetMaxByteCount(int charCount);
+    public virtual int GetMaxCharCount(int byteCount);
+    protected virtual int GetBytes(ReadOnlySpan`1<char> chars, Span`1<byte> bytes, bool write);
+    protected virtual int GetChars(ReadOnlySpan`1<byte> bytes, Span`1<char> chars, bool write);
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.SequenceOfAttribute : AsnTypeAttribute {
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.SetOfAttribute : AsnTypeAttribute {
+}
+internal class System.Security.Cryptography.Asn1.SetOfValueComparer : object {
+    [CompilerGeneratedAttribute]
+private static SetOfValueComparer <Instance>k__BackingField;
+    internal static SetOfValueComparer Instance { get; }
+    private static SetOfValueComparer();
+    [CompilerGeneratedAttribute]
+internal static SetOfValueComparer get_Instance();
+    public sealed virtual int Compare(ReadOnlyMemory`1<byte> x, ReadOnlyMemory`1<byte> y);
+}
+internal abstract class System.Security.Cryptography.Asn1.SpanBasedEncoding : Encoding {
+    protected abstract virtual int GetBytes(ReadOnlySpan`1<char> chars, Span`1<byte> bytes, bool write);
+    protected abstract virtual int GetChars(ReadOnlySpan`1<byte> bytes, Span`1<char> chars, bool write);
+    public virtual int GetByteCount(Char[] chars, int index, int count);
+    public virtual int GetByteCount(Char* chars, int count);
+    public virtual int GetByteCount(string s);
+    public int GetByteCount(ReadOnlySpan`1<char> chars);
+    public virtual int GetBytes(Char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex);
+    public virtual int GetBytes(Char* chars, int charCount, Byte* bytes, int byteCount);
+    public virtual int GetCharCount(Byte[] bytes, int index, int count);
+    public virtual int GetCharCount(Byte* bytes, int count);
+    public int GetCharCount(ReadOnlySpan`1<byte> bytes);
+    public virtual int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex);
+    public virtual int GetChars(Byte* bytes, int byteCount, Char* chars, int charCount);
+}
+internal enum System.Security.Cryptography.Asn1.TagClass : Enum {
+    public byte value__;
+    public static TagClass Universal;
+    public static TagClass Application;
+    public static TagClass ContextSpecific;
+    public static TagClass Private;
+}
+internal enum System.Security.Cryptography.Asn1.UniversalTagNumber : Enum {
+    public int value__;
+    public static UniversalTagNumber EndOfContents;
+    public static UniversalTagNumber Boolean;
+    public static UniversalTagNumber Integer;
+    public static UniversalTagNumber BitString;
+    public static UniversalTagNumber OctetString;
+    public static UniversalTagNumber Null;
+    public static UniversalTagNumber ObjectIdentifier;
+    public static UniversalTagNumber ObjectDescriptor;
+    public static UniversalTagNumber External;
+    public static UniversalTagNumber InstanceOf;
+    public static UniversalTagNumber Real;
+    public static UniversalTagNumber Enumerated;
+    public static UniversalTagNumber Embedded;
+    public static UniversalTagNumber UTF8String;
+    public static UniversalTagNumber RelativeObjectIdentifier;
+    public static UniversalTagNumber Time;
+    public static UniversalTagNumber Sequence;
+    public static UniversalTagNumber SequenceOf;
+    public static UniversalTagNumber Set;
+    public static UniversalTagNumber SetOf;
+    public static UniversalTagNumber NumericString;
+    public static UniversalTagNumber PrintableString;
+    public static UniversalTagNumber TeletexString;
+    public static UniversalTagNumber T61String;
+    public static UniversalTagNumber VideotexString;
+    public static UniversalTagNumber IA5String;
+    public static UniversalTagNumber UtcTime;
+    public static UniversalTagNumber GeneralizedTime;
+    public static UniversalTagNumber GraphicString;
+    public static UniversalTagNumber VisibleString;
+    public static UniversalTagNumber ISO646String;
+    public static UniversalTagNumber GeneralString;
+    public static UniversalTagNumber UniversalString;
+    public static UniversalTagNumber UnrestrictedCharacterString;
+    public static UniversalTagNumber BMPString;
+    public static UniversalTagNumber Date;
+    public static UniversalTagNumber TimeOfDay;
+    public static UniversalTagNumber DateTime;
+    public static UniversalTagNumber Duration;
+    public static UniversalTagNumber ObjectIdentifierIRI;
+    public static UniversalTagNumber RelativeObjectIdentifierIRI;
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.UtcTimeAttribute : AsnTypeAttribute {
+    [CompilerGeneratedAttribute]
+private int <TwoDigitYearMax>k__BackingField;
+    public int TwoDigitYearMax { get; public set; }
+    [CompilerGeneratedAttribute]
+public int get_TwoDigitYearMax();
+    [CompilerGeneratedAttribute]
+public void set_TwoDigitYearMax(int value);
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.UTF8StringAttribute : AsnTypeAttribute {
+}
+[AttributeUsageAttribute("256")]
+internal class System.Security.Cryptography.Asn1.VisibleStringAttribute : AsnTypeAttribute {
+}
+internal class System.Security.Cryptography.Asn1.VisibleStringEncoding : RestrictedAsciiStringEncoding {
+}
+public class System.Security.Cryptography.CryptographicAttributeObject : object {
+    [CompilerGeneratedAttribute]
+private AsnEncodedDataCollection <Values>k__BackingField;
+    private Oid _oid;
+    public Oid Oid { get; }
+    public AsnEncodedDataCollection Values { get; }
+    public CryptographicAttributeObject(Oid oid);
+    public CryptographicAttributeObject(Oid oid, AsnEncodedDataCollection values);
+    public Oid get_Oid();
+    [CompilerGeneratedAttribute]
+public AsnEncodedDataCollection get_Values();
+}
+[DefaultMemberAttribute("Item")]
+public class System.Security.Cryptography.CryptographicAttributeObjectCollection : object {
+    private List`1<CryptographicAttributeObject> _list;
+    public CryptographicAttributeObject Item { get; }
+    public int Count { get; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    public CryptographicAttributeObjectCollection(CryptographicAttributeObject attribute);
+    public int Add(AsnEncodedData asnEncodedData);
+    public int Add(CryptographicAttributeObject attribute);
+    internal void AddWithoutMerge(CryptographicAttributeObject attribute);
+    public void Remove(CryptographicAttributeObject attribute);
+    public CryptographicAttributeObject get_Item(int index);
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+    public CryptographicAttributeObjectEnumerator GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    private sealed virtual override void System.Collections.ICollection.CopyTo(Array array, int index);
+    public void CopyTo(CryptographicAttributeObject[] array, int index);
+}
+public class System.Security.Cryptography.CryptographicAttributeObjectEnumerator : object {
+    private CryptographicAttributeObjectCollection _attributes;
+    private int _current;
+    public CryptographicAttributeObject Current { get; }
+    private object System.Collections.IEnumerator.Current { get; }
+    internal CryptographicAttributeObjectEnumerator(CryptographicAttributeObjectCollection attributes);
+    public CryptographicAttributeObject get_Current();
+    private sealed virtual override object System.Collections.IEnumerator.get_Current();
+    public sealed virtual bool MoveNext();
+    public sealed virtual void Reset();
+}
+public enum System.Security.Cryptography.DataProtectionScope : Enum {
+    public int value__;
+    public static DataProtectionScope CurrentUser;
+    public static DataProtectionScope LocalMachine;
+}
+public abstract class System.Security.Cryptography.DataProtector : object {
+    private string m_applicationName;
+    private string m_primaryPurpose;
+    private IEnumerable`1<string> m_specificPurposes;
+    private Byte[] modreq(System.Runtime.CompilerServices.IsVolatile) m_hashedPurpose;
+    protected string ApplicationName { get; }
+    protected bool PrependHashedPurposeToPlaintext { get; }
+    protected string PrimaryPurpose { get; }
+    protected IEnumerable`1<string> SpecificPurposes { get; }
+    protected DataProtector(string applicationName, string primaryPurpose, String[] specificPurposes);
+    protected string get_ApplicationName();
+    protected virtual bool get_PrependHashedPurposeToPlaintext();
+    protected virtual Byte[] GetHashedPurpose();
+    public abstract virtual bool IsReprotectRequired(Byte[] encryptedData);
+    protected string get_PrimaryPurpose();
+    protected IEnumerable`1<string> get_SpecificPurposes();
+    public static DataProtector Create(string providerClass, string applicationName, string primaryPurpose, String[] specificPurposes);
+    public Byte[] Protect(Byte[] userData);
+    protected abstract virtual Byte[] ProviderProtect(Byte[] userData);
+    protected abstract virtual Byte[] ProviderUnprotect(Byte[] encryptedData);
+    public Byte[] Unprotect(Byte[] encryptedData);
+}
+public class System.Security.Cryptography.DpapiDataProtector : DataProtector {
+    public DataProtectionScope Scope { get; public set; }
+    [SecuritySafeCriticalAttribute]
+public DpapiDataProtector(string appName, string primaryPurpose, String[] specificPurpose);
+    [CompilerGeneratedAttribute]
+public DataProtectionScope get_Scope();
+    [CompilerGeneratedAttribute]
+public void set_Scope(DataProtectionScope value);
+    public virtual bool IsReprotectRequired(Byte[] encryptedData);
+    [SecuritySafeCriticalAttribute]
+protected virtual Byte[] ProviderProtect(Byte[] userData);
+    [SecuritySafeCriticalAttribute]
+protected virtual Byte[] ProviderUnprotect(Byte[] encryptedData);
+}
+public enum System.Security.Cryptography.MemoryProtectionScope : Enum {
+    public int value__;
+    public static MemoryProtectionScope SameProcess;
+    public static MemoryProtectionScope CrossProcess;
+    public static MemoryProtectionScope SameLogon;
+}
+public class System.Security.Cryptography.Pkcs.AlgorithmIdentifier : object {
+    [CompilerGeneratedAttribute]
+private Oid <Oid>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <KeyLength>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Byte[] <Parameters>k__BackingField;
+    public Oid Oid { get; public set; }
+    public int KeyLength { get; public set; }
+    public Byte[] Parameters { get; public set; }
+    public AlgorithmIdentifier(Oid oid);
+    public AlgorithmIdentifier(Oid oid, int keyLength);
+    [CompilerGeneratedAttribute]
+public Oid get_Oid();
+    [CompilerGeneratedAttribute]
+public void set_Oid(Oid value);
+    [CompilerGeneratedAttribute]
+public int get_KeyLength();
+    [CompilerGeneratedAttribute]
+public void set_KeyLength(int value);
+    [CompilerGeneratedAttribute]
+public Byte[] get_Parameters();
+    [CompilerGeneratedAttribute]
+public void set_Parameters(Byte[] value);
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.AlgorithmIdentifierAsn : ValueType {
+    internal static ReadOnlyMemory`1<byte> ExplicitDerNull;
+    [ObjectIdentifierAttribute]
+public Oid Algorithm;
+    [AnyValueAttribute]
+[OptionalValueAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> Parameters;
+    private static AlgorithmIdentifierAsn();
+    internal bool Equals(AlgorithmIdentifierAsn& other);
+    private static bool RepresentsNull(Nullable`1<ReadOnlyMemory`1<byte>> parameters);
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.AttributeAsn : ValueType {
+    public Oid AttrType;
+    [AnyValueAttribute]
+public ReadOnlyMemory`1<byte> AttrValues;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.CadesIssuerSerial : ValueType {
+    public GeneralName[] Issuer;
+    [IntegerAttribute]
+public ReadOnlyMemory`1<byte> SerialNumber;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.CertificateChoiceAsn : ValueType {
+    [AnyValueAttribute]
+[ExpectedTagAttribute("0", "16")]
+public Nullable`1<ReadOnlyMemory`1<byte>> Certificate;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.ContentInfoAsn : ValueType {
+    [ObjectIdentifierAttribute]
+public string ContentType;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("0")]
+public ReadOnlyMemory`1<byte> Content;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.DirectoryString : ValueType {
+    [ExpectedTagAttribute("0", "20")]
+internal Nullable`1<ReadOnlyMemory`1<byte>> TeletexString;
+    [PrintableStringAttribute]
+internal string PrintableString;
+    [ExpectedTagAttribute("0", "28")]
+internal Nullable`1<ReadOnlyMemory`1<byte>> UniversalString;
+    [UTF8StringAttribute]
+internal string Utf8String;
+    [BMPStringAttribute]
+internal string BMPString;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.EdiPartyName : ValueType {
+    [OptionalValueAttribute]
+internal Nullable`1<DirectoryString> NameAssigner;
+    internal DirectoryString PartyName;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.EncapsulatedContentInfoAsn : ValueType {
+    [ObjectIdentifierAttribute]
+public string ContentType;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("0")]
+[OptionalValueAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> Content;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.EncryptedContentInfoAsn : ValueType {
+    [ObjectIdentifierAttribute]
+internal string ContentType;
+    internal AlgorithmIdentifierAsn ContentEncryptionAlgorithm;
+    [ExpectedTagAttribute("0")]
+[OctetStringAttribute]
+[OptionalValueAttribute]
+internal Nullable`1<ReadOnlyMemory`1<byte>> EncryptedContent;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.EnvelopedDataAsn : ValueType {
+    public int Version;
+    [ExpectedTagAttribute("0")]
+[OptionalValueAttribute]
+public OriginatorInfoAsn OriginatorInfo;
+    [SetOfAttribute]
+public RecipientInfoAsn[] RecipientInfos;
+    public EncryptedContentInfoAsn EncryptedContentInfo;
+    [ExpectedTagAttribute("1")]
+[OptionalValueAttribute]
+[SetOfAttribute]
+public AttributeAsn[] UnprotectedAttributes;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.EssCertId : object {
+    [OctetStringAttribute]
+public ReadOnlyMemory`1<byte> Hash;
+    [OptionalValueAttribute]
+public Nullable`1<CadesIssuerSerial> IssuerSerial;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.EssCertIdV2 : object {
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public AlgorithmIdentifierAsn HashAlgorithm;
+    [OctetStringAttribute]
+public ReadOnlyMemory`1<byte> Hash;
+    [OptionalValueAttribute]
+public Nullable`1<CadesIssuerSerial> IssuerSerial;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.GeneralName : ValueType {
+    [ExpectedTagAttribute("0")]
+internal Nullable`1<OtherName> OtherName;
+    [ExpectedTagAttribute("1")]
+[IA5StringAttribute]
+internal string Rfc822Name;
+    [ExpectedTagAttribute("2")]
+[IA5StringAttribute]
+internal string DnsName;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("3")]
+internal Nullable`1<ReadOnlyMemory`1<byte>> X400Address;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("4")]
+internal Nullable`1<ReadOnlyMemory`1<byte>> DirectoryName;
+    [ExpectedTagAttribute("5")]
+internal Nullable`1<EdiPartyName> EdiPartyName;
+    [ExpectedTagAttribute("6")]
+[IA5StringAttribute]
+internal string Uri;
+    [ExpectedTagAttribute("7")]
+[OctetStringAttribute]
+internal Nullable`1<ReadOnlyMemory`1<byte>> IPAddress;
+    [ExpectedTagAttribute("8")]
+[ObjectIdentifierAttribute]
+internal string RegisteredId;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.IssuerAndSerialNumberAsn : ValueType {
+    [AnyValueAttribute]
+public ReadOnlyMemory`1<byte> Issuer;
+    [IntegerAttribute]
+public ReadOnlyMemory`1<byte> SerialNumber;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.KeyAgreeRecipientIdentifierAsn : ValueType {
+    internal Nullable`1<IssuerAndSerialNumberAsn> IssuerAndSerialNumber;
+    [ExpectedTagAttribute("0")]
+internal RecipientKeyIdentifier RKeyId;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.KeyAgreeRecipientInfoAsn : object {
+    internal int Version;
+    [ExpectedTagAttribute("0")]
+internal OriginatorIdentifierOrKeyAsn Originator;
+    [ExpectedTagAttribute("1")]
+[OctetStringAttribute]
+[OptionalValueAttribute]
+internal Nullable`1<ReadOnlyMemory`1<byte>> Ukm;
+    internal AlgorithmIdentifierAsn KeyEncryptionAlgorithm;
+    internal RecipientEncryptedKeyAsn[] RecipientEncryptedKeys;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.KeyTransRecipientInfoAsn : object {
+    internal int Version;
+    internal RecipientIdentifierAsn Rid;
+    internal AlgorithmIdentifierAsn KeyEncryptionAlgorithm;
+    [OctetStringAttribute]
+internal ReadOnlyMemory`1<byte> EncryptedKey;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.MessageImprint : ValueType {
+    internal AlgorithmIdentifierAsn HashAlgorithm;
+    [OctetStringAttribute]
+internal ReadOnlyMemory`1<byte> HashedMessage;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.OriginatorIdentifierOrKeyAsn : ValueType {
+    internal Nullable`1<IssuerAndSerialNumberAsn> IssuerAndSerialNumber;
+    [ExpectedTagAttribute("0")]
+[OctetStringAttribute]
+internal Nullable`1<ReadOnlyMemory`1<byte>> SubjectKeyIdentifier;
+    [ExpectedTagAttribute("1")]
+internal OriginatorPublicKeyAsn OriginatorKey;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.OriginatorInfoAsn : object {
+    [ExpectedTagAttribute("0")]
+[OptionalValueAttribute]
+[SetOfAttribute]
+public CertificateChoiceAsn[] CertificateSet;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("1")]
+[OptionalValueAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> RevocationInfoChoices;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.OriginatorPublicKeyAsn : object {
+    internal AlgorithmIdentifierAsn Algorithm;
+    [BitStringAttribute]
+internal ReadOnlyMemory`1<byte> PublicKey;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.OtherKeyAttributeAsn : ValueType {
+    [ObjectIdentifierAttribute]
+internal string KeyAttrId;
+    [AnyValueAttribute]
+[OptionalValueAttribute]
+internal Nullable`1<ReadOnlyMemory`1<byte>> KeyAttr;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.OtherName : ValueType {
+    internal string TypeId;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("0")]
+internal ReadOnlyMemory`1<byte> Value;
+}
+[FlagsAttribute]
+internal enum System.Security.Cryptography.Pkcs.Asn1.PkiFailureInfo : Enum {
+    public int value__;
+    public static PkiFailureInfo None;
+    public static PkiFailureInfo BadAlg;
+    public static PkiFailureInfo BadMessageCheck;
+    public static PkiFailureInfo BadRequest;
+    public static PkiFailureInfo BadTime;
+    public static PkiFailureInfo BadCertId;
+    public static PkiFailureInfo BadDataFormat;
+    public static PkiFailureInfo WrongAuthority;
+    public static PkiFailureInfo IncorrectData;
+    public static PkiFailureInfo MissingTimeStamp;
+    public static PkiFailureInfo BadPop;
+    public static PkiFailureInfo CertRevoked;
+    public static PkiFailureInfo CertConfirmed;
+    public static PkiFailureInfo WrongIntegrity;
+    public static PkiFailureInfo BadRecipientNonce;
+    public static PkiFailureInfo TimeNotAvailable;
+    public static PkiFailureInfo UnacceptedPolicy;
+    public static PkiFailureInfo UnacceptedExtension;
+    public static PkiFailureInfo AddInfoNotAvailable;
+    public static PkiFailureInfo BadSenderNonce;
+    public static PkiFailureInfo BadCertTemplate;
+    public static PkiFailureInfo SignerNotTrusted;
+    public static PkiFailureInfo TransactionIdInUse;
+    public static PkiFailureInfo UnsupportedVersion;
+    public static PkiFailureInfo NotAuthorized;
+    public static PkiFailureInfo SystemUnavail;
+    public static PkiFailureInfo SystemFailure;
+    public static PkiFailureInfo DuplicateCertReq;
+}
+internal enum System.Security.Cryptography.Pkcs.Asn1.PkiStatus : Enum {
+    public int value__;
+    public static PkiStatus Granted;
+    public static PkiStatus GrantedWithMods;
+    public static PkiStatus Rejection;
+    public static PkiStatus Waiting;
+    public static PkiStatus RevocationWarning;
+    public static PkiStatus RevocationNotification;
+    public static PkiStatus KeyUpdateWarning;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.PkiStatusInfo : ValueType {
+    public int Status;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("0", "16")]
+[OptionalValueAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> StatusString;
+    [OptionalValueAttribute]
+public Nullable`1<PkiFailureInfo> FailInfo;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.PolicyInformation : ValueType {
+    [ObjectIdentifierAttribute]
+public string PolicyIdentifier;
+    [OptionalValueAttribute]
+public PolicyQualifierInfo[] PolicyQualifiers;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.PolicyQualifierInfo : ValueType {
+    [ObjectIdentifierAttribute]
+public string PolicyQualifierId;
+    [AnyValueAttribute]
+public ReadOnlyMemory`1<byte> Qualifier;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.PssParamsAsn : ValueType {
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+[ExpectedTagAttribute("0")]
+public AlgorithmIdentifierAsn HashAlgorithm;
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+[ExpectedTagAttribute("1")]
+public AlgorithmIdentifierAsn MaskGenAlgorithm;
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+[ExpectedTagAttribute("2")]
+public int SaltLength;
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+[ExpectedTagAttribute("3")]
+public int TrailerField;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.Rc2CbcParameters : ValueType {
+    private static Byte[] s_rc2EkbEncoding;
+    internal int Rc2Version;
+    [OctetStringAttribute]
+internal ReadOnlyMemory`1<byte> Iv;
+    internal Rc2CbcParameters(ReadOnlyMemory`1<byte> iv, int keySize);
+    private static Rc2CbcParameters();
+    internal int GetEffectiveKeyBits();
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.RecipientEncryptedKeyAsn : ValueType {
+    internal KeyAgreeRecipientIdentifierAsn Rid;
+    [OctetStringAttribute]
+internal ReadOnlyMemory`1<byte> EncryptedKey;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.RecipientIdentifierAsn : ValueType {
+    internal Nullable`1<IssuerAndSerialNumberAsn> IssuerAndSerialNumber;
+    [ExpectedTagAttribute("0")]
+[OctetStringAttribute]
+internal Nullable`1<ReadOnlyMemory`1<byte>> SubjectKeyIdentifier;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.RecipientInfoAsn : ValueType {
+    internal KeyTransRecipientInfoAsn Ktri;
+    [ExpectedTagAttribute("1")]
+internal KeyAgreeRecipientInfoAsn Kari;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.RecipientKeyIdentifier : object {
+    [OctetStringAttribute]
+internal ReadOnlyMemory`1<byte> SubjectKeyIdentifier;
+    [GeneralizedTimeAttribute]
+[OptionalValueAttribute]
+internal Nullable`1<DateTimeOffset> Date;
+    [OptionalValueAttribute]
+internal Nullable`1<OtherKeyAttributeAsn> Other;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.Rfc3161Accuracy : ValueType {
+    [OptionalValueAttribute]
+internal Nullable`1<int> Seconds;
+    [ExpectedTagAttribute("0")]
+[OptionalValueAttribute]
+internal Nullable`1<int> Millis;
+    [ExpectedTagAttribute("1")]
+[OptionalValueAttribute]
+internal Nullable`1<int> Micros;
+    internal long TotalMicros { get; }
+    internal Rfc3161Accuracy(long accuracyInMicroseconds);
+    internal long get_TotalMicros();
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.Rfc3161TimeStampReq : ValueType {
+    public int Version;
+    public MessageImprint MessageImprint;
+    [OptionalValueAttribute]
+public Oid ReqPolicy;
+    [IntegerAttribute]
+[OptionalValueAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> Nonce;
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public bool CertReq;
+    [ExpectedTagAttribute("0")]
+[OptionalValueAttribute]
+internal X509ExtensionAsn[] Extensions;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.Rfc3161TimeStampResp : ValueType {
+    public PkiStatusInfo Status;
+    [AnyValueAttribute]
+[OptionalValueAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> TimeStampToken;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.Rfc3161TstInfo : object {
+    internal int Version;
+    [ObjectIdentifierAttribute]
+internal Oid Policy;
+    internal MessageImprint MessageImprint;
+    [IntegerAttribute]
+internal ReadOnlyMemory`1<byte> SerialNumber;
+    [GeneralizedTimeAttribute]
+internal DateTimeOffset GenTime;
+    [OptionalValueAttribute]
+internal Nullable`1<Rfc3161Accuracy> Accuracy;
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+internal bool Ordering;
+    [IntegerAttribute]
+[OptionalValueAttribute]
+internal Nullable`1<ReadOnlyMemory`1<byte>> Nonce;
+    [ExpectedTagAttribute("0")]
+[OptionalValueAttribute]
+internal Nullable`1<GeneralName> Tsa;
+    [ExpectedTagAttribute("1")]
+[OptionalValueAttribute]
+internal X509ExtensionAsn[] Extensions;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.SignedAttributesSet : ValueType {
+    [ExpectedTagAttribute("0")]
+[SetOfAttribute]
+public AttributeAsn[] SignedAttributes;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.SignedDataAsn : ValueType {
+    public int Version;
+    [SetOfAttribute]
+public AlgorithmIdentifierAsn[] DigestAlgorithms;
+    public EncapsulatedContentInfoAsn EncapContentInfo;
+    [ExpectedTagAttribute("0")]
+[OptionalValueAttribute]
+[SetOfAttribute]
+public CertificateChoiceAsn[] CertificateSet;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("1")]
+[OptionalValueAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> RevocationInfoChoices;
+    [SetOfAttribute]
+public SignerInfoAsn[] SignerInfos;
+}
+[ChoiceAttribute]
+internal class System.Security.Cryptography.Pkcs.Asn1.SignerIdentifierAsn : ValueType {
+    public Nullable`1<IssuerAndSerialNumberAsn> IssuerAndSerialNumber;
+    [ExpectedTagAttribute("0")]
+[OctetStringAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> SubjectKeyIdentifier;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.SignerInfoAsn : ValueType {
+    public int Version;
+    public SignerIdentifierAsn Sid;
+    public AlgorithmIdentifierAsn DigestAlgorithm;
+    [AnyValueAttribute]
+[ExpectedTagAttribute("0")]
+[OptionalValueAttribute]
+public Nullable`1<ReadOnlyMemory`1<byte>> SignedAttributes;
+    public AlgorithmIdentifierAsn SignatureAlgorithm;
+    [OctetStringAttribute]
+public ReadOnlyMemory`1<byte> SignatureValue;
+    [ExpectedTagAttribute("1")]
+[OptionalValueAttribute]
+[SetOfAttribute]
+public AttributeAsn[] UnsignedAttributes;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.SigningCertificateAsn : ValueType {
+    public EssCertId[] Certs;
+    [OptionalValueAttribute]
+public PolicyInformation[] Policies;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.SigningCertificateV2Asn : ValueType {
+    public EssCertIdV2[] Certs;
+    [OptionalValueAttribute]
+public PolicyInformation[] Policies;
+}
+internal class System.Security.Cryptography.Pkcs.Asn1.X509ExtensionAsn : ValueType {
+    [ObjectIdentifierAttribute]
+internal string ExtnId;
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+internal bool Critical;
+    [OctetStringAttribute]
+internal ReadOnlyMemory`1<byte> ExtnValue;
+    public X509ExtensionAsn(X509Extension extension, bool copyValue);
+}
+public class System.Security.Cryptography.Pkcs.CmsRecipient : object {
+    [CompilerGeneratedAttribute]
+private SubjectIdentifierType <RecipientIdentifierType>k__BackingField;
+    [CompilerGeneratedAttribute]
+private X509Certificate2 <Certificate>k__BackingField;
+    public SubjectIdentifierType RecipientIdentifierType { get; }
+    public X509Certificate2 Certificate { get; }
+    public CmsRecipient(X509Certificate2 certificate);
+    public CmsRecipient(SubjectIdentifierType recipientIdentifierType, X509Certificate2 certificate);
+    [CompilerGeneratedAttribute]
+public SubjectIdentifierType get_RecipientIdentifierType();
+    [CompilerGeneratedAttribute]
+public X509Certificate2 get_Certificate();
+}
+[DefaultMemberAttribute("Item")]
+public class System.Security.Cryptography.Pkcs.CmsRecipientCollection : object {
+    private List`1<CmsRecipient> _recipients;
+    public CmsRecipient Item { get; }
+    public int Count { get; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    public CmsRecipientCollection(CmsRecipient recipient);
+    public CmsRecipientCollection(SubjectIdentifierType recipientIdentifierType, X509Certificate2Collection certificates);
+    public CmsRecipient get_Item(int index);
+    public sealed virtual int get_Count();
+    public int Add(CmsRecipient recipient);
+    public void Remove(CmsRecipient recipient);
+    public CmsRecipientEnumerator GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public sealed virtual void CopyTo(Array array, int index);
+    public void CopyTo(CmsRecipient[] array, int index);
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+}
+public class System.Security.Cryptography.Pkcs.CmsRecipientEnumerator : object {
+    private CmsRecipientCollection _recipients;
+    private int _current;
+    public CmsRecipient Current { get; }
+    private object System.Collections.IEnumerator.Current { get; }
+    internal CmsRecipientEnumerator(CmsRecipientCollection recipients);
+    public CmsRecipient get_Current();
+    private sealed virtual override object System.Collections.IEnumerator.get_Current();
+    public sealed virtual bool MoveNext();
+    public sealed virtual void Reset();
+}
+internal abstract class System.Security.Cryptography.Pkcs.CmsSignature : object {
+    private static Dictionary`2<string, CmsSignature> s_lookup;
+    private static CmsSignature();
+    private static void PrepareRegistrationRsa(Dictionary`2<string, CmsSignature> lookup);
+    private static void PrepareRegistrationDsa(Dictionary`2<string, CmsSignature> lookup);
+    private static void PrepareRegistrationECDsa(Dictionary`2<string, CmsSignature> lookup);
+    internal abstract virtual bool VerifySignature(Byte[] valueHash, Byte[] signature, string digestAlgorithmOid, HashAlgorithmName digestAlgorithmName, Nullable`1<ReadOnlyMemory`1<byte>> signatureParameters, X509Certificate2 certificate);
+    protected abstract virtual bool Sign(Byte[] dataHash, HashAlgorithmName hashAlgorithmName, X509Certificate2 certificate, bool silent, Oid& signatureAlgorithm, Byte[]& signatureValue);
+    internal static CmsSignature Resolve(string signatureAlgorithmOid);
+    internal static bool Sign(Byte[] dataHash, HashAlgorithmName hashAlgorithmName, X509Certificate2 certificate, bool silent, Oid& oid, ReadOnlyMemory`1& signatureValue);
+    private static bool DsaDerToIeee(ReadOnlyMemory`1<byte> derSignature, Span`1<byte> ieeeSignature);
+    private static Byte[] DsaIeeeToDer(ReadOnlySpan`1<byte> ieeeSignature);
+}
+public class System.Security.Cryptography.Pkcs.CmsSigner : object {
+    private static Oid s_defaultAlgorithm;
+    private SubjectIdentifierType _signerIdentifierType;
+    [CompilerGeneratedAttribute]
+private X509Certificate2 <Certificate>k__BackingField;
+    [CompilerGeneratedAttribute]
+private AsymmetricAlgorithm <PrivateKey>k__BackingField;
+    [CompilerGeneratedAttribute]
+private X509Certificate2Collection <Certificates>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Oid <DigestAlgorithm>k__BackingField;
+    [CompilerGeneratedAttribute]
+private X509IncludeOption <IncludeOption>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CryptographicAttributeObjectCollection <SignedAttributes>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CryptographicAttributeObjectCollection <UnsignedAttributes>k__BackingField;
+    public X509Certificate2 Certificate { get; public set; }
+    public AsymmetricAlgorithm PrivateKey { get; public set; }
+    public X509Certificate2Collection Certificates { get; private set; }
+    public Oid DigestAlgorithm { get; public set; }
+    public X509IncludeOption IncludeOption { get; public set; }
+    public CryptographicAttributeObjectCollection SignedAttributes { get; private set; }
+    public CryptographicAttributeObjectCollection UnsignedAttributes { get; private set; }
+    public SubjectIdentifierType SignerIdentifierType { get; public set; }
+    public CmsSigner(SubjectIdentifierType signerIdentifierType);
+    public CmsSigner(X509Certificate2 certificate);
+    public CmsSigner(CspParameters parameters);
+    public CmsSigner(SubjectIdentifierType signerIdentifierType, X509Certificate2 certificate);
+    private static CmsSigner();
+    [CompilerGeneratedAttribute]
+public X509Certificate2 get_Certificate();
+    [CompilerGeneratedAttribute]
+public void set_Certificate(X509Certificate2 value);
+    [CompilerGeneratedAttribute]
+public AsymmetricAlgorithm get_PrivateKey();
+    [CompilerGeneratedAttribute]
+public void set_PrivateKey(AsymmetricAlgorithm value);
+    [CompilerGeneratedAttribute]
+public X509Certificate2Collection get_Certificates();
+    [CompilerGeneratedAttribute]
+private void set_Certificates(X509Certificate2Collection value);
+    [CompilerGeneratedAttribute]
+public Oid get_DigestAlgorithm();
+    [CompilerGeneratedAttribute]
+public void set_DigestAlgorithm(Oid value);
+    [CompilerGeneratedAttribute]
+public X509IncludeOption get_IncludeOption();
+    [CompilerGeneratedAttribute]
+public void set_IncludeOption(X509IncludeOption value);
+    [CompilerGeneratedAttribute]
+public CryptographicAttributeObjectCollection get_SignedAttributes();
+    [CompilerGeneratedAttribute]
+private void set_SignedAttributes(CryptographicAttributeObjectCollection value);
+    [CompilerGeneratedAttribute]
+public CryptographicAttributeObjectCollection get_UnsignedAttributes();
+    [CompilerGeneratedAttribute]
+private void set_UnsignedAttributes(CryptographicAttributeObjectCollection value);
+    public SubjectIdentifierType get_SignerIdentifierType();
+    public void set_SignerIdentifierType(SubjectIdentifierType value);
+    internal void CheckCertificateValue();
+    internal SignerInfoAsn Sign(ReadOnlyMemory`1<byte> data, string contentTypeOid, bool silent, X509Certificate2Collection& chainCerts);
+    internal static List`1<AttributeAsn> BuildAttributes(CryptographicAttributeObjectCollection attributes);
+}
+public class System.Security.Cryptography.Pkcs.ContentInfo : object {
+    [CompilerGeneratedAttribute]
+private Oid <ContentType>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Byte[] <Content>k__BackingField;
+    public Oid ContentType { get; }
+    public Byte[] Content { get; }
+    public ContentInfo(Byte[] content);
+    public ContentInfo(Oid contentType, Byte[] content);
+    [CompilerGeneratedAttribute]
+public Oid get_ContentType();
+    [CompilerGeneratedAttribute]
+public Byte[] get_Content();
+    public static Oid GetContentType(Byte[] encodedMessage);
+}
+public class System.Security.Cryptography.Pkcs.EnvelopedCms : object {
+    [CompilerGeneratedAttribute]
+private int <Version>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ContentInfo <ContentInfo>k__BackingField;
+    [CompilerGeneratedAttribute]
+private AlgorithmIdentifier <ContentEncryptionAlgorithm>k__BackingField;
+    [CompilerGeneratedAttribute]
+private X509Certificate2Collection <Certificates>k__BackingField;
+    [CompilerGeneratedAttribute]
+private CryptographicAttributeObjectCollection <UnprotectedAttributes>k__BackingField;
+    private DecryptorPal _decryptorPal;
+    private Byte[] _encodedMessage;
+    private LastCall _lastCall;
+    public int Version { get; private set; }
+    public ContentInfo ContentInfo { get; private set; }
+    public AlgorithmIdentifier ContentEncryptionAlgorithm { get; private set; }
+    public X509Certificate2Collection Certificates { get; private set; }
+    public CryptographicAttributeObjectCollection UnprotectedAttributes { get; private set; }
+    public RecipientInfoCollection RecipientInfos { get; }
+    public EnvelopedCms(ContentInfo contentInfo);
+    public EnvelopedCms(ContentInfo contentInfo, AlgorithmIdentifier encryptionAlgorithm);
+    public EnvelopedCms(SubjectIdentifierType recipientIdentifierType, ContentInfo contentInfo);
+    public EnvelopedCms(SubjectIdentifierType recipientIdentifierType, ContentInfo contentInfo, AlgorithmIdentifier encryptionAlgorithm);
+    [CompilerGeneratedAttribute]
+public int get_Version();
+    [CompilerGeneratedAttribute]
+private void set_Version(int value);
+    [CompilerGeneratedAttribute]
+public ContentInfo get_ContentInfo();
+    [CompilerGeneratedAttribute]
+private void set_ContentInfo(ContentInfo value);
+    [CompilerGeneratedAttribute]
+public AlgorithmIdentifier get_ContentEncryptionAlgorithm();
+    [CompilerGeneratedAttribute]
+private void set_ContentEncryptionAlgorithm(AlgorithmIdentifier value);
+    [CompilerGeneratedAttribute]
+public X509Certificate2Collection get_Certificates();
+    [CompilerGeneratedAttribute]
+private void set_Certificates(X509Certificate2Collection value);
+    [CompilerGeneratedAttribute]
+public CryptographicAttributeObjectCollection get_UnprotectedAttributes();
+    [CompilerGeneratedAttribute]
+private void set_UnprotectedAttributes(CryptographicAttributeObjectCollection value);
+    public RecipientInfoCollection get_RecipientInfos();
+    public void Encrypt(CmsRecipient recipient);
+    public void Encrypt(CmsRecipientCollection recipients);
+    public Byte[] Encode();
+    public void Decode(Byte[] encodedMessage);
+    public void Decrypt();
+    public void Decrypt(RecipientInfo recipientInfo);
+    public void Decrypt(RecipientInfo recipientInfo, X509Certificate2Collection extraStore);
+    public void Decrypt(X509Certificate2Collection extraStore);
+    private void DecryptContent(RecipientInfoCollection recipientInfos, X509Certificate2Collection extraStore);
+    public void Encrypt();
+}
+public enum System.Security.Cryptography.Pkcs.KeyAgreeKeyChoice : Enum {
+    public int value__;
+    public static KeyAgreeKeyChoice Unknown;
+    public static KeyAgreeKeyChoice EphemeralKey;
+    public static KeyAgreeKeyChoice StaticKey;
+}
+public class System.Security.Cryptography.Pkcs.KeyAgreeRecipientInfo : RecipientInfo {
+    private SubjectIdentifier modreq(System.Runtime.CompilerServices.IsVolatile) _lazyRecipientIdentifier;
+    private AlgorithmIdentifier modreq(System.Runtime.CompilerServices.IsVolatile) _lazyKeyEncryptionAlgorithm;
+    private Byte[] modreq(System.Runtime.CompilerServices.IsVolatile) _lazyEncryptedKey;
+    private SubjectIdentifierOrKey modreq(System.Runtime.CompilerServices.IsVolatile) _lazyOriginatorIdentifierKey;
+    private Nullable`1<DateTime> _lazyDate;
+    private CryptographicAttributeObject modreq(System.Runtime.CompilerServices.IsVolatile) _lazyOtherKeyAttribute;
+    public int Version { get; }
+    public SubjectIdentifier RecipientIdentifier { get; }
+    public AlgorithmIdentifier KeyEncryptionAlgorithm { get; }
+    public Byte[] EncryptedKey { get; }
+    public SubjectIdentifierOrKey OriginatorIdentifierOrKey { get; }
+    public DateTime Date { get; }
+    public CryptographicAttributeObject OtherKeyAttribute { get; }
+    private KeyAgreeRecipientInfoPal Pal { get; }
+    internal KeyAgreeRecipientInfo(KeyAgreeRecipientInfoPal pal);
+    public virtual int get_Version();
+    public virtual SubjectIdentifier get_RecipientIdentifier();
+    public virtual AlgorithmIdentifier get_KeyEncryptionAlgorithm();
+    public virtual Byte[] get_EncryptedKey();
+    public SubjectIdentifierOrKey get_OriginatorIdentifierOrKey();
+    public DateTime get_Date();
+    public CryptographicAttributeObject get_OtherKeyAttribute();
+    private KeyAgreeRecipientInfoPal get_Pal();
+}
+public class System.Security.Cryptography.Pkcs.KeyTransRecipientInfo : RecipientInfo {
+    private SubjectIdentifier modreq(System.Runtime.CompilerServices.IsVolatile) _lazyRecipientIdentifier;
+    private AlgorithmIdentifier modreq(System.Runtime.CompilerServices.IsVolatile) _lazyKeyEncryptionAlgorithm;
+    private Byte[] modreq(System.Runtime.CompilerServices.IsVolatile) _lazyEncryptedKey;
+    public int Version { get; }
+    public SubjectIdentifier RecipientIdentifier { get; }
+    public AlgorithmIdentifier KeyEncryptionAlgorithm { get; }
+    public Byte[] EncryptedKey { get; }
+    private KeyTransRecipientInfoPal Pal { get; }
+    internal KeyTransRecipientInfo(KeyTransRecipientInfoPal pal);
+    public virtual int get_Version();
+    public virtual SubjectIdentifier get_RecipientIdentifier();
+    public virtual AlgorithmIdentifier get_KeyEncryptionAlgorithm();
+    public virtual Byte[] get_EncryptedKey();
+    private KeyTransRecipientInfoPal get_Pal();
+}
+public class System.Security.Cryptography.Pkcs.Pkcs12Builder : object {
+    public bool IsSealed { get; }
+    public bool get_IsSealed();
+    public void AddSafeContentsEncrypted(Pkcs12SafeContents safeContents, Byte[] passwordBytes, PbeParameters pbeParameters);
+    public void AddSafeContentsEncrypted(Pkcs12SafeContents safeContents, ReadOnlySpan`1<byte> passwordBytes, PbeParameters pbeParameters);
+    public void AddSafeContentsEncrypted(Pkcs12SafeContents safeContents, ReadOnlySpan`1<char> password, PbeParameters pbeParameters);
+    public void AddSafeContentsEncrypted(Pkcs12SafeContents safeContents, string password, PbeParameters pbeParameters);
+    public void AddSafeContentsUnencrypted(Pkcs12SafeContents safeContents);
+    public Byte[] Encode();
+    public void SealWithMac(ReadOnlySpan`1<char> password, HashAlgorithmName hashAlgorithm, int iterationCount);
+    public void SealWithMac(string password, HashAlgorithmName hashAlgorithm, int iterationCount);
+    public void SealWithoutIntegrity();
+    public bool TryEncode(Span`1<byte> destination, Int32& bytesWritten);
+}
+public class System.Security.Cryptography.Pkcs.Pkcs12CertBag : Pkcs12SafeBag {
+    public ReadOnlyMemory`1<byte> EncodedCertificate { get; }
+    public bool IsX509Certificate { get; }
+    public Pkcs12CertBag(Oid certificateType, ReadOnlyMemory`1<byte> encodedCertificate);
+    public ReadOnlyMemory`1<byte> get_EncodedCertificate();
+    public bool get_IsX509Certificate();
+    public X509Certificate2 GetCertificate();
+    public Oid GetCertificateType();
+}
+public enum System.Security.Cryptography.Pkcs.Pkcs12ConfidentialityMode : Enum {
+    public int value__;
+    public static Pkcs12ConfidentialityMode None;
+    public static Pkcs12ConfidentialityMode Password;
+    public static Pkcs12ConfidentialityMode PublicKey;
+    public static Pkcs12ConfidentialityMode Unknown;
+}
+public class System.Security.Cryptography.Pkcs.Pkcs12Info : object {
+    public ReadOnlyCollection`1<Pkcs12SafeContents> AuthenticatedSafe { get; }
+    public Pkcs12IntegrityMode IntegrityMode { get; }
+    public ReadOnlyCollection`1<Pkcs12SafeContents> get_AuthenticatedSafe();
+    public Pkcs12IntegrityMode get_IntegrityMode();
+    public static Pkcs12Info Decode(ReadOnlyMemory`1<byte> encodedBytes, Int32& bytesConsumed, bool skipCopy);
+    public bool VerifyMac(ReadOnlySpan`1<char> password);
+    public bool VerifyMac(string password);
+}
+public enum System.Security.Cryptography.Pkcs.Pkcs12IntegrityMode : Enum {
+    public int value__;
+    public static Pkcs12IntegrityMode None;
+    public static Pkcs12IntegrityMode Password;
+    public static Pkcs12IntegrityMode PublicKey;
+    public static Pkcs12IntegrityMode Unknown;
+}
+public class System.Security.Cryptography.Pkcs.Pkcs12KeyBag : Pkcs12SafeBag {
+    public ReadOnlyMemory`1<byte> Pkcs8PrivateKey { get; }
+    public Pkcs12KeyBag(ReadOnlyMemory`1<byte> pkcs8PrivateKey, bool skipCopy);
+    public ReadOnlyMemory`1<byte> get_Pkcs8PrivateKey();
+}
+public abstract class System.Security.Cryptography.Pkcs.Pkcs12SafeBag : object {
+    public CryptographicAttributeObjectCollection Attributes { get; }
+    public ReadOnlyMemory`1<byte> EncodedBagValue { get; }
+    protected Pkcs12SafeBag(string bagIdValue, ReadOnlyMemory`1<byte> encodedBagValue, bool skipCopy);
+    public CryptographicAttributeObjectCollection get_Attributes();
+    public ReadOnlyMemory`1<byte> get_EncodedBagValue();
+    public Byte[] Encode();
+    public Oid GetBagId();
+    public bool TryEncode(Span`1<byte> destination, Int32& bytesWritten);
+}
+public class System.Security.Cryptography.Pkcs.Pkcs12SafeContents : object {
+    public Pkcs12ConfidentialityMode ConfidentialityMode { get; }
+    public bool IsReadOnly { get; }
+    public Pkcs12ConfidentialityMode get_ConfidentialityMode();
+    public bool get_IsReadOnly();
+    public Pkcs12CertBag AddCertificate(X509Certificate2 certificate);
+    public Pkcs12KeyBag AddKeyUnencrypted(AsymmetricAlgorithm key);
+    public Pkcs12SafeContentsBag AddNestedContents(Pkcs12SafeContents safeContents);
+    public void AddSafeBag(Pkcs12SafeBag safeBag);
+    public Pkcs12SecretBag AddSecret(Oid secretType, ReadOnlyMemory`1<byte> secretValue);
+    public Pkcs12ShroudedKeyBag AddShroudedKey(AsymmetricAlgorithm key, Byte[] passwordBytes, PbeParameters pbeParameters);
+    public Pkcs12ShroudedKeyBag AddShroudedKey(AsymmetricAlgorithm key, ReadOnlySpan`1<byte> passwordBytes, PbeParameters pbeParameters);
+    public Pkcs12ShroudedKeyBag AddShroudedKey(AsymmetricAlgorithm key, ReadOnlySpan`1<char> password, PbeParameters pbeParameters);
+    public Pkcs12ShroudedKeyBag AddShroudedKey(AsymmetricAlgorithm key, string password, PbeParameters pbeParameters);
+    public void Decrypt(Byte[] passwordBytes);
+    public void Decrypt(ReadOnlySpan`1<byte> passwordBytes);
+    public void Decrypt(ReadOnlySpan`1<char> password);
+    public void Decrypt(string password);
+    public IEnumerable`1<Pkcs12SafeBag> GetBags();
+}
+public class System.Security.Cryptography.Pkcs.Pkcs12SafeContentsBag : Pkcs12SafeBag {
+    public Pkcs12SafeContents SafeContents { get; }
+    public Pkcs12SafeContents get_SafeContents();
+}
+public class System.Security.Cryptography.Pkcs.Pkcs12SecretBag : Pkcs12SafeBag {
+    public ReadOnlyMemory`1<byte> SecretValue { get; }
+    public ReadOnlyMemory`1<byte> get_SecretValue();
+    public Oid GetSecretType();
+}
+public class System.Security.Cryptography.Pkcs.Pkcs12ShroudedKeyBag : Pkcs12SafeBag {
+    public ReadOnlyMemory`1<byte> EncryptedPkcs8PrivateKey { get; }
+    public Pkcs12ShroudedKeyBag(ReadOnlyMemory`1<byte> encryptedPkcs8PrivateKey, bool skipCopy);
+    public ReadOnlyMemory`1<byte> get_EncryptedPkcs8PrivateKey();
+}
+public class System.Security.Cryptography.Pkcs.Pkcs8PrivateKeyInfo : object {
+    public Oid AlgorithmId { get; }
+    public Nullable`1<ReadOnlyMemory`1<byte>> AlgorithmParameters { get; }
+    public CryptographicAttributeObjectCollection Attributes { get; }
+    public ReadOnlyMemory`1<byte> PrivateKeyBytes { get; }
+    public Pkcs8PrivateKeyInfo(Oid algorithmId, Nullable`1<ReadOnlyMemory`1<byte>> algorithmParameters, ReadOnlyMemory`1<byte> privateKey, bool skipCopies);
+    public Oid get_AlgorithmId();
+    public Nullable`1<ReadOnlyMemory`1<byte>> get_AlgorithmParameters();
+    public CryptographicAttributeObjectCollection get_Attributes();
+    public ReadOnlyMemory`1<byte> get_PrivateKeyBytes();
+    public static Pkcs8PrivateKeyInfo Create(AsymmetricAlgorithm privateKey);
+    public static Pkcs8PrivateKeyInfo Decode(ReadOnlyMemory`1<byte> source, Int32& bytesRead, bool skipCopy);
+    public static Pkcs8PrivateKeyInfo DecryptAndDecode(ReadOnlySpan`1<byte> passwordBytes, ReadOnlyMemory`1<byte> source, Int32& bytesRead);
+    public static Pkcs8PrivateKeyInfo DecryptAndDecode(ReadOnlySpan`1<char> password, ReadOnlyMemory`1<byte> source, Int32& bytesRead);
+    public Byte[] Encode();
+    public Byte[] Encrypt(ReadOnlySpan`1<byte> passwordBytes, PbeParameters pbeParameters);
+    public Byte[] Encrypt(ReadOnlySpan`1<char> password, PbeParameters pbeParameters);
+    public bool TryEncode(Span`1<byte> destination, Int32& bytesWritten);
+    public bool TryEncrypt(ReadOnlySpan`1<byte> passwordBytes, PbeParameters pbeParameters, Span`1<byte> destination, Int32& bytesWritten);
+    public bool TryEncrypt(ReadOnlySpan`1<char> password, PbeParameters pbeParameters, Span`1<byte> destination, Int32& bytesWritten);
+}
+public class System.Security.Cryptography.Pkcs.Pkcs9AttributeObject : AsnEncodedData {
+    public Oid Oid { get; }
+    public Pkcs9AttributeObject(string oid, Byte[] encodedData);
+    public Pkcs9AttributeObject(Oid oid, Byte[] encodedData);
+    public Pkcs9AttributeObject(AsnEncodedData asnEncodedData);
+    internal Pkcs9AttributeObject(Oid oid);
+    public Oid get_Oid();
+    public virtual void CopyFrom(AsnEncodedData asnEncodedData);
+}
+public class System.Security.Cryptography.Pkcs.Pkcs9ContentType : Pkcs9AttributeObject {
+    private Oid modreq(System.Runtime.CompilerServices.IsVolatile) _lazyContentType;
+    public Oid ContentType { get; }
+    public Oid get_ContentType();
+    public virtual void CopyFrom(AsnEncodedData asnEncodedData);
+    private static Oid Decode(Byte[] rawData);
+}
+public class System.Security.Cryptography.Pkcs.Pkcs9DocumentDescription : Pkcs9AttributeObject {
+    private String modreq(System.Runtime.CompilerServices.IsVolatile) _lazyDocumentDescription;
+    public string DocumentDescription { get; }
+    public Pkcs9DocumentDescription(string documentDescription);
+    public Pkcs9DocumentDescription(Byte[] encodedDocumentDescription);
+    public string get_DocumentDescription();
+    public virtual void CopyFrom(AsnEncodedData asnEncodedData);
+    private static string Decode(Byte[] rawData);
+    private static Byte[] Encode(string documentDescription);
+}
+public class System.Security.Cryptography.Pkcs.Pkcs9DocumentName : Pkcs9AttributeObject {
+    private String modreq(System.Runtime.CompilerServices.IsVolatile) _lazyDocumentName;
+    public string DocumentName { get; }
+    public Pkcs9DocumentName(string documentName);
+    public Pkcs9DocumentName(Byte[] encodedDocumentName);
+    public string get_DocumentName();
+    public virtual void CopyFrom(AsnEncodedData asnEncodedData);
+    private static string Decode(Byte[] rawData);
+    private static Byte[] Encode(string documentName);
+}
+public class System.Security.Cryptography.Pkcs.Pkcs9LocalKeyId : Pkcs9AttributeObject {
+    public ReadOnlyMemory`1<byte> KeyId { get; }
+    public Pkcs9LocalKeyId(Byte[] keyId);
+    public Pkcs9LocalKeyId(ReadOnlySpan`1<byte> keyId);
+    public ReadOnlyMemory`1<byte> get_KeyId();
+}
+public class System.Security.Cryptography.Pkcs.Pkcs9MessageDigest : Pkcs9AttributeObject {
+    private Byte[] modreq(System.Runtime.CompilerServices.IsVolatile) _lazyMessageDigest;
+    public Byte[] MessageDigest { get; }
+    internal Pkcs9MessageDigest(ReadOnlySpan`1<byte> signatureDigest);
+    public Byte[] get_MessageDigest();
+    public virtual void CopyFrom(AsnEncodedData asnEncodedData);
+    private static Byte[] Decode(Byte[] rawData);
+}
+public class System.Security.Cryptography.Pkcs.Pkcs9SigningTime : Pkcs9AttributeObject {
+    private Nullable`1<DateTime> _lazySigningTime;
+    public DateTime SigningTime { get; }
+    public Pkcs9SigningTime(DateTime signingTime);
+    public Pkcs9SigningTime(Byte[] encodedSigningTime);
+    public DateTime get_SigningTime();
+    public virtual void CopyFrom(AsnEncodedData asnEncodedData);
+    private static DateTime Decode(Byte[] rawData);
+    private static Byte[] Encode(DateTime signingTime);
+}
+public class System.Security.Cryptography.Pkcs.PublicKeyInfo : object {
+    [CompilerGeneratedAttribute]
+private AlgorithmIdentifier <Algorithm>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Byte[] <KeyValue>k__BackingField;
+    public AlgorithmIdentifier Algorithm { get; }
+    public Byte[] KeyValue { get; }
+    internal PublicKeyInfo(AlgorithmIdentifier algorithm, Byte[] keyValue);
+    [CompilerGeneratedAttribute]
+public AlgorithmIdentifier get_Algorithm();
+    [CompilerGeneratedAttribute]
+public Byte[] get_KeyValue();
+}
+public abstract class System.Security.Cryptography.Pkcs.RecipientInfo : object {
+    [CompilerGeneratedAttribute]
+private RecipientInfoType <Type>k__BackingField;
+    [CompilerGeneratedAttribute]
+private RecipientInfoPal <Pal>k__BackingField;
+    public RecipientInfoType Type { get; }
+    public int Version { get; }
+    public SubjectIdentifier RecipientIdentifier { get; }
+    public AlgorithmIdentifier KeyEncryptionAlgorithm { get; }
+    public Byte[] EncryptedKey { get; }
+    internal RecipientInfoPal Pal { get; }
+    internal RecipientInfo(RecipientInfoType type, RecipientInfoPal pal);
+    [CompilerGeneratedAttribute]
+public RecipientInfoType get_Type();
+    public abstract virtual int get_Version();
+    public abstract virtual SubjectIdentifier get_RecipientIdentifier();
+    public abstract virtual AlgorithmIdentifier get_KeyEncryptionAlgorithm();
+    public abstract virtual Byte[] get_EncryptedKey();
+    [CompilerGeneratedAttribute]
+internal RecipientInfoPal get_Pal();
+}
+[DefaultMemberAttribute("Item")]
+public class System.Security.Cryptography.Pkcs.RecipientInfoCollection : object {
+    private RecipientInfo[] _recipientInfos;
+    public RecipientInfo Item { get; }
+    public int Count { get; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    internal RecipientInfoCollection(RecipientInfo recipientInfo);
+    internal RecipientInfoCollection(ICollection`1<RecipientInfo> recipientInfos);
+    public RecipientInfo get_Item(int index);
+    public sealed virtual int get_Count();
+    public RecipientInfoEnumerator GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public sealed virtual void CopyTo(Array array, int index);
+    public void CopyTo(RecipientInfo[] array, int index);
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+}
+public class System.Security.Cryptography.Pkcs.RecipientInfoEnumerator : object {
+    private RecipientInfoCollection _recipientInfos;
+    private int _current;
+    public RecipientInfo Current { get; }
+    private object System.Collections.IEnumerator.Current { get; }
+    internal RecipientInfoEnumerator(RecipientInfoCollection RecipientInfos);
+    public RecipientInfo get_Current();
+    private sealed virtual override object System.Collections.IEnumerator.get_Current();
+    public sealed virtual bool MoveNext();
+    public sealed virtual void Reset();
+}
+public enum System.Security.Cryptography.Pkcs.RecipientInfoType : Enum {
+    public int value__;
+    public static RecipientInfoType Unknown;
+    public static RecipientInfoType KeyTransport;
+    public static RecipientInfoType KeyAgreement;
+}
+public class System.Security.Cryptography.Pkcs.Rfc3161TimestampRequest : object {
+    public bool HasExtensions { get; }
+    public Oid HashAlgorithmId { get; }
+    public Oid RequestedPolicyId { get; }
+    public bool RequestSignerCertificate { get; }
+    public int Version { get; }
+    public bool get_HasExtensions();
+    public Oid get_HashAlgorithmId();
+    public Oid get_RequestedPolicyId();
+    public bool get_RequestSignerCertificate();
+    public int get_Version();
+    public static Rfc3161TimestampRequest CreateFromData(ReadOnlySpan`1<byte> data, HashAlgorithmName hashAlgorithm, Oid requestedPolicyId, Nullable`1<ReadOnlyMemory`1<byte>> nonce, bool requestSignerCertificates, X509ExtensionCollection extensions);
+    public static Rfc3161TimestampRequest CreateFromHash(ReadOnlyMemory`1<byte> hash, HashAlgorithmName hashAlgorithm, Oid requestedPolicyId, Nullable`1<ReadOnlyMemory`1<byte>> nonce, bool requestSignerCertificates, X509ExtensionCollection extensions);
+    public static Rfc3161TimestampRequest CreateFromHash(ReadOnlyMemory`1<byte> hash, Oid hashAlgorithmId, Oid requestedPolicyId, Nullable`1<ReadOnlyMemory`1<byte>> nonce, bool requestSignerCertificates, X509ExtensionCollection extensions);
+    public static Rfc3161TimestampRequest CreateFromSignerInfo(SignerInfo signerInfo, HashAlgorithmName hashAlgorithm, Oid requestedPolicyId, Nullable`1<ReadOnlyMemory`1<byte>> nonce, bool requestSignerCertificates, X509ExtensionCollection extensions);
+    public Byte[] Encode();
+    public X509ExtensionCollection GetExtensions();
+    public ReadOnlyMemory`1<byte> GetMessageHash();
+    public Nullable`1<ReadOnlyMemory`1<byte>> GetNonce();
+    public Rfc3161TimestampToken ProcessResponse(ReadOnlyMemory`1<byte> responseBytes, Int32& bytesConsumed);
+    public static bool TryDecode(ReadOnlyMemory`1<byte> encodedBytes, Rfc3161TimestampRequest& request, Int32& bytesConsumed);
+    public bool TryEncode(Span`1<byte> destination, Int32& bytesWritten);
+}
+public class System.Security.Cryptography.Pkcs.Rfc3161TimestampToken : object {
+    public Rfc3161TimestampTokenInfo TokenInfo { get; }
+    public Rfc3161TimestampTokenInfo get_TokenInfo();
+    public SignedCms AsSignedCms();
+    public static bool TryDecode(ReadOnlyMemory`1<byte> encodedBytes, Rfc3161TimestampToken& token, Int32& bytesConsumed);
+    public bool VerifySignatureForData(ReadOnlySpan`1<byte> data, X509Certificate2& signerCertificate, X509Certificate2Collection extraCandidates);
+    public bool VerifySignatureForHash(ReadOnlySpan`1<byte> hash, HashAlgorithmName hashAlgorithm, X509Certificate2& signerCertificate, X509Certificate2Collection extraCandidates);
+    public bool VerifySignatureForHash(ReadOnlySpan`1<byte> hash, Oid hashAlgorithmId, X509Certificate2& signerCertificate, X509Certificate2Collection extraCandidates);
+    public bool VerifySignatureForSignerInfo(SignerInfo signerInfo, X509Certificate2& signerCertificate, X509Certificate2Collection extraCandidates);
+}
+public class System.Security.Cryptography.Pkcs.Rfc3161TimestampTokenInfo : object {
+    public Nullable`1<long> AccuracyInMicroseconds { get; }
+    public bool HasExtensions { get; }
+    public Oid HashAlgorithmId { get; }
+    public bool IsOrdering { get; }
+    public Oid PolicyId { get; }
+    public DateTimeOffset Timestamp { get; }
+    public int Version { get; }
+    public Rfc3161TimestampTokenInfo(Oid policyId, Oid hashAlgorithmId, ReadOnlyMemory`1<byte> messageHash, ReadOnlyMemory`1<byte> serialNumber, DateTimeOffset timestamp, Nullable`1<long> accuracyInMicroseconds, bool isOrdering, Nullable`1<ReadOnlyMemory`1<byte>> nonce, Nullable`1<ReadOnlyMemory`1<byte>> timestampAuthorityName, X509ExtensionCollection extensions);
+    public Nullable`1<long> get_AccuracyInMicroseconds();
+    public bool get_HasExtensions();
+    public Oid get_HashAlgorithmId();
+    public bool get_IsOrdering();
+    public Oid get_PolicyId();
+    public DateTimeOffset get_Timestamp();
+    public int get_Version();
+    public Byte[] Encode();
+    public X509ExtensionCollection GetExtensions();
+    public ReadOnlyMemory`1<byte> GetMessageHash();
+    public Nullable`1<ReadOnlyMemory`1<byte>> GetNonce();
+    public ReadOnlyMemory`1<byte> GetSerialNumber();
+    public Nullable`1<ReadOnlyMemory`1<byte>> GetTimestampAuthorityName();
+    public static bool TryDecode(ReadOnlyMemory`1<byte> encodedBytes, Rfc3161TimestampTokenInfo& timestampTokenInfo, Int32& bytesConsumed);
+    public bool TryEncode(Span`1<byte> destination, Int32& bytesWritten);
+}
+public class System.Security.Cryptography.Pkcs.SignedCms : object {
+    private static Oid s_cmsDataOid;
+    private SignedDataAsn _signedData;
+    private bool _hasData;
+    private Memory`1<byte> _heldData;
+    private Nullable`1<ReadOnlyMemory`1<byte>> _heldContent;
+    private bool _hasPkcs7Content;
+    private string _contentType;
+    [CompilerGeneratedAttribute]
+private int <Version>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ContentInfo <ContentInfo>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <Detached>k__BackingField;
+    public int Version { get; private set; }
+    public ContentInfo ContentInfo { get; private set; }
+    public bool Detached { get; private set; }
+    public X509Certificate2Collection Certificates { get; }
+    public SignerInfoCollection SignerInfos { get; }
+    public SignedCms(SubjectIdentifierType signerIdentifierType);
+    public SignedCms(ContentInfo contentInfo);
+    public SignedCms(SubjectIdentifierType signerIdentifierType, ContentInfo contentInfo);
+    public SignedCms(ContentInfo contentInfo, bool detached);
+    public SignedCms(SubjectIdentifierType signerIdentifierType, ContentInfo contentInfo, bool detached);
+    private static SignedCms();
+    private static ContentInfo MakeEmptyContentInfo();
+    [CompilerGeneratedAttribute]
+public int get_Version();
+    [CompilerGeneratedAttribute]
+private void set_Version(int value);
+    [CompilerGeneratedAttribute]
+public ContentInfo get_ContentInfo();
+    [CompilerGeneratedAttribute]
+private void set_ContentInfo(ContentInfo value);
+    [CompilerGeneratedAttribute]
+public bool get_Detached();
+    [CompilerGeneratedAttribute]
+private void set_Detached(bool value);
+    public X509Certificate2Collection get_Certificates();
+    public SignerInfoCollection get_SignerInfos();
+    public Byte[] Encode();
+    public void Decode(Byte[] encodedMessage);
+    internal void Decode(ReadOnlyMemory`1<byte> encodedMessage);
+    internal static ReadOnlyMemory`1<byte> GetContent(ReadOnlyMemory`1<byte> wrappedContent, string contentType);
+    public void ComputeSignature();
+    public void ComputeSignature(CmsSigner signer);
+    public void ComputeSignature(CmsSigner signer, bool silent);
+    public void RemoveSignature(int index);
+    public void RemoveSignature(SignerInfo signerInfo);
+    internal ReadOnlySpan`1<byte> GetHashableContentSpan();
+    internal void Reencode();
+    private void UpdateMetadata();
+    private void ConsiderDigestAddition(AlgorithmIdentifierAsn candidate);
+    private void ConsiderDigestRemoval(AlgorithmIdentifierAsn candidate);
+    internal void UpdateCertificatesFromAddition(X509Certificate2Collection newCerts);
+    public void CheckSignature(bool verifySignatureOnly);
+    public void CheckSignature(X509Certificate2Collection extraStore, bool verifySignatureOnly);
+    private static void CheckSignatures(SignerInfoCollection signers, X509Certificate2Collection extraStore, bool verifySignatureOnly);
+    public void CheckHash();
+    internal SignedDataAsn& GetRawData();
+}
+public class System.Security.Cryptography.Pkcs.SignerInfo : object {
+    [CompilerGeneratedAttribute]
+private int <Version>k__BackingField;
+    [CompilerGeneratedAttribute]
+private SubjectIdentifier <SignerIdentifier>k__BackingField;
+    private Oid _digestAlgorithm;
+    private AttributeAsn[] _signedAttributes;
+    private Nullable`1<ReadOnlyMemory`1<byte>> _signedAttributesMemory;
+    private Oid _signatureAlgorithm;
+    private Nullable`1<ReadOnlyMemory`1<byte>> _signatureAlgorithmParameters;
+    private ReadOnlyMemory`1<byte> _signature;
+    private AttributeAsn[] _unsignedAttributes;
+    private SignedCms _document;
+    private X509Certificate2 _signerCertificate;
+    private SignerInfo _parentSignerInfo;
+    private CryptographicAttributeObjectCollection _parsedSignedAttrs;
+    private CryptographicAttributeObjectCollection _parsedUnsignedAttrs;
+    public int Version { get; }
+    public SubjectIdentifier SignerIdentifier { get; }
+    public CryptographicAttributeObjectCollection SignedAttributes { get; }
+    public CryptographicAttributeObjectCollection UnsignedAttributes { get; }
+    public X509Certificate2 Certificate { get; }
+    public SignerInfoCollection CounterSignerInfos { get; }
+    public Oid DigestAlgorithm { get; }
+    public Oid SignatureAlgorithm { get; }
+    internal SignerInfo(SignerInfoAsn& parsedData, SignedCms ownerDocument);
+    [CompilerGeneratedAttribute]
+public int get_Version();
+    [CompilerGeneratedAttribute]
+public SubjectIdentifier get_SignerIdentifier();
+    public CryptographicAttributeObjectCollection get_SignedAttributes();
+    public CryptographicAttributeObjectCollection get_UnsignedAttributes();
+    internal ReadOnlyMemory`1<byte> GetSignatureMemory();
+    public Byte[] GetSignature();
+    public X509Certificate2 get_Certificate();
+    public SignerInfoCollection get_CounterSignerInfos();
+    public Oid get_DigestAlgorithm();
+    public Oid get_SignatureAlgorithm();
+    private SignerInfoCollection GetCounterSigners(AttributeAsn[] unsignedAttrs);
+    public void ComputeCounterSignature();
+    public void ComputeCounterSignature(CmsSigner signer);
+    public void RemoveCounterSignature(int index);
+    public void RemoveCounterSignature(SignerInfo counterSignerInfo);
+    public void CheckSignature(bool verifySignatureOnly);
+    public void CheckSignature(X509Certificate2Collection extraStore, bool verifySignatureOnly);
+    public void CheckHash();
+    private bool CheckHash(bool compatMode);
+    private X509Certificate2 FindSignerCertificate();
+    private static X509Certificate2 FindSignerCertificate(SubjectIdentifier signerIdentifier, X509Certificate2Collection extraStore);
+    private IncrementalHash PrepareDigest(bool compatMode);
+    private void Verify(X509Certificate2Collection extraStore, X509Certificate2 certificate, bool verifySignatureOnly);
+    private bool VerifySignature(CmsSignature signatureProcessor, X509Certificate2 certificate, bool compatMode);
+    private HashAlgorithmName GetDigestAlgorithm();
+    internal static CryptographicAttributeObjectCollection MakeAttributeCollection(AttributeAsn[] attributes);
+    private static CryptographicAttributeObject MakeAttribute(AttributeAsn attribute);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Security.Cryptography.Pkcs.SignerInfoCollection : object {
+    private SignerInfo[] _signerInfos;
+    public SignerInfo Item { get; }
+    public int Count { get; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    internal SignerInfoCollection(SignerInfo[] signerInfos);
+    internal SignerInfoCollection(SignerInfoAsn[] signedDataSignerInfos, SignedCms ownerDocument);
+    public SignerInfo get_Item(int index);
+    public sealed virtual int get_Count();
+    public SignerInfoEnumerator GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public sealed virtual void CopyTo(Array array, int index);
+    public void CopyTo(SignerInfo[] array, int index);
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+    internal int FindIndexForSigner(SignerInfo signer);
+}
+public class System.Security.Cryptography.Pkcs.SignerInfoEnumerator : object {
+    private SignerInfoCollection _signerInfos;
+    private int _position;
+    public SignerInfo Current { get; }
+    private object System.Collections.IEnumerator.Current { get; }
+    internal SignerInfoEnumerator(SignerInfoCollection signerInfos);
+    public SignerInfo get_Current();
+    private sealed virtual override object System.Collections.IEnumerator.get_Current();
+    public sealed virtual bool MoveNext();
+    public sealed virtual void Reset();
+}
+public class System.Security.Cryptography.Pkcs.SubjectIdentifier : object {
+    private static string DummySignerSubjectName;
+    internal static Byte[] DummySignerEncodedValue;
+    [CompilerGeneratedAttribute]
+private SubjectIdentifierType <Type>k__BackingField;
+    [CompilerGeneratedAttribute]
+private object <Value>k__BackingField;
+    public SubjectIdentifierType Type { get; }
+    public object Value { get; }
+    internal SubjectIdentifier(SubjectIdentifierType type, object value);
+    internal SubjectIdentifier(SignerIdentifierAsn signerIdentifierAsn);
+    internal SubjectIdentifier(Nullable`1<IssuerAndSerialNumberAsn> issuerAndSerialNumber, Nullable`1<ReadOnlyMemory`1<byte>> subjectKeyIdentifier);
+    private static SubjectIdentifier();
+    [CompilerGeneratedAttribute]
+public SubjectIdentifierType get_Type();
+    [CompilerGeneratedAttribute]
+public object get_Value();
+}
+public class System.Security.Cryptography.Pkcs.SubjectIdentifierOrKey : object {
+    [CompilerGeneratedAttribute]
+private SubjectIdentifierOrKeyType <Type>k__BackingField;
+    [CompilerGeneratedAttribute]
+private object <Value>k__BackingField;
+    public SubjectIdentifierOrKeyType Type { get; }
+    public object Value { get; }
+    internal SubjectIdentifierOrKey(SubjectIdentifierOrKeyType type, object value);
+    [CompilerGeneratedAttribute]
+public SubjectIdentifierOrKeyType get_Type();
+    [CompilerGeneratedAttribute]
+public object get_Value();
+}
+public enum System.Security.Cryptography.Pkcs.SubjectIdentifierOrKeyType : Enum {
+    public int value__;
+    public static SubjectIdentifierOrKeyType Unknown;
+    public static SubjectIdentifierOrKeyType IssuerAndSerialNumber;
+    public static SubjectIdentifierOrKeyType SubjectKeyIdentifier;
+    public static SubjectIdentifierOrKeyType PublicKeyInfo;
+}
+public enum System.Security.Cryptography.Pkcs.SubjectIdentifierType : Enum {
+    public int value__;
+    public static SubjectIdentifierType Unknown;
+    public static SubjectIdentifierType IssuerAndSerialNumber;
+    public static SubjectIdentifierType SubjectKeyIdentifier;
+    public static SubjectIdentifierType NoSignature;
+}
+public class System.Security.Cryptography.ProtectedData : object {
+    private static DataProtectionImplementation impl;
+    public static Byte[] Protect(Byte[] userData, Byte[] optionalEntropy, DataProtectionScope scope);
+    public static Byte[] Unprotect(Byte[] encryptedData, Byte[] optionalEntropy, DataProtectionScope scope);
+    private static void Detect();
+    private static void Check(DataProtectionScope scope);
+}
+public class System.Security.Cryptography.ProtectedMemory : object {
+    private static int BlockSize;
+    private static MemoryProtectionImplementation impl;
+    [MonoTODOAttribute("only supported on Windows 2000 SP3 and later")]
+public static void Protect(Byte[] userData, MemoryProtectionScope scope);
+    [MonoTODOAttribute("only supported on Windows 2000 SP3 and later")]
+public static void Unprotect(Byte[] encryptedData, MemoryProtectionScope scope);
+    private static void Detect();
+    private static void Check(int size, MemoryProtectionScope scope);
+    [SuppressUnmanagedCodeSecurityAttribute]
+private static int RtlEncryptMemory(Byte[] pData, UInt32 cbData, UInt32 dwFlags);
+    [SuppressUnmanagedCodeSecurityAttribute]
+private static int RtlDecryptMemory(Byte[] pData, UInt32 cbData, UInt32 dwFlags);
+    [SuppressUnmanagedCodeSecurityAttribute]
+private static bool CryptProtectMemory(Byte[] pData, UInt32 cbData, UInt32 dwFlags);
+    [SuppressUnmanagedCodeSecurityAttribute]
+private static bool CryptUnprotectMemory(Byte[] pData, UInt32 cbData, UInt32 dwFlags);
+}
+internal class System.Security.Cryptography.Translation.SR : object {
+    public static string Cryptography_DataProtector_InvalidAppNameOrPurpose;
+    public static string Cryptography_DataProtector_InvalidPurpose;
+    public static string ArgumentOutOfRange_Index;
+    public static string Arg_EmptyOrNullString;
+    public static string Cryptography_Partial_Chain;
+    public static string Cryptography_Xml_BadWrappedKeySize;
+    public static string Cryptography_Xml_CipherValueElementRequired;
+    public static string Cryptography_Xml_CreateHashAlgorithmFailed;
+    public static string Cryptography_Xml_CreateTransformFailed;
+    public static string Cryptography_Xml_CreatedKeyFailed;
+    public static string Cryptography_Xml_DigestMethodRequired;
+    public static string Cryptography_Xml_DigestValueRequired;
+    public static string Cryptography_Xml_EnvelopedSignatureRequiresContext;
+    public static string Cryptography_Xml_InvalidElement;
+    public static string Cryptography_Xml_InvalidEncryptionProperty;
+    public static string Cryptography_Xml_InvalidKeySize;
+    public static string Cryptography_Xml_InvalidReference;
+    public static string Cryptography_Xml_InvalidSignatureLength;
+    public static string Cryptography_Xml_InvalidSignatureLength2;
+    public static string Cryptography_Xml_InvalidX509IssuerSerialNumber;
+    public static string Cryptography_Xml_KeyInfoRequired;
+    public static string Cryptography_Xml_KW_BadKeySize;
+    public static string Cryptography_Xml_LoadKeyFailed;
+    public static string Cryptography_Xml_MissingAlgorithm;
+    public static string Cryptography_Xml_MissingCipherData;
+    public static string Cryptography_Xml_MissingDecryptionKey;
+    public static string Cryptography_Xml_MissingEncryptionKey;
+    public static string Cryptography_Xml_NotSupportedCryptographicTransform;
+    public static string Cryptography_Xml_ReferenceElementRequired;
+    public static string Cryptography_Xml_ReferenceTypeRequired;
+    public static string Cryptography_Xml_SelfReferenceRequiresContext;
+    public static string Cryptography_Xml_SignatureDescriptionNotCreated;
+    public static string Cryptography_Xml_SignatureMethodKeyMismatch;
+    public static string Cryptography_Xml_SignatureMethodRequired;
+    public static string Cryptography_Xml_SignatureValueRequired;
+    public static string Cryptography_Xml_SignedInfoRequired;
+    public static string Cryptography_Xml_TransformIncorrectInputType;
+    public static string Cryptography_Xml_IncorrectObjectType;
+    public static string Cryptography_Xml_UnknownTransform;
+    public static string Cryptography_Xml_UriNotResolved;
+    public static string Cryptography_Xml_UriNotSupported;
+    public static string Cryptography_Xml_UriRequired;
+    public static string Cryptography_Xml_XrmlMissingContext;
+    public static string Cryptography_Xml_XrmlMissingIRelDecryptor;
+    public static string Cryptography_Xml_XrmlMissingIssuer;
+    public static string Cryptography_Xml_XrmlMissingLicence;
+    public static string Cryptography_Xml_XrmlUnableToDecryptGrant;
+    public static string NotSupported_KeyAlgorithm;
+    public static string Log_ActualHashValue;
+    public static string Log_BeginCanonicalization;
+    public static string Log_BeginSignatureComputation;
+    public static string Log_BeginSignatureVerification;
+    public static string Log_BuildX509Chain;
+    public static string Log_CanonicalizationSettings;
+    public static string Log_CanonicalizedOutput;
+    public static string Log_CertificateChain;
+    public static string Log_CheckSignatureFormat;
+    public static string Log_CheckSignedInfo;
+    public static string Log_FormatValidationSuccessful;
+    public static string Log_FormatValidationNotSuccessful;
+    public static string Log_KeyUsages;
+    public static string Log_NoNamespacesPropagated;
+    public static string Log_PropagatingNamespace;
+    public static string Log_RawSignatureValue;
+    public static string Log_ReferenceHash;
+    public static string Log_RevocationMode;
+    public static string Log_RevocationFlag;
+    public static string Log_SigningAsymmetric;
+    public static string Log_SigningHmac;
+    public static string Log_SigningReference;
+    public static string Log_TransformedReferenceContents;
+    public static string Log_UnsafeCanonicalizationMethod;
+    public static string Log_UrlTimeout;
+    public static string Log_VerificationFailed;
+    public static string Log_VerificationFailed_References;
+    public static string Log_VerificationFailed_SignedInfo;
+    public static string Log_VerificationFailed_X509Chain;
+    public static string Log_VerificationFailed_X509KeyUsage;
+    public static string Log_VerificationFlag;
+    public static string Log_VerificationTime;
+    public static string Log_VerificationWithKeySuccessful;
+    public static string Log_VerificationWithKeyNotSuccessful;
+    public static string Log_VerifyReference;
+    public static string Log_VerifySignedInfoAsymmetric;
+    public static string Log_VerifySignedInfoHmac;
+    public static string Log_X509ChainError;
+    public static string Log_XmlContext;
+    public static string Log_SignedXmlRecursionLimit;
+    public static string Log_UnsafeTransformMethod;
+    public static string Arg_RankMultiDimNotSupported;
+    public static string Argument_InvalidOffLen;
+    public static string Argument_InvalidOidValue;
+    public static string Cryptography_Asn_EnumeratedValueRequiresNonFlagsEnum;
+    public static string Cryptography_Asn_NamedBitListRequiresFlagsEnum;
+    public static string Cryptography_Asn_NamedBitListValueTooBig;
+    public static string Cryptography_Asn_UniversalValueIsFixed;
+    public static string Cryptography_Asn_UnusedBitCountRange;
+    public static string Cryptography_AsnSerializer_AmbiguousFieldType;
+    public static string Cryptography_AsnSerializer_Choice_AllowNullNonNullable;
+    public static string Cryptography_AsnSerializer_Choice_ConflictingTagMapping;
+    public static string Cryptography_AsnSerializer_Choice_DefaultValueDisallowed;
+    public static string Cryptography_AsnSerializer_Choice_NoChoiceWasMade;
+    public static string Cryptography_AsnSerializer_Choice_NonNullableField;
+    public static string Cryptography_AsnSerializer_Choice_TooManyValues;
+    public static string Cryptography_AsnSerializer_Choice_TypeCycle;
+    public static string Cryptography_AsnSerializer_MultipleAsnTypeAttributes;
+    public static string Cryptography_AsnSerializer_NoJaggedArrays;
+    public static string Cryptography_AsnSerializer_NoMultiDimensionalArrays;
+    public static string Cryptography_AsnSerializer_NoOpenTypes;
+    public static string Cryptography_AsnSerializer_Optional_NonNullableField;
+    public static string Cryptography_AsnSerializer_PopulateFriendlyNameOnString;
+    public static string Cryptography_AsnSerializer_SetValueException;
+    public static string Cryptography_AsnSerializer_SpecificTagChoice;
+    public static string Cryptography_AsnSerializer_UnexpectedTypeForAttribute;
+    public static string Cryptography_AsnSerializer_UtcTimeTwoDigitYearMaxTooSmall;
+    public static string Cryptography_AsnSerializer_UnhandledType;
+    public static string Cryptography_AsnWriter_EncodeUnbalancedStack;
+    public static string Cryptography_AsnWriter_PopWrongTag;
+    public static string Cryptography_BadHashValue;
+    public static string Cryptography_BadSignature;
+    public static string Cryptography_Cms_CannotDetermineSignatureAlgorithm;
+    public static string Cryptography_Cms_IncompleteCertChain;
+    public static string Cryptography_Cms_Invalid_Originator_Identifier_Choice;
+    public static string Cryptography_Cms_Invalid_Subject_Identifier_Type;
+    public static string Cryptography_Cms_InvalidMessageType;
+    public static string Cryptography_Cms_InvalidSignerHashForSignatureAlg;
+    public static string Cryptography_Cms_Key_Agree_Date_Not_Available;
+    public static string Cryptography_Cms_MessageNotEncrypted;
+    public static string Cryptography_Cms_MessageNotSigned;
+    public static string Cryptography_Cms_MissingAuthenticatedAttribute;
+    public static string Cryptography_Cms_NoCounterCounterSigner;
+    public static string Cryptography_Cms_NoRecipients;
+    public static string Cryptography_Cms_NoSignerCert;
+    public static string Cryptography_Cms_NoSignerAtIndex;
+    public static string Cryptography_Cms_RecipientNotFound;
+    public static string Cryptography_Cms_RecipientType_NotSupported;
+    public static string Cryptography_Cms_Sign_Empty_Content;
+    public static string Cryptography_Cms_SignerNotFound;
+    public static string Cryptography_Cms_Signing_RequiresPrivateKey;
+    public static string Cryptography_Cms_TrustFailure;
+    public static string Cryptography_Cms_UnknownAlgorithm;
+    public static string Cryptography_Cms_UnknownKeySpec;
+    public static string Cryptography_Cms_WrongKeyUsage;
+    public static string Cryptography_Pkcs_InvalidSignatureParameters;
+    public static string Cryptography_Pkcs9_AttributeMismatch;
+    public static string Cryptography_Pkcs9_MultipleSigningTimeNotAllowed;
+    public static string Cryptography_Pkcs_PssParametersMissing;
+    public static string Cryptography_Pkcs_PssParametersHashMismatch;
+    public static string Cryptography_Pkcs_PssParametersMgfHashMismatch;
+    public static string Cryptography_Pkcs_PssParametersMgfNotSupported;
+    public static string Cryptography_Pkcs_PssParametersSaltMismatch;
+    public static string Cryptography_TimestampReq_BadNonce;
+    public static string Cryptography_TimestampReq_BadResponse;
+    public static string Cryptography_TimestampReq_Failure;
+    public static string Cryptography_TimestampReq_NoCertFound;
+    public static string Cryptography_TimestampReq_UnexpectedCertFound;
+    public static string InvalidOperation_DuplicateItemNotAllowed;
+    public static string InvalidOperation_WrongOidInAsnCollection;
+    public static string PlatformNotSupported_CryptographyPkcs;
+    public static string Cryptography_Der_Invalid_Encoding;
+    public static string Cryptography_Invalid_IA5String;
+    public static string Cryptography_UnknownHashAlgorithm;
+    public static string Cryptography_WriteEncodedValue_OneValueAtATime;
+}
+public static class System.Security.Cryptography.X509Certificates.X509Certificate2UI : object {
+    [MonoTODOAttribute]
+public static void DisplayCertificate(X509Certificate2 certificate);
+    [MonoTODOAttribute]
+public static void DisplayCertificate(X509Certificate2 certificate, IntPtr hwndParent);
+    [MonoTODOAttribute]
+public static X509Certificate2Collection SelectFromCollection(X509Certificate2Collection certificates, string title, string message, X509SelectionFlag selectionFlag);
+    [MonoTODOAttribute]
+public static X509Certificate2Collection SelectFromCollection(X509Certificate2Collection certificates, string title, string message, X509SelectionFlag selectionFlag, IntPtr hwndParent);
+}
+public enum System.Security.Cryptography.X509Certificates.X509SelectionFlag : Enum {
+    public int value__;
+    public static X509SelectionFlag SingleSelection;
+    public static X509SelectionFlag MultiSelection;
+}
+internal abstract class System.Security.Cryptography.Xml.AncestralNamespaceContextManager : object {
+    internal ArrayList _ancestorStack;
+    internal NamespaceFrame GetScopeAt(int i);
+    internal NamespaceFrame GetCurrentScope();
+    protected XmlAttribute GetNearestRenderedNamespaceWithMatchingPrefix(string nsPrefix, Int32& depth);
+    protected XmlAttribute GetNearestUnrenderedNamespaceWithMatchingPrefix(string nsPrefix, Int32& depth);
+    internal void EnterElementContext();
+    internal void ExitElementContext();
+    internal abstract virtual void TrackNamespaceNode(XmlAttribute attr, SortedList nsListToRender, Hashtable nsLocallyDeclared);
+    internal abstract virtual void TrackXmlNamespaceNode(XmlAttribute attr, SortedList nsListToRender, SortedList attrListToRender, Hashtable nsLocallyDeclared);
+    internal abstract virtual void GetNamespacesToRender(XmlElement element, SortedList attrListToRender, SortedList nsListToRender, Hashtable nsLocallyDeclared);
+    internal void LoadUnrenderedNamespaces(Hashtable nsLocallyDeclared);
+    internal void LoadRenderedNamespaces(SortedList nsRenderedList);
+    internal void AddRendered(XmlAttribute attr);
+    internal void AddUnrendered(XmlAttribute attr);
+}
+internal class System.Security.Cryptography.Xml.AttributeSortOrder : object {
+    public sealed virtual int Compare(object a, object b);
+}
+internal class System.Security.Cryptography.Xml.C14NAncestralNamespaceContextManager : AncestralNamespaceContextManager {
+    private void GetNamespaceToRender(string nsPrefix, SortedList attrListToRender, SortedList nsListToRender, Hashtable nsLocallyDeclared);
+    internal virtual void GetNamespacesToRender(XmlElement element, SortedList attrListToRender, SortedList nsListToRender, Hashtable nsLocallyDeclared);
+    internal virtual void TrackNamespaceNode(XmlAttribute attr, SortedList nsListToRender, Hashtable nsLocallyDeclared);
+    internal virtual void TrackXmlNamespaceNode(XmlAttribute attr, SortedList nsListToRender, SortedList attrListToRender, Hashtable nsLocallyDeclared);
+}
+internal class System.Security.Cryptography.Xml.CanonicalizationDispatcher : object {
+    public static void Write(XmlNode node, StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public static void WriteGenericNode(XmlNode node, StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public static void WriteHash(XmlNode node, HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public static void WriteHashGenericNode(XmlNode node, HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXml : object {
+    private CanonicalXmlDocument _c14nDoc;
+    private C14NAncestralNamespaceContextManager _ancMgr;
+    internal CanonicalXml(Stream inputStream, bool includeComments, XmlResolver resolver, string strBaseUri);
+    internal CanonicalXml(XmlDocument document, XmlResolver resolver);
+    internal CanonicalXml(XmlDocument document, XmlResolver resolver, bool includeComments);
+    internal CanonicalXml(XmlNodeList nodeList, XmlResolver resolver, bool includeComments);
+    private static void MarkNodeAsIncluded(XmlNode node);
+    private static void MarkInclusionStateForNodes(XmlNodeList nodeList, XmlDocument inputRoot, XmlDocument root);
+    internal Byte[] GetBytes();
+    internal Byte[] GetDigestedBytes(HashAlgorithm hash);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlAttribute : XmlAttribute {
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlAttribute(string prefix, string localName, string namespaceURI, XmlDocument doc, bool defaultNodeSetInclusionState);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlCDataSection : XmlCDataSection {
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlCDataSection(string data, XmlDocument doc, bool defaultNodeSetInclusionState);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlComment : XmlComment {
+    private bool _isInNodeSet;
+    private bool _includeComments;
+    public bool IsInNodeSet { get; public set; }
+    public bool IncludeComments { get; }
+    public CanonicalXmlComment(string comment, XmlDocument doc, bool defaultNodeSetInclusionState, bool includeComments);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public bool get_IncludeComments();
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlDocument : XmlDocument {
+    private bool _defaultNodeSetInclusionState;
+    private bool _includeComments;
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlDocument(bool defaultNodeSetInclusionState, bool includeComments);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public virtual XmlElement CreateElement(string prefix, string localName, string namespaceURI);
+    public virtual XmlAttribute CreateAttribute(string prefix, string localName, string namespaceURI);
+    protected virtual XmlAttribute CreateDefaultAttribute(string prefix, string localName, string namespaceURI);
+    public virtual XmlText CreateTextNode(string text);
+    public virtual XmlWhitespace CreateWhitespace(string prefix);
+    public virtual XmlSignificantWhitespace CreateSignificantWhitespace(string text);
+    public virtual XmlProcessingInstruction CreateProcessingInstruction(string target, string data);
+    public virtual XmlComment CreateComment(string data);
+    public virtual XmlEntityReference CreateEntityReference(string name);
+    public virtual XmlCDataSection CreateCDataSection(string data);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlElement : XmlElement {
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlElement(string prefix, string localName, string namespaceURI, XmlDocument doc, bool defaultNodeSetInclusionState);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlEntityReference : XmlEntityReference {
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlEntityReference(string name, XmlDocument doc, bool defaultNodeSetInclusionState);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlNodeList : XmlNodeList {
+    private ArrayList _nodeArray;
+    public int Count { get; }
+    public bool IsFixedSize { get; }
+    public bool IsReadOnly { get; }
+    private object System.Collections.IList.Item { get; private set; }
+    public object SyncRoot { get; }
+    public bool IsSynchronized { get; }
+    public virtual XmlNode Item(int index);
+    public virtual IEnumerator GetEnumerator();
+    public virtual int get_Count();
+    public sealed virtual int Add(object value);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(object value);
+    public sealed virtual int IndexOf(object value);
+    public sealed virtual void Insert(int index, object value);
+    public sealed virtual void Remove(object value);
+    public sealed virtual void RemoveAt(int index);
+    public sealed virtual bool get_IsFixedSize();
+    public sealed virtual bool get_IsReadOnly();
+    private sealed virtual override object System.Collections.IList.get_Item(int index);
+    private sealed virtual override void System.Collections.IList.set_Item(int index, object value);
+    public sealed virtual void CopyTo(Array array, int index);
+    public sealed virtual object get_SyncRoot();
+    public sealed virtual bool get_IsSynchronized();
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlProcessingInstruction : XmlProcessingInstruction {
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlProcessingInstruction(string target, string data, XmlDocument doc, bool defaultNodeSetInclusionState);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlSignificantWhitespace : XmlSignificantWhitespace {
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlSignificantWhitespace(string strData, XmlDocument doc, bool defaultNodeSetInclusionState);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlText : XmlText {
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlText(string strData, XmlDocument doc, bool defaultNodeSetInclusionState);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal class System.Security.Cryptography.Xml.CanonicalXmlWhitespace : XmlWhitespace {
+    private bool _isInNodeSet;
+    public bool IsInNodeSet { get; public set; }
+    public CanonicalXmlWhitespace(string strData, XmlDocument doc, bool defaultNodeSetInclusionState);
+    public sealed virtual bool get_IsInNodeSet();
+    public sealed virtual void set_IsInNodeSet(bool value);
+    public sealed virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public sealed virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+internal enum System.Security.Cryptography.Xml.CertUsageType : Enum {
+    public int value__;
+    public static CertUsageType Verification;
+    public static CertUsageType Decryption;
+}
+public class System.Security.Cryptography.Xml.CipherData : object {
+    private XmlElement _cachedXml;
+    private CipherReference _cipherReference;
+    private Byte[] _cipherValue;
+    private bool CacheValid { get; }
+    public CipherReference CipherReference { get; public set; }
+    public Byte[] CipherValue { get; public set; }
+    public CipherData(Byte[] cipherValue);
+    public CipherData(CipherReference cipherReference);
+    private bool get_CacheValid();
+    public CipherReference get_CipherReference();
+    public void set_CipherReference(CipherReference value);
+    public Byte[] get_CipherValue();
+    public void set_CipherValue(Byte[] value);
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public void LoadXml(XmlElement value);
+}
+public class System.Security.Cryptography.Xml.CipherReference : EncryptedReference {
+    private Byte[] _cipherValue;
+    internal Byte[] CipherValue { get; internal set; }
+    public CipherReference(string uri);
+    public CipherReference(string uri, TransformChain transformChain);
+    internal Byte[] get_CipherValue();
+    internal void set_CipherValue(Byte[] value);
+    public virtual XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public virtual void LoadXml(XmlElement value);
+}
+internal static class System.Security.Cryptography.Xml.CryptoHelpers : object {
+    private static Char[] _invalidChars;
+    private static CryptoHelpers();
+    public static object CreateFromKnownName(string name);
+    public static T CreateFromName(string name);
+}
+public class System.Security.Cryptography.Xml.CryptoSignedXmlRecursionException : XmlException {
+    public CryptoSignedXmlRecursionException(string message);
+    public CryptoSignedXmlRecursionException(string message, Exception inner);
+    protected CryptoSignedXmlRecursionException(SerializationInfo info, StreamingContext context);
+}
+public class System.Security.Cryptography.Xml.DataObject : object {
+    private string _id;
+    private string _mimeType;
+    private string _encoding;
+    private CanonicalXmlNodeList _elData;
+    private XmlElement _cachedXml;
+    public string Id { get; public set; }
+    public string MimeType { get; public set; }
+    public string Encoding { get; public set; }
+    public XmlNodeList Data { get; public set; }
+    private bool CacheValid { get; }
+    public DataObject(string id, string mimeType, string encoding, XmlElement data);
+    public string get_Id();
+    public void set_Id(string value);
+    public string get_MimeType();
+    public void set_MimeType(string value);
+    public string get_Encoding();
+    public void set_Encoding(string value);
+    public XmlNodeList get_Data();
+    public void set_Data(XmlNodeList value);
+    private bool get_CacheValid();
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public void LoadXml(XmlElement value);
+}
+public class System.Security.Cryptography.Xml.DataReference : EncryptedReference {
+    public DataReference(string uri);
+    public DataReference(string uri, TransformChain transformChain);
+}
+internal enum System.Security.Cryptography.Xml.DocPosition : Enum {
+    public int value__;
+    public static DocPosition BeforeRootElement;
+    public static DocPosition InRootElement;
+    public static DocPosition AfterRootElement;
+}
+public class System.Security.Cryptography.Xml.DSAKeyValue : KeyInfoClause {
+    private DSA _key;
+    private static string KeyValueElementName;
+    private static string DSAKeyValueElementName;
+    private static string PElementName;
+    private static string QElementName;
+    private static string GElementName;
+    private static string JElementName;
+    private static string YElementName;
+    private static string SeedElementName;
+    private static string PgenCounterElementName;
+    public DSA Key { get; public set; }
+    public DSAKeyValue(DSA key);
+    public DSA get_Key();
+    public void set_Key(DSA value);
+    public virtual XmlElement GetXml();
+    internal virtual XmlElement GetXml(XmlDocument xmlDocument);
+    public virtual void LoadXml(XmlElement value);
+}
+internal class System.Security.Cryptography.Xml.DSASignatureDescription : SignatureDescription {
+    private static string HashAlgorithm;
+    public sealed virtual AsymmetricSignatureDeformatter CreateDeformatter(AsymmetricAlgorithm key);
+    public sealed virtual AsymmetricSignatureFormatter CreateFormatter(AsymmetricAlgorithm key);
+    public sealed virtual HashAlgorithm CreateDigest();
+}
+public class System.Security.Cryptography.Xml.EncryptedData : EncryptedType {
+    public virtual void LoadXml(XmlElement value);
+    public virtual XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+}
+public class System.Security.Cryptography.Xml.EncryptedKey : EncryptedType {
+    private string _recipient;
+    private string _carriedKeyName;
+    private ReferenceList _referenceList;
+    public string Recipient { get; public set; }
+    public string CarriedKeyName { get; public set; }
+    public ReferenceList ReferenceList { get; }
+    public string get_Recipient();
+    public void set_Recipient(string value);
+    public string get_CarriedKeyName();
+    public void set_CarriedKeyName(string value);
+    public ReferenceList get_ReferenceList();
+    public void AddReference(DataReference dataReference);
+    public void AddReference(KeyReference keyReference);
+    public virtual void LoadXml(XmlElement value);
+    public virtual XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+}
+public abstract class System.Security.Cryptography.Xml.EncryptedReference : object {
+    private string _uri;
+    private string _referenceType;
+    private TransformChain _transformChain;
+    internal XmlElement _cachedXml;
+    public string Uri { get; public set; }
+    public TransformChain TransformChain { get; public set; }
+    protected string ReferenceType { get; protected set; }
+    protected internal bool CacheValid { get; }
+    protected EncryptedReference(string uri);
+    protected EncryptedReference(string uri, TransformChain transformChain);
+    public string get_Uri();
+    public void set_Uri(string value);
+    public TransformChain get_TransformChain();
+    public void set_TransformChain(TransformChain value);
+    public void AddTransform(Transform transform);
+    protected string get_ReferenceType();
+    protected void set_ReferenceType(string value);
+    protected internal bool get_CacheValid();
+    public virtual XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public virtual void LoadXml(XmlElement value);
+}
+public abstract class System.Security.Cryptography.Xml.EncryptedType : object {
+    private string _id;
+    private string _type;
+    private string _mimeType;
+    private string _encoding;
+    private EncryptionMethod _encryptionMethod;
+    private CipherData _cipherData;
+    private EncryptionPropertyCollection _props;
+    private KeyInfo _keyInfo;
+    internal XmlElement _cachedXml;
+    internal bool CacheValid { get; }
+    public string Id { get; public set; }
+    public string Type { get; public set; }
+    public string MimeType { get; public set; }
+    public string Encoding { get; public set; }
+    public KeyInfo KeyInfo { get; public set; }
+    public EncryptionMethod EncryptionMethod { get; public set; }
+    public EncryptionPropertyCollection EncryptionProperties { get; }
+    public CipherData CipherData { get; public set; }
+    internal bool get_CacheValid();
+    public virtual string get_Id();
+    public virtual void set_Id(string value);
+    public virtual string get_Type();
+    public virtual void set_Type(string value);
+    public virtual string get_MimeType();
+    public virtual void set_MimeType(string value);
+    public virtual string get_Encoding();
+    public virtual void set_Encoding(string value);
+    public KeyInfo get_KeyInfo();
+    public void set_KeyInfo(KeyInfo value);
+    public virtual EncryptionMethod get_EncryptionMethod();
+    public virtual void set_EncryptionMethod(EncryptionMethod value);
+    public virtual EncryptionPropertyCollection get_EncryptionProperties();
+    public void AddProperty(EncryptionProperty ep);
+    public virtual CipherData get_CipherData();
+    public virtual void set_CipherData(CipherData value);
+    public abstract virtual void LoadXml(XmlElement value);
+    public abstract virtual XmlElement GetXml();
+}
+public class System.Security.Cryptography.Xml.EncryptedXml : object {
+    public static string XmlEncNamespaceUrl;
+    public static string XmlEncElementUrl;
+    public static string XmlEncElementContentUrl;
+    public static string XmlEncEncryptedKeyUrl;
+    public static string XmlEncDESUrl;
+    public static string XmlEncTripleDESUrl;
+    public static string XmlEncAES128Url;
+    public static string XmlEncAES256Url;
+    public static string XmlEncAES192Url;
+    public static string XmlEncRSA15Url;
+    public static string XmlEncRSAOAEPUrl;
+    public static string XmlEncTripleDESKeyWrapUrl;
+    public static string XmlEncAES128KeyWrapUrl;
+    public static string XmlEncAES256KeyWrapUrl;
+    public static string XmlEncAES192KeyWrapUrl;
+    public static string XmlEncSHA256Url;
+    public static string XmlEncSHA512Url;
+    private XmlDocument _document;
+    private Evidence _evidence;
+    private XmlResolver _xmlResolver;
+    private static int _capacity;
+    private Hashtable _keyNameMapping;
+    private PaddingMode _padding;
+    private CipherMode _mode;
+    private Encoding _encoding;
+    private string _recipient;
+    private int _xmlDsigSearchDepthCounter;
+    private int _xmlDsigSearchDepth;
+    public int XmlDSigSearchDepth { get; public set; }
+    public Evidence DocumentEvidence { get; public set; }
+    public XmlResolver Resolver { get; public set; }
+    public PaddingMode Padding { get; public set; }
+    public CipherMode Mode { get; public set; }
+    public Encoding Encoding { get; public set; }
+    public string Recipient { get; public set; }
+    public EncryptedXml(XmlDocument document);
+    public EncryptedXml(XmlDocument document, Evidence evidence);
+    private bool IsOverXmlDsigRecursionLimit();
+    public int get_XmlDSigSearchDepth();
+    public void set_XmlDSigSearchDepth(int value);
+    public Evidence get_DocumentEvidence();
+    public void set_DocumentEvidence(Evidence value);
+    public XmlResolver get_Resolver();
+    public void set_Resolver(XmlResolver value);
+    public PaddingMode get_Padding();
+    public void set_Padding(PaddingMode value);
+    public CipherMode get_Mode();
+    public void set_Mode(CipherMode value);
+    public Encoding get_Encoding();
+    public void set_Encoding(Encoding value);
+    public string get_Recipient();
+    public void set_Recipient(string value);
+    private Byte[] GetCipherValue(CipherData cipherData);
+    public virtual XmlElement GetIdElement(XmlDocument document, string idValue);
+    public virtual Byte[] GetDecryptionIV(EncryptedData encryptedData, string symmetricAlgorithmUri);
+    public virtual SymmetricAlgorithm GetDecryptionKey(EncryptedData encryptedData, string symmetricAlgorithmUri);
+    public virtual Byte[] DecryptEncryptedKey(EncryptedKey encryptedKey);
+    public void AddKeyNameMapping(string keyName, object keyObject);
+    public void ClearKeyNameMappings();
+    public EncryptedData Encrypt(XmlElement inputElement, X509Certificate2 certificate);
+    public EncryptedData Encrypt(XmlElement inputElement, string keyName);
+    public void DecryptDocument();
+    public Byte[] EncryptData(Byte[] plaintext, SymmetricAlgorithm symmetricAlgorithm);
+    public Byte[] EncryptData(XmlElement inputElement, SymmetricAlgorithm symmetricAlgorithm, bool content);
+    public Byte[] DecryptData(EncryptedData encryptedData, SymmetricAlgorithm symmetricAlgorithm);
+    public void ReplaceData(XmlElement inputElement, Byte[] decryptedData);
+    public static void ReplaceElement(XmlElement inputElement, EncryptedData encryptedData, bool content);
+    public static Byte[] EncryptKey(Byte[] keyData, SymmetricAlgorithm symmetricAlgorithm);
+    public static Byte[] EncryptKey(Byte[] keyData, RSA rsa, bool useOAEP);
+    public static Byte[] DecryptKey(Byte[] keyData, SymmetricAlgorithm symmetricAlgorithm);
+    public static Byte[] DecryptKey(Byte[] keyData, RSA rsa, bool useOAEP);
+}
+public class System.Security.Cryptography.Xml.EncryptionMethod : object {
+    private XmlElement _cachedXml;
+    private int _keySize;
+    private string _algorithm;
+    private bool CacheValid { get; }
+    public int KeySize { get; public set; }
+    public string KeyAlgorithm { get; public set; }
+    public EncryptionMethod(string algorithm);
+    private bool get_CacheValid();
+    public int get_KeySize();
+    public void set_KeySize(int value);
+    public string get_KeyAlgorithm();
+    public void set_KeyAlgorithm(string value);
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public void LoadXml(XmlElement value);
+}
+public class System.Security.Cryptography.Xml.EncryptionProperty : object {
+    private string _target;
+    private string _id;
+    private XmlElement _elemProp;
+    private XmlElement _cachedXml;
+    public string Id { get; }
+    public string Target { get; }
+    public XmlElement PropertyElement { get; public set; }
+    private bool CacheValid { get; }
+    public EncryptionProperty(XmlElement elementProperty);
+    public string get_Id();
+    public string get_Target();
+    public XmlElement get_PropertyElement();
+    public void set_PropertyElement(XmlElement value);
+    private bool get_CacheValid();
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public void LoadXml(XmlElement value);
+}
+[DefaultMemberAttribute("ItemOf")]
+public class System.Security.Cryptography.Xml.EncryptionPropertyCollection : object {
+    private ArrayList _props;
+    public int Count { get; }
+    public bool IsFixedSize { get; }
+    public bool IsReadOnly { get; }
+    public EncryptionProperty ItemOf { get; public set; }
+    private object System.Collections.IList.Item { get; private set; }
+    public object SyncRoot { get; }
+    public bool IsSynchronized { get; }
+    public sealed virtual IEnumerator GetEnumerator();
+    public sealed virtual int get_Count();
+    private sealed virtual override int System.Collections.IList.Add(object value);
+    public int Add(EncryptionProperty value);
+    public sealed virtual void Clear();
+    private sealed virtual override bool System.Collections.IList.Contains(object value);
+    public bool Contains(EncryptionProperty value);
+    private sealed virtual override int System.Collections.IList.IndexOf(object value);
+    public int IndexOf(EncryptionProperty value);
+    private sealed virtual override void System.Collections.IList.Insert(int index, object value);
+    public void Insert(int index, EncryptionProperty value);
+    private sealed virtual override void System.Collections.IList.Remove(object value);
+    public void Remove(EncryptionProperty value);
+    public sealed virtual void RemoveAt(int index);
+    public sealed virtual bool get_IsFixedSize();
+    public sealed virtual bool get_IsReadOnly();
+    public EncryptionProperty Item(int index);
+    public EncryptionProperty get_ItemOf(int index);
+    public void set_ItemOf(int index, EncryptionProperty value);
+    private sealed virtual override object System.Collections.IList.get_Item(int index);
+    private sealed virtual override void System.Collections.IList.set_Item(int index, object value);
+    public sealed virtual void CopyTo(Array array, int index);
+    public void CopyTo(EncryptionProperty[] array, int index);
+    public sealed virtual object get_SyncRoot();
+    public sealed virtual bool get_IsSynchronized();
+}
+internal class System.Security.Cryptography.Xml.ExcAncestralNamespaceContextManager : AncestralNamespaceContextManager {
+    private Hashtable _inclusivePrefixSet;
+    internal ExcAncestralNamespaceContextManager(string inclusiveNamespacesPrefixList);
+    private bool HasNonRedundantInclusivePrefix(XmlAttribute attr);
+    private void GatherNamespaceToRender(string nsPrefix, SortedList nsListToRender, Hashtable nsLocallyDeclared);
+    internal virtual void GetNamespacesToRender(XmlElement element, SortedList attrListToRender, SortedList nsListToRender, Hashtable nsLocallyDeclared);
+    internal virtual void TrackNamespaceNode(XmlAttribute attr, SortedList nsListToRender, Hashtable nsLocallyDeclared);
+    internal virtual void TrackXmlNamespaceNode(XmlAttribute attr, SortedList nsListToRender, SortedList attrListToRender, Hashtable nsLocallyDeclared);
+}
+internal class System.Security.Cryptography.Xml.ExcCanonicalXml : object {
+    private CanonicalXmlDocument _c14nDoc;
+    private ExcAncestralNamespaceContextManager _ancMgr;
+    internal ExcCanonicalXml(Stream inputStream, bool includeComments, string inclusiveNamespacesPrefixList, XmlResolver resolver, string strBaseUri);
+    internal ExcCanonicalXml(XmlDocument document, bool includeComments, string inclusiveNamespacesPrefixList, XmlResolver resolver);
+    internal ExcCanonicalXml(XmlNodeList nodeList, bool includeComments, string inclusiveNamespacesPrefixList, XmlResolver resolver);
+    internal Byte[] GetBytes();
+    internal Byte[] GetDigestedBytes(HashAlgorithm hash);
+    private static void MarkInclusionStateForNodes(XmlNodeList nodeList, XmlDocument inputRoot, XmlDocument root);
+    private static void MarkNodeAsIncluded(XmlNode node);
+}
+internal interface System.Security.Cryptography.Xml.ICanonicalizableNode {
+    public bool IsInNodeSet { get; public set; }
+    public abstract virtual bool get_IsInNodeSet();
+    public abstract virtual void set_IsInNodeSet(bool value);
+    public abstract virtual void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc);
+    public abstract virtual void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc);
+}
+public interface System.Security.Cryptography.Xml.IRelDecryptor {
+    public abstract virtual Stream Decrypt(EncryptionMethod encryptionMethod, KeyInfo keyInfo, Stream toDecrypt);
+}
+public class System.Security.Cryptography.Xml.KeyInfo : object {
+    private string _id;
+    private ArrayList _keyInfoClauses;
+    public string Id { get; public set; }
+    public int Count { get; }
+    public string get_Id();
+    public void set_Id(string value);
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument xmlDocument);
+    public void LoadXml(XmlElement value);
+    public int get_Count();
+    public void AddClause(KeyInfoClause clause);
+    public sealed virtual IEnumerator GetEnumerator();
+    public IEnumerator GetEnumerator(Type requestedObjectType);
+}
+public abstract class System.Security.Cryptography.Xml.KeyInfoClause : object {
+    public abstract virtual XmlElement GetXml();
+    internal virtual XmlElement GetXml(XmlDocument xmlDocument);
+    public abstract virtual void LoadXml(XmlElement element);
+}
+public class System.Security.Cryptography.Xml.KeyInfoEncryptedKey : KeyInfoClause {
+    private EncryptedKey _encryptedKey;
+    public EncryptedKey EncryptedKey { get; public set; }
+    public KeyInfoEncryptedKey(EncryptedKey encryptedKey);
+    public EncryptedKey get_EncryptedKey();
+    public void set_EncryptedKey(EncryptedKey value);
+    public virtual XmlElement GetXml();
+    internal virtual XmlElement GetXml(XmlDocument xmlDocument);
+    public virtual void LoadXml(XmlElement value);
+}
+public class System.Security.Cryptography.Xml.KeyInfoName : KeyInfoClause {
+    private string _keyName;
+    public string Value { get; public set; }
+    public KeyInfoName(string keyName);
+    public string get_Value();
+    public void set_Value(string value);
+    public virtual XmlElement GetXml();
+    internal virtual XmlElement GetXml(XmlDocument xmlDocument);
+    public virtual void LoadXml(XmlElement value);
+}
+public class System.Security.Cryptography.Xml.KeyInfoNode : KeyInfoClause {
+    private XmlElement _node;
+    public XmlElement Value { get; public set; }
+    public KeyInfoNode(XmlElement node);
+    public XmlElement get_Value();
+    public void set_Value(XmlElement value);
+    public virtual XmlElement GetXml();
+    internal virtual XmlElement GetXml(XmlDocument xmlDocument);
+    public virtual void LoadXml(XmlElement value);
+}
+public class System.Security.Cryptography.Xml.KeyInfoRetrievalMethod : KeyInfoClause {
+    private string _uri;
+    private string _type;
+    public string Uri { get; public set; }
+    public string Type { get; public set; }
+    public KeyInfoRetrievalMethod(string strUri);
+    public KeyInfoRetrievalMethod(string strUri, string typeName);
+    public string get_Uri();
+    public void set_Uri(string value);
+    public string get_Type();
+    public void set_Type(string value);
+    public virtual XmlElement GetXml();
+    internal virtual XmlElement GetXml(XmlDocument xmlDocument);
+    public virtual void LoadXml(XmlElement value);
+}
+public class System.Security.Cryptography.Xml.KeyInfoX509Data : KeyInfoClause {
+    private ArrayList _certificates;
+    private ArrayList _issuerSerials;
+    private ArrayList _subjectKeyIds;
+    private ArrayList _subjectNames;
+    private Byte[] _CRL;
+    public ArrayList Certificates { get; }
+    public ArrayList SubjectKeyIds { get; }
+    public ArrayList SubjectNames { get; }
+    public ArrayList IssuerSerials { get; }
+    public Byte[] CRL { get; public set; }
+    public KeyInfoX509Data(Byte[] rgbCert);
+    public KeyInfoX509Data(X509Certificate cert);
+    public KeyInfoX509Data(X509Certificate cert, X509IncludeOption includeOption);
+    public ArrayList get_Certificates();
+    public void AddCertificate(X509Certificate certificate);
+    public ArrayList get_SubjectKeyIds();
+    public void AddSubjectKeyId(Byte[] subjectKeyId);
+    public void AddSubjectKeyId(string subjectKeyId);
+    public ArrayList get_SubjectNames();
+    public void AddSubjectName(string subjectName);
+    public ArrayList get_IssuerSerials();
+    public void AddIssuerSerial(string issuerName, string serialNumber);
+    internal void InternalAddIssuerSerial(string issuerName, string serialNumber);
+    public Byte[] get_CRL();
+    public void set_CRL(Byte[] value);
+    private void Clear();
+    public virtual XmlElement GetXml();
+    internal virtual XmlElement GetXml(XmlDocument xmlDocument);
+    public virtual void LoadXml(XmlElement element);
+}
+public class System.Security.Cryptography.Xml.KeyReference : EncryptedReference {
+    public KeyReference(string uri);
+    public KeyReference(string uri, TransformChain transformChain);
+}
+internal class System.Security.Cryptography.Xml.MyXmlDocument : XmlDocument {
+    protected virtual XmlAttribute CreateDefaultAttribute(string prefix, string localName, string namespaceURI);
+}
+internal class System.Security.Cryptography.Xml.NamespaceFrame : object {
+    private Hashtable _rendered;
+    private Hashtable _unrendered;
+    internal void AddRendered(XmlAttribute attr);
+    internal XmlAttribute GetRendered(string nsPrefix);
+    internal void AddUnrendered(XmlAttribute attr);
+    internal XmlAttribute GetUnrendered(string nsPrefix);
+    internal Hashtable GetUnrendered();
+}
+internal class System.Security.Cryptography.Xml.NamespaceSortOrder : object {
+    public sealed virtual int Compare(object a, object b);
+}
+public class System.Security.Cryptography.Xml.Reference : object {
+    internal static string DefaultDigestMethod;
+    private string _id;
+    private string _uri;
+    private string _type;
+    private TransformChain _transformChain;
+    private string _digestMethod;
+    private Byte[] _digestValue;
+    private HashAlgorithm _hashAlgorithm;
+    private object _refTarget;
+    private ReferenceTargetType _refTargetType;
+    private XmlElement _cachedXml;
+    private SignedXml _signedXml;
+    internal CanonicalXmlNodeList _namespaces;
+    public string Id { get; public set; }
+    public string Uri { get; public set; }
+    public string Type { get; public set; }
+    public string DigestMethod { get; public set; }
+    public Byte[] DigestValue { get; public set; }
+    public TransformChain TransformChain { get; public set; }
+    internal bool CacheValid { get; }
+    internal SignedXml SignedXml { get; internal set; }
+    internal ReferenceTargetType ReferenceTargetType { get; }
+    public Reference(Stream stream);
+    public Reference(string uri);
+    internal Reference(XmlElement element);
+    public string get_Id();
+    public void set_Id(string value);
+    public string get_Uri();
+    public void set_Uri(string value);
+    public string get_Type();
+    public void set_Type(string value);
+    public string get_DigestMethod();
+    public void set_DigestMethod(string value);
+    public Byte[] get_DigestValue();
+    public void set_DigestValue(Byte[] value);
+    public TransformChain get_TransformChain();
+    public void set_TransformChain(TransformChain value);
+    internal bool get_CacheValid();
+    internal SignedXml get_SignedXml();
+    internal void set_SignedXml(SignedXml value);
+    internal ReferenceTargetType get_ReferenceTargetType();
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public void LoadXml(XmlElement value);
+    public void AddTransform(Transform transform);
+    internal void UpdateHashValue(XmlDocument document, CanonicalXmlNodeList refList);
+    internal Byte[] CalculateHashValue(XmlDocument document, CanonicalXmlNodeList refList);
+}
+[DefaultMemberAttribute("ItemOf")]
+public class System.Security.Cryptography.Xml.ReferenceList : object {
+    private ArrayList _references;
+    public int Count { get; }
+    public EncryptedReference ItemOf { get; public set; }
+    private object System.Collections.IList.Item { get; private set; }
+    private bool System.Collections.IList.IsFixedSize { get; }
+    private bool System.Collections.IList.IsReadOnly { get; }
+    public object SyncRoot { get; }
+    public bool IsSynchronized { get; }
+    public sealed virtual IEnumerator GetEnumerator();
+    public sealed virtual int get_Count();
+    public sealed virtual int Add(object value);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(object value);
+    public sealed virtual int IndexOf(object value);
+    public sealed virtual void Insert(int index, object value);
+    public sealed virtual void Remove(object value);
+    public sealed virtual void RemoveAt(int index);
+    public EncryptedReference Item(int index);
+    public EncryptedReference get_ItemOf(int index);
+    public void set_ItemOf(int index, EncryptedReference value);
+    private sealed virtual override object System.Collections.IList.get_Item(int index);
+    private sealed virtual override void System.Collections.IList.set_Item(int index, object value);
+    public sealed virtual void CopyTo(Array array, int index);
+    private sealed virtual override bool System.Collections.IList.get_IsFixedSize();
+    private sealed virtual override bool System.Collections.IList.get_IsReadOnly();
+    public sealed virtual object get_SyncRoot();
+    public sealed virtual bool get_IsSynchronized();
+}
+internal enum System.Security.Cryptography.Xml.ReferenceTargetType : Enum {
+    public int value__;
+    public static ReferenceTargetType Stream;
+    public static ReferenceTargetType XmlElement;
+    public static ReferenceTargetType UriReference;
+}
+public class System.Security.Cryptography.Xml.RSAKeyValue : KeyInfoClause {
+    private RSA _key;
+    private static string KeyValueElementName;
+    private static string RSAKeyValueElementName;
+    private static string ModulusElementName;
+    private static string ExponentElementName;
+    public RSA Key { get; public set; }
+    public RSAKeyValue(RSA key);
+    public RSA get_Key();
+    public void set_Key(RSA value);
+    public virtual XmlElement GetXml();
+    internal virtual XmlElement GetXml(XmlDocument xmlDocument);
+    public virtual void LoadXml(XmlElement value);
+}
+internal class System.Security.Cryptography.Xml.RSAPKCS1SHA1SignatureDescription : RSAPKCS1SignatureDescription {
+    public sealed virtual HashAlgorithm CreateDigest();
+}
+internal class System.Security.Cryptography.Xml.RSAPKCS1SHA256SignatureDescription : RSAPKCS1SignatureDescription {
+    public sealed virtual HashAlgorithm CreateDigest();
+}
+internal class System.Security.Cryptography.Xml.RSAPKCS1SHA384SignatureDescription : RSAPKCS1SignatureDescription {
+    public sealed virtual HashAlgorithm CreateDigest();
+}
+internal class System.Security.Cryptography.Xml.RSAPKCS1SHA512SignatureDescription : RSAPKCS1SignatureDescription {
+    public sealed virtual HashAlgorithm CreateDigest();
+}
+internal abstract class System.Security.Cryptography.Xml.RSAPKCS1SignatureDescription : SignatureDescription {
+    public RSAPKCS1SignatureDescription(string hashAlgorithmName);
+    public sealed virtual AsymmetricSignatureDeformatter CreateDeformatter(AsymmetricAlgorithm key);
+    public sealed virtual AsymmetricSignatureFormatter CreateFormatter(AsymmetricAlgorithm key);
+    public abstract virtual HashAlgorithm CreateDigest();
+}
+public class System.Security.Cryptography.Xml.Signature : object {
+    private string _id;
+    private SignedInfo _signedInfo;
+    private Byte[] _signatureValue;
+    private string _signatureValueId;
+    private KeyInfo _keyInfo;
+    private IList _embeddedObjects;
+    private CanonicalXmlNodeList _referencedItems;
+    private SignedXml _signedXml;
+    internal SignedXml SignedXml { get; internal set; }
+    public string Id { get; public set; }
+    public SignedInfo SignedInfo { get; public set; }
+    public Byte[] SignatureValue { get; public set; }
+    public KeyInfo KeyInfo { get; public set; }
+    public IList ObjectList { get; public set; }
+    internal CanonicalXmlNodeList ReferencedItems { get; }
+    internal SignedXml get_SignedXml();
+    internal void set_SignedXml(SignedXml value);
+    public string get_Id();
+    public void set_Id(string value);
+    public SignedInfo get_SignedInfo();
+    public void set_SignedInfo(SignedInfo value);
+    public Byte[] get_SignatureValue();
+    public void set_SignatureValue(Byte[] value);
+    public KeyInfo get_KeyInfo();
+    public void set_KeyInfo(KeyInfo value);
+    public IList get_ObjectList();
+    public void set_ObjectList(IList value);
+    internal CanonicalXmlNodeList get_ReferencedItems();
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public void LoadXml(XmlElement value);
+    public void AddObject(DataObject dataObject);
+}
+public class System.Security.Cryptography.Xml.SignedInfo : object {
+    private string _id;
+    private string _canonicalizationMethod;
+    private string _signatureMethod;
+    private string _signatureLength;
+    private ArrayList _references;
+    private XmlElement _cachedXml;
+    private SignedXml _signedXml;
+    private Transform _canonicalizationMethodTransform;
+    internal SignedXml SignedXml { get; internal set; }
+    public int Count { get; }
+    public bool IsReadOnly { get; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    public string Id { get; public set; }
+    public string CanonicalizationMethod { get; public set; }
+    public Transform CanonicalizationMethodObject { get; }
+    public string SignatureMethod { get; public set; }
+    public string SignatureLength { get; public set; }
+    public ArrayList References { get; }
+    internal bool CacheValid { get; }
+    internal SignedXml get_SignedXml();
+    internal void set_SignedXml(SignedXml value);
+    public sealed virtual IEnumerator GetEnumerator();
+    public sealed virtual void CopyTo(Array array, int index);
+    public sealed virtual int get_Count();
+    public bool get_IsReadOnly();
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+    public string get_Id();
+    public void set_Id(string value);
+    public string get_CanonicalizationMethod();
+    public void set_CanonicalizationMethod(string value);
+    public Transform get_CanonicalizationMethodObject();
+    public string get_SignatureMethod();
+    public void set_SignatureMethod(string value);
+    public string get_SignatureLength();
+    public void set_SignatureLength(string value);
+    public ArrayList get_References();
+    internal bool get_CacheValid();
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    public void LoadXml(XmlElement value);
+    public void AddReference(Reference reference);
+}
+public class System.Security.Cryptography.Xml.SignedXml : object {
+    protected Signature m_signature;
+    protected string m_strSigningKeyName;
+    private AsymmetricAlgorithm _signingKey;
+    private XmlDocument _containingDocument;
+    private IEnumerator _keyInfoEnum;
+    private X509Certificate2Collection _x509Collection;
+    private IEnumerator _x509Enum;
+    private Boolean[] _refProcessed;
+    private Int32[] _refLevelCache;
+    internal XmlResolver _xmlResolver;
+    internal XmlElement _context;
+    private bool _bResolverSet;
+    private Func`2<SignedXml, bool> _signatureFormatValidator;
+    private Collection`1<string> _safeCanonicalizationMethods;
+    private static IList`1<string> s_knownCanonicalizationMethods;
+    private static IList`1<string> s_defaultSafeTransformMethods;
+    private static string XmlDsigMoreHMACMD5Url;
+    private static string XmlDsigMoreHMACSHA256Url;
+    private static string XmlDsigMoreHMACSHA384Url;
+    private static string XmlDsigMoreHMACSHA512Url;
+    private static string XmlDsigMoreHMACRIPEMD160Url;
+    private EncryptedXml _exml;
+    public static string XmlDsigNamespaceUrl;
+    public static string XmlDsigMinimalCanonicalizationUrl;
+    public static string XmlDsigCanonicalizationUrl;
+    public static string XmlDsigCanonicalizationWithCommentsUrl;
+    public static string XmlDsigSHA1Url;
+    public static string XmlDsigDSAUrl;
+    public static string XmlDsigRSASHA1Url;
+    public static string XmlDsigHMACSHA1Url;
+    public static string XmlDsigSHA256Url;
+    public static string XmlDsigRSASHA256Url;
+    public static string XmlDsigSHA384Url;
+    public static string XmlDsigRSASHA384Url;
+    public static string XmlDsigSHA512Url;
+    public static string XmlDsigRSASHA512Url;
+    public static string XmlDsigC14NTransformUrl;
+    public static string XmlDsigC14NWithCommentsTransformUrl;
+    public static string XmlDsigExcC14NTransformUrl;
+    public static string XmlDsigExcC14NWithCommentsTransformUrl;
+    public static string XmlDsigBase64TransformUrl;
+    public static string XmlDsigXPathTransformUrl;
+    public static string XmlDsigXsltTransformUrl;
+    public static string XmlDsigEnvelopedSignatureTransformUrl;
+    public static string XmlDecryptionTransformUrl;
+    public static string XmlLicenseTransformUrl;
+    private bool _bCacheValid;
+    private Byte[] _digestedSignedInfo;
+    public string SigningKeyName { get; public set; }
+    unknown XmlResolver Resolver {public set; }
+    internal bool ResolverSet { get; }
+    public Func`2<SignedXml, bool> SignatureFormatValidator { get; public set; }
+    public Collection`1<string> SafeCanonicalizationMethods { get; }
+    public AsymmetricAlgorithm SigningKey { get; public set; }
+    public EncryptedXml EncryptedXml { get; public set; }
+    public Signature Signature { get; }
+    public SignedInfo SignedInfo { get; }
+    public string SignatureMethod { get; }
+    public string SignatureLength { get; }
+    public Byte[] SignatureValue { get; }
+    public KeyInfo KeyInfo { get; public set; }
+    private static IList`1<string> KnownCanonicalizationMethods { get; }
+    private static IList`1<string> DefaultSafeTransformMethods { get; }
+    public SignedXml(XmlDocument document);
+    public SignedXml(XmlElement elem);
+    private void Initialize(XmlElement element);
+    public string get_SigningKeyName();
+    public void set_SigningKeyName(string value);
+    public void set_Resolver(XmlResolver value);
+    internal bool get_ResolverSet();
+    public Func`2<SignedXml, bool> get_SignatureFormatValidator();
+    public void set_SignatureFormatValidator(Func`2<SignedXml, bool> value);
+    public Collection`1<string> get_SafeCanonicalizationMethods();
+    public AsymmetricAlgorithm get_SigningKey();
+    public void set_SigningKey(AsymmetricAlgorithm value);
+    public EncryptedXml get_EncryptedXml();
+    public void set_EncryptedXml(EncryptedXml value);
+    public Signature get_Signature();
+    public SignedInfo get_SignedInfo();
+    public string get_SignatureMethod();
+    public string get_SignatureLength();
+    public Byte[] get_SignatureValue();
+    public KeyInfo get_KeyInfo();
+    public void set_KeyInfo(KeyInfo value);
+    public XmlElement GetXml();
+    public void LoadXml(XmlElement value);
+    public void AddReference(Reference reference);
+    public void AddObject(DataObject dataObject);
+    public bool CheckSignature();
+    public bool CheckSignatureReturningKey(AsymmetricAlgorithm& signingKey);
+    public bool CheckSignature(AsymmetricAlgorithm key);
+    public bool CheckSignature(KeyedHashAlgorithm macAlg);
+    public bool CheckSignature(X509Certificate2 certificate, bool verifySignatureOnly);
+    public void ComputeSignature();
+    public void ComputeSignature(KeyedHashAlgorithm macAlg);
+    protected virtual AsymmetricAlgorithm GetPublicKey();
+    private X509Certificate2Collection BuildBagOfCerts();
+    private AsymmetricAlgorithm GetNextCertificatePublicKey();
+    public virtual XmlElement GetIdElement(XmlDocument document, string idValue);
+    internal static XmlElement DefaultGetIdElement(XmlDocument document, string idValue);
+    private static bool DefaultSignatureFormatValidator(SignedXml signedXml);
+    private bool DoesSignatureUseTruncatedHmac();
+    private bool DoesSignatureUseSafeCanonicalizationMethod();
+    private bool ReferenceUsesSafeTransformMethods(Reference reference);
+    private bool IsSafeTransform(string transformAlgorithm);
+    private static IList`1<string> get_KnownCanonicalizationMethods();
+    private static IList`1<string> get_DefaultSafeTransformMethods();
+    private Byte[] GetC14NDigest(HashAlgorithm hash);
+    private int GetReferenceLevel(int index, ArrayList references);
+    private void BuildDigestedReferences();
+    private bool CheckDigestedReferences();
+    private static bool CryptographicEquals(Byte[] a, Byte[] b);
+    private bool CheckSignatureFormat();
+    private bool CheckSignedInfo(AsymmetricAlgorithm key);
+    private bool CheckSignedInfo(KeyedHashAlgorithm macAlg);
+    private static XmlElement GetSingleReferenceTarget(XmlDocument document, string idAttributeName, string idValue);
+    private static bool IsKeyTheCorrectAlgorithm(AsymmetricAlgorithm key, Type expectedType);
+}
+internal static class System.Security.Cryptography.Xml.SignedXmlDebugLog : object {
+    private static string NullString;
+    private static TraceSource s_traceSource;
+    private static Boolean modreq(System.Runtime.CompilerServices.IsVolatile) s_haveVerboseLogging;
+    private static Boolean modreq(System.Runtime.CompilerServices.IsVolatile) s_verboseLogging;
+    private static Boolean modreq(System.Runtime.CompilerServices.IsVolatile) s_haveInformationLogging;
+    private static Boolean modreq(System.Runtime.CompilerServices.IsVolatile) s_informationLogging;
+    private static bool InformationLoggingEnabled { get; }
+    private static bool VerboseLoggingEnabled { get; }
+    private static SignedXmlDebugLog();
+    private static bool get_InformationLoggingEnabled();
+    private static bool get_VerboseLoggingEnabled();
+    private static string FormatBytes(Byte[] bytes);
+    private static string GetKeyName(object key);
+    private static string GetObjectId(object o);
+    private static string GetOidName(Oid oid);
+    internal static void LogBeginCanonicalization(SignedXml signedXml, Transform canonicalizationTransform);
+    internal static void LogBeginCheckSignatureFormat(SignedXml signedXml, Func`2<SignedXml, bool> formatValidator);
+    internal static void LogBeginCheckSignedInfo(SignedXml signedXml, SignedInfo signedInfo);
+    internal static void LogBeginSignatureComputation(SignedXml signedXml, XmlElement context);
+    internal static void LogBeginSignatureVerification(SignedXml signedXml, XmlElement context);
+    internal static void LogCanonicalizedOutput(SignedXml signedXml, Transform canonicalizationTransform);
+    internal static void LogFormatValidationResult(SignedXml signedXml, bool result);
+    internal static void LogUnsafeCanonicalizationMethod(SignedXml signedXml, string algorithm, IEnumerable`1<string> validAlgorithms);
+    internal static void LogUnsafeTransformMethod(SignedXml signedXml, string algorithm, IEnumerable`1<string> validC14nAlgorithms, IEnumerable`1<string> validTransformAlgorithms);
+    internal static void LogNamespacePropagation(SignedXml signedXml, XmlNodeList namespaces);
+    internal static Stream LogReferenceData(Reference reference, Stream data);
+    internal static void LogSigning(SignedXml signedXml, object key, SignatureDescription signatureDescription, HashAlgorithm hash, AsymmetricSignatureFormatter asymmetricSignatureFormatter);
+    internal static void LogSigning(SignedXml signedXml, KeyedHashAlgorithm key);
+    internal static void LogSigningReference(SignedXml signedXml, Reference reference);
+    internal static void LogVerificationFailure(SignedXml signedXml, string failureLocation);
+    internal static void LogVerificationResult(SignedXml signedXml, object key, bool verified);
+    internal static void LogVerifyKeyUsage(SignedXml signedXml, X509Certificate certificate, X509KeyUsageExtension keyUsages);
+    internal static void LogVerifyReference(SignedXml signedXml, Reference reference);
+    internal static void LogVerifyReferenceHash(SignedXml signedXml, Reference reference, Byte[] actualHash, Byte[] expectedHash);
+    internal static void LogVerifySignedInfo(SignedXml signedXml, AsymmetricAlgorithm key, SignatureDescription signatureDescription, HashAlgorithm hashAlgorithm, AsymmetricSignatureDeformatter asymmetricSignatureDeformatter, Byte[] actualHashValue, Byte[] signatureValue);
+    internal static void LogVerifySignedInfo(SignedXml signedXml, KeyedHashAlgorithm mac, Byte[] actualHashValue, Byte[] signatureValue);
+    internal static void LogVerifyX509Chain(SignedXml signedXml, X509Chain chain, X509Certificate certificate);
+    internal static void LogSignedXmlRecursionLimit(SignedXml signedXml, Reference reference);
+    private static void WriteLine(object source, TraceEventType eventType, SignedXmlDebugEvent eventId, string data);
+}
+internal static class System.Security.Cryptography.Xml.SymmetricKeyWrap : object {
+    private static Byte[] s_rgbTripleDES_KW_IV;
+    private static Byte[] s_rgbAES_KW_IV;
+    private static SymmetricKeyWrap();
+    internal static Byte[] TripleDESKeyWrapEncrypt(Byte[] rgbKey, Byte[] rgbWrappedKeyData);
+    internal static Byte[] TripleDESKeyWrapDecrypt(Byte[] rgbKey, Byte[] rgbEncryptedWrappedKeyData);
+    internal static Byte[] AESKeyWrapEncrypt(Byte[] rgbKey, Byte[] rgbWrappedKeyData);
+    internal static Byte[] AESKeyWrapDecrypt(Byte[] rgbKey, Byte[] rgbEncryptedWrappedKeyData);
+}
+public abstract class System.Security.Cryptography.Xml.Transform : object {
+    private string _algorithm;
+    private string _baseUri;
+    internal XmlResolver _xmlResolver;
+    private bool _bResolverSet;
+    private SignedXml _signedXml;
+    private Reference _reference;
+    private Hashtable _propagatedNamespaces;
+    private XmlElement _context;
+    internal string BaseURI { get; internal set; }
+    internal SignedXml SignedXml { get; internal set; }
+    internal Reference Reference { get; internal set; }
+    public string Algorithm { get; public set; }
+    internal XmlResolver Resolver { get; public set; }
+    internal bool ResolverSet { get; }
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    public XmlElement Context { get; public set; }
+    public Hashtable PropagatedNamespaces { get; }
+    internal string get_BaseURI();
+    internal void set_BaseURI(string value);
+    internal SignedXml get_SignedXml();
+    internal void set_SignedXml(SignedXml value);
+    internal Reference get_Reference();
+    internal void set_Reference(Reference value);
+    public string get_Algorithm();
+    public void set_Algorithm(string value);
+    public void set_Resolver(XmlResolver value);
+    internal XmlResolver get_Resolver();
+    internal bool get_ResolverSet();
+    public abstract virtual Type[] get_InputTypes();
+    public abstract virtual Type[] get_OutputTypes();
+    internal bool AcceptsType(Type inputType);
+    public XmlElement GetXml();
+    internal XmlElement GetXml(XmlDocument document);
+    internal XmlElement GetXml(XmlDocument document, string name);
+    public abstract virtual void LoadInnerXml(XmlNodeList nodeList);
+    protected abstract virtual XmlNodeList GetInnerXml();
+    public abstract virtual void LoadInput(object obj);
+    public abstract virtual object GetOutput();
+    public abstract virtual object GetOutput(Type type);
+    public virtual Byte[] GetDigestedOutput(HashAlgorithm hash);
+    public XmlElement get_Context();
+    public void set_Context(XmlElement value);
+    public Hashtable get_PropagatedNamespaces();
+}
+[DefaultMemberAttribute("Item")]
+public class System.Security.Cryptography.Xml.TransformChain : object {
+    private ArrayList _transforms;
+    public int Count { get; }
+    public Transform Item { get; }
+    public void Add(Transform transform);
+    public IEnumerator GetEnumerator();
+    public int get_Count();
+    public Transform get_Item(int index);
+    internal Stream TransformToOctetStream(object inputObject, Type inputType, XmlResolver resolver, string baseUri);
+    internal Stream TransformToOctetStream(Stream input, XmlResolver resolver, string baseUri);
+    internal Stream TransformToOctetStream(XmlDocument document, XmlResolver resolver, string baseUri);
+    internal XmlElement GetXml(XmlDocument document, string ns);
+    internal void LoadXml(XmlElement value);
+}
+internal class System.Security.Cryptography.Xml.Utils : object {
+    internal static int MaxCharactersInDocument;
+    internal static long MaxCharactersFromEntities;
+    internal static int XmlDsigSearchDepth;
+    private static Char[] s_hexValues;
+    internal static int MaxTransformsPerReference;
+    internal static int MaxReferencesPerSignedInfo;
+    private static Utils();
+    private static bool HasNamespace(XmlElement element, string prefix, string value);
+    internal static bool IsCommittedNamespace(XmlElement element, string prefix, string value);
+    internal static bool IsRedundantNamespace(XmlElement element, string prefix, string value);
+    internal static string GetAttribute(XmlElement element, string localName, string namespaceURI);
+    internal static bool HasAttribute(XmlElement element, string localName, string namespaceURI);
+    internal static bool VerifyAttributes(XmlElement element, string expectedAttrName);
+    internal static bool VerifyAttributes(XmlElement element, String[] expectedAttrNames);
+    internal static bool IsNamespaceNode(XmlNode n);
+    internal static bool IsXmlNamespaceNode(XmlNode n);
+    internal static bool IsDefaultNamespaceNode(XmlNode n);
+    internal static bool IsEmptyDefaultNamespaceNode(XmlNode n);
+    internal static string GetNamespacePrefix(XmlAttribute a);
+    internal static bool HasNamespacePrefix(XmlAttribute a, string nsPrefix);
+    internal static bool IsNonRedundantNamespaceDecl(XmlAttribute a, XmlAttribute nearestAncestorWithSamePrefix);
+    internal static bool IsXmlPrefixDefinitionNode(XmlAttribute a);
+    internal static string DiscardWhiteSpaces(string inputBuffer);
+    internal static string DiscardWhiteSpaces(string inputBuffer, int inputOffset, int inputCount);
+    internal static void SBReplaceCharWithString(StringBuilder sb, char oldChar, string newString);
+    internal static XmlReader PreProcessStreamInput(Stream inputStream, XmlResolver xmlResolver, string baseUri);
+    internal static XmlReaderSettings GetSecureXmlReaderSettings(XmlResolver xmlResolver);
+    internal static XmlDocument PreProcessDocumentInput(XmlDocument document, XmlResolver xmlResolver, string baseUri);
+    internal static XmlDocument PreProcessElementInput(XmlElement elem, XmlResolver xmlResolver, string baseUri);
+    internal static XmlDocument DiscardComments(XmlDocument document);
+    internal static XmlNodeList AllDescendantNodes(XmlNode node, bool includeComments);
+    internal static bool NodeInList(XmlNode node, XmlNodeList nodeList);
+    internal static string GetIdFromLocalUri(string uri, Boolean& discardComments);
+    internal static string ExtractIdFromLocalUri(string uri);
+    internal static void RemoveAllChildren(XmlElement inputElement);
+    internal static long Pump(Stream input, Stream output);
+    internal static Hashtable TokenizePrefixListString(string s);
+    internal static string EscapeWhitespaceData(string data);
+    internal static string EscapeTextData(string data);
+    internal static string EscapeCData(string data);
+    internal static string EscapeAttributeValue(string value);
+    internal static XmlDocument GetOwnerDocument(XmlNodeList nodeList);
+    internal static void AddNamespaces(XmlElement elem, CanonicalXmlNodeList namespaces);
+    internal static void AddNamespaces(XmlElement elem, Hashtable namespaces);
+    internal static CanonicalXmlNodeList GetPropagatedAttributes(XmlElement elem);
+    internal static Byte[] ConvertIntToByteArray(int dwInput);
+    internal static int ConvertByteArrayToInt(Byte[] input);
+    internal static int GetHexArraySize(Byte[] hex);
+    internal static X509IssuerSerial CreateX509IssuerSerial(string issuerName, string serialNumber);
+    internal static X509Certificate2Collection BuildBagOfCerts(KeyInfoX509Data keyInfoX509Data, CertUsageType certUsageType);
+    internal static string EncodeHexString(Byte[] sArray);
+    internal static string EncodeHexString(Byte[] sArray, UInt32 start, UInt32 end);
+    internal static Byte[] DecodeHexString(string s);
+    internal static byte HexToByte(char val);
+    internal static bool IsSelfSigned(X509Chain chain);
+    internal static AsymmetricAlgorithm GetAnyPublicKey(X509Certificate2 certificate);
+}
+public class System.Security.Cryptography.Xml.X509IssuerSerial : ValueType {
+    [CompilerGeneratedAttribute]
+private string <IssuerName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <SerialNumber>k__BackingField;
+    public string IssuerName { get; public set; }
+    public string SerialNumber { get; public set; }
+    internal X509IssuerSerial(string issuerName, string serialNumber);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public string get_IssuerName();
+    [CompilerGeneratedAttribute]
+public void set_IssuerName(string value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public string get_SerialNumber();
+    [CompilerGeneratedAttribute]
+public void set_SerialNumber(string value);
+}
+public class System.Security.Cryptography.Xml.XmlDecryptionTransform : Transform {
+    private Type[] _inputTypes;
+    private Type[] _outputTypes;
+    private XmlNodeList _encryptedDataList;
+    private ArrayList _arrayListUri;
+    private EncryptedXml _exml;
+    private XmlDocument _containingDocument;
+    private XmlNamespaceManager _nsm;
+    private static string XmlDecryptionTransformNamespaceUrl;
+    private ArrayList ExceptUris { get; }
+    public EncryptedXml EncryptedXml { get; public set; }
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    private ArrayList get_ExceptUris();
+    protected virtual bool IsTargetElement(XmlElement inputElement, string idValue);
+    public EncryptedXml get_EncryptedXml();
+    public void set_EncryptedXml(EncryptedXml value);
+    public virtual Type[] get_InputTypes();
+    public virtual Type[] get_OutputTypes();
+    public void AddExceptUri(string uri);
+    public virtual void LoadInnerXml(XmlNodeList nodeList);
+    protected virtual XmlNodeList GetInnerXml();
+    public virtual void LoadInput(object obj);
+    private void LoadStreamInput(Stream stream);
+    private void LoadXmlDocumentInput(XmlDocument document);
+    private void ReplaceEncryptedData(XmlElement encryptedDataElement, Byte[] decrypted);
+    private bool ProcessEncryptedDataItem(XmlElement encryptedDataElement);
+    private void ProcessElementRecursively(XmlNodeList encryptedDatas);
+    public virtual object GetOutput();
+    public virtual object GetOutput(Type type);
+}
+public class System.Security.Cryptography.Xml.XmlDsigBase64Transform : Transform {
+    private Type[] _inputTypes;
+    private Type[] _outputTypes;
+    private CryptoStream _cs;
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    public virtual Type[] get_InputTypes();
+    public virtual Type[] get_OutputTypes();
+    public virtual void LoadInnerXml(XmlNodeList nodeList);
+    protected virtual XmlNodeList GetInnerXml();
+    public virtual void LoadInput(object obj);
+    private void LoadStreamInput(Stream inputStream);
+    private void LoadXmlNodeListInput(XmlNodeList nodeList);
+    public virtual object GetOutput();
+    public virtual object GetOutput(Type type);
+}
+public class System.Security.Cryptography.Xml.XmlDsigC14NTransform : Transform {
+    private Type[] _inputTypes;
+    private Type[] _outputTypes;
+    private CanonicalXml _cXml;
+    private bool _includeComments;
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    public XmlDsigC14NTransform(bool includeComments);
+    public virtual Type[] get_InputTypes();
+    public virtual Type[] get_OutputTypes();
+    public virtual void LoadInnerXml(XmlNodeList nodeList);
+    protected virtual XmlNodeList GetInnerXml();
+    public virtual void LoadInput(object obj);
+    public virtual object GetOutput();
+    public virtual object GetOutput(Type type);
+    public virtual Byte[] GetDigestedOutput(HashAlgorithm hash);
+}
+public class System.Security.Cryptography.Xml.XmlDsigC14NWithCommentsTransform : XmlDsigC14NTransform {
+}
+public class System.Security.Cryptography.Xml.XmlDsigEnvelopedSignatureTransform : Transform {
+    private Type[] _inputTypes;
+    private Type[] _outputTypes;
+    private XmlNodeList _inputNodeList;
+    private bool _includeComments;
+    private XmlNamespaceManager _nsm;
+    private XmlDocument _containingDocument;
+    private int _signaturePosition;
+    unknown int SignaturePosition {internal set; }
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    public XmlDsigEnvelopedSignatureTransform(bool includeComments);
+    internal void set_SignaturePosition(int value);
+    public virtual Type[] get_InputTypes();
+    public virtual Type[] get_OutputTypes();
+    public virtual void LoadInnerXml(XmlNodeList nodeList);
+    protected virtual XmlNodeList GetInnerXml();
+    public virtual void LoadInput(object obj);
+    private void LoadStreamInput(Stream stream);
+    private void LoadXmlNodeListInput(XmlNodeList nodeList);
+    private void LoadXmlDocumentInput(XmlDocument doc);
+    public virtual object GetOutput();
+    public virtual object GetOutput(Type type);
+}
+public class System.Security.Cryptography.Xml.XmlDsigExcC14NTransform : Transform {
+    private Type[] _inputTypes;
+    private Type[] _outputTypes;
+    private bool _includeComments;
+    private string _inclusiveNamespacesPrefixList;
+    private ExcCanonicalXml _excCanonicalXml;
+    public string InclusiveNamespacesPrefixList { get; public set; }
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    public XmlDsigExcC14NTransform(bool includeComments);
+    public XmlDsigExcC14NTransform(string inclusiveNamespacesPrefixList);
+    public XmlDsigExcC14NTransform(bool includeComments, string inclusiveNamespacesPrefixList);
+    public string get_InclusiveNamespacesPrefixList();
+    public void set_InclusiveNamespacesPrefixList(string value);
+    public virtual Type[] get_InputTypes();
+    public virtual Type[] get_OutputTypes();
+    public virtual void LoadInnerXml(XmlNodeList nodeList);
+    public virtual void LoadInput(object obj);
+    protected virtual XmlNodeList GetInnerXml();
+    public virtual object GetOutput();
+    public virtual object GetOutput(Type type);
+    public virtual Byte[] GetDigestedOutput(HashAlgorithm hash);
+}
+public class System.Security.Cryptography.Xml.XmlDsigExcC14NWithCommentsTransform : XmlDsigExcC14NTransform {
+    public XmlDsigExcC14NWithCommentsTransform(string inclusiveNamespacesPrefixList);
+}
+public class System.Security.Cryptography.Xml.XmlDsigXPathTransform : Transform {
+    private Type[] _inputTypes;
+    private Type[] _outputTypes;
+    private string _xpathexpr;
+    private XmlDocument _document;
+    private XmlNamespaceManager _nsm;
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    public virtual Type[] get_InputTypes();
+    public virtual Type[] get_OutputTypes();
+    public virtual void LoadInnerXml(XmlNodeList nodeList);
+    protected virtual XmlNodeList GetInnerXml();
+    public virtual void LoadInput(object obj);
+    private void LoadStreamInput(Stream stream);
+    private void LoadXmlNodeListInput(XmlNodeList nodeList);
+    private void LoadXmlDocumentInput(XmlDocument doc);
+    public virtual object GetOutput();
+    public virtual object GetOutput(Type type);
+}
+public class System.Security.Cryptography.Xml.XmlDsigXsltTransform : Transform {
+    private Type[] _inputTypes;
+    private Type[] _outputTypes;
+    private XmlNodeList _xslNodes;
+    private string _xslFragment;
+    private Stream _inputStream;
+    private bool _includeComments;
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    public XmlDsigXsltTransform(bool includeComments);
+    public virtual Type[] get_InputTypes();
+    public virtual Type[] get_OutputTypes();
+    public virtual void LoadInnerXml(XmlNodeList nodeList);
+    protected virtual XmlNodeList GetInnerXml();
+    public virtual void LoadInput(object obj);
+    public virtual object GetOutput();
+    public virtual object GetOutput(Type type);
+}
+public class System.Security.Cryptography.Xml.XmlLicenseTransform : Transform {
+    private Type[] _inputTypes;
+    private Type[] _outputTypes;
+    private XmlNamespaceManager _namespaceManager;
+    private XmlDocument _license;
+    private IRelDecryptor _relDecryptor;
+    private static string ElementIssuer;
+    private static string NamespaceUriCore;
+    public Type[] InputTypes { get; }
+    public Type[] OutputTypes { get; }
+    public IRelDecryptor Decryptor { get; public set; }
+    public virtual Type[] get_InputTypes();
+    public virtual Type[] get_OutputTypes();
+    public IRelDecryptor get_Decryptor();
+    public void set_Decryptor(IRelDecryptor value);
+    private void DecryptEncryptedGrants(XmlNodeList encryptedGrantList, IRelDecryptor decryptor);
+    protected virtual XmlNodeList GetInnerXml();
+    public virtual object GetOutput();
+    public virtual object GetOutput(Type type);
+    public virtual void LoadInnerXml(XmlNodeList nodeList);
+    public virtual void LoadInput(object obj);
+}
+public class System.Security.Permissions.DataProtectionPermission : CodeAccessPermission {
+    private static int version;
+    private DataProtectionPermissionFlags _flags;
+    public DataProtectionPermissionFlags Flags { get; public set; }
+    public DataProtectionPermission(PermissionState state);
+    public DataProtectionPermission(DataProtectionPermissionFlags flag);
+    public DataProtectionPermissionFlags get_Flags();
+    public void set_Flags(DataProtectionPermissionFlags value);
+    public sealed virtual bool IsUnrestricted();
+    public virtual IPermission Copy();
+    public virtual IPermission Intersect(IPermission target);
+    public virtual IPermission Union(IPermission target);
+    public virtual bool IsSubsetOf(IPermission target);
+    public virtual void FromXml(SecurityElement securityElement);
+    public virtual SecurityElement ToXml();
+    private DataProtectionPermission Cast(IPermission target);
+}
+[AttributeUsageAttribute("109")]
+public class System.Security.Permissions.DataProtectionPermissionAttribute : CodeAccessSecurityAttribute {
+    private DataProtectionPermissionFlags _flags;
+    public DataProtectionPermissionFlags Flags { get; public set; }
+    public bool ProtectData { get; public set; }
+    public bool UnprotectData { get; public set; }
+    public bool ProtectMemory { get; public set; }
+    public bool UnprotectMemory { get; public set; }
+    public DataProtectionPermissionAttribute(SecurityAction action);
+    public DataProtectionPermissionFlags get_Flags();
+    public void set_Flags(DataProtectionPermissionFlags value);
+    public bool get_ProtectData();
+    public void set_ProtectData(bool value);
+    public bool get_UnprotectData();
+    public void set_UnprotectData(bool value);
+    public bool get_ProtectMemory();
+    public void set_ProtectMemory(bool value);
+    public bool get_UnprotectMemory();
+    public void set_UnprotectMemory(bool value);
+    public virtual IPermission CreatePermission();
+}
+[FlagsAttribute]
+public enum System.Security.Permissions.DataProtectionPermissionFlags : Enum {
+    public int value__;
+    public static DataProtectionPermissionFlags NoFlags;
+    public static DataProtectionPermissionFlags ProtectData;
+    public static DataProtectionPermissionFlags UnprotectData;
+    public static DataProtectionPermissionFlags ProtectMemory;
+    public static DataProtectionPermissionFlags UnprotectMemory;
+    public static DataProtectionPermissionFlags AllFlags;
+}
+internal class System.Security.Permissions.PermissionHelper : object {
+    internal static SecurityElement Element(Type type, int version);
+    internal static PermissionState CheckPermissionState(PermissionState state, bool allowUnrestricted);
+    internal static int CheckSecurityElement(SecurityElement se, string parameterName, int minimumVersion, int maximumVersion);
+    internal static bool IsUnrestricted(SecurityElement se);
+    internal static void ThrowInvalidPermission(IPermission target, Type expected);
+}
+internal class Unity.ThrowStub : ObjectDisposedException {
+    public static void ThrowNotSupportedException();
+}

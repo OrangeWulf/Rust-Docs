@@ -1,0 +1,51 @@
+Сборка: UnityEngine.UnityCurlModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Unity.Curl.CurlEasyHandleFlags
+Наследуется от: Enum
+Поля:
+  UInt32 value__
+  CurlEasyHandleFlags kSendBody
+  CurlEasyHandleFlags kReceiveHeaders
+  CurlEasyHandleFlags kReceiveBody
+  CurlEasyHandleFlags kFollowRedirects
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Unity.Curl.BufferOwnership
+Наследуется от: Enum
+Поля:
+  int value__
+  BufferOwnership Copy
+  BufferOwnership Transfer
+  BufferOwnership External
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Unity.Curl.UnityCurl
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IntPtr CreateMultiHandle()
+  void DestroyMultiHandle(IntPtr handle)
+  IntPtr CreateEasyHandle(Byte* method, Byte* url, UInt32& curlMethod)
+  void SetupEasyHandle(IntPtr handle, UInt32 curlMethod, IntPtr headers, ulong contentLen, UInt32 flags)
+  void DestroyEasyHandle(IntPtr handle)
+  void QueueRequest(IntPtr multiHandle, IntPtr easyHandle)
+  IntPtr AppendHeader(IntPtr headerList, Byte* header)
+  void FreeHeaderList(IntPtr headerList)
+  int GetRequestErrorCode(IntPtr request)
+  int GetRequestStatus(IntPtr request)
+  UInt32 GetRequestStatusCode(IntPtr request)
+  void GetDownloadSize(IntPtr request, UInt64& downloaded, UInt64& expected)
+  Byte* GetResponseHeader(IntPtr request, UInt32 index, UInt32& length)
+  Byte* GetMoreBody(IntPtr handle, Int32& length)
+  void SendMoreBody(IntPtr handle, Byte* chunk, UInt32 length, BufferOwnership ownership)
+  void SendMoreBody(IntPtr handle, Byte* chunk, UInt32 length, int ownership)
+  void AbortRequest(IntPtr handle)
+--------------------------------------------------

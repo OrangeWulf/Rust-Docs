@@ -1,0 +1,514 @@
+public class Mono.Cecil.Mdb.MdbReader : object {
+    private ModuleDefinition module;
+    private MonoSymbolFile symbol_file;
+    private Dictionary`2<string, Document> documents;
+    public MdbReader(ModuleDefinition module, MonoSymbolFile symFile);
+    public sealed virtual ISymbolWriterProvider GetWriterProvider();
+    public sealed virtual bool ProcessDebugHeader(ImageDebugHeader header);
+    public sealed virtual MethodDebugInformation Read(MethodDefinition method);
+    private static int ReadCodeSize(MethodDefinition method);
+    private static void ReadLocalVariables(MethodEntry entry, ScopeDebugInformation[] scopes);
+    private void ReadLineNumbers(MethodEntry entry, MethodDebugInformation info);
+    private Document GetDocument(SourceFileEntry file);
+    private static ScopeDebugInformation[] ReadScopes(MethodEntry entry, MethodDebugInformation info);
+    private static bool AddScope(Collection`1<ScopeDebugInformation> scopes, ScopeDebugInformation scope);
+    private SequencePoint LineToSequencePoint(LineNumberEntry line);
+    public sealed virtual void Dispose();
+}
+public class Mono.Cecil.Mdb.MdbReaderProvider : object {
+    public sealed virtual ISymbolReader GetSymbolReader(ModuleDefinition module, string fileName);
+    public sealed virtual ISymbolReader GetSymbolReader(ModuleDefinition module, Stream symbolStream);
+}
+public class Mono.Cecil.Mdb.MdbWriter : object {
+    private ModuleDefinition module;
+    private MonoSymbolWriter writer;
+    private Dictionary`2<string, SourceFile> source_files;
+    public MdbWriter(ModuleDefinition module, string assembly);
+    public sealed virtual ISymbolReaderProvider GetReaderProvider();
+    private SourceFile GetSourceFile(Document document);
+    private void Populate(Collection`1<SequencePoint> sequencePoints, Int32[] offsets, Int32[] startRows, Int32[] endRows, Int32[] startCols, Int32[] endCols, SourceFile& file);
+    public sealed virtual void Write(MethodDebugInformation info);
+    private void WriteRootScope(ScopeDebugInformation scope, MethodDebugInformation info);
+    private void WriteScope(ScopeDebugInformation scope, MethodDebugInformation info);
+    private void WriteScopes(Collection`1<ScopeDebugInformation> scopes, MethodDebugInformation info);
+    private void WriteScopeVariables(ScopeDebugInformation scope);
+    public sealed virtual ImageDebugHeader GetDebugHeader();
+    public sealed virtual void Write();
+    public sealed virtual void Dispose();
+}
+public class Mono.Cecil.Mdb.MdbWriterProvider : object {
+    public sealed virtual ISymbolWriter GetSymbolWriter(ModuleDefinition module, string fileName);
+    public sealed virtual ISymbolWriter GetSymbolWriter(ModuleDefinition module, Stream symbolStream);
+}
+[ExtensionAttribute]
+internal static class Mono.Cecil.Mdb.MethodEntryExtensions : object {
+    [ExtensionAttribute]
+public static bool HasColumnInfo(MethodEntry entry);
+    [ExtensionAttribute]
+public static bool HasEndInfo(MethodEntry entry);
+}
+public class Mono.CompilerServices.SymbolWriter.AnonymousScopeEntry : object {
+    public int ID;
+    private List`1<CapturedVariable> captured_vars;
+    private List`1<CapturedScope> captured_scopes;
+    public CapturedVariable[] CapturedVariables { get; }
+    public CapturedScope[] CapturedScopes { get; }
+    public AnonymousScopeEntry(int id);
+    internal AnonymousScopeEntry(MyBinaryReader reader);
+    internal void AddCapturedVariable(string name, string captured_name, CapturedKind kind);
+    public CapturedVariable[] get_CapturedVariables();
+    internal void AddCapturedScope(int scope, string captured_name);
+    public CapturedScope[] get_CapturedScopes();
+    internal void Write(MyBinaryWriter bw);
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.CapturedScope : ValueType {
+    public int Scope;
+    public string CapturedName;
+    public CapturedScope(int scope, string captured_name);
+    internal CapturedScope(MyBinaryReader reader);
+    internal void Write(MyBinaryWriter bw);
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.CapturedVariable : ValueType {
+    public string Name;
+    public string CapturedName;
+    public CapturedKind Kind;
+    public CapturedVariable(string name, string captured_name, CapturedKind kind);
+    internal CapturedVariable(MyBinaryReader reader);
+    internal void Write(MyBinaryWriter bw);
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.CodeBlockEntry : object {
+    public int Index;
+    public int Parent;
+    public Type BlockType;
+    public int StartOffset;
+    public int EndOffset;
+    public CodeBlockEntry(int index, int parent, Type type, int start_offset);
+    internal CodeBlockEntry(int index, MyBinaryReader reader);
+    public void Close(int end_offset);
+    internal void Write(MyBinaryWriter bw);
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.CompileUnitEntry : object {
+    public int Index;
+    private int DataOffset;
+    private MonoSymbolFile file;
+    private SourceFileEntry source;
+    private List`1<SourceFileEntry> include_files;
+    private List`1<NamespaceEntry> namespaces;
+    private bool creating;
+    public static int Size { get; }
+    private CompileUnitEntry Mono.CompilerServices.SymbolWriter.ICompileUnit.Entry { get; }
+    public SourceFileEntry SourceFile { get; }
+    public NamespaceEntry[] Namespaces { get; }
+    public SourceFileEntry[] IncludeFiles { get; }
+    public CompileUnitEntry(MonoSymbolFile file, SourceFileEntry source);
+    internal CompileUnitEntry(MonoSymbolFile file, MyBinaryReader reader);
+    public static int get_Size();
+    private sealed virtual override CompileUnitEntry Mono.CompilerServices.SymbolWriter.ICompileUnit.get_Entry();
+    public void AddFile(SourceFileEntry file);
+    public SourceFileEntry get_SourceFile();
+    public int DefineNamespace(string name, String[] using_clauses, int parent);
+    internal void WriteData(MyBinaryWriter bw);
+    internal void Write(BinaryWriter bw);
+    public void ReadAll();
+    private void ReadData();
+    public NamespaceEntry[] get_Namespaces();
+    public SourceFileEntry[] get_IncludeFiles();
+}
+public interface Mono.CompilerServices.SymbolWriter.ICompileUnit {
+    public CompileUnitEntry Entry { get; }
+    public abstract virtual CompileUnitEntry get_Entry();
+}
+public interface Mono.CompilerServices.SymbolWriter.IMethodDef {
+    public string Name { get; }
+    public int Token { get; }
+    public abstract virtual string get_Name();
+    public abstract virtual int get_Token();
+}
+public interface Mono.CompilerServices.SymbolWriter.ISourceFile {
+    public SourceFileEntry Entry { get; }
+    public abstract virtual SourceFileEntry get_Entry();
+}
+public class Mono.CompilerServices.SymbolWriter.LineNumberEntry : object {
+    public int Row;
+    public int Column;
+    public int EndRow;
+    public int EndColumn;
+    public int File;
+    public int Offset;
+    public bool IsHidden;
+    public static LineNumberEntry Null;
+    public LineNumberEntry(int file, int row, int column, int offset);
+    public LineNumberEntry(int file, int row, int offset);
+    public LineNumberEntry(int file, int row, int column, int offset, bool is_hidden);
+    public LineNumberEntry(int file, int row, int column, int end_row, int end_column, int offset, bool is_hidden);
+    private static LineNumberEntry();
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.LineNumberTable : object {
+    protected LineNumberEntry[] _line_numbers;
+    public int LineBase;
+    public int LineRange;
+    public byte OpcodeBase;
+    public int MaxAddressIncrement;
+    public static int Default_LineBase;
+    public static int Default_LineRange;
+    public static byte Default_OpcodeBase;
+    public static byte DW_LNS_copy;
+    public static byte DW_LNS_advance_pc;
+    public static byte DW_LNS_advance_line;
+    public static byte DW_LNS_set_file;
+    public static byte DW_LNS_const_add_pc;
+    public static byte DW_LNE_end_sequence;
+    public static byte DW_LNE_MONO_negate_is_hidden;
+    internal static byte DW_LNE_MONO__extensions_start;
+    internal static byte DW_LNE_MONO__extensions_end;
+    public LineNumberEntry[] LineNumbers { get; }
+    protected LineNumberTable(MonoSymbolFile file);
+    internal LineNumberTable(MonoSymbolFile file, LineNumberEntry[] lines);
+    public LineNumberEntry[] get_LineNumbers();
+    internal void Write(MonoSymbolFile file, MyBinaryWriter bw, bool hasColumnsInfo, bool hasEndInfo);
+    internal static LineNumberTable Read(MonoSymbolFile file, MyBinaryReader br, bool readColumnsInfo, bool readEndInfo);
+    private void DoRead(MonoSymbolFile file, MyBinaryReader br, bool includesColumns, bool includesEnds);
+    public bool GetMethodBounds(LineNumberEntry& start, LineNumberEntry& end);
+}
+public class Mono.CompilerServices.SymbolWriter.LocalVariableEntry : ValueType {
+    public int Index;
+    public string Name;
+    public int BlockIndex;
+    public LocalVariableEntry(int index, string name, int block);
+    internal LocalVariableEntry(MonoSymbolFile file, MyBinaryReader reader);
+    internal void Write(MonoSymbolFile file, MyBinaryWriter bw);
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.MethodEntry : object {
+    public int CompileUnitIndex;
+    public int Token;
+    public int NamespaceID;
+    private int DataOffset;
+    private int LocalVariableTableOffset;
+    private int LineNumberTableOffset;
+    private int CodeBlockTableOffset;
+    private int ScopeVariableTableOffset;
+    private int RealNameOffset;
+    private Flags flags;
+    private int index;
+    public CompileUnitEntry CompileUnit;
+    private LocalVariableEntry[] locals;
+    private CodeBlockEntry[] code_blocks;
+    private ScopeVariable[] scope_vars;
+    private LineNumberTable lnt;
+    private string real_name;
+    public MonoSymbolFile SymbolFile;
+    public static int Size;
+    public Flags MethodFlags { get; }
+    public int Index { get; public set; }
+    internal MethodEntry(MonoSymbolFile file, MyBinaryReader reader, int index);
+    internal MethodEntry(MonoSymbolFile file, CompileUnitEntry comp_unit, int token, ScopeVariable[] scope_vars, LocalVariableEntry[] locals, LineNumberEntry[] lines, CodeBlockEntry[] code_blocks, string real_name, Flags flags, int namespace_id);
+    public Flags get_MethodFlags();
+    public int get_Index();
+    public void set_Index(int value);
+    private static void CheckLineNumberTable(LineNumberEntry[] line_numbers);
+    internal void Write(MyBinaryWriter bw);
+    internal void WriteData(MonoSymbolFile file, MyBinaryWriter bw);
+    public void ReadAll();
+    public LineNumberTable GetLineNumberTable();
+    public LocalVariableEntry[] GetLocals();
+    public CodeBlockEntry[] GetCodeBlocks();
+    public ScopeVariable[] GetScopeVariables();
+    public string GetRealName();
+    public sealed virtual int CompareTo(object obj);
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.MonoSymbolFile : object {
+    private List`1<MethodEntry> methods;
+    private List`1<SourceFileEntry> sources;
+    private List`1<CompileUnitEntry> comp_units;
+    private Dictionary`2<int, AnonymousScopeEntry> anonymous_scopes;
+    private OffsetTable ot;
+    private int last_type_index;
+    private int last_method_index;
+    private int last_namespace_index;
+    public int MajorVersion;
+    public int MinorVersion;
+    public int NumLineNumbers;
+    private MyBinaryReader reader;
+    private Dictionary`2<int, SourceFileEntry> source_file_hash;
+    private Dictionary`2<int, CompileUnitEntry> compile_unit_hash;
+    private List`1<MethodEntry> method_list;
+    private Dictionary`2<int, MethodEntry> method_token_hash;
+    private Dictionary`2<string, int> source_name_hash;
+    private Guid guid;
+    internal int LineNumberCount;
+    internal int LocalCount;
+    internal int StringSize;
+    internal int LineNumberSize;
+    internal int ExtendedLineNumberSize;
+    public int CompileUnitCount { get; }
+    public int SourceCount { get; }
+    public int MethodCount { get; }
+    public int TypeCount { get; }
+    public int AnonymousScopeCount { get; }
+    public int NamespaceCount { get; }
+    public Guid Guid { get; }
+    public OffsetTable OffsetTable { get; }
+    public SourceFileEntry[] Sources { get; }
+    public CompileUnitEntry[] CompileUnits { get; }
+    public MethodEntry[] Methods { get; }
+    internal MyBinaryReader BinaryReader { get; }
+    private MonoSymbolFile(Stream stream);
+    public int AddSource(SourceFileEntry source);
+    public int AddCompileUnit(CompileUnitEntry entry);
+    public void AddMethod(MethodEntry entry);
+    public MethodEntry DefineMethod(CompileUnitEntry comp_unit, int token, ScopeVariable[] scope_vars, LocalVariableEntry[] locals, LineNumberEntry[] lines, CodeBlockEntry[] code_blocks, string real_name, Flags flags, int namespace_id);
+    internal void DefineAnonymousScope(int id);
+    internal void DefineCapturedVariable(int scope_id, string name, string captured_name, CapturedKind kind);
+    internal void DefineCapturedScope(int scope_id, int id, string captured_name);
+    internal int GetNextTypeIndex();
+    internal int GetNextMethodIndex();
+    internal int GetNextNamespaceIndex();
+    private void Write(MyBinaryWriter bw, Guid guid);
+    public void CreateSymbolFile(Guid guid, FileStream fs);
+    public static MonoSymbolFile ReadSymbolFile(Assembly assembly);
+    public static MonoSymbolFile ReadSymbolFile(string mdbFilename);
+    public static MonoSymbolFile ReadSymbolFile(string mdbFilename, Guid assemblyGuid);
+    public static MonoSymbolFile ReadSymbolFile(Stream stream);
+    public int get_CompileUnitCount();
+    public int get_SourceCount();
+    public int get_MethodCount();
+    public int get_TypeCount();
+    public int get_AnonymousScopeCount();
+    public int get_NamespaceCount();
+    public Guid get_Guid();
+    public OffsetTable get_OffsetTable();
+    public SourceFileEntry GetSourceFile(int index);
+    public SourceFileEntry[] get_Sources();
+    public CompileUnitEntry GetCompileUnit(int index);
+    public CompileUnitEntry[] get_CompileUnits();
+    private void read_methods();
+    public MethodEntry GetMethodByToken(int token);
+    public MethodEntry GetMethod(int index);
+    public MethodEntry[] get_Methods();
+    public int FindSource(string file_name);
+    public AnonymousScopeEntry GetAnonymousScope(int id);
+    internal MyBinaryReader get_BinaryReader();
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+}
+public class Mono.CompilerServices.SymbolWriter.MonoSymbolFileException : Exception {
+    public MonoSymbolFileException(string message, Object[] args);
+    public MonoSymbolFileException(string message, Exception innerException);
+}
+public class Mono.CompilerServices.SymbolWriter.MonoSymbolWriter : object {
+    private List`1<SourceMethodBuilder> methods;
+    private List`1<SourceFileEntry> sources;
+    private List`1<CompileUnitEntry> comp_units;
+    protected MonoSymbolFile file;
+    private string filename;
+    private SourceMethodBuilder current_method;
+    private Stack`1<SourceMethodBuilder> current_method_stack;
+    public MonoSymbolFile SymbolFile { get; }
+    public MonoSymbolWriter(string filename);
+    public MonoSymbolFile get_SymbolFile();
+    public void CloseNamespace();
+    public void DefineLocalVariable(int index, string name);
+    public void DefineCapturedLocal(int scope_id, string name, string captured_name);
+    public void DefineCapturedParameter(int scope_id, string name, string captured_name);
+    public void DefineCapturedThis(int scope_id, string captured_name);
+    public void DefineCapturedScope(int scope_id, int id, string captured_name);
+    public void DefineScopeVariable(int scope, int index);
+    public void MarkSequencePoint(int offset, SourceFileEntry file, int line, int column, bool is_hidden);
+    public SourceMethodBuilder OpenMethod(ICompileUnit file, int ns_id, IMethodDef method);
+    public void CloseMethod();
+    public SourceFileEntry DefineDocument(string url);
+    public SourceFileEntry DefineDocument(string url, Byte[] guid, Byte[] checksum);
+    public CompileUnitEntry DefineCompilationUnit(SourceFileEntry source);
+    public int DefineNamespace(string name, CompileUnitEntry unit, String[] using_clauses, int parent);
+    public int OpenScope(int start_offset);
+    public void CloseScope(int end_offset);
+    public void OpenCompilerGeneratedBlock(int start_offset);
+    public void CloseCompilerGeneratedBlock(int end_offset);
+    public void StartIteratorBody(int start_offset);
+    public void EndIteratorBody(int end_offset);
+    public void StartIteratorDispatcher(int start_offset);
+    public void EndIteratorDispatcher(int end_offset);
+    public void DefineAnonymousScope(int id);
+    public void WriteSymbolFile(Guid guid);
+}
+internal class Mono.CompilerServices.SymbolWriter.MyBinaryReader : BinaryReader {
+    public MyBinaryReader(Stream stream);
+    public int ReadLeb128();
+    public string ReadString(int offset);
+}
+internal class Mono.CompilerServices.SymbolWriter.MyBinaryWriter : BinaryWriter {
+    public MyBinaryWriter(Stream stream);
+    public void WriteLeb128(int value);
+}
+public class Mono.CompilerServices.SymbolWriter.NamespaceEntry : ValueType {
+    public string Name;
+    public int Index;
+    public int Parent;
+    public String[] UsingClauses;
+    public NamespaceEntry(string name, int index, String[] using_clauses, int parent);
+    internal NamespaceEntry(MonoSymbolFile file, MyBinaryReader reader);
+    internal void Write(MonoSymbolFile file, MyBinaryWriter bw);
+    public virtual string ToString();
+}
+internal class Mono.CompilerServices.SymbolWriter.NamespaceInfo : object {
+    public string Name;
+    public int NamespaceID;
+    public ArrayList UsingClauses;
+}
+public class Mono.CompilerServices.SymbolWriter.OffsetTable : object {
+    public static int MajorVersion;
+    public static int MinorVersion;
+    public static long Magic;
+    public int TotalFileSize;
+    public int DataSectionOffset;
+    public int DataSectionSize;
+    public int CompileUnitCount;
+    public int CompileUnitTableOffset;
+    public int CompileUnitTableSize;
+    public int SourceCount;
+    public int SourceTableOffset;
+    public int SourceTableSize;
+    public int MethodCount;
+    public int MethodTableOffset;
+    public int MethodTableSize;
+    public int TypeCount;
+    public int AnonymousScopeCount;
+    public int AnonymousScopeTableOffset;
+    public int AnonymousScopeTableSize;
+    public Flags FileFlags;
+    public int LineNumberTable_LineBase;
+    public int LineNumberTable_LineRange;
+    public int LineNumberTable_OpcodeBase;
+    internal OffsetTable(BinaryReader reader, int major_version, int minor_version);
+    internal void Write(BinaryWriter bw, int major_version, int minor_version);
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.ScopeVariable : ValueType {
+    public int Scope;
+    public int Index;
+    public ScopeVariable(int scope, int index);
+    internal ScopeVariable(MyBinaryReader reader);
+    internal void Write(MyBinaryWriter bw);
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.SourceFileEntry : object {
+    public int Index;
+    private int DataOffset;
+    private MonoSymbolFile file;
+    private string file_name;
+    private Byte[] guid;
+    private Byte[] hash;
+    private bool creating;
+    private bool auto_generated;
+    private string sourceFile;
+    public static int Size { get; }
+    public Byte[] Checksum { get; }
+    public string FileName { get; public set; }
+    public bool AutoGenerated { get; }
+    public SourceFileEntry(MonoSymbolFile file, string file_name);
+    public SourceFileEntry(MonoSymbolFile file, string sourceFile, Byte[] guid, Byte[] checksum);
+    public SourceFileEntry(MonoSymbolFile file, string fileName, string sourceFile, Byte[] guid, Byte[] checksum);
+    internal SourceFileEntry(MonoSymbolFile file, MyBinaryReader reader);
+    public static int get_Size();
+    public Byte[] get_Checksum();
+    internal void WriteData(MyBinaryWriter bw);
+    internal void Write(BinaryWriter bw);
+    public string get_FileName();
+    public void set_FileName(string value);
+    public bool get_AutoGenerated();
+    public void SetAutoGenerated();
+    public bool CheckChecksum();
+    public virtual string ToString();
+}
+public class Mono.CompilerServices.SymbolWriter.SourceMethodBuilder : object {
+    private List`1<LocalVariableEntry> _locals;
+    private List`1<CodeBlockEntry> _blocks;
+    private List`1<ScopeVariable> _scope_vars;
+    private Stack`1<CodeBlockEntry> _block_stack;
+    private List`1<LineNumberEntry> method_lines;
+    private ICompileUnit _comp_unit;
+    private int ns_id;
+    private IMethodDef method;
+    public CodeBlockEntry[] Blocks { get; }
+    public CodeBlockEntry CurrentBlock { get; }
+    public LocalVariableEntry[] Locals { get; }
+    public ICompileUnit SourceFile { get; }
+    public ScopeVariable[] ScopeVariables { get; }
+    public SourceMethodBuilder(ICompileUnit comp_unit);
+    public SourceMethodBuilder(ICompileUnit comp_unit, int ns_id, IMethodDef method);
+    public void MarkSequencePoint(int offset, SourceFileEntry file, int line, int column, bool is_hidden);
+    public void MarkSequencePoint(int offset, SourceFileEntry file, int line, int column, int end_line, int end_column, bool is_hidden);
+    public void StartBlock(Type type, int start_offset);
+    public void StartBlock(Type type, int start_offset, int scopeIndex);
+    public void EndBlock(int end_offset);
+    public CodeBlockEntry[] get_Blocks();
+    public CodeBlockEntry get_CurrentBlock();
+    public LocalVariableEntry[] get_Locals();
+    public ICompileUnit get_SourceFile();
+    public void AddLocal(int index, string name);
+    public ScopeVariable[] get_ScopeVariables();
+    public void AddScopeVariable(int scope, int index);
+    public void DefineMethod(MonoSymbolFile file);
+    public void DefineMethod(MonoSymbolFile file, int token);
+}
+internal class Mono.CompilerServices.SymbolWriter.SourceMethodImpl : object {
+    private string name;
+    private int token;
+    private int namespaceID;
+    public string Name { get; }
+    public int NamespaceID { get; }
+    public int Token { get; }
+    public SourceMethodImpl(string name, int token, int namespaceID);
+    public sealed virtual string get_Name();
+    public int get_NamespaceID();
+    public sealed virtual int get_Token();
+}
+internal class Mono.CompilerServices.SymbolWriter.SymbolDocumentWriterImpl : object {
+    private CompileUnitEntry comp_unit;
+    private SourceFileEntry Mono.CompilerServices.SymbolWriter.ISourceFile.Entry { get; }
+    public CompileUnitEntry Entry { get; }
+    public SymbolDocumentWriterImpl(CompileUnitEntry comp_unit);
+    public sealed virtual void SetCheckSum(Guid algorithmId, Byte[] checkSum);
+    public sealed virtual void SetSource(Byte[] source);
+    private sealed virtual override SourceFileEntry Mono.CompilerServices.SymbolWriter.ISourceFile.get_Entry();
+    public sealed virtual CompileUnitEntry get_Entry();
+}
+public class Mono.CompilerServices.SymbolWriter.SymbolWriterImpl : object {
+    private MonoSymbolWriter msw;
+    private int nextLocalIndex;
+    private int currentToken;
+    private string methodName;
+    private Stack namespaceStack;
+    private bool methodOpened;
+    private Hashtable documents;
+    private Guid guid;
+    public SymbolWriterImpl(Guid guid);
+    public sealed virtual void Close();
+    public sealed virtual void CloseMethod();
+    public sealed virtual void CloseNamespace();
+    public sealed virtual void CloseScope(int endOffset);
+    public sealed virtual ISymbolDocumentWriter DefineDocument(string url, Guid language, Guid languageVendor, Guid documentType);
+    public sealed virtual void DefineField(SymbolToken parent, string name, FieldAttributes attributes, Byte[] signature, SymAddressKind addrKind, int addr1, int addr2, int addr3);
+    public sealed virtual void DefineGlobalVariable(string name, FieldAttributes attributes, Byte[] signature, SymAddressKind addrKind, int addr1, int addr2, int addr3);
+    public sealed virtual void DefineLocalVariable(string name, FieldAttributes attributes, Byte[] signature, SymAddressKind addrKind, int addr1, int addr2, int addr3, int startOffset, int endOffset);
+    public sealed virtual void DefineParameter(string name, ParameterAttributes attributes, int sequence, SymAddressKind addrKind, int addr1, int addr2, int addr3);
+    public sealed virtual void DefineSequencePoints(ISymbolDocumentWriter document, Int32[] offsets, Int32[] lines, Int32[] columns, Int32[] endLines, Int32[] endColumns);
+    public sealed virtual void Initialize(IntPtr emitter, string filename, bool fFullBuild);
+    public sealed virtual void OpenMethod(SymbolToken method);
+    public sealed virtual void OpenNamespace(string name);
+    public sealed virtual int OpenScope(int startOffset);
+    public sealed virtual void SetMethodSourceRange(ISymbolDocumentWriter startDoc, int startLine, int startColumn, ISymbolDocumentWriter endDoc, int endLine, int endColumn);
+    public sealed virtual void SetScopeRange(int scopeID, int startOffset, int endOffset);
+    public sealed virtual void SetSymAttribute(SymbolToken parent, string name, Byte[] data);
+    public sealed virtual void SetUnderlyingWriter(IntPtr underlyingWriter);
+    public sealed virtual void SetUserEntryPoint(SymbolToken entryMethod);
+    public sealed virtual void UsingNamespace(string fullName);
+    private int GetCurrentNamespace(ISymbolDocumentWriter doc);
+}

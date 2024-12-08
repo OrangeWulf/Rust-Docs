@@ -1,0 +1,142 @@
+[NativeHeaderAttribute("Modules/VirtualTexturing/ScriptBindings/VirtualTexturing.bindings.h")]
+[StaticAccessorAttribute("VirtualTexturing::Debugging", "2")]
+public static class UnityEngine.Rendering.VirtualTexturing.Debugging : object {
+    [NativeThrowsAttribute]
+public static bool debugTilesEnabled { get; public set; }
+    [NativeThrowsAttribute]
+public static bool resolvingEnabled { get; public set; }
+    [NativeThrowsAttribute]
+public static bool flushEveryTickEnabled { get; public set; }
+    [NativeThrowsAttribute]
+public static int mipPreloadedTextureCount { get; }
+    [NativeThrowsAttribute]
+public static int GetNumHandles();
+    [NativeThrowsAttribute]
+public static void GrabHandleInfo(Handle& debugHandle, int index);
+    [NativeThrowsAttribute]
+public static string GetInfoDump();
+    public static bool get_debugTilesEnabled();
+    public static void set_debugTilesEnabled(bool value);
+    public static bool get_resolvingEnabled();
+    public static void set_resolvingEnabled(bool value);
+    public static bool get_flushEveryTickEnabled();
+    public static void set_flushEveryTickEnabled(bool value);
+    public static int get_mipPreloadedTextureCount();
+}
+[NativeConditionalAttribute("UNITY_EDITOR")]
+[NativeHeaderAttribute("Modules/VirtualTexturing/ScriptBindings/VirtualTexturing.bindings.h")]
+[StaticAccessorAttribute("VirtualTexturing::Editor", "2")]
+public static class UnityEngine.Rendering.VirtualTexturing.EditorHelpers : object {
+    [NativeThrowsAttribute]
+internal static int tileSize { get; }
+    internal static int get_tileSize();
+    [NativeThrowsAttribute]
+public static bool ValidateTextureStack(Texture[] textures, String& errorMessage);
+    [NativeThrowsAttribute]
+internal static StackValidationResult[] ValidateMaterialTextureStacks(Material mat);
+    [NativeConditionalAttribute("UNITY_EDITOR", "{}")]
+[NativeThrowsAttribute]
+public static GraphicsFormat[] QuerySupportedFormats();
+}
+[NativeHeaderAttribute("Modules/VirtualTexturing/Public/VirtualTexturingFilterMode.h")]
+public enum UnityEngine.Rendering.VirtualTexturing.FilterMode : Enum {
+    public int value__;
+    public static FilterMode Bilinear;
+    public static FilterMode Trilinear;
+}
+[NativeHeaderAttribute("Modules/VirtualTexturing/Public/VirtualTexturingSettings.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Rendering.VirtualTexturing.GPUCacheSetting : ValueType {
+    public GraphicsFormat format;
+    public UInt32 sizeInMegaBytes;
+}
+[NativeHeaderAttribute("Modules/VirtualTexturing/ScriptBindings/VirtualTexturing.bindings.h")]
+[ObsoleteAttribute("Procedural Virtual Texturing is experimental, not ready for production use and Unity does not currently support it. The feature might be changed or removed in the future.", "False")]
+[StaticAccessorAttribute("VirtualTexturing::Procedural", "2")]
+public static class UnityEngine.Rendering.VirtualTexturing.Procedural : object {
+    [NativeThrowsAttribute]
+public static void SetDebugFlagInteger(Guid guid, long value);
+    [NativeThrowsAttribute]
+public static void SetDebugFlagDouble(Guid guid, double value);
+    [NativeThrowsAttribute]
+public static void SetCPUCacheSize(int sizeInMegabytes);
+    [NativeThrowsAttribute]
+public static int GetCPUCacheSize();
+    [NativeThrowsAttribute]
+public static void SetGPUCacheSettings(GPUCacheSetting[] cacheSettings);
+    [NativeThrowsAttribute]
+public static GPUCacheSetting[] GetGPUCacheSettings();
+    [NativeThrowsAttribute]
+public static void SetGPUCacheStagingAreaCapacity(UInt32 tilesPerFrame);
+    [NativeThrowsAttribute]
+public static UInt32 GetGPUCacheStagingAreaCapacity();
+}
+[NativeHeaderAttribute("Modules/VirtualTexturing/Public/VirtualTextureResolver.h")]
+public class UnityEngine.Rendering.VirtualTexturing.Resolver : object {
+    internal IntPtr m_Ptr;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <CurrentWidth>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <CurrentHeight>k__BackingField;
+    public int CurrentWidth { get; private set; }
+    public int CurrentHeight { get; private set; }
+    protected virtual override void Finalize();
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    private static IntPtr InitNative();
+    [NativeMethodAttribute]
+private static void ReleaseNative(IntPtr ptr);
+    private void Flush_Internal();
+    private void Init_Internal(int width, int height);
+    [CompilerGeneratedAttribute]
+public int get_CurrentWidth();
+    [CompilerGeneratedAttribute]
+private void set_CurrentWidth(int value);
+    [CompilerGeneratedAttribute]
+public int get_CurrentHeight();
+    [CompilerGeneratedAttribute]
+private void set_CurrentHeight(int value);
+    public void UpdateSize(int width, int height);
+    public void Process(CommandBuffer cmd, RenderTargetIdentifier rt);
+    public void Process(CommandBuffer cmd, RenderTargetIdentifier rt, int x, int width, int y, int height, int mip, int slice);
+}
+[NativeHeaderAttribute("Modules/VirtualTexturing/ScriptBindings/VirtualTexturing.bindings.h")]
+[StaticAccessorAttribute("VirtualTexturing::Streaming", "2")]
+public static class UnityEngine.Rendering.VirtualTexturing.Streaming : object {
+    [NativeThrowsAttribute]
+public static void RequestRegion(Material mat, int stackNameId, Rect r, int mipMap, int numMips);
+    [NativeThrowsAttribute]
+public static void GetTextureStackSize(Material mat, int stackNameId, Int32& width, Int32& height);
+    [NativeThrowsAttribute]
+public static void SetCPUCacheSize(int sizeInMegabytes);
+    [NativeThrowsAttribute]
+public static int GetCPUCacheSize();
+    [NativeThrowsAttribute]
+public static void SetGPUCacheSettings(GPUCacheSetting[] cacheSettings);
+    [NativeThrowsAttribute]
+public static GPUCacheSetting[] GetGPUCacheSettings();
+    [NativeThrowsAttribute]
+public static void EnableMipPreloading(int texturesPerFrame, int mipCount);
+    private static void RequestRegion_Injected(Material mat, int stackNameId, Rect& r, int mipMap, int numMips);
+}
+[NativeHeaderAttribute("Modules/VirtualTexturing/ScriptBindings/VirtualTexturing.bindings.h")]
+[StaticAccessorAttribute("VirtualTexturing::System", "2")]
+public static class UnityEngine.Rendering.VirtualTexturing.System : object {
+    public static int AllMips;
+    internal static bool enabled { get; }
+    internal static bool get_enabled();
+    [NativeThrowsAttribute]
+public static void Update();
+    [NativeThrowsAttribute]
+internal static void SetDebugFlag(Guid guid, bool enabled);
+    [NativeThrowsAttribute]
+internal static void SetDebugFlagInteger(Guid guid, long value);
+    [NativeThrowsAttribute]
+internal static void SetDebugFlagDouble(Guid guid, double value);
+    [NativeThrowsAttribute]
+private static void SetDebugFlagInteger(Byte[] guid, long value);
+    [NativeThrowsAttribute]
+private static void SetDebugFlagDouble(Byte[] guid, double value);
+}

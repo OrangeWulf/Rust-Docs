@@ -1,0 +1,1141 @@
+Сборка: MP3Sharp.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MP3Sharp.Buffer16BitStereo
+Наследуется от: ABuffer
+Поля:
+  bool DoubleMonoToStereo
+  int OUTPUT_CHANNELS
+  Byte[] _Buffer
+  Int32[] _BufferChannelOffsets
+  int _End
+  int _Offset
+Свойства:
+  int BytesLeft
+Методы:
+  void .ctor()
+  int get_BytesLeft()
+  int Read(Byte[] bufferOut, int offset, int count)
+  void Append(int channel, short sampleValue)
+  void AppendSamples(int channel, Single[] samples)
+  void ClearBuffer()
+  void SetStopFlag()
+  void WriteBuffer(int val)
+  void Close()
+--------------------------------------------------
+Класс: MP3Sharp.MP3SharpException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception inner)
+  void .ctor(SerializationInfo info, StreamingContext context)
+  void PrintStackTrace()
+  void PrintStackTrace(StreamWriter ps)
+--------------------------------------------------
+Класс: MP3Sharp.MP3Stream
+Наследуется от: Stream
+Поля:
+  Bitstream _BitStream
+  Decoder _Decoder
+  Buffer16BitStereo _Buffer
+  Stream _SourceStream
+  int BACK_STREAM_BYTE_COUNT_REP
+  short _ChannelCountRep
+  SoundFormat FormatRep
+  int _FrequencyRep
+  bool <IsEOF>k__BackingField
+Свойства:
+  bool IsEOF
+  int ChunkSize
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+  int Frequency
+  short ChannelCount
+  SoundFormat Format
+Методы:
+  bool get_IsEOF()
+  void set_IsEOF(bool value)
+  void .ctor(string fileName)
+  void .ctor(string fileName, int chunkSize)
+  void .ctor(Stream sourceStream)
+  void .ctor(Stream sourceStream, int chunkSize)
+  int get_ChunkSize()
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  int get_Frequency()
+  short get_ChannelCount()
+  SoundFormat get_Format()
+  void Flush()
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void Write(Byte[] buffer, int offset, int count)
+  int DecodeFrames(int frameCount)
+  int Read(Byte[] buffer, int offset, int count)
+  void Close()
+  bool ReadFrame()
+--------------------------------------------------
+Класс: MP3Sharp.SoundFormat
+Наследуется от: Enum
+Поля:
+  int value__
+  SoundFormat Pcm16BitMono
+  SoundFormat Pcm16BitStereo
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MP3Sharp.Support.SupportClass
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  int URShift(int number, int bits)
+  int URShift(int number, long bits)
+  long URShift(long number, int bits)
+  long URShift(long number, long bits)
+  void WriteStackTrace(Exception throwable, TextWriter stream)
+  long Identity(long literal)
+  ulong Identity(ulong literal)
+  float Identity(float literal)
+  double Identity(double literal)
+  int ReadInput(Stream sourceStream, SByte[]& target, int start, int count)
+  Byte[] ToByteArray(SByte[] sbyteArray)
+  Byte[] ToByteArray(string sourceString)
+  void GetSBytesFromString(string sourceString, int sourceStart, int sourceEnd, SByte[]& destinationArray, int destinationStart)
+  void .ctor()
+--------------------------------------------------
+Класс: MP3Sharp.IO.RandomAccessFileStream
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  FileStream CreateRandomAccessFile(string fileName, string mode)
+  void .ctor()
+--------------------------------------------------
+Класс: MP3Sharp.IO.RiffFile
+Наследуется от: object
+Поля:
+  int DDC_SUCCESS
+  int DDC_FAILURE
+  int DDC_OUT_OF_MEMORY
+  int DDC_FILE_ERROR
+  int DDC_INVALID_CALL
+  int DDC_USER_ABORT
+  int DDC_INVALID_FILE
+  int RF_UNKNOWN
+  int RF_WRITE
+  int RF_READ
+  RiffChunkHeader _RiffHeader
+  int Fmode
+  Stream _File
+Свойства:
+Методы:
+  void .ctor()
+  int CurrentFileMode()
+  int Open(string filename, int newMode)
+  int Open(Stream stream, int newMode)
+  int Write(SByte[] data, int numBytes)
+  int Write(Int16[] data, int numBytes)
+  int Write(RiffChunkHeader riffHeader, int numBytes)
+  int Write(short data, int numBytes)
+  int Write(int data, int numBytes)
+  int Read(SByte[] data, int numBytes)
+  int Expect(string data, int numBytes)
+  int Close()
+  long CurrentFilePosition()
+  int Backpatch(long fileOffset, RiffChunkHeader data, int numBytes)
+  int Backpatch(long fileOffset, SByte[] data, int numBytes)
+  int Seek(long offset)
+  int FourCC(string chunkName)
+--------------------------------------------------
+Класс: MP3Sharp.IO.WaveFile
+Наследуется от: RiffFile
+Поля:
+  int MAX_WAVE_CHANNELS
+  int _NumSamples
+  RiffChunkHeader _PcmData
+  WaveFormatChunk _WaveFormat
+  bool _JustWriteLengthBytes
+  long _PcmDataOffset
+Свойства:
+Методы:
+  void .ctor()
+  int OpenForWrite(string filename, Stream stream, int samplingRate, short bitsPerSample, short numChannels)
+  int WriteData(Int16[] data, int numData)
+  int Close()
+  int Close(bool justWriteLengthBytes)
+  int SamplingRate()
+  short BitsPerSample()
+  short NumChannels()
+  int NumSamples()
+  int OpenForWrite(string filename, WaveFile otherWave)
+--------------------------------------------------
+Класс: MP3Sharp.IO.WaveFileBuffer
+Наследуется от: ABuffer
+Поля:
+  Int16[] _Buffer
+  Int16[] _Bufferp
+  int _Channels
+  WaveFile _OutWave
+Свойства:
+Методы:
+  void .ctor(int numberOfChannels, int freq, string fileName)
+  void .ctor(int numberOfChannels, int freq, Stream stream)
+  void Append(int channel, short valueRenamed)
+  void WriteBuffer(int val)
+  void Close(bool justWriteLengthBytes)
+  void Close()
+  void ClearBuffer()
+  void SetStopFlag()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.ABuffer
+Наследуется от: object
+Поля:
+  int OBUFFERSIZE
+  int MAXCHANNELS
+Свойства:
+Методы:
+  void Append(int channel, short sampleValue)
+  void AppendSamples(int channel, Single[] samples)
+  short Clip(float sample)
+  void WriteBuffer(int val)
+  void Close()
+  void ClearBuffer()
+  void SetStopFlag()
+  void .ctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.BitReserve
+Наследуется от: object
+Поля:
+  int BUFSIZE
+  int BUFSIZE_MASK
+  Int32[] _Buffer
+  int _Offset
+  int _Totbit
+  int _BufByteIdx
+Свойства:
+Методы:
+  void .ctor()
+  void InitBlock()
+  int HssTell()
+  int ReadBits(int n)
+  int ReadOneBit()
+  void PutBuffer(int val)
+  void RewindStreamBits(int bitCount)
+  void RewindStreamBytes(int byteCount)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Bitstream
+Наследуется от: object
+Поля:
+  int BUFFER_INT_SIZE
+  sbyte INITIAL_SYNC
+  sbyte STRICT_SYNC
+  Int32[] _Bitmask
+  PushbackStream _SourceStream
+  int _BitIndex
+  Crc16[] _CRC
+  SByte[] _FrameBytes
+  Int32[] _FrameBuffer
+  int _FrameSize
+  Header _Header
+  bool _SingleChMode
+  SByte[] _SyncBuffer
+  int _SyncWord
+  int _WordPointer
+Свойства:
+Методы:
+  void .ctor(PushbackStream stream)
+  void InitBlock()
+  void Close()
+  Header ReadFrame()
+  Header ReadNextFrame()
+  void UnreadFrame()
+  void CloseFrame()
+  bool IsSyncCurrentPosition(int syncmode)
+  int ReadBits(int n)
+  int ReadCheckedBits(int n)
+  BitstreamException NewBitstreamException(int errorcode)
+  BitstreamException NewBitstreamException(int errorcode, Exception throwable)
+  int SyncHeader(sbyte syncmode)
+  bool IsSyncMark(int headerstring, int syncmode, int word)
+  void Read_frame_data(int bytesize)
+  void ParseFrame()
+  int GetBitsFromBuffer(int countBits)
+  void SetSyncWord(int syncword0)
+  void ReadFully(SByte[] b, int offs, int len)
+  int ReadBytes(SByte[] b, int offs, int len)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.BitstreamErrors
+Наследуется от: ValueType
+Поля:
+  int UNKNOWN_ERROR
+  int UNKNOWN_SAMPLE_RATE
+  int STREA_ERROR
+  int UNEXPECTED_EOF
+  int STREA_EOF
+  int BITSTREA_LAST
+  int BITSTREAM_ERROR
+  int DECODER_ERROR
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.BitstreamException
+Наследуется от: MP3SharpException
+Поля:
+  int _ErrorCode
+Свойства:
+  int ErrorCode
+Методы:
+  void .ctor(string message, Exception inner)
+  void .ctor(int errorcode, Exception inner)
+  void .ctor(SerializationInfo info, StreamingContext context)
+  int get_ErrorCode()
+  void GetObjectData(SerializationInfo info, StreamingContext context)
+  void InitBlock()
+  string GetErrorString(int errorcode)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.CircularByteBuffer
+Наследуется от: object
+Поля:
+  Byte[] _DataArray
+  int _Index
+  int _Length
+  int _NumValid
+Свойства:
+  int BufferSize
+  byte Item
+  int NumValid
+Методы:
+  void .ctor(int size)
+  void .ctor(CircularByteBuffer cdb)
+  int get_BufferSize()
+  void set_BufferSize(int value)
+  byte get_Item(int index)
+  void set_Item(int index, byte value)
+  int get_NumValid()
+  void set_NumValid(int value)
+  CircularByteBuffer Copy()
+  void Reset()
+  byte Push(byte newValue)
+  byte Pop()
+  byte Peek()
+  byte InternalGet(int offset)
+  void InternalSet(int offset, byte valueToSet)
+  Byte[] GetRange(int str, int stp)
+  string ToString()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Crc16
+Наследуется от: object
+Поля:
+  short Polynomial
+  short _CRC
+Свойства:
+Методы:
+  void .cctor()
+  void .ctor()
+  void AddBits(int bitstring, int length)
+  short Checksum()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoder
+Наследуется от: object
+Поля:
+  Params DecoderDefaultParams
+  Equalizer _Equalizer
+  SynthesisFilter _LeftChannelFilter
+  SynthesisFilter _RightChannelFilter
+  bool _IsInitialized
+  LayerIDecoder _L1Decoder
+  LayerIIDecoder _L2Decoder
+  LayerIIIDecoder _L3Decoder
+  ABuffer _Output
+  int _OutputChannels
+  int _OutputFrequency
+Свойства:
+  Params DefaultParams
+  Equalizer Equalizer
+  ABuffer OutputBuffer
+  int OutputFrequency
+  int OutputChannels
+  int OutputBlockSize
+Методы:
+  void .ctor()
+  void .ctor(Params params0)
+  Params get_DefaultParams()
+  void set_Equalizer(Equalizer value)
+  void set_OutputBuffer(ABuffer value)
+  int get_OutputFrequency()
+  int get_OutputChannels()
+  int get_OutputBlockSize()
+  void InitBlock()
+  ABuffer DecodeFrame(Header header, Bitstream stream)
+  DecoderException NewDecoderException(int errorcode)
+  DecoderException NewDecoderException(int errorcode, Exception throwable)
+  IFrameDecoder RetrieveDecoder(Header header, Bitstream stream, int layer)
+  void Initialize(Header header)
+  void .cctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.DecoderErrors
+Наследуется от: ValueType
+Поля:
+  int UNKNOWN_ERROR
+  int UNSUPPORTED_LAYER
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.DecoderException
+Наследуется от: MP3SharpException
+Поля:
+  int _ErrorCode
+Свойства:
+  int ErrorCode
+Методы:
+  void .ctor(string message, Exception inner)
+  void .ctor(int errorcode, Exception inner)
+  void .ctor(SerializationInfo info, StreamingContext context)
+  int get_ErrorCode()
+  void GetObjectData(SerializationInfo info, StreamingContext context)
+  void InitBlock()
+  string GetErrorString(int errorcode)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Equalizer
+Наследуется от: object
+Поля:
+  int BANDS
+  float BAND_NOT_PRESENT
+  Equalizer PassThruEq
+  Single[] _Settings
+Свойства:
+  Single[] FromFloatArray
+  Equalizer FromEqualizer
+  EQFunction FromEQFunction
+  int BandCount
+  Single[] BandFactors
+Методы:
+  void .ctor()
+  void .ctor(Single[] settings)
+  void .ctor(EQFunction eq)
+  void set_FromFloatArray(Single[] value)
+  void set_FromEqualizer(Equalizer value)
+  void set_FromEQFunction(EQFunction value)
+  int get_BandCount()
+  Single[] get_BandFactors()
+  void InitBlock()
+  void Reset()
+  float SetBand(int band, float neweq)
+  float GetBand(int band)
+  float Limit(float eq)
+  float GetBandFactor(float eq)
+  void .cctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Header
+Наследуется от: object
+Поля:
+  int MPEG2_LSF
+  int MPEG25_LSF
+  int MPEG1
+  int STEREO
+  int JOINT_STEREO
+  int DUAL_CHANNEL
+  int SINGLE_CHANNEL
+  int FOURTYFOUR_POINT_ONE
+  int FOURTYEIGHT
+  int THIRTYTWO
+  Int32[][] Frequencies
+  Int32[][][] Bitrates
+  String[][][] BitrateStr
+  short Checksum
+  int NSlots
+  Crc16 _CRC
+  int Framesize
+  bool _Copyright
+  bool _Original
+  int _Headerstring
+  int _Layer
+  int _ProtectionBit
+  int _BitrateIndex
+  int _PaddingBit
+  int _ModeExtension
+  int _Mode
+  int _NumberOfSubbands
+  int _IntensityStereoBound
+  int _SampleFrequency
+  sbyte _Syncmode
+  int _Version
+Свойства:
+  int SyncHeader
+Методы:
+  void .ctor()
+  int get_SyncHeader()
+  void InitBlock()
+  string ToString()
+  void read_header(Bitstream stream, Crc16[] crcp)
+  int Version()
+  int Layer()
+  int bitrate_index()
+  int sample_frequency()
+  int Frequency()
+  int Mode()
+  bool IsProtection()
+  bool IsCopyright()
+  bool IsOriginal()
+  bool IsChecksumOK()
+  bool IsPadding()
+  int Slots()
+  int mode_extension()
+  int CalculateFrameSize()
+  int MaxNumberOfFrame(int streamsize)
+  int min_number_of_frames(int streamsize)
+  float MsPerFrame()
+  float TotalMS(int streamsize)
+  string LayerAsString()
+  string BitrateAsString()
+  string SampleFrequencyAsString()
+  string ModeAsString()
+  string VersionAsString()
+  int NumberSubbands()
+  int IntensityStereoBound()
+  void .cctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Huffman
+Наследуется от: object
+Поля:
+  int MXOFF
+  int HTN
+  Int32[][] ValTab0
+  Int32[][] ValTab1
+  Int32[][] ValTab2
+  Int32[][] ValTab3
+  Int32[][] ValTab4
+  Int32[][] ValTab5
+  Int32[][] ValTab6
+  Int32[][] ValTab7
+  Int32[][] ValTab8
+  Int32[][] ValTab9
+  Int32[][] ValTab10
+  Int32[][] ValTab11
+  Int32[][] ValTab12
+  Int32[][] ValTab13
+  Int32[][] ValTab14
+  Int32[][] ValTab15
+  Int32[][] ValTab16
+  Int32[][] ValTab24
+  Int32[][] ValTab32
+  Int32[][] ValTab33
+  Huffman[] HuffmanTable
+  int _Linbits
+  char _Tablename0
+  char _Tablename1
+  int _Treelen
+  Int32[][] _Val
+  int _Xlen
+  int _Ylen
+  Int32[] _Hlen
+  int _Linmax
+  int _RefRenamed
+  Int32[] _Table
+  char _Tablename2
+Свойства:
+Методы:
+  void .cctor()
+  void .ctor(string s, int xlen, int ylen, int linbits, int linmax, int ref, Int32[] table, Int32[] hlen, Int32[][] val, int treelen)
+  int Decode(Huffman h, Int32[] x, Int32[] y, Int32[] v, Int32[] w, BitReserve br)
+  void Initialize()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.OutputChannels
+Наследуется от: object
+Поля:
+  int BOTH_CHANNELS
+  int LEFT_CHANNEL
+  int RIGHT_CHANNEL
+  int DOWNMIX_CHANNELS
+  OutputChannels Left
+  OutputChannels Right
+  OutputChannels Both
+  OutputChannels DownMix
+  int _OutputChannels
+Свойства:
+  int ChannelsOutputCode
+  int ChannelCount
+Методы:
+  void .ctor(int channels)
+  int get_ChannelsOutputCode()
+  int get_ChannelCount()
+  OutputChannels FromInt(int code)
+  bool Equals(object obj)
+  int GetHashCode()
+  void .cctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.OutputChannelsEnum
+Наследуется от: Enum
+Поля:
+  int value__
+  OutputChannelsEnum BothChannels
+  OutputChannelsEnum LeftChannel
+  OutputChannelsEnum RightChannel
+  OutputChannelsEnum DownmixChannels
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.PushbackStream
+Наследуется от: object
+Поля:
+  int _BackBufferSize
+  CircularByteBuffer _CircularByteBuffer
+  Stream _Stream
+  Byte[] _TemporaryBuffer
+  int _NumForwardBytesInBuffer
+Свойства:
+Методы:
+  void .ctor(Stream s, int backBufferSize)
+  int Read(SByte[] toRead, int offset, int length)
+  void UnRead(int length)
+  void Close()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.SampleBuffer
+Наследуется от: ABuffer
+Поля:
+  Int16[] _Buffer
+  Int32[] _Bufferp
+  int _Channels
+  int _Frequency
+Свойства:
+  int ChannelCount
+  int SampleFrequency
+  Int16[] Buffer
+  int BufferLength
+Методы:
+  void .ctor(int sampleFrequency, int numberOfChannels)
+  int get_ChannelCount()
+  int get_SampleFrequency()
+  Int16[] get_Buffer()
+  int get_BufferLength()
+  void Append(int channel, short valueRenamed)
+  void AppendSamples(int channel, Single[] samples)
+  void WriteBuffer(int val)
+  void Close()
+  void ClearBuffer()
+  void SetStopFlag()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.SynthesisFilter
+Наследуется от: object
+Поля:
+  double MY_PI
+  float Cos164
+  float Cos364
+  float Cos564
+  float Cos764
+  float Cos964
+  float Cos1164
+  float Cos1364
+  float Cos1564
+  float Cos1764
+  float Cos1964
+  float Cos2164
+  float Cos2364
+  float Cos2564
+  float Cos2764
+  float Cos2964
+  float Cos3164
+  float Cos132
+  float Cos332
+  float Cos532
+  float Cos732
+  float Cos932
+  float Cos1132
+  float Cos1332
+  float Cos1532
+  float Cos116
+  float Cos316
+  float Cos516
+  float Cos716
+  float Cos18
+  float Cos38
+  float Cos14
+  Single[] _d
+  Single[][] _d16
+  Single[] DData
+  int _Channel
+  Single[] _Samples
+  float _Scalefactor
+  Single[] _V1
+  Single[] _V2
+  Single[] _TmpOut
+  Single[] _ActualV
+  int _ActualWritePos
+  Single[] _Eq
+Свойства:
+  Single[] Eq
+Методы:
+  void .ctor(int channelnumber, float factor, Single[] eq0)
+  void set_Eq(Single[] value)
+  void InitBlock()
+  void Reset()
+  void AddSample(float sample, int subbandnumber)
+  void AddSamples(Single[] s)
+  void ComputeNewValues()
+  void compute_pc_samples0(ABuffer buffer)
+  void compute_pc_samples1(ABuffer buffer)
+  void compute_pc_samples2(ABuffer buffer)
+  void compute_pc_samples3(ABuffer buffer)
+  void compute_pc_samples4(ABuffer buffer)
+  void compute_pc_samples5(ABuffer buffer)
+  void compute_pc_samples6(ABuffer buffer)
+  void compute_pc_samples7(ABuffer buffer)
+  void compute_pc_samples8(ABuffer buffer)
+  void compute_pc_samples9(ABuffer buffer)
+  void compute_pc_samples10(ABuffer buffer)
+  void compute_pc_samples11(ABuffer buffer)
+  void compute_pc_samples12(ABuffer buffer)
+  void compute_pc_samples13(ABuffer buffer)
+  void compute_pc_samples14(ABuffer buffer)
+  void Compute_pc_samples15(ABuffer buffer)
+  void compute_pc_samples(ABuffer buffer)
+  void calculate_pc_samples(ABuffer buffer)
+  Single[][] SplitArray(Single[] array, int blockSize)
+  Single[] SubArray(Single[] array, int offs, int len)
+  void .cctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.ASubband
+Наследуется от: object
+Поля:
+  Single[] ScaleFactors
+Свойства:
+Методы:
+  void ReadAllocation(Bitstream stream, Header header, Crc16 crc)
+  void ReadScaleFactor(Bitstream stream, Header header)
+  bool ReadSampleData(Bitstream stream)
+  bool PutNextSample(int channels, SynthesisFilter filter1, SynthesisFilter filter2)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.IFrameDecoder
+Поля:
+Свойства:
+Методы:
+  void DecodeFrame()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIDecoder
+Наследуется от: object
+Поля:
+  ABuffer Buffer
+  Crc16 CRC
+  SynthesisFilter Filter1
+  SynthesisFilter Filter2
+  Header Header
+  int Mode
+  int NuSubbands
+  Bitstream Stream
+  ASubband[] Subbands
+  int WhichChannels
+Свойства:
+Методы:
+  void .ctor()
+  void DecodeFrame()
+  void Create(Bitstream stream0, Header header0, SynthesisFilter filtera, SynthesisFilter filterb, ABuffer buffer0, int whichCh0)
+  void CreateSubbands()
+  void ReadAllocation()
+  void ReadScaleFactorSelection()
+  void ReadScaleFactors()
+  void ReadSampleData()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIIDecoder
+Наследуется от: LayerIDecoder
+Поля:
+Свойства:
+Методы:
+  void CreateSubbands()
+  void ReadScaleFactorSelection()
+  void .ctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIIIDecoder
+Наследуется от: object
+Поля:
+  int SSLIMIT
+  int SBLIMIT
+  Int32[][] Slen
+  Int32[] Pretab
+  Single[] TwoToNegativeHalfPow
+  Single[] PowerTable
+  Single[][] Io
+  Single[] Tan12
+  Int32[][] _reorderTable
+  Single[] Cs
+  Single[] Ca
+  Single[][] Win
+  Int32[][][] NrOfSfbBlock
+  ABuffer _Buffer
+  int _Channels
+  SynthesisFilter _Filter1
+  SynthesisFilter _Filter2
+  int _FirstChannel
+  Header _Header
+  Int32[] _Is1D
+  Single[][] _K
+  int _LastChannel
+  Single[][][] _Lr
+  int _MaxGr
+  Int32[] _Nonzero
+  Single[] _Out1D
+  Single[][] _Prevblck
+  Single[][][] _Ro
+  ScaleFactorData[] _Scalefac
+  SBI[] _SfBandIndex
+  int _Sfreq
+  Layer3SideInfo _SideInfo
+  Bitstream _Stream
+  int _WhichChannels
+  BitReserve _BitReserve
+  int _CheckSumHuff
+  int _FrameStart
+  Int32[] IsPos
+  Single[] IsRatio
+  Int32[] _NewSlen
+  int _Part2Start
+  Single[] Rawout
+  Single[] _Samples1
+  Single[] _Samples2
+  Int32[] ScalefacBuffer
+  ScaleFactorTable Sftable
+  Single[] TsOutCopy
+  Int32[] V
+  Int32[] W
+  Int32[] X
+  Int32[] Y
+Свойства:
+Методы:
+  void .cctor()
+  void .ctor(Bitstream stream, Header header, SynthesisFilter filtera, SynthesisFilter filterb, ABuffer buffer, int whichCh)
+  void DecodeFrame()
+  void InitBlock()
+  void SeekNotify()
+  void Decode()
+  bool ReadSideInfo()
+  void ReadScaleFactors(int ch, int gr)
+  void GetLSFScaleData(int ch, int gr)
+  void GLSFScaleFactors(int ch, int gr)
+  void HuffmanDecode(int ch, int gr)
+  void GetKStereoValues(int isPos, int ioType, int i)
+  void DequantizeSample(Single[][] xr, int ch, int gr)
+  void Reorder(Single[][] xr, int ch, int gr)
+  void Stereo(int gr)
+  void Antialias(int ch, int gr)
+  void Hybrid(int ch, int gr)
+  void DoDownMix()
+  void InverseMdct(Single[] inValues, Single[] outValues, int blockType)
+  Single[] CreatePowerTable()
+  Int32[] Reorder(Int32[] scalefacBand)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerI.SubbandLayer1
+Наследуется от: ASubband
+Поля:
+  Single[] TableFactor
+  Single[] TableOffset
+  int Allocation
+  float Factor
+  float Offset
+  float Sample
+  int Samplelength
+  int Samplenumber
+  float Scalefactor
+  int Subbandnumber
+Свойства:
+Методы:
+  void .ctor(int subbandnumber)
+  void ReadAllocation(Bitstream stream, Header header, Crc16 crc)
+  void ReadScaleFactor(Bitstream stream, Header header)
+  bool ReadSampleData(Bitstream stream)
+  bool PutNextSample(int channels, SynthesisFilter filter1, SynthesisFilter filter2)
+  void .cctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerI.SubbandLayer1IntensityStereo
+Наследуется от: SubbandLayer1
+Поля:
+  float Channel2Scalefactor
+Свойства:
+Методы:
+  void .ctor(int subbandnumber)
+  void ReadScaleFactor(Bitstream stream, Header header)
+  bool PutNextSample(int channels, SynthesisFilter filter1, SynthesisFilter filter2)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerI.SubbandLayer1Stereo
+Наследуется от: SubbandLayer1
+Поля:
+  int Channel2Allocation
+  float Channel2Factor
+  float Channel2Offset
+  float Channel2Sample
+  int Channel2Samplelength
+  float Channel2Scalefactor
+Свойства:
+Методы:
+  void .ctor(int subbandnumber)
+  void ReadAllocation(Bitstream stream, Header header, Crc16 crc)
+  void ReadScaleFactor(Bitstream stream, Header header)
+  bool ReadSampleData(Bitstream stream)
+  bool PutNextSample(int channels, SynthesisFilter filter1, SynthesisFilter filter2)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerII.SubbandLayer2
+Наследуется от: ASubband
+Поля:
+  Single[] Grouping5Bits
+  Single[] Grouping7Bits
+  Single[] Grouping10Bits
+  Int32[] TableAb1Codelength
+  Single[][] TableAb1Groupingtables
+  Single[] TableAb1Factor
+  Single[] TableAb1C
+  Single[] TableAb1D
+  Single[][] TableAb234Groupingtables
+  Int32[] TableAb2Codelength
+  Single[] TableAb2Factor
+  Single[] TableAb2C
+  Single[] TableAb2D
+  Int32[] TableAb3Codelength
+  Single[] TableAb3Factor
+  Single[] TableAb3C
+  Single[] TableAb3D
+  Int32[] TableAb4Codelength
+  Single[] TableAb4Factor
+  Single[] TableAb4C
+  Single[] TableAb4D
+  Int32[] TableCdCodelength
+  Single[][] TableCdGroupingtables
+  Single[] TableCdFactor
+  Single[] TableCdC
+  Single[] TableCdD
+  int Allocation
+  Single[] CFactor
+  Int32[] Codelength
+  Single[] D
+  Single[] Factor
+  Single[][] Groupingtable
+  int Groupnumber
+  int Samplenumber
+  Single[] Samples
+  float Scalefactor1
+  float Scalefactor2
+  float Scalefactor3
+  int Scfsi
+  int Subbandnumber
+Свойства:
+Методы:
+  void .ctor(int subbandnumber)
+  void InitBlock()
+  int GetAllocationLength(Header header)
+  void PrepareForSampleRead(Header header, int allocation, int channel, Single[] factor, Int32[] codelength, Single[] c, Single[] d)
+  void ReadAllocation(Bitstream stream, Header header, Crc16 crc)
+  void ReadScaleFactorSelection(Bitstream stream, Crc16 crc)
+  void ReadScaleFactor(Bitstream stream, Header header)
+  bool ReadSampleData(Bitstream stream)
+  bool PutNextSample(int channels, SynthesisFilter filter1, SynthesisFilter filter2)
+  void .cctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerII.SubbandLayer2IntensityStereo
+Наследуется от: SubbandLayer2
+Поля:
+  float Channel2Scalefactor1
+  float Channel2Scalefactor2
+  float Channel2Scalefactor3
+  int Channel2Scfsi
+Свойства:
+Методы:
+  void .ctor(int subbandnumber)
+  void ReadScaleFactorSelection(Bitstream stream, Crc16 crc)
+  void ReadScaleFactor(Bitstream stream, Header header)
+  bool PutNextSample(int channels, SynthesisFilter filter1, SynthesisFilter filter2)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerII.SubbandLayer2Stereo
+Наследуется от: SubbandLayer2
+Поля:
+  int Channel2Allocation
+  Single[] Channel2C
+  Int32[] Channel2Codelength
+  Single[] Channel2D
+  Single[] Channel2Factor
+  Single[] Channel2Samples
+  float Channel2Scalefactor1
+  float Channel2Scalefactor2
+  float Channel2Scalefactor3
+  int Channel2Scfsi
+Свойства:
+Методы:
+  void .ctor(int subbandnumber)
+  void ReadAllocation(Bitstream stream, Header header, Crc16 crc)
+  void ReadScaleFactorSelection(Bitstream stream, Crc16 crc)
+  void ReadScaleFactor(Bitstream stream, Header header)
+  bool ReadSampleData(Bitstream stream)
+  bool PutNextSample(int channels, SynthesisFilter filter1, SynthesisFilter filter2)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIII.ChannelData
+Наследуется от: object
+Поля:
+  GranuleInfo[] Granules
+  Int32[] ScaleFactorBits
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIII.GranuleInfo
+Наследуется от: object
+Поля:
+  int BigValues
+  int BlockType
+  int Count1TableSelect
+  int GlobalGain
+  int MixedBlockFlag
+  int Part23Length
+  int Preflag
+  int Region0Count
+  int Region1Count
+  int ScaleFacCompress
+  int ScaleFacScale
+  Int32[] SubblockGain
+  Int32[] TableSelect
+  int WindowSwitchingFlag
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIII.Layer3SideInfo
+Наследуется от: object
+Поля:
+  ChannelData[] Channels
+  int MainDataBegin
+  int PrivateBits
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIII.SBI
+Наследуется от: object
+Поля:
+  Int32[] L
+  Int32[] S
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(Int32[] thel, Int32[] thes)
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIII.ScaleFactorData
+Наследуется от: object
+Поля:
+  Int32[] L
+  Int32[][] S
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: MP3Sharp.Decoding.Decoders.LayerIII.ScaleFactorTable
+Наследуется от: object
+Поля:
+  Int32[] L
+  Int32[] S
+  LayerIIIDecoder _EnclosingInstance
+Свойства:
+  LayerIIIDecoder EnclosingInstance
+Методы:
+  void .ctor(LayerIIIDecoder enclosingInstance)
+  void .ctor(LayerIIIDecoder enclosingInstance, Int32[] thel, Int32[] thes)
+  LayerIIIDecoder get_EnclosingInstance()
+  void InitBlock(LayerIIIDecoder enclosingInstance)
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=64 021F8912B268BE164A590D1440F05920A3F2A63B9874F994402C7AFFC6F92F82
+  __StaticArrayInitTypeSize=256 02E68C9160BF270CAF19E18D3A77BC2EAA90EFCB3ECA3C454B58CD5BBA5FF7ED
+  __StaticArrayInitTypeSize=16 047D891CAC8D4F883998ACEFD1EB63F6A679046FFD19EC1276A057F847EE37F6
+  __StaticArrayInitTypeSize=128 06ADCD404637282636289E77FA01C56630CB4945332C96D5FA2D9239FE0D6B04
+  __StaticArrayInitTypeSize=64 06D49AE61368F7B7C195381125B5A5E8F6830EA024D49F5C1A62950E74DBAF3D
+  __StaticArrayInitTypeSize=12 08A9A6A3BA8D6113DF02DD94090176F54072B3E5365853DE418C721D7390CB9A
+  __StaticArrayInitTypeSize=144 091971E0756262C068D16B941EA6256855E94532833A9CE3374D9768E27E4596
+  __StaticArrayInitTypeSize=64 124360CE49E1C84604EFA93F8F0C3292C1D216DB605CF153414D893922B18C9F
+  __StaticArrayInitTypeSize=56 13BE6783CC652C89CC0161446DBD67966CAC410DEA4DE4279FC767A259EFD546
+  int 1A0F564DDC6039457B2FB26B3D6A316C15EBA20A886449847C3210C35821A693
+  __StaticArrayInitTypeSize=16 1B8D49F1227D3FC61644822B9FC00CE70A3B2438A1064323BFBE6A022A26F042
+  __StaticArrayInitTypeSize=64 1C01F69BD2391DE00F8F1B377D2D9E5991674702AD777030BA910AC531E4B0FE
+  __StaticArrayInitTypeSize=16 22E5D3D9ABC124EE0214CEF7079F24CFF9BE30FD6AF6BA5BBE15920C57497EA1
+  __StaticArrayInitTypeSize=64 2A03DC27FE2EB4E5D0A4358E22435065F2FB1BBF8CC2C4D9F754A9F24089344E
+  __StaticArrayInitTypeSize=60 2A1C6CEE1B003A06B471AA7632C6B5C4ED18A4E1A4784BF8CA09BD4F38BA4BB5
+  __StaticArrayInitTypeSize=64 2BCE8E19B19AAD97CC510F21B5828CCB319639FA317FB59926A436ED3543F58D
+  __StaticArrayInitTypeSize=64 2C72B27AAD08F98379E9F3E0F6A2D625F895C9E55F61404790377FC196FA14B8
+  __StaticArrayInitTypeSize=16 2F4596419894C88417AC4DF5C99E98A374EFE4B57B7A4EB89CE65FEB92850A61
+  __StaticArrayInitTypeSize=16 320B0930454D74130DD5E245B70DA1736A2C1B5E664DD5BB82B490E60F3ECA2A
+  __StaticArrayInitTypeSize=16 3229DAC3DA84FAC1A1018091DAF2A0C3D6B3624AC33BECF13A371238DAC95055
+  __StaticArrayInitTypeSize=92 3543AE0E1ED6A92350687219F717764E126E06D4FA179DE5B0CB3E2BDFE4AC9E
+  __StaticArrayInitTypeSize=64 3554CE8BB09083C24D298DF77456CB67242E6EEE3DEDFE595E11B90D2F70C0FF
+  __StaticArrayInitTypeSize=1500 3B42FF7B534B27868E300720C678882AF0698E9434D0FA135656E097480324FF
+  __StaticArrayInitTypeSize=16 3EDD050356C639DD16815E64CA19652B1B981F1BA2FF76176BB3995FF0DB860D
+  __StaticArrayInitTypeSize=64 4053901EA5134D137292C48A98E1382B09C1E49C98EEF77C2D00D8FF24481D4F
+  __StaticArrayInitTypeSize=16 419EB5F371A1171DBE8C085F1BB25D78AA0647C1365608E167054A37BFEAD834
+  __StaticArrayInitTypeSize=20 4517AF16CD9D95D0B56C33292D289749B763021F170127ED439165498D243E69
+  __StaticArrayInitTypeSize=32 4E7A2BE1E8600FA773FA4952A14AE27AD21E294C2C90F674BEA6BB8B089F39C1
+  __StaticArrayInitTypeSize=64 550560694565D72C91221BEE89B41C8AA412660E1CF28C626BC523BC959438A9
+  __StaticArrayInitTypeSize=8748 5600405012DD0807E058E5A8F3F7A9AF31716C8560F552613672D0D770364603
+  __StaticArrayInitTypeSize=144 56C5F192F58A478FC32D5428DA86D03B15A95E9A982E82BA5026E6EBE259FE48
+  __StaticArrayInitTypeSize=64 57CD95842F6B0D5A0823F7A82A33632D2D4DA79615A834507722CBBBD054E3CF
+  __StaticArrayInitTypeSize=16 58BB6050E828A1FDB65D46F61ADBE862543CF7261AA487580A1328D24E944BBD
+  __StaticArrayInitTypeSize=144 5ED52DA9C543DD730BD7056787DF87C0AED3189F42C3321C4196EA8B70C87D2A
+  __StaticArrayInitTypeSize=88 6547EC5EB178C3DBF6A302152A1FE3BDF747E8E5EB41343EECEA2F45D745E5D1
+  __StaticArrayInitTypeSize=16 673F8620472294A2666EB7018FC21EF377E5B15A76872E89803CBDBDBC17F1B8
+  __StaticArrayInitTypeSize=16 6807ED2269DB8E9A70F5D22C6D41806D26C51C306050C58861DEBD9B21D76D0B
+  __StaticArrayInitTypeSize=16 6810D47101B1F88C982302E36EF8DBDB344EAFDF31E058B2AE9B23522DA15D89
+  __StaticArrayInitTypeSize=92 683133215F3906FE49DACDB11CE3F917EF1B439110BF4CE1092DB8F15D087E2F
+  __StaticArrayInitTypeSize=16 68F20C1D1F9AD9A40A6FF9C3879482F58AED8E4A58995CEB0F83B2575DCFD2BC
+  __StaticArrayInitTypeSize=64 6B6C31FF54224894CC66030691DB54C3EEE6BE4D42DB3DDA43EEC126F036360E
+  __StaticArrayInitTypeSize=64 70CBEAD43E82DC4CCC445D5552A983D797EEF8D2AD3665EB8FAAB2187F64F6FE
+  __StaticArrayInitTypeSize=56 70CF9A93794FD166C020BBDF13AE34B6B43B3A2271EC768A35797C135FC62D20
+  __StaticArrayInitTypeSize=32 79B6797C01D7827A0E35892156B642BD84A9FA528E603C743515D3822864A051
+  __StaticArrayInitTypeSize=32 7A5DCFD7518F8A0A3FA422FA014FF84FE08070112345B17E00C0FB0AFC6D7461
+  __StaticArrayInitTypeSize=32 7CC4C8FC1CA4B0FA871FEB4911499E0268FE161D01C6ADFD186B0378C4063EBA
+  __StaticArrayInitTypeSize=2048 8C6C0F60451FBE1D2DDDF80A2A9F0B7684893D5B0B8CEAB4CA837EE615B3954E
+  __StaticArrayInitTypeSize=64 941D4DCAADBEC3CC42B0F9F20212661AC83343F86BC7F873B237BC25AF1B195C
+  __StaticArrayInitTypeSize=64 9742CA838C60363B639BEC16A2086253E96A532C05331B73181E45ED9D213F13
+  __StaticArrayInitTypeSize=324 9F53690DAB4D28E43D6BB3EB96D00F76FAF99D7681A6E8F0061297C8DD5EFF33
+  __StaticArrayInitTypeSize=64 9FB71D398994B2E0C6CE3CE99EE4CBD26EE1524A81DDB919603C13A2885F5483
+  __StaticArrayInitTypeSize=16 A28E77C3345C5351A69C7393656A759AABE24F2E59F5BFC49A771E190D9C9FCC
+  __StaticArrayInitTypeSize=64 A3F937EE796D2312148DDB921F1293E76047E426F9BF3864DD12817D66034E74
+  __StaticArrayInitTypeSize=64 A4B3F75E2EA169B5351F2BAA4DBAB862A18EDFBAE5B1CB4DBEFAEC4E22DA6BD3
+  __StaticArrayInitTypeSize=128 A84E72B8CD1EB5B569F80091ADA35B15F45C05E48515346C276DFBC7457817CD
+  __StaticArrayInitTypeSize=16 AC808BDFC94A2720F9A403E96C598F28C4A82AACBF21E2A1A6347C32A66B6425
+  __StaticArrayInitTypeSize=16 B107577D43B15DF28D27533ADF012E72BD63868C2A2E688AC15978DC38CD5677
+  __StaticArrayInitTypeSize=64 B10D5342782BFD3820C0FFBD8DDCDF80BAA0ED5F0DF5746D2EA885110239AC7A
+  __StaticArrayInitTypeSize=32 B79C140A0DE10B238571FE854A6BC223D6D8C50F6ED4E227CCC677094DCB3558
+  __StaticArrayInitTypeSize=16 B9C5D4C45600219530B355BB1786AA4E282347901A9E3BF35DC8EE98E1307DFB
+  __StaticArrayInitTypeSize=92 BBDCD859D8A76172AF0C213EFB99A6F64E8AB028BECE6D313FA5B6BCF96CD15A
+  __StaticArrayInitTypeSize=92 C271A86BEFE71CEF20615946687F7A3A13E980C14FD4637951697CD4A6112156
+  __StaticArrayInitTypeSize=16 C31F1438706DA962938E7F1D03470E164E0EA9EE1CD0F0D19CA29C7E932C91DC
+  __StaticArrayInitTypeSize=64 C3FBE83D14A8E5B3DCCAF45D7AD6C35F769326FFAED483A102ACF50FB824C9C2
+  __StaticArrayInitTypeSize=56 C6D060549430A52150918BF2837FCCD94C6D727B74A5946A8F7EF51B940C3CF7
+  __StaticArrayInitTypeSize=92 C775F22681F0D15310756B294BB58FC4364A5DE6030B819E8D3EEC4E75454915
+  __StaticArrayInitTypeSize=32 C807773510A04834C84A6A093A8267D127DC4413714AD99057315D8CABE1D467
+  __StaticArrayInitTypeSize=92 C842A7F36E23186A8F55DC7D0E63E781469950969CB88357227234F95C35DEA9
+  __StaticArrayInitTypeSize=56 CCC564D5CDB40E327F07151E33EF8AD040EEB5129CE505D00FE6EC11BD28C359
+  __StaticArrayInitTypeSize=144 CD4DE47C20503BFF1B99694EAF6390723510293766C75243F8B3CA7B56C89359
+  __StaticArrayInitTypeSize=16 D20525C66D9D2B26BC9D3A773951775A3813FC7F97CC4A2EADFF258D3C9D869E
+  __StaticArrayInitTypeSize=16 D3310F8730C74E00C7014874471A5E27574CD015457352EFB0373E8C5DA85FD1
+  __StaticArrayInitTypeSize=12 D6CF2A50E856A5B4D07933A728436D7754A4BFCEB2AECC33A52DD62592095FD8
+  __StaticArrayInitTypeSize=56 DD54E6E73536232DFD682C64D36E265B59ACF8AD04FC6062A2EB7225BBDDDB02
+  __StaticArrayInitTypeSize=256 DDC358E79464AB64B601CE4D8FBC308D787438D4CE92844B5FD77F2DE1E21575
+  __StaticArrayInitTypeSize=16 DE26AA4452A148F1FCFF9D95EA656766D0DC19BDCEE086F85BC3F9BD8AB7F25B
+  __StaticArrayInitTypeSize=16 E2AA696710083FEFF382491A86DF649DB1E8EE6AA4ECF99E8D98CFBF871BFCE4
+  __StaticArrayInitTypeSize=60 ED977BBA7102E7758BEF3DA21CD69B44B8864A1D6F43BB20E6BF59862487ECBA
+  __StaticArrayInitTypeSize=72 EFC52C86FFF3F24CE6C0C14D161FCF00584AB329C5997334034F2B4D91225307
+  __StaticArrayInitTypeSize=56 F1B0145A5F0D3E964A90201094730422F3013B94D7B9E73B6FFDED5643D486A2
+  __StaticArrayInitTypeSize=56 F8756C1F7B8F886752A7B73230C5AC5397F7CE2B1BFDC5C139DBED513BD228C3
+Свойства:
+Методы:
+--------------------------------------------------

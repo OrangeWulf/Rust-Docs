@@ -1,0 +1,348 @@
+public class UnityEngine.NVIDIA.DLSSCommandExecutionData : ValueType {
+    private int m_Reset;
+    private float m_Sharpness;
+    private float m_MVScaleX;
+    private float m_MVScaleY;
+    private float m_JitterOffsetX;
+    private float m_JitterOffsetY;
+    private float m_PreExposure;
+    private UInt32 m_SubrectOffsetX;
+    private UInt32 m_SubrectOffsetY;
+    private UInt32 m_SubrectWidth;
+    private UInt32 m_SubrectHeight;
+    private UInt32 m_InvertXAxis;
+    private UInt32 m_InvertYAxis;
+    private UInt32 m_FeatureSlot;
+    public int reset { get; public set; }
+    public float sharpness { get; public set; }
+    public float mvScaleX { get; public set; }
+    public float mvScaleY { get; public set; }
+    public float jitterOffsetX { get; public set; }
+    public float jitterOffsetY { get; public set; }
+    public float preExposure { get; public set; }
+    public UInt32 subrectOffsetX { get; public set; }
+    public UInt32 subrectOffsetY { get; public set; }
+    public UInt32 subrectWidth { get; public set; }
+    public UInt32 subrectHeight { get; public set; }
+    public UInt32 invertXAxis { get; public set; }
+    public UInt32 invertYAxis { get; public set; }
+    internal UInt32 featureSlot { get; internal set; }
+    public void set_reset(int value);
+    public int get_reset();
+    public void set_sharpness(float value);
+    public float get_sharpness();
+    public void set_mvScaleX(float value);
+    public float get_mvScaleX();
+    public void set_mvScaleY(float value);
+    public float get_mvScaleY();
+    public void set_jitterOffsetX(float value);
+    public float get_jitterOffsetX();
+    public void set_jitterOffsetY(float value);
+    public float get_jitterOffsetY();
+    public void set_preExposure(float value);
+    public float get_preExposure();
+    public void set_subrectOffsetX(UInt32 value);
+    public UInt32 get_subrectOffsetX();
+    public void set_subrectOffsetY(UInt32 value);
+    public UInt32 get_subrectOffsetY();
+    public void set_subrectWidth(UInt32 value);
+    public UInt32 get_subrectWidth();
+    public void set_subrectHeight(UInt32 value);
+    public UInt32 get_subrectHeight();
+    public void set_invertXAxis(UInt32 value);
+    public UInt32 get_invertXAxis();
+    public void set_invertYAxis(UInt32 value);
+    public UInt32 get_invertYAxis();
+    internal void set_featureSlot(UInt32 value);
+    internal UInt32 get_featureSlot();
+}
+public class UnityEngine.NVIDIA.DLSSCommandInitializationData : ValueType {
+    private UInt32 m_InputRTWidth;
+    private UInt32 m_InputRTHeight;
+    private UInt32 m_OutputRTWidth;
+    private UInt32 m_OutputRTHeight;
+    private DLSSQuality m_Quality;
+    private DLSSFeatureFlags m_Flags;
+    private UInt32 m_FeatureSlot;
+    public UInt32 inputRTWidth { get; public set; }
+    public UInt32 inputRTHeight { get; public set; }
+    public UInt32 outputRTWidth { get; public set; }
+    public UInt32 outputRTHeight { get; public set; }
+    public DLSSQuality quality { get; public set; }
+    public DLSSFeatureFlags featureFlags { get; public set; }
+    internal UInt32 featureSlot { get; internal set; }
+    public void set_inputRTWidth(UInt32 value);
+    public UInt32 get_inputRTWidth();
+    public void set_inputRTHeight(UInt32 value);
+    public UInt32 get_inputRTHeight();
+    public void set_outputRTWidth(UInt32 value);
+    public UInt32 get_outputRTWidth();
+    public void set_outputRTHeight(UInt32 value);
+    public UInt32 get_outputRTHeight();
+    public void set_quality(DLSSQuality value);
+    public DLSSQuality get_quality();
+    public void set_featureFlags(DLSSFeatureFlags value);
+    public DLSSFeatureFlags get_featureFlags();
+    internal void set_featureSlot(UInt32 value);
+    internal UInt32 get_featureSlot();
+    public void SetFlag(DLSSFeatureFlags flag, bool value);
+    public bool GetFlag(DLSSFeatureFlags flag);
+}
+public class UnityEngine.NVIDIA.DLSSContext : object {
+    private NativeData`1<DLSSCommandInitializationData> m_InitData;
+    private NativeData`1<DLSSCommandExecutionData> m_ExecData;
+    [IsReadOnlyAttribute]
+public DLSSCommandInitializationData& modreq(System.Runtime.InteropServices.InAttribute) initData { get; }
+    public DLSSCommandExecutionData& executeData { get; }
+    internal UInt32 featureSlot { get; }
+    public DLSSCommandInitializationData& modreq(System.Runtime.InteropServices.InAttribute) get_initData();
+    public DLSSCommandExecutionData& get_executeData();
+    internal UInt32 get_featureSlot();
+    internal void Init(DLSSCommandInitializationData initSettings, UInt32 featureSlot);
+    internal void Reset();
+    internal IntPtr GetInitCmdPtr();
+    internal IntPtr GetExecuteCmdPtr();
+}
+[IsReadOnlyAttribute]
+public class UnityEngine.NVIDIA.DLSSDebugFeatureInfos : ValueType {
+    private bool m_ValidFeature;
+    private UInt32 m_FeatureSlot;
+    private DLSSCommandExecutionData m_ExecData;
+    private DLSSCommandInitializationData m_InitData;
+    public bool validFeature { get; }
+    public UInt32 featureSlot { get; }
+    public DLSSCommandExecutionData execData { get; }
+    public DLSSCommandInitializationData initData { get; }
+    public bool get_validFeature();
+    public UInt32 get_featureSlot();
+    public DLSSCommandExecutionData get_execData();
+    public DLSSCommandInitializationData get_initData();
+}
+[FlagsAttribute]
+public enum UnityEngine.NVIDIA.DLSSFeatureFlags : Enum {
+    public int value__;
+    public static DLSSFeatureFlags None;
+    public static DLSSFeatureFlags IsHDR;
+    public static DLSSFeatureFlags MVLowRes;
+    public static DLSSFeatureFlags MVJittered;
+    public static DLSSFeatureFlags DepthInverted;
+    public static DLSSFeatureFlags DoSharpening;
+}
+public enum UnityEngine.NVIDIA.DLSSQuality : Enum {
+    public int value__;
+    public static DLSSQuality MaximumQuality;
+    public static DLSSQuality Balanced;
+    public static DLSSQuality MaximumPerformance;
+    public static DLSSQuality UltraPerformance;
+}
+public class UnityEngine.NVIDIA.DLSSTextureTable : ValueType {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Texture <colorInput>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Texture <colorOutput>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Texture <depth>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Texture <motionVectors>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Texture <transparencyMask>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Texture <exposureTexture>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Texture <biasColorMask>k__BackingField;
+    public Texture colorInput { get; public set; }
+    public Texture colorOutput { get; public set; }
+    public Texture depth { get; public set; }
+    public Texture motionVectors { get; public set; }
+    public Texture transparencyMask { get; public set; }
+    public Texture exposureTexture { get; public set; }
+    public Texture biasColorMask { get; public set; }
+    [CompilerGeneratedAttribute]
+public void set_colorInput(Texture value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public Texture get_colorInput();
+    [CompilerGeneratedAttribute]
+public void set_colorOutput(Texture value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public Texture get_colorOutput();
+    [CompilerGeneratedAttribute]
+public void set_depth(Texture value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public Texture get_depth();
+    [CompilerGeneratedAttribute]
+public void set_motionVectors(Texture value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public Texture get_motionVectors();
+    [CompilerGeneratedAttribute]
+public void set_transparencyMask(Texture value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public Texture get_transparencyMask();
+    [CompilerGeneratedAttribute]
+public void set_exposureTexture(Texture value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public Texture get_exposureTexture();
+    [CompilerGeneratedAttribute]
+public void set_biasColorMask(Texture value);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public Texture get_biasColorMask();
+}
+public class UnityEngine.NVIDIA.GraphicsDevice : object {
+    private static string s_DefaultProjectID;
+    private static string s_DefaultAppDir;
+    private static GraphicsDevice sGraphicsDeviceInstance;
+    private InitDeviceContext m_InitDeviceContext;
+    private Stack`1<DLSSContext> s_ContextObjectPool;
+    public static GraphicsDevice device { get; }
+    public static UInt32 version { get; }
+    private GraphicsDevice(string projectId, string engineVersion, string appDir);
+    private static GraphicsDevice();
+    private bool Initialize();
+    private void Shutdown();
+    protected virtual override void Finalize();
+    private void InsertEventCall(CommandBuffer cmd, PluginEvent pluginEvent, IntPtr ptr);
+    private static GraphicsDevice InternalCreate(string appIdOrProjectId, string engineVersion, string appDir);
+    private static int CreateSetTextureUserData(int featureId, int textureSlot, bool clearTextureTable);
+    private void SetTexture(CommandBuffer cmd, DLSSContext dlssContext, Textures textureSlot, Texture texture, bool clearTextureTable);
+    internal GraphicsDeviceDebugInfo GetDebugInfo(UInt32 debugViewId);
+    internal UInt32 CreateDebugViewId();
+    internal void DeleteDebugViewId(UInt32 debugViewId);
+    public static GraphicsDevice CreateGraphicsDevice();
+    public static GraphicsDevice CreateGraphicsDevice(string projectID);
+    public static GraphicsDevice CreateGraphicsDevice(string projectID, string appDir);
+    public static GraphicsDevice get_device();
+    public static UInt32 get_version();
+    public bool IsFeatureAvailable(GraphicsDeviceFeature featureID);
+    public DLSSContext CreateFeature(CommandBuffer cmd, DLSSCommandInitializationData& initSettings);
+    public void DestroyFeature(CommandBuffer cmd, DLSSContext dlssContext);
+    public void ExecuteDLSS(CommandBuffer cmd, DLSSContext dlssContext, DLSSTextureTable& textures);
+    public bool GetOptimalSettings(UInt32 targetWidth, UInt32 targetHeight, DLSSQuality quality, OptimalDLSSSettingsData& optimalSettings);
+    public GraphicsDeviceDebugView CreateDebugView();
+    public void UpdateDebugView(GraphicsDeviceDebugView debugView);
+    public void DeleteDebugView(GraphicsDeviceDebugView debugView);
+    private static bool NVUP_InitApi(IntPtr initData);
+    private static void NVUP_ShutdownApi();
+    private static bool NVUP_IsFeatureAvailable(GraphicsDeviceFeature featureID);
+    private static bool NVUP_GetOptimalSettings(UInt32 inTargetWidth, UInt32 inTargetHeight, DLSSQuality inPerfVQuality, OptimalDLSSSettingsData& data);
+    private static IntPtr NVUP_GetRenderEventCallback();
+    private static IntPtr NVUP_GetSetTextureEventCallback();
+    private static UInt32 NVUP_CreateFeatureSlot();
+    private static UInt32 NVUP_GetDeviceVersion();
+    private static UInt32 NVUP_CreateDebugView();
+    private static void NVUP_GetGraphicsDeviceDebugInfo(UInt32 debugViewId, GraphicsDeviceDebugInfo& data);
+    private static void NVUP_DeleteDebugView(UInt32 debugViewId);
+    private static int NVUP_GetBaseEventId();
+}
+internal class UnityEngine.NVIDIA.GraphicsDeviceDebugInfo : ValueType {
+    public UInt32 NVDeviceVersion;
+    public UInt32 NGXVersion;
+    public DLSSDebugFeatureInfos* dlssInfos;
+    public UInt32 dlssInfosCount;
+}
+public class UnityEngine.NVIDIA.GraphicsDeviceDebugView : object {
+    internal UInt32 m_ViewId;
+    internal UInt32 m_DeviceVersion;
+    internal UInt32 m_NgxVersion;
+    internal DLSSDebugFeatureInfos[] m_DlssDebugFeatures;
+    public UInt32 deviceVersion { get; }
+    public UInt32 ngxVersion { get; }
+    public IEnumerable`1<DLSSDebugFeatureInfos> dlssFeatureInfos { get; }
+    internal GraphicsDeviceDebugView(UInt32 viewId);
+    public UInt32 get_deviceVersion();
+    public UInt32 get_ngxVersion();
+    public IEnumerable`1<DLSSDebugFeatureInfos> get_dlssFeatureInfos();
+}
+public enum UnityEngine.NVIDIA.GraphicsDeviceFeature : Enum {
+    public int value__;
+    public static GraphicsDeviceFeature DLSS;
+}
+internal class UnityEngine.NVIDIA.InitDeviceCmdData : ValueType {
+    private IntPtr m_ProjectId;
+    private IntPtr m_EngineVersion;
+    private IntPtr m_AppDir;
+    public IntPtr projectId { get; public set; }
+    public IntPtr engineVersion { get; public set; }
+    public IntPtr appDir { get; public set; }
+    public void set_projectId(IntPtr value);
+    public IntPtr get_projectId();
+    public void set_engineVersion(IntPtr value);
+    public IntPtr get_engineVersion();
+    public void set_appDir(IntPtr value);
+    public IntPtr get_appDir();
+}
+internal class UnityEngine.NVIDIA.InitDeviceContext : object {
+    private NativeStr m_ProjectId;
+    private NativeStr m_EngineVersion;
+    private NativeStr m_AppDir;
+    private NativeData`1<InitDeviceCmdData> m_InitData;
+    public InitDeviceContext(string projectId, string engineVersion, string appDir);
+    internal IntPtr GetInitCmdPtr();
+}
+internal class UnityEngine.NVIDIA.NativeData`1 : object {
+    private IntPtr m_MarshalledValue;
+    public T Value;
+    public IntPtr Ptr { get; }
+    public IntPtr get_Ptr();
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    protected virtual override void Finalize();
+}
+internal class UnityEngine.NVIDIA.NativeStr : object {
+    private string m_Str;
+    private IntPtr m_MarshalledString;
+    unknown string Str {public set; }
+    public IntPtr Ptr { get; }
+    public void set_Str(string value);
+    public IntPtr get_Ptr();
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    protected virtual override void Finalize();
+}
+[NativeHeaderAttribute("Modules/NVIDIA/NVPlugins.h")]
+public static class UnityEngine.NVIDIA.NVUnityPlugin : object {
+    public static bool Load();
+    public static bool IsLoaded();
+}
+[IsReadOnlyAttribute]
+public class UnityEngine.NVIDIA.OptimalDLSSSettingsData : ValueType {
+    private UInt32 m_OutRenderWidth;
+    private UInt32 m_OutRenderHeight;
+    private float m_Sharpness;
+    private UInt32 m_MaxWidth;
+    private UInt32 m_MaxHeight;
+    private UInt32 m_MinWidth;
+    private UInt32 m_MinHeight;
+    public UInt32 outRenderWidth { get; }
+    public UInt32 outRenderHeight { get; }
+    public float sharpness { get; }
+    public UInt32 maxWidth { get; }
+    public UInt32 maxHeight { get; }
+    public UInt32 minWidth { get; }
+    public UInt32 minHeight { get; }
+    public UInt32 get_outRenderWidth();
+    public UInt32 get_outRenderHeight();
+    public float get_sharpness();
+    public UInt32 get_maxWidth();
+    public UInt32 get_maxHeight();
+    public UInt32 get_minWidth();
+    public UInt32 get_minHeight();
+}
+internal enum UnityEngine.NVIDIA.PluginEvent : Enum {
+    public int value__;
+    public static PluginEvent DestroyFeature;
+    public static PluginEvent DLSSExecute;
+    public static PluginEvent DLSSInit;
+}

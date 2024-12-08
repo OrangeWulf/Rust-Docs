@@ -1,0 +1,254 @@
+public class ClanData : ValueType {
+    public string Name;
+    public long Created;
+    public ulong Creator;
+    public string Motd;
+    public long MotdTimestamp;
+    public ulong MotdAuthor;
+    public Byte[] Logo;
+    public long LogoTimestamp;
+    public Color32 Color;
+    public long Score;
+}
+internal static class DBError : object {
+    public static int UniqueConstraintViolation;
+    public static int ForeignKeyConstraintViolation;
+    public static int TriggerConstraintViolation;
+}
+public class LocalClan : object {
+    private static int MaxChatScrollback;
+    [CompilerGeneratedAttribute]
+private long <ClanId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private long <Created>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ulong <Creator>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Motd>k__BackingField;
+    [CompilerGeneratedAttribute]
+private long <MotdTimestamp>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ulong <MotdAuthor>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Byte[] <Logo>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Color32 <Color>k__BackingField;
+    [CompilerGeneratedAttribute]
+private long <Score>k__BackingField;
+    private LocalClanBackend _backend;
+    private List`1<ClanRole> _roles;
+    private List`1<ClanMember> _members;
+    private List`1<ClanInvite> _invites;
+    private List`1<ClanChatEntry> _chatHistory;
+    private RealTimeSince _sinceLastRefresh;
+    public long ClanId { get; }
+    public string Name { get; private set; }
+    public long Created { get; private set; }
+    public ulong Creator { get; private set; }
+    public string Motd { get; private set; }
+    public long MotdTimestamp { get; private set; }
+    public ulong MotdAuthor { get; private set; }
+    public Byte[] Logo { get; private set; }
+    public Color32 Color { get; private set; }
+    public long Score { get; private set; }
+    public IReadOnlyList`1<ClanRole> Roles { get; }
+    public IReadOnlyList`1<ClanMember> Members { get; }
+    public int MaxMemberCount { get; }
+    public IReadOnlyList`1<ClanInvite> Invites { get; }
+    public LocalClan(LocalClanBackend backend, long clanId);
+    [CompilerGeneratedAttribute]
+public sealed virtual long get_ClanId();
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Name();
+    [CompilerGeneratedAttribute]
+private void set_Name(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual long get_Created();
+    [CompilerGeneratedAttribute]
+private void set_Created(long value);
+    [CompilerGeneratedAttribute]
+public sealed virtual ulong get_Creator();
+    [CompilerGeneratedAttribute]
+private void set_Creator(ulong value);
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_Motd();
+    [CompilerGeneratedAttribute]
+private void set_Motd(string value);
+    [CompilerGeneratedAttribute]
+public sealed virtual long get_MotdTimestamp();
+    [CompilerGeneratedAttribute]
+private void set_MotdTimestamp(long value);
+    [CompilerGeneratedAttribute]
+public sealed virtual ulong get_MotdAuthor();
+    [CompilerGeneratedAttribute]
+private void set_MotdAuthor(ulong value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Byte[] get_Logo();
+    [CompilerGeneratedAttribute]
+private void set_Logo(Byte[] value);
+    [CompilerGeneratedAttribute]
+public sealed virtual Color32 get_Color();
+    [CompilerGeneratedAttribute]
+private void set_Color(Color32 value);
+    [CompilerGeneratedAttribute]
+public sealed virtual long get_Score();
+    [CompilerGeneratedAttribute]
+private void set_Score(long value);
+    public sealed virtual IReadOnlyList`1<ClanRole> get_Roles();
+    public sealed virtual IReadOnlyList`1<ClanMember> get_Members();
+    public sealed virtual int get_MaxMemberCount();
+    public sealed virtual IReadOnlyList`1<ClanInvite> get_Invites();
+    public bool Refresh(ClanDataSource sources);
+    [AsyncStateMachineAttribute("LocalClan/<RefreshIfStale>d__56")]
+public sealed virtual ValueTask RefreshIfStale();
+    [AsyncStateMachineAttribute("LocalClan/<GetLogs>d__57")]
+public sealed virtual ValueTask`1<ClanValueResult`1<ClanLogs>> GetLogs(int limit, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<UpdateLastSeen>d__58")]
+public sealed virtual ValueTask`1<ClanResult> UpdateLastSeen(ulong steamId);
+    [AsyncStateMachineAttribute("LocalClan/<SetMotd>d__59")]
+public sealed virtual ValueTask`1<ClanResult> SetMotd(string newMotd, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<SetLogo>d__60")]
+public sealed virtual ValueTask`1<ClanResult> SetLogo(Byte[] newLogo, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<SetColor>d__61")]
+public sealed virtual ValueTask`1<ClanResult> SetColor(Color32 newColor, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<Invite>d__62")]
+public sealed virtual ValueTask`1<ClanResult> Invite(ulong steamId, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<CancelInvite>d__63")]
+public sealed virtual ValueTask`1<ClanResult> CancelInvite(ulong steamId, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<AcceptInvite>d__64")]
+public sealed virtual ValueTask`1<ClanResult> AcceptInvite(ulong steamId);
+    [AsyncStateMachineAttribute("LocalClan/<Kick>d__65")]
+public sealed virtual ValueTask`1<ClanResult> Kick(ulong steamId, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<SetPlayerRole>d__66")]
+public sealed virtual ValueTask`1<ClanResult> SetPlayerRole(ulong steamId, int newRoleId, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<SetPlayerNotes>d__67")]
+public sealed virtual ValueTask`1<ClanResult> SetPlayerNotes(ulong steamId, string newNotes, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<CreateRole>d__68")]
+public sealed virtual ValueTask`1<ClanResult> CreateRole(ClanRole role, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<UpdateRole>d__69")]
+public sealed virtual ValueTask`1<ClanResult> UpdateRole(ClanRole role, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<SwapRoleRanks>d__70")]
+public sealed virtual ValueTask`1<ClanResult> SwapRoleRanks(int roleIdA, int roleIdB, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<DeleteRole>d__71")]
+public sealed virtual ValueTask`1<ClanResult> DeleteRole(int roleId, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<Disband>d__72")]
+public sealed virtual ValueTask`1<ClanResult> Disband(ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<GetScoreEvents>d__73")]
+public sealed virtual ValueTask`1<ClanValueResult`1<ClanScoreEvents>> GetScoreEvents(int limit, ulong bySteamId);
+    [AsyncStateMachineAttribute("LocalClan/<AddScoreEvent>d__74")]
+public sealed virtual ValueTask`1<ClanResult> AddScoreEvent(ClanScoreEvent scoreEvent);
+    [AsyncStateMachineAttribute("LocalClan/<GetChatScrollback>d__75")]
+public sealed virtual ValueTask`1<ClanValueResult`1<ClanChatScrollback>> GetChatScrollback();
+    [AsyncStateMachineAttribute("LocalClan/<SendChatMessage>d__76")]
+public sealed virtual ValueTask`1<ClanResult> SendChatMessage(string name, string message, ulong bySteamId);
+    private int OtherLeaderCount(ulong excludeSteamId);
+    private bool CheckRole(ulong steamId, Func`2<ClanRole, bool> roleTest);
+    private bool TryGetRank(ulong steamId, Int32& rank);
+    private void Changed(ClanDataSource dataSources);
+}
+public class LocalClanBackend : object {
+    private string _rootFolder;
+    public int MaxMemberCount;
+    private Dictionary`2<long, LocalClan> _clans;
+    private IClanChangeSink _changeSink;
+    public LocalClanDatabase Database;
+    public LocalClanBackend(string rootFolder, int maxMemberCount);
+    [AsyncStateMachineAttribute("LocalClanBackend/<Initialize>d__6")]
+public sealed virtual ValueTask Initialize(IClanChangeSink changeSink);
+    public sealed virtual void Dispose();
+    [AsyncStateMachineAttribute("LocalClanBackend/<Get>d__8")]
+public sealed virtual ValueTask`1<ClanValueResult`1<IClan>> Get(long clanId);
+    public sealed virtual bool TryGet(long clanId, IClan& clan);
+    [AsyncStateMachineAttribute("LocalClanBackend/<GetByMember>d__10")]
+public sealed virtual ValueTask`1<ClanValueResult`1<IClan>> GetByMember(ulong steamId);
+    [AsyncStateMachineAttribute("LocalClanBackend/<Create>d__11")]
+public sealed virtual ValueTask`1<ClanValueResult`1<IClan>> Create(ulong leaderSteamId, string name);
+    [AsyncStateMachineAttribute("LocalClanBackend/<ListInvitations>d__12")]
+public sealed virtual ValueTask`1<ClanValueResult`1<List`1<ClanInvitation>>> ListInvitations(ulong steamId);
+    [AsyncStateMachineAttribute("LocalClanBackend/<GetLeaderboard>d__13")]
+public sealed virtual ValueTask`1<ClanValueResult`1<List`1<ClanLeaderboardEntry>>> GetLeaderboard(int limit);
+    private bool TryGetClan(long clanId, LocalClan& clan);
+    public sealed virtual void ClanChanged(long clanId, ClanDataSource dataSources);
+    public sealed virtual void ClanDisbanded(long clanId);
+    public sealed virtual void InvitationCreated(ulong steamId, long clanId);
+    public sealed virtual void MembershipChanged(ulong steamId, Nullable`1<long> clanId);
+    public sealed virtual void ClanChatMessage(long clanId, ClanChatEntry entry);
+}
+public class LocalClanDatabase : Database {
+    private static int Version;
+    private void CreateClansTable();
+    public Nullable`1<long> CreateClan(string name, ulong creatorSteamId);
+    public Nullable`1<ClanData> ReadClan(long clanId);
+    public bool UpdateClanMotd(long clanId, string newMotd, ulong authorSteamId);
+    public bool UpdateClanLogo(long clanId, Byte[] newLogo);
+    public bool UpdateClanColor(long clanId, Color32 newColor);
+    public bool DeleteClan(long clanId);
+    public Nullable`1<long> FindClanByMember(ulong memberSteamId);
+    public List`1<ClanLeaderboardEntry> ListTopClans(int limit);
+    public void Open(string rootFolder);
+    private void CreateInvitesTable();
+    public bool CreateInvite(long clanId, ulong steamId, ulong recruiterSteamId);
+    
+/// <summary>
+/// Hooks - OnClanMemberAdded(long,ulong)
+/// </summary>
+
+	public bool AcceptInvite(long clanId, ulong steamId)
+	{
+		BeginTransaction();
+		try
+		{
+			if (DeleteInvite(clanId, steamId) && CreateMember(clanId, steamId))
+			{
+				Commit();
+				Interface.CallHook("OnClanMemberAdded", clanId, steamId);
+				return true;
+			}
+			Rollback();
+			return false;
+		}
+		catch
+		{
+			Rollback();
+			throw;
+		}
+	}
+
+    public List`1<ClanInvite> ListInvites(long clanId);
+    public List`1<ClanInvitation> ListInvitationsForPlayer(ulong steamId);
+    public bool DeleteInvite(long clanId, ulong steamId);
+    public void DeleteAllInvites(ulong steamId);
+    private void CreateLogsTable();
+    public void AppendLog(long clanId, string eventKey);
+    public void AppendLog(long clanId, string eventKey, T1 arg1);
+    public void AppendLog(long clanId, string eventKey, T1 arg1, T2 arg2);
+    public void AppendLog(long clanId, string eventKey, T1 arg1, T2 arg2, T3 arg3);
+    public void AppendLog(long clanId, string eventKey, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public List`1<ClanLogEntry> ReadLogs(long clanId, int limit);
+    private void CreateMembersTable();
+    public bool CreateMember(long clanId, ulong steamId);
+    public bool CreateMember(long clanId, ulong steamId, int roleId);
+    public List`1<ClanMember> ListMembers(long clanId);
+    public bool UpdateMemberLastSeen(long clanId, ulong steamId);
+    public bool UpdateMemberRole(long clanId, ulong steamId, int newRoleId);
+    public bool UpdateMemberNotes(long clanId, ulong steamId, string newNotes);
+    public bool DeleteMember(long clanId, ulong steamId);
+    private void CreateRolesTable();
+    public Nullable`1<int> CreateRole(long clanId, ClanRole role);
+    public List`1<ClanRole> ListRoles(long clanId);
+    public bool UpdateRole(long clanId, ClanRole role);
+    public bool UpdateRoleName(long clanId, int roleId, string newRoleName);
+    public bool SwapRoleRanks(long clanId, int roleIdA, int roleIdB);
+    public bool DeleteRole(long clanId, int roleId);
+    private void CreateScoreEventsTable();
+    public void AppendScoreEvent(long clanId, ClanScoreEvent e);
+    public List`1<ClanScoreEvent> ReadScoreEvents(long clanId, int limit);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

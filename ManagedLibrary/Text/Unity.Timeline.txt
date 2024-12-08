@@ -1,0 +1,1721 @@
+Сборка: Unity.Timeline.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ActivationMixerPlayable
+Наследуется от: PlayableBehaviour
+Поля:
+  PostPlaybackState m_PostPlaybackState
+  bool m_BoundGameObjectInitialStateIsActive
+  GameObject m_BoundGameObject
+Свойства:
+  PostPlaybackState postPlaybackState
+Методы:
+  ScriptPlayable`1<ActivationMixerPlayable> Create(PlayableGraph graph, int inputCount)
+  PostPlaybackState get_postPlaybackState()
+  void set_postPlaybackState(PostPlaybackState value)
+  void OnPlayableDestroy(Playable playable)
+  void ProcessFrame(Playable playable, FrameData info, object playerData)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ActivationPlayableAsset
+Наследуется от: PlayableAsset
+Поля:
+Свойства:
+  ClipCaps clipCaps
+Методы:
+  ClipCaps get_clipCaps()
+  Playable CreatePlayable(PlayableGraph graph, GameObject go)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ActivationTrack
+Наследуется от: TrackAsset
+Поля:
+  PostPlaybackState m_PostPlaybackState
+  ActivationMixerPlayable m_ActivationMixer
+Свойства:
+  PostPlaybackState postPlaybackState
+Методы:
+  bool CanCompileClips()
+  PostPlaybackState get_postPlaybackState()
+  void set_postPlaybackState(PostPlaybackState value)
+  Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
+  void UpdateTrackMode()
+  void GatherProperties(PlayableDirector director, IPropertyCollector driver)
+  void OnCreateClip(TimelineClip clip)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AnimationOutputWeightProcessor
+Наследуется от: object
+Поля:
+  AnimationPlayableOutput m_Output
+  AnimationMotionXToDeltaPlayable m_MotionXPlayable
+  List`1<WeightInfo> m_Mixers
+Свойства:
+Методы:
+  void .ctor(AnimationPlayableOutput output)
+  void FindMixers()
+  void FindMixers(Playable parent, int port, Playable node)
+  void Evaluate()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AnimationPlayableAsset
+Наследуется от: PlayableAsset
+Поля:
+  AnimationClip m_Clip
+  Vector3 m_Position
+  Vector3 m_EulerAngles
+  bool m_UseTrackMatchFields
+  MatchTargetFields m_MatchTargetFields
+  bool m_RemoveStartOffset
+  bool m_ApplyFootIK
+  LoopMode m_Loop
+  AppliedOffsetMode <appliedOffsetMode>k__BackingField
+  int k_LatestVersion
+  int m_Version
+  Quaternion m_Rotation
+Свойства:
+  Vector3 position
+  Quaternion rotation
+  Vector3 eulerAngles
+  bool useTrackMatchFields
+  MatchTargetFields matchTargetFields
+  bool removeStartOffset
+  bool applyFootIK
+  LoopMode loop
+  bool hasRootTransforms
+  AppliedOffsetMode appliedOffsetMode
+  AnimationClip clip
+  double duration
+  IEnumerable`1<PlayableBinding> outputs
+  ClipCaps clipCaps
+Методы:
+  Vector3 get_position()
+  void set_position(Vector3 value)
+  Quaternion get_rotation()
+  void set_rotation(Quaternion value)
+  Vector3 get_eulerAngles()
+  void set_eulerAngles(Vector3 value)
+  bool get_useTrackMatchFields()
+  void set_useTrackMatchFields(bool value)
+  MatchTargetFields get_matchTargetFields()
+  void set_matchTargetFields(MatchTargetFields value)
+  bool get_removeStartOffset()
+  void set_removeStartOffset(bool value)
+  bool get_applyFootIK()
+  void set_applyFootIK(bool value)
+  LoopMode get_loop()
+  void set_loop(LoopMode value)
+  bool get_hasRootTransforms()
+  AppliedOffsetMode get_appliedOffsetMode()
+  void set_appliedOffsetMode(AppliedOffsetMode value)
+  AnimationClip get_clip()
+  void set_clip(AnimationClip value)
+  double get_duration()
+  IEnumerable`1<PlayableBinding> get_outputs()
+  Playable CreatePlayable(PlayableGraph graph, GameObject go)
+  Playable CreatePlayable(PlayableGraph graph, AnimationClip clip, Vector3 positionOffset, Vector3 eulerOffset, bool removeStartOffset, AppliedOffsetMode mode, bool applyFootIK, LoopMode loop)
+  bool ShouldApplyOffset(AppliedOffsetMode mode, AnimationClip clip)
+  bool ShouldApplyScaleRemove(AppliedOffsetMode mode)
+  ClipCaps get_clipCaps()
+  void ResetOffsets()
+  void GatherProperties(PlayableDirector director, IPropertyCollector driver)
+  bool HasRootTransforms(AnimationClip clip)
+  void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize()
+  void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
+  void OnUpgradeFromVersion(int oldVersion)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AnimationPreviewUpdateCallback
+Наследуется от: object
+Поля:
+  AnimationPlayableOutput m_Output
+  PlayableGraph m_Graph
+  List`1<IAnimationWindowPreview> m_PreviewComponents
+Свойства:
+Методы:
+  void .ctor(AnimationPlayableOutput output)
+  void Evaluate()
+  void FetchPreviewComponents()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.MatchTargetFields
+Наследуется от: Enum
+Поля:
+  int value__
+  MatchTargetFields PositionX
+  MatchTargetFields PositionY
+  MatchTargetFields PositionZ
+  MatchTargetFields RotationX
+  MatchTargetFields RotationY
+  MatchTargetFields RotationZ
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TrackOffset
+Наследуется от: Enum
+Поля:
+  int value__
+  TrackOffset ApplyTransformOffsets
+  TrackOffset ApplySceneOffsets
+  TrackOffset Auto
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AppliedOffsetMode
+Наследуется от: Enum
+Поля:
+  int value__
+  AppliedOffsetMode NoRootTransform
+  AppliedOffsetMode TransformOffset
+  AppliedOffsetMode SceneOffset
+  AppliedOffsetMode TransformOffsetLegacy
+  AppliedOffsetMode SceneOffsetLegacy
+  AppliedOffsetMode SceneOffsetEditor
+  AppliedOffsetMode SceneOffsetLegacyEditor
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.MatchTargetFieldConstants
+Наследуется от: object
+Поля:
+  MatchTargetFields All
+  MatchTargetFields None
+  MatchTargetFields Position
+  MatchTargetFields Rotation
+Свойства:
+Методы:
+  bool HasAny(MatchTargetFields me, MatchTargetFields fields)
+  MatchTargetFields Toggle(MatchTargetFields me, MatchTargetFields flag)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AnimationTrack
+Наследуется от: TrackAsset
+Поля:
+  string k_DefaultInfiniteClipName
+  string k_DefaultRecordableClipName
+  ClipExtrapolation m_InfiniteClipPreExtrapolation
+  ClipExtrapolation m_InfiniteClipPostExtrapolation
+  Vector3 m_InfiniteClipOffsetPosition
+  Vector3 m_InfiniteClipOffsetEulerAngles
+  double m_InfiniteClipTimeOffset
+  bool m_InfiniteClipRemoveOffset
+  bool m_InfiniteClipApplyFootIK
+  LoopMode mInfiniteClipLoop
+  MatchTargetFields m_MatchTargetFields
+  Vector3 m_Position
+  Vector3 m_EulerAngles
+  AvatarMask m_AvatarMask
+  bool m_ApplyAvatarMask
+  TrackOffset m_TrackOffset
+  AnimationClip m_InfiniteClip
+  Queue`1<Transform> s_CachedQueue
+  Quaternion m_OpenClipOffsetRotation
+  Quaternion m_Rotation
+  bool m_ApplyOffsets
+Свойства:
+  Vector3 position
+  Quaternion rotation
+  Vector3 eulerAngles
+  bool applyOffsets
+  TrackOffset trackOffset
+  MatchTargetFields matchTargetFields
+  AnimationClip infiniteClip
+  bool infiniteClipRemoveOffset
+  AvatarMask avatarMask
+  bool applyAvatarMask
+  IEnumerable`1<PlayableBinding> outputs
+  bool inClipMode
+  Vector3 infiniteClipOffsetPosition
+  Quaternion infiniteClipOffsetRotation
+  Vector3 infiniteClipOffsetEulerAngles
+  bool infiniteClipApplyFootIK
+  double infiniteClipTimeOffset
+  ClipExtrapolation infiniteClipPreExtrapolation
+  ClipExtrapolation infiniteClipPostExtrapolation
+  LoopMode infiniteClipLoop
+  Vector3 openClipOffsetPosition
+  Quaternion openClipOffsetRotation
+  Vector3 openClipOffsetEulerAngles
+  ClipExtrapolation openClipPreExtrapolation
+  ClipExtrapolation openClipPostExtrapolation
+Методы:
+  Vector3 get_position()
+  void set_position(Vector3 value)
+  Quaternion get_rotation()
+  void set_rotation(Quaternion value)
+  Vector3 get_eulerAngles()
+  void set_eulerAngles(Vector3 value)
+  bool get_applyOffsets()
+  void set_applyOffsets(bool value)
+  TrackOffset get_trackOffset()
+  void set_trackOffset(TrackOffset value)
+  MatchTargetFields get_matchTargetFields()
+  void set_matchTargetFields(MatchTargetFields value)
+  AnimationClip get_infiniteClip()
+  void set_infiniteClip(AnimationClip value)
+  bool get_infiniteClipRemoveOffset()
+  void set_infiniteClipRemoveOffset(bool value)
+  AvatarMask get_avatarMask()
+  void set_avatarMask(AvatarMask value)
+  bool get_applyAvatarMask()
+  void set_applyAvatarMask(bool value)
+  bool CanCompileClips()
+  IEnumerable`1<PlayableBinding> get_outputs()
+  bool get_inClipMode()
+  Vector3 get_infiniteClipOffsetPosition()
+  void set_infiniteClipOffsetPosition(Vector3 value)
+  Quaternion get_infiniteClipOffsetRotation()
+  void set_infiniteClipOffsetRotation(Quaternion value)
+  Vector3 get_infiniteClipOffsetEulerAngles()
+  void set_infiniteClipOffsetEulerAngles(Vector3 value)
+  bool get_infiniteClipApplyFootIK()
+  void set_infiniteClipApplyFootIK(bool value)
+  double get_infiniteClipTimeOffset()
+  void set_infiniteClipTimeOffset(double value)
+  ClipExtrapolation get_infiniteClipPreExtrapolation()
+  void set_infiniteClipPreExtrapolation(ClipExtrapolation value)
+  ClipExtrapolation get_infiniteClipPostExtrapolation()
+  void set_infiniteClipPostExtrapolation(ClipExtrapolation value)
+  LoopMode get_infiniteClipLoop()
+  void set_infiniteClipLoop(LoopMode value)
+  void ResetOffsets()
+  TimelineClip CreateClip(AnimationClip clip)
+  void CreateInfiniteClip(string infiniteClipName)
+  TimelineClip CreateRecordableClip(string animClipName)
+  void OnCreateClip(TimelineClip clip)
+  int CalculateItemsHash()
+  void UpdateClipOffsets()
+  Playable CompileTrackPlayable(PlayableGraph graph, AnimationTrack track, GameObject go, IntervalTree`1<RuntimeElement> tree, AppliedOffsetMode mode)
+  Playable UnityEngine.Timeline.ILayerable.CreateLayerMixer(PlayableGraph graph, GameObject go, int inputCount)
+  Playable CreateMixerPlayableGraph(PlayableGraph graph, GameObject go, IntervalTree`1<RuntimeElement> tree)
+  int GetDefaultBlendCount()
+  void AttachDefaultBlend(PlayableGraph graph, AnimationLayerMixerPlayable mixer, bool requireOffset)
+  Playable AttachOffsetPlayable(PlayableGraph graph, Playable playable, Vector3 pos, Quaternion rot)
+  bool RequiresMotionXPlayable(AppliedOffsetMode mode, GameObject gameObject)
+  bool UsesAbsoluteMotion(AppliedOffsetMode mode)
+  bool HasController(GameObject gameObject)
+  Animator GetBinding(PlayableDirector director)
+  AnimationLayerMixerPlayable CreateGroupMixer(PlayableGraph graph, GameObject go, int inputCount)
+  Playable CreateInfiniteTrackPlayable(PlayableGraph graph, GameObject go, IntervalTree`1<RuntimeElement> tree, AppliedOffsetMode mode)
+  Playable ApplyTrackOffset(PlayableGraph graph, Playable root, GameObject go, AppliedOffsetMode mode)
+  void GetEvaluationTime(Double& outStart, Double& outDuration)
+  void GetSequenceTime(Double& outStart, Double& outDuration)
+  void AssignAnimationClip(TimelineClip clip, AnimationClip animClip)
+  void GatherProperties(PlayableDirector director, IPropertyCollector driver)
+  void GetAnimationClips(List`1<AnimationClip> animClips)
+  AppliedOffsetMode GetOffsetMode(GameObject go, bool animatesRootTransform)
+  bool IsRootTransformDisabledByMask(GameObject gameObject, Transform genericRootNode)
+  Transform GetGenericRootNode(GameObject gameObject)
+  bool AnimatesRootTransform()
+  Transform FindInHierarchyBreadthFirst(Transform t, string name)
+  Vector3 get_openClipOffsetPosition()
+  void set_openClipOffsetPosition(Vector3 value)
+  Quaternion get_openClipOffsetRotation()
+  void set_openClipOffsetRotation(Quaternion value)
+  Vector3 get_openClipOffsetEulerAngles()
+  void set_openClipOffsetEulerAngles(Vector3 value)
+  ClipExtrapolation get_openClipPreExtrapolation()
+  void set_openClipPreExtrapolation(ClipExtrapolation value)
+  ClipExtrapolation get_openClipPostExtrapolation()
+  void set_openClipPostExtrapolation(ClipExtrapolation value)
+  void OnUpgradeFromVersion(int oldVersion)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ICurvesOwner
+Поля:
+Свойства:
+  AnimationClip curves
+  bool hasCurves
+  double duration
+  string defaultCurvesName
+  Object asset
+  Object assetOwner
+  TrackAsset targetTrack
+Методы:
+  AnimationClip get_curves()
+  bool get_hasCurves()
+  double get_duration()
+  void CreateCurves(string curvesClipName)
+  string get_defaultCurvesName()
+  Object get_asset()
+  Object get_assetOwner()
+  TrackAsset get_targetTrack()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimelineClip
+Наследуется от: object
+Поля:
+  int k_LatestVersion
+  int m_Version
+  ClipCaps kDefaultClipCaps
+  float kDefaultClipDurationInSeconds
+  double kTimeScaleMin
+  double kTimeScaleMax
+  string kDefaultCurvesName
+  double kMinDuration
+  double kMaxTimeValue
+  double m_Start
+  double m_ClipIn
+  Object m_Asset
+  double m_Duration
+  double m_TimeScale
+  TrackAsset m_ParentTrack
+  double m_EaseInDuration
+  double m_EaseOutDuration
+  double m_BlendInDuration
+  double m_BlendOutDuration
+  AnimationCurve m_MixInCurve
+  AnimationCurve m_MixOutCurve
+  BlendCurveMode m_BlendInCurveMode
+  BlendCurveMode m_BlendOutCurveMode
+  List`1<string> m_ExposedParameterNames
+  AnimationClip m_AnimationCurves
+  bool m_Recordable
+  ClipExtrapolation m_PostExtrapolationMode
+  ClipExtrapolation m_PreExtrapolationMode
+  double m_PostExtrapolationTime
+  double m_PreExtrapolationTime
+  string m_DisplayName
+Свойства:
+  bool hasPreExtrapolation
+  bool hasPostExtrapolation
+  double timeScale
+  double start
+  double duration
+  double end
+  double clipIn
+  string displayName
+  double clipAssetDuration
+  AnimationClip curves
+  string UnityEngine.Timeline.ICurvesOwner.defaultCurvesName
+  bool hasCurves
+  Object asset
+  Object UnityEngine.Timeline.ICurvesOwner.assetOwner
+  TrackAsset UnityEngine.Timeline.ICurvesOwner.targetTrack
+  Object underlyingAsset
+  TrackAsset parentTrack
+  double easeInDuration
+  double easeOutDuration
+  double eastOutTime
+  double easeOutTime
+  double blendInDuration
+  double blendOutDuration
+  BlendCurveMode blendInCurveMode
+  BlendCurveMode blendOutCurveMode
+  bool hasBlendIn
+  bool hasBlendOut
+  AnimationCurve mixInCurve
+  float mixInPercentage
+  double mixInDuration
+  AnimationCurve mixOutCurve
+  double mixOutTime
+  double mixOutDuration
+  float mixOutPercentage
+  bool recordable
+  List`1<string> exposedParameters
+  ClipCaps clipCaps
+  AnimationClip animationClip
+  ClipExtrapolation postExtrapolationMode
+  ClipExtrapolation preExtrapolationMode
+  double extrapolatedStart
+  double extrapolatedDuration
+Методы:
+  void UpgradeToLatestVersion()
+  void .ctor(TrackAsset parent)
+  bool get_hasPreExtrapolation()
+  bool get_hasPostExtrapolation()
+  double get_timeScale()
+  void set_timeScale(double value)
+  double get_start()
+  void set_start(double value)
+  double get_duration()
+  void set_duration(double value)
+  double get_end()
+  double get_clipIn()
+  void set_clipIn(double value)
+  string get_displayName()
+  void set_displayName(string value)
+  double get_clipAssetDuration()
+  AnimationClip get_curves()
+  void set_curves(AnimationClip value)
+  string UnityEngine.Timeline.ICurvesOwner.get_defaultCurvesName()
+  bool get_hasCurves()
+  Object get_asset()
+  void set_asset(Object value)
+  Object UnityEngine.Timeline.ICurvesOwner.get_assetOwner()
+  TrackAsset UnityEngine.Timeline.ICurvesOwner.get_targetTrack()
+  Object get_underlyingAsset()
+  void set_underlyingAsset(Object value)
+  TrackAsset get_parentTrack()
+  void set_parentTrack(TrackAsset value)
+  TrackAsset GetParentTrack()
+  void SetParentTrack_Internal(TrackAsset newParentTrack)
+  double get_easeInDuration()
+  void set_easeInDuration(double value)
+  double get_easeOutDuration()
+  void set_easeOutDuration(double value)
+  double get_eastOutTime()
+  double get_easeOutTime()
+  double get_blendInDuration()
+  void set_blendInDuration(double value)
+  double get_blendOutDuration()
+  void set_blendOutDuration(double value)
+  BlendCurveMode get_blendInCurveMode()
+  void set_blendInCurveMode(BlendCurveMode value)
+  BlendCurveMode get_blendOutCurveMode()
+  void set_blendOutCurveMode(BlendCurveMode value)
+  bool get_hasBlendIn()
+  bool get_hasBlendOut()
+  AnimationCurve get_mixInCurve()
+  void set_mixInCurve(AnimationCurve value)
+  float get_mixInPercentage()
+  double get_mixInDuration()
+  AnimationCurve get_mixOutCurve()
+  void set_mixOutCurve(AnimationCurve value)
+  double get_mixOutTime()
+  double get_mixOutDuration()
+  float get_mixOutPercentage()
+  bool get_recordable()
+  void set_recordable(bool value)
+  List`1<string> get_exposedParameters()
+  ClipCaps get_clipCaps()
+  int Hash()
+  float EvaluateMixOut(double time)
+  float EvaluateMixIn(double time)
+  AnimationCurve GetDefaultMixInCurve()
+  AnimationCurve GetDefaultMixOutCurve()
+  double ToLocalTime(double time)
+  double ToLocalTimeUnbound(double time)
+  double FromLocalTimeUnbound(double time)
+  AnimationClip get_animationClip()
+  double SanitizeTimeValue(double value, double defaultValue)
+  ClipExtrapolation get_postExtrapolationMode()
+  void set_postExtrapolationMode(ClipExtrapolation value)
+  ClipExtrapolation get_preExtrapolationMode()
+  void set_preExtrapolationMode(ClipExtrapolation value)
+  void SetPostExtrapolationTime(double time)
+  void SetPreExtrapolationTime(double time)
+  bool IsExtrapolatedTime(double sequenceTime)
+  bool IsPreExtrapolatedTime(double sequenceTime)
+  bool IsPostExtrapolatedTime(double sequenceTime)
+  double get_extrapolatedStart()
+  double get_extrapolatedDuration()
+  double GetExtrapolatedTime(double time, ClipExtrapolation mode, double duration)
+  void CreateCurves(string curvesClipName)
+  void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize()
+  void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
+  string ToString()
+  void ConformEaseValues()
+  double CalculateEasingRatio(double easeIn, double easeOut)
+  void UpdateDirty(double oldValue, double newValue)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimelineAsset
+Наследуется от: PlayableAsset
+Поля:
+  int k_LatestVersion
+  int m_Version
+  List`1<ScriptableObject> m_Tracks
+  double m_FixedDuration
+  TrackAsset[] m_CacheOutputTracks
+  List`1<TrackAsset> m_CacheRootTracks
+  TrackAsset[] m_CacheFlattenedTracks
+  EditorSettings m_EditorSettings
+  DurationMode m_DurationMode
+  MarkerTrack m_MarkerTrack
+Свойства:
+  EditorSettings editorSettings
+  double duration
+  double fixedDuration
+  DurationMode durationMode
+  IEnumerable`1<PlayableBinding> outputs
+  ClipCaps clipCaps
+  int outputTrackCount
+  int rootTrackCount
+  TrackAsset[] flattenedTracks
+  MarkerTrack markerTrack
+  List`1<ScriptableObject> trackObjects
+Методы:
+  void UpgradeToLatestVersion()
+  EditorSettings get_editorSettings()
+  double get_duration()
+  double get_fixedDuration()
+  void set_fixedDuration(double value)
+  DurationMode get_durationMode()
+  void set_durationMode(DurationMode value)
+  IEnumerable`1<PlayableBinding> get_outputs()
+  ClipCaps get_clipCaps()
+  int get_outputTrackCount()
+  int get_rootTrackCount()
+  void OnValidate()
+  TrackAsset GetRootTrack(int index)
+  IEnumerable`1<TrackAsset> GetRootTracks()
+  TrackAsset GetOutputTrack(int index)
+  IEnumerable`1<TrackAsset> GetOutputTracks()
+  double GetValidFrameRate(double frameRate)
+  void UpdateRootTrackCache()
+  void UpdateOutputTrackCache()
+  TrackAsset[] get_flattenedTracks()
+  MarkerTrack get_markerTrack()
+  List`1<ScriptableObject> get_trackObjects()
+  void AddTrackInternal(TrackAsset track)
+  void RemoveTrack(TrackAsset track)
+  Playable CreatePlayable(PlayableGraph graph, GameObject go)
+  void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize()
+  void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
+  void __internalAwake()
+  void GatherProperties(PlayableDirector director, IPropertyCollector driver)
+  void CreateMarkerTrack()
+  void Invalidate()
+  void UpdateFixedDurationWithItemsDuration()
+  DiscreteTime CalculateItemsDuration()
+  void AddSubTracksRecursive(TrackAsset track, List`1& allTracks)
+  TrackAsset CreateTrack(Type type, TrackAsset parent, string name)
+  T CreateTrack(TrackAsset parent, string trackName)
+  T CreateTrack(string trackName)
+  T CreateTrack()
+  bool DeleteClip(TimelineClip clip)
+  bool DeleteTrack(TrackAsset track)
+  void MoveLastTrackBefore(TrackAsset asset)
+  TrackAsset AllocateTrack(TrackAsset trackAssetParent, string trackName, Type trackType)
+  void DeleteRecordedAnimation(TrackAsset track)
+  void DeleteRecordedAnimation(TimelineClip clip)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TrackAsset
+Наследуется от: PlayableAsset
+Поля:
+  int k_LatestVersion
+  int m_Version
+  AnimationClip m_AnimClip
+  TransientBuildData s_BuildData
+  string kDefaultCurvesName
+  Action`3<TimelineClip, GameObject, Playable> OnClipPlayableCreate
+  Action`3<TrackAsset, GameObject, Playable> OnTrackAnimationPlayableCreate
+  bool m_Locked
+  bool m_Muted
+  string m_CustomPlayableFullTypename
+  AnimationClip m_Curves
+  PlayableAsset m_Parent
+  List`1<ScriptableObject> m_Children
+  int m_ItemsHash
+  TimelineClip[] m_ClipsCache
+  DiscreteTime m_Start
+  DiscreteTime m_End
+  bool m_CacheSorted
+  Nullable`1<bool> m_SupportsNotifications
+  TrackAsset[] s_EmptyCache
+  IEnumerable`1<TrackAsset> m_ChildTrackCache
+  Dictionary`2<Type, TrackBindingTypeAttribute> s_TrackBindingTypeAttributeCache
+  List`1<TimelineClip> m_Clips
+  MarkerList m_Markers
+Свойства:
+  double start
+  double end
+  double duration
+  bool muted
+  bool mutedInHierarchy
+  TimelineAsset timelineAsset
+  PlayableAsset parent
+  TimelineClip[] clips
+  bool isEmpty
+  bool hasClips
+  bool hasCurves
+  bool isSubTrack
+  IEnumerable`1<PlayableBinding> outputs
+  string customPlayableTypename
+  AnimationClip curves
+  string UnityEngine.Timeline.ICurvesOwner.defaultCurvesName
+  Object UnityEngine.Timeline.ICurvesOwner.asset
+  Object UnityEngine.Timeline.ICurvesOwner.assetOwner
+  TrackAsset UnityEngine.Timeline.ICurvesOwner.targetTrack
+  List`1<ScriptableObject> subTracksObjects
+  bool locked
+  bool lockedInHierarchy
+  bool supportsNotifications
+Методы:
+  void OnBeforeTrackSerialize()
+  void OnAfterTrackDeserialize()
+  void OnUpgradeFromVersion(int oldVersion)
+  void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize()
+  void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
+  void UpgradeToLatestVersion()
+  void add_OnClipPlayableCreate(Action`3<TimelineClip, GameObject, Playable> value)
+  void remove_OnClipPlayableCreate(Action`3<TimelineClip, GameObject, Playable> value)
+  void add_OnTrackAnimationPlayableCreate(Action`3<TrackAsset, GameObject, Playable> value)
+  void remove_OnTrackAnimationPlayableCreate(Action`3<TrackAsset, GameObject, Playable> value)
+  double get_start()
+  double get_end()
+  double get_duration()
+  bool get_muted()
+  void set_muted(bool value)
+  bool get_mutedInHierarchy()
+  TimelineAsset get_timelineAsset()
+  PlayableAsset get_parent()
+  void set_parent(PlayableAsset value)
+  IEnumerable`1<TimelineClip> GetClips()
+  TimelineClip[] get_clips()
+  bool get_isEmpty()
+  bool get_hasClips()
+  bool get_hasCurves()
+  bool get_isSubTrack()
+  IEnumerable`1<PlayableBinding> get_outputs()
+  IEnumerable`1<TrackAsset> GetChildTracks()
+  string get_customPlayableTypename()
+  void set_customPlayableTypename(string value)
+  AnimationClip get_curves()
+  void set_curves(AnimationClip value)
+  string UnityEngine.Timeline.ICurvesOwner.get_defaultCurvesName()
+  Object UnityEngine.Timeline.ICurvesOwner.get_asset()
+  Object UnityEngine.Timeline.ICurvesOwner.get_assetOwner()
+  TrackAsset UnityEngine.Timeline.ICurvesOwner.get_targetTrack()
+  List`1<ScriptableObject> get_subTracksObjects()
+  bool get_locked()
+  void set_locked(bool value)
+  bool get_lockedInHierarchy()
+  bool get_supportsNotifications()
+  void __internalAwake()
+  void CreateCurves(string curvesClipName)
+  Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
+  Playable CreatePlayable(PlayableGraph graph, GameObject go)
+  TimelineClip CreateDefaultClip()
+  TimelineClip CreateClip()
+  bool DeleteClip(TimelineClip clip)
+  IMarker CreateMarker(Type type, double time)
+  T CreateMarker(double time)
+  bool DeleteMarker(IMarker marker)
+  IEnumerable`1<IMarker> GetMarkers()
+  int GetMarkerCount()
+  IMarker GetMarker(int idx)
+  TimelineClip CreateClip(Type requestedType)
+  TimelineClip CreateAndAddNewClipOfType(Type requestedType)
+  TimelineClip CreateClipOfType(Type requestedType)
+  TimelineClip CreateClipFromPlayableAsset(IPlayableAsset asset)
+  TimelineClip CreateClipFromAsset(ScriptableObject playableAsset)
+  IEnumerable`1<ScriptableObject> GetMarkersRaw()
+  void ClearMarkers()
+  void AddMarker(ScriptableObject e)
+  bool DeleteMarkerRaw(ScriptableObject marker)
+  int GetTimeRangeHash()
+  void AddClip(TimelineClip newClip)
+  Playable CreateNotificationsPlayable(PlayableGraph graph, Playable mixerPlayable, GameObject go, Playable timelinePlayable)
+  Playable CreatePlayableGraph(PlayableGraph graph, GameObject go, IntervalTree`1<RuntimeElement> tree, Playable timelinePlayable)
+  Playable CompileClips(PlayableGraph graph, GameObject go, IList`1<TimelineClip> timelineClips, IntervalTree`1<RuntimeElement> tree)
+  void GatherCompilableTracks(IList`1<TrackAsset> tracks)
+  void GatherNotifications(List`1<IMarker> markers)
+  Playable CreateMixerPlayableGraph(PlayableGraph graph, GameObject go, IntervalTree`1<RuntimeElement> tree)
+  void ConfigureTrackAnimation(IntervalTree`1<RuntimeElement> tree, GameObject go, Playable blend)
+  void SortClips()
+  void ClearClipsInternal()
+  void ClearSubTracksInternal()
+  void OnClipMove()
+  TimelineClip CreateNewClipContainerInternal()
+  void AddChild(TrackAsset child)
+  void MoveLastTrackBefore(TrackAsset asset)
+  bool RemoveSubTrack(TrackAsset child)
+  void RemoveClip(TimelineClip clip)
+  void GetEvaluationTime(Double& outStart, Double& outDuration)
+  void GetSequenceTime(Double& outStart, Double& outDuration)
+  void GatherProperties(PlayableDirector director, IPropertyCollector driver)
+  GameObject GetGameObjectBinding(PlayableDirector director)
+  bool ValidateClipType(Type clipType)
+  void OnCreateClip(TimelineClip clip)
+  void UpdateDuration()
+  int CalculateItemsHash()
+  Playable CreatePlayable(PlayableGraph graph, GameObject gameObject, TimelineClip clip)
+  void Invalidate()
+  double GetNotificationDuration()
+  bool CanCompileClips()
+  bool CanCreateTrackMixer()
+  bool IsCompilable()
+  void UpdateChildTrackCache()
+  int Hash()
+  int GetClipsHash()
+  int GetAnimationClipHash(AnimationClip clip)
+  bool HasNotifications()
+  bool CanCompileNotifications()
+  bool CanCreateMixerRecursive()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimelineHelpURLAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(Type type)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TrackColorAttribute
+Наследуется от: Attribute
+Поля:
+  Color m_Color
+Свойства:
+  Color color
+Методы:
+  Color get_color()
+  void .ctor(float r, float g, float b)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AudioClipProperties
+Наследуется от: PlayableBehaviour
+Поля:
+  float volume
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AudioMixerProperties
+Наследуется от: PlayableBehaviour
+Поля:
+  float volume
+  float stereoPan
+  float spatialBlend
+Свойства:
+Методы:
+  void PrepareFrame(Playable playable, FrameData info)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AudioPlayableAsset
+Наследуется от: PlayableAsset
+Поля:
+  AudioClip m_Clip
+  bool m_Loop
+  float m_bufferingTime
+  AudioClipProperties m_ClipProperties
+Свойства:
+  float bufferingTime
+  AudioClip clip
+  bool loop
+  double duration
+  IEnumerable`1<PlayableBinding> outputs
+  ClipCaps clipCaps
+Методы:
+  float get_bufferingTime()
+  void set_bufferingTime(float value)
+  AudioClip get_clip()
+  void set_clip(AudioClip value)
+  bool get_loop()
+  void set_loop(bool value)
+  double get_duration()
+  IEnumerable`1<PlayableBinding> get_outputs()
+  Playable CreatePlayable(PlayableGraph graph, GameObject go)
+  ClipCaps get_clipCaps()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.AudioTrack
+Наследуется от: TrackAsset
+Поля:
+  AudioMixerProperties m_TrackProperties
+Свойства:
+  IEnumerable`1<PlayableBinding> outputs
+Методы:
+  TimelineClip CreateClip(AudioClip clip)
+  Playable CompileClips(PlayableGraph graph, GameObject go, IList`1<TimelineClip> timelineClips, IntervalTree`1<RuntimeElement> tree)
+  IEnumerable`1<PlayableBinding> get_outputs()
+  void OnValidate()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ClipCaps
+Наследуется от: Enum
+Поля:
+  int value__
+  ClipCaps None
+  ClipCaps Looping
+  ClipCaps Extrapolation
+  ClipCaps ClipIn
+  ClipCaps SpeedMultiplier
+  ClipCaps Blending
+  ClipCaps AutoScale
+  ClipCaps All
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimelineClipCapsExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool SupportsLooping(TimelineClip clip)
+  bool SupportsExtrapolation(TimelineClip clip)
+  bool SupportsClipIn(TimelineClip clip)
+  bool SupportsSpeedMultiplier(TimelineClip clip)
+  bool SupportsBlending(TimelineClip clip)
+  bool HasAll(ClipCaps caps, ClipCaps flags)
+  bool HasAny(ClipCaps caps, ClipCaps flags)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ControlPlayableAsset
+Наследуется от: PlayableAsset
+Поля:
+  int k_MaxRandInt
+  List`1<PlayableDirector> k_EmptyDirectorsList
+  List`1<ParticleSystem> k_EmptyParticlesList
+  HashSet`1<ParticleSystem> s_SubEmitterCollector
+  ExposedReference`1<GameObject> sourceGameObject
+  GameObject prefabGameObject
+  bool updateParticle
+  UInt32 particleRandomSeed
+  bool updateDirector
+  bool updateITimeControl
+  bool searchHierarchy
+  bool active
+  PostPlaybackState postPlayback
+  PlayableAsset m_ControlDirectorAsset
+  double m_Duration
+  bool m_SupportLoop
+  HashSet`1<PlayableDirector> s_ProcessedDirectors
+  HashSet`1<GameObject> s_CreatedPrefabs
+  bool <controllingDirectors>k__BackingField
+  bool <controllingParticles>k__BackingField
+Свойства:
+  bool controllingDirectors
+  bool controllingParticles
+  double duration
+  ClipCaps clipCaps
+Методы:
+  bool get_controllingDirectors()
+  void set_controllingDirectors(bool value)
+  bool get_controllingParticles()
+  void set_controllingParticles(bool value)
+  void OnEnable()
+  double get_duration()
+  ClipCaps get_clipCaps()
+  Playable CreatePlayable(PlayableGraph graph, GameObject go)
+  Playable ConnectPlayablesToMixer(PlayableGraph graph, List`1<Playable> playables)
+  void CreateActivationPlayable(GameObject root, PlayableGraph graph, List`1<Playable> outplayables)
+  void SearchHierarchyAndConnectParticleSystem(IEnumerable`1<ParticleSystem> particleSystems, PlayableGraph graph, List`1<Playable> outplayables)
+  void SearchHierarchyAndConnectDirector(IEnumerable`1<PlayableDirector> directors, PlayableGraph graph, List`1<Playable> outplayables, bool disableSelfReferences)
+  void SearchHierarchyAndConnectControlableScripts(IEnumerable`1<MonoBehaviour> controlableScripts, PlayableGraph graph, List`1<Playable> outplayables)
+  void ConnectMixerAndPlayable(PlayableGraph graph, Playable mixer, Playable playable, int portIndex)
+  IList`1<T> GetComponent(GameObject gameObject)
+  IEnumerable`1<MonoBehaviour> GetControlableScripts(GameObject root)
+  void UpdateDurationAndLoopFlag(IList`1<PlayableDirector> directors, IList`1<ParticleSystem> particleSystems)
+  IList`1<ParticleSystem> GetControllableParticleSystems(GameObject go)
+  void GetControllableParticleSystems(Transform t, ICollection`1<ParticleSystem> roots, HashSet`1<ParticleSystem> subEmitters)
+  void CacheSubEmitters(ParticleSystem ps, HashSet`1<ParticleSystem> subEmitters)
+  void GatherProperties(PlayableDirector director, IPropertyCollector driver)
+  void PreviewParticles(IPropertyCollector driver, IEnumerable`1<ParticleSystem> particles)
+  void PreviewActivation(IPropertyCollector driver, IEnumerable`1<GameObject> objects)
+  void PreviewTimeControl(IPropertyCollector driver, PlayableDirector director, IEnumerable`1<MonoBehaviour> scripts)
+  void PreviewDirectors(IPropertyCollector driver, IEnumerable`1<PlayableDirector> directors)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ControlTrack
+Наследуется от: TrackAsset
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.DiscreteTime
+Наследуется от: ValueType
+Поля:
+  double k_Tick
+  DiscreteTime kMaxTime
+  long m_DiscreteTime
+Свойства:
+  double tickValue
+Методы:
+  double get_tickValue()
+  void .ctor(DiscreteTime time)
+  void .ctor(long time)
+  void .ctor(double time)
+  void .ctor(float time)
+  void .ctor(int time)
+  void .ctor(int frame, double fps)
+  DiscreteTime OneTickBefore()
+  DiscreteTime OneTickAfter()
+  long GetTick()
+  DiscreteTime FromTicks(long ticks)
+  int CompareTo(object obj)
+  bool Equals(DiscreteTime other)
+  bool Equals(object obj)
+  long DoubleToDiscreteTime(double time)
+  long FloatToDiscreteTime(float time)
+  long IntToDiscreteTime(int time)
+  double ToDouble(long time)
+  float ToFloat(long time)
+  double op_Explicit(DiscreteTime b)
+  float op_Explicit(DiscreteTime b)
+  long op_Explicit(DiscreteTime b)
+  DiscreteTime op_Explicit(double time)
+  DiscreteTime op_Explicit(float time)
+  DiscreteTime op_Implicit(int time)
+  DiscreteTime op_Explicit(long time)
+  bool op_Equality(DiscreteTime lhs, DiscreteTime rhs)
+  bool op_Inequality(DiscreteTime lhs, DiscreteTime rhs)
+  bool op_GreaterThan(DiscreteTime lhs, DiscreteTime rhs)
+  bool op_LessThan(DiscreteTime lhs, DiscreteTime rhs)
+  bool op_LessThanOrEqual(DiscreteTime lhs, DiscreteTime rhs)
+  bool op_GreaterThanOrEqual(DiscreteTime lhs, DiscreteTime rhs)
+  DiscreteTime op_Addition(DiscreteTime lhs, DiscreteTime rhs)
+  DiscreteTime op_Subtraction(DiscreteTime lhs, DiscreteTime rhs)
+  string ToString()
+  int GetHashCode()
+  DiscreteTime Min(DiscreteTime lhs, DiscreteTime rhs)
+  DiscreteTime Max(DiscreteTime lhs, DiscreteTime rhs)
+  double SnapToNearestTick(double time)
+  float SnapToNearestTick(float time)
+  long GetNearestTick(double time)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.InfiniteRuntimeClip
+Наследуется от: RuntimeElement
+Поля:
+  Playable m_Playable
+  long kIntervalEnd
+Свойства:
+  long intervalStart
+  long intervalEnd
+  bool enable
+Методы:
+  void .ctor(Playable playable)
+  long get_intervalStart()
+  long get_intervalEnd()
+  void set_enable(bool value)
+  void EvaluateAt(double localTime, FrameData frameData)
+  void DisableAt(double localTime, double rootDuration, FrameData frameData)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.IInterval
+Поля:
+Свойства:
+  long intervalStart
+  long intervalEnd
+Методы:
+  long get_intervalStart()
+  long get_intervalEnd()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.IntervalTreeNode
+Наследуется от: ValueType
+Поля:
+  long center
+  int first
+  int last
+  int left
+  int right
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.IntervalTree`1
+Наследуется от: object
+Поля:
+  int kMinNodeSize
+  int kInvalidNode
+  long kCenterUnknown
+  List`1<Entry<T>> m_Entries
+  List`1<IntervalTreeNode> m_Nodes
+  bool <dirty>k__BackingField
+Свойства:
+  bool dirty
+Методы:
+  bool get_dirty()
+  void set_dirty(bool value)
+  void Add(T item)
+  void IntersectsWith(long value, List`1<T> results)
+  void IntersectsWithRange(long start, long end, List`1<T> results)
+  void UpdateIntervals()
+  void Query(IntervalTreeNode intervalTreeNode, long value, List`1<T> results)
+  void QueryRange(IntervalTreeNode intervalTreeNode, long start, long end, List`1<T> results)
+  void Rebuild()
+  int Rebuild(int start, int end)
+  void Clear()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.RuntimeClip
+Наследуется от: RuntimeClipBase
+Поля:
+  TimelineClip m_Clip
+  Playable m_Playable
+  Playable m_ParentMixer
+Свойства:
+  double start
+  double duration
+  TimelineClip clip
+  Playable mixer
+  Playable playable
+  bool enable
+Методы:
+  double get_start()
+  double get_duration()
+  void .ctor(TimelineClip clip, Playable clipPlayable, Playable parentMixer)
+  void Create(TimelineClip clip, Playable clipPlayable, Playable parentMixer)
+  TimelineClip get_clip()
+  Playable get_mixer()
+  Playable get_playable()
+  void set_enable(bool value)
+  void SetTime(double time)
+  void SetDuration(double duration)
+  void EvaluateAt(double localTime, FrameData frameData)
+  void DisableAt(double localTime, double rootDuration, FrameData frameData)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.RuntimeClipBase
+Наследуется от: RuntimeElement
+Поля:
+Свойства:
+  double start
+  double duration
+  long intervalStart
+  long intervalEnd
+Методы:
+  double get_start()
+  double get_duration()
+  long get_intervalStart()
+  long get_intervalEnd()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.RuntimeElement
+Наследуется от: object
+Поля:
+  int <intervalBit>k__BackingField
+Свойства:
+  long intervalStart
+  long intervalEnd
+  int intervalBit
+  bool enable
+Методы:
+  long get_intervalStart()
+  long get_intervalEnd()
+  int get_intervalBit()
+  void set_intervalBit(int value)
+  void set_enable(bool value)
+  void EvaluateAt(double localTime, FrameData frameData)
+  void DisableAt(double localTime, double rootDuration, FrameData frameData)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ScheduleRuntimeClip
+Наследуется от: RuntimeClipBase
+Поля:
+  TimelineClip m_Clip
+  Playable m_Playable
+  Playable m_ParentMixer
+  double m_StartDelay
+  double m_FinishTail
+  bool m_Started
+Свойства:
+  double start
+  double duration
+  TimelineClip clip
+  Playable mixer
+  Playable playable
+  bool enable
+Методы:
+  double get_start()
+  double get_duration()
+  void SetTime(double time)
+  TimelineClip get_clip()
+  Playable get_mixer()
+  Playable get_playable()
+  void .ctor(TimelineClip clip, Playable clipPlayable, Playable parentMixer, double startDelay, double finishTail)
+  void Create(TimelineClip clip, Playable clipPlayable, Playable parentMixer, double startDelay, double finishTail)
+  void set_enable(bool value)
+  void EvaluateAt(double localTime, FrameData frameData)
+  void DisableAt(double localTime, double rootDuration, FrameData frameData)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.IMarker
+Поля:
+Свойства:
+  double time
+  TrackAsset parent
+Методы:
+  double get_time()
+  void set_time(double value)
+  TrackAsset get_parent()
+  void Initialize(TrackAsset parent)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.INotificationOptionProvider
+Поля:
+Свойства:
+  NotificationFlags flags
+Методы:
+  NotificationFlags get_flags()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.Marker
+Наследуется от: ScriptableObject
+Поля:
+  double m_Time
+  TrackAsset <parent>k__BackingField
+Свойства:
+  TrackAsset parent
+  double time
+Методы:
+  TrackAsset get_parent()
+  void set_parent(TrackAsset value)
+  double get_time()
+  void set_time(double value)
+  void UnityEngine.Timeline.IMarker.Initialize(TrackAsset parentTrack)
+  void OnInitialize(TrackAsset aPent)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.MarkerList
+Наследуется от: ValueType
+Поля:
+  List`1<ScriptableObject> m_Objects
+  List`1<IMarker> m_Cache
+  bool m_CacheDirty
+  bool m_HasNotifications
+Свойства:
+  List`1<IMarker> markers
+  int Count
+  IMarker Item
+Методы:
+  List`1<IMarker> get_markers()
+  void .ctor(int capacity)
+  void Add(ScriptableObject item)
+  bool Remove(IMarker item)
+  bool Remove(ScriptableObject item, TimelineAsset timelineAsset, PlayableAsset thingToDirty)
+  void Clear()
+  bool Contains(ScriptableObject item)
+  IEnumerable`1<IMarker> GetMarkers()
+  int get_Count()
+  IMarker get_Item(int idx)
+  List`1<ScriptableObject> GetRawMarkerList()
+  IMarker CreateMarker(Type type, double time, TrackAsset owner)
+  bool HasNotifications()
+  void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize()
+  void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize()
+  void BuildCache()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.MarkerTrack
+Наследуется от: TrackAsset
+Поля:
+Свойства:
+  IEnumerable`1<PlayableBinding> outputs
+Методы:
+  IEnumerable`1<PlayableBinding> get_outputs()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.CustomSignalEventDrawer
+Наследуется от: PropertyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.SignalAsset
+Наследуется от: ScriptableObject
+Поля:
+  Action`1<SignalAsset> OnEnableCallback
+Свойства:
+Методы:
+  void add_OnEnableCallback(Action`1<SignalAsset> value)
+  void remove_OnEnableCallback(Action`1<SignalAsset> value)
+  void OnEnable()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.SignalEmitter
+Наследуется от: Marker
+Поля:
+  bool m_Retroactive
+  bool m_EmitOnce
+  SignalAsset m_Asset
+Свойства:
+  bool retroactive
+  bool emitOnce
+  SignalAsset asset
+  PropertyName UnityEngine.Playables.INotification.id
+  NotificationFlags UnityEngine.Timeline.INotificationOptionProvider.flags
+Методы:
+  bool get_retroactive()
+  void set_retroactive(bool value)
+  bool get_emitOnce()
+  void set_emitOnce(bool value)
+  SignalAsset get_asset()
+  void set_asset(SignalAsset value)
+  PropertyName UnityEngine.Playables.INotification.get_id()
+  NotificationFlags UnityEngine.Timeline.INotificationOptionProvider.get_flags()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.SignalReceiver
+Наследуется от: MonoBehaviour
+Поля:
+  EventKeyValue m_Events
+Свойства:
+Методы:
+  void OnNotify(Playable origin, INotification notification, object context)
+  void AddReaction(SignalAsset asset, UnityEvent reaction)
+  int AddEmptyReaction(UnityEvent reaction)
+  void Remove(SignalAsset asset)
+  IEnumerable`1<SignalAsset> GetRegisteredSignals()
+  UnityEvent GetReaction(SignalAsset key)
+  int Count()
+  void ChangeSignalAtIndex(int idx, SignalAsset newKey)
+  void RemoveAtIndex(int idx)
+  void ChangeReactionAtIndex(int idx, UnityEvent reaction)
+  UnityEvent GetReactionAtIndex(int idx)
+  SignalAsset GetSignalAssetAtIndex(int idx)
+  void OnEnable()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.SignalTrack
+Наследуется от: MarkerTrack
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TrackAssetExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  GroupTrack GetGroup(TrackAsset asset)
+  void SetGroup(TrackAsset asset, GroupTrack group)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.GroupTrack
+Наследуется от: TrackAsset
+Поля:
+Свойства:
+  IEnumerable`1<PlayableBinding> outputs
+Методы:
+  bool CanCompileClips()
+  IEnumerable`1<PlayableBinding> get_outputs()
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ILayerable
+Поля:
+Свойства:
+Методы:
+  Playable CreateLayerMixer(PlayableGraph graph, GameObject go, int inputCount)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ActivationControlPlayable
+Наследуется от: PlayableBehaviour
+Поля:
+  GameObject gameObject
+  PostPlaybackState postPlayback
+  InitialState m_InitialState
+Свойства:
+Методы:
+  ScriptPlayable`1<ActivationControlPlayable> Create(PlayableGraph graph, GameObject gameObject, PostPlaybackState postPlaybackState)
+  void OnBehaviourPlay(Playable playable, FrameData info)
+  void OnBehaviourPause(Playable playable, FrameData info)
+  void ProcessFrame(Playable playable, FrameData info, object userData)
+  void OnGraphStart(Playable playable)
+  void OnPlayableDestroy(Playable playable)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.BasicPlayableBehaviour
+Наследуется от: ScriptableObject
+Поля:
+Свойства:
+  double duration
+  IEnumerable`1<PlayableBinding> outputs
+Методы:
+  double get_duration()
+  IEnumerable`1<PlayableBinding> get_outputs()
+  void OnGraphStart(Playable playable)
+  void OnGraphStop(Playable playable)
+  void OnPlayableCreate(Playable playable)
+  void OnPlayableDestroy(Playable playable)
+  void OnBehaviourPlay(Playable playable, FrameData info)
+  void OnBehaviourPause(Playable playable, FrameData info)
+  void PrepareFrame(Playable playable, FrameData info)
+  void ProcessFrame(Playable playable, FrameData info, object playerData)
+  Playable CreatePlayable(PlayableGraph graph, GameObject owner)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.DirectorControlPlayable
+Наследуется от: PlayableBehaviour
+Поля:
+  PlayableDirector director
+  bool m_SyncTime
+  double m_AssetDuration
+Свойства:
+Методы:
+  ScriptPlayable`1<DirectorControlPlayable> Create(PlayableGraph graph, PlayableDirector director)
+  void OnPlayableDestroy(Playable playable)
+  void PrepareFrame(Playable playable, FrameData info)
+  void OnBehaviourPlay(Playable playable, FrameData info)
+  void OnBehaviourPause(Playable playable, FrameData info)
+  void ProcessFrame(Playable playable, FrameData info, object playerData)
+  void SyncSpeed(double speed)
+  void SyncStart(PlayableGraph graph, double time)
+  void SyncStop(PlayableGraph graph, double time)
+  bool DetectDiscontinuity(Playable playable, FrameData info)
+  bool DetectOutOfSync(Playable playable)
+  void UpdateTime(Playable playable)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ITimeControl
+Поля:
+Свойства:
+Методы:
+  void SetTime(double time)
+  void OnControlTimeStart()
+  void OnControlTimeStop()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.NotificationFlags
+Наследуется от: Enum
+Поля:
+  short value__
+  NotificationFlags TriggerInEditMode
+  NotificationFlags Retroactive
+  NotificationFlags TriggerOnce
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ParticleControlPlayable
+Наследуется от: PlayableBehaviour
+Поля:
+  float kUnsetTime
+  float m_LastPlayableTime
+  float m_LastParticleTime
+  UInt32 m_RandomSeed
+  ParticleSystem <particleSystem>k__BackingField
+Свойства:
+  ParticleSystem particleSystem
+Методы:
+  ScriptPlayable`1<ParticleControlPlayable> Create(PlayableGraph graph, ParticleSystem component, UInt32 randomSeed)
+  ParticleSystem get_particleSystem()
+  void set_particleSystem(ParticleSystem value)
+  void Initialize(ParticleSystem ps, UInt32 randomSeed)
+  void SetRandomSeed(ParticleSystem particleSystem, UInt32 randomSeed)
+  void PrepareFrame(Playable playable, FrameData data)
+  void OnBehaviourPlay(Playable playable, FrameData info)
+  void OnBehaviourPause(Playable playable, FrameData info)
+  void Simulate(float time, bool restart)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.PrefabControlPlayable
+Наследуется от: PlayableBehaviour
+Поля:
+  GameObject m_Instance
+Свойства:
+  GameObject prefabInstance
+Методы:
+  ScriptPlayable`1<PrefabControlPlayable> Create(PlayableGraph graph, GameObject prefabGameObject, Transform parentTransform)
+  GameObject get_prefabInstance()
+  GameObject Initialize(GameObject prefabGameObject, Transform parentTransform)
+  void OnPlayableDestroy(Playable playable)
+  void OnBehaviourPlay(Playable playable, FrameData info)
+  void OnBehaviourPause(Playable playable, FrameData info)
+  void SetHideFlagsRecursive(GameObject gameObject)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimeControlPlayable
+Наследуется от: PlayableBehaviour
+Поля:
+  ITimeControl m_timeControl
+  bool m_started
+Свойства:
+Методы:
+  ScriptPlayable`1<TimeControlPlayable> Create(PlayableGraph graph, ITimeControl timeControl)
+  void Initialize(ITimeControl timeControl)
+  void PrepareFrame(Playable playable, FrameData info)
+  void OnBehaviourPlay(Playable playable, FrameData info)
+  void OnBehaviourPause(Playable playable, FrameData info)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimeNotificationBehaviour
+Наследуется от: PlayableBehaviour
+Поля:
+  List`1<NotificationEntry> m_Notifications
+  double m_PreviousTime
+  bool m_NeedSortNotifications
+  Playable m_TimeSource
+Свойства:
+  Playable timeSource
+Методы:
+  void set_timeSource(Playable value)
+  ScriptPlayable`1<TimeNotificationBehaviour> Create(PlayableGraph graph, double duration, DirectorWrapMode loopMode)
+  void AddNotification(double time, INotification payload, NotificationFlags flags)
+  void OnGraphStart(Playable playable)
+  void OnBehaviourPause(Playable playable, FrameData info)
+  void PrepareFrame(Playable playable, FrameData info)
+  void SortNotifications()
+  bool CanRestoreNotification(NotificationEntry e, FrameData info, double currentTime, double previousTime)
+  void TriggerNotificationsInRange(double start, double end, FrameData info, Playable playable, bool checkState)
+  void SyncDurationWithExternalSource(Playable playable)
+  void Trigger_internal(Playable playable, PlayableOutput output, NotificationEntry& e)
+  void Restore_internal(NotificationEntry& e)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.PlayableTrack
+Наследуется от: TrackAsset
+Поля:
+Свойства:
+Методы:
+  void OnCreateClip(TimelineClip clip)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TrackMediaType
+Наследуется от: Attribute
+Поля:
+  MediaType m_MediaType
+Свойства:
+Методы:
+  void .ctor(MediaType mt)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TrackClipTypeAttribute
+Наследуется от: Attribute
+Поля:
+  Type inspectedType
+  bool allowAutoCreate
+Свойства:
+Методы:
+  void .ctor(Type clipClass)
+  void .ctor(Type clipClass, bool allowAutoCreate)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.NotKeyableAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TrackBindingFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  TrackBindingFlags None
+  TrackBindingFlags AllowCreateComponent
+  TrackBindingFlags All
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TrackBindingTypeAttribute
+Наследуется от: Attribute
+Поля:
+  Type type
+  TrackBindingFlags flags
+Свойства:
+Методы:
+  void .ctor(Type type)
+  void .ctor(Type type, TrackBindingFlags flags)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.SupportsChildTracksAttribute
+Наследуется от: Attribute
+Поля:
+  Type childType
+  int levels
+Свойства:
+Методы:
+  void .ctor(Type childType, int levels)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.IgnoreOnPlayableTrackAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimeFieldAttribute
+Наследуется от: PropertyAttribute
+Поля:
+  UseEditMode <useEditMode>k__BackingField
+Свойства:
+  UseEditMode useEditMode
+Методы:
+  UseEditMode get_useEditMode()
+  void .ctor(UseEditMode useEditMode)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.FrameRateFieldAttribute
+Наследуется от: PropertyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.HideInMenuAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.CustomStyleAttribute
+Наследуется от: Attribute
+Поля:
+  string ussStyle
+Свойства:
+Методы:
+  void .ctor(string ussStyle)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.MenuCategoryAttribute
+Наследуется от: Attribute
+Поля:
+  string category
+Свойства:
+Методы:
+  void .ctor(string category)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ITimelineClipAsset
+Поля:
+Свойства:
+  ClipCaps clipCaps
+Методы:
+  ClipCaps get_clipCaps()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.ITimelineEvaluateCallback
+Поля:
+Свойства:
+Методы:
+  void Evaluate()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimelinePlayable
+Наследуется от: PlayableBehaviour
+Поля:
+  IntervalTree`1<RuntimeElement> m_IntervalTree
+  List`1<RuntimeElement> m_ActiveClips
+  List`1<RuntimeElement> m_CurrentListOfActiveClips
+  int m_ActiveBit
+  List`1<ITimelineEvaluateCallback> m_EvaluateCallbacks
+  Dictionary`2<TrackAsset, Playable> m_PlayableCache
+  bool muteAudioScrubbing
+Свойства:
+Методы:
+  ScriptPlayable`1<TimelinePlayable> Create(PlayableGraph graph, IEnumerable`1<TrackAsset> tracks, GameObject go, bool autoRebalance, bool createOutputs)
+  void Compile(PlayableGraph graph, Playable timelinePlayable, IEnumerable`1<TrackAsset> tracks, GameObject go, bool autoRebalance, bool createOutputs)
+  void CompileTrackList(PlayableGraph graph, Playable timelinePlayable, IEnumerable`1<TrackAsset> tracks, GameObject go, bool createOutputs)
+  void CreateTrackOutput(PlayableGraph graph, TrackAsset track, GameObject go, Playable playable, int port)
+  void EvaluateWeightsForAnimationPlayableOutput(TrackAsset track, AnimationPlayableOutput animOutput)
+  void EvaluateAnimationPreviewUpdateCallback(TrackAsset track, AnimationPlayableOutput animOutput)
+  Playable CreateTrackPlayable(PlayableGraph graph, Playable timelinePlayable, TrackAsset track, GameObject go, bool createOutputs)
+  void PrepareFrame(Playable playable, FrameData info)
+  void Evaluate(Playable playable, FrameData frameData)
+  void CacheTrack(TrackAsset track, Playable playable, int port, Playable parent)
+  void ForAOTCompilationOnly()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.Extrapolation
+Наследуется от: object
+Поля:
+  double kMinExtrapolationTime
+Свойства:
+Методы:
+  void CalculateExtrapolationTimes(TrackAsset asset)
+  TimelineClip[] SortClipsByStartTime(TimelineClip[] clips)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.HashUtility
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  int CombineHash(int h1, int h2)
+  int CombineHash(int h1, int h2, int h3)
+  int CombineHash(int h1, int h2, int h3, int h4)
+  int CombineHash(int h1, int h2, int h3, int h4, int h5)
+  int CombineHash(int h1, int h2, int h3, int h4, int h5, int h6)
+  int CombineHash(int h1, int h2, int h3, int h4, int h5, int h6, int h7)
+  int CombineHash(Int32[] hashes)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.IPropertyCollector
+Поля:
+Свойства:
+Методы:
+  void PushActiveGameObject(GameObject gameObject)
+  void PopActiveGameObject()
+  void AddFromClip(AnimationClip clip)
+  void AddFromClips(IEnumerable`1<AnimationClip> clips)
+  void AddFromName(string name)
+  void AddFromName(string name)
+  void AddFromClip(GameObject obj, AnimationClip clip)
+  void AddFromClips(GameObject obj, IEnumerable`1<AnimationClip> clips)
+  void AddFromName(GameObject obj, string name)
+  void AddFromName(GameObject obj, string name)
+  void AddFromName(Component component, string name)
+  void AddFromComponent(GameObject obj, Component component)
+  void AddObjectProperties(Object obj, AnimationClip clip)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.IPropertyPreview
+Поля:
+Свойства:
+Методы:
+  void GatherProperties(PlayableDirector director, IPropertyCollector driver)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.NotificationUtilities
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ScriptPlayable`1<TimeNotificationBehaviour> CreateNotificationsPlayable(PlayableGraph graph, IEnumerable`1<IMarker> markers, double duration, DirectorWrapMode extrapolationMode)
+  bool TrackTypeSupportsNotifications(Type type)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimelineClipExtensions
+Наследуется от: object
+Поля:
+  string k_UndoSetParentTrackText
+Свойства:
+Методы:
+  void MoveToTrack(TimelineClip clip, TrackAsset destinationTrack)
+  bool TryMoveToTrack(TimelineClip clip, TrackAsset destinationTrack)
+  void MoveToTrack_Impl(TimelineClip clip, TrackAsset destinationTrack, Object asset, TrackAsset parentTrack)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimelineCreateUtilities
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string GenerateUniqueActorName(List`1<ScriptableObject> tracks, string name)
+  void SaveAssetIntoObject(Object childAsset, Object masterAsset)
+  void RemoveAssetFromObject(Object childAsset, Object masterAsset)
+  AnimationClip CreateAnimationClipForTrack(string name, TrackAsset track, bool isLegacy)
+  bool ValidateParentTrack(TrackAsset parent, Type childType)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimelineUndo
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void PushDestroyUndo(TimelineAsset timeline, Object thingToDirty, Object objectToDestroy)
+  void PushUndo(Object[] thingsToDirty, string operation)
+  void PushUndo(Object thingToDirty, string operation)
+  void RegisterCreatedObjectUndo(Object thingCreated, string operation)
+  string UndoName(string name)
+--------------------------------------------------
+Класс: UnityEngine.Timeline.StandardFrameRates
+Наследуется от: Enum
+Поля:
+  int value__
+  StandardFrameRates Fps24
+  StandardFrameRates Fps23_97
+  StandardFrameRates Fps25
+  StandardFrameRates Fps30
+  StandardFrameRates Fps29_97
+  StandardFrameRates Fps50
+  StandardFrameRates Fps60
+  StandardFrameRates Fps59_94
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Timeline.TimeUtility
+Наследуется от: object
+Поля:
+  double kTimeEpsilon
+  double kFrameRateEpsilon
+  double k_MaxTimelineDurationInSeconds
+  double kFrameRateRounding
+Свойства:
+Методы:
+  void ValidateFrameRate(double frameRate)
+  int ToFrames(double time, double frameRate)
+  double ToExactFrames(double time, double frameRate)
+  double FromFrames(int frames, double frameRate)
+  double FromFrames(double frames, double frameRate)
+  bool OnFrameBoundary(double time, double frameRate)
+  double GetEpsilon(double time, double frameRate)
+  bool OnFrameBoundary(double time, double frameRate, double epsilon)
+  double RoundToFrame(double time, double frameRate)
+  string TimeAsFrames(double timeValue, double frameRate, string format)
+  string TimeAsTimeCode(double timeValue, double frameRate, string format)
+  double ParseTimeCode(string timeCode, double frameRate, double defaultValue)
+  double ParseTimeSeconds(string timeCode, double frameRate, double defaultValue)
+  double GetAnimationClipLength(AnimationClip clip)
+  string RemoveChar(string str, Func`2<char, bool> charToRemoveFunc)
+  FrameRate GetClosestFrameRate(double frameRate)
+  FrameRate ToFrameRate(StandardFrameRates enumValue)
+  bool ToStandardFrameRate(FrameRate rate, StandardFrameRates& standard)
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.Timeline.WeightUtility
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  float NormalizeMixer(Playable mixer)
+--------------------------------------------------

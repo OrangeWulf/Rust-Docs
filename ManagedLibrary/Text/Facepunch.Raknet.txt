@@ -1,0 +1,157 @@
+Сборка: Facepunch.Raknet.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Network.Raknet.Native
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IntPtr NET_Create()
+  void NET_Close(IntPtr nw)
+  int NET_StartClient(IntPtr nw, string hostName, int port, int retries, int retryDelay, int timeout)
+  int NET_StartServer(IntPtr nw, string ip, int port, int maxConnections)
+  IntPtr NET_LastStartupError(IntPtr nw)
+  UInt32 NET_GetReceiveBufferSize(IntPtr nw)
+  bool NET_Receive(IntPtr nw)
+  ulong NETRCV_GUID(IntPtr nw)
+  UInt32 NETRCV_Address(IntPtr nw)
+  UInt32 NETRCV_Port(IntPtr nw)
+  IntPtr NETRCV_RawData(IntPtr nw)
+  int NETRCV_LengthBits(IntPtr nw)
+  int NETRCV_UnreadBits(IntPtr nw)
+  bool NETRCV_ReadBytes(IntPtr nw, Byte* data, int length)
+  void NETRCV_SetReadPointer(IntPtr nw, int bitsOffset)
+  void NETSND_Start(IntPtr nw)
+  void NETSND_WriteBytes(IntPtr nw, Byte* data, int length)
+  UInt32 NETSND_Size(IntPtr nw)
+  UInt32 NETSND_Broadcast(IntPtr nw, int priority, int reliability, int channel)
+  UInt32 NETSND_Send(IntPtr nw, ulong connectionID, int priority, int reliability, int channel)
+  void NET_CloseConnection(IntPtr nw, ulong connectionID)
+  IntPtr NET_GetAddress(IntPtr nw, ulong connectionID)
+  IntPtr NET_GetStatisticsString(IntPtr nw, ulong connectionID)
+  bool NET_GetStatistics(IntPtr nw, ulong connectionID, RaknetStats& data, int dataLength)
+  int NET_GetAveragePing(IntPtr nw, ulong connectionID)
+  int NET_GetLastPing(IntPtr nw, ulong connectionID)
+  int NET_GetLowestPing(IntPtr nw, ulong connectionID)
+  void NET_SendMessage(IntPtr nw, Byte* data, int length, UInt32 adr, ushort port)
+  float NETSND_ReadCompressedFloat(IntPtr nw)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Network.Raknet.Client
+Наследуется от: Client
+Поля:
+  Peer peer
+Свойства:
+Методы:
+  bool IsConnected()
+  bool Connect(string strURL, int port)
+  bool HandleRaknetPacket(byte type, NetRead read)
+  void HandleMessage()
+  void ProcessRead(NetRead read)
+  bool Receive()
+  void Disconnect(string reason, bool sendReasonToServer)
+  string GetDebug(Connection connection)
+  ulong GetStat(Connection connection, StatTypeLong type)
+  int GetLastPing()
+  void ProcessWrite(NetWrite write)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Network.Raknet.Peer
+Наследуется от: object
+Поля:
+  IntPtr ptr
+  Byte[] ByteBuffer
+Свойства:
+  ulong incomingGUID
+  UInt32 incomingAddressInt
+  UInt32 incomingPort
+  string incomingAddress
+  int incomingBits
+  int incomingBitsUnread
+  int incomingBytes
+  int incomingBytesUnread
+Методы:
+  Peer CreateServer(string ip, int port, int maxConnections)
+  Peer CreateConnection(string hostname, int port, int retries, int retryDelay, int timeout)
+  void Close()
+  UInt32 PendingReceiveCount()
+  bool Receive()
+  ulong get_incomingGUID()
+  UInt32 get_incomingAddressInt()
+  UInt32 get_incomingPort()
+  string get_incomingAddress()
+  int get_incomingBits()
+  int get_incomingBitsUnread()
+  int get_incomingBytes()
+  int get_incomingBytesUnread()
+  void SetReadPos(int bitsOffset)
+  bool Read(Byte* data, int length)
+  int ReadBytes(Byte[] buffer, int offset, int length)
+  byte ReadByte()
+  IntPtr RawData()
+  int ReadBytes(MemoryStream memoryStream, int length)
+  void SendStart()
+  void WriteByte(byte val)
+  void WriteBytes(Byte[] val, int offset, int length)
+  void WriteBytes(Byte[] val)
+  void WriteBytes(MemoryStream stream)
+  void Write(Byte* data, int size)
+  UInt32 SendBroadcast(Priority priority, SendMethod reliability, sbyte channel)
+  UInt32 SendTo(ulong guid, Priority priority, SendMethod reliability, sbyte channel)
+  void SendUnconnectedMessage(Byte* data, int length, UInt32 adr, ushort port)
+  string GetAddress(ulong guid)
+  string StringFromPointer(IntPtr p)
+  int ToRaknetPriority(Priority priority)
+  int ToRaknetPacketReliability(SendMethod reliability)
+  void Kick(Connection connection)
+  void Check()
+  string GetStatisticsString(ulong guid)
+  int GetPingAverage(ulong guid)
+  int GetPingLast(ulong guid)
+  int GetPingLowest(ulong guid)
+  RaknetStats GetStatistics(ulong guid)
+  ulong GetStat(Connection connection, StatTypeLong type)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Network.Raknet.PacketType
+Наследуется от: object
+Поля:
+  byte NEW_INCOMING_CONNECTION
+  byte CONNECTION_REQUEST_ACCEPTED
+  byte CONNECTION_ATTEMPT_FAILED
+  byte DISCONNECTION_NOTIFICATION
+  byte NO_FREE_INCOMING_CONNECTIONS
+  byte CONNECTION_LOST
+  byte CONNECTION_BANNED
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Network.Raknet.Server
+Наследуется от: Server
+Поля:
+  Peer peer
+Свойства:
+  string ProtocolId
+Методы:
+  string get_ProtocolId()
+  bool IsConnected()
+  bool Start()
+  void Stop(string shutdownMsg)
+  void Disconnect(Connection cn)
+  void Kick(Connection cn, string message, bool logfile)
+  bool HandleRaknetPacket(byte type, NetRead read)
+  void HandleMessage()
+  void ProcessRead(NetRead read)
+  bool Receive()
+  string GetDebug(Connection connection)
+  int GetAveragePing(Connection connection)
+  ulong GetStat(Connection connection, StatTypeLong type)
+  void ProcessWrite(NetWrite write)
+  void ProcessWrite(NetWrite write, Connection connection)
+  void .ctor()
+--------------------------------------------------

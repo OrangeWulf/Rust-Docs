@@ -1,0 +1,105 @@
+public enum Microsoft.IdentityModel.Abstractions.EventLogLevel : Enum {
+    public int value__;
+    public static EventLogLevel LogAlways;
+    public static EventLogLevel Critical;
+    public static EventLogLevel Error;
+    public static EventLogLevel Warning;
+    public static EventLogLevel Informational;
+    public static EventLogLevel Verbose;
+}
+public interface Microsoft.IdentityModel.Abstractions.IIdentityLogger {
+    public abstract virtual bool IsEnabled(EventLogLevel eventLogLevel);
+    public abstract virtual void Log(LogEntry entry);
+}
+public interface Microsoft.IdentityModel.Abstractions.ITelemetryClient {
+    public string ClientId { get; public set; }
+    public abstract virtual string get_ClientId();
+    public abstract virtual void set_ClientId(string value);
+    public abstract virtual void Initialize();
+    public abstract virtual bool IsEnabled();
+    public abstract virtual bool IsEnabled(string eventName);
+    public abstract virtual void TrackEvent(TelemetryEventDetails eventDetails);
+    public abstract virtual void TrackEvent(string eventName, IDictionary`2<string, string> stringProperties, IDictionary`2<string, long> longProperties, IDictionary`2<string, bool> boolProperties, IDictionary`2<string, DateTime> dateTimeProperties, IDictionary`2<string, double> doubleProperties, IDictionary`2<string, Guid> guidProperties);
+}
+public class Microsoft.IdentityModel.Abstractions.LogEntry : object {
+    [CompilerGeneratedAttribute]
+private EventLogLevel <EventLogLevel>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <CorrelationId>k__BackingField;
+    public EventLogLevel EventLogLevel { get; public set; }
+    public string Message { get; public set; }
+    public string CorrelationId { get; public set; }
+    [CompilerGeneratedAttribute]
+public EventLogLevel get_EventLogLevel();
+    [CompilerGeneratedAttribute]
+public void set_EventLogLevel(EventLogLevel value);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+public void set_Message(string value);
+    [CompilerGeneratedAttribute]
+public string get_CorrelationId();
+    [CompilerGeneratedAttribute]
+public void set_CorrelationId(string value);
+}
+public class Microsoft.IdentityModel.Abstractions.NullIdentityModelLogger : object {
+    [CompilerGeneratedAttribute]
+private static NullIdentityModelLogger <Instance>k__BackingField;
+    public static NullIdentityModelLogger Instance { get; }
+    private static NullIdentityModelLogger();
+    [CompilerGeneratedAttribute]
+public static NullIdentityModelLogger get_Instance();
+    public sealed virtual bool IsEnabled(EventLogLevel eventLogLevel);
+    public sealed virtual void Log(LogEntry entry);
+}
+public class Microsoft.IdentityModel.Abstractions.NullTelemetryClient : object {
+    [CompilerGeneratedAttribute]
+private string <ClientId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private static NullTelemetryClient <Instance>k__BackingField;
+    public string ClientId { get; public set; }
+    public static NullTelemetryClient Instance { get; }
+    private static NullTelemetryClient();
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_ClientId();
+    [CompilerGeneratedAttribute]
+public sealed virtual void set_ClientId(string value);
+    [CompilerGeneratedAttribute]
+public static NullTelemetryClient get_Instance();
+    public sealed virtual bool IsEnabled();
+    public sealed virtual bool IsEnabled(string eventName);
+    public sealed virtual void Initialize();
+    public sealed virtual void TrackEvent(TelemetryEventDetails eventDetails);
+    public sealed virtual void TrackEvent(string eventName, IDictionary`2<string, string> stringProperties, IDictionary`2<string, long> longProperties, IDictionary`2<string, bool> boolProperties, IDictionary`2<string, DateTime> dateTimeProperties, IDictionary`2<string, double> doubleProperties, IDictionary`2<string, Guid> guidProperties);
+}
+public static class Microsoft.IdentityModel.Abstractions.ObservabilityConstants : object {
+    public static string Succeeded;
+    public static string Duration;
+    public static string ActivityId;
+    public static string ClientId;
+}
+public abstract class Microsoft.IdentityModel.Abstractions.TelemetryEventDetails : object {
+    [CompilerGeneratedAttribute]
+private IDictionary`2<string, object> <PropertyValues>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    protected internal IDictionary`2<string, object> PropertyValues { get; }
+    public string Name { get; public set; }
+    public IReadOnlyDictionary`2<string, object> Properties { get; }
+    [CompilerGeneratedAttribute]
+protected internal IDictionary`2<string, object> get_PropertyValues();
+    [CompilerGeneratedAttribute]
+public virtual string get_Name();
+    [CompilerGeneratedAttribute]
+public virtual void set_Name(string value);
+    public virtual IReadOnlyDictionary`2<string, object> get_Properties();
+    public virtual void SetProperty(string key, string value);
+    public virtual void SetProperty(string key, long value);
+    public virtual void SetProperty(string key, bool value);
+    public virtual void SetProperty(string key, DateTime value);
+    public virtual void SetProperty(string key, double value);
+    public virtual void SetProperty(string key, Guid value);
+    private void SetPropertyCore(string key, object value);
+}

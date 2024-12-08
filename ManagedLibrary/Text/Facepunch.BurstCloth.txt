@@ -1,0 +1,330 @@
+Сборка: Facepunch.BurstCloth.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.CodeAnalysis.EmbeddedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Runtime.CompilerServices.IsUnmanagedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.BurstClothCurveRectAttribute
+Наследуется от: PropertyAttribute
+Поля:
+  Rect Rect
+  Color Color
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(Rect rect)
+  void .ctor(float x, float y, float width, float height)
+  void .ctor(Rect rect, Color color)
+  void .ctor(float x, float y, float width, float height, Color color)
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.CapsuleParams
+Наследуется от: ValueType
+Поля:
+  Transform Transform
+  Vector3 PointA
+  Vector3 PointB
+  float Radius
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.BurstCloth
+Наследуется от: MonoBehaviour
+Поля:
+  int TickRateMultiplier
+  int MaximumTickRate
+  List`1<CapsuleParams> CapsuleParamsShared
+  Transform[] RootBones
+  bool SiblingConstraints
+  float LengthModifier
+  BurstClothMaterial Material
+  Vector3 Gravity
+  Transform SimulationSpace
+  float RootMotionStrength
+  bool EnableCollisions
+  float CollisionRadius
+  AnimationCurve CollisionRadiusCurve
+  bool EnableSimulation
+  int TickRate
+  int MaxTicksPerFrame
+  int ConstraintIterationCount
+  List`1<Chain> _chains
+  List`1<BoneData> _boneDataOriginal
+  Vector3 _origin
+  Quaternion _rotation
+  Vector3 _up
+  Vector3 _simulationSpaceDelta
+  Transform _prevSimulationSpace
+  Nullable`1<Vector3> _prevSimulationOrigin
+  Vector3 _originDelta
+  Nullable`1<Vector3> _prevOrigin
+  float _accumulator
+  int _boneCount
+  int _maxBoneDepth
+  Dictionary`2<Transform, int> _boneToIndex
+  TransformAccessArray _boneTransforms
+  NativeArray`1<BoneData> _boneData
+  NativeArray`1<BoneState> _boneState
+  TransformAccessArray _colliderTransforms
+  NativeArray`1<ColliderData> _colliderData
+  NativeArray`1<ColliderState> _colliderState
+Свойства:
+Методы:
+  void Initialize()
+  void Awake()
+  void OnEnable()
+  void OnDisable()
+  void FrameUpdate()
+  JobHandle SimulateSystem()
+  void SetupData()
+  void SetupManagedData()
+  void SetupNativeData()
+  ValueTuple`3<Vector3, Quaternion, Vector3> GetOriginTransform()
+  void GatherColliders(List`1<CapsuleParams> colliders)
+  ValueTuple`2<Vector3, float> GetBoneLocalPositionAndLength(Transform parent, Transform child)
+  ValueTuple`2<Transform, int> GetSiblingAndIndex(int chainIndex, int depth)
+  void BuildBoneToIndexMap(Dictionary`2<Transform, int> boneToIndex)
+  CapsuleParams GetCapsuleParams(CapsuleCollider collider)
+  void UpdateCachedMaterialData()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.BurstClothConstraint
+Наследуется от: MonoBehaviour
+Поля:
+  bool ConstrainRotateX
+  Vector2 RotateX
+  bool ConstrainRotateY
+  Vector2 RotateY
+  bool ConstrainRotateZ
+  Vector2 RotateZ
+  bool ConstrainLength
+  Vector2 Length
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.BurstClothManager
+Наследуется от: MonoBehaviour
+Поля:
+  BurstClothManager _instance
+  List`1<BurstCloth> Instances
+Свойства:
+Методы:
+  void LateUpdate()
+  BurstClothManager Get()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.BurstClothMaterial
+Наследуется от: ScriptableObject
+Поля:
+  float _damping
+  AnimationCurve _dampingCurve
+  float _lengthWeight
+  AnimationCurve _lengthWeightCurve
+  float _shapeWeight
+  AnimationCurve _shapeWeightCurve
+  float _rotationConstraintWeight
+  AnimationCurve _rotationConstraintWeightCurve
+  float _siblingConstraintWeight
+  AnimationCurve _siblingConstraintWeightCurve
+  float _moveSpeed
+  AnimationCurve _moveSpeedCurve
+  BurstClothMaterial _defaultMaterial
+Свойства:
+  float Damping
+  AnimationCurve DampingCurve
+  float LengthWeight
+  AnimationCurve LengthWeightCurve
+  float ShapeWeight
+  AnimationCurve ShapeWeightCurve
+  float RotationConstraintWeight
+  AnimationCurve RotationConstraintWeightCurve
+  float SiblingConstraintWeight
+  AnimationCurve SiblingConstraintWeightCurve
+  float MoveSpeed
+  AnimationCurve MoveSpeedCurve
+  BurstClothMaterial DefaultMaterial
+Методы:
+  float get_Damping()
+  void set_Damping(float value)
+  AnimationCurve get_DampingCurve()
+  float get_LengthWeight()
+  void set_LengthWeight(float value)
+  AnimationCurve get_LengthWeightCurve()
+  float get_ShapeWeight()
+  void set_ShapeWeight(float value)
+  AnimationCurve get_ShapeWeightCurve()
+  float get_RotationConstraintWeight()
+  void set_RotationConstraintWeight(float value)
+  AnimationCurve get_RotationConstraintWeightCurve()
+  float get_SiblingConstraintWeight()
+  void set_SiblingConstraintWeight(float value)
+  AnimationCurve get_SiblingConstraintWeightCurve()
+  float get_MoveSpeed()
+  void set_MoveSpeed(float value)
+  AnimationCurve get_MoveSpeedCurve()
+  BurstClothMaterial get_DefaultMaterial()
+  float GetDamping(float t)
+  float GetLengthWeight(float t)
+  float GetShapeWeight(float t)
+  float GetRotationConstraintWeight(float t)
+  float GetSiblingConstraintWeight(float t)
+  float GetMoveSpeed(float t)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.BurstExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  T& modreq(System.Runtime.InteropServices.InAttribute) GetReadonly(NativeArray`1<T> array, int index)
+  T& Get(NativeArray`1<T> array, int index)
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.Jobs.BoneData
+Наследуется от: ValueType
+Поля:
+  int Depth
+  int Parent
+  int Child
+  float Length
+  float3 Normal
+  int LeftSibling
+  float3 LeftPosition
+  float LengthToLeft
+  int RightSibling
+  float3 RightPosition
+  float LengthToRight
+  float3 LocalPosition
+  float3 DirectionFromOrigin
+  float CollisionRadius
+  float DampingInv
+  float LengthWeight
+  float ShapeWeight
+  float RotationConstraintWeight
+  float SiblingConstraintWeight
+  float MoveSpeed
+  bool ConstrainRotateX
+  float2 RotateXConstraint
+  bool ConstrainRotateY
+  float2 RotateYConstraint
+  bool ConstrainRotateZ
+  float2 RotateZConstraint
+  float2 LengthConstraint
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.Jobs.BoneState
+Наследуется от: ValueType
+Поля:
+  float3 Position
+  quaternion Rotation
+  float3 OldPosition
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.Jobs.ColliderData
+Наследуется от: ValueType
+Поля:
+  float Radius
+  float3 LocalPositionA
+  float3 LocalPositionB
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.Jobs.ColliderState
+Наследуется от: ValueType
+Поля:
+  float3 PositionA
+  float3 PositionB
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.Jobs.InitializeBoneStateJob
+Наследуется от: ValueType
+Поля:
+  NativeArray`1<BoneData> Data
+  NativeArray`1<BoneState> State
+  float DeltaTime
+  int IterationCount
+Свойства:
+Методы:
+  void Execute(int index, TransformAccess transform)
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.Jobs.InitializeColliderStateJob
+Наследуется от: ValueType
+Поля:
+  NativeArray`1<ColliderData> Data
+  NativeArray`1<ColliderState> State
+Свойства:
+Методы:
+  void Execute(int index, TransformAccess transform)
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.Jobs.SimulatePositionsJob
+Наследуется от: ValueType
+Поля:
+  NativeArray`1<ColliderData> ColliderData
+  NativeArray`1<ColliderState> ColliderState
+  NativeArray`1<BoneData> BoneData
+  NativeArray`1<BoneState> BoneState
+  int TickRate
+  float DeltaTime
+  int IterationCount
+  int ConstraintIterationCount
+  float3 SimulationSpaceDelta
+  float3 OriginDelta
+  float3 Gravity
+  float LengthModifier
+  bool SiblingConstraints
+  bool EnableCollisions
+  float3 Origin
+  quaternion Rotation
+  float3 Up
+  float Radius
+Свойства:
+Методы:
+  void Execute()
+  void AdjustSimulationSpace()
+  void MovePositions(BoneData& data, BoneState& oldState, BoneState& newState)
+  void ApplySpringConstraints(BoneData& data, BoneState& state, NativeArray`1& workBoneState, float dt)
+  float3 CalculateAnchorPosition(float3& from, float3& to, float2& lengthRange)
+  void ResolveCollisions(BoneData& data, BoneState& state)
+  void ApplyRotationConstraints(BoneData& data, BoneState& state)
+  quaternion ApplyAngleConstraint(BoneData& data, quaternion rotation, quaternion parentRotation)
+  float3 RayMarch(float3& origin, float3& direction, float radius, float maxDistance)
+  float Scene(float3& position)
+  float Union(float d1, float d2)
+  float Capsule(float3& p, float3& a, float3& b, float r)
+  float3 Slerp(float3 a, float3 b, float t)
+  quaternion FromToRotation(float3 from, float3 to)
+  float ClampAngle(float current, float min, float max)
+  float MoveTowardsAngle(float current, float target, float maxDelta)
+  float MoveTowards(float current, float target, float maxDelta)
+  float DeltaAngle(float current, float target)
+  float Repeat(float t, float length)
+  float3 ToEuler(quaternion q, RotationOrder order)
+  float3 EulerReorderBack(float3 euler, RotationOrder order)
+--------------------------------------------------
+Класс: Facepunch.BurstCloth.Jobs.UpdateTransformsJob
+Наследуется от: ValueType
+Поля:
+  NativeArray`1<BoneData> Data
+  NativeArray`1<BoneState> State
+Свойства:
+Методы:
+  void Execute(int index, TransformAccess transform)
+--------------------------------------------------

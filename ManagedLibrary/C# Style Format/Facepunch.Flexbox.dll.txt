@@ -1,0 +1,470 @@
+public enum Facepunch.Flexbox.FlexAlign : Enum {
+    public int value__;
+    public static FlexAlign Start;
+    public static FlexAlign End;
+    public static FlexAlign Center;
+    public static FlexAlign Stretch;
+}
+public class Facepunch.Flexbox.FlexAlignSelf : ValueType {
+    public bool HasValue;
+    public FlexAlign Value;
+    internal FlexAlign GetValueOrDefault(FlexAlign defaultValue);
+}
+[DisallowMultipleComponent]
+[ExecuteAlways]
+[RequireComponent("UnityEngine.RectTransform")]
+public class Facepunch.Flexbox.FlexAspectRatio : MonoBehaviour {
+    [TooltipAttribute("Controls the initial size of the element before factoring in grow/shrink.")]
+public FlexLength Basis;
+    [MinAttribute("0")]
+[TooltipAttribute("How much this flex element should grow relative to its siblings.")]
+public int Grow;
+    [MinAttribute("0")]
+[TooltipAttribute("How much this flex element should shrink relative to its siblings.")]
+public int Shrink;
+    [TooltipAttribute("Optionally override the parent's cross axis alignment for this element.")]
+public FlexAlignSelf AlignSelf;
+    [TooltipAttribute("The minimum allowed dimensions of this flex element.")]
+public FlexLength MinWidth;
+    [TooltipAttribute("The minimum allowed dimensions of this flex element.")]
+public FlexLength MaxWidth;
+    [TooltipAttribute("The maximum allowed dimensions of this flex element.")]
+public FlexLength MinHeight;
+    [TooltipAttribute("The maximum allowed dimensions of this flex element.")]
+public FlexLength MaxHeight;
+    [TooltipAttribute("The aspect ratio to constrain to - X:Y.")]
+public Vector2 AspectRatio;
+    private float _preferredWidth;
+    private float _preferredHeight;
+    private RectTransform Facepunch.Flexbox.IFlexNode.Transform { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsActive { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsAbsolute { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsDirty { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MinWidth { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MaxWidth { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MinHeight { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MaxHeight { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.Basis { get; }
+    private int Facepunch.Flexbox.IFlexNode.Grow { get; }
+    private int Facepunch.Flexbox.IFlexNode.Shrink { get; }
+    private FlexAlignSelf Facepunch.Flexbox.IFlexNode.AlignSelf { get; }
+    protected void OnEnable();
+    protected void OnDisable();
+    public void SetLayoutDirty();
+    private sealed virtual override RectTransform Facepunch.Flexbox.IFlexNode.get_Transform();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsActive();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsAbsolute();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsDirty();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MinWidth();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MaxWidth();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MinHeight();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MaxHeight();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_Basis();
+    private sealed virtual override int Facepunch.Flexbox.IFlexNode.get_Grow();
+    private sealed virtual override int Facepunch.Flexbox.IFlexNode.get_Shrink();
+    private sealed virtual override FlexAlignSelf Facepunch.Flexbox.IFlexNode.get_AlignSelf();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.SetupTransform();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.SetLayoutDirty(bool force);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.MeasureHorizontal();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.LayoutHorizontal(float maxWidth, float maxHeight);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.MeasureVertical();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.LayoutVertical(float maxWidth, float maxHeight);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.GetScale(Single& scaleX, Single& scaleY);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.GetPreferredSize(Single& preferredWidth, Single& preferredHeight);
+}
+internal class Facepunch.Flexbox.FlexChildEnumerable : ValueType {
+    private FlexElementBase _parent;
+    private bool _reversed;
+    public FlexChildEnumerable(FlexElementBase parent, bool reversed);
+    public FlexChildEnumerator GetEnumerator();
+    private sealed virtual override IEnumerator`1<IFlexNode> System.Collections.Generic.IEnumerable<Facepunch.Flexbox.IFlexNode>.GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+}
+internal class Facepunch.Flexbox.FlexChildEnumerator : ValueType {
+    private Transform _parent;
+    private int _childCount;
+    private bool _reversed;
+    private int _index;
+    [CompilerGeneratedAttribute]
+private IFlexNode <Current>k__BackingField;
+    public IFlexNode Current { get; private set; }
+    private object System.Collections.IEnumerator.Current { get; }
+    public FlexChildEnumerator(FlexElementBase parent, bool reversed);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public sealed virtual IFlexNode get_Current();
+    [CompilerGeneratedAttribute]
+private void set_Current(IFlexNode value);
+    public sealed virtual bool MoveNext();
+    private sealed virtual override object System.Collections.IEnumerator.get_Current();
+    public sealed virtual void Reset();
+    public sealed virtual void Dispose();
+}
+[DisallowMultipleComponent]
+[ExecuteAlways]
+[RequireComponent("UnityEngine.RectTransform")]
+public class Facepunch.Flexbox.FlexColumnsElement : FlexElementBase {
+    [TooltipAttribute("Spacing to add from this elements borders to where children are laid out.")]
+public FlexPadding Padding;
+    [MinAttribute("0")]
+[TooltipAttribute("Spacing to add between each child flex item.")]
+public float Gap;
+    [TooltipAttribute("Enable this to use a fixed number of columns.")]
+public bool FixedColumnCount;
+    [MinAttribute("1")]
+[TooltipAttribute("The number of columns to use when using a fixed number of columns.")]
+public int ColumnCount;
+    [FormerlySerializedAsAttribute("ColumnWidth")]
+[MinAttribute("1")]
+[TooltipAttribute("The minimum width of each column when not using a fixed number of columns.")]
+public int ColumnMinWidth;
+    private int _calculatedColumnCount;
+    private ColumnParameters[] _columnParams;
+    protected virtual void MeasureHorizontalImpl();
+    protected virtual void LayoutHorizontalImpl(float maxWidth, float maxHeight);
+    protected virtual void MeasureVerticalImpl();
+    protected virtual void LayoutVerticalImpl(float maxWidth, float maxHeight);
+    private void EnsureColumnParamsSize();
+}
+public enum Facepunch.Flexbox.FlexDirection : Enum {
+    public int value__;
+    public static FlexDirection Row;
+    public static FlexDirection RowReverse;
+    public static FlexDirection Column;
+    public static FlexDirection ColumnReverse;
+}
+[DisallowMultipleComponent]
+[ExecuteAlways]
+[RequireComponent("UnityEngine.RectTransform")]
+public class Facepunch.Flexbox.FlexElement : FlexElementBase {
+    private static List`1<IFlexNode> SizingChildren;
+    [TooltipAttribute("The direction to layout children in. This determines which axis is the main axis.")]
+public FlexDirection FlexDirection;
+    [TooltipAttribute("Where to start laying out children on the main axis.")]
+public FlexJustify JustifyContent;
+    [TooltipAttribute("How to align child flex elements on the cross axis.")]
+public FlexAlign AlignItems;
+    [TooltipAttribute("Spacing to add from this elements borders to where children are laid out.")]
+public FlexPadding Padding;
+    [MinAttribute("0")]
+[TooltipAttribute("Spacing to add between each child flex item.")]
+public float Gap;
+    private ChildSizingParameters[] _childSizes;
+    private bool IsHorizontal { get; }
+    protected bool IsReversed { get; }
+    private static FlexElement();
+    private bool get_IsHorizontal();
+    protected virtual bool get_IsReversed();
+    protected virtual void MeasureHorizontalImpl();
+    protected virtual void LayoutHorizontalImpl(float maxWidth, float maxHeight);
+    protected virtual void MeasureVerticalImpl();
+    protected virtual void LayoutVerticalImpl(float maxWidth, float maxHeight);
+    private void MeasureMainAxis();
+    private void LayoutMainAxis(float maxWidth, float maxHeight);
+    private void MeasureCrossAxis();
+    private void LayoutCrossAxis(float maxWidth, float maxHeight);
+    [CompilerGeneratedAttribute]
+private bool <LayoutMainAxis>g__TakeGrowth|17_2(Single& value, float maxValue, float scale, <>c__DisplayClass17_0& , <>c__DisplayClass17_1& , <>c__DisplayClass17_2& );
+    [CompilerGeneratedAttribute]
+private bool <LayoutMainAxis>g__TakeShrink|17_3(Single& value, float minValue, float scale, <>c__DisplayClass17_0& , <>c__DisplayClass17_1& , <>c__DisplayClass17_2& );
+    [CompilerGeneratedAttribute]
+private float <LayoutMainAxis>g__GetMainAxisStart|17_1(bool isHorizontal, bool isReversed, <>c__DisplayClass17_0& );
+    [CompilerGeneratedAttribute]
+private float <LayoutCrossAxis>g__GetCrossAxis|19_0(FlexAlign align, bool isHorizontal, float childWidth, float childHeight, <>c__DisplayClass19_0& );
+}
+public abstract class Facepunch.Flexbox.FlexElementBase : UIBehaviour {
+    [TooltipAttribute("Controls the initial size of the element before factoring in grow/shrink.")]
+public FlexLength Basis;
+    [MinAttribute("0")]
+[TooltipAttribute("How much this flex element should grow relative to its siblings.")]
+public int Grow;
+    [MinAttribute("0")]
+[TooltipAttribute("How much this flex element should shrink relative to its siblings.")]
+public int Shrink;
+    [TooltipAttribute("Optionally override the parent's cross axis alignment for this element.")]
+public FlexAlignSelf AlignSelf;
+    [TooltipAttribute("The minimum allowed dimensions of this flex element.")]
+public FlexLength MinWidth;
+    [TooltipAttribute("The minimum allowed dimensions of this flex element.")]
+public FlexLength MaxWidth;
+    [TooltipAttribute("The maximum allowed dimensions of this flex element.")]
+public FlexLength MinHeight;
+    [TooltipAttribute("The maximum allowed dimensions of this flex element.")]
+public FlexLength MaxHeight;
+    [TooltipAttribute("Overrides for the preferred dimensions of this flex element. Useful for things like images which would normally have a preferred size of zero.")]
+public FlexValue OverridePreferredWidth;
+    [TooltipAttribute("Overrides for the preferred dimensions of this flex element. Useful for things like images which would normally have a preferred size of zero.")]
+public FlexValue OverridePreferredHeight;
+    [TooltipAttribute("Absolute elements act as the root container for any number of flex elements.")]
+public bool IsAbsolute;
+    [TooltipAttribute("Automatically resize an absolute element to match the size of its children.")]
+public bool AutoSizeX;
+    [TooltipAttribute("Automatically resize an absolute element to match the size of its children.")]
+public bool AutoSizeY;
+    protected bool IsDirty;
+    protected bool IsDoingLayout;
+    protected float PrefWidth;
+    protected float PrefHeight;
+    protected List`1<IFlexNode> Children;
+    protected bool IsReversed { get; }
+    private RectTransform Facepunch.Flexbox.IFlexNode.Transform { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsActive { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsAbsolute { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsDirty { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MinWidth { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MaxWidth { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MinHeight { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MaxHeight { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.Basis { get; }
+    private int Facepunch.Flexbox.IFlexNode.Grow { get; }
+    private int Facepunch.Flexbox.IFlexNode.Shrink { get; }
+    private FlexAlignSelf Facepunch.Flexbox.IFlexNode.AlignSelf { get; }
+    protected virtual bool get_IsReversed();
+    internal void PerformLayout();
+    public sealed virtual void SetLayoutDirty(bool force);
+    protected abstract virtual void MeasureHorizontalImpl();
+    protected abstract virtual void LayoutHorizontalImpl(float maxWidth, float maxHeight);
+    protected abstract virtual void MeasureVerticalImpl();
+    protected abstract virtual void LayoutVerticalImpl(float maxWidth, float maxHeight);
+    private sealed virtual override RectTransform Facepunch.Flexbox.IFlexNode.get_Transform();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsActive();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsAbsolute();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsDirty();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MinWidth();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MaxWidth();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MinHeight();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MaxHeight();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_Basis();
+    private sealed virtual override int Facepunch.Flexbox.IFlexNode.get_Grow();
+    private sealed virtual override int Facepunch.Flexbox.IFlexNode.get_Shrink();
+    private sealed virtual override FlexAlignSelf Facepunch.Flexbox.IFlexNode.get_AlignSelf();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.SetupTransform();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.MeasureHorizontal();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.LayoutHorizontal(float maxWidth, float maxHeight);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.MeasureVertical();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.LayoutVertical(float maxWidth, float maxHeight);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.GetScale(Single& scaleX, Single& scaleY);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.GetPreferredSize(Single& preferredWidth, Single& preferredHeight);
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    protected virtual void OnRectTransformDimensionsChange();
+    protected virtual void OnBeforeTransformParentChanged();
+    protected virtual void OnTransformParentChanged();
+    protected virtual void OnTransformChildrenChanged();
+    protected static T& Pick(bool value, T& ifTrue, T& ifFalse);
+    protected static float CalculateLengthValue(FlexLength& length, float fillValue, float defaultValue);
+}
+[DisallowMultipleComponent]
+[ExecuteAlways]
+[RequireComponent("UnityEngine.RectTransform")]
+public class Facepunch.Flexbox.FlexGraphicTransform : UIBehaviour {
+    [RangeAttribute("0", "1")]
+public float OriginX;
+    [RangeAttribute("0", "1")]
+public float OriginY;
+    public float TranslateX;
+    public float TranslateY;
+    public float ScaleX;
+    public float ScaleY;
+    public float Rotate;
+    private static Dictionary`2<TextMeshProUGUI, FlexGraphicTransform> TextMeshProTransformers;
+    private static List`1<TMP_SubMeshUI> SubMeshUIs;
+    private static List`1<Mesh> Meshes;
+    private static VertexHelper VertexHelper;
+    private static List`1<Vector3> Vertices;
+    private static List`1<int> Indices;
+    private static List`1<Color32> Colors;
+    private static List`1<Vector2> Uv0;
+    private static List`1<Vector2> Uv1;
+    private static List`1<Vector3> Normals;
+    private static List`1<Vector4> Tangents;
+    private FlexGraphicTransform _parent;
+    private RectTransform _rt;
+    private Graphic _graphic;
+    private TextMeshProUGUI _textMeshPro;
+    private CanvasRenderer _canvasRenderer;
+    private Matrix4x4 transformationMatrix { get; }
+    private static FlexGraphicTransform();
+    protected virtual void Awake();
+    private void UpdateParent();
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    protected virtual void OnDidApplyAnimationProperties();
+    protected virtual void OnTransformParentChanged();
+    public void SetVerticesDirty();
+    public sealed virtual void ModifyMesh(Mesh mesh);
+    private Matrix4x4 get_transformationMatrix();
+    public sealed virtual void ModifyMesh(VertexHelper vh);
+    private void ModifyTextMeshPro();
+    private static void CopyIntoVertexHelper(Mesh mesh);
+}
+public enum Facepunch.Flexbox.FlexJustify : Enum {
+    public int value__;
+    public static FlexJustify Start;
+    public static FlexJustify End;
+    public static FlexJustify Center;
+    public static FlexJustify SpaceBetween;
+    public static FlexJustify SpaceAround;
+    public static FlexJustify SpaceEvenly;
+}
+[DefaultExecutionOrder("-100")]
+[ExecuteAlways]
+public class Facepunch.Flexbox.FlexLayoutManager : MonoBehaviour {
+    [CompilerGeneratedAttribute]
+private static FlexLayoutManager <Instance>k__BackingField;
+    private static List`1<FlexElementBase> DirtyElements;
+    private static List`1<FlexElementBase> UpdatingElements;
+    public static FlexLayoutManager Instance { get; private set; }
+    private static FlexLayoutManager();
+    [CompilerGeneratedAttribute]
+public static FlexLayoutManager get_Instance();
+    [CompilerGeneratedAttribute]
+private static void set_Instance(FlexLayoutManager value);
+    public void OnEnable();
+    public void OnDisable();
+    public void LateUpdate();
+    public static void EnqueueLayout(FlexElementBase element);
+    private static void FlushQueue();
+}
+public class Facepunch.Flexbox.FlexLength : ValueType {
+    public bool HasValue;
+    public float Value;
+    public FlexUnit Unit;
+    public float GetValueOrDefault(float defaultValue);
+}
+public class Facepunch.Flexbox.FlexPadding : ValueType {
+    public float left;
+    public float right;
+    public float top;
+    public float bottom;
+    public FlexPadding(float value);
+    public FlexPadding(float left, float right, float top, float bottom);
+}
+[DisallowMultipleComponent]
+[ExecuteAlways]
+[RequireComponent("UnityEngine.RectTransform")]
+public class Facepunch.Flexbox.FlexText : TextMeshProUGUI {
+    [TooltipAttribute("Controls the initial size of the element before factoring in grow/shrink.")]
+public FlexLength Basis;
+    [MinAttribute("0")]
+[TooltipAttribute("How much this flex element should grow relative to its siblings.")]
+public int Grow;
+    [MinAttribute("0")]
+[TooltipAttribute("How much this flex element should shrink relative to its siblings.")]
+public int Shrink;
+    [TooltipAttribute("Optionally override the parent's cross axis alignment for this element.")]
+public FlexAlignSelf AlignSelf;
+    [TooltipAttribute("The minimum allowed dimensions of this flex element.")]
+public FlexLength MinWidth;
+    [TooltipAttribute("The minimum allowed dimensions of this flex element.")]
+public FlexLength MaxWidth;
+    [TooltipAttribute("The maximum allowed dimensions of this flex element.")]
+public FlexLength MinHeight;
+    [TooltipAttribute("The maximum allowed dimensions of this flex element.")]
+public FlexLength MaxHeight;
+    private bool _isDirty;
+    private float _preferredWidth;
+    private float _preferredHeight;
+    private RectTransform Facepunch.Flexbox.IFlexNode.Transform { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsActive { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsAbsolute { get; }
+    private bool Facepunch.Flexbox.IFlexNode.IsDirty { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MinWidth { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MaxWidth { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MinHeight { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.MaxHeight { get; }
+    private FlexLength Facepunch.Flexbox.IFlexNode.Basis { get; }
+    private int Facepunch.Flexbox.IFlexNode.Grow { get; }
+    private int Facepunch.Flexbox.IFlexNode.Shrink { get; }
+    private FlexAlignSelf Facepunch.Flexbox.IFlexNode.AlignSelf { get; }
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+    public virtual void SetLayoutDirty();
+    private sealed virtual override RectTransform Facepunch.Flexbox.IFlexNode.get_Transform();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsActive();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsAbsolute();
+    private sealed virtual override bool Facepunch.Flexbox.IFlexNode.get_IsDirty();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MinWidth();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MaxWidth();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MinHeight();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_MaxHeight();
+    private sealed virtual override FlexLength Facepunch.Flexbox.IFlexNode.get_Basis();
+    private sealed virtual override int Facepunch.Flexbox.IFlexNode.get_Grow();
+    private sealed virtual override int Facepunch.Flexbox.IFlexNode.get_Shrink();
+    private sealed virtual override FlexAlignSelf Facepunch.Flexbox.IFlexNode.get_AlignSelf();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.SetupTransform();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.SetLayoutDirty(bool force);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.MeasureHorizontal();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.LayoutHorizontal(float maxWidth, float maxHeight);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.MeasureVertical();
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.LayoutVertical(float maxWidth, float maxHeight);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.GetScale(Single& scaleX, Single& scaleY);
+    private sealed virtual override void Facepunch.Flexbox.IFlexNode.GetPreferredSize(Single& preferredWidth, Single& preferredHeight);
+}
+public class Facepunch.Flexbox.FlexTransition : MonoBehaviour {
+    public Definition[] Transitions;
+    private List`1<int> _pendingIds;
+    private bool _currentState;
+    private bool _hasSwitchedState;
+    public void Awake();
+    public void SwitchState(bool enabled, bool animate);
+    public void SwitchState(bool enabled);
+    public void ToggleState();
+    private LTDescr RunTransitionImpl(Definition& transition, bool animate);
+    private static Single& Property(FlexElement element, TransitionProperty property);
+}
+public enum Facepunch.Flexbox.FlexUnit : Enum {
+    public int value__;
+    [InspectorNameAttribute("px")]
+public static FlexUnit Pixels;
+    [InspectorNameAttribute("%")]
+public static FlexUnit Percent;
+}
+public class Facepunch.Flexbox.FlexValue : ValueType {
+    public bool HasValue;
+    public float Value;
+    public float GetOrDefault(float defaultValue);
+}
+public interface Facepunch.Flexbox.IFlexNode {
+    public RectTransform Transform { get; }
+    public bool IsActive { get; }
+    public bool IsAbsolute { get; }
+    public bool IsDirty { get; }
+    public FlexLength MinWidth { get; }
+    public FlexLength MaxWidth { get; }
+    public FlexLength MinHeight { get; }
+    public FlexLength MaxHeight { get; }
+    public int Grow { get; }
+    public int Shrink { get; }
+    public FlexLength Basis { get; }
+    public FlexAlignSelf AlignSelf { get; }
+    public abstract virtual RectTransform get_Transform();
+    public abstract virtual bool get_IsActive();
+    public abstract virtual bool get_IsAbsolute();
+    public abstract virtual bool get_IsDirty();
+    public abstract virtual FlexLength get_MinWidth();
+    public abstract virtual FlexLength get_MaxWidth();
+    public abstract virtual FlexLength get_MinHeight();
+    public abstract virtual FlexLength get_MaxHeight();
+    public abstract virtual int get_Grow();
+    public abstract virtual int get_Shrink();
+    public abstract virtual FlexLength get_Basis();
+    public abstract virtual FlexAlignSelf get_AlignSelf();
+    public abstract virtual void SetupTransform();
+    public abstract virtual void SetLayoutDirty(bool force);
+    public abstract virtual void MeasureHorizontal();
+    public abstract virtual void LayoutHorizontal(float maxWidth, float maxHeight);
+    public abstract virtual void MeasureVertical();
+    public abstract virtual void LayoutVertical(float maxWidth, float maxHeight);
+    public abstract virtual void GetScale(Single& scaleX, Single& scaleY);
+    public abstract virtual void GetPreferredSize(Single& preferredWidth, Single& preferredHeight);
+}
+public static class Facepunch.Flexbox.Utility.FlexUtility : object {
+    public static bool IsPrefabRoot(GameObject gameObject);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

@@ -1,0 +1,893 @@
+internal static class UnityEngine.Experimental.VFX.VFXManager : object {
+}
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.VFX.VFXBatchedEffectInfo : ValueType {
+    public VisualEffectAsset vfxAsset;
+    public UInt32 activeBatchCount;
+    public UInt32 inactiveBatchCount;
+    public UInt32 activeInstanceCount;
+    public UInt32 unbatchedInstanceCount;
+    public UInt32 totalInstanceCapacity;
+    public UInt32 maxInstancePerBatchCapacity;
+    public ulong totalGPUSizeInBytes;
+    public ulong totalCPUSizeInBytes;
+}
+[RequiredByNativeCodeAttribute]
+internal class UnityEngine.VFX.VFXBatchInfo : ValueType {
+    public UInt32 capacity;
+    public UInt32 activeInstanceCount;
+}
+[FlagsAttribute]
+public enum UnityEngine.VFX.VFXCameraBufferTypes : Enum {
+    public int value__;
+    public static VFXCameraBufferTypes None;
+    public static VFXCameraBufferTypes Depth;
+    public static VFXCameraBufferTypes Color;
+    public static VFXCameraBufferTypes Normal;
+}
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.VFX.VFXCameraXRSettings : ValueType {
+    public UInt32 viewTotal;
+    public UInt32 viewCount;
+    public UInt32 viewOffset;
+}
+[FlagsAttribute]
+internal enum UnityEngine.VFX.VFXCullingFlags : Enum {
+    public int value__;
+    public static VFXCullingFlags CullNone;
+    public static VFXCullingFlags CullSimulation;
+    public static VFXCullingFlags CullBoundsUpdate;
+    public static VFXCullingFlags CullDefault;
+}
+[NativeTypeAttribute]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.VFX.VFXEventAttribute : object {
+    private IntPtr m_Ptr;
+    private bool m_Owner;
+    private VisualEffectAsset m_VfxAsset;
+    internal VisualEffectAsset vfxAsset { get; }
+    private VFXEventAttribute(IntPtr ptr, bool owner, VisualEffectAsset vfxAsset);
+    public VFXEventAttribute(VFXEventAttribute original);
+    internal static VFXEventAttribute CreateEventAttributeWrapper();
+    internal void SetWrapValue(IntPtr ptrToEventAttribute);
+    internal static IntPtr Internal_Create();
+    internal static VFXEventAttribute Internal_InstanciateVFXEventAttribute(VisualEffectAsset vfxAsset);
+    internal void Internal_InitFromAsset(VisualEffectAsset vfxAsset);
+    internal void Internal_InitFromEventAttribute(VFXEventAttribute vfxEventAttribute);
+    internal VisualEffectAsset get_vfxAsset();
+    private void Release();
+    protected virtual override void Finalize();
+    public sealed virtual void Dispose();
+    [NativeMethodAttribute]
+internal static void Internal_Destroy(IntPtr ptr);
+    [NativeNameAttribute("HasValueFromScript<bool>")]
+public bool HasBool(int nameID);
+    [NativeNameAttribute("HasValueFromScript<int>")]
+public bool HasInt(int nameID);
+    [NativeNameAttribute("HasValueFromScript<UInt32>")]
+public bool HasUint(int nameID);
+    [NativeNameAttribute("HasValueFromScript<float>")]
+public bool HasFloat(int nameID);
+    [NativeNameAttribute("HasValueFromScript<Vector2f>")]
+public bool HasVector2(int nameID);
+    [NativeNameAttribute("HasValueFromScript<Vector3f>")]
+public bool HasVector3(int nameID);
+    [NativeNameAttribute("HasValueFromScript<Vector4f>")]
+public bool HasVector4(int nameID);
+    [NativeNameAttribute("HasValueFromScript<Matrix4x4f>")]
+public bool HasMatrix4x4(int nameID);
+    [NativeNameAttribute("SetValueFromScript<bool>")]
+public void SetBool(int nameID, bool b);
+    [NativeNameAttribute("SetValueFromScript<int>")]
+public void SetInt(int nameID, int i);
+    [NativeNameAttribute("SetValueFromScript<UInt32>")]
+public void SetUint(int nameID, UInt32 i);
+    [NativeNameAttribute("SetValueFromScript<float>")]
+public void SetFloat(int nameID, float f);
+    [NativeNameAttribute("SetValueFromScript<Vector2f>")]
+public void SetVector2(int nameID, Vector2 v);
+    [NativeNameAttribute("SetValueFromScript<Vector3f>")]
+public void SetVector3(int nameID, Vector3 v);
+    [NativeNameAttribute("SetValueFromScript<Vector4f>")]
+public void SetVector4(int nameID, Vector4 v);
+    [NativeNameAttribute("SetValueFromScript<Matrix4x4f>")]
+public void SetMatrix4x4(int nameID, Matrix4x4 v);
+    [NativeNameAttribute("GetValueFromScript<bool>")]
+public bool GetBool(int nameID);
+    [NativeNameAttribute("GetValueFromScript<int>")]
+public int GetInt(int nameID);
+    [NativeNameAttribute("GetValueFromScript<UInt32>")]
+public UInt32 GetUint(int nameID);
+    [NativeNameAttribute("GetValueFromScript<float>")]
+public float GetFloat(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Vector2f>")]
+public Vector2 GetVector2(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Vector3f>")]
+public Vector3 GetVector3(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Vector4f>")]
+public Vector4 GetVector4(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Matrix4x4f>")]
+public Matrix4x4 GetMatrix4x4(int nameID);
+    public bool HasBool(string name);
+    public bool HasInt(string name);
+    public bool HasUint(string name);
+    public bool HasFloat(string name);
+    public bool HasVector2(string name);
+    public bool HasVector3(string name);
+    public bool HasVector4(string name);
+    public bool HasMatrix4x4(string name);
+    public void SetBool(string name, bool b);
+    public void SetInt(string name, int i);
+    public void SetUint(string name, UInt32 i);
+    public void SetFloat(string name, float f);
+    public void SetVector2(string name, Vector2 v);
+    public void SetVector3(string name, Vector3 v);
+    public void SetVector4(string name, Vector4 v);
+    public void SetMatrix4x4(string name, Matrix4x4 v);
+    public bool GetBool(string name);
+    public int GetInt(string name);
+    public UInt32 GetUint(string name);
+    public float GetFloat(string name);
+    public Vector2 GetVector2(string name);
+    public Vector3 GetVector3(string name);
+    public Vector4 GetVector4(string name);
+    public Matrix4x4 GetMatrix4x4(string name);
+    public void CopyValuesFrom(VFXEventAttribute eventAttibute);
+    private void SetVector2_Injected(int nameID, Vector2& v);
+    private void SetVector3_Injected(int nameID, Vector3& v);
+    private void SetVector4_Injected(int nameID, Vector4& v);
+    private void SetMatrix4x4_Injected(int nameID, Matrix4x4& v);
+    private void GetVector2_Injected(int nameID, Vector2& ret);
+    private void GetVector3_Injected(int nameID, Vector3& ret);
+    private void GetVector4_Injected(int nameID, Vector4& ret);
+    private void GetMatrix4x4_Injected(int nameID, Matrix4x4& ret);
+}
+[UsedByNativeCodeAttribute]
+public class UnityEngine.VFX.VFXExposedProperty : ValueType {
+    public string name;
+    public Type type;
+}
+internal enum UnityEngine.VFX.VFXExpressionOperation : Enum {
+    public int value__;
+    public static VFXExpressionOperation None;
+    public static VFXExpressionOperation Value;
+    public static VFXExpressionOperation Combine2f;
+    public static VFXExpressionOperation Combine3f;
+    public static VFXExpressionOperation Combine4f;
+    public static VFXExpressionOperation ExtractComponent;
+    public static VFXExpressionOperation DeltaTime;
+    public static VFXExpressionOperation TotalTime;
+    public static VFXExpressionOperation SystemSeed;
+    public static VFXExpressionOperation LocalToWorld;
+    public static VFXExpressionOperation WorldToLocal;
+    public static VFXExpressionOperation FrameIndex;
+    public static VFXExpressionOperation PlayRate;
+    public static VFXExpressionOperation UnscaledDeltaTime;
+    public static VFXExpressionOperation ManagerMaxDeltaTime;
+    public static VFXExpressionOperation ManagerFixedTimeStep;
+    public static VFXExpressionOperation GameDeltaTime;
+    public static VFXExpressionOperation GameUnscaledDeltaTime;
+    public static VFXExpressionOperation GameSmoothDeltaTime;
+    public static VFXExpressionOperation GameTotalTime;
+    public static VFXExpressionOperation GameUnscaledTotalTime;
+    public static VFXExpressionOperation GameTotalTimeSinceSceneLoad;
+    public static VFXExpressionOperation GameTimeScale;
+    public static VFXExpressionOperation Sin;
+    public static VFXExpressionOperation Cos;
+    public static VFXExpressionOperation Tan;
+    public static VFXExpressionOperation ASin;
+    public static VFXExpressionOperation ACos;
+    public static VFXExpressionOperation ATan;
+    public static VFXExpressionOperation Abs;
+    public static VFXExpressionOperation Sign;
+    public static VFXExpressionOperation Saturate;
+    public static VFXExpressionOperation Ceil;
+    public static VFXExpressionOperation Round;
+    public static VFXExpressionOperation Frac;
+    public static VFXExpressionOperation Floor;
+    public static VFXExpressionOperation Log2;
+    public static VFXExpressionOperation Mul;
+    public static VFXExpressionOperation Divide;
+    public static VFXExpressionOperation Add;
+    public static VFXExpressionOperation Subtract;
+    public static VFXExpressionOperation Min;
+    public static VFXExpressionOperation Max;
+    public static VFXExpressionOperation Pow;
+    public static VFXExpressionOperation ATan2;
+    public static VFXExpressionOperation TRSToMatrix;
+    public static VFXExpressionOperation InverseMatrix;
+    public static VFXExpressionOperation InverseTRSMatrix;
+    public static VFXExpressionOperation TransposeMatrix;
+    public static VFXExpressionOperation ExtractPositionFromMatrix;
+    public static VFXExpressionOperation ExtractAnglesFromMatrix;
+    public static VFXExpressionOperation ExtractScaleFromMatrix;
+    public static VFXExpressionOperation TransformMatrix;
+    public static VFXExpressionOperation TransformPos;
+    public static VFXExpressionOperation TransformVec;
+    public static VFXExpressionOperation TransformDir;
+    public static VFXExpressionOperation TransformVector4;
+    public static VFXExpressionOperation Vector3sToMatrix;
+    public static VFXExpressionOperation Vector4sToMatrix;
+    public static VFXExpressionOperation MatrixToVector3s;
+    public static VFXExpressionOperation MatrixToVector4s;
+    public static VFXExpressionOperation SampleCurve;
+    public static VFXExpressionOperation SampleGradient;
+    public static VFXExpressionOperation SampleMeshVertexFloat;
+    public static VFXExpressionOperation SampleMeshVertexFloat2;
+    public static VFXExpressionOperation SampleMeshVertexFloat3;
+    public static VFXExpressionOperation SampleMeshVertexFloat4;
+    public static VFXExpressionOperation SampleMeshVertexColor;
+    public static VFXExpressionOperation SampleMeshIndex;
+    public static VFXExpressionOperation VertexBufferFromMesh;
+    public static VFXExpressionOperation VertexBufferFromSkinnedMeshRenderer;
+    public static VFXExpressionOperation IndexBufferFromMesh;
+    public static VFXExpressionOperation MeshFromSkinnedMeshRenderer;
+    public static VFXExpressionOperation RootBoneTransformFromSkinnedMeshRenderer;
+    public static VFXExpressionOperation BakeCurve;
+    public static VFXExpressionOperation BakeGradient;
+    public static VFXExpressionOperation BitwiseLeftShift;
+    public static VFXExpressionOperation BitwiseRightShift;
+    public static VFXExpressionOperation BitwiseOr;
+    public static VFXExpressionOperation BitwiseAnd;
+    public static VFXExpressionOperation BitwiseXor;
+    public static VFXExpressionOperation BitwiseComplement;
+    public static VFXExpressionOperation CastUintToFloat;
+    public static VFXExpressionOperation CastIntToFloat;
+    public static VFXExpressionOperation CastFloatToUint;
+    public static VFXExpressionOperation CastIntToUint;
+    public static VFXExpressionOperation CastFloatToInt;
+    public static VFXExpressionOperation CastUintToInt;
+    public static VFXExpressionOperation CastIntToBool;
+    public static VFXExpressionOperation CastUintToBool;
+    public static VFXExpressionOperation CastFloatToBool;
+    public static VFXExpressionOperation CastBoolToInt;
+    public static VFXExpressionOperation CastBoolToUint;
+    public static VFXExpressionOperation CastBoolToFloat;
+    public static VFXExpressionOperation RGBtoHSV;
+    public static VFXExpressionOperation HSVtoRGB;
+    public static VFXExpressionOperation Condition;
+    public static VFXExpressionOperation Branch;
+    public static VFXExpressionOperation GenerateRandom;
+    public static VFXExpressionOperation GenerateFixedRandom;
+    public static VFXExpressionOperation ExtractMatrixFromMainCamera;
+    public static VFXExpressionOperation ExtractFOVFromMainCamera;
+    public static VFXExpressionOperation ExtractNearPlaneFromMainCamera;
+    public static VFXExpressionOperation ExtractFarPlaneFromMainCamera;
+    public static VFXExpressionOperation ExtractAspectRatioFromMainCamera;
+    public static VFXExpressionOperation ExtractPixelDimensionsFromMainCamera;
+    public static VFXExpressionOperation ExtractScaledPixelDimensionsFromMainCamera;
+    public static VFXExpressionOperation ExtractLensShiftFromMainCamera;
+    public static VFXExpressionOperation GetBufferFromMainCamera;
+    public static VFXExpressionOperation IsMainCameraOrthographic;
+    public static VFXExpressionOperation GetOrthographicSizeFromMainCamera;
+    public static VFXExpressionOperation LogicalAnd;
+    public static VFXExpressionOperation LogicalOr;
+    public static VFXExpressionOperation LogicalNot;
+    public static VFXExpressionOperation ValueNoise1D;
+    public static VFXExpressionOperation ValueNoise2D;
+    public static VFXExpressionOperation ValueNoise3D;
+    public static VFXExpressionOperation ValueCurlNoise2D;
+    public static VFXExpressionOperation ValueCurlNoise3D;
+    public static VFXExpressionOperation PerlinNoise1D;
+    public static VFXExpressionOperation PerlinNoise2D;
+    public static VFXExpressionOperation PerlinNoise3D;
+    public static VFXExpressionOperation PerlinCurlNoise2D;
+    public static VFXExpressionOperation PerlinCurlNoise3D;
+    public static VFXExpressionOperation CellularNoise1D;
+    public static VFXExpressionOperation CellularNoise2D;
+    public static VFXExpressionOperation CellularNoise3D;
+    public static VFXExpressionOperation CellularCurlNoise2D;
+    public static VFXExpressionOperation CellularCurlNoise3D;
+    public static VFXExpressionOperation VoroNoise2D;
+    public static VFXExpressionOperation MeshVertexCount;
+    public static VFXExpressionOperation MeshChannelOffset;
+    public static VFXExpressionOperation MeshChannelInfos;
+    public static VFXExpressionOperation MeshVertexStride;
+    public static VFXExpressionOperation MeshIndexCount;
+    public static VFXExpressionOperation MeshIndexFormat;
+    public static VFXExpressionOperation BufferStride;
+    public static VFXExpressionOperation BufferCount;
+    public static VFXExpressionOperation TextureWidth;
+    public static VFXExpressionOperation TextureHeight;
+    public static VFXExpressionOperation TextureDepth;
+    public static VFXExpressionOperation ReadEventAttribute;
+    public static VFXExpressionOperation SpawnerStateNewLoop;
+    public static VFXExpressionOperation SpawnerStateLoopState;
+    public static VFXExpressionOperation SpawnerStateSpawnCount;
+    public static VFXExpressionOperation SpawnerStateDeltaTime;
+    public static VFXExpressionOperation SpawnerStateTotalTime;
+    public static VFXExpressionOperation SpawnerStateDelayBeforeLoop;
+    public static VFXExpressionOperation SpawnerStateLoopDuration;
+    public static VFXExpressionOperation SpawnerStateDelayAfterLoop;
+    public static VFXExpressionOperation SpawnerStateLoopIndex;
+    public static VFXExpressionOperation SpawnerStateLoopCount;
+}
+[NativeTypeAttribute]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.VFX.VFXExpressionValues : object {
+    internal IntPtr m_Ptr;
+    [RequiredByNativeCodeAttribute]
+internal static VFXExpressionValues CreateExpressionValuesWrapper(IntPtr ptr);
+    [NativeNameAttribute("GetValueFromScript<bool>")]
+[NativeThrowsAttribute]
+public bool GetBool(int nameID);
+    [NativeNameAttribute("GetValueFromScript<int>")]
+[NativeThrowsAttribute]
+public int GetInt(int nameID);
+    [NativeNameAttribute("GetValueFromScript<UInt32>")]
+[NativeThrowsAttribute]
+public UInt32 GetUInt(int nameID);
+    [NativeNameAttribute("GetValueFromScript<float>")]
+[NativeThrowsAttribute]
+public float GetFloat(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Vector2f>")]
+[NativeThrowsAttribute]
+public Vector2 GetVector2(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Vector3f>")]
+[NativeThrowsAttribute]
+public Vector3 GetVector3(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Vector4f>")]
+[NativeThrowsAttribute]
+public Vector4 GetVector4(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Matrix4x4f>")]
+[NativeThrowsAttribute]
+public Matrix4x4 GetMatrix4x4(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Texture*>")]
+[NativeThrowsAttribute]
+public Texture GetTexture(int nameID);
+    [NativeNameAttribute("GetValueFromScript<Mesh*>")]
+[NativeThrowsAttribute]
+public Mesh GetMesh(int nameID);
+    public AnimationCurve GetAnimationCurve(int nameID);
+    [NativeThrowsAttribute]
+internal void Internal_GetAnimationCurveFromScript(int nameID, AnimationCurve curve);
+    public Gradient GetGradient(int nameID);
+    [NativeThrowsAttribute]
+internal void Internal_GetGradientFromScript(int nameID, Gradient gradient);
+    public bool GetBool(string name);
+    public int GetInt(string name);
+    public UInt32 GetUInt(string name);
+    public float GetFloat(string name);
+    public Vector2 GetVector2(string name);
+    public Vector3 GetVector3(string name);
+    public Vector4 GetVector4(string name);
+    public Matrix4x4 GetMatrix4x4(string name);
+    public Texture GetTexture(string name);
+    public AnimationCurve GetAnimationCurve(string name);
+    public Gradient GetGradient(string name);
+    public Mesh GetMesh(string name);
+    private void GetVector2_Injected(int nameID, Vector2& ret);
+    private void GetVector3_Injected(int nameID, Vector3& ret);
+    private void GetVector4_Injected(int nameID, Vector4& ret);
+    private void GetMatrix4x4_Injected(int nameID, Matrix4x4& ret);
+}
+[FlagsAttribute]
+internal enum UnityEngine.VFX.VFXInstancingDisabledReason : Enum {
+    public int value__;
+    public static VFXInstancingDisabledReason None;
+    [DescriptionAttribute("A system is using indirect draw.")]
+public static VFXInstancingDisabledReason IndirectDraw;
+    [DescriptionAttribute("The effect is using output events.")]
+public static VFXInstancingDisabledReason OutputEvent;
+    [DescriptionAttribute("The effect is using GPU events.")]
+public static VFXInstancingDisabledReason GPUEvent;
+    [DescriptionAttribute("An Initialize node has Bounds Mode set to 'Automatic'.")]
+public static VFXInstancingDisabledReason AutomaticBounds;
+    [DescriptionAttribute("The effect contains a mesh output.")]
+public static VFXInstancingDisabledReason MeshOutput;
+    [DescriptionAttribute("The effect has exposed texture, mesh or graphics buffer properties.")]
+public static VFXInstancingDisabledReason ExposedObject;
+    [DescriptionAttribute("Unknown reason.")]
+public static VFXInstancingDisabledReason Unknown;
+}
+internal enum UnityEngine.VFX.VFXInstancingMode : Enum {
+    public int value__;
+    public static VFXInstancingMode Disabled;
+    [InspectorNameAttribute("Automatic batch capacity")]
+public static VFXInstancingMode Auto;
+    [InspectorNameAttribute("Custom batch capacity")]
+public static VFXInstancingMode Custom;
+}
+internal enum UnityEngine.VFX.VFXMainCameraBufferFallback : Enum {
+    public int value__;
+    public static VFXMainCameraBufferFallback NoFallback;
+    public static VFXMainCameraBufferFallback PreferMainCamera;
+    public static VFXMainCameraBufferFallback PreferSceneCamera;
+}
+[NativeHeaderAttribute("Modules/VFX/Public/ScriptBindings/VFXManagerBindings.h")]
+[NativeHeaderAttribute("Modules/VFX/Public/VFXManager.h")]
+[RequiredByNativeCodeAttribute]
+[StaticAccessorAttribute("GetVFXManager()", "0")]
+public static class UnityEngine.VFX.VFXManager : object {
+    private static VFXCameraXRSettings kDefaultCameraXRSettings;
+    internal static ScriptableObject runtimeResources { get; }
+    public static float fixedTimeStep { get; public set; }
+    public static float maxDeltaTime { get; public set; }
+    internal static float maxScrubTime { get; internal set; }
+    internal static string renderPipeSettingsPath { get; }
+    internal static UInt32 batchEmptyLifetime { get; internal set; }
+    private static VFXManager();
+    public static VisualEffect[] GetComponents();
+    internal static ScriptableObject get_runtimeResources();
+    public static float get_fixedTimeStep();
+    public static void set_fixedTimeStep(float value);
+    public static float get_maxDeltaTime();
+    public static void set_maxDeltaTime(float value);
+    internal static float get_maxScrubTime();
+    internal static void set_maxScrubTime(float value);
+    internal static string get_renderPipeSettingsPath();
+    internal static UInt32 get_batchEmptyLifetime();
+    internal static void set_batchEmptyLifetime(UInt32 value);
+    internal static void CleanupEmptyBatches(bool force);
+    public static void FlushEmptyBatches();
+    public static VFXBatchedEffectInfo GetBatchedEffectInfo(VisualEffectAsset vfx);
+    [FreeFunctionAttribute]
+public static void GetBatchedEffectInfos(List`1<VFXBatchedEffectInfo> infos);
+    internal static VFXBatchInfo GetBatchInfo(VisualEffectAsset vfx, UInt32 batchIndex);
+    [ObsoleteAttribute("Use explicit PrepareCamera and ProcessCameraCommand instead")]
+public static void ProcessCamera(Camera cam);
+    public static void PrepareCamera(Camera cam);
+    public static void PrepareCamera(Camera cam, VFXCameraXRSettings camXRSettings);
+    [ObsoleteAttribute("Use ProcessCameraCommand with CullingResults to allow culling of VFX per camera")]
+public static void ProcessCameraCommand(Camera cam, CommandBuffer cmd);
+    [ObsoleteAttribute("Use ProcessCameraCommand with CullingResults to allow culling of VFX per camera")]
+public static void ProcessCameraCommand(Camera cam, CommandBuffer cmd, VFXCameraXRSettings camXRSettings);
+    public static void ProcessCameraCommand(Camera cam, CommandBuffer cmd, VFXCameraXRSettings camXRSettings, CullingResults results);
+    private static void Internal_ProcessCameraCommand(Camera cam, CommandBuffer cmd, VFXCameraXRSettings camXRSettings, IntPtr cullResults);
+    public static VFXCameraBufferTypes IsCameraBufferNeeded(Camera cam);
+    public static void SetCameraBuffer(Camera cam, VFXCameraBufferTypes type, Texture buffer, int x, int y, int width, int height);
+    private static void GetBatchedEffectInfo_Injected(VisualEffectAsset vfx, VFXBatchedEffectInfo& ret);
+    private static void GetBatchInfo_Injected(VisualEffectAsset vfx, UInt32 batchIndex, VFXBatchInfo& ret);
+    private static void PrepareCamera_Injected(Camera cam, VFXCameraXRSettings& camXRSettings);
+    private static void Internal_ProcessCameraCommand_Injected(Camera cam, CommandBuffer cmd, VFXCameraXRSettings& camXRSettings, IntPtr cullResults);
+}
+public class UnityEngine.VFX.VFXOutputEventArgs : ValueType {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private int <nameId>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private VFXEventAttribute <eventAttribute>k__BackingField;
+    public int nameId { get; }
+    public VFXEventAttribute eventAttribute { get; }
+    public VFXOutputEventArgs(int nameId, VFXEventAttribute eventAttribute);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public int get_nameId();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public VFXEventAttribute get_eventAttribute();
+}
+[NativeHeaderAttribute("Modules/VFX/Public/Systems/VFXParticleSystem.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.VFX.VFXParticleSystemInfo : ValueType {
+    public UInt32 aliveCount;
+    public UInt32 capacity;
+    public bool sleeping;
+    public Bounds bounds;
+    public VFXParticleSystemInfo(UInt32 aliveCount, UInt32 capacity, bool sleeping, Bounds bounds);
+}
+[NativeTypeAttribute]
+[RejectDragAndDropMaterial]
+[UsedByNativeCodeAttribute]
+internal class UnityEngine.VFX.VFXRenderer : Renderer {
+}
+internal enum UnityEngine.VFX.VFXSkinnedMeshFrame : Enum {
+    public int value__;
+    public static VFXSkinnedMeshFrame Current;
+    public static VFXSkinnedMeshFrame Previous;
+}
+internal enum UnityEngine.VFX.VFXSkinnedTransform : Enum {
+    public int value__;
+    public static VFXSkinnedTransform LocalRootBoneTransform;
+    public static VFXSkinnedTransform WorldRootBoneTransform;
+}
+[RequiredByNativeCodeAttribute]
+public abstract class UnityEngine.VFX.VFXSpawnerCallbacks : ScriptableObject {
+    public abstract virtual void OnPlay(VFXSpawnerState state, VFXExpressionValues vfxValues, VisualEffect vfxComponent);
+    public abstract virtual void OnUpdate(VFXSpawnerState state, VFXExpressionValues vfxValues, VisualEffect vfxComponent);
+    public abstract virtual void OnStop(VFXSpawnerState state, VFXExpressionValues vfxValues, VisualEffect vfxComponent);
+}
+public enum UnityEngine.VFX.VFXSpawnerLoopState : Enum {
+    public int value__;
+    public static VFXSpawnerLoopState Finished;
+    public static VFXSpawnerLoopState DelayingBeforeLoop;
+    public static VFXSpawnerLoopState Looping;
+    public static VFXSpawnerLoopState DelayingAfterLoop;
+}
+[NativeTypeAttribute]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.VFX.VFXSpawnerState : object {
+    private IntPtr m_Ptr;
+    private bool m_Owner;
+    private VFXEventAttribute m_WrapEventAttribute;
+    public bool playing { get; public set; }
+    public bool newLoop { get; }
+    public VFXSpawnerLoopState loopState { get; public set; }
+    public float spawnCount { get; public set; }
+    public float deltaTime { get; public set; }
+    public float totalTime { get; public set; }
+    public float delayBeforeLoop { get; public set; }
+    public float loopDuration { get; public set; }
+    public float delayAfterLoop { get; public set; }
+    public int loopIndex { get; public set; }
+    public int loopCount { get; public set; }
+    public VFXEventAttribute vfxEventAttribute { get; }
+    internal VFXSpawnerState(IntPtr ptr, bool owner);
+    internal static IntPtr Internal_Create();
+    [RequiredByNativeCodeAttribute]
+internal static VFXSpawnerState CreateSpawnerStateWrapper();
+    private void PrepareWrapper();
+    [RequiredByNativeCodeAttribute]
+internal void SetWrapValue(IntPtr ptrToSpawnerState, IntPtr ptrToEventAttribute);
+    internal IntPtr GetPtr();
+    private void Release();
+    protected virtual override void Finalize();
+    public sealed virtual void Dispose();
+    [NativeMethodAttribute]
+private static void Internal_Destroy(IntPtr ptr);
+    public bool get_playing();
+    public void set_playing(bool value);
+    public bool get_newLoop();
+    public VFXSpawnerLoopState get_loopState();
+    public void set_loopState(VFXSpawnerLoopState value);
+    public float get_spawnCount();
+    public void set_spawnCount(float value);
+    public float get_deltaTime();
+    public void set_deltaTime(float value);
+    public float get_totalTime();
+    public void set_totalTime(float value);
+    public float get_delayBeforeLoop();
+    public void set_delayBeforeLoop(float value);
+    public float get_loopDuration();
+    public void set_loopDuration(float value);
+    public float get_delayAfterLoop();
+    public void set_delayAfterLoop(float value);
+    public int get_loopIndex();
+    public void set_loopIndex(int value);
+    public int get_loopCount();
+    public void set_loopCount(int value);
+    internal VFXEventAttribute Internal_GetVFXEventAttribute();
+    public VFXEventAttribute get_vfxEventAttribute();
+}
+internal enum UnityEngine.VFX.VFXSystemFlag : Enum {
+    public int value__;
+    public static VFXSystemFlag SystemDefault;
+    public static VFXSystemFlag SystemHasKill;
+    public static VFXSystemFlag SystemHasIndirectBuffer;
+    public static VFXSystemFlag SystemReceivedEventGPU;
+    public static VFXSystemFlag SystemHasStrips;
+    public static VFXSystemFlag SystemNeedsComputeBounds;
+    public static VFXSystemFlag SystemAutomaticBounds;
+    public static VFXSystemFlag SystemInWorldSpace;
+    public static VFXSystemFlag SystemHasDirectLink;
+    public static VFXSystemFlag SystemHasAttributeBuffer;
+    public static VFXSystemFlag SystemUsesInstancedRendering;
+}
+internal enum UnityEngine.VFX.VFXSystemType : Enum {
+    public int value__;
+    public static VFXSystemType Spawner;
+    public static VFXSystemType Particle;
+    public static VFXSystemType Mesh;
+    public static VFXSystemType OutputEvent;
+}
+internal enum UnityEngine.VFX.VFXTaskType : Enum {
+    public int value__;
+    public static VFXTaskType None;
+    public static VFXTaskType Spawner;
+    public static VFXTaskType Initialize;
+    public static VFXTaskType Update;
+    public static VFXTaskType Output;
+    public static VFXTaskType CameraSort;
+    public static VFXTaskType PerCameraUpdate;
+    public static VFXTaskType PerCameraSort;
+    public static VFXTaskType PerOutputSort;
+    public static VFXTaskType GlobalSort;
+    public static VFXTaskType ParticlePointOutput;
+    public static VFXTaskType ParticleLineOutput;
+    public static VFXTaskType ParticleQuadOutput;
+    public static VFXTaskType ParticleHexahedronOutput;
+    public static VFXTaskType ParticleMeshOutput;
+    public static VFXTaskType ParticleTriangleOutput;
+    public static VFXTaskType ParticleOctagonOutput;
+    public static VFXTaskType ConstantRateSpawner;
+    public static VFXTaskType BurstSpawner;
+    public static VFXTaskType PeriodicBurstSpawner;
+    public static VFXTaskType VariableRateSpawner;
+    public static VFXTaskType CustomCallbackSpawner;
+    public static VFXTaskType SetAttributeSpawner;
+    public static VFXTaskType EvaluateExpressionsSpawner;
+}
+[FlagsAttribute]
+internal enum UnityEngine.VFX.VFXUpdateMode : Enum {
+    public int value__;
+    public static VFXUpdateMode FixedDeltaTime;
+    public static VFXUpdateMode DeltaTime;
+    public static VFXUpdateMode IgnoreTimeScale;
+    public static VFXUpdateMode ExactFixedTimeStep;
+    public static VFXUpdateMode DeltaTimeAndIgnoreTimeScale;
+    public static VFXUpdateMode FixedDeltaAndExactTime;
+    public static VFXUpdateMode FixedDeltaAndExactTimeAndIgnoreTimeScale;
+}
+internal enum UnityEngine.VFX.VFXValueType : Enum {
+    public int value__;
+    public static VFXValueType None;
+    public static VFXValueType Float;
+    public static VFXValueType Float2;
+    public static VFXValueType Float3;
+    public static VFXValueType Float4;
+    public static VFXValueType Int32;
+    public static VFXValueType Uint32;
+    public static VFXValueType Texture2D;
+    public static VFXValueType Texture2DArray;
+    public static VFXValueType Texture3D;
+    public static VFXValueType TextureCube;
+    public static VFXValueType TextureCubeArray;
+    public static VFXValueType CameraBuffer;
+    public static VFXValueType Matrix4x4;
+    public static VFXValueType Curve;
+    public static VFXValueType ColorGradient;
+    public static VFXValueType Mesh;
+    public static VFXValueType Spline;
+    public static VFXValueType Boolean;
+    public static VFXValueType Buffer;
+    public static VFXValueType SkinnedMeshRenderer;
+}
+[NativeHeaderAttribute("Modules/VFX/Public/VisualEffect.h")]
+[NativeHeaderAttribute("Modules/VFX/Public/ScriptBindings/VisualEffectBindings.h")]
+[RequireComponent("UnityEngine.Transform")]
+public class UnityEngine.VFX.VisualEffect : Behaviour {
+    private VFXEventAttribute m_cachedEventAttribute;
+    public Action`1<VFXOutputEventArgs> outputEventReceived;
+    public bool pause { get; public set; }
+    public float playRate { get; public set; }
+    public UInt32 startSeed { get; public set; }
+    public bool resetSeedOnPlay { get; public set; }
+    public int initialEventID { get; public set; }
+    public string initialEventName { get; public set; }
+    public bool culled { get; }
+    public VisualEffectAsset visualEffectAsset { get; public set; }
+    public int aliveParticleCount { get; }
+    internal float time { get; }
+    public bool get_pause();
+    public void set_pause(bool value);
+    public float get_playRate();
+    public void set_playRate(float value);
+    public UInt32 get_startSeed();
+    public void set_startSeed(UInt32 value);
+    public bool get_resetSeedOnPlay();
+    public void set_resetSeedOnPlay(bool value);
+    [FreeFunctionAttribute]
+public int get_initialEventID();
+    [FreeFunctionAttribute]
+public void set_initialEventID(int value);
+    [FreeFunctionAttribute]
+public string get_initialEventName();
+    [FreeFunctionAttribute]
+public void set_initialEventName(string value);
+    public bool get_culled();
+    public VisualEffectAsset get_visualEffectAsset();
+    public void set_visualEffectAsset(VisualEffectAsset value);
+    public VFXEventAttribute CreateVFXEventAttribute();
+    private void CheckValidVFXEventAttribute(VFXEventAttribute eventAttribute);
+    [FreeFunctionAttribute]
+private void SendEventFromScript(int eventNameID, VFXEventAttribute eventAttribute);
+    public void SendEvent(int eventNameID, VFXEventAttribute eventAttribute);
+    public void SendEvent(string eventName, VFXEventAttribute eventAttribute);
+    public void SendEvent(int eventNameID);
+    public void SendEvent(string eventName);
+    public void Play(VFXEventAttribute eventAttribute);
+    public void Play();
+    public void Stop(VFXEventAttribute eventAttribute);
+    public void Stop();
+    public void Reinit();
+    internal void Reinit(bool sendInitialEventAndPrewarm);
+    public void AdvanceOneFrame();
+    internal void RecreateData();
+    [FreeFunctionAttribute]
+public void ResetOverride(int nameID);
+    [FreeFunctionAttribute]
+public TextureDimension GetTextureDimension(int nameID);
+    [FreeFunctionAttribute]
+public bool HasBool(int nameID);
+    [FreeFunctionAttribute]
+public bool HasInt(int nameID);
+    [FreeFunctionAttribute]
+public bool HasUInt(int nameID);
+    [FreeFunctionAttribute]
+public bool HasFloat(int nameID);
+    [FreeFunctionAttribute]
+public bool HasVector2(int nameID);
+    [FreeFunctionAttribute]
+public bool HasVector3(int nameID);
+    [FreeFunctionAttribute]
+public bool HasVector4(int nameID);
+    [FreeFunctionAttribute]
+public bool HasMatrix4x4(int nameID);
+    [FreeFunctionAttribute]
+public bool HasTexture(int nameID);
+    [FreeFunctionAttribute]
+public bool HasAnimationCurve(int nameID);
+    [FreeFunctionAttribute]
+public bool HasGradient(int nameID);
+    [FreeFunctionAttribute]
+public bool HasMesh(int nameID);
+    [FreeFunctionAttribute]
+public bool HasSkinnedMeshRenderer(int nameID);
+    [FreeFunctionAttribute]
+public bool HasGraphicsBuffer(int nameID);
+    [FreeFunctionAttribute]
+public void SetBool(int nameID, bool b);
+    [FreeFunctionAttribute]
+public void SetInt(int nameID, int i);
+    [FreeFunctionAttribute]
+public void SetUInt(int nameID, UInt32 i);
+    [FreeFunctionAttribute]
+public void SetFloat(int nameID, float f);
+    [FreeFunctionAttribute]
+public void SetVector2(int nameID, Vector2 v);
+    [FreeFunctionAttribute]
+public void SetVector3(int nameID, Vector3 v);
+    [FreeFunctionAttribute]
+public void SetVector4(int nameID, Vector4 v);
+    [FreeFunctionAttribute]
+public void SetMatrix4x4(int nameID, Matrix4x4 v);
+    [FreeFunctionAttribute]
+public void SetTexture(int nameID, Texture t);
+    [FreeFunctionAttribute]
+public void SetAnimationCurve(int nameID, AnimationCurve c);
+    [FreeFunctionAttribute]
+public void SetGradient(int nameID, Gradient g);
+    [FreeFunctionAttribute]
+public void SetMesh(int nameID, Mesh m);
+    [FreeFunctionAttribute]
+public void SetSkinnedMeshRenderer(int nameID, SkinnedMeshRenderer m);
+    [FreeFunctionAttribute]
+public void SetGraphicsBuffer(int nameID, GraphicsBuffer g);
+    [FreeFunctionAttribute]
+public bool GetBool(int nameID);
+    [FreeFunctionAttribute]
+public int GetInt(int nameID);
+    [FreeFunctionAttribute]
+public UInt32 GetUInt(int nameID);
+    [FreeFunctionAttribute]
+public float GetFloat(int nameID);
+    [FreeFunctionAttribute]
+public Vector2 GetVector2(int nameID);
+    [FreeFunctionAttribute]
+public Vector3 GetVector3(int nameID);
+    [FreeFunctionAttribute]
+public Vector4 GetVector4(int nameID);
+    [FreeFunctionAttribute]
+public Matrix4x4 GetMatrix4x4(int nameID);
+    [FreeFunctionAttribute]
+public Texture GetTexture(int nameID);
+    [FreeFunctionAttribute]
+public Mesh GetMesh(int nameID);
+    [FreeFunctionAttribute]
+public SkinnedMeshRenderer GetSkinnedMeshRenderer(int nameID);
+    [FreeFunctionAttribute]
+internal GraphicsBuffer GetGraphicsBuffer(int nameID);
+    public Gradient GetGradient(int nameID);
+    [FreeFunctionAttribute]
+private void Internal_GetGradient(int nameID, Gradient gradient);
+    public AnimationCurve GetAnimationCurve(int nameID);
+    [FreeFunctionAttribute]
+private void Internal_GetAnimationCurve(int nameID, AnimationCurve curve);
+    [FreeFunctionAttribute]
+public VFXParticleSystemInfo GetParticleSystemInfo(int nameID);
+    [FreeFunctionAttribute]
+private void GetSpawnSystemInfo(int nameID, IntPtr spawnerState);
+    public bool HasAnySystemAwake();
+    [FreeFunctionAttribute]
+internal Bounds GetComputedBounds(int nameID);
+    [FreeFunctionAttribute]
+internal Vector3 GetCurrentBoundsPadding(int nameID);
+    public void GetSpawnSystemInfo(int nameID, VFXSpawnerState spawnState);
+    public VFXSpawnerState GetSpawnSystemInfo(int nameID);
+    public bool HasSystem(int nameID);
+    public void GetSystemNames(List`1<string> names);
+    public void GetParticleSystemNames(List`1<string> names);
+    public void GetOutputEventNames(List`1<string> names);
+    public void GetSpawnSystemNames(List`1<string> names);
+    public void ResetOverride(string name);
+    public bool HasInt(string name);
+    public bool HasUInt(string name);
+    public bool HasFloat(string name);
+    public bool HasVector2(string name);
+    public bool HasVector3(string name);
+    public bool HasVector4(string name);
+    public bool HasMatrix4x4(string name);
+    public bool HasTexture(string name);
+    public TextureDimension GetTextureDimension(string name);
+    public bool HasAnimationCurve(string name);
+    public bool HasGradient(string name);
+    public bool HasMesh(string name);
+    public bool HasSkinnedMeshRenderer(string name);
+    public bool HasGraphicsBuffer(string name);
+    public bool HasBool(string name);
+    public void SetInt(string name, int i);
+    public void SetUInt(string name, UInt32 i);
+    public void SetFloat(string name, float f);
+    public void SetVector2(string name, Vector2 v);
+    public void SetVector3(string name, Vector3 v);
+    public void SetVector4(string name, Vector4 v);
+    public void SetMatrix4x4(string name, Matrix4x4 v);
+    public void SetTexture(string name, Texture t);
+    public void SetAnimationCurve(string name, AnimationCurve c);
+    public void SetGradient(string name, Gradient g);
+    public void SetMesh(string name, Mesh m);
+    public void SetSkinnedMeshRenderer(string name, SkinnedMeshRenderer m);
+    public void SetGraphicsBuffer(string name, GraphicsBuffer g);
+    public void SetBool(string name, bool b);
+    public int GetInt(string name);
+    public UInt32 GetUInt(string name);
+    public float GetFloat(string name);
+    public Vector2 GetVector2(string name);
+    public Vector3 GetVector3(string name);
+    public Vector4 GetVector4(string name);
+    public Matrix4x4 GetMatrix4x4(string name);
+    public Texture GetTexture(string name);
+    public Mesh GetMesh(string name);
+    public SkinnedMeshRenderer GetSkinnedMeshRenderer(string name);
+    internal GraphicsBuffer GetGraphicsBuffer(string name);
+    public bool GetBool(string name);
+    public AnimationCurve GetAnimationCurve(string name);
+    public Gradient GetGradient(string name);
+    public bool HasSystem(string name);
+    public VFXParticleSystemInfo GetParticleSystemInfo(string name);
+    public VFXSpawnerState GetSpawnSystemInfo(string name);
+    internal Bounds GetComputedBounds(string name);
+    internal Vector3 GetCurrentBoundsPadding(string name);
+    public int get_aliveParticleCount();
+    internal float get_time();
+    public void Simulate(float stepDeltaTime, UInt32 stepCount);
+    [RequiredByNativeCodeAttribute]
+private static VFXEventAttribute InvokeGetCachedEventAttributeForOutputEvent_Internal(VisualEffect source);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeOutputEventReceived_Internal(VisualEffect source, int eventNameId);
+    private void SetVector2_Injected(int nameID, Vector2& v);
+    private void SetVector3_Injected(int nameID, Vector3& v);
+    private void SetVector4_Injected(int nameID, Vector4& v);
+    private void SetMatrix4x4_Injected(int nameID, Matrix4x4& v);
+    private void GetVector2_Injected(int nameID, Vector2& ret);
+    private void GetVector3_Injected(int nameID, Vector3& ret);
+    private void GetVector4_Injected(int nameID, Vector4& ret);
+    private void GetMatrix4x4_Injected(int nameID, Matrix4x4& ret);
+    private void GetParticleSystemInfo_Injected(int nameID, VFXParticleSystemInfo& ret);
+    private void GetComputedBounds_Injected(int nameID, Bounds& ret);
+    private void GetCurrentBoundsPadding_Injected(int nameID, Vector3& ret);
+}
+[NativeHeaderAttribute("Modules/VFX/Public/VisualEffectAsset.h")]
+[NativeHeaderAttribute("VFXScriptingClasses.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.VFX.VisualEffectAsset : VisualEffectObject {
+    public static string PlayEventName;
+    public static string StopEventName;
+    public static int PlayEventID;
+    public static int StopEventID;
+    private static VisualEffectAsset();
+    [FreeFunctionAttribute]
+public TextureDimension GetTextureDimension(int nameID);
+    [FreeFunctionAttribute]
+public void GetExposedProperties(List`1<VFXExposedProperty> exposedProperties);
+    [FreeFunctionAttribute]
+public void GetEvents(List`1<string> names);
+    [FreeFunctionAttribute]
+internal bool HasSystem(int nameID);
+    [FreeFunctionAttribute]
+internal void GetSystemNames(List`1<string> names);
+    [FreeFunctionAttribute]
+internal void GetParticleSystemNames(List`1<string> names);
+    [FreeFunctionAttribute]
+internal void GetOutputEventNames(List`1<string> names);
+    [FreeFunctionAttribute]
+internal void GetSpawnSystemNames(List`1<string> names);
+    public TextureDimension GetTextureDimension(string name);
+}
+[NativeHeaderAttribute("Modules/VFX/Public/VisualEffectAsset.h")]
+[NativeHeaderAttribute("VFXScriptingClasses.h")]
+[NativeHeaderAttribute("Modules/VFX/Public/ScriptBindings/VisualEffectAssetBindings.h")]
+[UsedByNativeCodeAttribute]
+public abstract class UnityEngine.VFX.VisualEffectObject : Object {
+}

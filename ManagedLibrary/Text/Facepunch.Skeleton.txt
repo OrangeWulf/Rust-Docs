@@ -1,0 +1,113 @@
+Сборка: Facepunch.Skeleton.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.BoneFlag
+Наследуется от: Enum
+Поля:
+  int value__
+  BoneFlag Left
+  BoneFlag Middle
+  BoneFlag Right
+  BoneFlag Pelvis
+  BoneFlag Hip
+  BoneFlag Knee
+  BoneFlag Foot
+  BoneFlag Arm
+  BoneFlag Elbow
+  BoneFlag Spine
+  BoneFlag Head
+  BoneFlag Eye
+  BoneFlag Finger
+  BoneFlag Thumb
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Skeleton
+Наследуется от: MonoBehaviour
+Поля:
+  SkeletonDefinition Source
+  GameObject[] Bones
+Свойства:
+Методы:
+  Transform GetTransform(int id)
+  Transform GetTransformSlow(string name)
+  int GetBoneId(string boneName)
+  IEnumerable`1<Transform> GetTransforms()
+  GameObject GetGameObject(int id)
+  void CopyPositions(Skeleton to)
+  void CopySkeletonSkins(SkeletonSkin[] renderers, LODGroup lodGroup)
+  void CopyLodGroup(LODGroup lodGroup, SkeletonSkin[] renderers, SkinnedMeshRenderer[] created)
+  int LookupRendererIndex(SkeletonSkin[] renderers, Renderer renderer)
+  SkinnedMeshRenderer CopySkin(SkeletonSkin renderer)
+  void CopySkeletonAttachments(SkeletonAttachment[] attachments)
+  void CopyAttachment(SkeletonAttachment skeletonAttachment)
+  int ReverseLookupBone(GameObject bone)
+  void Rebuild()
+  GameObject FindBoneImpl(Bone& bone, Transform[] allChildren)
+  void .ctor()
+  Transform <GetTransforms>b__5_0(Bone x)
+--------------------------------------------------
+Класс: Facepunch.SkeletonAttachment
+Наследуется от: MonoBehaviour
+Поля:
+Свойства:
+Методы:
+  void CopyTo(GameObject parent)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.SkeletonDefinition
+Наследуется от: ScriptableObject
+Поля:
+  GameObject SourceObject
+  Bone[] Bones
+  RagdollSettings Ragdoll
+Свойства:
+Методы:
+  Bone FindBone(string name)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.SkeletonRagdoll
+Наследуется от: Skeleton
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.SkeletonSkin
+Наследуется от: MonoBehaviour
+Поля:
+  SkinnedMeshRenderer SkinnedMeshRenderer
+  SkeletonDefinition SkeletonDefinition
+  int LOD
+  int RootBone
+  Int32[] TargetBones
+  Transform[] BoneTransforms
+Свойства:
+Методы:
+  void Retarget(Skeleton target)
+  SkinnedMeshRenderer DuplicateAndRetarget(GameObject host, Skeleton target)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.SkeletonSkinLod
+Наследуется от: MonoBehaviour
+Поля:
+  LOD[] emptyLOD
+  LODGroup LODGroup
+  float LodRange0
+  float LodRange1
+  float LodRange2
+  float LodRange3
+  LOD[] LODs
+Свойства:
+Методы:
+  void Awake()
+  void AddRenderer(int lod, Renderer r)
+  void Clear()
+  void Rebuild()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------

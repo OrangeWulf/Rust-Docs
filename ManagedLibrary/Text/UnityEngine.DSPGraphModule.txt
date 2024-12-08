@@ -1,0 +1,147 @@
+Сборка: UnityEngine.DSPGraphModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Unity.Audio.Handle
+Наследуется от: ValueType
+Поля:
+  IntPtr m_Node
+  int Version
+Свойства:
+  Node* AtomicNode
+  int Id
+  bool Valid
+  bool Alive
+Методы:
+  Node* get_AtomicNode()
+  void set_AtomicNode(Node* value)
+  int get_Id()
+  void set_Id(int value)
+  void .ctor(Node* node)
+  void FlushNode()
+  bool Equals(Handle other)
+  bool Equals(object obj)
+  int GetHashCode()
+  bool get_Valid()
+  bool get_Alive()
+--------------------------------------------------
+Класс: Unity.Audio.AudioMemoryManager
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+  Void* Internal_AllocateAudioMemory(int size, int alignment)
+  void Internal_FreeAudioMemory(Void* memory)
+--------------------------------------------------
+Класс: Unity.Audio.AudioOutputHookManager
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+  void Internal_CreateAudioOutputHook(Handle& outputHook, Void* jobReflectionData, Void* jobData)
+  void Internal_DisposeAudioOutputHook(Handle& outputHook)
+--------------------------------------------------
+Класс: Unity.Audio.DSPCommandBlockInternal
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+  void Internal_CreateDSPNode(Handle& graph, Handle& block, Handle& node, Void* jobReflectionData, Void* jobMemory, Void* parameterDescriptionArray, int parameterCount, Void* sampleProviderDescriptionArray, int sampleProviderCount)
+  void Internal_SetFloat(Handle& graph, Handle& block, Handle& node, Void* jobReflectionData, UInt32 pIndex, float value, UInt32 interpolationLength)
+  void Internal_AddFloatKey(Handle& graph, Handle& block, Handle& node, Void* jobReflectionData, UInt32 pIndex, ulong dspClock, float value)
+  void Internal_SustainFloat(Handle& graph, Handle& block, Handle& node, Void* jobReflectionData, UInt32 pIndex, ulong dspClock)
+  void Internal_UpdateAudioJob(Handle& graph, Handle& block, Handle& node, Void* updateJobMem, Void* updateJobReflectionData, Void* nodeReflectionData)
+  void Internal_CreateUpdateRequest(Handle& graph, Handle& block, Handle& node, Handle& request, object callback, Void* updateJobMem, Void* updateJobReflectionData, Void* nodeReflectionData)
+  void Internal_ReleaseDSPNode(Handle& graph, Handle& block, Handle& node)
+  void Internal_Connect(Handle& graph, Handle& block, Handle& output, int outputPort, Handle& input, int inputPort, Handle& connection)
+  void Internal_Disconnect(Handle& graph, Handle& block, Handle& output, int outputPort, Handle& input, int inputPort)
+  void Internal_DisconnectByHandle(Handle& graph, Handle& block, Handle& connection)
+  void Internal_SetAttenuation(Handle& graph, Handle& block, Handle& connection, Void* value, byte dimension, UInt32 interpolationLength)
+  void Internal_AddAttenuationKey(Handle& graph, Handle& block, Handle& connection, ulong dspClock, Void* value, byte dimension)
+  void Internal_SustainAttenuation(Handle& graph, Handle& block, Handle& connection, ulong dspClock)
+  void Internal_AddInletPort(Handle& graph, Handle& block, Handle& node, int channelCount, int format)
+  void Internal_AddOutletPort(Handle& graph, Handle& block, Handle& node, int channelCount, int format)
+  void Internal_SetSampleProvider(Handle& graph, Handle& block, Handle& node, int item, int index, UInt32 audioSampleProviderId, bool destroyOnRemove)
+  void Internal_InsertSampleProvider(Handle& graph, Handle& block, Handle& node, int item, int index, UInt32 audioSampleProviderId, bool destroyOnRemove)
+  void Internal_RemoveSampleProvider(Handle& graph, Handle& block, Handle& node, int item, int index)
+  void Internal_Complete(Handle& graph, Handle& block)
+  void Internal_Cancel(Handle& graph, Handle& block)
+--------------------------------------------------
+Класс: Unity.Audio.DSPGraphExecutionNode
+Наследуется от: ValueType
+Поля:
+  Void* ReflectionData
+  Void* JobStructData
+  Void* JobData
+  Void* ResourceContext
+  int FunctionIndex
+  int FenceIndex
+  int FenceCount
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Unity.Audio.DSPGraphInternal
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+  void Internal_CreateDSPGraph(Handle& graph, int outputFormat, UInt32 outputChannels, UInt32 dspBufferSize, UInt32 sampleRate)
+  void Internal_DisposeDSPGraph(Handle& graph)
+  void Internal_CreateDSPCommandBlock(Handle& graph, Handle& block)
+  UInt32 Internal_AddNodeEventHandler(Handle& graph, long eventTypeHashCode, object handler)
+  bool Internal_RemoveNodeEventHandler(Handle& graph, UInt32 handlerId)
+  void Internal_GetRootDSP(Handle& graph, Handle& root)
+  ulong Internal_GetDSPClock(Handle& graph)
+  void Internal_BeginMix(Handle& graph, int frameCount, int executionMode)
+  void Internal_ReadMix(Handle& graph, Void* buffer, int frameCount)
+  void Internal_Update(Handle& graph)
+  bool Internal_AssertMixerThread(Handle& graph)
+  bool Internal_AssertMainThread(Handle& graph)
+  Handle Internal_AllocateHandle(Handle& graph)
+  void Internal_InitializeJob(Void* jobStructData, Void* jobReflectionData, Void* resourceContext)
+  void Internal_ExecuteJob(Void* jobStructData, Void* jobReflectionData, Void* jobData, Void* resourceContext)
+  void Internal_ExecuteUpdateJob(Void* updateStructMemory, Void* updateReflectionData, Void* jobStructMemory, Void* jobReflectionData, Void* resourceContext, Handle& requestHandle, JobHandle& fence)
+  void Internal_DisposeJob(Void* jobStructData, Void* jobReflectionData, Void* resourceContext)
+  void Internal_ScheduleGraph(JobHandle inputDeps, Void* nodes, int nodeCount, Int32* childTable, Void* dependencies)
+  void Internal_SyncFenceNoWorkSteal(JobHandle handle)
+  void Internal_AllocateHandle_Injected(Handle& graph, Handle& ret)
+  void Internal_ScheduleGraph_Injected(JobHandle& inputDeps, Void* nodes, int nodeCount, Int32* childTable, Void* dependencies)
+  void Internal_SyncFenceNoWorkSteal_Injected(JobHandle& handle)
+--------------------------------------------------
+Класс: Unity.Audio.DSPNodeUpdateRequestHandleInternal
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+  Void* Internal_GetUpdateJobData(Handle& graph, Handle& requestHandle)
+  bool Internal_HasError(Handle& graph, Handle& requestHandle)
+  void Internal_GetDSPNode(Handle& graph, Handle& requestHandle, Handle& node)
+  void Internal_GetFence(Handle& graph, Handle& requestHandle, JobHandle& fence)
+  void Internal_Dispose(Handle& graph, Handle& requestHandle)
+--------------------------------------------------
+Класс: Unity.Audio.DSPSampleProviderInternal
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+  int Internal_ReadUInt8FromSampleProvider(Void* provider, int format, Void* buffer, int length)
+  int Internal_ReadSInt16FromSampleProvider(Void* provider, int format, Void* buffer, int length)
+  int Internal_ReadFloatFromSampleProvider(Void* provider, Void* buffer, int length)
+  ushort Internal_GetChannelCount(Void* provider)
+  UInt32 Internal_GetSampleRate(Void* provider)
+  int Internal_ReadUInt8FromSampleProviderById(UInt32 providerId, int format, Void* buffer, int length)
+  int Internal_ReadSInt16FromSampleProviderById(UInt32 providerId, int format, Void* buffer, int length)
+  int Internal_ReadFloatFromSampleProviderById(UInt32 providerId, Void* buffer, int length)
+  ushort Internal_GetChannelCountById(UInt32 providerId)
+  UInt32 Internal_GetSampleRateById(UInt32 providerId)
+--------------------------------------------------
+Класс: Unity.Audio.ExecuteContextInternal
+Наследуется от: ValueType
+Поля:
+Свойства:
+Методы:
+  void Internal_PostEvent(Void* dspNodePtr, long eventTypeHashCode, Void* eventPtr, int eventSize)
+--------------------------------------------------

@@ -1,0 +1,746 @@
+Сборка: UnityEngine.AndroidJNIModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AndroidJavaRunnable
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke()
+  IAsyncResult BeginInvoke(AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: UnityEngine.AndroidJavaException
+Наследуется от: Exception
+Поля:
+  string mJavaStackTrace
+Свойства:
+  string StackTrace
+Методы:
+  void .ctor(string message, string javaStackTrace)
+  string get_StackTrace()
+--------------------------------------------------
+Класс: UnityEngine.GlobalJavaObjectRef
+Наследуется от: object
+Поля:
+  bool m_disposed
+  IntPtr m_jobject
+Свойства:
+Методы:
+  void .ctor(IntPtr jobject)
+  void Finalize()
+  IntPtr op_Implicit(GlobalJavaObjectRef obj)
+  void Dispose()
+--------------------------------------------------
+Класс: UnityEngine.AndroidJavaRunnableProxy
+Наследуется от: AndroidJavaProxy
+Поля:
+  AndroidJavaRunnable mRunnable
+Свойства:
+Методы:
+  void .ctor(AndroidJavaRunnable runnable)
+  void run()
+--------------------------------------------------
+Класс: UnityEngine.AndroidJavaProxy
+Наследуется от: object
+Поля:
+  AndroidJavaClass javaInterface
+  IntPtr proxyObject
+  GlobalJavaObjectRef s_JavaLangSystemClass
+  IntPtr s_HashCodeMethodID
+Свойства:
+Методы:
+  void .ctor(string javaInterface)
+  void .ctor(AndroidJavaClass javaInterface)
+  void Finalize()
+  AndroidJavaObject Invoke(string methodName, Object[] args)
+  AndroidJavaObject Invoke(string methodName, AndroidJavaObject[] javaArgs)
+  bool equals(AndroidJavaObject obj)
+  int hashCode()
+  string toString()
+  AndroidJavaObject GetProxyObject()
+  IntPtr GetRawProxy()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine.AndroidJavaObject
+Наследуется от: object
+Поля:
+  bool enableDebugPrints
+  GlobalJavaObjectRef m_jobject
+  GlobalJavaObjectRef m_jclass
+Свойства:
+Методы:
+  void .ctor(string className, String[] args)
+  void .ctor(string className, AndroidJavaObject[] args)
+  void .ctor(string className, AndroidJavaClass[] args)
+  void .ctor(string className, AndroidJavaProxy[] args)
+  void .ctor(string className, AndroidJavaRunnable[] args)
+  void .ctor(string className, Object[] args)
+  void Dispose()
+  void Call(string methodName, T[] args)
+  void Call(string methodName, Object[] args)
+  void CallStatic(string methodName, T[] args)
+  void CallStatic(string methodName, Object[] args)
+  FieldType Get(string fieldName)
+  void Set(string fieldName, FieldType val)
+  FieldType GetStatic(string fieldName)
+  void SetStatic(string fieldName, FieldType val)
+  IntPtr GetRawObject()
+  IntPtr GetRawClass()
+  AndroidJavaObject CloneReference()
+  ReturnType Call(string methodName, T[] args)
+  ReturnType Call(string methodName, Object[] args)
+  ReturnType CallStatic(string methodName, T[] args)
+  ReturnType CallStatic(string methodName, Object[] args)
+  void DebugPrint(string msg)
+  void DebugPrint(string call, string methodName, string signature, Object[] args)
+  void _AndroidJavaObject(string className, Object[] args)
+  void .ctor(IntPtr jobject)
+  void .ctor()
+  void Finalize()
+  void Dispose(bool disposing)
+  void _Call(string methodName, Object[] args)
+  ReturnType _Call(string methodName, Object[] args)
+  FieldType _Get(string fieldName)
+  void _Set(string fieldName, FieldType val)
+  void _CallStatic(string methodName, Object[] args)
+  ReturnType _CallStatic(string methodName, Object[] args)
+  FieldType _GetStatic(string fieldName)
+  void _SetStatic(string fieldName, FieldType val)
+  AndroidJavaObject AndroidJavaObjectDeleteLocalRef(IntPtr jobject)
+  AndroidJavaClass AndroidJavaClassDeleteLocalRef(IntPtr jclass)
+  ReturnType FromJavaArrayDeleteLocalRef(IntPtr jobject)
+  IntPtr _GetRawObject()
+  IntPtr _GetRawClass()
+--------------------------------------------------
+Класс: UnityEngine.AndroidJavaClass
+Наследуется от: AndroidJavaObject
+Поля:
+Свойства:
+Методы:
+  void .ctor(string className)
+  void _AndroidJavaClass(string className)
+  void .ctor(IntPtr jclass)
+--------------------------------------------------
+Класс: UnityEngine.AndroidReflection
+Наследуется от: object
+Поля:
+  string RELECTION_HELPER_CLASS_NAME
+  GlobalJavaObjectRef s_ReflectionHelperClass
+  IntPtr s_ReflectionHelperGetConstructorID
+  IntPtr s_ReflectionHelperGetMethodID
+  IntPtr s_ReflectionHelperGetFieldID
+  IntPtr s_ReflectionHelperGetFieldSignature
+  IntPtr s_ReflectionHelperNewProxyInstance
+  IntPtr s_ReflectionHelperSetNativeExceptionOnProxy
+  IntPtr s_FieldGetDeclaringClass
+Свойства:
+Методы:
+  bool IsPrimitive(Type t)
+  bool IsAssignableFrom(Type t, Type from)
+  IntPtr GetStaticMethodID(string clazz, string methodName, string signature)
+  IntPtr GetMethodID(string clazz, string methodName, string signature)
+  IntPtr GetConstructorMember(IntPtr jclass, string signature)
+  IntPtr GetMethodMember(IntPtr jclass, string methodName, string signature, bool isStatic)
+  IntPtr GetFieldMember(IntPtr jclass, string fieldName, string signature, bool isStatic)
+  IntPtr GetFieldClass(IntPtr field)
+  string GetFieldSignature(IntPtr field)
+  IntPtr NewProxyInstance(IntPtr player, IntPtr delegateHandle, IntPtr interfaze)
+  void SetNativeExceptionOnProxy(IntPtr proxy, Exception e, bool methodNotFound)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: UnityEngine._AndroidJNIHelper
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IntPtr CreateJavaProxy(IntPtr player, IntPtr delegateHandle, AndroidJavaProxy proxy)
+  IntPtr CreateJavaRunnable(AndroidJavaRunnable jrunnable)
+  IntPtr InvokeJavaProxyMethod(AndroidJavaProxy proxy, IntPtr jmethodName, IntPtr jargs)
+  jvalue[] CreateJNIArgArray(Object[] args)
+  object UnboxArray(AndroidJavaObject obj)
+  object Unbox(AndroidJavaObject obj)
+  AndroidJavaObject Box(object obj)
+  void DeleteJNIArgArray(Object[] args, jvalue[] jniArgs)
+  IntPtr ConvertToJNIArray(Array array)
+  ArrayType ConvertFromJNIArray(IntPtr array)
+  IntPtr GetConstructorID(IntPtr jclass, Object[] args)
+  IntPtr GetMethodID(IntPtr jclass, string methodName, Object[] args, bool isStatic)
+  IntPtr GetMethodID(IntPtr jclass, string methodName, Object[] args, bool isStatic)
+  IntPtr GetFieldID(IntPtr jclass, string fieldName, bool isStatic)
+  IntPtr GetConstructorID(IntPtr jclass, string signature)
+  IntPtr GetMethodID(IntPtr jclass, string methodName, string signature, bool isStatic)
+  IntPtr GetMethodIDFallback(IntPtr jclass, string methodName, string signature, bool isStatic)
+  IntPtr GetFieldID(IntPtr jclass, string fieldName, string signature, bool isStatic)
+  string GetSignature(object obj)
+  string GetSignature(Object[] args)
+  string GetSignature(Object[] args)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.jvalue
+Наследуется от: ValueType
+Поля:
+  bool z
+  sbyte b
+  char c
+  short s
+  int i
+  long j
+  float f
+  double d
+  IntPtr l
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AndroidJNIHelper
+Наследуется от: object
+Поля:
+Свойства:
+  bool debug
+Методы:
+  bool get_debug()
+  void set_debug(bool value)
+  IntPtr GetConstructorID(IntPtr javaClass)
+  IntPtr GetConstructorID(IntPtr javaClass, string signature)
+  IntPtr GetMethodID(IntPtr javaClass, string methodName)
+  IntPtr GetMethodID(IntPtr javaClass, string methodName, string signature)
+  IntPtr GetMethodID(IntPtr javaClass, string methodName, string signature, bool isStatic)
+  IntPtr GetFieldID(IntPtr javaClass, string fieldName)
+  IntPtr GetFieldID(IntPtr javaClass, string fieldName, string signature)
+  IntPtr GetFieldID(IntPtr javaClass, string fieldName, string signature, bool isStatic)
+  IntPtr CreateJavaRunnable(AndroidJavaRunnable jrunnable)
+  IntPtr CreateJavaProxy(AndroidJavaProxy proxy)
+  IntPtr ConvertToJNIArray(Array array)
+  jvalue[] CreateJNIArgArray(Object[] args)
+  void DeleteJNIArgArray(Object[] args, jvalue[] jniArgs)
+  IntPtr GetConstructorID(IntPtr jclass, Object[] args)
+  IntPtr GetMethodID(IntPtr jclass, string methodName, Object[] args, bool isStatic)
+  string GetSignature(object obj)
+  string GetSignature(Object[] args)
+  ArrayType ConvertFromJNIArray(IntPtr array)
+  IntPtr GetMethodID(IntPtr jclass, string methodName, Object[] args, bool isStatic)
+  IntPtr GetFieldID(IntPtr jclass, string fieldName, bool isStatic)
+  string GetSignature(Object[] args)
+--------------------------------------------------
+Класс: UnityEngine.AndroidJNI
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  int AttachCurrentThread()
+  int DetachCurrentThread()
+  int GetVersion()
+  IntPtr FindClass(string name)
+  IntPtr FromReflectedMethod(IntPtr refMethod)
+  IntPtr FromReflectedField(IntPtr refField)
+  IntPtr ToReflectedMethod(IntPtr clazz, IntPtr methodID, bool isStatic)
+  IntPtr ToReflectedField(IntPtr clazz, IntPtr fieldID, bool isStatic)
+  IntPtr GetSuperclass(IntPtr clazz)
+  bool IsAssignableFrom(IntPtr clazz1, IntPtr clazz2)
+  int Throw(IntPtr obj)
+  int ThrowNew(IntPtr clazz, string message)
+  IntPtr ExceptionOccurred()
+  void ExceptionDescribe()
+  void ExceptionClear()
+  void FatalError(string message)
+  int PushLocalFrame(int capacity)
+  IntPtr PopLocalFrame(IntPtr ptr)
+  IntPtr NewGlobalRef(IntPtr obj)
+  void DeleteGlobalRef(IntPtr obj)
+  IntPtr NewWeakGlobalRef(IntPtr obj)
+  void DeleteWeakGlobalRef(IntPtr obj)
+  IntPtr NewLocalRef(IntPtr obj)
+  void DeleteLocalRef(IntPtr obj)
+  bool IsSameObject(IntPtr obj1, IntPtr obj2)
+  int EnsureLocalCapacity(int capacity)
+  IntPtr AllocObject(IntPtr clazz)
+  IntPtr NewObject(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  IntPtr GetObjectClass(IntPtr obj)
+  bool IsInstanceOf(IntPtr obj, IntPtr clazz)
+  IntPtr GetMethodID(IntPtr clazz, string name, string sig)
+  IntPtr GetFieldID(IntPtr clazz, string name, string sig)
+  IntPtr GetStaticMethodID(IntPtr clazz, string name, string sig)
+  IntPtr GetStaticFieldID(IntPtr clazz, string name, string sig)
+  IntPtr NewString(string chars)
+  IntPtr NewStringFromStr(string chars)
+  IntPtr NewString(Char[] chars)
+  IntPtr NewStringUTF(string bytes)
+  string GetStringChars(IntPtr str)
+  int GetStringLength(IntPtr str)
+  int GetStringUTFLength(IntPtr str)
+  string GetStringUTFChars(IntPtr str)
+  string CallStringMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  IntPtr CallObjectMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  int CallIntMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  bool CallBooleanMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  short CallShortMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  byte CallByteMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  sbyte CallSByteMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  char CallCharMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  float CallFloatMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  double CallDoubleMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  long CallLongMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  void CallVoidMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  string GetStringField(IntPtr obj, IntPtr fieldID)
+  IntPtr GetObjectField(IntPtr obj, IntPtr fieldID)
+  bool GetBooleanField(IntPtr obj, IntPtr fieldID)
+  byte GetByteField(IntPtr obj, IntPtr fieldID)
+  sbyte GetSByteField(IntPtr obj, IntPtr fieldID)
+  char GetCharField(IntPtr obj, IntPtr fieldID)
+  short GetShortField(IntPtr obj, IntPtr fieldID)
+  int GetIntField(IntPtr obj, IntPtr fieldID)
+  long GetLongField(IntPtr obj, IntPtr fieldID)
+  float GetFloatField(IntPtr obj, IntPtr fieldID)
+  double GetDoubleField(IntPtr obj, IntPtr fieldID)
+  void SetStringField(IntPtr obj, IntPtr fieldID, string val)
+  void SetObjectField(IntPtr obj, IntPtr fieldID, IntPtr val)
+  void SetBooleanField(IntPtr obj, IntPtr fieldID, bool val)
+  void SetByteField(IntPtr obj, IntPtr fieldID, byte val)
+  void SetSByteField(IntPtr obj, IntPtr fieldID, sbyte val)
+  void SetCharField(IntPtr obj, IntPtr fieldID, char val)
+  void SetShortField(IntPtr obj, IntPtr fieldID, short val)
+  void SetIntField(IntPtr obj, IntPtr fieldID, int val)
+  void SetLongField(IntPtr obj, IntPtr fieldID, long val)
+  void SetFloatField(IntPtr obj, IntPtr fieldID, float val)
+  void SetDoubleField(IntPtr obj, IntPtr fieldID, double val)
+  string CallStaticStringMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  IntPtr CallStaticObjectMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  int CallStaticIntMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  bool CallStaticBooleanMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  short CallStaticShortMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  byte CallStaticByteMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  sbyte CallStaticSByteMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  char CallStaticCharMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  float CallStaticFloatMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  double CallStaticDoubleMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  long CallStaticLongMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  void CallStaticVoidMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  string GetStaticStringField(IntPtr clazz, IntPtr fieldID)
+  IntPtr GetStaticObjectField(IntPtr clazz, IntPtr fieldID)
+  bool GetStaticBooleanField(IntPtr clazz, IntPtr fieldID)
+  byte GetStaticByteField(IntPtr clazz, IntPtr fieldID)
+  sbyte GetStaticSByteField(IntPtr clazz, IntPtr fieldID)
+  char GetStaticCharField(IntPtr clazz, IntPtr fieldID)
+  short GetStaticShortField(IntPtr clazz, IntPtr fieldID)
+  int GetStaticIntField(IntPtr clazz, IntPtr fieldID)
+  long GetStaticLongField(IntPtr clazz, IntPtr fieldID)
+  float GetStaticFloatField(IntPtr clazz, IntPtr fieldID)
+  double GetStaticDoubleField(IntPtr clazz, IntPtr fieldID)
+  void SetStaticStringField(IntPtr clazz, IntPtr fieldID, string val)
+  void SetStaticObjectField(IntPtr clazz, IntPtr fieldID, IntPtr val)
+  void SetStaticBooleanField(IntPtr clazz, IntPtr fieldID, bool val)
+  void SetStaticByteField(IntPtr clazz, IntPtr fieldID, byte val)
+  void SetStaticSByteField(IntPtr clazz, IntPtr fieldID, sbyte val)
+  void SetStaticCharField(IntPtr clazz, IntPtr fieldID, char val)
+  void SetStaticShortField(IntPtr clazz, IntPtr fieldID, short val)
+  void SetStaticIntField(IntPtr clazz, IntPtr fieldID, int val)
+  void SetStaticLongField(IntPtr clazz, IntPtr fieldID, long val)
+  void SetStaticFloatField(IntPtr clazz, IntPtr fieldID, float val)
+  void SetStaticDoubleField(IntPtr clazz, IntPtr fieldID, double val)
+  IntPtr ToBooleanArray(Boolean[] array)
+  IntPtr ToByteArray(Byte[] array)
+  IntPtr ToSByteArray(SByte[] array)
+  IntPtr ToCharArray(Char[] array)
+  IntPtr ToShortArray(Int16[] array)
+  IntPtr ToIntArray(Int32[] array)
+  IntPtr ToLongArray(Int64[] array)
+  IntPtr ToFloatArray(Single[] array)
+  IntPtr ToDoubleArray(Double[] array)
+  IntPtr ToObjectArray(IntPtr[] array, IntPtr arrayClass)
+  IntPtr ToObjectArray(IntPtr[] array)
+  Boolean[] FromBooleanArray(IntPtr array)
+  Byte[] FromByteArray(IntPtr array)
+  SByte[] FromSByteArray(IntPtr array)
+  Char[] FromCharArray(IntPtr array)
+  Int16[] FromShortArray(IntPtr array)
+  Int32[] FromIntArray(IntPtr array)
+  Int64[] FromLongArray(IntPtr array)
+  Single[] FromFloatArray(IntPtr array)
+  Double[] FromDoubleArray(IntPtr array)
+  IntPtr[] FromObjectArray(IntPtr array)
+  int GetArrayLength(IntPtr array)
+  IntPtr NewBooleanArray(int size)
+  IntPtr NewByteArray(int size)
+  IntPtr NewSByteArray(int size)
+  IntPtr NewCharArray(int size)
+  IntPtr NewShortArray(int size)
+  IntPtr NewIntArray(int size)
+  IntPtr NewLongArray(int size)
+  IntPtr NewFloatArray(int size)
+  IntPtr NewDoubleArray(int size)
+  IntPtr NewObjectArray(int size, IntPtr clazz, IntPtr obj)
+  bool GetBooleanArrayElement(IntPtr array, int index)
+  byte GetByteArrayElement(IntPtr array, int index)
+  sbyte GetSByteArrayElement(IntPtr array, int index)
+  char GetCharArrayElement(IntPtr array, int index)
+  short GetShortArrayElement(IntPtr array, int index)
+  int GetIntArrayElement(IntPtr array, int index)
+  long GetLongArrayElement(IntPtr array, int index)
+  float GetFloatArrayElement(IntPtr array, int index)
+  double GetDoubleArrayElement(IntPtr array, int index)
+  IntPtr GetObjectArrayElement(IntPtr array, int index)
+  void SetBooleanArrayElement(IntPtr array, int index, byte val)
+  void SetBooleanArrayElement(IntPtr array, int index, bool val)
+  void SetByteArrayElement(IntPtr array, int index, sbyte val)
+  void SetSByteArrayElement(IntPtr array, int index, sbyte val)
+  void SetCharArrayElement(IntPtr array, int index, char val)
+  void SetShortArrayElement(IntPtr array, int index, short val)
+  void SetIntArrayElement(IntPtr array, int index, int val)
+  void SetLongArrayElement(IntPtr array, int index, long val)
+  void SetFloatArrayElement(IntPtr array, int index, float val)
+  void SetDoubleArrayElement(IntPtr array, int index, double val)
+  void SetObjectArrayElement(IntPtr array, int index, IntPtr obj)
+--------------------------------------------------
+Класс: UnityEngine.AndroidJNISafe
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void CheckException()
+  void DeleteGlobalRef(IntPtr globalref)
+  void DeleteWeakGlobalRef(IntPtr globalref)
+  void DeleteLocalRef(IntPtr localref)
+  IntPtr NewString(string chars)
+  IntPtr NewStringUTF(string bytes)
+  string GetStringChars(IntPtr str)
+  string GetStringUTFChars(IntPtr str)
+  IntPtr GetObjectClass(IntPtr ptr)
+  IntPtr GetStaticMethodID(IntPtr clazz, string name, string sig)
+  IntPtr GetMethodID(IntPtr obj, string name, string sig)
+  IntPtr GetFieldID(IntPtr clazz, string name, string sig)
+  IntPtr GetStaticFieldID(IntPtr clazz, string name, string sig)
+  IntPtr FromReflectedMethod(IntPtr refMethod)
+  IntPtr FromReflectedField(IntPtr refField)
+  IntPtr FindClass(string name)
+  IntPtr NewObject(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  void SetStaticObjectField(IntPtr clazz, IntPtr fieldID, IntPtr val)
+  void SetStaticStringField(IntPtr clazz, IntPtr fieldID, string val)
+  void SetStaticCharField(IntPtr clazz, IntPtr fieldID, char val)
+  void SetStaticDoubleField(IntPtr clazz, IntPtr fieldID, double val)
+  void SetStaticFloatField(IntPtr clazz, IntPtr fieldID, float val)
+  void SetStaticLongField(IntPtr clazz, IntPtr fieldID, long val)
+  void SetStaticShortField(IntPtr clazz, IntPtr fieldID, short val)
+  void SetStaticSByteField(IntPtr clazz, IntPtr fieldID, sbyte val)
+  void SetStaticBooleanField(IntPtr clazz, IntPtr fieldID, bool val)
+  void SetStaticIntField(IntPtr clazz, IntPtr fieldID, int val)
+  IntPtr GetStaticObjectField(IntPtr clazz, IntPtr fieldID)
+  string GetStaticStringField(IntPtr clazz, IntPtr fieldID)
+  char GetStaticCharField(IntPtr clazz, IntPtr fieldID)
+  double GetStaticDoubleField(IntPtr clazz, IntPtr fieldID)
+  float GetStaticFloatField(IntPtr clazz, IntPtr fieldID)
+  long GetStaticLongField(IntPtr clazz, IntPtr fieldID)
+  short GetStaticShortField(IntPtr clazz, IntPtr fieldID)
+  sbyte GetStaticSByteField(IntPtr clazz, IntPtr fieldID)
+  bool GetStaticBooleanField(IntPtr clazz, IntPtr fieldID)
+  int GetStaticIntField(IntPtr clazz, IntPtr fieldID)
+  void CallStaticVoidMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  IntPtr CallStaticObjectMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  string CallStaticStringMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  char CallStaticCharMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  double CallStaticDoubleMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  float CallStaticFloatMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  long CallStaticLongMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  short CallStaticShortMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  sbyte CallStaticSByteMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  bool CallStaticBooleanMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  int CallStaticIntMethod(IntPtr clazz, IntPtr methodID, jvalue[] args)
+  void SetObjectField(IntPtr obj, IntPtr fieldID, IntPtr val)
+  void SetStringField(IntPtr obj, IntPtr fieldID, string val)
+  void SetCharField(IntPtr obj, IntPtr fieldID, char val)
+  void SetDoubleField(IntPtr obj, IntPtr fieldID, double val)
+  void SetFloatField(IntPtr obj, IntPtr fieldID, float val)
+  void SetLongField(IntPtr obj, IntPtr fieldID, long val)
+  void SetShortField(IntPtr obj, IntPtr fieldID, short val)
+  void SetSByteField(IntPtr obj, IntPtr fieldID, sbyte val)
+  void SetBooleanField(IntPtr obj, IntPtr fieldID, bool val)
+  void SetIntField(IntPtr obj, IntPtr fieldID, int val)
+  IntPtr GetObjectField(IntPtr obj, IntPtr fieldID)
+  string GetStringField(IntPtr obj, IntPtr fieldID)
+  char GetCharField(IntPtr obj, IntPtr fieldID)
+  double GetDoubleField(IntPtr obj, IntPtr fieldID)
+  float GetFloatField(IntPtr obj, IntPtr fieldID)
+  long GetLongField(IntPtr obj, IntPtr fieldID)
+  short GetShortField(IntPtr obj, IntPtr fieldID)
+  sbyte GetSByteField(IntPtr obj, IntPtr fieldID)
+  bool GetBooleanField(IntPtr obj, IntPtr fieldID)
+  int GetIntField(IntPtr obj, IntPtr fieldID)
+  void CallVoidMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  IntPtr CallObjectMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  string CallStringMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  char CallCharMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  double CallDoubleMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  float CallFloatMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  long CallLongMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  short CallShortMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  sbyte CallSByteMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  bool CallBooleanMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  int CallIntMethod(IntPtr obj, IntPtr methodID, jvalue[] args)
+  IntPtr[] FromObjectArray(IntPtr array)
+  Char[] FromCharArray(IntPtr array)
+  Double[] FromDoubleArray(IntPtr array)
+  Single[] FromFloatArray(IntPtr array)
+  Int64[] FromLongArray(IntPtr array)
+  Int16[] FromShortArray(IntPtr array)
+  Byte[] FromByteArray(IntPtr array)
+  SByte[] FromSByteArray(IntPtr array)
+  Boolean[] FromBooleanArray(IntPtr array)
+  Int32[] FromIntArray(IntPtr array)
+  IntPtr ToObjectArray(IntPtr[] array)
+  IntPtr ToObjectArray(IntPtr[] array, IntPtr type)
+  IntPtr ToCharArray(Char[] array)
+  IntPtr ToDoubleArray(Double[] array)
+  IntPtr ToFloatArray(Single[] array)
+  IntPtr ToLongArray(Int64[] array)
+  IntPtr ToShortArray(Int16[] array)
+  IntPtr ToByteArray(Byte[] array)
+  IntPtr ToSByteArray(SByte[] array)
+  IntPtr ToBooleanArray(Boolean[] array)
+  IntPtr ToIntArray(Int32[] array)
+  IntPtr GetObjectArrayElement(IntPtr array, int index)
+  int GetArrayLength(IntPtr array)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Android.AndroidAssetPackStatus
+Наследуется от: Enum
+Поля:
+  int value__
+  AndroidAssetPackStatus Unknown
+  AndroidAssetPackStatus Pending
+  AndroidAssetPackStatus Downloading
+  AndroidAssetPackStatus Transferring
+  AndroidAssetPackStatus Completed
+  AndroidAssetPackStatus Failed
+  AndroidAssetPackStatus Canceled
+  AndroidAssetPackStatus WaitingForWifi
+  AndroidAssetPackStatus NotInstalled
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Android.AndroidAssetPackError
+Наследуется от: Enum
+Поля:
+  int value__
+  AndroidAssetPackError NoError
+  AndroidAssetPackError AppUnavailable
+  AndroidAssetPackError PackUnavailable
+  AndroidAssetPackError InvalidRequest
+  AndroidAssetPackError DownloadNotFound
+  AndroidAssetPackError ApiNotAvailable
+  AndroidAssetPackError NetworkError
+  AndroidAssetPackError AccessDenied
+  AndroidAssetPackError InsufficientStorage
+  AndroidAssetPackError PlayStoreNotFound
+  AndroidAssetPackError NetworkUnrestricted
+  AndroidAssetPackError AppNotOwned
+  AndroidAssetPackError InternalError
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Android.AndroidAssetPackInfo
+Наследуется от: object
+Поля:
+  string <name>k__BackingField
+  AndroidAssetPackStatus <status>k__BackingField
+  ulong <size>k__BackingField
+  ulong <bytesDownloaded>k__BackingField
+  float <transferProgress>k__BackingField
+  AndroidAssetPackError <error>k__BackingField
+Свойства:
+  string name
+  AndroidAssetPackStatus status
+  ulong size
+  ulong bytesDownloaded
+  float transferProgress
+  AndroidAssetPackError error
+Методы:
+  void .ctor(string name, AndroidAssetPackStatus status, ulong size, ulong bytesDownloaded, float transferProgress, AndroidAssetPackError error)
+  string get_name()
+  AndroidAssetPackStatus get_status()
+  ulong get_size()
+  ulong get_bytesDownloaded()
+  float get_transferProgress()
+  AndroidAssetPackError get_error()
+--------------------------------------------------
+Класс: UnityEngine.Android.AndroidAssetPackState
+Наследуется от: object
+Поля:
+  string <name>k__BackingField
+  AndroidAssetPackStatus <status>k__BackingField
+  AndroidAssetPackError <error>k__BackingField
+Свойства:
+  string name
+  AndroidAssetPackStatus status
+  AndroidAssetPackError error
+Методы:
+  void .ctor(string name, AndroidAssetPackStatus status, AndroidAssetPackError error)
+  string get_name()
+  AndroidAssetPackStatus get_status()
+  AndroidAssetPackError get_error()
+--------------------------------------------------
+Класс: UnityEngine.Android.AndroidAssetPackUseMobileDataRequestResult
+Наследуется от: object
+Поля:
+  bool <allowed>k__BackingField
+Свойства:
+  bool allowed
+Методы:
+  void .ctor(bool allowed)
+  bool get_allowed()
+--------------------------------------------------
+Класс: UnityEngine.Android.DownloadAssetPackAsyncOperation
+Наследуется от: CustomYieldInstruction
+Поля:
+  Dictionary`2<string, AndroidAssetPackInfo> m_AssetPackInfos
+Свойства:
+  bool keepWaiting
+  bool isDone
+  float progress
+  String[] downloadedAssetPacks
+  String[] downloadFailedAssetPacks
+Методы:
+  bool get_keepWaiting()
+  bool get_isDone()
+  float get_progress()
+  String[] get_downloadedAssetPacks()
+  String[] get_downloadFailedAssetPacks()
+  void .ctor(String[] assetPackNames)
+  void OnUpdate(AndroidAssetPackInfo info)
+--------------------------------------------------
+Класс: UnityEngine.Android.GetAssetPackStateAsyncOperation
+Наследуется от: CustomYieldInstruction
+Поля:
+  ulong m_Size
+  AndroidAssetPackState[] m_States
+  object m_OperationLock
+Свойства:
+  bool keepWaiting
+  bool isDone
+  ulong size
+  AndroidAssetPackState[] states
+Методы:
+  bool get_keepWaiting()
+  bool get_isDone()
+  ulong get_size()
+  AndroidAssetPackState[] get_states()
+  void .ctor()
+  void OnResult(ulong size, AndroidAssetPackState[] states)
+--------------------------------------------------
+Класс: UnityEngine.Android.RequestToUseMobileDataAsyncOperation
+Наследуется от: CustomYieldInstruction
+Поля:
+  AndroidAssetPackUseMobileDataRequestResult m_RequestResult
+  object m_OperationLock
+Свойства:
+  bool keepWaiting
+  bool isDone
+  AndroidAssetPackUseMobileDataRequestResult result
+Методы:
+  bool get_keepWaiting()
+  bool get_isDone()
+  AndroidAssetPackUseMobileDataRequestResult get_result()
+  void .ctor()
+  void OnResult(AndroidAssetPackUseMobileDataRequestResult result)
+--------------------------------------------------
+Класс: UnityEngine.Android.AndroidAssetPacks
+Наследуется от: object
+Поля:
+Свойства:
+  bool coreUnityAssetPacksDownloaded
+  string dataPackName
+  string streamingAssetsPackName
+Методы:
+  bool get_coreUnityAssetPacksDownloaded()
+  string get_dataPackName()
+  string get_streamingAssetsPackName()
+  bool CoreUnityAssetPacksDownloaded()
+  String[] GetCoreUnityAssetPackNames()
+  void GetAssetPackStateAsync(String[] assetPackNames, Action`2<ulong, AndroidAssetPackState[]> callback)
+  GetAssetPackStateAsyncOperation GetAssetPackStateAsync(String[] assetPackNames)
+  void DownloadAssetPackAsync(String[] assetPackNames, Action`1<AndroidAssetPackInfo> callback)
+  DownloadAssetPackAsyncOperation DownloadAssetPackAsync(String[] assetPackNames)
+  void RequestToUseMobileDataAsync(Action`1<AndroidAssetPackUseMobileDataRequestResult> callback)
+  RequestToUseMobileDataAsyncOperation RequestToUseMobileDataAsync()
+  string GetAssetPackPath(string assetPackName)
+  void CancelAssetPackDownload(String[] assetPackNames)
+  void RemoveAssetPack(string assetPackName)
+  string GetDataPackName()
+  string GetStreamingAssetsPackName()
+--------------------------------------------------
+Класс: UnityEngine.Android.Common
+Наследуется от: object
+Поля:
+  AndroidJavaObject m_Activity
+Свойства:
+Методы:
+  AndroidJavaObject GetActivity()
+--------------------------------------------------
+Класс: UnityEngine.Android.AndroidHardwareType
+Наследуется от: Enum
+Поля:
+  int value__
+  AndroidHardwareType Generic
+  AndroidHardwareType ChromeOS
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Android.AndroidDevice
+Наследуется от: object
+Поля:
+Свойства:
+  AndroidHardwareType hardwareType
+Методы:
+  AndroidHardwareType get_hardwareType()
+  void SetSustainedPerformanceMode(bool enabled)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.Android.DiagnosticsReporting
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void CallReportFullyDrawn()
+--------------------------------------------------
+Класс: UnityEngine.Android.PermissionCallbacks
+Наследуется от: AndroidJavaProxy
+Поля:
+  Action`1<string> PermissionGranted
+  Action`1<string> PermissionDenied
+  Action`1<string> PermissionDeniedAndDontAskAgain
+Свойства:
+Методы:
+  void add_PermissionGranted(Action`1<string> value)
+  void remove_PermissionGranted(Action`1<string> value)
+  void add_PermissionDenied(Action`1<string> value)
+  void remove_PermissionDenied(Action`1<string> value)
+  void add_PermissionDeniedAndDontAskAgain(Action`1<string> value)
+  void remove_PermissionDeniedAndDontAskAgain(Action`1<string> value)
+  void .ctor()
+  void onPermissionGranted(string permissionName)
+  void onPermissionDenied(string permissionName)
+  void onPermissionDeniedAndDontAskAgain(string permissionName)
+--------------------------------------------------
+Класс: UnityEngine.Android.Permission
+Наследуется от: ValueType
+Поля:
+  string Camera
+  string Microphone
+  string FineLocation
+  string CoarseLocation
+  string ExternalStorageRead
+  string ExternalStorageWrite
+  AndroidJavaObject m_UnityPermissions
+Свойства:
+Методы:
+  AndroidJavaObject GetUnityPermissions()
+  bool HasUserAuthorizedPermission(string permission)
+  void RequestUserPermission(string permission)
+  void RequestUserPermissions(String[] permissions)
+  void RequestUserPermission(string permission, PermissionCallbacks callbacks)
+  void RequestUserPermissions(String[] permissions, PermissionCallbacks callbacks)
+--------------------------------------------------

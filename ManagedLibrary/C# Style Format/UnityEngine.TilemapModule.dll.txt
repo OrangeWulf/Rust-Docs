@@ -1,0 +1,511 @@
+[AttributeUsageAttribute("4")]
+public class UnityEngine.CustomGridBrushAttribute : Attribute {
+    private bool m_HideAssetInstances;
+    private bool m_HideDefaultInstance;
+    private bool m_DefaultBrush;
+    private string m_DefaultName;
+    public bool hideAssetInstances { get; }
+    public bool hideDefaultInstance { get; }
+    public bool defaultBrush { get; }
+    public string defaultName { get; }
+    public CustomGridBrushAttribute(bool hideAssetInstances, bool hideDefaultInstance, bool defaultBrush, string defaultName);
+    public bool get_hideAssetInstances();
+    public bool get_hideDefaultInstance();
+    public bool get_defaultBrush();
+    public string get_defaultName();
+}
+public abstract class UnityEngine.GridBrushBase : ScriptableObject {
+    public virtual void Paint(GridLayout gridLayout, GameObject brushTarget, Vector3Int position);
+    public virtual void Erase(GridLayout gridLayout, GameObject brushTarget, Vector3Int position);
+    public virtual void BoxFill(GridLayout gridLayout, GameObject brushTarget, BoundsInt position);
+    public virtual void BoxErase(GridLayout gridLayout, GameObject brushTarget, BoundsInt position);
+    public virtual void Select(GridLayout gridLayout, GameObject brushTarget, BoundsInt position);
+    public virtual void FloodFill(GridLayout gridLayout, GameObject brushTarget, Vector3Int position);
+    public virtual void Rotate(RotationDirection direction, CellLayout layout);
+    public virtual void Flip(FlipAxis flip, CellLayout layout);
+    public virtual void Pick(GridLayout gridLayout, GameObject brushTarget, BoundsInt position, Vector3Int pivot);
+    public virtual void Move(GridLayout gridLayout, GameObject brushTarget, BoundsInt from, BoundsInt to);
+    public virtual void MoveStart(GridLayout gridLayout, GameObject brushTarget, BoundsInt position);
+    public virtual void MoveEnd(GridLayout gridLayout, GameObject brushTarget, BoundsInt position);
+    public virtual void ChangeZPosition(int change);
+    public virtual void ResetZPosition();
+}
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Tilemaps.ITilemap : object {
+    internal static ITilemap s_Instance;
+    internal Tilemap m_Tilemap;
+    internal bool m_AddToList;
+    internal int m_RefreshCount;
+    internal NativeArray`1<Vector3Int> m_RefreshPos;
+    public Vector3Int origin { get; }
+    public Vector3Int size { get; }
+    public Bounds localBounds { get; }
+    public BoundsInt cellBounds { get; }
+    public ITilemap(Tilemap tilemap);
+    public static ITilemap op_Implicit(Tilemap tilemap);
+    internal void SetTilemapInstance(Tilemap tilemap);
+    public Vector3Int get_origin();
+    public Vector3Int get_size();
+    public Bounds get_localBounds();
+    public BoundsInt get_cellBounds();
+    public virtual Sprite GetSprite(Vector3Int position);
+    public virtual Color GetColor(Vector3Int position);
+    public virtual Matrix4x4 GetTransformMatrix(Vector3Int position);
+    public virtual TileFlags GetTileFlags(Vector3Int position);
+    public virtual TileBase GetTile(Vector3Int position);
+    public virtual T GetTile(Vector3Int position);
+    public void RefreshTile(Vector3Int position);
+    public T GetComponent();
+    [RequiredByNativeCodeAttribute]
+private static ITilemap CreateInstance();
+    [RequiredByNativeCodeAttribute]
+private static void FindAllRefreshPositions(ITilemap tilemap, int count, IntPtr oldTilesIntPtr, IntPtr newTilesIntPtr, IntPtr positionsIntPtr);
+    [RequiredByNativeCodeAttribute]
+private static void GetAllTileData(ITilemap tilemap, int count, IntPtr tilesIntPtr, IntPtr positionsIntPtr, IntPtr outTileDataIntPtr);
+}
+[HelpURLAttribute("https://docs.unity3d.com/Manual/Tilemap-TileAsset.html")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Tilemaps.Tile : TileBase {
+    [SerializeField]
+private Sprite m_Sprite;
+    [SerializeField]
+private Color m_Color;
+    [SerializeField]
+private Matrix4x4 m_Transform;
+    [SerializeField]
+private GameObject m_InstancedGameObject;
+    [SerializeField]
+private TileFlags m_Flags;
+    [SerializeField]
+private ColliderType m_ColliderType;
+    public Sprite sprite { get; public set; }
+    public Color color { get; public set; }
+    public Matrix4x4 transform { get; public set; }
+    public GameObject gameObject { get; public set; }
+    public TileFlags flags { get; public set; }
+    public ColliderType colliderType { get; public set; }
+    public Sprite get_sprite();
+    public void set_sprite(Sprite value);
+    public Color get_color();
+    public void set_color(Color value);
+    public Matrix4x4 get_transform();
+    public void set_transform(Matrix4x4 value);
+    public GameObject get_gameObject();
+    public void set_gameObject(GameObject value);
+    public TileFlags get_flags();
+    public void set_flags(TileFlags value);
+    public ColliderType get_colliderType();
+    public void set_colliderType(ColliderType value);
+    public virtual void GetTileData(Vector3Int position, ITilemap tilemap, TileData& tileData);
+}
+[NativeTypeAttribute]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Tilemaps.TileAnimationData : ValueType {
+    private Sprite[] m_AnimatedSprites;
+    private float m_AnimationSpeed;
+    private float m_AnimationStartTime;
+    private TileAnimationFlags m_Flags;
+    public Sprite[] animatedSprites { get; public set; }
+    public float animationSpeed { get; public set; }
+    public float animationStartTime { get; public set; }
+    public TileAnimationFlags flags { get; public set; }
+    public Sprite[] get_animatedSprites();
+    public void set_animatedSprites(Sprite[] value);
+    public float get_animationSpeed();
+    public void set_animationSpeed(float value);
+    public float get_animationStartTime();
+    public void set_animationStartTime(float value);
+    public TileAnimationFlags get_flags();
+    public void set_flags(TileAnimationFlags value);
+}
+[FlagsAttribute]
+public enum UnityEngine.Tilemaps.TileAnimationFlags : Enum {
+    public int value__;
+    public static TileAnimationFlags None;
+    public static TileAnimationFlags LoopOnce;
+    public static TileAnimationFlags PauseAnimation;
+    public static TileAnimationFlags UpdatePhysics;
+}
+[RequiredByNativeCodeAttribute]
+public abstract class UnityEngine.Tilemaps.TileBase : ScriptableObject {
+    [RequiredByNativeCodeAttribute]
+public virtual void RefreshTile(Vector3Int position, ITilemap tilemap);
+    [RequiredByNativeCodeAttribute]
+public virtual void GetTileData(Vector3Int position, ITilemap tilemap, TileData& tileData);
+    private TileData GetTileDataNoRef(Vector3Int position, ITilemap tilemap);
+    [RequiredByNativeCodeAttribute]
+public virtual bool GetTileAnimationData(Vector3Int position, ITilemap tilemap, TileAnimationData& tileAnimationData);
+    private TileAnimationData GetTileAnimationDataNoRef(Vector3Int position, ITilemap tilemap);
+    [RequiredByNativeCodeAttribute]
+private void GetTileAnimationDataRef(Vector3Int position, ITilemap tilemap, TileAnimationData& tileAnimationData, Boolean& hasAnimation);
+    [RequiredByNativeCodeAttribute]
+public virtual bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go);
+    [RequiredByNativeCodeAttribute]
+private void StartUpRef(Vector3Int position, ITilemap tilemap, GameObject go, Boolean& startUpInvokedByUser);
+}
+[NativeTypeAttribute]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Tilemaps.TileChangeData : ValueType {
+    private Vector3Int m_Position;
+    private Object m_TileAsset;
+    private Color m_Color;
+    private Matrix4x4 m_Transform;
+    public Vector3Int position { get; public set; }
+    public TileBase tile { get; public set; }
+    public Color color { get; public set; }
+    public Matrix4x4 transform { get; public set; }
+    public TileChangeData(Vector3Int position, TileBase tile, Color color, Matrix4x4 transform);
+    public Vector3Int get_position();
+    public void set_position(Vector3Int value);
+    public TileBase get_tile();
+    public void set_tile(TileBase value);
+    public Color get_color();
+    public void set_color(Color value);
+    public Matrix4x4 get_transform();
+    public void set_transform(Matrix4x4 value);
+}
+[NativeTypeAttribute]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Tilemaps.TileData : ValueType {
+    private int m_Sprite;
+    private Color m_Color;
+    private Matrix4x4 m_Transform;
+    private int m_GameObject;
+    private TileFlags m_Flags;
+    private ColliderType m_ColliderType;
+    internal static TileData Default;
+    public Sprite sprite { get; public set; }
+    public Color color { get; public set; }
+    public Matrix4x4 transform { get; public set; }
+    public GameObject gameObject { get; public set; }
+    public TileFlags flags { get; public set; }
+    public ColliderType colliderType { get; public set; }
+    private static TileData();
+    public Sprite get_sprite();
+    public void set_sprite(Sprite value);
+    public Color get_color();
+    public void set_color(Color value);
+    public Matrix4x4 get_transform();
+    public void set_transform(Matrix4x4 value);
+    public GameObject get_gameObject();
+    public void set_gameObject(GameObject value);
+    public TileFlags get_flags();
+    public void set_flags(TileFlags value);
+    public ColliderType get_colliderType();
+    public void set_colliderType(ColliderType value);
+    private static TileData CreateDefault();
+}
+[NativeTypeAttribute]
+[RequiredByNativeCodeAttribute]
+internal class UnityEngine.Tilemaps.TileDataNative : ValueType {
+    private int m_Sprite;
+    private Color m_Color;
+    private Matrix4x4 m_Transform;
+    private int m_GameObject;
+    private TileFlags m_Flags;
+    private ColliderType m_ColliderType;
+    public int sprite { get; public set; }
+    public Color color { get; public set; }
+    public Matrix4x4 transform { get; public set; }
+    public int gameObject { get; public set; }
+    public TileFlags flags { get; public set; }
+    public ColliderType colliderType { get; public set; }
+    public int get_sprite();
+    public void set_sprite(int value);
+    public Color get_color();
+    public void set_color(Color value);
+    public Matrix4x4 get_transform();
+    public void set_transform(Matrix4x4 value);
+    public int get_gameObject();
+    public void set_gameObject(int value);
+    public TileFlags get_flags();
+    public void set_flags(TileFlags value);
+    public ColliderType get_colliderType();
+    public void set_colliderType(ColliderType value);
+    public static TileDataNative op_Implicit(TileData td);
+}
+[FlagsAttribute]
+public enum UnityEngine.Tilemaps.TileFlags : Enum {
+    public int value__;
+    public static TileFlags None;
+    public static TileFlags LockColor;
+    public static TileFlags LockTransform;
+    public static TileFlags InstantiateGameObjectRuntimeOnly;
+    public static TileFlags KeepGameObjectRuntimeOnly;
+    public static TileFlags LockAll;
+}
+[NativeHeaderAttribute("Modules/Grid/Public/Grid.h")]
+[NativeHeaderAttribute("Runtime/Graphics/SpriteFrame.h")]
+[NativeHeaderAttribute("Modules/Tilemap/Public/TilemapTile.h")]
+[NativeHeaderAttribute("Modules/Tilemap/Public/TilemapMarshalling.h")]
+[NativeHeaderAttribute("Modules/Grid/Public/GridMarshalling.h")]
+[NativeTypeAttribute]
+[RequireComponent("UnityEngine.Transform")]
+public class UnityEngine.Tilemaps.Tilemap : GridLayout {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action`2<Tilemap, SyncTile[]> tilemapTileChanged;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action`2<Tilemap, NativeArray`1<Vector3Int>> tilemapPositionsChanged;
+    private bool m_BufferSyncTile;
+    internal bool bufferSyncTile { get; internal set; }
+    public Grid layoutGrid { get; }
+    public BoundsInt cellBounds { get; }
+    [NativePropertyAttribute("TilemapBoundsScripting")]
+public Bounds localBounds { get; }
+    [NativePropertyAttribute("TilemapFrameBoundsScripting")]
+internal Bounds localFrameBounds { get; }
+    public float animationFrameRate { get; public set; }
+    public Color color { get; public set; }
+    public Vector3Int origin { get; public set; }
+    public Vector3Int size { get; public set; }
+    [NativePropertyAttribute]
+public Vector3 tileAnchor { get; public set; }
+    public Orientation orientation { get; public set; }
+    public Matrix4x4 orientationMatrix { get; public set; }
+    [CompilerGeneratedAttribute]
+public static void add_tilemapTileChanged(Action`2<Tilemap, SyncTile[]> value);
+    [CompilerGeneratedAttribute]
+public static void remove_tilemapTileChanged(Action`2<Tilemap, SyncTile[]> value);
+    [CompilerGeneratedAttribute]
+public static void add_tilemapPositionsChanged(Action`2<Tilemap, NativeArray`1<Vector3Int>> value);
+    [CompilerGeneratedAttribute]
+public static void remove_tilemapPositionsChanged(Action`2<Tilemap, NativeArray`1<Vector3Int>> value);
+    internal bool get_bufferSyncTile();
+    internal void set_bufferSyncTile(bool value);
+    internal static bool HasSyncTileCallback();
+    internal static bool HasPositionsChangedCallback();
+    private void HandleSyncTileCallback(SyncTile[] syncTiles);
+    private void HandlePositionsChangedCallback(int count, IntPtr positionsIntPtr);
+    private void SendTilemapTileChangedCallback(SyncTile[] syncTiles);
+    private void SendTilemapPositionsChangedCallback(NativeArray`1<Vector3Int> positions);
+    internal static void SetSyncTileCallback(Action`2<Tilemap, SyncTile[]> callback);
+    internal static void RemoveSyncTileCallback(Action`2<Tilemap, SyncTile[]> callback);
+    [NativeMethodAttribute]
+public Grid get_layoutGrid();
+    public Vector3 GetCellCenterLocal(Vector3Int position);
+    public Vector3 GetCellCenterWorld(Vector3Int position);
+    public BoundsInt get_cellBounds();
+    public Bounds get_localBounds();
+    internal Bounds get_localFrameBounds();
+    public float get_animationFrameRate();
+    public void set_animationFrameRate(float value);
+    public Color get_color();
+    public void set_color(Color value);
+    public Vector3Int get_origin();
+    public void set_origin(Vector3Int value);
+    public Vector3Int get_size();
+    public void set_size(Vector3Int value);
+    public Vector3 get_tileAnchor();
+    public void set_tileAnchor(Vector3 value);
+    public Orientation get_orientation();
+    public void set_orientation(Orientation value);
+    [NativeMethodAttribute]
+public Matrix4x4 get_orientationMatrix();
+    [NativeMethodAttribute]
+public void set_orientationMatrix(Matrix4x4 value);
+    internal Object GetTileAsset(Vector3Int position);
+    public TileBase GetTile(Vector3Int position);
+    public T GetTile(Vector3Int position);
+    internal Object[] GetTileAssetsBlock(Vector3Int position, Vector3Int blockDimensions);
+    public TileBase[] GetTilesBlock(BoundsInt bounds);
+    [FreeFunctionAttribute]
+internal int GetTileAssetsBlockNonAlloc(Vector3Int startPosition, Vector3Int endPosition, Object[] tiles);
+    public int GetTilesBlockNonAlloc(BoundsInt bounds, TileBase[] tiles);
+    public int GetTilesRangeCount(Vector3Int startPosition, Vector3Int endPosition);
+    [FreeFunctionAttribute]
+internal int GetTileAssetsRangeNonAlloc(Vector3Int startPosition, Vector3Int endPosition, Vector3Int[] positions, Object[] tiles);
+    public int GetTilesRangeNonAlloc(Vector3Int startPosition, Vector3Int endPosition, Vector3Int[] positions, TileBase[] tiles);
+    internal void SetTileAsset(Vector3Int position, Object tile);
+    public void SetTile(Vector3Int position, TileBase tile);
+    internal void SetTileAssets(Vector3Int[] positionArray, Object[] tileArray);
+    public void SetTiles(Vector3Int[] positionArray, TileBase[] tileArray);
+    [NativeMethodAttribute]
+private void INTERNAL_CALL_SetTileAssetsBlock(Vector3Int position, Vector3Int blockDimensions, Object[] tileArray);
+    public void SetTilesBlock(BoundsInt position, TileBase[] tileArray);
+    [NativeMethodAttribute]
+public void SetTile(TileChangeData tileChangeData, bool ignoreLockFlags);
+    [NativeMethodAttribute]
+public void SetTiles(TileChangeData[] tileChangeDataArray, bool ignoreLockFlags);
+    public bool HasTile(Vector3Int position);
+    [NativeMethodAttribute]
+public void RefreshTile(Vector3Int position);
+    [FreeFunctionAttribute]
+internal void RefreshTilesNative(Void* positions, int count);
+    [NativeMethodAttribute]
+public void RefreshAllTiles();
+    internal void SwapTileAsset(Object changeTile, Object newTile);
+    public void SwapTile(TileBase changeTile, TileBase newTile);
+    internal bool ContainsTileAsset(Object tileAsset);
+    public bool ContainsTile(TileBase tileAsset);
+    public int GetUsedTilesCount();
+    public int GetUsedSpritesCount();
+    public int GetUsedTilesNonAlloc(TileBase[] usedTiles);
+    public int GetUsedSpritesNonAlloc(Sprite[] usedSprites);
+    [FreeFunctionAttribute]
+internal int Internal_GetUsedTilesNonAlloc(Object[] usedTiles);
+    [FreeFunctionAttribute]
+internal int Internal_GetUsedSpritesNonAlloc(Object[] usedSprites);
+    public Sprite GetSprite(Vector3Int position);
+    public Matrix4x4 GetTransformMatrix(Vector3Int position);
+    public void SetTransformMatrix(Vector3Int position, Matrix4x4 transform);
+    [NativeMethodAttribute]
+public Color GetColor(Vector3Int position);
+    [NativeMethodAttribute]
+public void SetColor(Vector3Int position, Color color);
+    public TileFlags GetTileFlags(Vector3Int position);
+    public void SetTileFlags(Vector3Int position, TileFlags flags);
+    public void AddTileFlags(Vector3Int position, TileFlags flags);
+    public void RemoveTileFlags(Vector3Int position, TileFlags flags);
+    [NativeMethodAttribute]
+public GameObject GetInstantiatedObject(Vector3Int position);
+    [NativeMethodAttribute]
+public GameObject GetObjectToInstantiate(Vector3Int position);
+    [NativeMethodAttribute]
+public void SetColliderType(Vector3Int position, ColliderType colliderType);
+    [NativeMethodAttribute]
+public ColliderType GetColliderType(Vector3Int position);
+    [NativeMethodAttribute]
+public int GetAnimationFrameCount(Vector3Int position);
+    [NativeMethodAttribute]
+public int GetAnimationFrame(Vector3Int position);
+    [NativeMethodAttribute]
+public void SetAnimationFrame(Vector3Int position, int frame);
+    [NativeMethodAttribute]
+public float GetAnimationTime(Vector3Int position);
+    [NativeMethodAttribute]
+public void SetAnimationTime(Vector3Int position, float time);
+    public TileAnimationFlags GetTileAnimationFlags(Vector3Int position);
+    public void SetTileAnimationFlags(Vector3Int position, TileAnimationFlags flags);
+    public void AddTileAnimationFlags(Vector3Int position, TileAnimationFlags flags);
+    public void RemoveTileAnimationFlags(Vector3Int position, TileAnimationFlags flags);
+    public void FloodFill(Vector3Int position, TileBase tile);
+    [NativeMethodAttribute]
+private void FloodFillTileAsset(Vector3Int position, Object tile);
+    public void BoxFill(Vector3Int position, TileBase tile, int startX, int startY, int endX, int endY);
+    [NativeMethodAttribute]
+private void BoxFillTileAsset(Vector3Int position, Object tile, int startX, int startY, int endX, int endY);
+    public void InsertCells(Vector3Int position, Vector3Int insertCells);
+    public void InsertCells(Vector3Int position, int numColumns, int numRows, int numLayers);
+    public void DeleteCells(Vector3Int position, Vector3Int deleteCells);
+    public void DeleteCells(Vector3Int position, int numColumns, int numRows, int numLayers);
+    public void ClearAllTiles();
+    public void ResizeBounds();
+    public void CompressBounds();
+    [RequiredByNativeCodeAttribute]
+internal void GetSyncTileCallbackSettings(SyncTileCallbackSettings& settings);
+    internal void SendAndClearSyncTileBuffer();
+    [RequiredByNativeCodeAttribute]
+private void DoSyncTileCallback(SyncTile[] syncTiles);
+    [RequiredByNativeCodeAttribute]
+private void DoPositionsChangedCallback(int count, IntPtr positionsIntPtr);
+    private void get_localBounds_Injected(Bounds& ret);
+    private void get_localFrameBounds_Injected(Bounds& ret);
+    private void get_color_Injected(Color& ret);
+    private void set_color_Injected(Color& value);
+    private void get_origin_Injected(Vector3Int& ret);
+    private void set_origin_Injected(Vector3Int& value);
+    private void get_size_Injected(Vector3Int& ret);
+    private void set_size_Injected(Vector3Int& value);
+    private void get_tileAnchor_Injected(Vector3& ret);
+    private void set_tileAnchor_Injected(Vector3& value);
+    private void get_orientationMatrix_Injected(Matrix4x4& ret);
+    private void set_orientationMatrix_Injected(Matrix4x4& value);
+    private Object GetTileAsset_Injected(Vector3Int& position);
+    private Object[] GetTileAssetsBlock_Injected(Vector3Int& position, Vector3Int& blockDimensions);
+    private int GetTileAssetsBlockNonAlloc_Injected(Vector3Int& startPosition, Vector3Int& endPosition, Object[] tiles);
+    private int GetTilesRangeCount_Injected(Vector3Int& startPosition, Vector3Int& endPosition);
+    private int GetTileAssetsRangeNonAlloc_Injected(Vector3Int& startPosition, Vector3Int& endPosition, Vector3Int[] positions, Object[] tiles);
+    private void SetTileAsset_Injected(Vector3Int& position, Object tile);
+    private void INTERNAL_CALL_SetTileAssetsBlock_Injected(Vector3Int& position, Vector3Int& blockDimensions, Object[] tileArray);
+    private void SetTile_Injected(TileChangeData& tileChangeData, bool ignoreLockFlags);
+    private void RefreshTile_Injected(Vector3Int& position);
+    private Sprite GetSprite_Injected(Vector3Int& position);
+    private void GetTransformMatrix_Injected(Vector3Int& position, Matrix4x4& ret);
+    private void SetTransformMatrix_Injected(Vector3Int& position, Matrix4x4& transform);
+    private void GetColor_Injected(Vector3Int& position, Color& ret);
+    private void SetColor_Injected(Vector3Int& position, Color& color);
+    private TileFlags GetTileFlags_Injected(Vector3Int& position);
+    private void SetTileFlags_Injected(Vector3Int& position, TileFlags flags);
+    private void AddTileFlags_Injected(Vector3Int& position, TileFlags flags);
+    private void RemoveTileFlags_Injected(Vector3Int& position, TileFlags flags);
+    private GameObject GetInstantiatedObject_Injected(Vector3Int& position);
+    private GameObject GetObjectToInstantiate_Injected(Vector3Int& position);
+    private void SetColliderType_Injected(Vector3Int& position, ColliderType colliderType);
+    private ColliderType GetColliderType_Injected(Vector3Int& position);
+    private int GetAnimationFrameCount_Injected(Vector3Int& position);
+    private int GetAnimationFrame_Injected(Vector3Int& position);
+    private void SetAnimationFrame_Injected(Vector3Int& position, int frame);
+    private float GetAnimationTime_Injected(Vector3Int& position);
+    private void SetAnimationTime_Injected(Vector3Int& position, float time);
+    private TileAnimationFlags GetTileAnimationFlags_Injected(Vector3Int& position);
+    private void SetTileAnimationFlags_Injected(Vector3Int& position, TileAnimationFlags flags);
+    private void AddTileAnimationFlags_Injected(Vector3Int& position, TileAnimationFlags flags);
+    private void RemoveTileAnimationFlags_Injected(Vector3Int& position, TileAnimationFlags flags);
+    private void FloodFillTileAsset_Injected(Vector3Int& position, Object tile);
+    private void BoxFillTileAsset_Injected(Vector3Int& position, Object tile, int startX, int startY, int endX, int endY);
+    private void InsertCells_Injected(Vector3Int& position, int numColumns, int numRows, int numLayers);
+    private void DeleteCells_Injected(Vector3Int& position, int numColumns, int numRows, int numLayers);
+}
+[NativeTypeAttribute]
+[RequireComponent("UnityEngine.Tilemaps.Tilemap")]
+public class UnityEngine.Tilemaps.TilemapCollider2D : Collider2D {
+    public bool useDelaunayMesh { get; public set; }
+    public UInt32 maximumTileChangeCount { get; public set; }
+    public float extrusionFactor { get; public set; }
+    public bool hasTilemapChanges { get; }
+    public bool get_useDelaunayMesh();
+    public void set_useDelaunayMesh(bool value);
+    public UInt32 get_maximumTileChangeCount();
+    public void set_maximumTileChangeCount(UInt32 value);
+    public float get_extrusionFactor();
+    public void set_extrusionFactor(float value);
+    [NativeMethodAttribute("HasTilemapChanges")]
+public bool get_hasTilemapChanges();
+    [NativeMethodAttribute]
+public void ProcessTilemapChanges();
+}
+[NativeHeaderAttribute("Modules/Tilemap/Public/TilemapMarshalling.h")]
+[NativeHeaderAttribute("Modules/Tilemap/TilemapRendererJobs.h")]
+[NativeHeaderAttribute("Modules/Grid/Public/GridMarshalling.h")]
+[NativeTypeAttribute]
+[RequireComponent("UnityEngine.Tilemaps.Tilemap")]
+public class UnityEngine.Tilemaps.TilemapRenderer : Renderer {
+    public Vector3Int chunkSize { get; public set; }
+    public Vector3 chunkCullingBounds { get; public set; }
+    public int maxChunkCount { get; public set; }
+    public int maxFrameAge { get; public set; }
+    public SortOrder sortOrder { get; public set; }
+    [NativePropertyAttribute("RenderMode")]
+public Mode mode { get; public set; }
+    public DetectChunkCullingBounds detectChunkCullingBounds { get; public set; }
+    public SpriteMaskInteraction maskInteraction { get; public set; }
+    public Vector3Int get_chunkSize();
+    public void set_chunkSize(Vector3Int value);
+    [FreeFunctionAttribute("TilemapRendererBindings::GetChunkCullingBounds")]
+public Vector3 get_chunkCullingBounds();
+    [FreeFunctionAttribute("TilemapRendererBindings::SetChunkCullingBounds")]
+public void set_chunkCullingBounds(Vector3 value);
+    public int get_maxChunkCount();
+    public void set_maxChunkCount(int value);
+    public int get_maxFrameAge();
+    public void set_maxFrameAge(int value);
+    public SortOrder get_sortOrder();
+    public void set_sortOrder(SortOrder value);
+    public Mode get_mode();
+    public void set_mode(Mode value);
+    public DetectChunkCullingBounds get_detectChunkCullingBounds();
+    public void set_detectChunkCullingBounds(DetectChunkCullingBounds value);
+    public SpriteMaskInteraction get_maskInteraction();
+    public void set_maskInteraction(SpriteMaskInteraction value);
+    [RequiredByNativeCodeAttribute]
+internal void RegisterSpriteAtlasRegistered();
+    [RequiredByNativeCodeAttribute]
+internal void UnregisterSpriteAtlasRegistered();
+    internal void OnSpriteAtlasRegistered(SpriteAtlas atlas);
+    private void get_chunkSize_Injected(Vector3Int& ret);
+    private void set_chunkSize_Injected(Vector3Int& value);
+    private void get_chunkCullingBounds_Injected(Vector3& ret);
+    private void set_chunkCullingBounds_Injected(Vector3& value);
+}

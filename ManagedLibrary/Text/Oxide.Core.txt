@@ -1,0 +1,2002 @@
+Сборка: Oxide.Core.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: uMod.Libraries.Universal.Universal
+Наследуется от: Covalence
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Plugins.ExtensionMethods
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string Basename(string text, string extension)
+  bool Contains(T[] array, T value)
+  string Dirname(string text)
+  string Humanize(string name)
+  bool IsSteamId(string id)
+  bool IsSteamId(ulong id)
+  string Plaintext(string text)
+  string QuoteSafe(string text)
+  string Quote(string text)
+  T Sample(T[] array)
+  string Sanitize(string text)
+  string SentenceCase(string text)
+  string TitleCase(string text)
+  string Titleize(string text)
+  string ToSentence(IEnumerable`1<T> items)
+  string Truncate(string text, int max)
+--------------------------------------------------
+Класс: Oxide.Core.Analytics
+Наследуется от: object
+Поля:
+  WebRequests Webrequests
+  PluginManager PluginManager
+  Covalence Covalence
+  Lang Lang
+  string trackingId
+  string url
+  string Identifier
+Свойства:
+Методы:
+  void Collect()
+  void Event(string category, string action)
+  void SendPayload(string payload)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.ArrayPool
+Наследуется от: object
+Поля:
+  int MaxArrayLength
+  int InitialPoolAmount
+  int MaxPoolAmount
+  List`1<Queue`1<Object[]>> _pooledArrays
+Свойства:
+Методы:
+  void .cctor()
+  Object[] Get(int length)
+  void Free(Object[] array)
+  void SetupArrays(int length)
+--------------------------------------------------
+Класс: Oxide.Core.Cleanup
+Наследуется от: object
+Поля:
+  HashSet`1<string> files
+Свойства:
+Методы:
+  void Add(string file)
+  void Run()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.CommandLine
+Наследуется от: object
+Поля:
+  Dictionary`2<string, string> variables
+Свойства:
+Методы:
+  void .ctor(String[] commandline)
+  String[] Split(string input)
+  bool HasVariable(string name)
+  string GetVariable(string name)
+  void GetArgument(string var, String& varname, String& format)
+--------------------------------------------------
+Класс: Oxide.Core.DataFileSystem
+Наследуется от: object
+Поля:
+  string <Directory>k__BackingField
+  Dictionary`2<string, DynamicConfigFile> _datafiles
+Свойства:
+  string Directory
+Методы:
+  string get_Directory()
+  void set_Directory(string value)
+  void .ctor(string directory)
+  DynamicConfigFile GetFile(string name)
+  bool ExistsDatafile(string name)
+  DynamicConfigFile GetDatafile(string name)
+  String[] GetFiles(string path, string searchPattern)
+  void SaveDatafile(string name)
+  T ReadObject(string name)
+  void WriteObject(string name, T Object, bool sync)
+  void DeleteDataFile(string name)
+  void ForEachObject(string name, Action`1<T> callback)
+--------------------------------------------------
+Класс: Oxide.Core.Event
+Наследуется от: object
+Поля:
+  Callback First
+  Callback Last
+  object Lock
+  bool Invoking
+  Queue`1<Callback> RemovedQueue
+Свойства:
+Методы:
+  void Remove(Callback& callback)
+  void Remove(Callback`1& callback)
+  void Remove(Callback`2& callback)
+  void Remove(Callback`3& callback)
+  void Remove(Callback`4& callback)
+  void Remove(Callback`5& callback)
+  void Add(Callback callback)
+  Callback Add(Action callback)
+  void Invoke()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Event`1
+Наследуется от: object
+Поля:
+  Callback`1<T> First
+  Callback`1<T> Last
+  object Lock
+  bool Invoking
+  Queue`1<Callback`1<T>> RemovedQueue
+Свойства:
+Методы:
+  void Add(Callback`1<T> callback)
+  Callback`1<T> Add(Action`1<T> callback)
+  void Invoke(T arg0)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Event`2
+Наследуется от: object
+Поля:
+  Callback`2<T1, T2> First
+  Callback`2<T1, T2> Last
+  object Lock
+  bool Invoking
+  Queue`1<Callback`2<T1, T2>> RemovedQueue
+Свойства:
+Методы:
+  void Add(Callback`2<T1, T2> callback)
+  Callback`2<T1, T2> Add(Action`2<T1, T2> callback)
+  void Invoke()
+  void Invoke(T1 arg0)
+  void Invoke(T1 arg0, T2 arg1)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Event`3
+Наследуется от: object
+Поля:
+  Callback`3<T1, T2, T3> First
+  Callback`3<T1, T2, T3> Last
+  object Lock
+  bool Invoking
+  Queue`1<Callback`3<T1, T2, T3>> RemovedQueue
+Свойства:
+Методы:
+  void Add(Callback`3<T1, T2, T3> callback)
+  Callback`3<T1, T2, T3> Add(Action`3<T1, T2, T3> callback)
+  void Invoke()
+  void Invoke(T1 arg0)
+  void Invoke(T1 arg0, T2 arg1)
+  void Invoke(T1 arg0, T2 arg1, T3 arg2)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Event`4
+Наследуется от: object
+Поля:
+  Callback`4<T1, T2, T3, T4> First
+  Callback`4<T1, T2, T3, T4> Last
+  object Lock
+  bool Invoking
+  Queue`1<Callback`4<T1, T2, T3, T4>> RemovedQueue
+Свойства:
+Методы:
+  void Add(Callback`4<T1, T2, T3, T4> callback)
+  Callback`4<T1, T2, T3, T4> Add(Action`4<T1, T2, T3, T4> callback)
+  void Invoke()
+  void Invoke(T1 arg0)
+  void Invoke(T1 arg0, T2 arg1)
+  void Invoke(T1 arg0, T2 arg1, T3 arg2)
+  void Invoke(T1 arg0, T2 arg1, T3 arg2, T4 arg3)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Event`5
+Наследуется от: object
+Поля:
+  Callback`5<T1, T2, T3, T4, T5> First
+  Callback`5<T1, T2, T3, T4, T5> Last
+  object Lock
+  bool Invoking
+  Queue`1<Callback`5<T1, T2, T3, T4, T5>> RemovedQueue
+Свойства:
+Методы:
+  void Add(Callback`5<T1, T2, T3, T4, T5> callback)
+  Callback`5<T1, T2, T3, T4, T5> Add(Action`5<T1, T2, T3, T4, T5> callback)
+  void Invoke()
+  void Invoke(T1 arg0)
+  void Invoke(T1 arg0, T2 arg1)
+  void Invoke(T1 arg0, T2 arg1, T3 arg2)
+  void Invoke(T1 arg0, T2 arg1, T3 arg2, T4 arg3)
+  void Invoke(T1 arg0, T2 arg1, T3 arg2, T4 arg3, T5 arg4)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.ExceptionHandler
+Наследуется от: object
+Поля:
+  Dictionary`2<Type, Func`2<Exception, string>> Handlers
+Свойства:
+Методы:
+  void RegisterType(Type ex, Func`2<Exception, string> handler)
+  string FormatException(Exception ex)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.ExtensionMethods
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string Basename(string text, string extension)
+  bool Contains(T[] array, T value)
+  string Dirname(string text)
+  string Humanize(string name)
+  bool IsSteamId(string id)
+  bool IsSteamId(ulong id)
+  string Plaintext(string text)
+  string QuoteSafe(string text)
+  string Quote(string text)
+  T Sample(T[] array)
+  string Sanitize(string text)
+  string SentenceCase(string text)
+  string TitleCase(string text)
+  string Titleize(string text)
+  string ToSentence(IEnumerable`1<T> items)
+  string Truncate(string text, int max)
+--------------------------------------------------
+Класс: Oxide.Core.Interface
+Наследуется от: object
+Поля:
+  OxideMod <Oxide>k__BackingField
+  NativeDebugCallback <DebugCallback>k__BackingField
+Свойства:
+  OxideMod Oxide
+  NativeDebugCallback DebugCallback
+  OxideMod uMod
+Методы:
+  OxideMod get_Oxide()
+  void set_Oxide(OxideMod value)
+  NativeDebugCallback get_DebugCallback()
+  void set_DebugCallback(NativeDebugCallback value)
+  void Initialize()
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, Object[] args)
+  object CallDeprecated(string oldHook, string newHook, DateTime expireDate, Object[] args)
+  object CallHook(string hook, Object[] args)
+  object CallHook(string hook)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate)
+  object CallHook(string hook, object obj1)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1)
+  object CallHook(string hook, object obj1, object obj2)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2)
+  object CallHook(string hook, object obj1, object obj2, object obj3)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2, object obj3)
+  object CallHook(string hook, object obj1, object obj2, object obj3, object obj4)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2, object obj3, object obj4)
+  object CallHook(string hook, object obj1, object obj2, object obj3, object obj4, object obj5)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2, object obj3, object obj4, object obj5)
+  object CallHook(string hook, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6)
+  object CallHook(string hook, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6, object obj7)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6, object obj7)
+  object CallHook(string hook, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6, object obj7, object obj8)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6, object obj7, object obj8)
+  object CallHook(string hook, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6, object obj7, object obj8, object obj9)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6, object obj7, object obj8, object obj9)
+  object CallHook(string hook, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6, object obj7, object obj8, object obj9, object obj10)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, object obj1, object obj2, object obj3, object obj4, object obj5, object obj6, object obj7, object obj8, object obj9, object obj10)
+  object Call(string hook, Object[] args)
+  T Call(string hook, Object[] args)
+  OxideMod GetMod()
+  OxideMod get_uMod()
+--------------------------------------------------
+Класс: Oxide.Core.Localization
+Наследуется от: object
+Поля:
+  Dictionary`2<string, Dictionary`2<string, string>> languages
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.NativeDebugCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(string message)
+  IAsyncResult BeginInvoke(string message, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Oxide.Core.OxideMod
+Наследуется от: object
+Поля:
+  Version AssemblyVersion
+  VersionNumber Version
+  string Branch
+  CompoundLogger <RootLogger>k__BackingField
+  PluginManager <RootPluginManager>k__BackingField
+  DataFileSystem <DataFileSystem>k__BackingField
+  string <RootDirectory>k__BackingField
+  string <ExtensionDirectory>k__BackingField
+  string <InstanceDirectory>k__BackingField
+  string <PluginDirectory>k__BackingField
+  string <ConfigDirectory>k__BackingField
+  string <DataDirectory>k__BackingField
+  string <LangDirectory>k__BackingField
+  string <LogDirectory>k__BackingField
+  bool <IsShuttingDown>k__BackingField
+  ExtensionManager extensionManager
+  CommandLine CommandLine
+  OxideConfig <Config>k__BackingField
+  Covalence covalence
+  Permission libperm
+  Timer libtimer
+  Func`1<float> getTimeSinceStartup
+  List`1<Action> nextTickQueue
+  List`1<Action> lastTickQueue
+  object nextTickLock
+  Action`1<float> onFrame
+  bool isInitialized
+  bool <HasLoadedCorePlugins>k__BackingField
+  RemoteConsole RemoteConsole
+  ServerConsole ServerConsole
+  Stopwatch timer
+  NativeDebugCallback debugCallback
+Свойства:
+  CompoundLogger RootLogger
+  PluginManager RootPluginManager
+  DataFileSystem DataFileSystem
+  string RootDirectory
+  string ExtensionDirectory
+  string InstanceDirectory
+  string PluginDirectory
+  string ConfigDirectory
+  string DataDirectory
+  string LangDirectory
+  string LogDirectory
+  float Now
+  bool IsShuttingDown
+  OxideConfig Config
+  bool HasLoadedCorePlugins
+Методы:
+  CompoundLogger get_RootLogger()
+  void set_RootLogger(CompoundLogger value)
+  PluginManager get_RootPluginManager()
+  void set_RootPluginManager(PluginManager value)
+  DataFileSystem get_DataFileSystem()
+  void set_DataFileSystem(DataFileSystem value)
+  string get_RootDirectory()
+  void set_RootDirectory(string value)
+  string get_ExtensionDirectory()
+  void set_ExtensionDirectory(string value)
+  string get_InstanceDirectory()
+  void set_InstanceDirectory(string value)
+  string get_PluginDirectory()
+  void set_PluginDirectory(string value)
+  string get_ConfigDirectory()
+  void set_ConfigDirectory(string value)
+  string get_DataDirectory()
+  void set_DataDirectory(string value)
+  string get_LangDirectory()
+  void set_LangDirectory(string value)
+  string get_LogDirectory()
+  void set_LogDirectory(string value)
+  float get_Now()
+  bool get_IsShuttingDown()
+  void set_IsShuttingDown(bool value)
+  OxideConfig get_Config()
+  void set_Config(OxideConfig value)
+  bool get_HasLoadedCorePlugins()
+  void set_HasLoadedCorePlugins(bool value)
+  void .ctor(NativeDebugCallback debugCallback)
+  void Load()
+  T GetLibrary(string name)
+  IEnumerable`1<Extension> GetAllExtensions()
+  Extension GetExtension(string name)
+  T GetExtension()
+  IEnumerable`1<PluginLoader> GetPluginLoaders()
+  void LogDebug(string format, Object[] args)
+  void LogError(string format, Object[] args)
+  void LogException(string message, Exception ex)
+  void LogInfo(string format, Object[] args)
+  void LogWarning(string format, Object[] args)
+  void LoadAllPlugins(bool init)
+  void UnloadAllPlugins(IList`1<string> skip)
+  void ReloadAllPlugins(IList`1<string> skip)
+  bool LoadPlugin(string name)
+  bool PluginLoaded(Plugin plugin)
+  bool UnloadPlugin(string name)
+  bool ReloadPlugin(string name)
+  void plugin_OnError(Plugin sender, string message)
+  bool LoadExtension(string name)
+  bool UnloadExtension(string name)
+  bool ReloadExtension(string name)
+  object CallHook(string hookname, Object[] args)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, Object[] args)
+  void NextTick(Action callback)
+  void OnFrame(Action`1<float> callback)
+  void OnFrame(float delta)
+  void OnSave()
+  void OnShutdown()
+  void RegisterEngineClock(Func`1<float> method)
+  bool CheckConsole(bool force)
+  bool EnableConsole(bool force)
+  void watcher_OnPluginSourceChanged(string name)
+  void watcher_OnPluginAdded(string name)
+  void watcher_OnPluginRemoved(string name)
+  void RegisterLibrarySearchPath(string path)
+  bool SetDllDirectory(string lpPathName)
+  void .cctor()
+  float <Load>b__77_1()
+--------------------------------------------------
+Класс: Oxide.Core.ProtoStorage
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IEnumerable`1<string> GetFiles(string subDirectory)
+  T Load(String[] subPaths)
+  void Save(T data, String[] subPaths)
+  bool Exists(String[] subPaths)
+  string GetFileName(String[] subPaths)
+  string GetFileDataPath(string name)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Random
+Наследуется от: object
+Поля:
+  Random random
+Свойства:
+Методы:
+  void .cctor()
+  int Range(int min, int max)
+  int Range(int max)
+  double Range(double min, double max)
+  float Range(float min, float max)
+--------------------------------------------------
+Класс: Oxide.Core.RemoteLogger
+Наследуется от: object
+Поля:
+  int projectId
+  string host
+  string publicKey
+  string secretKey
+  string Url
+  String[][] sentryAuth
+  string Filename
+  Dictionary`2<string, string> Tags
+  Timer Timers
+  WebRequests Webrequests
+  List`1<QueuedReport> QueuedReports
+  bool submittingReports
+  String[] ExceptionFilter
+Свойства:
+Методы:
+  Dictionary`2<string, string> BuildHeaders()
+  void SetTag(string name, string value)
+  string GetTag(string name)
+  void Debug(string message)
+  void Error(string message)
+  void Info(string message)
+  void Warning(string message)
+  void Exception(string message, Exception exception)
+  void Exception(string message, string rawStackTrace)
+  void EnqueueReport(string level, Assembly assembly, string culprit, string message, string exception)
+  void EnqueueReport(string level, String[] stackTrace, string culprit, string message, string exception)
+  void EnqueueReport(Report report)
+  void SubmitNextReport()
+  string GetCurrentMethod()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.ConcurrentHashSet`1
+Наследуется от: object
+Поля:
+  HashSet`1<T> collection
+  object syncRoot
+Свойства:
+  bool IsReadOnly
+  int Count
+Методы:
+  void .ctor()
+  void .ctor(ICollection`1<T> values)
+  bool get_IsReadOnly()
+  int get_Count()
+  bool Contains(T value)
+  bool Add(T value)
+  bool Remove(T value)
+  void Clear()
+  void CopyTo(T[] array, int index)
+  IEnumerator`1<T> GetEnumerator()
+  bool Any(Func`2<T, bool> callback)
+  T[] ToArray()
+  bool TryDequeue(T& value)
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  void System.Collections.Generic.ICollection<T>.Add(T value)
+--------------------------------------------------
+Класс: Oxide.Core.Utility
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void DatafileToProto(string name, bool deleteAfter)
+  void PrintCallStack()
+  string FormatBytes(double bytes)
+  string GetDirectoryName(string name)
+  string GetFileNameWithoutExtension(string value)
+  string CleanPath(string path)
+  T ConvertFromJson(string jsonstr)
+  string ConvertToJson(object obj, bool indented)
+  IPAddress GetLocalIP()
+  bool IsLocalIP(string ipAddress)
+  bool ValidateIPv4(string ipAddress)
+  int GetNumbers(string input)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.VersionNumber
+Наследуется от: ValueType
+Поля:
+  int Major
+  int Minor
+  int Patch
+Свойства:
+Методы:
+  void .ctor(int major, int minor, int patch)
+  string ToString()
+  bool op_Equality(VersionNumber a, VersionNumber b)
+  bool op_Inequality(VersionNumber a, VersionNumber b)
+  bool op_GreaterThan(VersionNumber a, VersionNumber b)
+  bool op_GreaterThanOrEqual(VersionNumber a, VersionNumber b)
+  bool op_LessThan(VersionNumber a, VersionNumber b)
+  bool op_LessThanOrEqual(VersionNumber a, VersionNumber b)
+  bool Equals(object obj)
+  int GetHashCode()
+--------------------------------------------------
+Класс: Oxide.Core.VersionNumberShortConverter
+Наследуется от: JsonConverter
+Поля:
+  Char[] separators
+  Type vNumberType
+Свойства:
+Методы:
+  void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+  object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+  bool CanConvert(Type objectType)
+  JsonSerializationException GenerateException(JsonReader reader, string format, Object[] args)
+  string ConvertToString(VersionNumber number)
+  VersionNumber ParseFromString(string strNumber)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.ServerConsole.ConsoleInput
+Наследуется от: object
+Поля:
+  string inputString
+  List`1<string> inputHistory
+  int inputHistoryIndex
+  float nextUpdate
+  Action`1<string> OnInputText
+  String[] StatusTextLeft
+  String[] StatusTextRight
+  ConsoleColor[] StatusTextLeftColor
+  ConsoleColor[] StatusTextRightColor
+  Func`2<string, String[]> Completion
+Свойства:
+  int LineWidth
+  bool Valid
+Методы:
+  void add_OnInputText(Action`1<string> value)
+  void remove_OnInputText(Action`1<string> value)
+  int get_LineWidth()
+  bool get_Valid()
+  void ClearLine(int numLines)
+  void RedrawInputLine()
+  void Update()
+  int GetFirstDiffIndex(string str1, string str2)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.ServerConsole.ConsoleWindow
+Наследуется от: object
+Поля:
+  UInt32 ATTACH_PARENT_PROCESS
+  int STD_OUTPUT_HANDLE
+  TextWriter oldOutput
+  Encoding oldEncoding
+Свойства:
+Методы:
+  bool AllocConsole()
+  bool AttachConsole(UInt32 dwProcessId)
+  bool FreeConsole()
+  IntPtr GetConsoleWindow()
+  bool SetConsoleOutputCP(UInt32 wCodePageId)
+  bool SetConsoleTitle(string lpConsoleTitle)
+  IntPtr GetModuleHandle(string lpModuleName)
+  IntPtr GetProcAddress(IntPtr hModule, string procName)
+  IntPtr GetStdHandle(int nStdHandle)
+  bool Check(bool force)
+  void SetTitle(string title)
+  bool Initialize()
+  void Shutdown()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.ServerConsole.ServerConsole
+Наследуется от: object
+Поля:
+  ConsoleWindow console
+  ConsoleInput input
+  bool init
+  float nextUpdate
+  float nextTitleUpdate
+  Action`1<string> Input
+  Func`1<string> Title
+  Func`1<string> Status1Left
+  Func`1<string> Status1Right
+  Func`1<string> Status2Left
+  Func`1<string> Status2Right
+  Func`1<string> Status3Left
+  Func`1<string> Status3Right
+Свойства:
+  Func`2<string, String[]> Completion
+  ConsoleColor Status1LeftColor
+  ConsoleColor Status1RightColor
+  ConsoleColor Status2LeftColor
+  ConsoleColor Status2RightColor
+  ConsoleColor Status3RightColor
+  ConsoleColor Status3LeftColor
+  string title
+  string status1Left
+  string status1Right
+  string status2Left
+  string status2Right
+  string status3Left
+  string status3Right
+Методы:
+  void add_Input(Action`1<string> value)
+  void remove_Input(Action`1<string> value)
+  Func`2<string, String[]> get_Completion()
+  void set_Completion(Func`2<string, String[]> value)
+  ConsoleColor get_Status1LeftColor()
+  void set_Status1LeftColor(ConsoleColor value)
+  ConsoleColor get_Status1RightColor()
+  void set_Status1RightColor(ConsoleColor value)
+  ConsoleColor get_Status2LeftColor()
+  void set_Status2LeftColor(ConsoleColor value)
+  ConsoleColor get_Status2RightColor()
+  void set_Status2RightColor(ConsoleColor value)
+  ConsoleColor get_Status3RightColor()
+  void set_Status3RightColor(ConsoleColor value)
+  ConsoleColor get_Status3LeftColor()
+  void set_Status3LeftColor(ConsoleColor value)
+  string get_title()
+  string get_status1Left()
+  string get_status1Right()
+  string get_status2Left()
+  string get_status2Right()
+  string get_status3Left()
+  string get_status3Right()
+  string GetStatusValue(Func`1<string> status)
+  string GetStatusRight(int leftLength, string right)
+  void AddMessage(string message, ConsoleColor color)
+  void OnDisable()
+  void OnEnable()
+  void OnInputText(string obj)
+  void PrintColored(Object[] objects)
+  void Update()
+  void UpdateStatus()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.RemoteConsole.RemoteConsole
+Наследуется от: object
+Поля:
+  Covalence covalence
+  OxideRcon config
+  RconListener listener
+  WebSocketServer server
+Свойства:
+Методы:
+  void Initalize()
+  void Shutdown(string reason, CloseStatusCode code)
+  void SendMessage(RemoteMessage message)
+  void SendMessage(string message, int identifier)
+  void SendMessage(WebSocketContext connection, string message, int identifier)
+  void OnMessage(MessageEventArgs e, WebSocketContext connection)
+  void .ctor()
+  RconListener <Initalize>b__4_0()
+--------------------------------------------------
+Класс: Oxide.Core.RemoteConsole.RemoteMessage
+Наследуется от: object
+Поля:
+  string Message
+  int Identifier
+  string Type
+  string Stacktrace
+Свойства:
+Методы:
+  RemoteMessage CreateMessage(string message, int identifier, string type, string trace)
+  RemoteMessage GetMessage(string text)
+  string ToJSON()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.HookMethodAttribute
+Наследуется от: Attribute
+Поля:
+  string <Name>k__BackingField
+Свойства:
+  string Name
+Методы:
+  string get_Name()
+  void .ctor(string name)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.CSPlugin
+Наследуется от: Plugin
+Поля:
+  Dictionary`2<string, List`1<HookMethod>> Hooks
+  HookCache HooksCache
+Свойства:
+Методы:
+  T GetLibrary(string name)
+  void .ctor()
+  void HandleAddedToManager(PluginManager manager)
+  void AddHookMethod(string name, MethodInfo method)
+  object OnCallHook(string name, Object[] args)
+  List`1<HookMethod> FindHooks(string name, Object[] args)
+  object InvokeMethod(HookMethod method, Object[] args)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.HookCache
+Наследуется от: object
+Поля:
+  string NullKey
+  Dictionary`2<string, HookCache> _cache
+  List`1<HookMethod> _methods
+Свойства:
+Методы:
+  List`1<HookMethod> GetHookMethod(string hookName, Object[] args, HookCache& cache)
+  List`1<HookMethod> GetHookMethod(Object[] args, int index, HookCache& cache)
+  void SetupMethods(List`1<HookMethod> methods)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.HookMethod
+Наследуется от: object
+Поля:
+  string Name
+  MethodInfo Method
+  ParameterInfo[] <Parameters>k__BackingField
+  bool <IsBaseHook>k__BackingField
+Свойства:
+  ParameterInfo[] Parameters
+  bool IsBaseHook
+Методы:
+  ParameterInfo[] get_Parameters()
+  void set_Parameters(ParameterInfo[] value)
+  bool get_IsBaseHook()
+  void set_IsBaseHook(bool value)
+  void .ctor(MethodInfo method)
+  bool HasMatchingSignature(Object[] args, Boolean& exact)
+  bool CanAssignNull(Type type)
+  bool IsNumber(object obj)
+  bool IsNumber(Type type)
+  bool CanConvertNumber(object value, Type type)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.PluginError
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(Plugin sender, string message)
+  IAsyncResult BeginInvoke(Plugin sender, string message, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.PluginManagerEvent
+Наследуется от: Event`2<Plugin, PluginManager>
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.Plugin
+Наследуется от: object
+Поля:
+  string <Filename>k__BackingField
+  string name
+  string <Title>k__BackingField
+  string <Description>k__BackingField
+  string <Author>k__BackingField
+  VersionNumber <Version>k__BackingField
+  int <ResourceId>k__BackingField
+  PluginManager <Manager>k__BackingField
+  bool <HasConfig>k__BackingField
+  bool <HasMessages>k__BackingField
+  bool isCorePlugin
+  PluginLoader <Loader>k__BackingField
+  DynamicConfigFile <Config>k__BackingField
+  PluginError OnError
+  PluginManagerEvent OnAddedToManager
+  PluginManagerEvent OnRemovedFromManager
+  bool <IsLoaded>k__BackingField
+  double <TotalHookTime>k__BackingField
+  Stopwatch trackStopwatch
+  Stopwatch stopwatch
+  float averageAt
+  double sum
+  int preHookGcCount
+  int nestcount
+  IDictionary`2<string, CommandInfo> commandInfos
+  Permission permission
+Свойства:
+  string Filename
+  string Name
+  string Title
+  string Description
+  string Author
+  VersionNumber Version
+  int ResourceId
+  PluginManager Manager
+  bool HasConfig
+  bool HasMessages
+  bool IsCorePlugin
+  PluginLoader Loader
+  object Object
+  DynamicConfigFile Config
+  bool IsLoaded
+  double TotalHookTime
+Методы:
+  bool op_Implicit(Plugin plugin)
+  bool op_LogicalNot(Plugin plugin)
+  string get_Filename()
+  void set_Filename(string value)
+  string get_Name()
+  void set_Name(string value)
+  string get_Title()
+  void set_Title(string value)
+  string get_Description()
+  void set_Description(string value)
+  string get_Author()
+  void set_Author(string value)
+  VersionNumber get_Version()
+  void set_Version(VersionNumber value)
+  int get_ResourceId()
+  void set_ResourceId(int value)
+  PluginManager get_Manager()
+  void set_Manager(PluginManager value)
+  bool get_HasConfig()
+  void set_HasConfig(bool value)
+  bool get_HasMessages()
+  void set_HasMessages(bool value)
+  bool get_IsCorePlugin()
+  void set_IsCorePlugin(bool value)
+  PluginLoader get_Loader()
+  void set_Loader(PluginLoader value)
+  object get_Object()
+  DynamicConfigFile get_Config()
+  void set_Config(DynamicConfigFile value)
+  void add_OnError(PluginError value)
+  void remove_OnError(PluginError value)
+  bool get_IsLoaded()
+  void set_IsLoaded(bool value)
+  double get_TotalHookTime()
+  void set_TotalHookTime(double value)
+  void .ctor()
+  void Subscribe(string hook)
+  void Unsubscribe(string hook)
+  void HandleAddedToManager(PluginManager manager)
+  void HandleRemovedFromManager(PluginManager manager)
+  void Load()
+  object CallHook(string hook, Object[] args)
+  object Call(string hook, Object[] args)
+  T Call(string hook, Object[] args)
+  object OnCallHook(string hook, Object[] args)
+  void RaiseError(string message)
+  void TrackStart()
+  void TrackEnd()
+  void LoadConfig()
+  void LoadDefaultConfig()
+  void SaveConfig()
+  void LoadDefaultMessages()
+  void AddUniversalCommand(string command, string callback, string perm)
+  void AddCovalenceCommand(string command, string callback, string perm)
+  void AddUniversalCommand(String[] commands, string callback, string perm)
+  void AddCovalenceCommand(String[] commands, string callback, string perm)
+  void AddUniversalCommand(String[] commands, string callback, String[] perms)
+  void AddCovalenceCommand(String[] commands, string callback, String[] perms)
+  void AddUniversalCommand(String[] commands, String[] perms, CommandCallback callback)
+  void AddCovalenceCommand(String[] commands, String[] perms, CommandCallback callback)
+  void RegisterWithCovalence()
+  bool CovalenceCommandCallback(IPlayer caller, string cmd, String[] args)
+  void UnregisterWithCovalence()
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.PluginLoader
+Наследуется от: object
+Поля:
+  ConcurrentHashSet`1<string> <LoadingPlugins>k__BackingField
+  Dictionary`2<string, Plugin> LoadedPlugins
+  Dictionary`2<string, string> <PluginErrors>k__BackingField
+  Type[] <CorePlugins>k__BackingField
+  string <FileExtension>k__BackingField
+Свойства:
+  ConcurrentHashSet`1<string> LoadingPlugins
+  Dictionary`2<string, string> PluginErrors
+  Type[] CorePlugins
+  string FileExtension
+Методы:
+  ConcurrentHashSet`1<string> get_LoadingPlugins()
+  Dictionary`2<string, string> get_PluginErrors()
+  Type[] get_CorePlugins()
+  string get_FileExtension()
+  IEnumerable`1<string> ScanDirectory(string directory)
+  Plugin Load(string directory, string name)
+  Plugin GetPlugin(string filename)
+  void LoadPlugin(Plugin plugin, bool waitingForAccess)
+  void Reload(string directory, string name)
+  void Unloading(Plugin plugin)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.PluginEvent
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(Plugin plugin)
+  IAsyncResult BeginInvoke(Plugin plugin, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.PluginManager
+Наследуется от: object
+Поля:
+  Logger <Logger>k__BackingField
+  string <ConfigPath>k__BackingField
+  PluginEvent OnPluginAdded
+  PluginEvent OnPluginRemoved
+  IDictionary`2<string, Plugin> loadedPlugins
+  IDictionary`2<string, IList`1<Plugin>> hookSubscriptions
+  Dictionary`2<string, float> lastDeprecatedWarningAt
+  List`1<string> hookConflicts
+Свойства:
+  Logger Logger
+  string ConfigPath
+Методы:
+  Logger get_Logger()
+  void set_Logger(Logger value)
+  string get_ConfigPath()
+  void set_ConfigPath(string value)
+  void add_OnPluginAdded(PluginEvent value)
+  void remove_OnPluginAdded(PluginEvent value)
+  void add_OnPluginRemoved(PluginEvent value)
+  void remove_OnPluginRemoved(PluginEvent value)
+  void .ctor(Logger logger)
+  bool AddPlugin(Plugin plugin)
+  bool RemovePlugin(Plugin plugin)
+  Plugin GetPlugin(string name)
+  IEnumerable`1<Plugin> GetPlugins()
+  void SubscribeToHook(string hook, Plugin plugin)
+  void UnsubscribeToHook(string hook, Plugin plugin)
+  object CallHook(string hook, Object[] args)
+  object CallDeprecatedHook(string oldHook, string newHook, DateTime expireDate, Object[] args)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.Watchers.FileChange
+Наследуется от: object
+Поля:
+  string <Name>k__BackingField
+  WatcherChangeTypes <ChangeType>k__BackingField
+Свойства:
+  string Name
+  WatcherChangeTypes ChangeType
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  WatcherChangeTypes get_ChangeType()
+  void set_ChangeType(WatcherChangeTypes value)
+  void .ctor(string name, WatcherChangeTypes changeType)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.Watchers.FSWatcher
+Наследуется от: PluginChangeWatcher
+Поля:
+  FileSystemWatcher watcher
+  ICollection`1<string> watchedPlugins
+  Dictionary`2<string, QueuedChange> changeQueue
+  Timer timers
+  Dictionary`2<string, FileSystemWatcher> m_symlinkWatchers
+Свойства:
+Методы:
+  void .ctor(string directory, string filter)
+  bool IsFileSymlink(string path)
+  void LoadWatcherSymlink(string path)
+  void LoadWatcher(string directory, string filter)
+  void AddMapping(string name)
+  void RemoveMapping(string name)
+  void watcher_Changed(object sender, FileSystemEventArgs e)
+  void watcher_Error(object sender, ErrorEventArgs e)
+  void <LoadWatcherSymlink>g__symlinkTarget_Changed|8_0(object sender, FileSystemEventArgs e)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.Watchers.PluginChangeEvent
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(string name)
+  IAsyncResult BeginInvoke(string name, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.Watchers.PluginAddEvent
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(string name)
+  IAsyncResult BeginInvoke(string name, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.Watchers.PluginRemoveEvent
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(string name)
+  IAsyncResult BeginInvoke(string name, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Oxide.Core.Plugins.Watchers.PluginChangeWatcher
+Наследуется от: object
+Поля:
+  PluginChangeEvent OnPluginSourceChanged
+  PluginAddEvent OnPluginAdded
+  PluginRemoveEvent OnPluginRemoved
+Свойства:
+Методы:
+  void add_OnPluginSourceChanged(PluginChangeEvent value)
+  void remove_OnPluginSourceChanged(PluginChangeEvent value)
+  void add_OnPluginAdded(PluginAddEvent value)
+  void remove_OnPluginAdded(PluginAddEvent value)
+  void add_OnPluginRemoved(PluginRemoveEvent value)
+  void remove_OnPluginRemoved(PluginRemoveEvent value)
+  void FirePluginSourceChanged(string name)
+  void FirePluginAdded(string name)
+  void FirePluginRemoved(string name)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Logging.CallbackLogger
+Наследуется от: Logger
+Поля:
+  NativeDebugCallback callback
+Свойства:
+Методы:
+  void .ctor(NativeDebugCallback callback)
+  void ProcessMessage(LogMessage message)
+--------------------------------------------------
+Класс: Oxide.Core.Logging.CompoundLogger
+Наследуется от: Logger
+Поля:
+  HashSet`1<Logger> subloggers
+  List`1<LogMessage> messagecache
+  bool usecache
+  object Lock
+Свойства:
+Методы:
+  void .ctor()
+  void AddLogger(Logger logger)
+  void RemoveLogger(Logger logger)
+  void Shutdown()
+  void Write(LogType type, string format, Object[] args)
+  void DisableCache()
+--------------------------------------------------
+Класс: Oxide.Core.Logging.LogType
+Наследуется от: Enum
+Поля:
+  int value__
+  LogType Chat
+  LogType Error
+  LogType Info
+  LogType Warning
+  LogType Debug
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Oxide.Core.Logging.Logger
+Наследуется от: object
+Поля:
+  Queue`1<LogMessage> MessageQueue
+  bool processImediately
+Свойства:
+Методы:
+  void .ctor(bool processImediately)
+  LogMessage CreateLogMessage(LogType type, string format, Object[] args)
+  void HandleMessage(string message, string stackTrace, LogType logType)
+  void Write(LogType type, string format, Object[] args)
+  void Write(LogMessage message)
+  void ProcessMessage(LogMessage message)
+  void WriteException(string message, Exception ex)
+  void OnRemoved()
+--------------------------------------------------
+Класс: Oxide.Core.Logging.RotatingFileLogger
+Наследуется от: ThreadedLogger
+Поля:
+  string <Directory>k__BackingField
+  StreamWriter writer
+Свойства:
+  string Directory
+Методы:
+  string get_Directory()
+  void set_Directory(string value)
+  string GetLogFilename(DateTime date)
+  void BeginBatchProcess()
+  void ProcessMessage(LogMessage message)
+  void FinishBatchProcess()
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Logging.ThreadedLogger
+Наследуется от: Logger
+Поля:
+  AutoResetEvent waitevent
+  bool exit
+  object syncroot
+  Thread workerthread
+Свойства:
+Методы:
+  void .ctor()
+  void Finalize()
+  void OnRemoved()
+  void Write(LogMessage msg)
+  void BeginBatchProcess()
+  void FinishBatchProcess()
+  void Worker()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Global
+Наследуется от: Library
+Поля:
+Свойства:
+  bool IsGlobal
+Методы:
+  bool get_IsGlobal()
+  VersionNumber MakeVersion(ushort major, ushort minor, ushort patch)
+  object New(Type type, Object[] args)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Lang
+Наследуется от: Library
+Поля:
+  string defaultLang
+  LangData langData
+  Dictionary`2<string, Dictionary`2<string, string>> langFiles
+  Dictionary`2<Plugin, Callback`2<Plugin, PluginManager>> pluginRemovedFromManager
+Свойства:
+  bool IsGlobal
+Методы:
+  bool get_IsGlobal()
+  void .ctor()
+  void RegisterMessages(Dictionary`2<string, string> messages, Plugin plugin, string lang)
+  string GetLanguage(string userId)
+  String[] GetLanguages(Plugin plugin)
+  string GetMessage(string key, Plugin plugin, string userId)
+  Dictionary`2<string, string> GetMessages(string lang, Plugin plugin)
+  string GetServerLanguage()
+  void SetLanguage(string lang, string userId)
+  void SetServerLanguage(string lang)
+  void AddLangFile(string file, Dictionary`2<string, string> langFile, Plugin plugin)
+  Dictionary`2<string, string> GetMessageFile(string plugin, string lang)
+  string GetMessageKey(string key, Plugin plugin, string lang)
+  bool MergeMessages(Dictionary`2<string, string> existingMessages, Dictionary`2<string, string> messages)
+  void SaveData()
+  void plugin_OnRemovedFromManager(Plugin sender, PluginManager manager)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.LibraryFunction
+Наследуется от: Attribute
+Поля:
+  string <Name>k__BackingField
+Свойства:
+  string Name
+Методы:
+  string get_Name()
+  void .ctor()
+  void .ctor(string name)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.LibraryProperty
+Наследуется от: Attribute
+Поля:
+  string <Name>k__BackingField
+Свойства:
+  string Name
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  void .ctor()
+  void .ctor(string name)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Library
+Наследуется от: object
+Поля:
+  IDictionary`2<string, MethodInfo> functions
+  IDictionary`2<string, PropertyInfo> properties
+  bool <IsGlobal>k__BackingField
+  Exception <LastException>k__BackingField
+Свойства:
+  bool IsGlobal
+  Exception LastException
+Методы:
+  bool op_Implicit(Library library)
+  bool op_LogicalNot(Library library)
+  bool get_IsGlobal()
+  Exception get_LastException()
+  void set_LastException(Exception value)
+  void .ctor()
+  void Shutdown()
+  IEnumerable`1<string> GetFunctionNames()
+  IEnumerable`1<string> GetPropertyNames()
+  MethodInfo GetFunction(string name)
+  PropertyInfo GetProperty(string name)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.UserData
+Наследуется от: object
+Поля:
+  string <LastSeenNickname>k__BackingField
+  HashSet`1<string> <Perms>k__BackingField
+  HashSet`1<string> <Groups>k__BackingField
+Свойства:
+  string LastSeenNickname
+  HashSet`1<string> Perms
+  HashSet`1<string> Groups
+Методы:
+  string get_LastSeenNickname()
+  void set_LastSeenNickname(string value)
+  HashSet`1<string> get_Perms()
+  void set_Perms(HashSet`1<string> value)
+  HashSet`1<string> get_Groups()
+  void set_Groups(HashSet`1<string> value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.GroupData
+Наследуется от: object
+Поля:
+  string <Title>k__BackingField
+  int <Rank>k__BackingField
+  HashSet`1<string> <Perms>k__BackingField
+  string <ParentGroup>k__BackingField
+Свойства:
+  string Title
+  int Rank
+  HashSet`1<string> Perms
+  string ParentGroup
+Методы:
+  string get_Title()
+  void set_Title(string value)
+  int get_Rank()
+  void set_Rank(int value)
+  HashSet`1<string> get_Perms()
+  void set_Perms(HashSet`1<string> value)
+  string get_ParentGroup()
+  void set_ParentGroup(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Permission
+Наследуется от: Library
+Поля:
+  Dictionary`2<Plugin, HashSet`1<string>> registeredPermissions
+  Dictionary`2<string, UserData> usersData
+  Dictionary`2<string, GroupData> groupsData
+  Func`2<string, bool> validate
+  bool <IsLoaded>k__BackingField
+Свойства:
+  bool IsGlobal
+  bool IsLoaded
+Методы:
+  bool get_IsGlobal()
+  bool get_IsLoaded()
+  void set_IsLoaded(bool value)
+  void .ctor()
+  void LoadFromDatafile()
+  void VerifyAndLoadUsersData()
+  void VerifyAndLoadGroupsData()
+  Dictionary`2<string, GroupData> VerifyGroupData(Dictionary`2<string, GroupData> data)
+  void Export(string prefix)
+  void SaveData()
+  void SaveUsers()
+  void SaveGroups()
+  void RegisterValidate(Func`2<string, bool> val)
+  void CleanUp()
+  void MigrateGroup(string oldGroupName, string newGroupName)
+  void RegisterPermission(string permission, Plugin owner)
+  bool PermissionExists(string permission, Plugin owner)
+  void owner_OnRemovedFromManager(Plugin sender, PluginManager manager)
+  bool UserIdValid(string playerId)
+  bool UserExists(string playerId)
+  UserData GetUserData(string playerId)
+  void UpdateNickname(string playerId, string playerName)
+  bool UserHasAnyGroup(string playerId)
+  bool GroupsHavePermission(HashSet`1<string> groupNames, string permission)
+  bool GroupHasPermission(string groupName, string permission)
+  bool UserHasPermission(string playerId, string permission)
+  String[] GetUserGroups(string playerId)
+  String[] GetUserPermissions(string playerId)
+  String[] GetGroupPermissions(string groupName, bool parents)
+  String[] GetPermissions()
+  String[] GetPermissionUsers(string permission)
+  String[] GetPermissionGroups(string permission)
+  void AddUserGroup(string playerId, string groupName)
+  void RemoveUserGroup(string playerId, string groupName)
+  bool UserHasGroup(string playerId, string groupName)
+  bool GroupExists(string groupName)
+  GroupData GetGroupData(string groupName)
+  String[] GetGroups()
+  String[] GetUsersInGroup(string groupName)
+  string GetGroupTitle(string groupName)
+  int GetGroupRank(string groupName)
+  void GrantUserPermission(string playerId, string permission, Plugin owner)
+  void RevokeUserPermission(string playerId, string permission)
+  void GrantGroupPermission(string groupName, string permission, Plugin owner)
+  void RevokeGroupPermission(string groupName, string permission)
+  bool CreateGroup(string groupName, string groupTitle, int groupRank)
+  bool RemoveGroup(string groupName)
+  bool SetGroupTitle(string groupName, string groupTitle)
+  bool SetGroupRank(string groupName, int groupRank)
+  string GetGroupParent(string groupName)
+  bool SetGroupParent(string groupName, string parentGroupName)
+  bool HasCircularParent(string groupName, string parentGroupName)
+  bool <CleanUp>b__20_0(string i)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Plugins
+Наследуется от: Library
+Поля:
+  PluginManager <PluginManager>k__BackingField
+Свойства:
+  bool IsGlobal
+  PluginManager PluginManager
+Методы:
+  bool get_IsGlobal()
+  PluginManager get_PluginManager()
+  void set_PluginManager(PluginManager value)
+  void .ctor(PluginManager pluginmanager)
+  bool Exists(string name)
+  Plugin Find(string name)
+  object CallHook(string hookname, Object[] args)
+  Plugin[] GetAll()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Time
+Наследуется от: Library
+Поля:
+  DateTime Epoch
+Свойства:
+  bool IsGlobal
+Методы:
+  bool get_IsGlobal()
+  DateTime GetCurrentTime()
+  DateTime GetDateTimeFromUnix(UInt32 timestamp)
+  UInt32 GetUnixTimestamp()
+  UInt32 GetUnixFromDateTime(DateTime time)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Timer
+Наследуется от: Library
+Поля:
+  int <Count>k__BackingField
+  object Lock
+  OxideMod Oxide
+  int TimeSlots
+  int LastTimeSlot
+  float TickDuration
+  TimeSlot[] timeSlots
+  Queue`1<TimerInstance> expiredInstanceQueue
+  int currentSlot
+  double nextSlotAt
+Свойства:
+  bool IsGlobal
+  int Count
+Методы:
+  bool get_IsGlobal()
+  int get_Count()
+  void set_Count(int value)
+  void .ctor()
+  void Update(float delta)
+  TimerInstance AddTimer(int repetitions, float delay, Action callback, Plugin owner)
+  void InsertTimer(TimerInstance timer, bool in_past)
+  TimerInstance Once(float delay, Action callback, Plugin owner)
+  TimerInstance Repeat(float delay, int reps, Action callback, Plugin owner)
+  TimerInstance NextFrame(Action callback)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.RequestMethod
+Наследуется от: Enum
+Поля:
+  int value__
+  RequestMethod DELETE
+  RequestMethod GET
+  RequestMethod PATCH
+  RequestMethod POST
+  RequestMethod PUT
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.WebRequests
+Наследуется от: Library
+Поля:
+  Covalence covalence
+  float Timeout
+  bool AllowDecompression
+  Queue`1<WebRequest> queue
+  object syncroot
+  Thread workerthread
+  AutoResetEvent workevent
+  bool shutdown
+  int maxWorkerThreads
+  int maxCompletionPortThreads
+Свойства:
+Методы:
+  string FormatWebException(Exception exception, string response)
+  void .ctor()
+  void Shutdown()
+  void Worker()
+  void EnqueueGet(string url, Action`2<int, string> callback, Plugin owner, Dictionary`2<string, string> headers, float timeout)
+  void EnqueuePost(string url, string body, Action`2<int, string> callback, Plugin owner, Dictionary`2<string, string> headers, float timeout)
+  void EnqueuePut(string url, string body, Action`2<int, string> callback, Plugin owner, Dictionary`2<string, string> headers, float timeout)
+  void Enqueue(string url, string body, Action`2<int, string> callback, Plugin owner, RequestMethod method, Dictionary`2<string, string> headers, float timeout)
+  int GetQueueLength()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.HttpWebRequestExtensions
+Наследуется от: object
+Поля:
+  String[] RestrictedHeaders
+  Dictionary`2<string, PropertyInfo> HeaderProperties
+Свойства:
+Методы:
+  void .cctor()
+  void SetRawHeaders(WebRequest request, Dictionary`2<string, string> headers)
+  void SetRawHeader(WebRequest request, string name, string value)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.CommandHandler
+Наследуется от: object
+Поля:
+  CommandCallback callback
+  Func`2<string, bool> commandFilter
+Свойства:
+Методы:
+  void .ctor(CommandCallback callback, Func`2<string, bool> commandFilter)
+  bool HandleChatMessage(IPlayer player, string message)
+  bool HandleConsoleMessage(IPlayer player, string message)
+  bool HandleCommand(IPlayer player, string command, String[] args)
+  void ParseCommand(string argstr, String& cmd, String[]& args)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.Covalence
+Наследуется от: Library
+Поля:
+  ICommandSystem cmdSystem
+  ICovalenceProvider provider
+  Logger logger
+  IServer <Server>k__BackingField
+  IPlayerManager <Players>k__BackingField
+Свойства:
+  bool IsGlobal
+  IServer Server
+  IPlayerManager Players
+  string Game
+  UInt32 ClientAppId
+  UInt32 ServerAppId
+Методы:
+  bool get_IsGlobal()
+  IServer get_Server()
+  void set_Server(IServer value)
+  IPlayerManager get_Players()
+  void set_Players(IPlayerManager value)
+  string get_Game()
+  UInt32 get_ClientAppId()
+  UInt32 get_ServerAppId()
+  string FormatText(string text)
+  void .ctor()
+  void Initialize()
+  void RegisterCommand(string command, Plugin plugin, CommandCallback callback)
+  void UnregisterCommand(string command, Plugin plugin)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.CommandAlreadyExistsException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string cmd)
+  void .ctor(string message, Exception inner)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.Element
+Наследуется от: object
+Поля:
+  ElementType Type
+  object Val
+  List`1<Element> Body
+Свойства:
+Методы:
+  void .ctor(ElementType type, object val)
+  Element String(object s)
+  Element Tag(ElementType type)
+  Element ParamTag(ElementType type, object val)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.ElementType
+Наследуется от: Enum
+Поля:
+  int value__
+  ElementType String
+  ElementType Bold
+  ElementType Italic
+  ElementType Color
+  ElementType Size
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.Formatter
+Наследуется от: object
+Поля:
+  Dictionary`2<string, string> colorNames
+  Dictionary`2<ElementType, Nullable`1<TokenType>> closeTags
+Свойства:
+Методы:
+  List`1<Element> Parse(List`1<Token> tokens)
+  List`1<Element> Parse(string text)
+  Tag Translation(Element e, Dictionary`2<ElementType, Func`2<object, Tag>> translations)
+  string ToTreeFormat(List`1<Element> tree, Dictionary`2<ElementType, Func`2<object, Tag>> translations)
+  string ToTreeFormat(string text, Dictionary`2<ElementType, Func`2<object, Tag>> translations)
+  string RGBAtoRGB(object rgba)
+  string ToPlaintext(string text)
+  string ToUnity(string text)
+  string ToRustLegacy(string text)
+  string ToRoKAnd7DTD(string text)
+  string ToTerraria(string text)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.CommandType
+Наследуется от: Enum
+Поля:
+  int value__
+  CommandType Chat
+  CommandType Console
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.CommandCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  bool Invoke(IPlayer caller, string command, String[] args)
+  IAsyncResult BeginInvoke(IPlayer caller, string command, String[] args, AsyncCallback callback, object object)
+  bool EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.ICommandSystem
+Поля:
+Свойства:
+Методы:
+  void RegisterCommand(string command, Plugin plugin, CommandCallback callback)
+  void UnregisterCommand(string command, Plugin plugin)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.ICovalenceProvider
+Поля:
+Свойства:
+  string GameName
+  UInt32 ClientAppId
+  UInt32 ServerAppId
+Методы:
+  string get_GameName()
+  UInt32 get_ClientAppId()
+  UInt32 get_ServerAppId()
+  ICommandSystem CreateCommandSystemProvider()
+  IPlayerManager CreatePlayerManager()
+  IServer CreateServer()
+  string FormatText(string text)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.IPlayer
+Поля:
+Свойства:
+  object Object
+  CommandType LastCommand
+  string Name
+  string Id
+  string Address
+  int Ping
+  CultureInfo Language
+  bool IsConnected
+  bool IsSleeping
+  bool IsServer
+  bool IsAdmin
+  bool IsBanned
+  TimeSpan BanTimeRemaining
+  float Health
+  float MaxHealth
+Методы:
+  object get_Object()
+  CommandType get_LastCommand()
+  void set_LastCommand(CommandType value)
+  string get_Name()
+  void set_Name(string value)
+  string get_Id()
+  string get_Address()
+  int get_Ping()
+  CultureInfo get_Language()
+  bool get_IsConnected()
+  bool get_IsSleeping()
+  bool get_IsServer()
+  bool get_IsAdmin()
+  bool get_IsBanned()
+  void Ban(string reason, TimeSpan duration)
+  TimeSpan get_BanTimeRemaining()
+  void Heal(float amount)
+  float get_Health()
+  void set_Health(float value)
+  void Hurt(float amount)
+  void Kick(string reason)
+  void Kill()
+  float get_MaxHealth()
+  void set_MaxHealth(float value)
+  void Rename(string name)
+  void Teleport(float x, float y, float z)
+  void Teleport(GenericPosition pos)
+  void Unban()
+  void Position(Single& x, Single& y, Single& z)
+  GenericPosition Position()
+  void Message(string message, string prefix, Object[] args)
+  void Message(string message)
+  void Reply(string message, string prefix, Object[] args)
+  void Reply(string message)
+  void Command(string command, Object[] args)
+  bool HasPermission(string perm)
+  void GrantPermission(string perm)
+  void RevokePermission(string perm)
+  bool BelongsToGroup(string group)
+  void AddToGroup(string group)
+  void RemoveFromGroup(string group)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.GenericPosition
+Наследуется от: object
+Поля:
+  float X
+  float Y
+  float Z
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(float x, float y, float z)
+  bool Equals(object obj)
+  bool op_Equality(GenericPosition a, GenericPosition b)
+  bool op_Inequality(GenericPosition a, GenericPosition b)
+  GenericPosition op_Addition(GenericPosition a, GenericPosition b)
+  GenericPosition op_Subtraction(GenericPosition a, GenericPosition b)
+  GenericPosition op_Multiply(float mult, GenericPosition a)
+  GenericPosition op_Multiply(GenericPosition a, float mult)
+  GenericPosition op_Division(GenericPosition a, float div)
+  int GetHashCode()
+  string ToString()
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.IPlayerManager
+Поля:
+Свойства:
+  IEnumerable`1<IPlayer> All
+  IEnumerable`1<IPlayer> Connected
+Методы:
+  IEnumerable`1<IPlayer> get_All()
+  IEnumerable`1<IPlayer> get_Connected()
+  IPlayer FindPlayerById(string id)
+  IPlayer FindPlayerByObj(object obj)
+  IPlayer FindPlayer(string partialNameOrId)
+  IEnumerable`1<IPlayer> FindPlayers(string partialNameOrId)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.IServer
+Поля:
+Свойства:
+  string Name
+  IPAddress Address
+  IPAddress LocalAddress
+  ushort Port
+  string Version
+  string Protocol
+  CultureInfo Language
+  int Players
+  int MaxPlayers
+  DateTime Time
+  SaveInfo SaveInfo
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  IPAddress get_Address()
+  IPAddress get_LocalAddress()
+  ushort get_Port()
+  string get_Version()
+  string get_Protocol()
+  CultureInfo get_Language()
+  int get_Players()
+  int get_MaxPlayers()
+  void set_MaxPlayers(int value)
+  DateTime get_Time()
+  void set_Time(DateTime value)
+  SaveInfo get_SaveInfo()
+  void Ban(string id, string reason, TimeSpan duration)
+  TimeSpan BanTimeRemaining(string id)
+  bool IsBanned(string id)
+  void Save()
+  void Unban(string id)
+  void Broadcast(string message, string prefix, Object[] args)
+  void Broadcast(string message)
+  void Command(string command, Object[] args)
+--------------------------------------------------
+Класс: Oxide.Core.Libraries.Covalence.SaveInfo
+Наследуется от: object
+Поля:
+  Time time
+  string FullPath
+  string <SaveName>k__BackingField
+  DateTime <CreationTime>k__BackingField
+  UInt32 <CreationTimeUnix>k__BackingField
+Свойства:
+  string SaveName
+  DateTime CreationTime
+  UInt32 CreationTimeUnix
+Методы:
+  string get_SaveName()
+  void set_SaveName(string value)
+  DateTime get_CreationTime()
+  void set_CreationTime(DateTime value)
+  UInt32 get_CreationTimeUnix()
+  void set_CreationTimeUnix(UInt32 value)
+  void Refresh()
+  void .ctor(string filepath)
+  SaveInfo Create(string filepath)
+--------------------------------------------------
+Класс: Oxide.Core.Extensions.Extension
+Наследуется от: object
+Поля:
+  string <Filename>k__BackingField
+  string <Branch>k__BackingField
+  bool <IsCoreExtension>k__BackingField
+  bool <IsGameExtension>k__BackingField
+  bool <SupportsReloading>k__BackingField
+  ExtensionManager <Manager>k__BackingField
+  String[] <DefaultReferences>k__BackingField
+  String[] <WhitelistAssemblies>k__BackingField
+  String[] <WhitelistNamespaces>k__BackingField
+Свойства:
+  string Name
+  string Author
+  VersionNumber Version
+  string Filename
+  string Branch
+  bool IsCoreExtension
+  bool IsGameExtension
+  bool SupportsReloading
+  ExtensionManager Manager
+  String[] DefaultReferences
+  String[] WhitelistAssemblies
+  String[] WhitelistNamespaces
+Методы:
+  string get_Name()
+  string get_Author()
+  VersionNumber get_Version()
+  string get_Filename()
+  void set_Filename(string value)
+  string get_Branch()
+  bool get_IsCoreExtension()
+  bool get_IsGameExtension()
+  bool get_SupportsReloading()
+  ExtensionManager get_Manager()
+  String[] get_DefaultReferences()
+  void set_DefaultReferences(String[] value)
+  String[] get_WhitelistAssemblies()
+  void set_WhitelistAssemblies(String[] value)
+  String[] get_WhitelistNamespaces()
+  void set_WhitelistNamespaces(String[] value)
+  void .ctor(ExtensionManager manager)
+  void Load()
+  void Unload()
+  void LoadPluginWatchers(string pluginDirectory)
+  void OnModLoad()
+  void OnShutdown()
+--------------------------------------------------
+Класс: Oxide.Core.Extensions.ExtensionManager
+Наследуется от: object
+Поля:
+  IList`1<Extension> extensions
+  string extSearchPattern
+  CompoundLogger <Logger>k__BackingField
+  IList`1<PluginLoader> pluginloaders
+  IDictionary`2<string, Library> libraries
+  IList`1<PluginChangeWatcher> changewatchers
+Свойства:
+  CompoundLogger Logger
+Методы:
+  CompoundLogger get_Logger()
+  void set_Logger(CompoundLogger value)
+  void .ctor(CompoundLogger logger)
+  void RegisterPluginLoader(PluginLoader loader)
+  IEnumerable`1<PluginLoader> GetPluginLoaders()
+  void RegisterLibrary(string name, Library library)
+  IEnumerable`1<string> GetLibraries()
+  Library GetLibrary(string name)
+  void RegisterPluginChangeWatcher(PluginChangeWatcher watcher)
+  IEnumerable`1<PluginChangeWatcher> GetPluginChangeWatchers()
+  void LoadExtension(string filename)
+  void UnloadExtension(string filename)
+  void ReloadExtension(string filename)
+  void LoadAllExtensions(string directory)
+  IEnumerable`1<Extension> GetAllExtensions()
+  bool IsExtensionPresent(string name)
+  bool IsExtensionPresent()
+  Extension GetExtension(string name)
+  T GetExtension()
+--------------------------------------------------
+Класс: Oxide.Core.Database.Connection
+Наследуется от: object
+Поля:
+  string <ConnectionString>k__BackingField
+  bool <ConnectionPersistent>k__BackingField
+  DbConnection <Con>k__BackingField
+  Plugin <Plugin>k__BackingField
+  long <LastInsertRowId>k__BackingField
+Свойства:
+  string ConnectionString
+  bool ConnectionPersistent
+  DbConnection Con
+  Plugin Plugin
+  long LastInsertRowId
+Методы:
+  string get_ConnectionString()
+  void set_ConnectionString(string value)
+  bool get_ConnectionPersistent()
+  void set_ConnectionPersistent(bool value)
+  DbConnection get_Con()
+  void set_Con(DbConnection value)
+  Plugin get_Plugin()
+  void set_Plugin(Plugin value)
+  long get_LastInsertRowId()
+  void set_LastInsertRowId(long value)
+  void .ctor(string connection, bool persistent)
+--------------------------------------------------
+Класс: Oxide.Core.Database.IDatabaseProvider
+Поля:
+Свойства:
+Методы:
+  Connection OpenDb(string file, Plugin plugin, bool persistent)
+  void CloseDb(Connection db)
+  Sql NewSql()
+  void Query(Sql sql, Connection db, Action`1<List`1<Dictionary`2<string, object>>> callback)
+  void ExecuteNonQuery(Sql sql, Connection db, Action`1<int> callback)
+  void Insert(Sql sql, Connection db, Action`1<int> callback)
+  void Update(Sql sql, Connection db, Action`1<int> callback)
+  void Delete(Sql sql, Connection db, Action`1<int> callback)
+--------------------------------------------------
+Класс: Oxide.Core.Database.Sql
+Наследуется от: object
+Поля:
+  Regex Filter
+  Regex RxParams
+  Object[] _args
+  string _sql
+  Object[] _argsFinal
+  Sql _rhs
+  string _sqlFinal
+Свойства:
+  Sql Builder
+  string SQL
+  Object[] Arguments
+Методы:
+  void .ctor()
+  void .ctor(string sql, Object[] args)
+  Sql get_Builder()
+  string get_SQL()
+  Object[] get_Arguments()
+  void Build()
+  Sql Append(Sql sql)
+  Sql Append(string sql, Object[] args)
+  bool Is(Sql sql, string sqltype)
+  void Build(StringBuilder sb, List`1<object> args, Sql lhs)
+  Sql Where(string sql, Object[] args)
+  Sql OrderBy(Object[] columns)
+  Sql Select(Object[] columns)
+  Sql From(Object[] tables)
+  Sql GroupBy(Object[] columns)
+  SqlJoinClause Join(string joinType, string table)
+  SqlJoinClause InnerJoin(string table)
+  SqlJoinClause LeftJoin(string table)
+  string ProcessParams(string sql, Object[] argsSrc, List`1<object> argsDest)
+  void AddParams(IDbCommand cmd, Object[] items, string parameterPrefix)
+  void AddParam(IDbCommand cmd, object item, string parameterPrefix)
+  void .cctor()
+--------------------------------------------------
+Класс: Oxide.Core.Configuration.ConfigFile
+Наследуется от: object
+Поля:
+  string <Filename>k__BackingField
+Свойства:
+  string Filename
+Методы:
+  string get_Filename()
+  void set_Filename(string value)
+  void .ctor(string filename)
+  T Load(string filename)
+  void Load(string filename)
+  void Save(string filename)
+--------------------------------------------------
+Класс: Oxide.Core.Configuration.DynamicConfigFile
+Наследуется от: ConfigFile
+Поля:
+  JsonSerializerSettings <Settings>k__BackingField
+  Dictionary`2<string, object> _keyvalues
+  JsonSerializerSettings _settings
+  string _chroot
+Свойства:
+  JsonSerializerSettings Settings
+  object Item
+  object Item
+  object Item
+Методы:
+  JsonSerializerSettings get_Settings()
+  void set_Settings(JsonSerializerSettings value)
+  void .ctor(string filename)
+  void Load(string filename)
+  T ReadObject(string filename)
+  void Save(string filename)
+  void WriteObject(T config, bool sync, string filename)
+  bool Exists(string filename)
+  void Delete(string filename)
+  string CheckPath(string filename)
+  string SanitizeName(string name)
+  string SanitiseName(string name)
+  void Clear()
+  void Remove(string key)
+  object get_Item(string key)
+  void set_Item(string key, object value)
+  object get_Item(string keyLevel1, string keyLevel2)
+  void set_Item(string keyLevel1, string keyLevel2, object value)
+  object get_Item(string keyLevel1, string keyLevel2, string keyLevel3)
+  void set_Item(string keyLevel1, string keyLevel2, string keyLevel3, object value)
+  object ConvertValue(object value, Type destinationType)
+  T ConvertValue(object value)
+  object Get(String[] path)
+  T Get(String[] path)
+  void Set(Object[] pathAndTrailingValue)
+  IEnumerator`1<KeyValuePair`2<string, object>> GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+--------------------------------------------------
+Класс: Oxide.Core.Configuration.KeyValuesConverter
+Наследуется от: JsonConverter
+Поля:
+Свойства:
+Методы:
+  bool CanConvert(Type objectType)
+  void Throw(string message)
+  object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+  void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+  void .ctor()
+--------------------------------------------------
+Класс: Oxide.Core.Configuration.OxideConfig
+Наследуется от: ConfigFile
+Поля:
+  OxideOptions <Options>k__BackingField
+  OxideConsole <Console>k__BackingField
+  OxideRcon <Rcon>k__BackingField
+Свойства:
+  OxideOptions Options
+  OxideConsole Console
+  OxideRcon Rcon
+Методы:
+  OxideOptions get_Options()
+  void set_Options(OxideOptions value)
+  OxideConsole get_Console()
+  void set_Console(OxideConsole value)
+  OxideRcon get_Rcon()
+  void set_Rcon(OxideRcon value)
+  void .ctor(string filename)
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=6 631DD2A447570DAED0FB71936AA88BF84C797C036F13ED17901D2B0482D9884D
+  __StaticArrayInitTypeSize=16 BA6DA6C5AC90E524292B22BED4459426673C9E0DB6AE04282ECD4792DBE16523
+Свойства:
+Методы:
+--------------------------------------------------

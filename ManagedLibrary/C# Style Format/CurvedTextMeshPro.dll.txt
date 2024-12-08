@@ -1,0 +1,40 @@
+[ExecuteInEditMode]
+public class ntw.CurvedTextMeshPro.TextProOnACircle : TextProOnACurve {
+    [SerializeField]
+[TooltipAttribute("The radius of the text circle arc")]
+private float m_radius;
+    [TooltipAttribute("How much degrees the text arc should span")]
+public float m_arcDegrees;
+    [SerializeField]
+[TooltipAttribute("The angular offset at which the arc should be centered, in degrees")]
+private float m_angularOffset;
+    private float m_oldRadius;
+    private float m_oldArcDegrees;
+    private float m_oldAngularOffset;
+    protected virtual bool ParametersHaveChanged();
+    protected virtual Matrix4x4 ComputeTransformationMatrix(Vector3 charMidBaselinePos, float zeroToOnePos, TMP_TextInfo textInfo, int charIdx);
+}
+[ExecuteInEditMode]
+public abstract class ntw.CurvedTextMeshPro.TextProOnACurve : MonoBehaviour {
+    private TMP_Text m_TextComponent;
+    private void Awake();
+    private void OnEnable();
+    public void ForceUpdate();
+    protected abstract virtual bool ParametersHaveChanged();
+    protected abstract virtual Matrix4x4 ComputeTransformationMatrix(Vector3 charMidBaselinePos, float zeroToOnePos, TMP_TextInfo textInfo, int charIdx);
+}
+[ExecuteInEditMode]
+public class ntw.CurvedTextMeshPro.TextProOnAExp : TextProOnACurve {
+    [SerializeField]
+[TooltipAttribute("The base of the exponential curve")]
+private float m_expBase;
+    private float m_oldExpBase;
+    protected virtual bool ParametersHaveChanged();
+    protected virtual Matrix4x4 ComputeTransformationMatrix(Vector3 charMidBaselinePos, float zeroToOnePos, TMP_TextInfo textInfo, int charIdx);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

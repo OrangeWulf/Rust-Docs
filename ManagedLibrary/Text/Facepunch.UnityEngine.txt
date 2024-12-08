@@ -1,0 +1,1360 @@
+Сборка: Facepunch.UnityEngine.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: FacepunchBehaviour
+Наследуется от: MonoBehaviour
+Поля:
+Свойства:
+Методы:
+  void Invoke(Action action, float time)
+  void Invoke(Action action, float time, float random)
+  void InvokeRepeating(Action action, float time, float repeat)
+  void InvokeRandomized(Action action, float time, float repeat, float random)
+  void CancelInvoke(Action action)
+  bool IsInvoking(Action action)
+  void InvokeRepeatingFixedTime(Action action)
+  void InvokeRandomizedFixedTime(Action action, float time, float repeat, float random)
+  void CancelInvokeFixedTime(Action action)
+  bool IsInvokingFixedTime(Action action)
+  void .ctor()
+--------------------------------------------------
+Класс: InvokeHandlerBase`1
+Наследуется от: SingletonComponent`1<T>
+Поля:
+  bool performanceTracking
+  float maxTickTimeWarning
+  List`1<InvokeTiming<T>> performanceTimes
+  ListDictionary`2<InvokeAction, float> curList
+  ListHashSet`1<InvokeAction> addList
+  ListHashSet`1<InvokeAction> delList
+  int nullIndex
+  int nullChecks
+  Stopwatch tickStopWatch
+  Stopwatch invokeStopWatch
+Свойства:
+Методы:
+  void LateUpdate()
+  float GetTime()
+  void DoTick()
+  void RemoveExpired()
+  void QueueAdd(InvokeAction invoke)
+  void QueueRemove(InvokeAction invoke)
+  bool Contains(InvokeAction invoke)
+  void ApplyAdds()
+  void ApplyRemoves()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: InvokeHandler
+Наследуется от: InvokeHandlerBase`1<InvokeHandler>
+Поля:
+Свойства:
+Методы:
+  float GetTime()
+  void FindInvokes(Behaviour sender, List`1<InvokeAction> list)
+  int Count()
+  bool IsInvoking(Behaviour sender, Action action)
+  void Invoke(Behaviour sender, Action action, float time)
+  void InvokeRepeating(Behaviour sender, Action action, float time, float repeat)
+  void InvokeRandomized(Behaviour sender, Action action, float time, float repeat, float random)
+  void CancelInvoke(Behaviour sender, Action action)
+  void CreateInstance()
+  void .ctor()
+--------------------------------------------------
+Класс: InvokeHandlerFixedTime
+Наследуется от: InvokeHandlerBase`1<InvokeHandlerFixedTime>
+Поля:
+Свойства:
+Методы:
+  float GetTime()
+  void FindInvokes(Behaviour sender, List`1<InvokeAction> list)
+  int Count()
+  bool IsInvoking(Behaviour sender, Action action)
+  void Invoke(Behaviour sender, Action action, float time)
+  void InvokeRepeating(Behaviour sender, Action action, float time, float repeat)
+  void InvokeRandomized(Behaviour sender, Action action, float time, float repeat, float random)
+  void CancelInvoke(Behaviour sender, Action action)
+  void CreateInstance()
+  void .ctor()
+--------------------------------------------------
+Класс: InvokeAction
+Наследуется от: ValueType
+Поля:
+  Behaviour sender
+  Action action
+  float initial
+  float repeat
+  float random
+Свойства:
+Методы:
+  void .ctor(Behaviour sender, Action action, float initial, float repeat, float random)
+  bool Equals(InvokeAction other)
+  bool Equals(object obj)
+  int GetHashCode()
+  bool op_Equality(InvokeAction x, InvokeAction y)
+  bool op_Inequality(InvokeAction x, InvokeAction y)
+--------------------------------------------------
+Класс: LeanTester
+Наследуется от: MonoBehaviour
+Поля:
+  float timeout
+Свойства:
+Методы:
+  void Start()
+  IEnumerator timeoutCheck()
+  void .ctor()
+--------------------------------------------------
+Класс: LeanTest
+Наследуется от: object
+Поля:
+  int expected
+  int tests
+  int passes
+  float timeout
+  bool timeoutStarted
+  bool testsFinished
+Свойства:
+Методы:
+  void debug(string name, bool didPass, string failExplaination)
+  void expect(bool didPass, string definition, string failExplaination)
+  string padRight(int len)
+  float printOutLength(string str)
+  string formatBC(string str, string color)
+  string formatB(string str)
+  string formatC(string str, string color)
+  void overview()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: TweenAction
+Наследуется от: Enum
+Поля:
+  int value__
+  TweenAction MOVE_X
+  TweenAction MOVE_Y
+  TweenAction MOVE_Z
+  TweenAction MOVE_LOCAL_X
+  TweenAction MOVE_LOCAL_Y
+  TweenAction MOVE_LOCAL_Z
+  TweenAction MOVE_CURVED
+  TweenAction MOVE_CURVED_LOCAL
+  TweenAction MOVE_SPLINE
+  TweenAction MOVE_SPLINE_LOCAL
+  TweenAction SCALE_X
+  TweenAction SCALE_Y
+  TweenAction SCALE_Z
+  TweenAction ROTATE_X
+  TweenAction ROTATE_Y
+  TweenAction ROTATE_Z
+  TweenAction ROTATE_AROUND
+  TweenAction ROTATE_AROUND_LOCAL
+  TweenAction CANVAS_ROTATEAROUND
+  TweenAction CANVAS_ROTATEAROUND_LOCAL
+  TweenAction CANVAS_PLAYSPRITE
+  TweenAction ALPHA
+  TweenAction TEXT_ALPHA
+  TweenAction CANVAS_ALPHA
+  TweenAction CANVASGROUP_ALPHA
+  TweenAction ALPHA_VERTEX
+  TweenAction COLOR
+  TweenAction CALLBACK_COLOR
+  TweenAction TEXT_COLOR
+  TweenAction CANVAS_COLOR
+  TweenAction CANVAS_MOVE_X
+  TweenAction CANVAS_MOVE_Y
+  TweenAction CANVAS_MOVE_Z
+  TweenAction CALLBACK
+  TweenAction MOVE
+  TweenAction MOVE_LOCAL
+  TweenAction MOVE_TO_TRANSFORM
+  TweenAction ROTATE
+  TweenAction ROTATE_LOCAL
+  TweenAction SCALE
+  TweenAction VALUE3
+  TweenAction GUI_MOVE
+  TweenAction GUI_MOVE_MARGIN
+  TweenAction GUI_SCALE
+  TweenAction GUI_ALPHA
+  TweenAction GUI_ROTATE
+  TweenAction DELAYED_SOUND
+  TweenAction CANVAS_MOVE
+  TweenAction CANVAS_SCALE
+  TweenAction CANVAS_SIZEDELTA
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: LeanTweenType
+Наследуется от: Enum
+Поля:
+  int value__
+  LeanTweenType notUsed
+  LeanTweenType linear
+  LeanTweenType easeOutQuad
+  LeanTweenType easeInQuad
+  LeanTweenType easeInOutQuad
+  LeanTweenType easeInCubic
+  LeanTweenType easeOutCubic
+  LeanTweenType easeInOutCubic
+  LeanTweenType easeInQuart
+  LeanTweenType easeOutQuart
+  LeanTweenType easeInOutQuart
+  LeanTweenType easeInQuint
+  LeanTweenType easeOutQuint
+  LeanTweenType easeInOutQuint
+  LeanTweenType easeInSine
+  LeanTweenType easeOutSine
+  LeanTweenType easeInOutSine
+  LeanTweenType easeInExpo
+  LeanTweenType easeOutExpo
+  LeanTweenType easeInOutExpo
+  LeanTweenType easeInCirc
+  LeanTweenType easeOutCirc
+  LeanTweenType easeInOutCirc
+  LeanTweenType easeInBounce
+  LeanTweenType easeOutBounce
+  LeanTweenType easeInOutBounce
+  LeanTweenType easeInBack
+  LeanTweenType easeOutBack
+  LeanTweenType easeInOutBack
+  LeanTweenType easeInElastic
+  LeanTweenType easeOutElastic
+  LeanTweenType easeInOutElastic
+  LeanTweenType easeSpring
+  LeanTweenType easeShake
+  LeanTweenType punch
+  LeanTweenType once
+  LeanTweenType clamp
+  LeanTweenType pingPong
+  LeanTweenType animationCurve
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: LeanTween
+Наследуется от: MonoBehaviour
+Поля:
+  bool throwErrors
+  float tau
+  float PI_DIV2
+  LTSeq[] sequences
+  LTDescr[] tweens
+  Int32[] tweensFinished
+  Int32[] tweensFinishedIds
+  LTDescr tween
+  int tweenMaxSearch
+  int maxTweens
+  int maxSequences
+  int frameRendered
+  GameObject _tweenEmpty
+  float dtEstimated
+  float dtManual
+  float dtActual
+  UInt32 global_counter
+  int i
+  int j
+  int finishedCnt
+  AnimationCurve punch
+  AnimationCurve shake
+  int maxTweenReached
+  int startSearch
+  LTDescr d
+  Action`1[] eventListeners
+  GameObject[] goListeners
+  int eventsMaxSearch
+  int EVENTS_MAX
+  int LISTENERS_MAX
+  int INIT_LISTENERS_MAX
+Свойства:
+  int maxSearch
+  int maxSimulataneousTweens
+  int tweensRunning
+  GameObject tweenEmpty
+Методы:
+  void init()
+  int get_maxSearch()
+  int get_maxSimulataneousTweens()
+  int get_tweensRunning()
+  void init(int maxSimultaneousTweens)
+  void init(int maxSimultaneousTweens, int maxSimultaneousSequences)
+  void reset()
+  void Update()
+  void onLevelWasLoaded54(Scene scene, LoadSceneMode mode)
+  void internalOnLevelWasLoaded(int lvl)
+  void update()
+  void removeTween(int i, int uniqueId)
+  void removeTween(int i)
+  Vector3[] add(Vector3[] a, Vector3 b)
+  float closestRot(float from, float to)
+  void cancelAll()
+  void cancelAll(bool callComplete)
+  void cancel(GameObject gameObject)
+  void cancel(GameObject gameObject, bool callOnComplete)
+  void cancel(RectTransform rect)
+  void cancel(GameObject gameObject, int uniqueId, bool callOnComplete)
+  void cancel(LTRect ltRect, int uniqueId)
+  void cancel(int uniqueId)
+  void cancel(int uniqueId, bool callOnComplete)
+  LTDescr descr(int uniqueId)
+  LTDescr description(int uniqueId)
+  LTDescr[] descriptions(GameObject gameObject)
+  void pause(GameObject gameObject, int uniqueId)
+  void pause(int uniqueId)
+  void pause(GameObject gameObject)
+  void pauseAll()
+  void resumeAll()
+  void resume(GameObject gameObject, int uniqueId)
+  void resume(int uniqueId)
+  void resume(GameObject gameObject)
+  bool isTweening(GameObject gameObject)
+  bool isTweening(RectTransform rect)
+  bool isTweening(int uniqueId)
+  bool isTweening(LTRect ltRect)
+  void drawBezierPath(Vector3 a, Vector3 b, Vector3 c, Vector3 d, float arrowSize, Transform arrowTransform)
+  object logError(string error)
+  LTDescr options(LTDescr seed)
+  LTDescr options()
+  GameObject get_tweenEmpty()
+  LTDescr pushNewTween(GameObject gameObject, Vector3 to, float time, LTDescr tween)
+  LTDescr play(RectTransform rectTransform, Sprite[] sprites)
+  LTDescr alpha(GameObject gameObject, float to, float time)
+  LTSeq sequence(bool initSequence)
+  LTDescr alpha(LTRect ltRect, float to, float time)
+  LTDescr textAlpha(RectTransform rectTransform, float to, float time)
+  LTDescr alphaText(RectTransform rectTransform, float to, float time)
+  LTDescr alphaCanvas(CanvasGroup canvasGroup, float to, float time)
+  LTDescr alphaVertex(GameObject gameObject, float to, float time)
+  LTDescr color(GameObject gameObject, Color to, float time)
+  LTDescr textColor(RectTransform rectTransform, Color to, float time)
+  LTDescr colorText(RectTransform rectTransform, Color to, float time)
+  LTDescr delayedCall(float delayTime, Action callback)
+  LTDescr delayedCall(float delayTime, Action`1<object> callback)
+  LTDescr delayedCall(GameObject gameObject, float delayTime, Action callback)
+  LTDescr delayedCall(GameObject gameObject, float delayTime, Action`1<object> callback)
+  LTDescr destroyAfter(LTRect rect, float delayTime)
+  LTDescr move(GameObject gameObject, Vector3 to, float time)
+  LTDescr move(GameObject gameObject, Vector2 to, float time)
+  LTDescr move(GameObject gameObject, Vector3[] to, float time)
+  LTDescr move(GameObject gameObject, LTBezierPath to, float time)
+  LTDescr move(GameObject gameObject, LTSpline to, float time)
+  LTDescr moveSpline(GameObject gameObject, Vector3[] to, float time)
+  LTDescr moveSpline(GameObject gameObject, LTSpline to, float time)
+  LTDescr moveSplineLocal(GameObject gameObject, Vector3[] to, float time)
+  LTDescr move(LTRect ltRect, Vector2 to, float time)
+  LTDescr moveMargin(LTRect ltRect, Vector2 to, float time)
+  LTDescr moveX(GameObject gameObject, float to, float time)
+  LTDescr moveY(GameObject gameObject, float to, float time)
+  LTDescr moveZ(GameObject gameObject, float to, float time)
+  LTDescr moveLocal(GameObject gameObject, Vector3 to, float time)
+  LTDescr moveLocal(GameObject gameObject, Vector3[] to, float time)
+  LTDescr moveLocalX(GameObject gameObject, float to, float time)
+  LTDescr moveLocalY(GameObject gameObject, float to, float time)
+  LTDescr moveLocalZ(GameObject gameObject, float to, float time)
+  LTDescr moveLocal(GameObject gameObject, LTBezierPath to, float time)
+  LTDescr moveLocal(GameObject gameObject, LTSpline to, float time)
+  LTDescr move(GameObject gameObject, Transform to, float time)
+  LTDescr rotate(GameObject gameObject, Vector3 to, float time)
+  LTDescr rotate(LTRect ltRect, float to, float time)
+  LTDescr rotateLocal(GameObject gameObject, Vector3 to, float time)
+  LTDescr rotateX(GameObject gameObject, float to, float time)
+  LTDescr rotateY(GameObject gameObject, float to, float time)
+  LTDescr rotateZ(GameObject gameObject, float to, float time)
+  LTDescr rotateAround(GameObject gameObject, Vector3 axis, float add, float time)
+  LTDescr rotateAroundLocal(GameObject gameObject, Vector3 axis, float add, float time)
+  LTDescr scale(GameObject gameObject, Vector3 to, float time)
+  LTDescr scale(LTRect ltRect, Vector2 to, float time)
+  LTDescr scaleX(GameObject gameObject, float to, float time)
+  LTDescr scaleY(GameObject gameObject, float to, float time)
+  LTDescr scaleZ(GameObject gameObject, float to, float time)
+  LTDescr value(GameObject gameObject, float from, float to, float time)
+  LTDescr value(float from, float to, float time)
+  LTDescr value(GameObject gameObject, Vector2 from, Vector2 to, float time)
+  LTDescr value(GameObject gameObject, Vector3 from, Vector3 to, float time)
+  LTDescr value(GameObject gameObject, Color from, Color to, float time)
+  LTDescr value(GameObject gameObject, Action`1<float> callOnUpdate, float from, float to, float time)
+  LTDescr value(GameObject gameObject, Action`2<float, float> callOnUpdateRatio, float from, float to, float time)
+  LTDescr value(GameObject gameObject, Action`1<Color> callOnUpdate, Color from, Color to, float time)
+  LTDescr value(GameObject gameObject, Action`2<Color, object> callOnUpdate, Color from, Color to, float time)
+  LTDescr value(GameObject gameObject, Action`1<Vector2> callOnUpdate, Vector2 from, Vector2 to, float time)
+  LTDescr value(GameObject gameObject, Action`1<Vector3> callOnUpdate, Vector3 from, Vector3 to, float time)
+  LTDescr value(GameObject gameObject, Action`2<float, object> callOnUpdate, float from, float to, float time)
+  LTDescr delayedSound(AudioClip audio, Vector3 pos, float volume)
+  LTDescr delayedSound(GameObject gameObject, AudioClip audio, Vector3 pos, float volume)
+  LTDescr move(RectTransform rectTrans, Vector3 to, float time)
+  LTDescr moveX(RectTransform rectTrans, float to, float time)
+  LTDescr moveY(RectTransform rectTrans, float to, float time)
+  LTDescr moveZ(RectTransform rectTrans, float to, float time)
+  LTDescr rotate(RectTransform rectTrans, float to, float time)
+  LTDescr rotate(RectTransform rectTrans, Vector3 to, float time)
+  LTDescr rotateAround(RectTransform rectTrans, Vector3 axis, float to, float time)
+  LTDescr rotateAroundLocal(RectTransform rectTrans, Vector3 axis, float to, float time)
+  LTDescr scale(RectTransform rectTrans, Vector3 to, float time)
+  LTDescr size(RectTransform rectTrans, Vector2 to, float time)
+  LTDescr alpha(RectTransform rectTrans, float to, float time)
+  LTDescr color(RectTransform rectTrans, Color to, float time)
+  float tweenOnCurve(LTDescr tweenDescr, float ratioPassed)
+  Vector3 tweenOnCurveVector(LTDescr tweenDescr, float ratioPassed)
+  float easeOutQuadOpt(float start, float diff, float ratioPassed)
+  float easeInQuadOpt(float start, float diff, float ratioPassed)
+  float easeInOutQuadOpt(float start, float diff, float ratioPassed)
+  Vector3 easeInOutQuadOpt(Vector3 start, Vector3 diff, float ratioPassed)
+  float linear(float start, float end, float val)
+  float clerp(float start, float end, float val)
+  float spring(float start, float end, float val)
+  float easeInQuad(float start, float end, float val)
+  float easeOutQuad(float start, float end, float val)
+  float easeInOutQuad(float start, float end, float val)
+  float easeInOutQuadOpt2(float start, float diffBy2, float val, float val2)
+  float easeInCubic(float start, float end, float val)
+  float easeOutCubic(float start, float end, float val)
+  float easeInOutCubic(float start, float end, float val)
+  float easeInQuart(float start, float end, float val)
+  float easeOutQuart(float start, float end, float val)
+  float easeInOutQuart(float start, float end, float val)
+  float easeInQuint(float start, float end, float val)
+  float easeOutQuint(float start, float end, float val)
+  float easeInOutQuint(float start, float end, float val)
+  float easeInSine(float start, float end, float val)
+  float easeOutSine(float start, float end, float val)
+  float easeInOutSine(float start, float end, float val)
+  float easeInExpo(float start, float end, float val)
+  float easeOutExpo(float start, float end, float val)
+  float easeInOutExpo(float start, float end, float val)
+  float easeInCirc(float start, float end, float val)
+  float easeOutCirc(float start, float end, float val)
+  float easeInOutCirc(float start, float end, float val)
+  float easeInBounce(float start, float end, float val)
+  float easeOutBounce(float start, float end, float val)
+  float easeInOutBounce(float start, float end, float val)
+  float easeInBack(float start, float end, float val, float overshoot)
+  float easeOutBack(float start, float end, float val, float overshoot)
+  float easeInOutBack(float start, float end, float val, float overshoot)
+  float easeInElastic(float start, float end, float val, float overshoot, float period)
+  float easeOutElastic(float start, float end, float val, float overshoot, float period)
+  float easeInOutElastic(float start, float end, float val, float overshoot, float period)
+  void addListener(int eventId, Action`1<LTEvent> callback)
+  void addListener(GameObject caller, int eventId, Action`1<LTEvent> callback)
+  bool removeListener(int eventId, Action`1<LTEvent> callback)
+  bool removeListener(int eventId)
+  bool removeListener(GameObject caller, int eventId, Action`1<LTEvent> callback)
+  void dispatchEvent(int eventId)
+  void dispatchEvent(int eventId, object data)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: LTUtility
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Vector3[] reverse(Vector3[] arr)
+  void .ctor()
+--------------------------------------------------
+Класс: LTBezier
+Наследуется от: object
+Поля:
+  float length
+  Vector3 a
+  Vector3 aa
+  Vector3 bb
+  Vector3 cc
+  float len
+  Single[] arcLengths
+Свойства:
+Методы:
+  void .ctor(Vector3 a, Vector3 b, Vector3 c, Vector3 d, float precision)
+  float map(float u)
+  Vector3 bezierPoint(float t)
+  Vector3 point(float t)
+--------------------------------------------------
+Класс: LTBezierPath
+Наследуется от: object
+Поля:
+  Vector3[] pts
+  float length
+  bool orientToPath
+  bool orientToPath2d
+  LTBezier[] beziers
+  Single[] lengthRatio
+  int currentBezier
+  int previousBezier
+Свойства:
+  float distance
+Методы:
+  void .ctor()
+  void .ctor(Vector3[] pts_)
+  void setPoints(Vector3[] pts_)
+  float get_distance()
+  Vector3 point(float ratio)
+  void place2d(Transform transform, float ratio)
+  void placeLocal2d(Transform transform, float ratio)
+  void place(Transform transform, float ratio)
+  void place(Transform transform, float ratio, Vector3 worldUp)
+  void placeLocal(Transform transform, float ratio)
+  void placeLocal(Transform transform, float ratio, Vector3 worldUp)
+  void gizmoDraw(float t)
+--------------------------------------------------
+Класс: LTSpline
+Наследуется от: object
+Поля:
+  int DISTANCE_COUNT
+  int SUBLINE_COUNT
+  float distance
+  bool constantSpeed
+  Vector3[] pts
+  Vector3[] ptsAdj
+  int ptsAdjLength
+  bool orientToPath
+  bool orientToPath2d
+  int numSections
+  int currPt
+Свойства:
+Методы:
+  void .ctor(Vector3[] pts)
+  void .ctor(Vector3[] pts, bool constantSpeed)
+  void init(Vector3[] pts, bool constantSpeed)
+  Vector3 map(float u)
+  Vector3 interp(float t)
+  float ratioAtPoint(Vector3 pt)
+  Vector3 point(float ratio)
+  void place2d(Transform transform, float ratio)
+  void placeLocal2d(Transform transform, float ratio)
+  void place(Transform transform, float ratio)
+  void place(Transform transform, float ratio, Vector3 worldUp)
+  void placeLocal(Transform transform, float ratio)
+  void placeLocal(Transform transform, float ratio, Vector3 worldUp)
+  void gizmoDraw(float t)
+  void drawGizmo(Color color)
+  void drawGizmo(Transform[] arr, Color color)
+  void drawLine(Transform[] arr, float width, Color color)
+  void drawLinesGLLines(Material outlineMaterial, Color color, float width)
+  Vector3[] generateVectors()
+  void .cctor()
+--------------------------------------------------
+Класс: LTRect
+Наследуется от: object
+Поля:
+  Rect _rect
+  float alpha
+  float rotation
+  Vector2 pivot
+  Vector2 margin
+  Rect relativeRect
+  bool rotateEnabled
+  bool rotateFinished
+  bool alphaEnabled
+  string labelStr
+  Element_Type type
+  GUIStyle style
+  bool useColor
+  Color color
+  bool fontScaleToFit
+  bool useSimpleScale
+  bool sizeByHeight
+  Texture texture
+  int _id
+  int counter
+  bool colorTouched
+Свойства:
+  bool hasInitiliazed
+  int id
+  float x
+  float y
+  float width
+  float height
+  Rect rect
+Методы:
+  void .ctor()
+  void .ctor(Rect rect)
+  void .ctor(float x, float y, float width, float height)
+  void .ctor(float x, float y, float width, float height, float alpha)
+  void .ctor(float x, float y, float width, float height, float alpha, float rotation)
+  bool get_hasInitiliazed()
+  int get_id()
+  void setId(int id, int counter)
+  void reset()
+  void resetForRotation()
+  float get_x()
+  void set_x(float value)
+  float get_y()
+  void set_y(float value)
+  float get_width()
+  void set_width(float value)
+  float get_height()
+  void set_height(float value)
+  Rect get_rect()
+  void set_rect(Rect value)
+  LTRect setStyle(GUIStyle style)
+  LTRect setFontScaleToFit(bool fontScaleToFit)
+  LTRect setColor(Color color)
+  LTRect setAlpha(float alpha)
+  LTRect setLabel(string str)
+  LTRect setUseSimpleScale(bool useSimpleScale, Rect relativeRect)
+  LTRect setUseSimpleScale(bool useSimpleScale)
+  LTRect setSizeByHeight(bool sizeByHeight)
+  string ToString()
+--------------------------------------------------
+Класс: LTEvent
+Наследуется от: object
+Поля:
+  int id
+  object data
+Свойства:
+Методы:
+  void .ctor(int id, object data)
+--------------------------------------------------
+Класс: LTGUI
+Наследуется от: object
+Поля:
+  int RECT_LEVELS
+  int RECTS_PER_LEVEL
+  int BUTTONS_MAX
+  LTRect[] levels
+  Int32[] levelDepths
+  Rect[] buttons
+  Int32[] buttonLevels
+  Int32[] buttonLastFrame
+  LTRect r
+  Color color
+  bool isGUIEnabled
+  int global_counter
+Свойства:
+Методы:
+  void init()
+  void initRectCheck()
+  void reset()
+  void update(int updateLevel)
+  bool checkOnScreen(Rect rect)
+  void destroy(int id)
+  void destroyAll(int depth)
+  LTRect label(Rect rect, string label, int depth)
+  LTRect label(LTRect rect, string label, int depth)
+  LTRect texture(Rect rect, Texture texture, int depth)
+  LTRect texture(LTRect rect, Texture texture, int depth)
+  LTRect element(LTRect rect, int depth)
+  bool hasNoOverlap(Rect rect, int depth)
+  bool pressedWithinRect(Rect rect)
+  bool checkWithinRect(Vector2 vec2, Rect rect)
+  Vector2 firstTouch()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: LTDescr
+Наследуется от: object
+Поля:
+  bool toggle
+  bool useEstimatedTime
+  bool useFrames
+  bool useManualTime
+  bool usesNormalDt
+  bool hasInitiliazed
+  bool hasExtraOnCompletes
+  bool hasPhysics
+  bool onCompleteOnRepeat
+  bool onCompleteOnStart
+  bool useRecursion
+  float ratioPassed
+  float passed
+  float delay
+  float time
+  float speed
+  float lastVal
+  UInt32 _id
+  int loopCount
+  UInt32 counter
+  float direction
+  float directionLast
+  float overshoot
+  float period
+  float scale
+  bool destroyOnComplete
+  Transform trans
+  LTRect ltRect
+  Vector3 fromInternal
+  Vector3 toInternal
+  Vector3 diff
+  Vector3 diffDiv2
+  TweenAction type
+  LeanTweenType easeType
+  LeanTweenType loopType
+  bool hasUpdateCallback
+  EaseTypeDelegate easeMethod
+  ActionMethodDelegate <easeInternal>k__BackingField
+  ActionMethodDelegate <initInternal>k__BackingField
+  SpriteRenderer spriteRen
+  RectTransform rectTransform
+  Text uiText
+  Image uiImage
+  RawImage rawImage
+  Sprite[] sprites
+  LTDescrOptional _optional
+  float val
+  float dt
+  Vector3 newVect
+Свойства:
+  Vector3 from
+  Vector3 to
+  ActionMethodDelegate easeInternal
+  ActionMethodDelegate initInternal
+  int uniqueId
+  int id
+  LTDescrOptional optional
+Методы:
+  Vector3 get_from()
+  void set_from(Vector3 value)
+  Vector3 get_to()
+  void set_to(Vector3 value)
+  ActionMethodDelegate get_easeInternal()
+  void set_easeInternal(ActionMethodDelegate value)
+  ActionMethodDelegate get_initInternal()
+  void set_initInternal(ActionMethodDelegate value)
+  string ToString()
+  void .ctor()
+  LTDescr cancel(GameObject gameObject)
+  int get_uniqueId()
+  int get_id()
+  LTDescrOptional get_optional()
+  void set_optional(LTDescrOptional value)
+  void reset()
+  LTDescr setMoveX()
+  LTDescr setMoveY()
+  LTDescr setMoveZ()
+  LTDescr setMoveLocalX()
+  LTDescr setMoveLocalY()
+  LTDescr setMoveLocalZ()
+  void initFromInternal()
+  LTDescr setMoveCurved()
+  LTDescr setMoveCurvedLocal()
+  LTDescr setMoveSpline()
+  LTDescr setMoveSplineLocal()
+  LTDescr setScaleX()
+  LTDescr setScaleY()
+  LTDescr setScaleZ()
+  LTDescr setRotateX()
+  LTDescr setRotateY()
+  LTDescr setRotateZ()
+  LTDescr setRotateAround()
+  LTDescr setRotateAroundLocal()
+  LTDescr setAlpha()
+  LTDescr setTextAlpha()
+  LTDescr setAlphaVertex()
+  LTDescr setColor()
+  LTDescr setCallbackColor()
+  LTDescr setTextColor()
+  LTDescr setCanvasAlpha()
+  LTDescr setCanvasGroupAlpha()
+  LTDescr setCanvasColor()
+  LTDescr setCanvasMoveX()
+  LTDescr setCanvasMoveY()
+  LTDescr setCanvasMoveZ()
+  void initCanvasRotateAround()
+  LTDescr setCanvasRotateAround()
+  LTDescr setCanvasRotateAroundLocal()
+  LTDescr setCanvasPlaySprite()
+  LTDescr setCanvasMove()
+  LTDescr setCanvasScale()
+  LTDescr setCanvasSizeDelta()
+  void callback()
+  LTDescr setCallback()
+  LTDescr setValue3()
+  LTDescr setMove()
+  LTDescr setMoveLocal()
+  LTDescr setMoveToTransform()
+  LTDescr setRotate()
+  LTDescr setRotateLocal()
+  LTDescr setScale()
+  LTDescr setGUIMove()
+  LTDescr setGUIMoveMargin()
+  LTDescr setGUIScale()
+  LTDescr setGUIAlpha()
+  LTDescr setGUIRotate()
+  LTDescr setDelayedSound()
+  void init()
+  void initSpeed()
+  LTDescr updateNow()
+  bool updateInternal()
+  void callOnCompletes()
+  LTDescr setFromColor(Color col)
+  void alphaRecursive(Transform transform, float val, bool useRecursion)
+  void colorRecursive(Transform transform, Color toColor, bool useRecursion)
+  void alphaRecursive(RectTransform rectTransform, float val, int recursiveLevel)
+  void alphaRecursiveSprite(Transform transform, float val)
+  void colorRecursiveSprite(Transform transform, Color toColor)
+  void colorRecursive(RectTransform rectTransform, Color toColor)
+  void textAlphaChildrenRecursive(Transform trans, float val, bool useRecursion)
+  void textAlphaRecursive(Transform trans, float val, bool useRecursion)
+  void textColorRecursive(Transform trans, Color toColor)
+  Color tweenColor(LTDescr tween, float val)
+  LTDescr pause()
+  LTDescr resume()
+  LTDescr setAxis(Vector3 axis)
+  LTDescr setDelay(float delay)
+  LTDescr setEase(LeanTweenType easeType)
+  LTDescr setEaseLinear()
+  LTDescr setEaseSpring()
+  LTDescr setEaseInQuad()
+  LTDescr setEaseOutQuad()
+  LTDescr setEaseInOutQuad()
+  LTDescr setEaseInCubic()
+  LTDescr setEaseOutCubic()
+  LTDescr setEaseInOutCubic()
+  LTDescr setEaseInQuart()
+  LTDescr setEaseOutQuart()
+  LTDescr setEaseInOutQuart()
+  LTDescr setEaseInQuint()
+  LTDescr setEaseOutQuint()
+  LTDescr setEaseInOutQuint()
+  LTDescr setEaseInSine()
+  LTDescr setEaseOutSine()
+  LTDescr setEaseInOutSine()
+  LTDescr setEaseInExpo()
+  LTDescr setEaseOutExpo()
+  LTDescr setEaseInOutExpo()
+  LTDescr setEaseInCirc()
+  LTDescr setEaseOutCirc()
+  LTDescr setEaseInOutCirc()
+  LTDescr setEaseInBounce()
+  LTDescr setEaseOutBounce()
+  LTDescr setEaseInOutBounce()
+  LTDescr setEaseInBack()
+  LTDescr setEaseOutBack()
+  LTDescr setEaseInOutBack()
+  LTDescr setEaseInElastic()
+  LTDescr setEaseOutElastic()
+  LTDescr setEaseInOutElastic()
+  LTDescr setEasePunch()
+  LTDescr setEaseShake()
+  Vector3 tweenOnCurve()
+  Vector3 easeInOutQuad()
+  Vector3 easeInQuad()
+  Vector3 easeOutQuad()
+  Vector3 easeLinear()
+  Vector3 easeSpring()
+  Vector3 easeInCubic()
+  Vector3 easeOutCubic()
+  Vector3 easeInOutCubic()
+  Vector3 easeInQuart()
+  Vector3 easeOutQuart()
+  Vector3 easeInOutQuart()
+  Vector3 easeInQuint()
+  Vector3 easeOutQuint()
+  Vector3 easeInOutQuint()
+  Vector3 easeInSine()
+  Vector3 easeOutSine()
+  Vector3 easeInOutSine()
+  Vector3 easeInExpo()
+  Vector3 easeOutExpo()
+  Vector3 easeInOutExpo()
+  Vector3 easeInCirc()
+  Vector3 easeOutCirc()
+  Vector3 easeInOutCirc()
+  Vector3 easeInBounce()
+  Vector3 easeOutBounce()
+  Vector3 easeInOutBounce()
+  Vector3 easeInBack()
+  Vector3 easeOutBack()
+  Vector3 easeInOutBack()
+  Vector3 easeInElastic()
+  Vector3 easeOutElastic()
+  Vector3 easeInOutElastic()
+  LTDescr setOvershoot(float overshoot)
+  LTDescr setPeriod(float period)
+  LTDescr setScale(float scale)
+  LTDescr setEase(AnimationCurve easeCurve)
+  LTDescr setTo(Vector3 to)
+  LTDescr setTo(Transform to)
+  LTDescr setFrom(Vector3 from)
+  LTDescr setFrom(float from)
+  LTDescr setDiff(Vector3 diff)
+  LTDescr setHasInitialized(bool has)
+  LTDescr setId(UInt32 id, UInt32 global_counter)
+  LTDescr setPassed(float passed)
+  LTDescr setTime(float time)
+  LTDescr setSpeed(float speed)
+  LTDescr setRepeat(int repeat)
+  LTDescr setLoopType(LeanTweenType loopType)
+  LTDescr setUseEstimatedTime(bool useEstimatedTime)
+  LTDescr setIgnoreTimeScale(bool useUnScaledTime)
+  LTDescr setUseFrames(bool useFrames)
+  LTDescr setUseManualTime(bool useManualTime)
+  LTDescr setLoopCount(int loopCount)
+  LTDescr setLoopOnce()
+  LTDescr setLoopClamp()
+  LTDescr setLoopClamp(int loops)
+  LTDescr setLoopPingPong()
+  LTDescr setLoopPingPong(int loops)
+  LTDescr setOnComplete(Action onComplete)
+  LTDescr setOnComplete(Action`1<object> onComplete)
+  LTDescr setOnComplete(Action`1<object> onComplete, object onCompleteParam)
+  LTDescr setOnCompleteParam(object onCompleteParam)
+  LTDescr setOnUpdate(Action`1<float> onUpdate)
+  LTDescr setOnUpdateRatio(Action`2<float, float> onUpdate)
+  LTDescr setOnUpdateObject(Action`2<float, object> onUpdate)
+  LTDescr setOnUpdateVector2(Action`1<Vector2> onUpdate)
+  LTDescr setOnUpdateVector3(Action`1<Vector3> onUpdate)
+  LTDescr setOnUpdateColor(Action`1<Color> onUpdate)
+  LTDescr setOnUpdateColor(Action`2<Color, object> onUpdate)
+  LTDescr setOnUpdate(Action`1<Color> onUpdate)
+  LTDescr setOnUpdate(Action`2<Color, object> onUpdate)
+  LTDescr setOnUpdate(Action`2<float, object> onUpdate, object onUpdateParam)
+  LTDescr setOnUpdate(Action`2<Vector3, object> onUpdate, object onUpdateParam)
+  LTDescr setOnUpdate(Action`1<Vector2> onUpdate, object onUpdateParam)
+  LTDescr setOnUpdate(Action`1<Vector3> onUpdate, object onUpdateParam)
+  LTDescr setOnUpdateParam(object onUpdateParam)
+  LTDescr setOrientToPath(bool doesOrient)
+  LTDescr setOrientToPath2d(bool doesOrient2d)
+  LTDescr setRect(LTRect rect)
+  LTDescr setRect(Rect rect)
+  LTDescr setPath(LTBezierPath path)
+  LTDescr setPoint(Vector3 point)
+  LTDescr setDestroyOnComplete(bool doesDestroy)
+  LTDescr setAudio(object audio)
+  LTDescr setOnCompleteOnRepeat(bool isOn)
+  LTDescr setOnCompleteOnStart(bool isOn)
+  LTDescr setRect(RectTransform rect)
+  LTDescr setSprites(Sprite[] sprites)
+  LTDescr setFrameRate(float frameRate)
+  LTDescr setOnStart(Action onStart)
+  LTDescr setDirection(float direction)
+  LTDescr setRecursive(bool useRecursion)
+  void <setMoveX>b__71_0()
+  void <setMoveX>b__71_1()
+  void <setMoveY>b__72_0()
+  void <setMoveY>b__72_1()
+  void <setMoveZ>b__73_0()
+  void <setMoveZ>b__73_1()
+  void <setMoveLocalX>b__74_0()
+  void <setMoveLocalX>b__74_1()
+  void <setMoveLocalY>b__75_0()
+  void <setMoveLocalY>b__75_1()
+  void <setMoveLocalZ>b__76_0()
+  void <setMoveLocalZ>b__76_1()
+  void <setMoveCurved>b__78_0()
+  void <setMoveCurvedLocal>b__79_0()
+  void <setMoveSpline>b__80_0()
+  void <setMoveSplineLocal>b__81_0()
+  void <setScaleX>b__82_0()
+  void <setScaleX>b__82_1()
+  void <setScaleY>b__83_0()
+  void <setScaleY>b__83_1()
+  void <setScaleZ>b__84_0()
+  void <setScaleZ>b__84_1()
+  void <setRotateX>b__85_0()
+  void <setRotateX>b__85_1()
+  void <setRotateY>b__86_0()
+  void <setRotateY>b__86_1()
+  void <setRotateZ>b__87_0()
+  void <setRotateZ>b__87_1()
+  void <setRotateAround>b__88_0()
+  void <setRotateAround>b__88_1()
+  void <setRotateAroundLocal>b__89_0()
+  void <setRotateAroundLocal>b__89_1()
+  void <setAlpha>b__90_0()
+  void <setAlpha>b__90_2()
+  void <setAlpha>b__90_1()
+  void <setTextAlpha>b__91_0()
+  void <setTextAlpha>b__91_1()
+  void <setAlphaVertex>b__92_0()
+  void <setAlphaVertex>b__92_1()
+  void <setColor>b__93_0()
+  void <setColor>b__93_1()
+  void <setCallbackColor>b__94_0()
+  void <setCallbackColor>b__94_1()
+  void <setTextColor>b__95_0()
+  void <setTextColor>b__95_1()
+  void <setCanvasAlpha>b__96_0()
+  void <setCanvasAlpha>b__96_1()
+  void <setCanvasGroupAlpha>b__97_0()
+  void <setCanvasGroupAlpha>b__97_1()
+  void <setCanvasColor>b__98_0()
+  void <setCanvasColor>b__98_1()
+  void <setCanvasMoveX>b__99_0()
+  void <setCanvasMoveX>b__99_1()
+  void <setCanvasMoveY>b__100_0()
+  void <setCanvasMoveY>b__100_1()
+  void <setCanvasMoveZ>b__101_0()
+  void <setCanvasMoveZ>b__101_1()
+  void <setCanvasRotateAround>b__103_0()
+  void <setCanvasRotateAroundLocal>b__104_0()
+  void <setCanvasPlaySprite>b__105_0()
+  void <setCanvasPlaySprite>b__105_1()
+  void <setCanvasMove>b__106_0()
+  void <setCanvasMove>b__106_1()
+  void <setCanvasScale>b__107_0()
+  void <setCanvasScale>b__107_1()
+  void <setCanvasSizeDelta>b__108_0()
+  void <setCanvasSizeDelta>b__108_1()
+  void <setMove>b__112_0()
+  void <setMove>b__112_1()
+  void <setMoveLocal>b__113_0()
+  void <setMoveLocal>b__113_1()
+  void <setMoveToTransform>b__114_0()
+  void <setMoveToTransform>b__114_1()
+  void <setRotate>b__115_0()
+  void <setRotate>b__115_1()
+  void <setRotateLocal>b__116_0()
+  void <setRotateLocal>b__116_1()
+  void <setScale>b__117_0()
+  void <setScale>b__117_1()
+  void <setGUIMove>b__118_0()
+  void <setGUIMove>b__118_1()
+  void <setGUIMoveMargin>b__119_0()
+  void <setGUIMoveMargin>b__119_1()
+  void <setGUIScale>b__120_0()
+  void <setGUIScale>b__120_1()
+  void <setGUIAlpha>b__121_0()
+  void <setGUIAlpha>b__121_1()
+  void <setGUIRotate>b__122_0()
+  void <setGUIRotate>b__122_1()
+  void <setDelayedSound>b__123_0()
+--------------------------------------------------
+Класс: LTDescrOptional
+Наследуется от: object
+Поля:
+  Transform <toTrans>k__BackingField
+  Vector3 <point>k__BackingField
+  Vector3 <axis>k__BackingField
+  float <lastVal>k__BackingField
+  Quaternion <origRotation>k__BackingField
+  LTBezierPath <path>k__BackingField
+  LTSpline <spline>k__BackingField
+  AnimationCurve animationCurve
+  int initFrameCount
+  LTRect <ltRect>k__BackingField
+  Action`1<float> <onUpdateFloat>k__BackingField
+  Action`2<float, float> <onUpdateFloatRatio>k__BackingField
+  Action`2<float, object> <onUpdateFloatObject>k__BackingField
+  Action`1<Vector2> <onUpdateVector2>k__BackingField
+  Action`1<Vector3> <onUpdateVector3>k__BackingField
+  Action`2<Vector3, object> <onUpdateVector3Object>k__BackingField
+  Action`1<Color> <onUpdateColor>k__BackingField
+  Action`2<Color, object> <onUpdateColorObject>k__BackingField
+  Action <onComplete>k__BackingField
+  Action`1<object> <onCompleteObject>k__BackingField
+  object <onCompleteParam>k__BackingField
+  object <onUpdateParam>k__BackingField
+  Action <onStart>k__BackingField
+Свойства:
+  Transform toTrans
+  Vector3 point
+  Vector3 axis
+  float lastVal
+  Quaternion origRotation
+  LTBezierPath path
+  LTSpline spline
+  LTRect ltRect
+  Action`1<float> onUpdateFloat
+  Action`2<float, float> onUpdateFloatRatio
+  Action`2<float, object> onUpdateFloatObject
+  Action`1<Vector2> onUpdateVector2
+  Action`1<Vector3> onUpdateVector3
+  Action`2<Vector3, object> onUpdateVector3Object
+  Action`1<Color> onUpdateColor
+  Action`2<Color, object> onUpdateColorObject
+  Action onComplete
+  Action`1<object> onCompleteObject
+  object onCompleteParam
+  object onUpdateParam
+  Action onStart
+Методы:
+  Transform get_toTrans()
+  void set_toTrans(Transform value)
+  Vector3 get_point()
+  void set_point(Vector3 value)
+  Vector3 get_axis()
+  void set_axis(Vector3 value)
+  float get_lastVal()
+  void set_lastVal(float value)
+  Quaternion get_origRotation()
+  void set_origRotation(Quaternion value)
+  LTBezierPath get_path()
+  void set_path(LTBezierPath value)
+  LTSpline get_spline()
+  void set_spline(LTSpline value)
+  LTRect get_ltRect()
+  void set_ltRect(LTRect value)
+  Action`1<float> get_onUpdateFloat()
+  void set_onUpdateFloat(Action`1<float> value)
+  Action`2<float, float> get_onUpdateFloatRatio()
+  void set_onUpdateFloatRatio(Action`2<float, float> value)
+  Action`2<float, object> get_onUpdateFloatObject()
+  void set_onUpdateFloatObject(Action`2<float, object> value)
+  Action`1<Vector2> get_onUpdateVector2()
+  void set_onUpdateVector2(Action`1<Vector2> value)
+  Action`1<Vector3> get_onUpdateVector3()
+  void set_onUpdateVector3(Action`1<Vector3> value)
+  Action`2<Vector3, object> get_onUpdateVector3Object()
+  void set_onUpdateVector3Object(Action`2<Vector3, object> value)
+  Action`1<Color> get_onUpdateColor()
+  void set_onUpdateColor(Action`1<Color> value)
+  Action`2<Color, object> get_onUpdateColorObject()
+  void set_onUpdateColorObject(Action`2<Color, object> value)
+  Action get_onComplete()
+  void set_onComplete(Action value)
+  Action`1<object> get_onCompleteObject()
+  void set_onCompleteObject(Action`1<object> value)
+  object get_onCompleteParam()
+  void set_onCompleteParam(object value)
+  object get_onUpdateParam()
+  void set_onUpdateParam(object value)
+  Action get_onStart()
+  void set_onStart(Action value)
+  void reset()
+  void callOnUpdate(float val, float ratioPassed)
+  void .ctor()
+--------------------------------------------------
+Класс: LTSeq
+Наследуется от: object
+Поля:
+  LTSeq previous
+  LTSeq current
+  LTDescr tween
+  float totalDelay
+  float timeScale
+  int debugIter
+  UInt32 counter
+  bool toggle
+  UInt32 _id
+Свойства:
+  int id
+Методы:
+  int get_id()
+  void reset()
+  void init(UInt32 id, UInt32 global_counter)
+  LTSeq addOn()
+  float addPreviousDelays()
+  LTSeq append(float delay)
+  LTSeq append(Action callback)
+  LTSeq append(Action`1<object> callback, object obj)
+  LTSeq append(GameObject gameObject, Action callback)
+  LTSeq append(GameObject gameObject, Action`1<object> callback, object obj)
+  LTSeq append(LTDescr tween)
+  LTSeq insert(LTDescr tween)
+  LTSeq setScale(float timeScale)
+  void setScaleRecursive(LTSeq seq, float timeScale, int count)
+  LTSeq reverse()
+  void .ctor()
+--------------------------------------------------
+Класс: TweenMode
+Наследуется от: object
+Поля:
+  AnimationCurve Punch
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: ListComponent`1
+Наследуется от: ListComponent
+Поля:
+  ListHashSet`1<T> InstanceList
+Свойства:
+Методы:
+  void Setup()
+  void Clear()
+  void RunOnAll(Action`1<T> toRun)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: ListComponent
+Наследуется от: FacepunchBehaviour
+Поля:
+Свойства:
+Методы:
+  void Setup()
+  void Clear()
+  void OnEnable()
+  void OnDisable()
+  void .ctor()
+--------------------------------------------------
+Класс: PriorityListComponent`1
+Наследуется от: ListComponent`1<T>
+Поля:
+Свойства:
+  T Instance
+Методы:
+  T get_Instance()
+  void .ctor()
+--------------------------------------------------
+Класс: SingletonComponent`1
+Наследуется от: SingletonComponent
+Поля:
+  T Instance
+Свойства:
+Методы:
+  void SingletonSetup()
+  void SingletonClear()
+  void .ctor()
+--------------------------------------------------
+Класс: SingletonComponent
+Наследуется от: FacepunchBehaviour
+Поля:
+Свойства:
+Методы:
+  void SingletonSetup()
+  void SingletonClear()
+  void Awake()
+  void OnDestroy()
+  void InitializeSingletons(GameObject go)
+  void .ctor()
+--------------------------------------------------
+Класс: TimeWarning
+Наследуется от: object
+Поля:
+  object Placeholder
+Свойства:
+Методы:
+  void .ctor()
+  TimeWarning New(string name, int maxmilliseconds)
+  void Dispose()
+  void BeginSample(string name)
+  void EndSample()
+--------------------------------------------------
+Класс: DentedPixel.LeanDummy
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.ColorEx
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string ToHex(Color32 color)
+  Color Parse(string str)
+  Color WithAlpha(Color color, float a)
+  int ToInt32(Color32 color)
+  Color32 FromInt32(int value)
+--------------------------------------------------
+Класс: UnityEngine.DebugEx
+Наследуется от: object
+Поля:
+  float startTime
+Свойства:
+Методы:
+  void Log(object message, StackTraceLogType stacktrace)
+  void Log(object message, Object context, StackTraceLogType stacktrace)
+  void LogWarning(object message, StackTraceLogType stacktrace)
+  void LogWarning(object message, Object context, StackTraceLogType stacktrace)
+  void DrawWireCube(Vector3 centre, Vector3 size, Color colour, float duration)
+  void DrawWireCube(Vector3 centre, Vector3 size, Quaternion rotation, Color colour, float duration)
+  void DrawWireCube(Vector3[] points, Color colour, float duration)
+  void StartTiming()
+  void StopTiming()
+--------------------------------------------------
+Класс: UnityEngine.Parallel
+Наследуется от: object
+Поля:
+  int MaxThreads
+Свойства:
+Методы:
+  void ForEach(IList`1<T> data, Action`1<T> action)
+  void ForEach(IList`1<T> data, int threads, Action`1<T> action)
+  void For(int fromInclusive, int toExclusive, Action`1<int> action)
+  void For(int fromInclusive, int toExclusive, int threads, Action`1<int> action)
+  void Call(Action`2<int, int> action)
+  void Call(int threads, Action`2<int, int> action)
+  IEnumerator Coroutine(Action action)
+--------------------------------------------------
+Класс: UnityEngine.StringExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  string BBCodeToUnity(string x)
+  Vector3 ToVector3(string str)
+  Color ToColor(string str)
+--------------------------------------------------
+Класс: UnityEngine.TextureEx
+Наследуется от: object
+Поля:
+  Color32[] buffer
+Свойства:
+Методы:
+  void Clear(Texture2D tex, Color32 color)
+  int GetSizeInBytes(Texture texture)
+  int GetBitsPerPixel(TextureFormat format)
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Utility.Mesh
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Export(Mesh mesh, string filename)
+--------------------------------------------------
+Класс: Facepunch.Utility.Os
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void OpenFolder(string folder)
+  bool StartProcess(string executable, string arguments)
+  bool CreateProcess(string lpApplicationName, string lpCommandLine, SECURITY_ATTRIBUTES& lpProcessAttributes, SECURITY_ATTRIBUTES& lpThreadAttributes, bool bInheritHandles, UInt32 dwCreationFlags, IntPtr lpEnvironment, string lpCurrentDirectory, STARTUPINFO& lpStartupInfo, PROCESS_INFORMATION& lpProcessInformation)
+--------------------------------------------------
+Класс: Facepunch.Utility.Texture
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void CompressNormals(Texture2D tex)
+  void DecompressNormals(Texture2D tex)
+  bool SaveAsPng(Texture texture, string fileName)
+  Texture2D CreateReadableCopy(Texture2D texture, int width, int height)
+  Texture2D LimitSize(Texture2D tex, int w, int h)
+  Texture2D LimitSize(Texture2D tex, object maxTextureSize1, object maxTextureSize2)
+--------------------------------------------------
+Класс: Facepunch.Extend.CameraEx
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void FocusOnRenderer(Camera cam, GameObject obj, Vector3 lookDirection, Vector3 Up, int layerMask)
+  void SaveScreenshot(Camera cam, string name, int width, int height, bool transparent, int SuperSampleSize, Nullable`1<Color> background)
+--------------------------------------------------
+Класс: Facepunch.Extend.TextureSampler
+Наследуется от: object
+Поля:
+  Color[] _data
+  int _height
+  int _width
+Свойства:
+Методы:
+  Color GetPixelBilinear(float u, float v)
+  Color GetPixel(float x, float y)
+  float Mod(float x, float y)
+  float WrapBetween(float value, float min, float max)
+  void .ctor(Texture2D source)
+--------------------------------------------------
+Класс: Facepunch.Extend.RenderTextureEx
+Наследуется от: object
+Поля:
+  Material _alphaBlending
+Свойства:
+  Material AlphaBlending
+Методы:
+  Material get_AlphaBlending()
+  void Blit(RenderTexture t, Texture tex)
+  void BlitWithAlphaBlending(RenderTexture t, Texture tex)
+  void ToTexture(RenderTexture t, Texture texture)
+--------------------------------------------------
+Класс: Facepunch.Extend.TransformEx
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Transform FindChildRecursive(Transform transform, string name)
+  T GetOrAddComponent(Transform transform)
+  void DestroyAllChildren(Transform transform, bool immediate)
+  float AngleToPos(Transform transform, Vector3 targetPos)
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=6 7DB0F207C447D7FE7B68ABE6A311F1B5D945F259F4C6E83991B4DF6D6CF8875A
+Свойства:
+Методы:
+--------------------------------------------------

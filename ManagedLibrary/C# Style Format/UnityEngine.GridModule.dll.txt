@@ -1,0 +1,86 @@
+[NativeHeaderAttribute("Modules/Grid/Public/GridMarshalling.h")]
+[NativeTypeAttribute]
+[RequireComponent("UnityEngine.Transform")]
+public class UnityEngine.Grid : GridLayout {
+    public Vector3 cellSize { get; public set; }
+    public Vector3 cellGap { get; public set; }
+    public CellLayout cellLayout { get; public set; }
+    public CellSwizzle cellSwizzle { get; public set; }
+    public Vector3 GetCellCenterLocal(Vector3Int position);
+    public Vector3 GetCellCenterWorld(Vector3Int position);
+    [FreeFunctionAttribute("GridBindings::GetCellSize")]
+public Vector3 get_cellSize();
+    [FreeFunctionAttribute("GridBindings::SetCellSize")]
+public void set_cellSize(Vector3 value);
+    [FreeFunctionAttribute("GridBindings::GetCellGap")]
+public Vector3 get_cellGap();
+    [FreeFunctionAttribute("GridBindings::SetCellGap")]
+public void set_cellGap(Vector3 value);
+    public CellLayout get_cellLayout();
+    public void set_cellLayout(CellLayout value);
+    public CellSwizzle get_cellSwizzle();
+    public void set_cellSwizzle(CellSwizzle value);
+    [FreeFunctionAttribute("GridBindings::CellSwizzle")]
+public static Vector3 Swizzle(CellSwizzle swizzle, Vector3 position);
+    [FreeFunctionAttribute("GridBindings::InverseCellSwizzle")]
+public static Vector3 InverseSwizzle(CellSwizzle swizzle, Vector3 position);
+    private void get_cellSize_Injected(Vector3& ret);
+    private void set_cellSize_Injected(Vector3& value);
+    private void get_cellGap_Injected(Vector3& ret);
+    private void set_cellGap_Injected(Vector3& value);
+    private static void Swizzle_Injected(CellSwizzle swizzle, Vector3& position, Vector3& ret);
+    private static void InverseSwizzle_Injected(CellSwizzle swizzle, Vector3& position, Vector3& ret);
+}
+[NativeHeaderAttribute("Modules/Grid/Public/GridMarshalling.h")]
+[NativeTypeAttribute]
+[RequireComponent("UnityEngine.Transform")]
+public class UnityEngine.GridLayout : Behaviour {
+    public Vector3 cellSize { get; }
+    public Vector3 cellGap { get; }
+    public CellLayout cellLayout { get; }
+    public CellSwizzle cellSwizzle { get; }
+    [FreeFunctionAttribute("GridLayoutBindings::GetCellSize")]
+public Vector3 get_cellSize();
+    [FreeFunctionAttribute("GridLayoutBindings::GetCellGap")]
+public Vector3 get_cellGap();
+    public CellLayout get_cellLayout();
+    public CellSwizzle get_cellSwizzle();
+    [FreeFunctionAttribute("GridLayoutBindings::GetBoundsLocal")]
+public Bounds GetBoundsLocal(Vector3Int cellPosition);
+    public Bounds GetBoundsLocal(Vector3 origin, Vector3 size);
+    [FreeFunctionAttribute("GridLayoutBindings::GetBoundsLocalOriginSize")]
+private Bounds GetBoundsLocalOriginSize(Vector3 origin, Vector3 size);
+    [FreeFunctionAttribute("GridLayoutBindings::CellToLocal")]
+public Vector3 CellToLocal(Vector3Int cellPosition);
+    [FreeFunctionAttribute("GridLayoutBindings::LocalToCell")]
+public Vector3Int LocalToCell(Vector3 localPosition);
+    [FreeFunctionAttribute("GridLayoutBindings::CellToLocalInterpolated")]
+public Vector3 CellToLocalInterpolated(Vector3 cellPosition);
+    [FreeFunctionAttribute("GridLayoutBindings::LocalToCellInterpolated")]
+public Vector3 LocalToCellInterpolated(Vector3 localPosition);
+    [FreeFunctionAttribute("GridLayoutBindings::CellToWorld")]
+public Vector3 CellToWorld(Vector3Int cellPosition);
+    [FreeFunctionAttribute("GridLayoutBindings::WorldToCell")]
+public Vector3Int WorldToCell(Vector3 worldPosition);
+    [FreeFunctionAttribute("GridLayoutBindings::LocalToWorld")]
+public Vector3 LocalToWorld(Vector3 localPosition);
+    [FreeFunctionAttribute("GridLayoutBindings::WorldToLocal")]
+public Vector3 WorldToLocal(Vector3 worldPosition);
+    [FreeFunctionAttribute("GridLayoutBindings::GetLayoutCellCenter")]
+public Vector3 GetLayoutCellCenter();
+    [RequiredByNativeCodeAttribute]
+private void DoNothing();
+    private void get_cellSize_Injected(Vector3& ret);
+    private void get_cellGap_Injected(Vector3& ret);
+    private void GetBoundsLocal_Injected(Vector3Int& cellPosition, Bounds& ret);
+    private void GetBoundsLocalOriginSize_Injected(Vector3& origin, Vector3& size, Bounds& ret);
+    private void CellToLocal_Injected(Vector3Int& cellPosition, Vector3& ret);
+    private void LocalToCell_Injected(Vector3& localPosition, Vector3Int& ret);
+    private void CellToLocalInterpolated_Injected(Vector3& cellPosition, Vector3& ret);
+    private void LocalToCellInterpolated_Injected(Vector3& localPosition, Vector3& ret);
+    private void CellToWorld_Injected(Vector3Int& cellPosition, Vector3& ret);
+    private void WorldToCell_Injected(Vector3& worldPosition, Vector3Int& ret);
+    private void LocalToWorld_Injected(Vector3& localPosition, Vector3& ret);
+    private void WorldToLocal_Injected(Vector3& worldPosition, Vector3& ret);
+    private void GetLayoutCellCenter_Injected(Vector3& ret);
+}

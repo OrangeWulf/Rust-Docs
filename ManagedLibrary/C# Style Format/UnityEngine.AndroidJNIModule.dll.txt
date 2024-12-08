@@ -1,0 +1,1006 @@
+[UsedByNativeCodeAttribute]
+internal class UnityEngine._AndroidJNIHelper : object {
+    public static IntPtr CreateJavaProxy(IntPtr player, IntPtr delegateHandle, AndroidJavaProxy proxy);
+    public static IntPtr CreateJavaRunnable(AndroidJavaRunnable jrunnable);
+    [RequiredByNativeCodeAttribute]
+public static IntPtr InvokeJavaProxyMethod(AndroidJavaProxy proxy, IntPtr jmethodName, IntPtr jargs);
+    public static void CreateJNIArgArray(Object[] args, Span`1<jvalue> ret);
+    public static object UnboxArray(AndroidJavaObject obj);
+    public static object Unbox(AndroidJavaObject obj);
+    public static AndroidJavaObject Box(object obj);
+    public static void DeleteJNIArgArray(Object[] args, Span`1<jvalue> jniArgs);
+    public static IntPtr ConvertToJNIArray(Array array);
+    public static ArrayType ConvertFromJNIArray(IntPtr array);
+    public static IntPtr GetConstructorID(IntPtr jclass, Object[] args);
+    public static IntPtr GetMethodID(IntPtr jclass, string methodName, Object[] args, bool isStatic);
+    public static IntPtr GetMethodID(IntPtr jclass, string methodName, Object[] args, bool isStatic);
+    public static IntPtr GetFieldID(IntPtr jclass, string fieldName, bool isStatic);
+    public static IntPtr GetConstructorID(IntPtr jclass, string signature);
+    public static IntPtr GetMethodID(IntPtr jclass, string methodName, string signature, bool isStatic);
+    private static IntPtr GetMethodIDFallback(IntPtr jclass, string methodName, string signature, bool isStatic);
+    public static IntPtr GetFieldID(IntPtr jclass, string fieldName, string signature, bool isStatic);
+    public static string GetSignature(object obj);
+    public static string GetSignature(Object[] args);
+    public static string GetSignature(Object[] args);
+}
+[NativeConditionalAttribute("PLATFORM_ANDROID")]
+[NativeHeaderAttribute("Modules/AndroidJNI/Public/AndroidApp.bindings.h")]
+[StaticAccessorAttribute("AndroidApp", "2")]
+internal static class UnityEngine.Android.AndroidApp : object {
+    private static AndroidJavaObject m_Context;
+    private static AndroidJavaObject m_Activity;
+    private static AndroidJavaObject m_UnityPlayer;
+    public static AndroidJavaObject Context { get; }
+    public static AndroidJavaObject Activity { get; }
+    public static IntPtr UnityPlayerRaw { get; }
+    public static AndroidJavaObject UnityPlayer { get; }
+    public static AndroidJavaObject get_Context();
+    public static AndroidJavaObject get_Activity();
+    private static void AcquireContextAndActivity();
+    [ThreadSafeAttribute]
+public static IntPtr get_UnityPlayerRaw();
+    public static AndroidJavaObject get_UnityPlayer();
+}
+public enum UnityEngine.Android.AndroidAssetPackError : Enum {
+    public int value__;
+    public static AndroidAssetPackError NoError;
+    public static AndroidAssetPackError AppUnavailable;
+    public static AndroidAssetPackError PackUnavailable;
+    public static AndroidAssetPackError InvalidRequest;
+    public static AndroidAssetPackError DownloadNotFound;
+    public static AndroidAssetPackError ApiNotAvailable;
+    public static AndroidAssetPackError NetworkError;
+    public static AndroidAssetPackError AccessDenied;
+    public static AndroidAssetPackError InsufficientStorage;
+    public static AndroidAssetPackError PlayStoreNotFound;
+    public static AndroidAssetPackError NetworkUnrestricted;
+    public static AndroidAssetPackError AppNotOwned;
+    public static AndroidAssetPackError InternalError;
+}
+public class UnityEngine.Android.AndroidAssetPackInfo : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <name>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private AndroidAssetPackStatus <status>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ulong <size>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private ulong <bytesDownloaded>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private float <transferProgress>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private AndroidAssetPackError <error>k__BackingField;
+    public string name { get; }
+    public AndroidAssetPackStatus status { get; }
+    public ulong size { get; }
+    public ulong bytesDownloaded { get; }
+    public float transferProgress { get; }
+    public AndroidAssetPackError error { get; }
+    internal AndroidAssetPackInfo(string name, AndroidAssetPackStatus status, ulong size, ulong bytesDownloaded, float transferProgress, AndroidAssetPackError error);
+    [CompilerGeneratedAttribute]
+public string get_name();
+    [CompilerGeneratedAttribute]
+public AndroidAssetPackStatus get_status();
+    [CompilerGeneratedAttribute]
+public ulong get_size();
+    [CompilerGeneratedAttribute]
+public ulong get_bytesDownloaded();
+    [CompilerGeneratedAttribute]
+public float get_transferProgress();
+    [CompilerGeneratedAttribute]
+public AndroidAssetPackError get_error();
+}
+[NativeHeaderAttribute("Modules/AndroidJNI/Public/AndroidAssetPacksBindingsHelpers.h")]
+[StaticAccessorAttribute("AndroidAssetPacksBindingsHelpers", "2")]
+public static class UnityEngine.Android.AndroidAssetPacks : object {
+    public static bool coreUnityAssetPacksDownloaded { get; }
+    internal static string dataPackName { get; }
+    internal static string streamingAssetsPackName { get; }
+    public static bool get_coreUnityAssetPacksDownloaded();
+    internal static string get_dataPackName();
+    internal static string get_streamingAssetsPackName();
+    [NativeConditionalAttribute("PLATFORM_ANDROID")]
+private static bool CoreUnityAssetPacksDownloaded();
+    public static String[] GetCoreUnityAssetPackNames();
+    public static void GetAssetPackStateAsync(String[] assetPackNames, Action`2<ulong, AndroidAssetPackState[]> callback);
+    public static GetAssetPackStateAsyncOperation GetAssetPackStateAsync(String[] assetPackNames);
+    public static void DownloadAssetPackAsync(String[] assetPackNames, Action`1<AndroidAssetPackInfo> callback);
+    public static DownloadAssetPackAsyncOperation DownloadAssetPackAsync(String[] assetPackNames);
+    public static void RequestToUseMobileDataAsync(Action`1<AndroidAssetPackUseMobileDataRequestResult> callback);
+    public static RequestToUseMobileDataAsyncOperation RequestToUseMobileDataAsync();
+    public static string GetAssetPackPath(string assetPackName);
+    public static void CancelAssetPackDownload(String[] assetPackNames);
+    public static void RemoveAssetPack(string assetPackName);
+    private static string GetDataPackName();
+    private static string GetStreamingAssetsPackName();
+}
+public class UnityEngine.Android.AndroidAssetPackState : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <name>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private AndroidAssetPackStatus <status>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private AndroidAssetPackError <error>k__BackingField;
+    public string name { get; }
+    public AndroidAssetPackStatus status { get; }
+    public AndroidAssetPackError error { get; }
+    internal AndroidAssetPackState(string name, AndroidAssetPackStatus status, AndroidAssetPackError error);
+    [CompilerGeneratedAttribute]
+public string get_name();
+    [CompilerGeneratedAttribute]
+public AndroidAssetPackStatus get_status();
+    [CompilerGeneratedAttribute]
+public AndroidAssetPackError get_error();
+}
+public enum UnityEngine.Android.AndroidAssetPackStatus : Enum {
+    public int value__;
+    public static AndroidAssetPackStatus Unknown;
+    public static AndroidAssetPackStatus Pending;
+    public static AndroidAssetPackStatus Downloading;
+    public static AndroidAssetPackStatus Transferring;
+    public static AndroidAssetPackStatus Completed;
+    public static AndroidAssetPackStatus Failed;
+    public static AndroidAssetPackStatus Canceled;
+    public static AndroidAssetPackStatus WaitingForWifi;
+    public static AndroidAssetPackStatus NotInstalled;
+}
+public class UnityEngine.Android.AndroidAssetPackUseMobileDataRequestResult : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private bool <allowed>k__BackingField;
+    public bool allowed { get; }
+    internal AndroidAssetPackUseMobileDataRequestResult(bool allowed);
+    [CompilerGeneratedAttribute]
+public bool get_allowed();
+}
+public class UnityEngine.Android.AndroidDevice : object {
+    public static AndroidHardwareType hardwareType { get; }
+    public static AndroidHardwareType get_hardwareType();
+    public static void SetSustainedPerformanceMode(bool enabled);
+}
+public enum UnityEngine.Android.AndroidHardwareType : Enum {
+    public int value__;
+    public static AndroidHardwareType Generic;
+    public static AndroidHardwareType ChromeOS;
+}
+public static class UnityEngine.Android.DiagnosticsReporting : object {
+    public static void CallReportFullyDrawn();
+}
+public class UnityEngine.Android.DownloadAssetPackAsyncOperation : CustomYieldInstruction {
+    private Dictionary`2<string, AndroidAssetPackInfo> m_AssetPackInfos;
+    public bool keepWaiting { get; }
+    public bool isDone { get; }
+    public float progress { get; }
+    public String[] downloadedAssetPacks { get; }
+    public String[] downloadFailedAssetPacks { get; }
+    internal DownloadAssetPackAsyncOperation(String[] assetPackNames);
+    public virtual bool get_keepWaiting();
+    public bool get_isDone();
+    public float get_progress();
+    public String[] get_downloadedAssetPacks();
+    public String[] get_downloadFailedAssetPacks();
+    internal void OnUpdate(AndroidAssetPackInfo info);
+}
+public class UnityEngine.Android.GetAssetPackStateAsyncOperation : CustomYieldInstruction {
+    private ulong m_Size;
+    private AndroidAssetPackState[] m_States;
+    private object m_OperationLock;
+    public bool keepWaiting { get; }
+    public bool isDone { get; }
+    public ulong size { get; }
+    public AndroidAssetPackState[] states { get; }
+    public virtual bool get_keepWaiting();
+    public bool get_isDone();
+    public ulong get_size();
+    public AndroidAssetPackState[] get_states();
+    internal void OnResult(ulong size, AndroidAssetPackState[] states);
+}
+public class UnityEngine.Android.Permission : ValueType {
+    public static string Camera;
+    public static string Microphone;
+    public static string FineLocation;
+    public static string CoarseLocation;
+    public static string ExternalStorageRead;
+    public static string ExternalStorageWrite;
+    private static AndroidJavaObject m_UnityPermissions;
+    private static AndroidJavaObject GetUnityPermissions();
+    public static bool HasUserAuthorizedPermission(string permission);
+    public static void RequestUserPermission(string permission);
+    public static void RequestUserPermissions(String[] permissions);
+    public static void RequestUserPermission(string permission, PermissionCallbacks callbacks);
+    public static void RequestUserPermissions(String[] permissions, PermissionCallbacks callbacks);
+}
+public class UnityEngine.Android.PermissionCallbacks : AndroidJavaProxy {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Action`1<string> PermissionGranted;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Action`1<string> PermissionDenied;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Action`1<string> PermissionDeniedAndDontAskAgain;
+    [CompilerGeneratedAttribute]
+public void add_PermissionGranted(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public void remove_PermissionGranted(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public void add_PermissionDenied(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public void remove_PermissionDenied(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public void add_PermissionDeniedAndDontAskAgain(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public void remove_PermissionDeniedAndDontAskAgain(Action`1<string> value);
+    private void onPermissionGranted(string permissionName);
+    private void onPermissionDenied(string permissionName);
+    private void onPermissionDeniedAndDontAskAgain(string permissionName);
+}
+public class UnityEngine.Android.RequestToUseMobileDataAsyncOperation : CustomYieldInstruction {
+    private AndroidAssetPackUseMobileDataRequestResult m_RequestResult;
+    private object m_OperationLock;
+    public bool keepWaiting { get; }
+    public bool isDone { get; }
+    public AndroidAssetPackUseMobileDataRequestResult result { get; }
+    public virtual bool get_keepWaiting();
+    public bool get_isDone();
+    public AndroidAssetPackUseMobileDataRequestResult get_result();
+    internal void OnResult(AndroidAssetPackUseMobileDataRequestResult result);
+}
+public class UnityEngine.AndroidJavaClass : AndroidJavaObject {
+    public AndroidJavaClass(string className);
+    internal AndroidJavaClass(IntPtr jclass);
+    private void _AndroidJavaClass(string className);
+}
+public class UnityEngine.AndroidJavaException : Exception {
+    private string mJavaStackTrace;
+    public string StackTrace { get; }
+    internal AndroidJavaException(string message, string javaStackTrace);
+    public virtual string get_StackTrace();
+}
+public class UnityEngine.AndroidJavaObject : object {
+    private static bool enableDebugPrints;
+    internal GlobalJavaObjectRef m_jobject;
+    internal GlobalJavaObjectRef m_jclass;
+    public AndroidJavaObject(string className, String[] args);
+    public AndroidJavaObject(string className, AndroidJavaObject[] args);
+    public AndroidJavaObject(string className, AndroidJavaClass[] args);
+    public AndroidJavaObject(string className, AndroidJavaProxy[] args);
+    public AndroidJavaObject(string className, AndroidJavaRunnable[] args);
+    public AndroidJavaObject(string className, Object[] args);
+    public AndroidJavaObject(IntPtr jobject);
+    public AndroidJavaObject(IntPtr clazz, IntPtr constructorID, Object[] args);
+    public sealed virtual void Dispose();
+    public void Call(string methodName, T[] args);
+    public void Call(IntPtr methodID, T[] args);
+    public void Call(string methodName, Object[] args);
+    public void Call(IntPtr methodID, Object[] args);
+    public void CallStatic(string methodName, T[] args);
+    public void CallStatic(IntPtr methodID, T[] args);
+    public void CallStatic(string methodName, Object[] args);
+    public void CallStatic(IntPtr methodID, Object[] args);
+    public FieldType Get(string fieldName);
+    public FieldType Get(IntPtr fieldID);
+    public void Set(string fieldName, FieldType val);
+    public void Set(IntPtr fieldID, FieldType val);
+    public FieldType GetStatic(string fieldName);
+    public FieldType GetStatic(IntPtr fieldID);
+    public void SetStatic(string fieldName, FieldType val);
+    public void SetStatic(IntPtr fieldID, FieldType val);
+    public IntPtr GetRawObject();
+    public IntPtr GetRawClass();
+    public AndroidJavaObject CloneReference();
+    public ReturnType Call(string methodName, T[] args);
+    public ReturnType Call(IntPtr methodID, T[] args);
+    public ReturnType Call(string methodName, Object[] args);
+    public ReturnType Call(IntPtr methodID, Object[] args);
+    public ReturnType CallStatic(string methodName, T[] args);
+    public ReturnType CallStatic(IntPtr methodID, T[] args);
+    public ReturnType CallStatic(string methodName, Object[] args);
+    public ReturnType CallStatic(IntPtr methodID, Object[] args);
+    protected void DebugPrint(string msg);
+    protected void DebugPrint(string call, string methodName, string signature, Object[] args);
+    private void _AndroidJavaObject(string className, Object[] args);
+    private void _AndroidJavaObject(IntPtr constructorID, Object[] args);
+    protected virtual override void Finalize();
+    protected virtual void Dispose(bool disposing);
+    protected void _Call(string methodName, Object[] args);
+    protected void _Call(IntPtr methodID, Object[] args);
+    protected ReturnType _Call(string methodName, Object[] args);
+    protected ReturnType _Call(IntPtr methodID, Object[] args);
+    protected FieldType _Get(string fieldName);
+    protected FieldType _Get(IntPtr fieldID);
+    protected void _Set(string fieldName, FieldType val);
+    protected void _Set(IntPtr fieldID, FieldType val);
+    protected void _CallStatic(string methodName, Object[] args);
+    protected void _CallStatic(IntPtr methodID, Object[] args);
+    protected ReturnType _CallStatic(string methodName, Object[] args);
+    protected ReturnType _CallStatic(IntPtr methodID, Object[] args);
+    protected FieldType _GetStatic(string fieldName);
+    protected FieldType _GetStatic(IntPtr fieldID);
+    protected void _SetStatic(string fieldName, FieldType val);
+    protected void _SetStatic(IntPtr fieldID, FieldType val);
+    internal static AndroidJavaObject AndroidJavaObjectDeleteLocalRef(IntPtr jobject);
+    internal static AndroidJavaClass AndroidJavaClassDeleteLocalRef(IntPtr jclass);
+    internal static ReturnType FromJavaArrayDeleteLocalRef(IntPtr jobject);
+    protected IntPtr _GetRawObject();
+    protected IntPtr _GetRawClass();
+}
+public class UnityEngine.AndroidJavaProxy : object {
+    public AndroidJavaClass javaInterface;
+    internal IntPtr proxyObject;
+    private static GlobalJavaObjectRef s_JavaLangSystemClass;
+    private static IntPtr s_HashCodeMethodID;
+    public AndroidJavaProxy(string javaInterface);
+    public AndroidJavaProxy(AndroidJavaClass javaInterface);
+    private static AndroidJavaProxy();
+    protected virtual override void Finalize();
+    public virtual AndroidJavaObject Invoke(string methodName, Object[] args);
+    public virtual AndroidJavaObject Invoke(string methodName, AndroidJavaObject[] javaArgs);
+    public virtual IntPtr Invoke(string methodName, IntPtr javaArgs);
+    public virtual bool equals(AndroidJavaObject obj);
+    public virtual int hashCode();
+    public virtual string toString();
+    internal AndroidJavaObject GetProxyObject();
+    internal IntPtr GetRawProxy();
+}
+public class UnityEngine.AndroidJavaRunnable : MulticastDelegate {
+    public AndroidJavaRunnable(object object, IntPtr method);
+    public virtual void Invoke();
+    public virtual IAsyncResult BeginInvoke(AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+internal class UnityEngine.AndroidJavaRunnableProxy : AndroidJavaProxy {
+    private AndroidJavaRunnable mRunnable;
+    public AndroidJavaRunnableProxy(AndroidJavaRunnable runnable);
+    public void run();
+    public virtual IntPtr Invoke(string methodName, IntPtr javaArgs);
+}
+[NativeConditionalAttribute("PLATFORM_ANDROID")]
+[NativeHeaderAttribute("Modules/AndroidJNI/Public/AndroidJNIBindingsHelpers.h")]
+[StaticAccessorAttribute("AndroidJNIBindingsHelpers", "2")]
+public static class UnityEngine.AndroidJNI : object {
+    [StaticAccessorAttribute("jni", "2")]
+[ThreadSafeAttribute]
+public static IntPtr GetJavaVM();
+    [ThreadSafeAttribute]
+public static int AttachCurrentThread();
+    [ThreadSafeAttribute]
+public static int DetachCurrentThread();
+    [ThreadSafeAttribute]
+public static int GetVersion();
+    [ThreadSafeAttribute]
+public static IntPtr FindClass(string name);
+    [ThreadSafeAttribute]
+public static IntPtr FromReflectedMethod(IntPtr refMethod);
+    [ThreadSafeAttribute]
+public static IntPtr FromReflectedField(IntPtr refField);
+    [ThreadSafeAttribute]
+public static IntPtr ToReflectedMethod(IntPtr clazz, IntPtr methodID, bool isStatic);
+    [ThreadSafeAttribute]
+public static IntPtr ToReflectedField(IntPtr clazz, IntPtr fieldID, bool isStatic);
+    [ThreadSafeAttribute]
+public static IntPtr GetSuperclass(IntPtr clazz);
+    [ThreadSafeAttribute]
+public static bool IsAssignableFrom(IntPtr clazz1, IntPtr clazz2);
+    [ThreadSafeAttribute]
+public static int Throw(IntPtr obj);
+    [ThreadSafeAttribute]
+public static int ThrowNew(IntPtr clazz, string message);
+    [ThreadSafeAttribute]
+public static IntPtr ExceptionOccurred();
+    [ThreadSafeAttribute]
+public static void ExceptionDescribe();
+    [ThreadSafeAttribute]
+public static void ExceptionClear();
+    [ThreadSafeAttribute]
+public static void FatalError(string message);
+    [ThreadSafeAttribute]
+public static int PushLocalFrame(int capacity);
+    [ThreadSafeAttribute]
+public static IntPtr PopLocalFrame(IntPtr ptr);
+    [ThreadSafeAttribute]
+public static IntPtr NewGlobalRef(IntPtr obj);
+    [ThreadSafeAttribute]
+public static void DeleteGlobalRef(IntPtr obj);
+    [ThreadSafeAttribute]
+internal static void QueueDeleteGlobalRef(IntPtr obj);
+    [ThreadSafeAttribute]
+internal static UInt32 GetQueueGlobalRefsCount();
+    [ThreadSafeAttribute]
+public static IntPtr NewWeakGlobalRef(IntPtr obj);
+    [ThreadSafeAttribute]
+public static void DeleteWeakGlobalRef(IntPtr obj);
+    [ThreadSafeAttribute]
+public static IntPtr NewLocalRef(IntPtr obj);
+    [ThreadSafeAttribute]
+public static void DeleteLocalRef(IntPtr obj);
+    [ThreadSafeAttribute]
+public static bool IsSameObject(IntPtr obj1, IntPtr obj2);
+    [ThreadSafeAttribute]
+public static int EnsureLocalCapacity(int capacity);
+    [ThreadSafeAttribute]
+public static IntPtr AllocObject(IntPtr clazz);
+    public static IntPtr NewObject(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static IntPtr NewObject(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static IntPtr NewObjectA(IntPtr clazz, IntPtr methodID, jvalue* args);
+    [ThreadSafeAttribute]
+public static IntPtr GetObjectClass(IntPtr obj);
+    [ThreadSafeAttribute]
+public static bool IsInstanceOf(IntPtr obj, IntPtr clazz);
+    [ThreadSafeAttribute]
+public static IntPtr GetMethodID(IntPtr clazz, string name, string sig);
+    [ThreadSafeAttribute]
+public static IntPtr GetFieldID(IntPtr clazz, string name, string sig);
+    [ThreadSafeAttribute]
+public static IntPtr GetStaticMethodID(IntPtr clazz, string name, string sig);
+    [ThreadSafeAttribute]
+public static IntPtr GetStaticFieldID(IntPtr clazz, string name, string sig);
+    public static IntPtr NewString(string chars);
+    [ThreadSafeAttribute]
+private static IntPtr NewStringFromStr(string chars);
+    [ThreadSafeAttribute]
+public static IntPtr NewString(Char[] chars);
+    [ThreadSafeAttribute]
+public static IntPtr NewStringUTF(string bytes);
+    [ThreadSafeAttribute]
+public static string GetStringChars(IntPtr str);
+    [ThreadSafeAttribute]
+public static int GetStringLength(IntPtr str);
+    [ThreadSafeAttribute]
+public static int GetStringUTFLength(IntPtr str);
+    [ThreadSafeAttribute]
+public static string GetStringUTFChars(IntPtr str);
+    public static string CallStringMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static string CallStringMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static string CallStringMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static IntPtr CallObjectMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static IntPtr CallObjectMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static IntPtr CallObjectMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static int CallIntMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static int CallIntMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static int CallIntMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static bool CallBooleanMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static bool CallBooleanMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static bool CallBooleanMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static short CallShortMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static short CallShortMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static short CallShortMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    [ObsoleteAttribute("AndroidJNI.CallByteMethod is obsolete. Use AndroidJNI.CallSByteMethod method instead")]
+public static byte CallByteMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static sbyte CallSByteMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static sbyte CallSByteMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static sbyte CallSByteMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static char CallCharMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static char CallCharMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static char CallCharMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static float CallFloatMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static float CallFloatMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static float CallFloatMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static double CallDoubleMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static double CallDoubleMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static double CallDoubleMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static long CallLongMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static long CallLongMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static long CallLongMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    public static void CallVoidMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static void CallVoidMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static void CallVoidMethodUnsafe(IntPtr obj, IntPtr methodID, jvalue* args);
+    [ThreadSafeAttribute]
+public static string GetStringField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static IntPtr GetObjectField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static bool GetBooleanField(IntPtr obj, IntPtr fieldID);
+    [ObsoleteAttribute("AndroidJNI.GetByteField is obsolete. Use AndroidJNI.GetSByteField method instead")]
+public static byte GetByteField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static sbyte GetSByteField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static char GetCharField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static short GetShortField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static int GetIntField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static long GetLongField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static float GetFloatField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static double GetDoubleField(IntPtr obj, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static void SetStringField(IntPtr obj, IntPtr fieldID, string val);
+    [ThreadSafeAttribute]
+public static void SetObjectField(IntPtr obj, IntPtr fieldID, IntPtr val);
+    [ThreadSafeAttribute]
+public static void SetBooleanField(IntPtr obj, IntPtr fieldID, bool val);
+    [ObsoleteAttribute("AndroidJNI.SetByteField is obsolete. Use AndroidJNI.SetSByteField method instead")]
+public static void SetByteField(IntPtr obj, IntPtr fieldID, byte val);
+    [ThreadSafeAttribute]
+public static void SetSByteField(IntPtr obj, IntPtr fieldID, sbyte val);
+    [ThreadSafeAttribute]
+public static void SetCharField(IntPtr obj, IntPtr fieldID, char val);
+    [ThreadSafeAttribute]
+public static void SetShortField(IntPtr obj, IntPtr fieldID, short val);
+    [ThreadSafeAttribute]
+public static void SetIntField(IntPtr obj, IntPtr fieldID, int val);
+    [ThreadSafeAttribute]
+public static void SetLongField(IntPtr obj, IntPtr fieldID, long val);
+    [ThreadSafeAttribute]
+public static void SetFloatField(IntPtr obj, IntPtr fieldID, float val);
+    [ThreadSafeAttribute]
+public static void SetDoubleField(IntPtr obj, IntPtr fieldID, double val);
+    public static string CallStaticStringMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static string CallStaticStringMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static string CallStaticStringMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static IntPtr CallStaticObjectMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static IntPtr CallStaticObjectMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static IntPtr CallStaticObjectMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static int CallStaticIntMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static int CallStaticIntMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static int CallStaticIntMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static bool CallStaticBooleanMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static bool CallStaticBooleanMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static bool CallStaticBooleanMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static short CallStaticShortMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static short CallStaticShortMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static short CallStaticShortMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    [ObsoleteAttribute("AndroidJNI.CallStaticByteMethod is obsolete. Use AndroidJNI.CallStaticSByteMethod method instead")]
+public static byte CallStaticByteMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static sbyte CallStaticSByteMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static sbyte CallStaticSByteMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static sbyte CallStaticSByteMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static char CallStaticCharMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static char CallStaticCharMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static char CallStaticCharMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static float CallStaticFloatMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static float CallStaticFloatMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static float CallStaticFloatMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static double CallStaticDoubleMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static double CallStaticDoubleMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static double CallStaticDoubleMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static long CallStaticLongMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static long CallStaticLongMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static long CallStaticLongMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    public static void CallStaticVoidMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static void CallStaticVoidMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    [ThreadSafeAttribute]
+public static void CallStaticVoidMethodUnsafe(IntPtr clazz, IntPtr methodID, jvalue* args);
+    [ThreadSafeAttribute]
+public static string GetStaticStringField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static IntPtr GetStaticObjectField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static bool GetStaticBooleanField(IntPtr clazz, IntPtr fieldID);
+    [ObsoleteAttribute("AndroidJNI.GetStaticByteField is obsolete. Use AndroidJNI.GetStaticSByteField method instead")]
+public static byte GetStaticByteField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static sbyte GetStaticSByteField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static char GetStaticCharField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static short GetStaticShortField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static int GetStaticIntField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static long GetStaticLongField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static float GetStaticFloatField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static double GetStaticDoubleField(IntPtr clazz, IntPtr fieldID);
+    [ThreadSafeAttribute]
+public static void SetStaticStringField(IntPtr clazz, IntPtr fieldID, string val);
+    [ThreadSafeAttribute]
+public static void SetStaticObjectField(IntPtr clazz, IntPtr fieldID, IntPtr val);
+    [ThreadSafeAttribute]
+public static void SetStaticBooleanField(IntPtr clazz, IntPtr fieldID, bool val);
+    [ObsoleteAttribute("AndroidJNI.SetStaticByteField is obsolete. Use AndroidJNI.SetStaticSByteField method instead")]
+public static void SetStaticByteField(IntPtr clazz, IntPtr fieldID, byte val);
+    [ThreadSafeAttribute]
+public static void SetStaticSByteField(IntPtr clazz, IntPtr fieldID, sbyte val);
+    [ThreadSafeAttribute]
+public static void SetStaticCharField(IntPtr clazz, IntPtr fieldID, char val);
+    [ThreadSafeAttribute]
+public static void SetStaticShortField(IntPtr clazz, IntPtr fieldID, short val);
+    [ThreadSafeAttribute]
+public static void SetStaticIntField(IntPtr clazz, IntPtr fieldID, int val);
+    [ThreadSafeAttribute]
+public static void SetStaticLongField(IntPtr clazz, IntPtr fieldID, long val);
+    [ThreadSafeAttribute]
+public static void SetStaticFloatField(IntPtr clazz, IntPtr fieldID, float val);
+    [ThreadSafeAttribute]
+public static void SetStaticDoubleField(IntPtr clazz, IntPtr fieldID, double val);
+    [ThreadSafeAttribute]
+public static IntPtr ToBooleanArray(Boolean[] array);
+    [ObsoleteAttribute("AndroidJNI.ToByteArray is obsolete. Use AndroidJNI.ToSByteArray method instead")]
+[ThreadSafeAttribute]
+public static IntPtr ToByteArray(Byte[] array);
+    public static IntPtr ToSByteArray(SByte[] array);
+    [ThreadSafeAttribute]
+public static IntPtr ToSByteArray(SByte* array, int length);
+    public static IntPtr ToCharArray(Char[] array);
+    [ThreadSafeAttribute]
+public static IntPtr ToCharArray(Char* array, int length);
+    public static IntPtr ToShortArray(Int16[] array);
+    [ThreadSafeAttribute]
+public static IntPtr ToShortArray(Int16* array, int length);
+    public static IntPtr ToIntArray(Int32[] array);
+    [ThreadSafeAttribute]
+public static IntPtr ToIntArray(Int32* array, int length);
+    public static IntPtr ToLongArray(Int64[] array);
+    [ThreadSafeAttribute]
+public static IntPtr ToLongArray(Int64* array, int length);
+    public static IntPtr ToFloatArray(Single[] array);
+    [ThreadSafeAttribute]
+public static IntPtr ToFloatArray(Single* array, int length);
+    public static IntPtr ToDoubleArray(Double[] array);
+    [ThreadSafeAttribute]
+public static IntPtr ToDoubleArray(Double* array, int length);
+    [ThreadSafeAttribute]
+public static IntPtr ToObjectArray(IntPtr* array, int length, IntPtr arrayClass);
+    public static IntPtr ToObjectArray(IntPtr[] array, IntPtr arrayClass);
+    public static IntPtr ToObjectArray(IntPtr[] array);
+    [ThreadSafeAttribute]
+public static Boolean[] FromBooleanArray(IntPtr array);
+    [ObsoleteAttribute("AndroidJNI.FromByteArray is obsolete. Use AndroidJNI.FromSByteArray method instead")]
+[ThreadSafeAttribute]
+public static Byte[] FromByteArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static SByte[] FromSByteArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static Char[] FromCharArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static Int16[] FromShortArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static Int32[] FromIntArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static Int64[] FromLongArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static Single[] FromFloatArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static Double[] FromDoubleArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static IntPtr[] FromObjectArray(IntPtr array);
+    [ThreadSafeAttribute]
+public static int GetArrayLength(IntPtr array);
+    [ThreadSafeAttribute]
+public static IntPtr NewBooleanArray(int size);
+    [ObsoleteAttribute("AndroidJNI.NewByteArray is obsolete. Use AndroidJNI.NewSByteArray method instead")]
+public static IntPtr NewByteArray(int size);
+    [ThreadSafeAttribute]
+public static IntPtr NewSByteArray(int size);
+    [ThreadSafeAttribute]
+public static IntPtr NewCharArray(int size);
+    [ThreadSafeAttribute]
+public static IntPtr NewShortArray(int size);
+    [ThreadSafeAttribute]
+public static IntPtr NewIntArray(int size);
+    [ThreadSafeAttribute]
+public static IntPtr NewLongArray(int size);
+    [ThreadSafeAttribute]
+public static IntPtr NewFloatArray(int size);
+    [ThreadSafeAttribute]
+public static IntPtr NewDoubleArray(int size);
+    [ThreadSafeAttribute]
+public static IntPtr NewObjectArray(int size, IntPtr clazz, IntPtr obj);
+    [ThreadSafeAttribute]
+public static bool GetBooleanArrayElement(IntPtr array, int index);
+    [ObsoleteAttribute("AndroidJNI.GetByteArrayElement is obsolete. Use AndroidJNI.GetSByteArrayElement method instead")]
+public static byte GetByteArrayElement(IntPtr array, int index);
+    [ThreadSafeAttribute]
+public static sbyte GetSByteArrayElement(IntPtr array, int index);
+    [ThreadSafeAttribute]
+public static char GetCharArrayElement(IntPtr array, int index);
+    [ThreadSafeAttribute]
+public static short GetShortArrayElement(IntPtr array, int index);
+    [ThreadSafeAttribute]
+public static int GetIntArrayElement(IntPtr array, int index);
+    [ThreadSafeAttribute]
+public static long GetLongArrayElement(IntPtr array, int index);
+    [ThreadSafeAttribute]
+public static float GetFloatArrayElement(IntPtr array, int index);
+    [ThreadSafeAttribute]
+public static double GetDoubleArrayElement(IntPtr array, int index);
+    [ThreadSafeAttribute]
+public static IntPtr GetObjectArrayElement(IntPtr array, int index);
+    [ObsoleteAttribute("AndroidJNI.SetBooleanArrayElement(IntPtr, int, byte) is obsolete. Use AndroidJNI.SetBooleanArrayElement(IntPtr, int, bool) method instead")]
+public static void SetBooleanArrayElement(IntPtr array, int index, byte val);
+    [ThreadSafeAttribute]
+public static void SetBooleanArrayElement(IntPtr array, int index, bool val);
+    [ObsoleteAttribute("AndroidJNI.SetByteArrayElement is obsolete. Use AndroidJNI.SetSByteArrayElement method instead")]
+public static void SetByteArrayElement(IntPtr array, int index, sbyte val);
+    [ThreadSafeAttribute]
+public static void SetSByteArrayElement(IntPtr array, int index, sbyte val);
+    [ThreadSafeAttribute]
+public static void SetCharArrayElement(IntPtr array, int index, char val);
+    [ThreadSafeAttribute]
+public static void SetShortArrayElement(IntPtr array, int index, short val);
+    [ThreadSafeAttribute]
+public static void SetIntArrayElement(IntPtr array, int index, int val);
+    [ThreadSafeAttribute]
+public static void SetLongArrayElement(IntPtr array, int index, long val);
+    [ThreadSafeAttribute]
+public static void SetFloatArrayElement(IntPtr array, int index, float val);
+    [ThreadSafeAttribute]
+public static void SetDoubleArrayElement(IntPtr array, int index, double val);
+    [ThreadSafeAttribute]
+public static void SetObjectArrayElement(IntPtr array, int index, IntPtr obj);
+    [ThreadSafeAttribute]
+public static IntPtr NewDirectByteBuffer(Byte* buffer, long capacity);
+    public static IntPtr NewDirectByteBuffer(NativeArray`1<byte> buffer);
+    public static IntPtr NewDirectByteBuffer(NativeArray`1<sbyte> buffer);
+    private static IntPtr NewDirectByteBufferFromNativeArray(NativeArray`1<T> buffer);
+    public static SByte* GetDirectBufferAddress(IntPtr buffer);
+    [ThreadSafeAttribute]
+public static long GetDirectBufferCapacity(IntPtr buffer);
+    private static NativeArray`1<T> GetDirectBuffer(IntPtr buffer);
+    public static NativeArray`1<byte> GetDirectByteBuffer(IntPtr buffer);
+    public static NativeArray`1<sbyte> GetDirectSByteBuffer(IntPtr buffer);
+    public static int RegisterNatives(IntPtr clazz, JNINativeMethod[] methods);
+    [ThreadSafeAttribute]
+private static IntPtr RegisterNativesAllocate(int length);
+    [ThreadSafeAttribute]
+private static void RegisterNativesSet(IntPtr natives, int idx, string name, string signature, IntPtr fnPtr);
+    [ThreadSafeAttribute]
+private static int RegisterNativesAndFree(IntPtr clazz, IntPtr natives, int n);
+    [ThreadSafeAttribute]
+public static int UnregisterNatives(IntPtr clazz);
+}
+[NativeConditionalAttribute("PLATFORM_ANDROID")]
+[NativeHeaderAttribute("Modules/AndroidJNI/Public/AndroidJNIBindingsHelpers.h")]
+[StaticAccessorAttribute("AndroidJNIBindingsHelpers", "2")]
+[UsedByNativeCodeAttribute]
+public static class UnityEngine.AndroidJNIHelper : object {
+    public static bool debug { get; public set; }
+    public static bool get_debug();
+    public static void set_debug(bool value);
+    public static IntPtr GetConstructorID(IntPtr javaClass);
+    public static IntPtr GetConstructorID(IntPtr javaClass, string signature);
+    public static IntPtr GetMethodID(IntPtr javaClass, string methodName);
+    public static IntPtr GetMethodID(IntPtr javaClass, string methodName, string signature);
+    public static IntPtr GetMethodID(IntPtr javaClass, string methodName, string signature, bool isStatic);
+    public static IntPtr GetFieldID(IntPtr javaClass, string fieldName);
+    public static IntPtr GetFieldID(IntPtr javaClass, string fieldName, string signature);
+    public static IntPtr GetFieldID(IntPtr javaClass, string fieldName, string signature, bool isStatic);
+    public static IntPtr CreateJavaRunnable(AndroidJavaRunnable jrunnable);
+    public static IntPtr CreateJavaProxy(AndroidJavaProxy proxy);
+    public static IntPtr ConvertToJNIArray(Array array);
+    public static jvalue[] CreateJNIArgArray(Object[] args);
+    public static void CreateJNIArgArray(Object[] args, Span`1<jvalue> jniArgs);
+    public static void DeleteJNIArgArray(Object[] args, jvalue[] jniArgs);
+    public static void DeleteJNIArgArray(Object[] args, Span`1<jvalue> jniArgs);
+    public static IntPtr GetConstructorID(IntPtr jclass, Object[] args);
+    public static IntPtr GetMethodID(IntPtr jclass, string methodName, Object[] args, bool isStatic);
+    public static string GetSignature(object obj);
+    public static string GetSignature(Object[] args);
+    public static ArrayType ConvertFromJNIArray(IntPtr array);
+    public static IntPtr GetMethodID(IntPtr jclass, string methodName, Object[] args, bool isStatic);
+    public static IntPtr GetFieldID(IntPtr jclass, string fieldName, bool isStatic);
+    public static string GetSignature(Object[] args);
+    private static IntPtr Box(jvalue val, string boxedClass, string signature);
+    public static IntPtr Box(sbyte value);
+    public static IntPtr Box(short value);
+    public static IntPtr Box(int value);
+    public static IntPtr Box(long value);
+    public static IntPtr Box(float value);
+    public static IntPtr Box(double value);
+    public static IntPtr Box(char value);
+    public static IntPtr Box(bool value);
+    private static IntPtr GetUnboxMethod(IntPtr obj, string methodName, string signature);
+    public static void Unbox(IntPtr obj, SByte& value);
+    public static void Unbox(IntPtr obj, Int16& value);
+    public static void Unbox(IntPtr obj, Int32& value);
+    public static void Unbox(IntPtr obj, Int64& value);
+    public static void Unbox(IntPtr obj, Single& value);
+    public static void Unbox(IntPtr obj, Double& value);
+    public static void Unbox(IntPtr obj, Char& value);
+    public static void Unbox(IntPtr obj, Boolean& value);
+}
+internal class UnityEngine.AndroidJNISafe : object {
+    public static void CheckException();
+    public static void DeleteGlobalRef(IntPtr globalref);
+    public static void QueueDeleteGlobalRef(IntPtr globalref);
+    public static void DeleteWeakGlobalRef(IntPtr globalref);
+    public static void DeleteLocalRef(IntPtr localref);
+    public static IntPtr NewString(string chars);
+    public static IntPtr NewStringUTF(string bytes);
+    public static string GetStringChars(IntPtr str);
+    public static string GetStringUTFChars(IntPtr str);
+    public static IntPtr GetObjectClass(IntPtr ptr);
+    public static IntPtr GetStaticMethodID(IntPtr clazz, string name, string sig);
+    public static IntPtr GetMethodID(IntPtr obj, string name, string sig);
+    public static IntPtr GetFieldID(IntPtr clazz, string name, string sig);
+    public static IntPtr GetStaticFieldID(IntPtr clazz, string name, string sig);
+    public static IntPtr FromReflectedMethod(IntPtr refMethod);
+    public static IntPtr FromReflectedField(IntPtr refField);
+    public static IntPtr FindClass(string name);
+    public static IntPtr NewObject(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static IntPtr NewObject(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static void SetStaticObjectField(IntPtr clazz, IntPtr fieldID, IntPtr val);
+    public static void SetStaticStringField(IntPtr clazz, IntPtr fieldID, string val);
+    public static void SetStaticCharField(IntPtr clazz, IntPtr fieldID, char val);
+    public static void SetStaticDoubleField(IntPtr clazz, IntPtr fieldID, double val);
+    public static void SetStaticFloatField(IntPtr clazz, IntPtr fieldID, float val);
+    public static void SetStaticLongField(IntPtr clazz, IntPtr fieldID, long val);
+    public static void SetStaticShortField(IntPtr clazz, IntPtr fieldID, short val);
+    public static void SetStaticSByteField(IntPtr clazz, IntPtr fieldID, sbyte val);
+    public static void SetStaticBooleanField(IntPtr clazz, IntPtr fieldID, bool val);
+    public static void SetStaticIntField(IntPtr clazz, IntPtr fieldID, int val);
+    public static IntPtr GetStaticObjectField(IntPtr clazz, IntPtr fieldID);
+    public static string GetStaticStringField(IntPtr clazz, IntPtr fieldID);
+    public static char GetStaticCharField(IntPtr clazz, IntPtr fieldID);
+    public static double GetStaticDoubleField(IntPtr clazz, IntPtr fieldID);
+    public static float GetStaticFloatField(IntPtr clazz, IntPtr fieldID);
+    public static long GetStaticLongField(IntPtr clazz, IntPtr fieldID);
+    public static short GetStaticShortField(IntPtr clazz, IntPtr fieldID);
+    public static sbyte GetStaticSByteField(IntPtr clazz, IntPtr fieldID);
+    public static bool GetStaticBooleanField(IntPtr clazz, IntPtr fieldID);
+    public static int GetStaticIntField(IntPtr clazz, IntPtr fieldID);
+    public static void CallStaticVoidMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static void CallStaticVoidMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static IntPtr CallStaticObjectMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static IntPtr CallStaticObjectMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static string CallStaticStringMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static string CallStaticStringMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static char CallStaticCharMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static char CallStaticCharMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static double CallStaticDoubleMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static double CallStaticDoubleMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static float CallStaticFloatMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static float CallStaticFloatMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static long CallStaticLongMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static long CallStaticLongMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static short CallStaticShortMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static short CallStaticShortMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static sbyte CallStaticSByteMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static sbyte CallStaticSByteMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static bool CallStaticBooleanMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static bool CallStaticBooleanMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static int CallStaticIntMethod(IntPtr clazz, IntPtr methodID, jvalue[] args);
+    public static int CallStaticIntMethod(IntPtr clazz, IntPtr methodID, Span`1<jvalue> args);
+    public static void SetObjectField(IntPtr obj, IntPtr fieldID, IntPtr val);
+    public static void SetStringField(IntPtr obj, IntPtr fieldID, string val);
+    public static void SetCharField(IntPtr obj, IntPtr fieldID, char val);
+    public static void SetDoubleField(IntPtr obj, IntPtr fieldID, double val);
+    public static void SetFloatField(IntPtr obj, IntPtr fieldID, float val);
+    public static void SetLongField(IntPtr obj, IntPtr fieldID, long val);
+    public static void SetShortField(IntPtr obj, IntPtr fieldID, short val);
+    public static void SetSByteField(IntPtr obj, IntPtr fieldID, sbyte val);
+    public static void SetBooleanField(IntPtr obj, IntPtr fieldID, bool val);
+    public static void SetIntField(IntPtr obj, IntPtr fieldID, int val);
+    public static IntPtr GetObjectField(IntPtr obj, IntPtr fieldID);
+    public static string GetStringField(IntPtr obj, IntPtr fieldID);
+    public static char GetCharField(IntPtr obj, IntPtr fieldID);
+    public static double GetDoubleField(IntPtr obj, IntPtr fieldID);
+    public static float GetFloatField(IntPtr obj, IntPtr fieldID);
+    public static long GetLongField(IntPtr obj, IntPtr fieldID);
+    public static short GetShortField(IntPtr obj, IntPtr fieldID);
+    public static sbyte GetSByteField(IntPtr obj, IntPtr fieldID);
+    public static bool GetBooleanField(IntPtr obj, IntPtr fieldID);
+    public static int GetIntField(IntPtr obj, IntPtr fieldID);
+    public static void CallVoidMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static void CallVoidMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static IntPtr CallObjectMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static IntPtr CallObjectMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static string CallStringMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static string CallStringMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static char CallCharMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static char CallCharMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static double CallDoubleMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static double CallDoubleMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static float CallFloatMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static float CallFloatMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static long CallLongMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static long CallLongMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static short CallShortMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static short CallShortMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static sbyte CallSByteMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static sbyte CallSByteMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static bool CallBooleanMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static bool CallBooleanMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static int CallIntMethod(IntPtr obj, IntPtr methodID, jvalue[] args);
+    public static int CallIntMethod(IntPtr obj, IntPtr methodID, Span`1<jvalue> args);
+    public static IntPtr[] FromObjectArray(IntPtr array);
+    public static Char[] FromCharArray(IntPtr array);
+    public static Double[] FromDoubleArray(IntPtr array);
+    public static Single[] FromFloatArray(IntPtr array);
+    public static Int64[] FromLongArray(IntPtr array);
+    public static Int16[] FromShortArray(IntPtr array);
+    public static Byte[] FromByteArray(IntPtr array);
+    public static SByte[] FromSByteArray(IntPtr array);
+    public static Boolean[] FromBooleanArray(IntPtr array);
+    public static Int32[] FromIntArray(IntPtr array);
+    public static IntPtr ToObjectArray(IntPtr[] array);
+    public static IntPtr ToObjectArray(IntPtr[] array, IntPtr type);
+    public static IntPtr ToCharArray(Char[] array);
+    public static IntPtr ToDoubleArray(Double[] array);
+    public static IntPtr ToFloatArray(Single[] array);
+    public static IntPtr ToLongArray(Int64[] array);
+    public static IntPtr ToShortArray(Int16[] array);
+    public static IntPtr ToByteArray(Byte[] array);
+    public static IntPtr ToSByteArray(SByte[] array);
+    public static IntPtr ToBooleanArray(Boolean[] array);
+    public static IntPtr ToIntArray(Int32[] array);
+    public static IntPtr GetObjectArrayElement(IntPtr array, int index);
+    public static int GetArrayLength(IntPtr array);
+}
+internal class UnityEngine.AndroidReflection : object {
+    private static string RELECTION_HELPER_CLASS_NAME;
+    private static GlobalJavaObjectRef s_ReflectionHelperClass;
+    private static IntPtr s_ReflectionHelperGetConstructorID;
+    private static IntPtr s_ReflectionHelperGetMethodID;
+    private static IntPtr s_ReflectionHelperGetFieldID;
+    private static IntPtr s_ReflectionHelperGetFieldSignature;
+    private static IntPtr s_ReflectionHelperNewProxyInstance;
+    private static IntPtr s_ReflectionHelperCeateInvocationError;
+    private static IntPtr s_FieldGetDeclaringClass;
+    private static AndroidReflection();
+    public static bool IsPrimitive(Type t);
+    public static bool IsAssignableFrom(Type t, Type from);
+    private static IntPtr GetStaticMethodID(string clazz, string methodName, string signature);
+    private static IntPtr GetMethodID(string clazz, string methodName, string signature);
+    public static IntPtr GetConstructorMember(IntPtr jclass, string signature);
+    public static IntPtr GetMethodMember(IntPtr jclass, string methodName, string signature, bool isStatic);
+    public static IntPtr GetFieldMember(IntPtr jclass, string fieldName, string signature, bool isStatic);
+    public static IntPtr GetFieldClass(IntPtr field);
+    public static string GetFieldSignature(IntPtr field);
+    public static IntPtr NewProxyInstance(IntPtr player, IntPtr delegateHandle, IntPtr interfaze);
+    internal static IntPtr CreateInvocationError(Exception ex, bool methodNotFound);
+}
+internal class UnityEngine.GlobalJavaObjectRef : object {
+    private bool m_disposed;
+    protected IntPtr m_jobject;
+    public GlobalJavaObjectRef(IntPtr jobject);
+    protected virtual override void Finalize();
+    public static IntPtr op_Implicit(GlobalJavaObjectRef obj);
+    public void Dispose();
+}
+[NativeTypeAttribute("1", "ScriptingJNINativeMethod")]
+public class UnityEngine.JNINativeMethod : ValueType {
+    public string name;
+    public string signature;
+    public IntPtr fnPtr;
+}
+[NativeTypeAttribute("1", "ScriptingJvalue")]
+public class UnityEngine.jvalue : ValueType {
+    public bool z;
+    public sbyte b;
+    public char c;
+    public short s;
+    public int i;
+    public long j;
+    public float f;
+    public double d;
+    public IntPtr l;
+}

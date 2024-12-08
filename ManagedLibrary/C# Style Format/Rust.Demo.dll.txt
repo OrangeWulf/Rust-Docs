@@ -1,0 +1,149 @@
+public static class Rust.Demo.Defines : object {
+    public static string Ident;
+}
+public class Rust.Demo.Indexer : object {
+    private List`1<Keyframe> keyframes;
+    private long LastPacketTime;
+    private long PacketCount;
+    private Dictionary`2<NetworkableId, Entity> currentEnts;
+    private long NextKeyframe;
+    private List`1<NetworkableId> Updated;
+    public TimeSpan TotalLength { get; }
+    public long Interval { get; }
+    internal Indexer(Reader reader);
+    public TimeSpan get_TotalLength();
+    public long get_Interval();
+    private void ProcessPacket(Packet packet);
+    private void EntityUpdated(NetworkableId ent);
+    private void EntityPosition(BinaryReader reader);
+    private void RpcMessage(BinaryReader reader);
+    internal Keyframe LookupKeyframeForTime(long time);
+    internal Keyframe GetKeyframe(int index);
+    internal HashSet`1<NetworkableId> GetChangedEntities(long from, long to);
+    private void EntityDestroy(BinaryReader reader);
+    private void Entities(BinaryReader reader);
+    private void TryCreateKeyframe(Packet packet);
+}
+internal enum Rust.Demo.MessageType : Enum {
+    public byte value__;
+    public static MessageType Welcome;
+    public static MessageType Auth;
+    public static MessageType Approved;
+    public static MessageType Ready;
+    public static MessageType Entities;
+    public static MessageType EntityDestroy;
+    public static MessageType GroupChange;
+    public static MessageType GroupDestroy;
+    public static MessageType RPCMessage;
+    public static MessageType EntityPosition;
+    public static MessageType ConsoleMessage;
+    public static MessageType ConsoleCommand;
+    public static MessageType Effect;
+    public static MessageType DisconnectReason;
+    public static MessageType Tick;
+    public static MessageType Message;
+    public static MessageType RequestUserInformation;
+    public static MessageType GiveUserInformation;
+    public static MessageType GroupEnter;
+    public static MessageType GroupLeave;
+    public static MessageType VoiceData;
+    public static MessageType EAC;
+    public static MessageType EntityFlags;
+    public static MessageType Last;
+}
+public class Rust.Demo.Packet : ValueType {
+    public long Position;
+    public int Size;
+    public long Time;
+    public Byte[] Data;
+    public bool isValid { get; }
+    public bool get_isValid();
+}
+public static class Rust.Demo.PlaybackStats : object {
+    public static int Frames;
+    public static int Packets;
+    public static TimeSpan TotalTime;
+    public static TimeSpan DemoLength;
+    public static void Reset();
+}
+public class Rust.Demo.Reader : object {
+    [CompilerGeneratedAttribute]
+private static Reader <Active>k__BackingField;
+    private Stream stream;
+    private BinaryReader reader;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private long <CurrentTime>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Indexer <Index>k__BackingField;
+    [CompilerGeneratedAttribute]
+private DemoHeader <Header>k__BackingField;
+    public Action`2<Keyframe, HashSet`1<NetworkableId>> OnScrubToKeyframe;
+    private bool _isScrubbing;
+    private float realTimeLastScrub;
+    [CompilerGeneratedAttribute]
+private long <startPosition>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <IsPaused>k__BackingField;
+    public static Reader Active { get; internal set; }
+    public string Name { get; private set; }
+    public long CurrentTime { get; private set; }
+    public Indexer Index { get; private set; }
+    public DemoHeader Header { get; private set; }
+    public bool IsScrubbing { get; public set; }
+    public bool JustScrubbed { get; }
+    private long startPosition { get; private set; }
+    public bool IsFinished { get; }
+    public bool IsPaused { get; internal set; }
+    public Reader(string name, Stream stream);
+    [CompilerGeneratedAttribute]
+public static Reader get_Active();
+    [CompilerGeneratedAttribute]
+internal static void set_Active(Reader value);
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+private void set_Name(string value);
+    [CompilerGeneratedAttribute]
+public long get_CurrentTime();
+    [CompilerGeneratedAttribute]
+private void set_CurrentTime(long value);
+    [CompilerGeneratedAttribute]
+public Indexer get_Index();
+    [CompilerGeneratedAttribute]
+private void set_Index(Indexer value);
+    [CompilerGeneratedAttribute]
+public DemoHeader get_Header();
+    [CompilerGeneratedAttribute]
+private void set_Header(DemoHeader value);
+    public bool get_IsScrubbing();
+    public void set_IsScrubbing(bool value);
+    public bool get_JustScrubbed();
+    [CompilerGeneratedAttribute]
+private long get_startPosition();
+    [CompilerGeneratedAttribute]
+private void set_startPosition(long value);
+    public void Play();
+    public void Pause();
+    public void SetActive();
+    public void JumpTo(long time);
+    public void CreateIndex();
+    private void ReadHeader();
+    public bool get_IsFinished();
+    [CompilerGeneratedAttribute]
+public bool get_IsPaused();
+    [CompilerGeneratedAttribute]
+internal void set_IsPaused(bool value);
+    public static Reader FromFile(string filename);
+    public void Stop();
+    public void Progress(long timeAmountMs);
+    public void ResetToStart();
+    public Packet ReadPacket();
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

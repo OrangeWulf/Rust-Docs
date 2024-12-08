@@ -1,0 +1,343 @@
+[DOTSCompilerGeneratedAttribute]
+internal class __JobReflectionRegistrationOutput__7727290552441277134 : object {
+    public static void CreateJobReflectionData();
+    [RuntimeInitializeOnLoadMethodAttribute("2")]
+public static void EarlyInit();
+}
+public class Facepunch.BurstCloth.BurstCloth : MonoBehaviour {
+    internal static int TickRateMultiplier;
+    internal static int MaximumTickRate;
+    private static List`1<SphereParams> SphereParamsShared;
+    [HeaderAttribute("Structure")]
+public Transform[] RootBones;
+    [TooltipAttribute("You only need to set this value if this is a ViewModel prefab")]
+public Transform ViewModelRootTransform;
+    public bool SiblingConstraints;
+    [RangeAttribute("0", "1")]
+public float LengthModifier;
+    [HeaderAttribute("Simulation")]
+public BurstClothMaterial Material;
+    public Vector3 Gravity;
+    public Transform SimulationSpace;
+    [RangeAttribute("0", "1")]
+public float RootMotionStrength;
+    public float MaxOriginDelta;
+    [TooltipAttribute("This will be used as the default for all bones without a length constraint given by BurstClothConstraint")]
+public Vector2 DefaultLengthConstraint;
+    [TooltipAttribute("If the controller becomes culled, bones will return to their original rigged positions")]
+public bool ResetBonesOnDisable;
+    [HeaderAttribute("Collision")]
+public bool EnableCollisions;
+    public float CollisionRadius;
+    public float CollisionDirectionAdjustment;
+    public float CollisionFilteringScale;
+    [BurstClothCurveRectAttribute("0", "0", "1", "1")]
+public AnimationCurve CollisionRadiusCurve;
+    [HeaderAttribute("Performance")]
+public bool EnableSimulation;
+    [RangeAttribute("30", "120")]
+public int TickRate;
+    [RangeAttribute("1", "16")]
+public int MaxTicksPerFrame;
+    [RangeAttribute("1", "16")]
+public int ConstraintIterationCount;
+    [HideInInspector]
+[SerializeField]
+internal List`1<Chain> _chains;
+    [HideInInspector]
+[SerializeField]
+internal List`1<BoneData> _boneDataOriginal;
+    [HideInInspector]
+[SerializeField]
+internal List`1<RotationConstraint> _rotationConstraintsDataOriginal;
+    private Vector3 _origin;
+    private Quaternion _rotation;
+    private Quaternion _prevRotation;
+    private Quaternion _rotationDelta;
+    private Vector3 _up;
+    private Vector3 _simulationSpaceDelta;
+    private Transform _prevSimulationSpace;
+    private Nullable`1<Vector3> _prevSimulationOrigin;
+    private Vector3 _originDelta;
+    private Nullable`1<Vector3> _prevOrigin;
+    private bool _originDirty;
+    private float _accumulator;
+    private int _boneCount;
+    private int _maxBoneDepth;
+    private Dictionary`2<Transform, int> _boneToIndex;
+    private TransformAccessArray _boneTransforms;
+    private NativeArray`1<BoneData> _boneData;
+    private NativeArray`1<BoneState> _boneState;
+    private NativeArray`1<RotationConstraint> _rotationConstraints;
+    [HideInInspector]
+[SerializeField]
+private List`1<string> _skinConstraintTargetsIds;
+    private Transform[] _skinConstraintTargetCache;
+    [HideInInspector]
+[SerializeField]
+internal List`1<SkinConstraint> _skinConstraintsOriginal;
+    private NativeArray`1<SkinConstraint> _skinConstraints;
+    private bool _skinAccessArrayDirty;
+    private TransformAccessArray _skinConstraintsTransformAccessArray;
+    private TransformAccessArray _sphereColliderTransforms;
+    private NativeArray`1<SphereColliderData> _sphereColliderData;
+    private NativeArray`1<SphereColliderState> _sphereColliderState;
+    private static BurstCloth();
+    protected virtual Transform GetSkeletonBone(string boneId);
+    protected void Initialize();
+    protected virtual void Awake();
+    protected virtual void OnEnable();
+    protected void ResetBoneTransforms(bool resetBoneStates);
+    protected virtual void OnDisable();
+    protected internal virtual void FrameUpdate();
+    private void VerifySkinConstraintTransformCache();
+    private void PopulateSkinConstraintTransformAccessArray();
+    internal JobHandle SimulateSystem();
+    private void SetupData();
+    private void SetupManagedData();
+    private void SetupNativeData();
+    protected virtual ValueTuple`3<Vector3, Quaternion, Vector3> GetOriginTransform();
+    protected virtual void GatherColliders(List`1<SphereParams> sphereColliders);
+    private static ValueTuple`2<Vector3, float> GetBoneLocalPositionAndLength(Transform parent, Transform child);
+    private ValueTuple`2<Transform, int> GetSiblingAndIndex(int chainIndex, int depth);
+    private void BuildBoneToIndexMap(Dictionary`2<Transform, int> boneToIndex);
+    protected void UpdateCachedMaterialData();
+}
+public class Facepunch.BurstCloth.BurstClothConstraint : MonoBehaviour {
+    public bool ConstrainRotateX;
+    public Vector2 RotateX;
+    public bool ConstrainRotateY;
+    public Vector2 RotateY;
+    public bool ConstrainRotateZ;
+    public Vector2 RotateZ;
+    public bool ConstrainLength;
+    public Vector2 Length;
+    public bool ExtraSkinConstraint;
+    public Transform SkeletonBone;
+    [HideInInspector]
+public string SkeletonBoneName;
+    public Vector3 SkinNormal;
+    public Vector3 EscapeNormal;
+    public float BackstopInset;
+    public float BackstopRadius;
+    private void OnValidate();
+}
+public class Facepunch.BurstCloth.BurstClothCurveRectAttribute : PropertyAttribute {
+    public Rect Rect;
+    public Color Color;
+    public BurstClothCurveRectAttribute(Rect rect);
+    public BurstClothCurveRectAttribute(float x, float y, float width, float height);
+    public BurstClothCurveRectAttribute(Rect rect, Color color);
+    public BurstClothCurveRectAttribute(float x, float y, float width, float height, Color color);
+}
+public class Facepunch.BurstCloth.BurstClothManager : MonoBehaviour {
+    private static BurstClothManager _instance;
+    internal List`1<BurstCloth> Instances;
+    public void LateUpdate();
+    public static BurstClothManager Get();
+}
+[CreateAssetMenuAttribute]
+public class Facepunch.BurstCloth.BurstClothMaterial : ScriptableObject {
+    [HeaderAttribute("Relaxation
+ [0,1]	Under-tuned - generally gives best results
+[1, 1.5]	Over-tuned - can work well with low iteration counts")]
+[RangeAttribute("0,25", "1,5")]
+[SerializeField]
+[TooltipAttribute("Relaxation factor on alignment with parent")]
+private float lengthRelaxation;
+    [RangeAttribute("0", "15")]
+[SerializeField]
+[TooltipAttribute("Speed at which a bone returns to its original orientation")]
+private float shapeRelaxation;
+    [RangeAttribute("0", "1,5")]
+[SerializeField]
+[TooltipAttribute("Relaxation factor on alignment with siblings (very low values work best)")]
+private float siblingRelaxation;
+    [RangeAttribute("0", "0,99")]
+[SerializeField]
+[TooltipAttribute("Controls how quickly movements come to rest.")]
+private float _damping;
+    [BurstClothCurveRectAttribute("0", "0", "1", "1")]
+[HeaderAttribute("Depth Weighting Curves")]
+[SerializeField]
+[SpaceAttribute]
+[TooltipAttribute("Multiplier for tweaking damping according to depth in the chain.")]
+private AnimationCurve _dampingCurve;
+    [BurstClothCurveRectAttribute("0", "0", "1", "1")]
+[FormerlySerializedAsAttribute("_lengthWeightCurve")]
+[SerializeField]
+[TooltipAttribute("Multiplier for tweaking length weight according to depth in the chain.")]
+private AnimationCurve _lengthRelaxationCurve;
+    [BurstClothCurveRectAttribute("0", "0", "1", "1")]
+[SerializeField]
+[TooltipAttribute("Multiplier for tweaking shape weight according to depth in the chain.")]
+private AnimationCurve _shapeRelaxationCurve;
+    [BurstClothCurveRectAttribute("0", "0", "1", "1")]
+[SerializeField]
+[TooltipAttribute("Multiplier for tweaking sibling constraint weight according to depth in the chain.")]
+private AnimationCurve _siblingConstraintWeightCurve;
+    [HeaderAttribute("Debug - can hurt editor performance")]
+[SerializeField]
+[SpaceAttribute]
+private bool _forceSyncInEditor;
+    private static BurstClothMaterial _defaultMaterial;
+    public bool ForceSyncInEditor { get; }
+    public static BurstClothMaterial DefaultMaterial { get; }
+    public bool get_ForceSyncInEditor();
+    public static BurstClothMaterial get_DefaultMaterial();
+    public float GetLengthRelaxation(float t);
+    public float GetShapeRelaxation(float t);
+    public float GetSiblingRelaxation(float t);
+    public float GetDamping(float t);
+}
+internal class Facepunch.BurstCloth.Jobs.BoneData : ValueType {
+    public int Depth;
+    public int Parent;
+    public int Child;
+    public float Length;
+    public float3 NormalFromParent;
+    public int LeftSibling;
+    public float3 NormalFromLeft;
+    public float LengthToLeft;
+    public int RightSibling;
+    public float3 NormalFromRight;
+    public float LengthToRight;
+    public float3 LocalPosition;
+    public quaternion LocalRotation;
+    public float3 DirectionFromOrigin;
+    public float CollisionRadius;
+    public float DampingInv;
+    public float LengthRelaxation;
+    public float ShapeRelaxation;
+    public float SiblingRelaxation;
+    public int RotationConstraintIndex;
+    public int SkinConstraintIndex;
+    public float2 LengthConstraint;
+}
+internal class Facepunch.BurstCloth.Jobs.BoneState : ValueType {
+    public float3 Position;
+    public quaternion Rotation;
+    public float3 OldPosition;
+    public float3 Delta;
+}
+internal class Facepunch.BurstCloth.Jobs.InitializeBoneStateJob : ValueType {
+    [NativeMatchesParallelForLengthAttribute]
+[ReadOnlyAttribute]
+public NativeArray`1<BoneData> Data;
+    [NativeMatchesParallelForLengthAttribute]
+[WriteOnlyAttribute]
+public NativeArray`1<BoneState> State;
+    public sealed virtual void Execute(int index, TransformAccess transform);
+}
+[BurstCompileAttribute]
+internal class Facepunch.BurstCloth.Jobs.InitializeSphereColliderStateJob : ValueType {
+    [NativeMatchesParallelForLengthAttribute]
+[ReadOnlyAttribute]
+public NativeArray`1<SphereColliderData> Data;
+    [NativeMatchesParallelForLengthAttribute]
+[WriteOnlyAttribute]
+public NativeArray`1<SphereColliderState> State;
+    public sealed virtual void Execute(int index, TransformAccess transform);
+}
+internal class Facepunch.BurstCloth.Jobs.RotationConstraint : ValueType {
+    public bool3 Constraints;
+    public float2 X;
+    public float2 Y;
+    public float2 Z;
+    public RotationConstraint(bool3 constraints, float2 x, float2 y, float2 z);
+}
+internal class Facepunch.BurstCloth.Jobs.SimulatePositionsJob : ValueType {
+    [ReadOnlyAttribute]
+public NativeArray`1<SphereColliderData> ColliderData;
+    [ReadOnlyAttribute]
+public NativeArray`1<SphereColliderState> ColliderState;
+    [ReadOnlyAttribute]
+public NativeArray`1<RotationConstraint> RotationConstraints;
+    [ReadOnlyAttribute]
+public NativeArray`1<SkinConstraint> SkinConstraints;
+    [ReadOnlyAttribute]
+public NativeArray`1<BoneData> BoneData;
+    public NativeArray`1<BoneState> BoneStates;
+    public int TickRate;
+    public float DeltaTime;
+    public int IterationCount;
+    public int ConstraintIterationCount;
+    public quaternion OriginRotationDelta;
+    public float3 SimulationSpaceDelta;
+    public float3 OriginDelta;
+    public float3 Gravity;
+    public float LengthModifier;
+    public bool SiblingConstraints;
+    public bool EnableCollisions;
+    public float3 Origin;
+    public quaternion Rotation;
+    public float3 Up;
+    public float Radius;
+    public float CollisionProjectionYOffset;
+    public float CollisionFilteringScale;
+    public sealed virtual void Execute();
+    private void AdjustSimulationSpace();
+    private void ApplyLinearConstraints(BoneData& data, BoneState& state, NativeArray`1& workBoneState, Collision& collision);
+    private static void VerletIntegrate(BoneState& state, float3 acceleration, float dt, float damping);
+    private void PopulateCollisions(NativeArray`1<Collision> collisions);
+    private void ApplyRotationConstraints(BoneData& data, BoneState& state);
+    private static quaternion ApplyAngleLimitsConstraint(BoneData& data, NativeArray`1& rotationConstraints, quaternion rotation, quaternion parentRotation);
+    private float3 RayMarch(float3& origin, float3& direction, float radius, float maxDistance, Boolean& hit);
+    private float Scene(float3& position);
+    private static float Union(float d1, float d2);
+    private static float SphereSignedDistance(float3& p, float3& pSphere, Single& r);
+    private static float Capsule(float3& p, float3& a, float3& b, float r);
+    private static float3 Slerp(float3 a, float3 b, float t);
+    private static quaternion FromToRotation(float3 from, float3 to);
+    private static float ClampAngle(float current, float min, float max);
+    private static float MoveTowardsAngle(float current, float target, float maxDelta);
+    private static float MoveTowards(float current, float target, float maxDelta);
+    private static float DeltaAngle(float current, float target);
+    private static float Repeat(float t, float length);
+    private static float3 ToEuler(quaternion q, RotationOrder order);
+    private static float3 EulerReorderBack(float3 euler, RotationOrder order);
+}
+internal class Facepunch.BurstCloth.Jobs.SphereColliderData : ValueType {
+    public float Radius;
+    public float RadiusSqr;
+    public float3 LocalPosition;
+}
+internal class Facepunch.BurstCloth.Jobs.SphereColliderState : ValueType {
+    public float3 Position;
+}
+[BurstCompileAttribute]
+internal class Facepunch.BurstCloth.Jobs.UpdateSkinConstraintsJob : ValueType {
+    [NativeMatchesParallelForLengthAttribute]
+public NativeArray`1<SkinConstraint> SkinConstraints;
+    public sealed virtual void Execute(int index, TransformAccess transform);
+}
+internal class Facepunch.BurstCloth.Jobs.UpdateTransformsJob : ValueType {
+    [NativeMatchesParallelForLengthAttribute]
+[ReadOnlyAttribute]
+public NativeArray`1<BoneData> Data;
+    [NativeMatchesParallelForLengthAttribute]
+[ReadOnlyAttribute]
+public NativeArray`1<BoneState> State;
+    public sealed virtual void Execute(int index, TransformAccess transform);
+}
+internal class Facepunch.BurstCloth.SkinConstraint : ValueType {
+    public float3 WorldSkinPosition;
+    public float3 WorldSkinNormal;
+    public float3 WorldEscapeNormal;
+    public float3 LocalSkinPosition;
+    public float3 LocalSkinNormal;
+    public float3 LocalEscapeNormal;
+    public float BackstopRadius;
+    public float BackstopInset;
+}
+public class Facepunch.BurstCloth.SphereParams : ValueType {
+    public Transform Transform;
+    public Vector3 Point;
+    public float Radius;
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

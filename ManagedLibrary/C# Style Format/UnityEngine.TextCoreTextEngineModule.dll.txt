@@ -1,0 +1,1988 @@
+public enum UnityEngine.TextCore.Text.AtlasPopulationMode : Enum {
+    public int value__;
+    public static AtlasPopulationMode Static;
+    public static AtlasPopulationMode Dynamic;
+    public static AtlasPopulationMode DynamicOS;
+}
+public class UnityEngine.TextCore.Text.Character : TextElement {
+    public Character(UInt32 unicode, Glyph glyph);
+    public Character(UInt32 unicode, FontAsset fontAsset, Glyph glyph);
+    internal Character(UInt32 unicode, UInt32 glyphIndex);
+}
+internal class UnityEngine.TextCore.Text.CharacterElement : ValueType {
+    private UInt32 m_Unicode;
+    private TextElement m_TextElement;
+    public UInt32 Unicode { get; public set; }
+    public CharacterElement(TextElement textElement);
+    public UInt32 get_Unicode();
+    public void set_Unicode(UInt32 value);
+}
+internal class UnityEngine.TextCore.Text.CharacterSubstitution : ValueType {
+    public int index;
+    public UInt32 unicode;
+    public CharacterSubstitution(int index, UInt32 unicode);
+}
+internal static class UnityEngine.TextCore.Text.CodePoint : object {
+    public static UInt32 SPACE;
+    public static UInt32 DOUBLE_QUOTE;
+    public static UInt32 NUMBER_SIGN;
+    public static UInt32 PERCENTAGE;
+    public static UInt32 PLUS;
+    public static UInt32 MINUS;
+    public static UInt32 PERIOD;
+    public static UInt32 HYPHEN_MINUS;
+    public static UInt32 SOFT_HYPHEN;
+    public static UInt32 HYPHEN;
+    public static UInt32 NON_BREAKING_HYPHEN;
+    public static UInt32 ZERO_WIDTH_SPACE;
+    public static UInt32 RIGHT_SINGLE_QUOTATION;
+    public static UInt32 APOSTROPHE;
+    public static UInt32 WORD_JOINER;
+    public static UInt32 HIGH_SURROGATE_START;
+    public static UInt32 HIGH_SURROGATE_END;
+    public static UInt32 LOW_SURROGATE_START;
+    public static UInt32 LOW_SURROGATE_END;
+    public static UInt32 UNICODE_PLANE01_START;
+}
+public enum UnityEngine.TextCore.Text.ColorGradientMode : Enum {
+    public int value__;
+    public static ColorGradientMode Single;
+    public static ColorGradientMode HorizontalGradient;
+    public static ColorGradientMode VerticalGradient;
+    public static ColorGradientMode FourCornersGradient;
+}
+internal static class UnityEngine.TextCore.Text.ColorUtilities : object {
+    internal static bool CompareColors(Color32 a, Color32 b);
+    internal static bool CompareColorsRgb(Color32 a, Color32 b);
+    internal static bool CompareColors(Color a, Color b);
+    internal static bool CompareColorsRgb(Color a, Color b);
+    internal static Color32 MultiplyColors(Color32 c1, Color32 c2);
+}
+internal class UnityEngine.TextCore.Text.Extents : ValueType {
+    public Vector2 min;
+    public Vector2 max;
+    public Extents(Vector2 min, Vector2 max);
+    public virtual string ToString();
+}
+public class UnityEngine.TextCore.Text.FastAction : object {
+    private LinkedList`1<Action> delegates;
+    private Dictionary`2<Action, LinkedListNode`1<Action>> lookup;
+    public void Add(Action rhs);
+    public void Remove(Action rhs);
+    public void Call();
+}
+public class UnityEngine.TextCore.Text.FastAction`1 : object {
+    private LinkedList`1<Action`1<A>> delegates;
+    private Dictionary`2<Action`1<A>, LinkedListNode`1<Action`1<A>>> lookup;
+    public void Add(Action`1<A> rhs);
+    public void Remove(Action`1<A> rhs);
+    public void Call(A a);
+}
+public class UnityEngine.TextCore.Text.FastAction`2 : object {
+    private LinkedList`1<Action`2<A, B>> delegates;
+    private Dictionary`2<Action`2<A, B>, LinkedListNode`1<Action`2<A, B>>> lookup;
+    public void Add(Action`2<A, B> rhs);
+    public void Remove(Action`2<A, B> rhs);
+    public void Call(A a, B b);
+}
+public class UnityEngine.TextCore.Text.FastAction`3 : object {
+    private LinkedList`1<Action`3<A, B, C>> delegates;
+    private Dictionary`2<Action`3<A, B, C>, LinkedListNode`1<Action`3<A, B, C>>> lookup;
+    public void Add(Action`3<A, B, C> rhs);
+    public void Remove(Action`3<A, B, C> rhs);
+    public void Call(A a, B b, C c);
+}
+[ExcludeFromPresetAttribute]
+public class UnityEngine.TextCore.Text.FontAsset : TextAsset {
+    [SerializeField]
+internal string m_SourceFontFileGUID;
+    [SerializeField]
+internal FontAssetCreationEditorSettings m_fontAssetCreationEditorSettings;
+    [SerializeField]
+private Font m_SourceFontFile;
+    [SerializeField]
+private string m_SourceFontFilePath;
+    [SerializeField]
+private AtlasPopulationMode m_AtlasPopulationMode;
+    [SerializeField]
+internal bool InternalDynamicOS;
+    [SerializeField]
+internal FaceInfo m_FaceInfo;
+    private int m_FamilyNameHashCode;
+    private int m_StyleNameHashCode;
+    [SerializeField]
+internal List`1<Glyph> m_GlyphTable;
+    internal Dictionary`2<UInt32, Glyph> m_GlyphLookupDictionary;
+    [SerializeField]
+internal List`1<Character> m_CharacterTable;
+    internal Dictionary`2<UInt32, Character> m_CharacterLookupDictionary;
+    internal Texture2D m_AtlasTexture;
+    [SerializeField]
+internal Texture2D[] m_AtlasTextures;
+    [SerializeField]
+internal int m_AtlasTextureIndex;
+    [SerializeField]
+private bool m_IsMultiAtlasTexturesEnabled;
+    [SerializeField]
+private bool m_ClearDynamicDataOnBuild;
+    [SerializeField]
+internal int m_AtlasWidth;
+    [SerializeField]
+internal int m_AtlasHeight;
+    [SerializeField]
+internal int m_AtlasPadding;
+    [SerializeField]
+internal GlyphRenderMode m_AtlasRenderMode;
+    [SerializeField]
+private List`1<GlyphRect> m_UsedGlyphRects;
+    [SerializeField]
+private List`1<GlyphRect> m_FreeGlyphRects;
+    [SerializeField]
+internal FontFeatureTable m_FontFeatureTable;
+    [SerializeField]
+internal List`1<FontAsset> m_FallbackFontAssetTable;
+    [SerializeField]
+private FontWeightPair[] m_FontWeightTable;
+    [FormerlySerializedAsAttribute("normalStyle")]
+[SerializeField]
+internal float m_RegularStyleWeight;
+    [FormerlySerializedAsAttribute("normalSpacingOffset")]
+[SerializeField]
+internal float m_RegularStyleSpacing;
+    [FormerlySerializedAsAttribute("boldStyle")]
+[SerializeField]
+internal float m_BoldStyleWeight;
+    [FormerlySerializedAsAttribute("boldSpacing")]
+[SerializeField]
+internal float m_BoldStyleSpacing;
+    [FormerlySerializedAsAttribute("italicStyle")]
+[SerializeField]
+internal byte m_ItalicStyleSlant;
+    [FormerlySerializedAsAttribute("tabSize")]
+[SerializeField]
+internal byte m_TabMultiple;
+    internal bool IsFontAssetLookupTablesDirty;
+    private static ProfilerMarker k_ReadFontAssetDefinitionMarker;
+    private static ProfilerMarker k_AddSynthesizedCharactersMarker;
+    private static ProfilerMarker k_TryAddCharacterMarker;
+    private static ProfilerMarker k_TryAddCharactersMarker;
+    private static ProfilerMarker k_UpdateGlyphAdjustmentRecordsMarker;
+    private static ProfilerMarker k_UpdateDiacriticalMarkAdjustmentRecordsMarker;
+    private static ProfilerMarker k_ClearFontAssetDataMarker;
+    private static ProfilerMarker k_UpdateFontAssetDataMarker;
+    private static ProfilerMarker k_TryAddGlyphMarker;
+    private static string s_DefaultMaterialSuffix;
+    private static HashSet`1<int> k_SearchedFontAssetLookup;
+    private static List`1<FontAsset> k_FontAssets_FontFeaturesUpdateQueue;
+    private static HashSet`1<int> k_FontAssets_FontFeaturesUpdateQueueLookup;
+    private static List`1<Texture2D> k_FontAssets_AtlasTexturesUpdateQueue;
+    private static HashSet`1<int> k_FontAssets_AtlasTexturesUpdateQueueLookup;
+    private List`1<Glyph> m_GlyphsToRender;
+    private List`1<Glyph> m_GlyphsRendered;
+    private List`1<UInt32> m_GlyphIndexList;
+    private List`1<UInt32> m_GlyphIndexListNewlyAdded;
+    internal List`1<UInt32> m_GlyphsToAdd;
+    internal HashSet`1<UInt32> m_GlyphsToAddLookup;
+    internal List`1<Character> m_CharactersToAdd;
+    internal HashSet`1<UInt32> m_CharactersToAddLookup;
+    internal List`1<UInt32> s_MissingCharacterList;
+    internal HashSet`1<UInt32> m_MissingUnicodesFromFontFile;
+    internal static UInt32[] k_GlyphIndexArray;
+    public FontAssetCreationEditorSettings fontAssetCreationEditorSettings { get; public set; }
+    public Font sourceFontFile { get; internal set; }
+    public AtlasPopulationMode atlasPopulationMode { get; public set; }
+    public FaceInfo faceInfo { get; public set; }
+    internal int familyNameHashCode { get; internal set; }
+    internal int styleNameHashCode { get; internal set; }
+    public List`1<Glyph> glyphTable { get; internal set; }
+    public Dictionary`2<UInt32, Glyph> glyphLookupTable { get; }
+    public List`1<Character> characterTable { get; internal set; }
+    public Dictionary`2<UInt32, Character> characterLookupTable { get; }
+    public Texture2D atlasTexture { get; }
+    public Texture2D[] atlasTextures { get; public set; }
+    public int atlasTextureCount { get; }
+    public bool isMultiAtlasTexturesEnabled { get; public set; }
+    internal bool clearDynamicDataOnBuild { get; internal set; }
+    public int atlasWidth { get; internal set; }
+    public int atlasHeight { get; internal set; }
+    public int atlasPadding { get; internal set; }
+    public GlyphRenderMode atlasRenderMode { get; internal set; }
+    internal List`1<GlyphRect> usedGlyphRects { get; internal set; }
+    internal List`1<GlyphRect> freeGlyphRects { get; internal set; }
+    public FontFeatureTable fontFeatureTable { get; internal set; }
+    public List`1<FontAsset> fallbackFontAssetTable { get; public set; }
+    public FontWeightPair[] fontWeightTable { get; internal set; }
+    public float regularStyleWeight { get; public set; }
+    public float regularStyleSpacing { get; public set; }
+    public float boldStyleWeight { get; public set; }
+    public float boldStyleSpacing { get; public set; }
+    public byte italicStyleSlant { get; public set; }
+    public byte tabMultiple { get; public set; }
+    private static FontAsset();
+    public FontAssetCreationEditorSettings get_fontAssetCreationEditorSettings();
+    public void set_fontAssetCreationEditorSettings(FontAssetCreationEditorSettings value);
+    public Font get_sourceFontFile();
+    internal void set_sourceFontFile(Font value);
+    public AtlasPopulationMode get_atlasPopulationMode();
+    public void set_atlasPopulationMode(AtlasPopulationMode value);
+    public FaceInfo get_faceInfo();
+    public void set_faceInfo(FaceInfo value);
+    internal int get_familyNameHashCode();
+    internal void set_familyNameHashCode(int value);
+    internal int get_styleNameHashCode();
+    internal void set_styleNameHashCode(int value);
+    public List`1<Glyph> get_glyphTable();
+    internal void set_glyphTable(List`1<Glyph> value);
+    public Dictionary`2<UInt32, Glyph> get_glyphLookupTable();
+    public List`1<Character> get_characterTable();
+    internal void set_characterTable(List`1<Character> value);
+    public Dictionary`2<UInt32, Character> get_characterLookupTable();
+    public Texture2D get_atlasTexture();
+    public Texture2D[] get_atlasTextures();
+    public void set_atlasTextures(Texture2D[] value);
+    public int get_atlasTextureCount();
+    public bool get_isMultiAtlasTexturesEnabled();
+    public void set_isMultiAtlasTexturesEnabled(bool value);
+    internal bool get_clearDynamicDataOnBuild();
+    internal void set_clearDynamicDataOnBuild(bool value);
+    public int get_atlasWidth();
+    internal void set_atlasWidth(int value);
+    public int get_atlasHeight();
+    internal void set_atlasHeight(int value);
+    public int get_atlasPadding();
+    internal void set_atlasPadding(int value);
+    public GlyphRenderMode get_atlasRenderMode();
+    internal void set_atlasRenderMode(GlyphRenderMode value);
+    internal List`1<GlyphRect> get_usedGlyphRects();
+    internal void set_usedGlyphRects(List`1<GlyphRect> value);
+    internal List`1<GlyphRect> get_freeGlyphRects();
+    internal void set_freeGlyphRects(List`1<GlyphRect> value);
+    public FontFeatureTable get_fontFeatureTable();
+    internal void set_fontFeatureTable(FontFeatureTable value);
+    public List`1<FontAsset> get_fallbackFontAssetTable();
+    public void set_fallbackFontAssetTable(List`1<FontAsset> value);
+    public FontWeightPair[] get_fontWeightTable();
+    internal void set_fontWeightTable(FontWeightPair[] value);
+    public float get_regularStyleWeight();
+    public void set_regularStyleWeight(float value);
+    public float get_regularStyleSpacing();
+    public void set_regularStyleSpacing(float value);
+    public float get_boldStyleWeight();
+    public void set_boldStyleWeight(float value);
+    public float get_boldStyleSpacing();
+    public void set_boldStyleSpacing(float value);
+    public byte get_italicStyleSlant();
+    public void set_italicStyleSlant(byte value);
+    public byte get_tabMultiple();
+    public void set_tabMultiple(byte value);
+    public static FontAsset CreateFontAsset(string familyName, string styleName, int pointSize);
+    public static FontAsset CreateFontAsset(string fontFilePath, int faceIndex, int samplingPointSize, int atlasPadding, GlyphRenderMode renderMode, int atlasWidth, int atlasHeight);
+    private static FontAsset CreateFontAsset(string fontFilePath, int faceIndex, int samplingPointSize, int atlasPadding, GlyphRenderMode renderMode, int atlasWidth, int atlasHeight, AtlasPopulationMode atlasPopulationMode, bool enableMultiAtlasSupport);
+    public static FontAsset CreateFontAsset(Font font);
+    public static FontAsset CreateFontAsset(Font font, int samplingPointSize, int atlasPadding, GlyphRenderMode renderMode, int atlasWidth, int atlasHeight, AtlasPopulationMode atlasPopulationMode, bool enableMultiAtlasSupport);
+    private static FontAsset CreateFontAsset(Font font, int faceIndex, int samplingPointSize, int atlasPadding, GlyphRenderMode renderMode, int atlasWidth, int atlasHeight, AtlasPopulationMode atlasPopulationMode, bool enableMultiAtlasSupport);
+    private static FontAsset CreateFontAssetInstance(Font font, int atlasPadding, GlyphRenderMode renderMode, int atlasWidth, int atlasHeight, AtlasPopulationMode atlasPopulationMode, bool enableMultiAtlasSupport);
+    private void Awake();
+    private void OnDestroy();
+    public void ReadFontAssetDefinition();
+    internal void InitializeDictionaryLookupTables();
+    internal void InitializeGlyphLookupDictionary();
+    internal void InitializeCharacterLookupDictionary();
+    internal void InitializeLigatureSubstitutionLookupDictionary();
+    internal void InitializeGlyphPaidAdjustmentRecordsLookupDictionary();
+    internal void InitializeMarkToBaseAdjustmentRecordsLookupDictionary();
+    internal void InitializeMarkToMarkAdjustmentRecordsLookupDictionary();
+    internal void AddSynthesizedCharactersAndFaceMetrics();
+    private void AddSynthesizedCharacter(UInt32 unicode, bool isFontFaceLoaded, bool addImmediately);
+    internal void AddCharacterToLookupCache(UInt32 unicode, Character character);
+    private FontEngineError LoadFontFace();
+    internal void SortCharacterTable();
+    internal void SortGlyphTable();
+    internal void SortFontFeatureTable();
+    internal void SortAllTables();
+    public bool HasCharacter(int character);
+    public bool HasCharacter(char character, bool searchFallbacks, bool tryAddCharacter);
+    public bool HasCharacter(UInt32 character, bool searchFallbacks, bool tryAddCharacter);
+    private bool HasCharacter_Internal(UInt32 character, bool searchFallbacks, bool tryAddCharacter);
+    public bool HasCharacters(string text, List`1& missingCharacters);
+    public bool HasCharacters(string text, UInt32[]& missingCharacters, bool searchFallbacks, bool tryAddCharacter);
+    public bool HasCharacters(string text);
+    public static string GetCharacters(FontAsset fontAsset);
+    public static Int32[] GetCharactersArray(FontAsset fontAsset);
+    internal UInt32 GetGlyphIndex(UInt32 unicode);
+    internal static void RegisterFontAssetForFontFeatureUpdate(FontAsset fontAsset);
+    internal static void UpdateFontFeaturesForFontAssetsInQueue();
+    internal static void RegisterAtlasTextureForApply(Texture2D texture);
+    internal static void UpdateAtlasTexturesInQueue();
+    internal static void UpdateFontAssetsInUpdateQueue();
+    public bool TryAddCharacters(UInt32[] unicodes, bool includeFontFeatures);
+    public bool TryAddCharacters(UInt32[] unicodes, UInt32[]& missingUnicodes, bool includeFontFeatures);
+    public bool TryAddCharacters(string characters, bool includeFontFeatures);
+    public bool TryAddCharacters(string characters, String& missingCharacters, bool includeFontFeatures);
+    internal bool TryAddGlyphInternal(UInt32 glyphIndex, Glyph& glyph);
+    internal bool TryAddCharacterInternal(UInt32 unicode, Character& character, bool shouldGetFontFeatures);
+    internal bool TryGetCharacter_and_QueueRenderToTexture(UInt32 unicode, Character& character, bool shouldGetFontFeatures);
+    internal void TryAddGlyphsToAtlasTextures();
+    private bool TryAddGlyphsToNewAtlasTexture();
+    private void SetupNewAtlasTexture();
+    private void UpdateAllFontFeatures();
+    internal void UpdateGlyphAdjustmentRecords();
+    internal void UpdateGlyphAdjustmentRecords(UInt32[] glyphIndexes);
+    internal void UpdateGlyphAdjustmentRecords(List`1<UInt32> glyphIndexes);
+    internal void UpdateGlyphAdjustmentRecords(List`1<UInt32> newGlyphIndexes, List`1<UInt32> allGlyphIndexes);
+    private void CopyListDataToArray(List`1<T> srcList, T[]& dstArray);
+    public void ClearFontAssetData(bool setAtlasSizeToZero);
+    internal void ClearFontAssetDataInternal(bool clearFontFeatures);
+    internal void UpdateFontAssetData();
+    internal void ClearFontAssetTables(bool clearFontFeatures);
+    internal void ClearAtlasTextures(bool setAtlasSizeToZero);
+    private void DestroyAtlasTextures();
+}
+[ExcludeFromDocsAttribute]
+public class UnityEngine.TextCore.Text.FontAssetCreationEditorSettings : ValueType {
+    public string sourceFontFileGUID;
+    public int faceIndex;
+    public int pointSizeSamplingMode;
+    public int pointSize;
+    public int padding;
+    public int paddingMode;
+    public int packingMode;
+    public int atlasWidth;
+    public int atlasHeight;
+    public int characterSetSelectionMode;
+    public string characterSequence;
+    public string referencedFontAssetGUID;
+    public string referencedTextAssetGUID;
+    public int fontStyle;
+    public float fontStyleModifier;
+    public int renderMode;
+    public bool includeFontFeatures;
+    internal FontAssetCreationEditorSettings(string sourceFontFileGUID, int pointSize, int pointSizeSamplingMode, int padding, int packingMode, int atlasWidth, int atlasHeight, int characterSelectionMode, string characterSet, int renderMode);
+}
+internal static class UnityEngine.TextCore.Text.FontAssetUtilities : object {
+    private static HashSet`1<int> k_SearchedAssets;
+    internal static Character GetCharacterFromFontAsset(UInt32 unicode, FontAsset sourceFontAsset, bool includeFallbacks, FontStyles fontStyle, TextFontWeight fontWeight, Boolean& isAlternativeTypeface);
+    private static Character GetCharacterFromFontAsset_Internal(UInt32 unicode, FontAsset sourceFontAsset, bool includeFallbacks, FontStyles fontStyle, TextFontWeight fontWeight, Boolean& isAlternativeTypeface);
+    public static Character GetCharacterFromFontAssets(UInt32 unicode, FontAsset sourceFontAsset, List`1<FontAsset> fontAssets, bool includeFallbacks, FontStyles fontStyle, TextFontWeight fontWeight, Boolean& isAlternativeTypeface);
+    public static SpriteCharacter GetSpriteCharacterFromSpriteAsset(UInt32 unicode, SpriteAsset spriteAsset, bool includeFallbacks);
+    private static SpriteCharacter GetSpriteCharacterFromSpriteAsset_Internal(UInt32 unicode, SpriteAsset spriteAsset, bool includeFallbacks);
+}
+public class UnityEngine.TextCore.Text.FontFeatureTable : object {
+    [SerializeField]
+internal List`1<MultipleSubstitutionRecord> m_MultipleSubstitutionRecords;
+    [SerializeField]
+internal List`1<LigatureSubstitutionRecord> m_LigatureSubstitutionRecords;
+    [SerializeField]
+internal List`1<GlyphPairAdjustmentRecord> m_GlyphPairAdjustmentRecords;
+    [SerializeField]
+internal List`1<MarkToBaseAdjustmentRecord> m_MarkToBaseAdjustmentRecords;
+    [SerializeField]
+internal List`1<MarkToMarkAdjustmentRecord> m_MarkToMarkAdjustmentRecords;
+    internal Dictionary`2<UInt32, List`1<LigatureSubstitutionRecord>> m_LigatureSubstitutionRecordLookup;
+    internal Dictionary`2<UInt32, GlyphPairAdjustmentRecord> m_GlyphPairAdjustmentRecordLookup;
+    internal Dictionary`2<UInt32, MarkToBaseAdjustmentRecord> m_MarkToBaseAdjustmentRecordLookup;
+    internal Dictionary`2<UInt32, MarkToMarkAdjustmentRecord> m_MarkToMarkAdjustmentRecordLookup;
+    internal List`1<MultipleSubstitutionRecord> multipleSubstitutionRecords { get; internal set; }
+    internal List`1<LigatureSubstitutionRecord> ligatureRecords { get; internal set; }
+    internal List`1<GlyphPairAdjustmentRecord> glyphPairAdjustmentRecords { get; internal set; }
+    internal List`1<MarkToBaseAdjustmentRecord> MarkToBaseAdjustmentRecords { get; internal set; }
+    internal List`1<MarkToMarkAdjustmentRecord> MarkToMarkAdjustmentRecords { get; internal set; }
+    internal List`1<MultipleSubstitutionRecord> get_multipleSubstitutionRecords();
+    internal void set_multipleSubstitutionRecords(List`1<MultipleSubstitutionRecord> value);
+    internal List`1<LigatureSubstitutionRecord> get_ligatureRecords();
+    internal void set_ligatureRecords(List`1<LigatureSubstitutionRecord> value);
+    internal List`1<GlyphPairAdjustmentRecord> get_glyphPairAdjustmentRecords();
+    internal void set_glyphPairAdjustmentRecords(List`1<GlyphPairAdjustmentRecord> value);
+    internal List`1<MarkToBaseAdjustmentRecord> get_MarkToBaseAdjustmentRecords();
+    internal void set_MarkToBaseAdjustmentRecords(List`1<MarkToBaseAdjustmentRecord> value);
+    internal List`1<MarkToMarkAdjustmentRecord> get_MarkToMarkAdjustmentRecords();
+    internal void set_MarkToMarkAdjustmentRecords(List`1<MarkToMarkAdjustmentRecord> value);
+    public void SortGlyphPairAdjustmentRecords();
+    public void SortMarkToBaseAdjustmentRecords();
+    public void SortMarkToMarkAdjustmentRecords();
+}
+[FlagsAttribute]
+public enum UnityEngine.TextCore.Text.FontStyles : Enum {
+    public int value__;
+    public static FontStyles Normal;
+    public static FontStyles Bold;
+    public static FontStyles Italic;
+    public static FontStyles Underline;
+    public static FontStyles LowerCase;
+    public static FontStyles UpperCase;
+    public static FontStyles SmallCaps;
+    public static FontStyles Strikethrough;
+    public static FontStyles Superscript;
+    public static FontStyles Subscript;
+    public static FontStyles Highlight;
+}
+internal class UnityEngine.TextCore.Text.FontStyleStack : ValueType {
+    public byte bold;
+    public byte italic;
+    public byte underline;
+    public byte strikethrough;
+    public byte highlight;
+    public byte superscript;
+    public byte subscript;
+    public byte uppercase;
+    public byte lowercase;
+    public byte smallcaps;
+    public void Clear();
+    public byte Add(FontStyles style);
+    public byte Remove(FontStyles style);
+}
+public class UnityEngine.TextCore.Text.FontWeightPair : ValueType {
+    public FontAsset regularTypeface;
+    public FontAsset italicTypeface;
+}
+internal class UnityEngine.TextCore.Text.HighlightState : ValueType {
+    public Color32 color;
+    public Offset padding;
+    public HighlightState(Color32 color, Offset padding);
+    public static bool op_Equality(HighlightState lhs, HighlightState rhs);
+    public static bool op_Inequality(HighlightState lhs, HighlightState rhs);
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public bool Equals(HighlightState other);
+}
+[FlagsAttribute]
+internal enum UnityEngine.TextCore.Text.HorizontalAlignment : Enum {
+    public int value__;
+    public static HorizontalAlignment Left;
+    public static HorizontalAlignment Center;
+    public static HorizontalAlignment Right;
+    public static HorizontalAlignment Justified;
+    public static HorizontalAlignment Flush;
+    public static HorizontalAlignment Geometry;
+}
+internal class UnityEngine.TextCore.Text.LineInfo : ValueType {
+    internal int controlCharacterCount;
+    public int characterCount;
+    public int visibleCharacterCount;
+    public int spaceCount;
+    public int visibleSpaceCount;
+    public int wordCount;
+    public int firstCharacterIndex;
+    public int firstVisibleCharacterIndex;
+    public int lastCharacterIndex;
+    public int lastVisibleCharacterIndex;
+    public float length;
+    public float lineHeight;
+    public float ascender;
+    public float baseline;
+    public float descender;
+    public float maxAdvance;
+    public float width;
+    public float marginLeft;
+    public float marginRight;
+    public TextAlignment alignment;
+    public Extents lineExtents;
+}
+internal class UnityEngine.TextCore.Text.LinkInfo : ValueType {
+    public int hashCode;
+    public int linkIdFirstCharacterIndex;
+    public int linkIdLength;
+    public int linkTextfirstCharacterIndex;
+    public int linkTextLength;
+    internal Char[] linkId;
+    private string m_LinkIdString;
+    private string m_LinkTextString;
+    internal void SetLinkId(Char[] text, int startIndex, int length);
+    public string GetLinkText(TextInfo textInfo);
+    public string GetLinkId();
+}
+internal class UnityEngine.TextCore.Text.MarkupAttribute : ValueType {
+    private int m_NameHashCode;
+    private int m_ValueHashCode;
+    private int m_ValueStartIndex;
+    private int m_ValueLength;
+    public int NameHashCode { get; public set; }
+    public int ValueHashCode { get; public set; }
+    public int ValueStartIndex { get; public set; }
+    public int ValueLength { get; public set; }
+    public int get_NameHashCode();
+    public void set_NameHashCode(int value);
+    public int get_ValueHashCode();
+    public void set_ValueHashCode(int value);
+    public int get_ValueStartIndex();
+    public void set_ValueStartIndex(int value);
+    public int get_ValueLength();
+    public void set_ValueLength(int value);
+}
+internal class UnityEngine.TextCore.Text.MarkupElement : ValueType {
+    private MarkupAttribute[] m_Attributes;
+    public int NameHashCode { get; public set; }
+    public int ValueHashCode { get; public set; }
+    public int ValueStartIndex { get; public set; }
+    public int ValueLength { get; public set; }
+    public MarkupAttribute[] Attributes { get; public set; }
+    public MarkupElement(int nameHashCode, int startIndex, int length);
+    public int get_NameHashCode();
+    public void set_NameHashCode(int value);
+    public int get_ValueHashCode();
+    public void set_ValueHashCode(int value);
+    public int get_ValueStartIndex();
+    public void set_ValueStartIndex(int value);
+    public int get_ValueLength();
+    public void set_ValueLength(int value);
+    public MarkupAttribute[] get_Attributes();
+    public void set_Attributes(MarkupAttribute[] value);
+}
+internal enum UnityEngine.TextCore.Text.MarkupTag : Enum {
+    public int value__;
+    public static MarkupTag BOLD;
+    public static MarkupTag SLASH_BOLD;
+    public static MarkupTag ITALIC;
+    public static MarkupTag SLASH_ITALIC;
+    public static MarkupTag UNDERLINE;
+    public static MarkupTag SLASH_UNDERLINE;
+    public static MarkupTag STRIKETHROUGH;
+    public static MarkupTag SLASH_STRIKETHROUGH;
+    public static MarkupTag MARK;
+    public static MarkupTag SLASH_MARK;
+    public static MarkupTag SUBSCRIPT;
+    public static MarkupTag SLASH_SUBSCRIPT;
+    public static MarkupTag SUPERSCRIPT;
+    public static MarkupTag SLASH_SUPERSCRIPT;
+    public static MarkupTag COLOR;
+    public static MarkupTag SLASH_COLOR;
+    public static MarkupTag ALPHA;
+    public static MarkupTag A;
+    public static MarkupTag SLASH_A;
+    public static MarkupTag SIZE;
+    public static MarkupTag SLASH_SIZE;
+    public static MarkupTag SPRITE;
+    public static MarkupTag NO_BREAK;
+    public static MarkupTag SLASH_NO_BREAK;
+    public static MarkupTag STYLE;
+    public static MarkupTag SLASH_STYLE;
+    public static MarkupTag FONT;
+    public static MarkupTag SLASH_FONT;
+    public static MarkupTag SLASH_MATERIAL;
+    public static MarkupTag LINK;
+    public static MarkupTag SLASH_LINK;
+    public static MarkupTag FONT_WEIGHT;
+    public static MarkupTag SLASH_FONT_WEIGHT;
+    public static MarkupTag NO_PARSE;
+    public static MarkupTag SLASH_NO_PARSE;
+    public static MarkupTag POSITION;
+    public static MarkupTag SLASH_POSITION;
+    public static MarkupTag VERTICAL_OFFSET;
+    public static MarkupTag SLASH_VERTICAL_OFFSET;
+    public static MarkupTag SPACE;
+    public static MarkupTag SLASH_SPACE;
+    public static MarkupTag PAGE;
+    public static MarkupTag SLASH_PAGE;
+    public static MarkupTag ALIGN;
+    public static MarkupTag SLASH_ALIGN;
+    public static MarkupTag WIDTH;
+    public static MarkupTag SLASH_WIDTH;
+    public static MarkupTag GRADIENT;
+    public static MarkupTag SLASH_GRADIENT;
+    public static MarkupTag CHARACTER_SPACE;
+    public static MarkupTag SLASH_CHARACTER_SPACE;
+    public static MarkupTag MONOSPACE;
+    public static MarkupTag SLASH_MONOSPACE;
+    public static MarkupTag CLASS;
+    public static MarkupTag INDENT;
+    public static MarkupTag SLASH_INDENT;
+    public static MarkupTag LINE_INDENT;
+    public static MarkupTag SLASH_LINE_INDENT;
+    public static MarkupTag MARGIN;
+    public static MarkupTag SLASH_MARGIN;
+    public static MarkupTag MARGIN_LEFT;
+    public static MarkupTag MARGIN_RIGHT;
+    public static MarkupTag LINE_HEIGHT;
+    public static MarkupTag SLASH_LINE_HEIGHT;
+    public static MarkupTag ACTION;
+    public static MarkupTag SLASH_ACTION;
+    public static MarkupTag SCALE;
+    public static MarkupTag SLASH_SCALE;
+    public static MarkupTag ROTATE;
+    public static MarkupTag SLASH_ROTATE;
+    public static MarkupTag TABLE;
+    public static MarkupTag SLASH_TABLE;
+    public static MarkupTag TH;
+    public static MarkupTag SLASH_TH;
+    public static MarkupTag TR;
+    public static MarkupTag SLASH_TR;
+    public static MarkupTag TD;
+    public static MarkupTag SLASH_TD;
+    public static MarkupTag LOWERCASE;
+    public static MarkupTag SLASH_LOWERCASE;
+    public static MarkupTag ALLCAPS;
+    public static MarkupTag SLASH_ALLCAPS;
+    public static MarkupTag UPPERCASE;
+    public static MarkupTag SLASH_UPPERCASE;
+    public static MarkupTag SMALLCAPS;
+    public static MarkupTag SLASH_SMALLCAPS;
+    public static MarkupTag LIGA;
+    public static MarkupTag SLASH_LIGA;
+    public static MarkupTag FRAC;
+    public static MarkupTag SLASH_FRAC;
+    public static MarkupTag NAME;
+    public static MarkupTag INDEX;
+    public static MarkupTag TINT;
+    public static MarkupTag ANIM;
+    public static MarkupTag MATERIAL;
+    public static MarkupTag HREF;
+    public static MarkupTag ANGLE;
+    public static MarkupTag PADDING;
+    public static MarkupTag FAMILYNAME;
+    public static MarkupTag STYLENAME;
+    public static MarkupTag RED;
+    public static MarkupTag GREEN;
+    public static MarkupTag BLUE;
+    public static MarkupTag YELLOW;
+    public static MarkupTag ORANGE;
+    public static MarkupTag BLACK;
+    public static MarkupTag WHITE;
+    public static MarkupTag PURPLE;
+    public static MarkupTag BR;
+    public static MarkupTag CR;
+    public static MarkupTag ZWSP;
+    public static MarkupTag ZWJ;
+    public static MarkupTag NBSP;
+    public static MarkupTag SHY;
+    public static MarkupTag LEFT;
+    public static MarkupTag RIGHT;
+    public static MarkupTag CENTER;
+    public static MarkupTag JUSTIFIED;
+    public static MarkupTag FLUSH;
+    public static MarkupTag NONE;
+    public static MarkupTag PLUS;
+    public static MarkupTag MINUS;
+    public static MarkupTag PX;
+    public static MarkupTag PLUS_PX;
+    public static MarkupTag MINUS_PX;
+    public static MarkupTag EM;
+    public static MarkupTag PLUS_EM;
+    public static MarkupTag MINUS_EM;
+    public static MarkupTag PCT;
+    public static MarkupTag PLUS_PCT;
+    public static MarkupTag MINUS_PCT;
+    public static MarkupTag PERCENTAGE;
+    public static MarkupTag PLUS_PERCENTAGE;
+    public static MarkupTag MINUS_PERCENTAGE;
+    public static MarkupTag TRUE;
+    public static MarkupTag FALSE;
+    public static MarkupTag INVALID;
+    public static MarkupTag NOTDEF;
+    public static MarkupTag NORMAL;
+    public static MarkupTag DEFAULT;
+    public static MarkupTag REGULAR;
+}
+internal static class UnityEngine.TextCore.Text.MaterialManager : object {
+    private static Dictionary`2<long, Material> s_FallbackMaterials;
+    private static MaterialManager();
+    public static Material GetFallbackMaterial(Material sourceMaterial, Material targetMaterial);
+    public static Material GetFallbackMaterial(FontAsset fontAsset, Material sourceMaterial, int atlasIndex);
+    private static void CopyMaterialPresetProperties(Material source, Material destination);
+}
+internal class UnityEngine.TextCore.Text.MaterialReference : ValueType {
+    public int index;
+    public FontAsset fontAsset;
+    public SpriteAsset spriteAsset;
+    public Material material;
+    public bool isDefaultMaterial;
+    public bool isFallbackMaterial;
+    public Material fallbackMaterial;
+    public float padding;
+    public int referenceCount;
+    public MaterialReference(int index, FontAsset fontAsset, SpriteAsset spriteAsset, Material material, float padding);
+    public static bool Contains(MaterialReference[] materialReferences, FontAsset fontAsset);
+    public static int AddMaterialReference(Material material, FontAsset fontAsset, MaterialReference[]& materialReferences, Dictionary`2<int, int> materialReferenceIndexLookup);
+    public static int AddMaterialReference(Material material, SpriteAsset spriteAsset, MaterialReference[]& materialReferences, Dictionary`2<int, int> materialReferenceIndexLookup);
+}
+internal class UnityEngine.TextCore.Text.MaterialReferenceManager : object {
+    private static MaterialReferenceManager s_Instance;
+    private Dictionary`2<int, Material> m_FontMaterialReferenceLookup;
+    private Dictionary`2<int, FontAsset> m_FontAssetReferenceLookup;
+    private Dictionary`2<int, SpriteAsset> m_SpriteAssetReferenceLookup;
+    private Dictionary`2<int, TextColorGradient> m_ColorGradientReferenceLookup;
+    public static MaterialReferenceManager instance { get; }
+    public static MaterialReferenceManager get_instance();
+    public static void AddFontAsset(FontAsset fontAsset);
+    private void AddFontAssetInternal(FontAsset fontAsset);
+    public static void AddSpriteAsset(SpriteAsset spriteAsset);
+    private void AddSpriteAssetInternal(SpriteAsset spriteAsset);
+    public static void AddSpriteAsset(int hashCode, SpriteAsset spriteAsset);
+    private void AddSpriteAssetInternal(int hashCode, SpriteAsset spriteAsset);
+    public static void AddFontMaterial(int hashCode, Material material);
+    private void AddFontMaterialInternal(int hashCode, Material material);
+    public static void AddColorGradientPreset(int hashCode, TextColorGradient spriteAsset);
+    private void AddColorGradientPreset_Internal(int hashCode, TextColorGradient spriteAsset);
+    public bool Contains(FontAsset font);
+    public bool Contains(SpriteAsset sprite);
+    public static bool TryGetFontAsset(int hashCode, FontAsset& fontAsset);
+    private bool TryGetFontAssetInternal(int hashCode, FontAsset& fontAsset);
+    public static bool TryGetSpriteAsset(int hashCode, SpriteAsset& spriteAsset);
+    private bool TryGetSpriteAssetInternal(int hashCode, SpriteAsset& spriteAsset);
+    public static bool TryGetColorGradientPreset(int hashCode, TextColorGradient& gradientPreset);
+    private bool TryGetColorGradientPresetInternal(int hashCode, TextColorGradient& gradientPreset);
+    public static bool TryGetMaterial(int hashCode, Material& material);
+    private bool TryGetMaterialInternal(int hashCode, Material& material);
+}
+internal class UnityEngine.TextCore.Text.MeshExtents : ValueType {
+    public Vector2 min;
+    public Vector2 max;
+    public MeshExtents(Vector2 min, Vector2 max);
+    public virtual string ToString();
+}
+internal class UnityEngine.TextCore.Text.MeshInfo : ValueType {
+    private static Color32 k_DefaultColor;
+    private static Vector3 k_DefaultNormal;
+    private static Vector4 k_DefaultTangent;
+    public int vertexCount;
+    public Vector3[] vertices;
+    public Vector3[] normals;
+    public Vector4[] tangents;
+    public Vector4[] uvs0;
+    public Vector2[] uvs2;
+    public Color32[] colors32;
+    public Int32[] triangles;
+    public Material material;
+    internal GlyphRenderMode glyphRenderMode;
+    public MeshInfo(int size);
+    private static MeshInfo();
+    internal void ResizeMeshInfo(int size);
+    internal void Clear(bool uploadChanges);
+    internal void ClearUnusedVertices();
+    public void ClearUnusedVertices(int startIndex, bool updateMesh);
+    internal void ClearUnusedVertices(int startIndex);
+    internal void SortGeometry(VertexSortingOrder order);
+    internal void SwapVertexData(int src, int dst);
+}
+internal class UnityEngine.TextCore.Text.Offset : ValueType {
+    private float m_Left;
+    private float m_Right;
+    private float m_Top;
+    private float m_Bottom;
+    private static Offset k_ZeroOffset;
+    public float left { get; public set; }
+    public float right { get; public set; }
+    public float top { get; public set; }
+    public float bottom { get; public set; }
+    public float horizontal { get; public set; }
+    public float vertical { get; public set; }
+    public static Offset zero { get; }
+    public Offset(float left, float right, float top, float bottom);
+    public Offset(float horizontal, float vertical);
+    private static Offset();
+    public float get_left();
+    public void set_left(float value);
+    public float get_right();
+    public void set_right(float value);
+    public float get_top();
+    public void set_top(float value);
+    public float get_bottom();
+    public void set_bottom(float value);
+    public float get_horizontal();
+    public void set_horizontal(float value);
+    public float get_vertical();
+    public void set_vertical(float value);
+    public static Offset get_zero();
+    public static bool op_Equality(Offset lhs, Offset rhs);
+    public static bool op_Inequality(Offset lhs, Offset rhs);
+    public static Offset op_Multiply(Offset a, float b);
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public bool Equals(Offset other);
+}
+internal class UnityEngine.TextCore.Text.PageInfo : ValueType {
+    public int firstCharacterIndex;
+    public int lastCharacterIndex;
+    public float ascender;
+    public float baseLine;
+    public float descender;
+}
+internal class UnityEngine.TextCore.Text.RichTextTagAttribute : ValueType {
+    public int nameHashCode;
+    public int valueHashCode;
+    public TagValueType valueType;
+    public int valueStartIndex;
+    public int valueLength;
+    public TagUnitType unitType;
+}
+[ExcludeFromPresetAttribute]
+[HelpURLAttribute("https://docs.unity3d.com/2022.3/Documentation/Manual/UIE-sprite.html")]
+public class UnityEngine.TextCore.Text.SpriteAsset : TextAsset {
+    internal Dictionary`2<int, int> m_NameLookup;
+    internal Dictionary`2<UInt32, int> m_GlyphIndexLookup;
+    [SerializeField]
+internal FaceInfo m_FaceInfo;
+    [FormerlySerializedAsAttribute("spriteSheet")]
+[SerializeField]
+internal Texture m_SpriteAtlasTexture;
+    [SerializeField]
+private List`1<SpriteCharacter> m_SpriteCharacterTable;
+    internal Dictionary`2<UInt32, SpriteCharacter> m_SpriteCharacterLookup;
+    [SerializeField]
+private List`1<SpriteGlyph> m_SpriteGlyphTable;
+    internal Dictionary`2<UInt32, SpriteGlyph> m_SpriteGlyphLookup;
+    [SerializeField]
+public List`1<SpriteAsset> fallbackSpriteAssets;
+    internal bool m_IsSpriteAssetLookupTablesDirty;
+    private static HashSet`1<int> k_searchedSpriteAssets;
+    public FaceInfo faceInfo { get; internal set; }
+    public Texture spriteSheet { get; internal set; }
+    public List`1<SpriteCharacter> spriteCharacterTable { get; internal set; }
+    public Dictionary`2<UInt32, SpriteCharacter> spriteCharacterLookupTable { get; internal set; }
+    public List`1<SpriteGlyph> spriteGlyphTable { get; internal set; }
+    public FaceInfo get_faceInfo();
+    internal void set_faceInfo(FaceInfo value);
+    public Texture get_spriteSheet();
+    internal void set_spriteSheet(Texture value);
+    public List`1<SpriteCharacter> get_spriteCharacterTable();
+    internal void set_spriteCharacterTable(List`1<SpriteCharacter> value);
+    public Dictionary`2<UInt32, SpriteCharacter> get_spriteCharacterLookupTable();
+    internal void set_spriteCharacterLookupTable(Dictionary`2<UInt32, SpriteCharacter> value);
+    public List`1<SpriteGlyph> get_spriteGlyphTable();
+    internal void set_spriteGlyphTable(List`1<SpriteGlyph> value);
+    private void Awake();
+    public void UpdateLookupTables();
+    public int GetSpriteIndexFromHashcode(int hashCode);
+    public int GetSpriteIndexFromUnicode(UInt32 unicode);
+    public int GetSpriteIndexFromName(string name);
+    public static SpriteAsset SearchForSpriteByUnicode(SpriteAsset spriteAsset, UInt32 unicode, bool includeFallbacks, Int32& spriteIndex);
+    private static SpriteAsset SearchForSpriteByUnicodeInternal(List`1<SpriteAsset> spriteAssets, UInt32 unicode, bool includeFallbacks, Int32& spriteIndex);
+    private static SpriteAsset SearchForSpriteByUnicodeInternal(SpriteAsset spriteAsset, UInt32 unicode, bool includeFallbacks, Int32& spriteIndex);
+    public static SpriteAsset SearchForSpriteByHashCode(SpriteAsset spriteAsset, int hashCode, bool includeFallbacks, Int32& spriteIndex, TextSettings textSettings);
+    private static SpriteAsset SearchForSpriteByHashCodeInternal(List`1<SpriteAsset> spriteAssets, int hashCode, bool searchFallbacks, Int32& spriteIndex);
+    private static SpriteAsset SearchForSpriteByHashCodeInternal(SpriteAsset spriteAsset, int hashCode, bool searchFallbacks, Int32& spriteIndex);
+    public void SortGlyphTable();
+    internal void SortCharacterTable();
+    internal void SortGlyphAndCharacterTables();
+}
+public class UnityEngine.TextCore.Text.SpriteCharacter : TextElement {
+    [SerializeField]
+private string m_Name;
+    public string name { get; public set; }
+    public SpriteCharacter(UInt32 unicode, SpriteGlyph glyph);
+    public SpriteCharacter(UInt32 unicode, SpriteAsset spriteAsset, SpriteGlyph glyph);
+    public string get_name();
+    public void set_name(string value);
+}
+public class UnityEngine.TextCore.Text.SpriteGlyph : Glyph {
+    public Sprite sprite;
+    public SpriteGlyph(UInt32 index, GlyphMetrics metrics, GlyphRect glyphRect, float scale, int atlasIndex);
+    public SpriteGlyph(UInt32 index, GlyphMetrics metrics, GlyphRect glyphRect, float scale, int atlasIndex, Sprite sprite);
+}
+internal enum UnityEngine.TextCore.Text.TagUnitType : Enum {
+    public int value__;
+    public static TagUnitType Pixels;
+    public static TagUnitType FontUnits;
+    public static TagUnitType Percentage;
+}
+internal enum UnityEngine.TextCore.Text.TagValueType : Enum {
+    public int value__;
+    public static TagValueType None;
+    public static TagValueType NumericalValue;
+    public static TagValueType StringValue;
+    public static TagValueType ColorValue;
+}
+internal enum UnityEngine.TextCore.Text.TextAlignment : Enum {
+    public int value__;
+    public static TextAlignment TopLeft;
+    public static TextAlignment TopCenter;
+    public static TextAlignment TopRight;
+    public static TextAlignment TopJustified;
+    public static TextAlignment TopFlush;
+    public static TextAlignment TopGeoAligned;
+    public static TextAlignment MiddleLeft;
+    public static TextAlignment MiddleCenter;
+    public static TextAlignment MiddleRight;
+    public static TextAlignment MiddleJustified;
+    public static TextAlignment MiddleFlush;
+    public static TextAlignment MiddleGeoAligned;
+    public static TextAlignment BottomLeft;
+    public static TextAlignment BottomCenter;
+    public static TextAlignment BottomRight;
+    public static TextAlignment BottomJustified;
+    public static TextAlignment BottomFlush;
+    public static TextAlignment BottomGeoAligned;
+    public static TextAlignment BaselineLeft;
+    public static TextAlignment BaselineCenter;
+    public static TextAlignment BaselineRight;
+    public static TextAlignment BaselineJustified;
+    public static TextAlignment BaselineFlush;
+    public static TextAlignment BaselineGeoAligned;
+    public static TextAlignment MidlineLeft;
+    public static TextAlignment MidlineCenter;
+    public static TextAlignment MidlineRight;
+    public static TextAlignment MidlineJustified;
+    public static TextAlignment MidlineFlush;
+    public static TextAlignment MidlineGeoAligned;
+    public static TextAlignment CaplineLeft;
+    public static TextAlignment CaplineCenter;
+    public static TextAlignment CaplineRight;
+    public static TextAlignment CaplineJustified;
+    public static TextAlignment CaplineFlush;
+    public static TextAlignment CaplineGeoAligned;
+}
+[ExcludeFromObjectFactoryAttribute]
+public abstract class UnityEngine.TextCore.Text.TextAsset : ScriptableObject {
+    [SerializeField]
+internal string m_Version;
+    internal int m_InstanceID;
+    internal int m_HashCode;
+    [FormerlySerializedAsAttribute("material")]
+[SerializeField]
+internal Material m_Material;
+    internal int m_MaterialHashCode;
+    public string version { get; internal set; }
+    public int instanceID { get; }
+    public int hashCode { get; public set; }
+    public Material material { get; public set; }
+    public int materialHashCode { get; public set; }
+    public string get_version();
+    internal void set_version(string value);
+    public int get_instanceID();
+    public int get_hashCode();
+    public void set_hashCode(int value);
+    public Material get_material();
+    public void set_material(Material value);
+    public int get_materialHashCode();
+    public void set_materialHashCode(int value);
+}
+[DefaultMemberAttribute("Item")]
+internal class UnityEngine.TextCore.Text.TextBackingContainer : ValueType {
+    private UInt32[] m_Array;
+    private int m_Count;
+    public UInt32[] Text { get; }
+    public int Capacity { get; }
+    public int Count { get; public set; }
+    public UInt32 Item { get; public set; }
+    public TextBackingContainer(int size);
+    public UInt32[] get_Text();
+    public int get_Capacity();
+    public int get_Count();
+    public void set_Count(int value);
+    public UInt32 get_Item(int index);
+    public void set_Item(int index, UInt32 value);
+    public void Resize(int size);
+}
+[ExcludeFromObjectFactoryAttribute]
+[ExcludeFromPresetAttribute]
+public class UnityEngine.TextCore.Text.TextColorGradient : ScriptableObject {
+    public ColorGradientMode colorMode;
+    public Color topLeft;
+    public Color topRight;
+    public Color bottomLeft;
+    public Color bottomRight;
+    private static ColorGradientMode k_DefaultColorMode;
+    private static Color k_DefaultColor;
+    public TextColorGradient(Color color);
+    public TextColorGradient(Color color0, Color color1, Color color2, Color color3);
+    private static TextColorGradient();
+}
+public abstract class UnityEngine.TextCore.Text.TextElement : object {
+    [SerializeField]
+protected TextElementType m_ElementType;
+    [SerializeField]
+internal UInt32 m_Unicode;
+    internal TextAsset m_TextAsset;
+    internal Glyph m_Glyph;
+    [SerializeField]
+internal UInt32 m_GlyphIndex;
+    [SerializeField]
+internal float m_Scale;
+    public TextElementType elementType { get; }
+    public UInt32 unicode { get; public set; }
+    public TextAsset textAsset { get; public set; }
+    public Glyph glyph { get; public set; }
+    public UInt32 glyphIndex { get; public set; }
+    public float scale { get; public set; }
+    public TextElementType get_elementType();
+    public UInt32 get_unicode();
+    public void set_unicode(UInt32 value);
+    public TextAsset get_textAsset();
+    public void set_textAsset(TextAsset value);
+    public Glyph get_glyph();
+    public void set_glyph(Glyph value);
+    public UInt32 get_glyphIndex();
+    public void set_glyphIndex(UInt32 value);
+    public float get_scale();
+    public void set_scale(float value);
+}
+internal class UnityEngine.TextCore.Text.TextElementInfo : ValueType {
+    public char character;
+    public int index;
+    public TextElementType elementType;
+    public int stringLength;
+    public TextElement textElement;
+    public Glyph alternativeGlyph;
+    public FontAsset fontAsset;
+    public SpriteAsset spriteAsset;
+    public int spriteIndex;
+    public Material material;
+    public int materialReferenceIndex;
+    public bool isUsingAlternateTypeface;
+    public float pointSize;
+    public int lineNumber;
+    public int pageNumber;
+    public int vertexIndex;
+    public TextVertex vertexTopLeft;
+    public TextVertex vertexBottomLeft;
+    public TextVertex vertexTopRight;
+    public TextVertex vertexBottomRight;
+    public Vector3 topLeft;
+    public Vector3 bottomLeft;
+    public Vector3 topRight;
+    public Vector3 bottomRight;
+    public float origin;
+    public float ascender;
+    public float baseLine;
+    public float descender;
+    internal float adjustedAscender;
+    internal float adjustedDescender;
+    internal float adjustedHorizontalAdvance;
+    public float xAdvance;
+    public float aspectRatio;
+    public float scale;
+    public Color32 color;
+    public Color32 underlineColor;
+    public int underlineVertexIndex;
+    public Color32 strikethroughColor;
+    public int strikethroughVertexIndex;
+    public Color32 highlightColor;
+    public HighlightState highlightState;
+    public FontStyles style;
+    public bool isVisible;
+    public virtual string ToString();
+    internal string ToStringTest();
+}
+public enum UnityEngine.TextCore.Text.TextElementType : Enum {
+    public byte value__;
+    public static TextElementType Character;
+    public static TextElementType Sprite;
+}
+public static class UnityEngine.TextCore.Text.TextEventManager : object {
+    public static FastAction`2<bool, Material> MATERIAL_PROPERTY_EVENT;
+    public static FastAction`2<bool, Object> FONT_PROPERTY_EVENT;
+    public static FastAction`2<bool, Object> SPRITE_ASSET_PROPERTY_EVENT;
+    public static FastAction`2<bool, Object> TEXTMESHPRO_PROPERTY_EVENT;
+    public static FastAction`3<GameObject, Material, Material> DRAG_AND_DROP_MATERIAL_EVENT;
+    public static FastAction`1<bool> TEXT_STYLE_PROPERTY_EVENT;
+    public static FastAction`1<Object> COLOR_GRADIENT_PROPERTY_EVENT;
+    public static FastAction TMP_SETTINGS_PROPERTY_EVENT;
+    public static FastAction RESOURCE_LOAD_EVENT;
+    public static FastAction`2<bool, Object> TEXTMESHPRO_UGUI_PROPERTY_EVENT;
+    public static FastAction OnPreRenderObject_Event;
+    public static FastAction`1<Object> TEXT_CHANGED_EVENT;
+    private static TextEventManager();
+    public static void ON_PRE_RENDER_OBJECT_CHANGED();
+    public static void ON_MATERIAL_PROPERTY_CHANGED(bool isChanged, Material mat);
+    public static void ON_FONT_PROPERTY_CHANGED(bool isChanged, Object font);
+    public static void ON_SPRITE_ASSET_PROPERTY_CHANGED(bool isChanged, Object obj);
+    public static void ON_TEXTMESHPRO_PROPERTY_CHANGED(bool isChanged, Object obj);
+    public static void ON_DRAG_AND_DROP_MATERIAL_CHANGED(GameObject sender, Material currentMaterial, Material newMaterial);
+    public static void ON_TEXT_STYLE_PROPERTY_CHANGED(bool isChanged);
+    public static void ON_COLOR_GRADIENT_PROPERTY_CHANGED(Object gradient);
+    public static void ON_TEXT_CHANGED(Object obj);
+    public static void ON_TMP_SETTINGS_CHANGED();
+    public static void ON_RESOURCES_LOADED();
+    public static void ON_TEXTMESHPRO_UGUI_PROPERTY_CHANGED(bool isChanged, Object obj);
+}
+public enum UnityEngine.TextCore.Text.TextFontWeight : Enum {
+    public int value__;
+    public static TextFontWeight Thin;
+    public static TextFontWeight ExtraLight;
+    public static TextFontWeight Light;
+    public static TextFontWeight Regular;
+    public static TextFontWeight Medium;
+    public static TextFontWeight SemiBold;
+    public static TextFontWeight Bold;
+    public static TextFontWeight Heavy;
+    public static TextFontWeight Black;
+}
+internal class UnityEngine.TextCore.Text.TextGenerationSettings : object {
+    public string text;
+    public Rect screenRect;
+    public Vector4 margins;
+    public float scale;
+    public FontAsset fontAsset;
+    public Material material;
+    public SpriteAsset spriteAsset;
+    public TextStyleSheet styleSheet;
+    public FontStyles fontStyle;
+    public TextSettings textSettings;
+    public TextAlignment textAlignment;
+    public TextOverflowMode overflowMode;
+    public bool wordWrap;
+    public float wordWrappingRatio;
+    public Color color;
+    public TextColorGradient fontColorGradient;
+    public TextColorGradient fontColorGradientPreset;
+    public bool tintSprites;
+    public bool overrideRichTextColors;
+    public bool shouldConvertToLinearSpace;
+    public float fontSize;
+    public bool autoSize;
+    public float fontSizeMin;
+    public float fontSizeMax;
+    public bool enableKerning;
+    public bool richText;
+    public bool isRightToLeft;
+    public float extraPadding;
+    public bool parseControlCharacters;
+    public bool isOrthographic;
+    public bool tagNoParsing;
+    public float characterSpacing;
+    public float wordSpacing;
+    public float lineSpacing;
+    public float paragraphSpacing;
+    public float lineSpacingMax;
+    public TextWrappingMode textWrappingMode;
+    public int maxVisibleCharacters;
+    public int maxVisibleWords;
+    public int maxVisibleLines;
+    public int firstVisibleCharacter;
+    public bool useMaxVisibleDescender;
+    public TextFontWeight fontWeight;
+    public int pageToDisplay;
+    public TextureMapping horizontalMapping;
+    public TextureMapping verticalMapping;
+    public float uvLineOffset;
+    public VertexSortingOrder geometrySortingOrder;
+    public bool inverseYAxis;
+    public float charWidthMaxAdj;
+    internal TextInputSource inputSource;
+    public sealed virtual bool Equals(TextGenerationSettings other);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static bool op_Equality(TextGenerationSettings left, TextGenerationSettings right);
+    public static bool op_Inequality(TextGenerationSettings left, TextGenerationSettings right);
+    public virtual string ToString();
+}
+internal class UnityEngine.TextCore.Text.TextGenerator : object {
+    private static int k_Tab;
+    private static int k_LineFeed;
+    private static int k_CarriageReturn;
+    private static int k_Space;
+    private static int k_DoubleQuotes;
+    private static int k_NumberSign;
+    private static int k_PercentSign;
+    private static int k_SingleQuote;
+    private static int k_Plus;
+    private static int k_Minus;
+    private static int k_Period;
+    private static int k_LesserThan;
+    private static int k_Equal;
+    private static int k_GreaterThan;
+    private static int k_Underline;
+    private static int k_NoBreakSpace;
+    private static int k_SoftHyphen;
+    private static int k_HyphenMinus;
+    private static int k_FigureSpace;
+    private static int k_Hyphen;
+    private static int k_NonBreakingHyphen;
+    private static int k_ZeroWidthSpace;
+    private static int k_NarrowNoBreakSpace;
+    private static int k_WordJoiner;
+    private static int k_HorizontalEllipsis;
+    private static int k_RightSingleQuote;
+    private static int k_Square;
+    private static int k_HangulJamoStart;
+    private static int k_HangulJamoEnd;
+    private static int k_CjkStart;
+    private static int k_CjkEnd;
+    private static int k_HangulJameExtendedStart;
+    private static int k_HangulJameExtendedEnd;
+    private static int k_HangulSyllablesStart;
+    private static int k_HangulSyllablesEnd;
+    private static int k_CjkIdeographsStart;
+    private static int k_CjkIdeographsEnd;
+    private static int k_CjkFormsStart;
+    private static int k_CjkFormsEnd;
+    private static int k_CjkHalfwidthStart;
+    private static int k_CjkHalfwidthEnd;
+    private static int k_EndOfText;
+    private static float k_FloatUnset;
+    private static int k_MaxCharacters;
+    private static TextGenerator s_TextGenerator;
+    private TextBackingContainer m_TextBackingArray;
+    internal TextProcessingElement[] m_TextProcessingArray;
+    internal int m_InternalTextProcessingArraySize;
+    [SerializeField]
+protected bool m_VertexBufferAutoSizeReduction;
+    private Char[] m_HtmlTag;
+    internal HighlightState m_HighlightState;
+    protected bool m_IsIgnoringAlignment;
+    protected static bool m_IsTextTruncated;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static MissingCharacterEventCallback OnMissingCharacter;
+    private Vector3[] m_RectTransformCorners;
+    private float m_MarginWidth;
+    private float m_MarginHeight;
+    private float m_PreferredWidth;
+    private float m_PreferredHeight;
+    private FontAsset m_CurrentFontAsset;
+    private Material m_CurrentMaterial;
+    private int m_CurrentMaterialIndex;
+    private TextProcessingStack`1<MaterialReference> m_MaterialReferenceStack;
+    private float m_Padding;
+    private SpriteAsset m_CurrentSpriteAsset;
+    private int m_TotalCharacterCount;
+    private float m_FontSize;
+    private float m_FontScaleMultiplier;
+    private float m_CurrentFontSize;
+    private TextProcessingStack`1<float> m_SizeStack;
+    protected TextProcessingStack`1[] m_TextStyleStacks;
+    protected int m_TextStyleStackDepth;
+    private FontStyles m_FontStyleInternal;
+    private FontStyleStack m_FontStyleStack;
+    private TextFontWeight m_FontWeightInternal;
+    private TextProcessingStack`1<TextFontWeight> m_FontWeightStack;
+    private TextAlignment m_LineJustification;
+    private TextProcessingStack`1<TextAlignment> m_LineJustificationStack;
+    private float m_BaselineOffset;
+    private TextProcessingStack`1<float> m_BaselineOffsetStack;
+    private Color32 m_FontColor32;
+    private Color32 m_HtmlColor;
+    private Color32 m_UnderlineColor;
+    private Color32 m_StrikethroughColor;
+    private TextProcessingStack`1<Color32> m_ColorStack;
+    private TextProcessingStack`1<Color32> m_UnderlineColorStack;
+    private TextProcessingStack`1<Color32> m_StrikethroughColorStack;
+    private TextProcessingStack`1<Color32> m_HighlightColorStack;
+    private TextProcessingStack`1<HighlightState> m_HighlightStateStack;
+    private TextProcessingStack`1<int> m_ItalicAngleStack;
+    private TextColorGradient m_ColorGradientPreset;
+    private TextProcessingStack`1<TextColorGradient> m_ColorGradientStack;
+    private bool m_ColorGradientPresetIsTinted;
+    private TextProcessingStack`1<int> m_ActionStack;
+    private float m_LineOffset;
+    private float m_LineHeight;
+    private bool m_IsDrivenLineSpacing;
+    private float m_CSpacing;
+    private float m_MonoSpacing;
+    private float m_XAdvance;
+    private float m_TagLineIndent;
+    private float m_TagIndent;
+    private TextProcessingStack`1<float> m_IndentStack;
+    private bool m_TagNoParsing;
+    private int m_CharacterCount;
+    private int m_FirstCharacterOfLine;
+    private int m_LastCharacterOfLine;
+    private int m_FirstVisibleCharacterOfLine;
+    private int m_LastVisibleCharacterOfLine;
+    private float m_MaxLineAscender;
+    private float m_MaxLineDescender;
+    private int m_LineNumber;
+    private int m_LineVisibleCharacterCount;
+    private int m_LineVisibleSpaceCount;
+    private int m_FirstOverflowCharacterIndex;
+    private int m_PageNumber;
+    private float m_MarginLeft;
+    private float m_MarginRight;
+    private float m_Width;
+    private Extents m_MeshExtents;
+    private float m_MaxCapHeight;
+    private float m_MaxAscender;
+    private float m_MaxDescender;
+    private bool m_IsNewPage;
+    private bool m_IsNonBreakingSpace;
+    private WordWrapState m_SavedWordWrapState;
+    private WordWrapState m_SavedLineState;
+    private WordWrapState m_SavedEllipsisState;
+    private WordWrapState m_SavedLastValidState;
+    private WordWrapState m_SavedSoftLineBreakState;
+    private TextElementType m_TextElementType;
+    private bool m_isTextLayoutPhase;
+    private int m_SpriteIndex;
+    private Color32 m_SpriteColor;
+    private TextElement m_CachedTextElement;
+    private Color32 m_HighlightColor;
+    private float m_CharWidthAdjDelta;
+    private float m_MaxFontSize;
+    private float m_MinFontSize;
+    private int m_AutoSizeIterationCount;
+    private int m_AutoSizeMaxIterationCount;
+    private bool m_IsAutoSizePointSizeSet;
+    private float m_StartOfLineAscender;
+    private float m_LineSpacingDelta;
+    private MaterialReference[] m_MaterialReferences;
+    private int m_SpriteCount;
+    private TextProcessingStack`1<int> m_StyleStack;
+    private TextProcessingStack`1<WordWrapState> m_EllipsisInsertionCandidateStack;
+    private int m_SpriteAnimationId;
+    private int m_ItalicAngle;
+    private Vector3 m_FXScale;
+    private Quaternion m_FXRotation;
+    private int m_LastBaseGlyphIndex;
+    private float m_PageAscender;
+    private RichTextTagAttribute[] m_XmlAttribute;
+    private Single[] m_AttributeParameterValues;
+    private Dictionary`2<int, int> m_MaterialReferenceIndexLookup;
+    private bool m_IsCalculatingPreferredValues;
+    private SpriteAsset m_DefaultSpriteAsset;
+    private bool m_TintSprite;
+    protected SpecialCharacter m_Ellipsis;
+    protected SpecialCharacter m_Underline;
+    private TextElementInfo[] m_InternalTextElementInfo;
+    private bool vertexBufferAutoSizeReduction { get; private set; }
+    public static bool isTextTruncated { get; }
+    private static TextGenerator GetTextGenerator();
+    public static void GenerateText(TextGenerationSettings settings, TextInfo textInfo);
+    public static Vector2 GetCursorPosition(TextGenerationSettings settings, int index);
+    public static Vector2 GetCursorPosition(TextInfo textInfo, Rect screenRect, int index, bool inverseYAxis);
+    public static float GetPreferredWidth(TextGenerationSettings settings, TextInfo textInfo);
+    public static float GetPreferredHeight(TextGenerationSettings settings, TextInfo textInfo);
+    public static Vector2 GetPreferredValues(TextGenerationSettings settings, TextInfo textInfo);
+    private bool get_vertexBufferAutoSizeReduction();
+    private void set_vertexBufferAutoSizeReduction(bool value);
+    public static bool get_isTextTruncated();
+    [CompilerGeneratedAttribute]
+public static void add_OnMissingCharacter(MissingCharacterEventCallback value);
+    [CompilerGeneratedAttribute]
+public static void remove_OnMissingCharacter(MissingCharacterEventCallback value);
+    private void Prepare(TextGenerationSettings generationSettings, TextInfo textInfo);
+    private void GenerateTextMesh(TextGenerationSettings generationSettings, TextInfo textInfo);
+    private void SaveWordWrappingState(WordWrapState& state, int index, int count, TextInfo textInfo);
+    protected int RestoreWordWrappingState(WordWrapState& state, TextInfo textInfo);
+    protected bool ValidateHtmlTag(TextProcessingElement[] chars, int startIndex, Int32& endIndex, TextGenerationSettings generationSettings, TextInfo textInfo);
+    private void SaveGlyphVertexInfo(float padding, float stylePadding, Color32 vertexColor, TextGenerationSettings generationSettings, TextInfo textInfo);
+    private void SaveSpriteVertexInfo(Color32 vertexColor, TextGenerationSettings generationSettings, TextInfo textInfo);
+    private void DrawUnderlineMesh(Vector3 start, Vector3 end, float startScale, float endScale, float maxScale, float sdfScale, Color32 underlineColor, TextGenerationSettings generationSettings, TextInfo textInfo);
+    private void DrawTextHighlight(Vector3 start, Vector3 end, Color32 highlightColor, TextGenerationSettings generationSettings, TextInfo textInfo);
+    private static void ClearMesh(bool updateMesh, TextInfo textInfo);
+    internal int SetArraySizes(TextProcessingElement[] textProcessingArray, TextGenerationSettings generationSettings, TextInfo textInfo);
+    internal TextElement GetTextElement(TextGenerationSettings generationSettings, UInt32 unicode, FontAsset fontAsset, FontStyles fontStyle, TextFontWeight fontWeight, Boolean& isUsingAlternativeTypeface);
+    private void ComputeMarginSize(Rect rect, Vector4 margins);
+    protected void GetSpecialCharacters(TextGenerationSettings generationSettings);
+    protected void GetEllipsisSpecialCharacter(TextGenerationSettings generationSettings);
+    protected void GetUnderlineSpecialCharacter(TextGenerationSettings generationSettings);
+    private float GetPreferredWidthInternal(TextGenerationSettings generationSettings, TextInfo textInfo);
+    private float GetPreferredHeightInternal(TextGenerationSettings generationSettings, TextInfo textInfo);
+    private Vector2 GetPreferredValuesInternal(TextGenerationSettings generationSettings, TextInfo textInfo);
+    protected virtual Vector2 CalculatePreferredValues(Single& fontSize, Vector2 marginSize, bool isTextAutoSizingEnabled, TextWrappingMode textWrapMode, TextGenerationSettings generationSettings, TextInfo textInfo);
+    private void PopulateTextBackingArray(string sourceText);
+    private void PopulateTextBackingArray(string sourceText, int start, int length);
+    private void PopulateTextBackingArray(StringBuilder sourceText, int start, int length);
+    private void PopulateTextBackingArray(Char[] sourceText, int start, int length);
+    private void PopulateTextProcessingArray(TextGenerationSettings generationSettings);
+    private void InsertNewLine(int i, float baseScale, float currentElementScale, float currentEmScale, float boldSpacingAdjustment, float characterSpacingAdjustment, float width, float lineGap, Boolean& isMaxVisibleDescenderSet, Single& maxVisibleDescender, TextGenerationSettings generationSettings, TextInfo textInfo);
+    protected void DoMissingGlyphCallback(UInt32 unicode, int stringIndex, FontAsset fontAsset, TextInfo textInfo);
+    private void ClearMarkupTagAttributes();
+}
+[ExtensionAttribute]
+internal static class UnityEngine.TextCore.Text.TextGeneratorUtilities : object {
+    public static Vector2 largePositiveVector2;
+    public static Vector2 largeNegativeVector2;
+    public static float largePositiveFloat;
+    public static float largeNegativeFloat;
+    private static int k_DoubleQuotes;
+    private static int k_GreaterThan;
+    private static int k_ZeroWidthSpace;
+    private static string k_LookupStringU;
+    private static TextGeneratorUtilities();
+    public static bool Approximately(float a, float b);
+    public static Color32 HexCharsToColor(Char[] hexChars, int tagCount);
+    public static Color32 HexCharsToColor(Char[] hexChars, int startIndex, int length);
+    public static UInt32 HexToInt(char hex);
+    public static float ConvertToFloat(Char[] chars, int startIndex, int length);
+    public static float ConvertToFloat(Char[] chars, int startIndex, int length, Int32& lastIndex);
+    public static Vector2 PackUV(float x, float y, float scale);
+    public static void ResizeInternalArray(T[]& array);
+    public static void ResizeInternalArray(T[]& array, int size);
+    private static bool IsTagName(String& text, string tag, int index);
+    private static bool IsTagName(Int32[]& text, string tag, int index);
+    internal static void InsertOpeningTextStyle(TextStyle style, TextProcessingElement[]& charBuffer, Int32& writeIndex, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    internal static void InsertClosingTextStyle(TextStyle style, TextProcessingElement[]& charBuffer, Int32& writeIndex, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    public static bool ReplaceOpeningStyleTag(TextBackingContainer& sourceText, int srcIndex, Int32& srcOffset, TextProcessingElement[]& charBuffer, Int32& writeIndex, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    public static void ReplaceOpeningStyleTag(TextProcessingElement[]& charBuffer, Int32& writeIndex, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    private static bool ReplaceOpeningStyleTag(UInt32[]& sourceText, int srcIndex, Int32& srcOffset, TextProcessingElement[]& charBuffer, Int32& writeIndex, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    public static void ReplaceClosingStyleTag(TextProcessingElement[]& charBuffer, Int32& writeIndex, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    internal static void InsertOpeningStyleTag(TextStyle style, TextProcessingElement[]& charBuffer, Int32& writeIndex, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    internal static void InsertClosingStyleTag(TextProcessingElement[]& charBuffer, Int32& writeIndex, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    private static void InsertTextStyleInTextProcessingArray(TextProcessingElement[]& charBuffer, Int32& writeIndex, UInt32[] styleDefinition, Int32& textStyleStackDepth, TextProcessingStack`1[]& textStyleStacks, TextGenerationSettings& generationSettings);
+    public static TextStyle GetStyle(TextGenerationSettings generationSetting, int hashCode);
+    public static int GetStyleHashCode(UInt32[]& text, int index, Int32& closeIndex);
+    public static int GetStyleHashCode(TextBackingContainer& text, int index, Int32& closeIndex);
+    public static UInt32 GetUTF16(UInt32[] text, int i);
+    public static UInt32 GetUTF16(TextBackingContainer text, int i);
+    public static UInt32 GetUTF32(UInt32[] text, int i);
+    public static UInt32 GetUTF32(TextBackingContainer text, int i);
+    private static int GetTagHashCode(Int32[]& text, int index, Int32& closeIndex);
+    private static int GetTagHashCode(String& text, int index, Int32& closeIndex);
+    public static void FillCharacterVertexBuffers(int i, bool convertToLinearSpace, TextGenerationSettings generationSettings, TextInfo textInfo);
+    public static void FillSpriteVertexBuffers(int i, bool convertToLinearSpace, TextGenerationSettings generationSettings, TextInfo textInfo);
+    public static void AdjustLineOffset(int startIndex, int endIndex, float offset, TextInfo textInfo);
+    public static void ResizeLineExtents(int size, TextInfo textInfo);
+    public static FontStyles LegacyStyleToNewStyle(FontStyle fontStyle);
+    public static TextAlignment LegacyAlignmentToNewAlignment(TextAnchor anchor);
+    public static UInt32 ConvertToUTF32(UInt32 highSurrogate, UInt32 lowSurrogate);
+    public static int GetMarkupTagHashCode(TextBackingContainer styleDefinition, int readIndex);
+    public static int GetMarkupTagHashCode(UInt32[] styleDefinition, int readIndex);
+    public static char ToUpperASCIIFast(char c);
+    public static UInt32 ToUpperASCIIFast(UInt32 c);
+    public static char ToUpperFast(char c);
+    public static int GetAttributeParameters(Char[] chars, int startIndex, int length, Single[]& parameters);
+    public static bool IsBitmapRendering(GlyphRenderMode glyphRenderMode);
+    public static bool IsBaseGlyph(UInt32 c);
+    [ExtensionAttribute]
+public static Color MinAlpha(Color c1, Color c2);
+    internal static Color32 GammaToLinear(Color32 c);
+    private static byte GammaToLinear(byte value);
+    public static bool IsValidUTF16(TextBackingContainer text, int index);
+    public static bool IsValidUTF32(TextBackingContainer text, int index);
+    internal static bool IsEmoji(UInt32 c);
+    internal static bool IsHangul(UInt32 c);
+    internal static bool IsCJK(UInt32 c);
+}
+internal class UnityEngine.TextCore.Text.TextHandle : object {
+    private Vector2 m_PreferredSize;
+    private TextInfo m_TextInfo;
+    private static TextInfo m_LayoutTextInfo;
+    private int m_PreviousGenerationSettingsHash;
+    protected TextGenerationSettings textGenerationSettings;
+    protected static TextGenerationSettings s_LayoutSettings;
+    private bool isDirty;
+    internal TextInfo textInfo { get; }
+    internal static TextInfo layoutTextInfo { get; }
+    private static TextHandle();
+    internal TextInfo get_textInfo();
+    internal bool IsTextInfoAllocated();
+    internal static TextInfo get_layoutTextInfo();
+    public void SetDirty();
+    public bool IsDirty();
+    public Vector2 GetCursorPositionFromStringIndexUsingCharacterHeight(int index, bool inverseYAxis);
+    public Vector2 GetCursorPositionFromStringIndexUsingLineHeight(int index, bool useXAdvance, bool inverseYAxis);
+    public int GetCursorIndexFromPosition(Vector2 position, bool inverseYAxis);
+    public int LineDownCharacterPosition(int originalPos);
+    public int LineUpCharacterPosition(int originalPos);
+    public int FindWordIndex(int cursorIndex);
+    public int FindNearestLine(Vector2 position);
+    public int FindNearestCharacterOnLine(Vector2 position, int line, bool visibleOnly);
+    public int FindIntersectingLink(Vector3 position, bool inverseYAxis);
+    private static bool PointIntersectRectangle(Vector3 m, Vector3 a, Vector3 b, Vector3 c, Vector3 d);
+    private static float DistanceToLine(Vector3 a, Vector3 b, Vector3 point);
+    public int GetLineNumber(int index);
+    public float GetLineHeight(int lineNumber);
+    public float GetLineHeightFromCharacterIndex(int index);
+    public float GetCharacterHeightFromIndex(int index);
+    public bool IsElided();
+    public string Substring(int startIndex, int length);
+    public int IndexOf(char value, int startIndex);
+    public int LastIndexOf(char value, int startIndex);
+    protected float ComputeTextWidth(TextGenerationSettings tgs);
+    protected float ComputeTextHeight(TextGenerationSettings tgs);
+    protected void UpdatePreferredValues(TextGenerationSettings tgs);
+    internal TextInfo Update(string newText);
+    protected TextInfo Update(TextGenerationSettings tgs);
+}
+internal class UnityEngine.TextCore.Text.TextInfo : object {
+    private static Vector2 s_InfinityVectorPositive;
+    private static Vector2 s_InfinityVectorNegative;
+    public int characterCount;
+    public int spriteCount;
+    public int spaceCount;
+    public int wordCount;
+    public int linkCount;
+    public int lineCount;
+    public int pageCount;
+    public int materialCount;
+    public TextElementInfo[] textElementInfo;
+    public WordInfo[] wordInfo;
+    public LinkInfo[] linkInfo;
+    public LineInfo[] lineInfo;
+    public PageInfo[] pageInfo;
+    public MeshInfo[] meshInfo;
+    public bool isDirty;
+    public bool hasMultipleColors;
+    private static TextInfo();
+    internal void Clear();
+    internal void ClearMeshInfo(bool updateMesh);
+    internal void ClearLineInfo();
+    internal void ClearPageInfo();
+    internal static void Resize(T[]& array, int size);
+    internal static void Resize(T[]& array, int size, bool isBlockAllocated);
+}
+internal enum UnityEngine.TextCore.Text.TextInputSource : Enum {
+    public int value__;
+    public static TextInputSource TextInputBox;
+    public static TextInputSource SetText;
+    public static TextInputSource SetTextArray;
+    public static TextInputSource TextString;
+}
+internal enum UnityEngine.TextCore.Text.TextOverflowMode : Enum {
+    public int value__;
+    public static TextOverflowMode Overflow;
+    public static TextOverflowMode Ellipsis;
+    public static TextOverflowMode Masking;
+    public static TextOverflowMode Truncate;
+    public static TextOverflowMode ScrollRect;
+    public static TextOverflowMode Page;
+    public static TextOverflowMode Linked;
+}
+[DebuggerDisplayAttribute("Unicode ({unicode})  '{(char)unicode}'")]
+internal class UnityEngine.TextCore.Text.TextProcessingElement : ValueType {
+    public TextProcessingElementType elementType;
+    public UInt32 unicode;
+    public int stringIndex;
+    public int length;
+}
+internal enum UnityEngine.TextCore.Text.TextProcessingElementType : Enum {
+    public int value__;
+    public static TextProcessingElementType Undefined;
+    public static TextProcessingElementType TextCharacterElement;
+    public static TextProcessingElementType TextMarkupElement;
+}
+[DebuggerDisplayAttribute("Item count = {m_Count}")]
+internal class UnityEngine.TextCore.Text.TextProcessingStack`1 : ValueType {
+    public T[] itemStack;
+    public int index;
+    private T m_DefaultItem;
+    private int m_Capacity;
+    private int m_RolloverSize;
+    private int m_Count;
+    private static int k_DefaultCapacity;
+    public int Count { get; }
+    public T current { get; }
+    public int rolloverSize { get; public set; }
+    public TextProcessingStack`1(T[] stack);
+    public TextProcessingStack`1(int capacity);
+    public TextProcessingStack`1(int capacity, int rolloverSize);
+    public int get_Count();
+    public T get_current();
+    public int get_rolloverSize();
+    public void set_rolloverSize(int value);
+    internal static void SetDefault(TextProcessingStack`1[] stack, T item);
+    public void Clear();
+    public void SetDefault(T item);
+    public void Add(T item);
+    public T Remove();
+    public void Push(T item);
+    public T Pop();
+    public T Peek();
+    public T CurrentItem();
+    public T PreviousItem();
+}
+internal class UnityEngine.TextCore.Text.TextResourceManager : object {
+    private static Dictionary`2<int, FontAssetRef> s_FontAssetReferences;
+    private static Dictionary`2<int, FontAsset> s_FontAssetNameReferenceLookup;
+    private static Dictionary`2<long, FontAsset> s_FontAssetFamilyNameAndStyleReferenceLookup;
+    private static List`1<int> s_FontAssetRemovalList;
+    private static int k_RegularStyleHashCode;
+    private static TextResourceManager();
+    internal static void AddFontAsset(FontAsset fontAsset);
+    public static void RemoveFontAsset(FontAsset fontAsset);
+    internal static bool TryGetFontAssetByName(int nameHashcode, FontAsset& fontAsset);
+    internal static bool TryGetFontAssetByFamilyName(int familyNameHashCode, int styleNameHashCode, FontAsset& fontAsset);
+    internal static void RebuildFontAssetCache();
+}
+[ExcludeFromObjectFactoryAttribute]
+[ExcludeFromPresetAttribute]
+public class UnityEngine.TextCore.Text.TextSettings : ScriptableObject {
+    [SerializeField]
+protected string m_Version;
+    [FormerlySerializedAsAttribute("m_defaultFontAsset")]
+[SerializeField]
+protected FontAsset m_DefaultFontAsset;
+    [FormerlySerializedAsAttribute("m_defaultFontAssetPath")]
+[SerializeField]
+protected string m_DefaultFontAssetPath;
+    [FormerlySerializedAsAttribute("m_fallbackFontAssets")]
+[SerializeField]
+protected List`1<FontAsset> m_FallbackFontAssets;
+    [FormerlySerializedAsAttribute("m_matchMaterialPreset")]
+[SerializeField]
+protected bool m_MatchMaterialPreset;
+    [FormerlySerializedAsAttribute("m_missingGlyphCharacter")]
+[SerializeField]
+protected int m_MissingCharacterUnicode;
+    [SerializeField]
+protected bool m_ClearDynamicDataOnBuild;
+    [FormerlySerializedAsAttribute("m_defaultSpriteAsset")]
+[SerializeField]
+protected SpriteAsset m_DefaultSpriteAsset;
+    [FormerlySerializedAsAttribute("m_defaultSpriteAssetPath")]
+[SerializeField]
+protected string m_DefaultSpriteAssetPath;
+    [SerializeField]
+protected List`1<SpriteAsset> m_FallbackSpriteAssets;
+    [SerializeField]
+protected UInt32 m_MissingSpriteCharacterUnicode;
+    [FormerlySerializedAsAttribute("m_defaultStyleSheet")]
+[SerializeField]
+protected TextStyleSheet m_DefaultStyleSheet;
+    [SerializeField]
+protected string m_StyleSheetsResourcePath;
+    [FormerlySerializedAsAttribute("m_defaultColorGradientPresetsPath")]
+[SerializeField]
+protected string m_DefaultColorGradientPresetsPath;
+    [SerializeField]
+protected UnicodeLineBreakingRules m_UnicodeLineBreakingRules;
+    [SerializeField]
+private bool m_UseModernHangulLineBreakingRules;
+    [FormerlySerializedAsAttribute("m_warningsDisabled")]
+[SerializeField]
+protected bool m_DisplayWarnings;
+    internal Dictionary`2<int, FontAsset> m_FontLookup;
+    private List`1<FontReferenceMap> m_FontReferences;
+    public string version { get; internal set; }
+    public FontAsset defaultFontAsset { get; public set; }
+    public string defaultFontAssetPath { get; public set; }
+    public List`1<FontAsset> fallbackFontAssets { get; public set; }
+    public bool matchMaterialPreset { get; public set; }
+    public int missingCharacterUnicode { get; public set; }
+    public bool clearDynamicDataOnBuild { get; public set; }
+    public SpriteAsset defaultSpriteAsset { get; public set; }
+    public string defaultSpriteAssetPath { get; public set; }
+    public List`1<SpriteAsset> fallbackSpriteAssets { get; public set; }
+    public UInt32 missingSpriteCharacterUnicode { get; public set; }
+    public TextStyleSheet defaultStyleSheet { get; public set; }
+    public string styleSheetsResourcePath { get; public set; }
+    public string defaultColorGradientPresetsPath { get; public set; }
+    public UnicodeLineBreakingRules lineBreakingRules { get; public set; }
+    public bool useModernHangulLineBreakingRules { get; public set; }
+    public bool displayWarnings { get; public set; }
+    public string get_version();
+    internal void set_version(string value);
+    public FontAsset get_defaultFontAsset();
+    public void set_defaultFontAsset(FontAsset value);
+    public string get_defaultFontAssetPath();
+    public void set_defaultFontAssetPath(string value);
+    public List`1<FontAsset> get_fallbackFontAssets();
+    public void set_fallbackFontAssets(List`1<FontAsset> value);
+    public bool get_matchMaterialPreset();
+    public void set_matchMaterialPreset(bool value);
+    public int get_missingCharacterUnicode();
+    public void set_missingCharacterUnicode(int value);
+    public bool get_clearDynamicDataOnBuild();
+    public void set_clearDynamicDataOnBuild(bool value);
+    public SpriteAsset get_defaultSpriteAsset();
+    public void set_defaultSpriteAsset(SpriteAsset value);
+    public string get_defaultSpriteAssetPath();
+    public void set_defaultSpriteAssetPath(string value);
+    public List`1<SpriteAsset> get_fallbackSpriteAssets();
+    public void set_fallbackSpriteAssets(List`1<SpriteAsset> value);
+    public UInt32 get_missingSpriteCharacterUnicode();
+    public void set_missingSpriteCharacterUnicode(UInt32 value);
+    public TextStyleSheet get_defaultStyleSheet();
+    public void set_defaultStyleSheet(TextStyleSheet value);
+    public string get_styleSheetsResourcePath();
+    public void set_styleSheetsResourcePath(string value);
+    public string get_defaultColorGradientPresetsPath();
+    public void set_defaultColorGradientPresetsPath(string value);
+    public UnicodeLineBreakingRules get_lineBreakingRules();
+    public void set_lineBreakingRules(UnicodeLineBreakingRules value);
+    public bool get_useModernHangulLineBreakingRules();
+    public void set_useModernHangulLineBreakingRules(bool value);
+    public bool get_displayWarnings();
+    public void set_displayWarnings(bool value);
+    private void OnEnable();
+    protected void InitializeFontReferenceLookup();
+    protected FontAsset GetCachedFontAssetInternal(Font font);
+}
+[ExcludeFromDocsAttribute]
+public static class UnityEngine.TextCore.Text.TextShaderUtilities : object {
+    public static int ID_MainTex;
+    public static int ID_FaceTex;
+    public static int ID_FaceColor;
+    public static int ID_FaceDilate;
+    public static int ID_Shininess;
+    public static int ID_OutlineOffset1;
+    public static int ID_OutlineOffset2;
+    public static int ID_OutlineOffset3;
+    public static int ID_OutlineMode;
+    public static int ID_IsoPerimeter;
+    public static int ID_Softness;
+    public static int ID_UnderlayColor;
+    public static int ID_UnderlayOffsetX;
+    public static int ID_UnderlayOffsetY;
+    public static int ID_UnderlayDilate;
+    public static int ID_UnderlaySoftness;
+    public static int ID_UnderlayOffset;
+    public static int ID_UnderlayIsoPerimeter;
+    public static int ID_WeightNormal;
+    public static int ID_WeightBold;
+    public static int ID_OutlineTex;
+    public static int ID_OutlineWidth;
+    public static int ID_OutlineSoftness;
+    public static int ID_OutlineColor;
+    public static int ID_Outline2Color;
+    public static int ID_Outline2Width;
+    public static int ID_Padding;
+    public static int ID_GradientScale;
+    public static int ID_ScaleX;
+    public static int ID_ScaleY;
+    public static int ID_PerspectiveFilter;
+    public static int ID_Sharpness;
+    public static int ID_TextureWidth;
+    public static int ID_TextureHeight;
+    public static int ID_BevelAmount;
+    public static int ID_GlowColor;
+    public static int ID_GlowOffset;
+    public static int ID_GlowPower;
+    public static int ID_GlowOuter;
+    public static int ID_GlowInner;
+    public static int ID_LightAngle;
+    public static int ID_EnvMap;
+    public static int ID_EnvMatrix;
+    public static int ID_EnvMatrixRotation;
+    public static int ID_MaskCoord;
+    public static int ID_ClipRect;
+    public static int ID_MaskSoftnessX;
+    public static int ID_MaskSoftnessY;
+    public static int ID_VertexOffsetX;
+    public static int ID_VertexOffsetY;
+    public static int ID_UseClipRect;
+    public static int ID_StencilID;
+    public static int ID_StencilOp;
+    public static int ID_StencilComp;
+    public static int ID_StencilReadMask;
+    public static int ID_StencilWriteMask;
+    public static int ID_ShaderFlags;
+    public static int ID_ScaleRatio_A;
+    public static int ID_ScaleRatio_B;
+    public static int ID_ScaleRatio_C;
+    public static string Keyword_Bevel;
+    public static string Keyword_Glow;
+    public static string Keyword_Underlay;
+    public static string Keyword_Ratios;
+    public static string Keyword_MASK_SOFT;
+    public static string Keyword_MASK_HARD;
+    public static string Keyword_MASK_TEX;
+    public static string Keyword_Outline;
+    public static string ShaderTag_ZTestMode;
+    public static string ShaderTag_CullMode;
+    private static float m_clamp;
+    public static bool isInitialized;
+    private static Shader k_ShaderRef_MobileSDF;
+    private static Shader k_ShaderRef_MobileBitmap;
+    private static Shader k_ShaderRef_Sprite;
+    internal static Shader ShaderRef_MobileSDF { get; }
+    internal static Shader ShaderRef_MobileBitmap { get; }
+    internal static Shader ShaderRef_Sprite { get; }
+    private static TextShaderUtilities();
+    internal static Shader get_ShaderRef_MobileSDF();
+    internal static Shader get_ShaderRef_MobileBitmap();
+    internal static Shader get_ShaderRef_Sprite();
+    internal static void GetShaderPropertyIDs();
+    private static void UpdateShaderRatios(Material mat);
+    internal static Vector4 GetFontExtent(Material material);
+    internal static bool IsMaskingEnabled(Material material);
+    internal static float GetPadding(Material material, bool enableExtraPadding, bool isBold);
+    private static float ComputePaddingForProperties(Material mat);
+    internal static float GetPadding(Material[] materials, bool enableExtraPadding, bool isBold);
+}
+public class UnityEngine.TextCore.Text.TextStyle : object {
+    internal static TextStyle k_NormalStyle;
+    [SerializeField]
+private string m_Name;
+    [SerializeField]
+private int m_HashCode;
+    [SerializeField]
+private string m_OpeningDefinition;
+    [SerializeField]
+private string m_ClosingDefinition;
+    [SerializeField]
+private UInt32[] m_OpeningTagArray;
+    [SerializeField]
+private UInt32[] m_ClosingTagArray;
+    [SerializeField]
+internal UInt32[] m_OpeningTagUnicodeArray;
+    [SerializeField]
+internal UInt32[] m_ClosingTagUnicodeArray;
+    public static TextStyle NormalStyle { get; }
+    public string name { get; public set; }
+    public int hashCode { get; public set; }
+    public string styleOpeningDefinition { get; }
+    public string styleClosingDefinition { get; }
+    public UInt32[] styleOpeningTagArray { get; }
+    public UInt32[] styleClosingTagArray { get; }
+    internal TextStyle(string styleName, string styleOpeningDefinition, string styleClosingDefinition);
+    public static TextStyle get_NormalStyle();
+    public string get_name();
+    public void set_name(string value);
+    public int get_hashCode();
+    public void set_hashCode(int value);
+    public string get_styleOpeningDefinition();
+    public string get_styleClosingDefinition();
+    public UInt32[] get_styleOpeningTagArray();
+    public UInt32[] get_styleClosingTagArray();
+    public void RefreshStyle();
+}
+[ExcludeFromObjectFactoryAttribute]
+[ExcludeFromPresetAttribute]
+public class UnityEngine.TextCore.Text.TextStyleSheet : ScriptableObject {
+    [SerializeField]
+private List`1<TextStyle> m_StyleList;
+    private Dictionary`2<int, TextStyle> m_StyleLookupDictionary;
+    internal List`1<TextStyle> styles { get; }
+    internal List`1<TextStyle> get_styles();
+    private void Reset();
+    public TextStyle GetStyle(int hashCode);
+    public TextStyle GetStyle(string name);
+    public void RefreshStyles();
+    private void LoadStyleDictionaryInternal();
+}
+internal enum UnityEngine.TextCore.Text.TextureMapping : Enum {
+    public int value__;
+    public static TextureMapping Character;
+    public static TextureMapping Line;
+    public static TextureMapping Paragraph;
+    public static TextureMapping MatchAspect;
+}
+[ExtensionAttribute]
+internal static class UnityEngine.TextCore.Text.TextUtilities : object {
+    private static string k_LookupStringL;
+    private static string k_LookupStringU;
+    internal static void ResizeArray(T[]& array);
+    internal static void ResizeArray(T[]& array, int size);
+    internal static int NextPowerOfTwo(int v);
+    internal static char ToLowerFast(char c);
+    internal static char ToUpperFast(char c);
+    internal static UInt32 ToUpperASCIIFast(UInt32 c);
+    internal static UInt32 ToLowerASCIIFast(UInt32 c);
+    public static int GetHashCodeCaseSensitive(string s);
+    public static int GetHashCodeCaseInSensitive(string s);
+    public static UInt32 GetSimpleHashCodeLowercase(string s);
+    internal static UInt32 ConvertToUTF32(UInt32 highSurrogate, UInt32 lowSurrogate);
+    internal static UInt32 ReadUTF16(UInt32[] text, int index);
+    internal static UInt32 ReadUTF32(UInt32[] text, int index);
+    private static UInt32 HexToInt(char hex);
+    public static UInt32 StringHexToInt(string s);
+    [ExtensionAttribute]
+internal static string UintToString(List`1<UInt32> unicodes);
+}
+internal class UnityEngine.TextCore.Text.TextVertex : ValueType {
+    public Vector3 position;
+    public Vector4 uv;
+    public Vector2 uv2;
+    public Color32 color;
+}
+internal enum UnityEngine.TextCore.Text.TextWrappingMode : Enum {
+    public int value__;
+    public static TextWrappingMode NoWrap;
+    public static TextWrappingMode Normal;
+    public static TextWrappingMode PreserveWhitespace;
+    public static TextWrappingMode PreserveWhitespaceNoWrap;
+}
+public class UnityEngine.TextCore.Text.UnicodeLineBreakingRules : object {
+    [SerializeField]
+private TextAsset m_UnicodeLineBreakingRules;
+    [SerializeField]
+private TextAsset m_LeadingCharacters;
+    [SerializeField]
+private TextAsset m_FollowingCharacters;
+    [SerializeField]
+private bool m_UseModernHangulLineBreakingRules;
+    private HashSet`1<UInt32> m_LeadingCharactersLookup;
+    private HashSet`1<UInt32> m_FollowingCharactersLookup;
+    public TextAsset lineBreakingRules { get; }
+    public TextAsset leadingCharacters { get; }
+    public TextAsset followingCharacters { get; }
+    internal HashSet`1<UInt32> leadingCharactersLookup { get; internal set; }
+    internal HashSet`1<UInt32> followingCharactersLookup { get; internal set; }
+    public bool useModernHangulLineBreakingRules { get; public set; }
+    public TextAsset get_lineBreakingRules();
+    public TextAsset get_leadingCharacters();
+    public TextAsset get_followingCharacters();
+    internal HashSet`1<UInt32> get_leadingCharactersLookup();
+    internal void set_leadingCharactersLookup(HashSet`1<UInt32> value);
+    internal HashSet`1<UInt32> get_followingCharactersLookup();
+    internal void set_followingCharactersLookup(HashSet`1<UInt32> value);
+    public bool get_useModernHangulLineBreakingRules();
+    public void set_useModernHangulLineBreakingRules(bool value);
+    internal void LoadLineBreakingRules();
+    internal void LoadLineBreakingRules(TextAsset leadingRules, TextAsset followingRules);
+    private static HashSet`1<UInt32> GetCharacters(TextAsset file);
+}
+internal enum UnityEngine.TextCore.Text.VertexSortingOrder : Enum {
+    public int value__;
+    public static VertexSortingOrder Normal;
+    public static VertexSortingOrder Reverse;
+}
+[FlagsAttribute]
+internal enum UnityEngine.TextCore.Text.VerticalAlignment : Enum {
+    public int value__;
+    public static VerticalAlignment Top;
+    public static VerticalAlignment Middle;
+    public static VerticalAlignment Bottom;
+    public static VerticalAlignment Baseline;
+    public static VerticalAlignment Midline;
+    public static VerticalAlignment Capline;
+}
+internal class UnityEngine.TextCore.Text.WordInfo : ValueType {
+    public int firstCharacterIndex;
+    public int lastCharacterIndex;
+    public int characterCount;
+}
+internal class UnityEngine.TextCore.Text.WordWrapState : ValueType {
+    public int previousWordBreak;
+    public int totalCharacterCount;
+    public int visibleCharacterCount;
+    public int visibleSpaceCount;
+    public int visibleSpriteCount;
+    public int visibleLinkCount;
+    public int firstCharacterIndex;
+    public int firstVisibleCharacterIndex;
+    public int lastCharacterIndex;
+    public int lastVisibleCharIndex;
+    public int lineNumber;
+    public float maxCapHeight;
+    public float maxAscender;
+    public float maxDescender;
+    public float maxLineAscender;
+    public float maxLineDescender;
+    public float startOfLineAscender;
+    public float xAdvance;
+    public float preferredWidth;
+    public float preferredHeight;
+    public float previousLineScale;
+    public float pageAscender;
+    public int wordCount;
+    public FontStyles fontStyle;
+    public float fontScale;
+    public float fontScaleMultiplier;
+    public int italicAngle;
+    public float currentFontSize;
+    public float baselineOffset;
+    public float lineOffset;
+    public TextInfo textInfo;
+    public LineInfo lineInfo;
+    public Color32 vertexColor;
+    public Color32 underlineColor;
+    public Color32 strikethroughColor;
+    public Color32 highlightColor;
+    public HighlightState highlightState;
+    public FontStyleStack basicStyleStack;
+    public TextProcessingStack`1<int> italicAngleStack;
+    public TextProcessingStack`1<Color32> colorStack;
+    public TextProcessingStack`1<Color32> underlineColorStack;
+    public TextProcessingStack`1<Color32> strikethroughColorStack;
+    public TextProcessingStack`1<Color32> highlightColorStack;
+    public TextProcessingStack`1<HighlightState> highlightStateStack;
+    public TextProcessingStack`1<TextColorGradient> colorGradientStack;
+    public TextProcessingStack`1<float> sizeStack;
+    public TextProcessingStack`1<float> indentStack;
+    public TextProcessingStack`1<TextFontWeight> fontWeightStack;
+    public TextProcessingStack`1<int> styleStack;
+    public TextProcessingStack`1<float> baselineStack;
+    public TextProcessingStack`1<int> actionStack;
+    public TextProcessingStack`1<MaterialReference> materialReferenceStack;
+    public TextProcessingStack`1<TextAlignment> lineJustificationStack;
+    public int lastBaseGlyphIndex;
+    public int spriteAnimationId;
+    public FontAsset currentFontAsset;
+    public SpriteAsset currentSpriteAsset;
+    public Material currentMaterial;
+    public int currentMaterialIndex;
+    public Extents meshExtents;
+    public bool tagNoParsing;
+    public bool isNonBreakingSpace;
+    public bool isDrivenLineSpacing;
+    public Vector3 fxScale;
+    public Quaternion fxRotation;
+}
+internal class UnityEngine.TextCore.Text.XmlTagAttribute : ValueType {
+    public int nameHashCode;
+    public TagValueType valueType;
+    public int valueStartIndex;
+    public int valueLength;
+    public int valueHashCode;
+}

@@ -1,0 +1,389 @@
+[UsedByNativeCodeAttribute]
+public class UnityEngine.CharacterInfo : ValueType {
+    public int index;
+    [ObsoleteAttribute("CharacterInfo.uv is deprecated. Use uvBottomLeft, uvBottomRight, uvTopRight or uvTopLeft instead.")]
+public Rect uv;
+    [ObsoleteAttribute("CharacterInfo.vert is deprecated. Use minX, maxX, minY, maxY instead.")]
+public Rect vert;
+    [NativeNameAttribute("advance")]
+[ObsoleteAttribute("CharacterInfo.width is deprecated. Use advance instead.")]
+public float width;
+    public int size;
+    public FontStyle style;
+    [ObsoleteAttribute("CharacterInfo.flipped is deprecated. Use uvBottomLeft, uvBottomRight, uvTopRight or uvTopLeft instead, which will be correct regardless of orientation.")]
+public bool flipped;
+    public int advance { get; public set; }
+    public int glyphWidth { get; public set; }
+    public int glyphHeight { get; public set; }
+    public int bearing { get; public set; }
+    public int minY { get; public set; }
+    public int maxY { get; public set; }
+    public int minX { get; public set; }
+    public int maxX { get; public set; }
+    internal Vector2 uvBottomLeftUnFlipped { get; internal set; }
+    internal Vector2 uvBottomRightUnFlipped { get; internal set; }
+    internal Vector2 uvTopRightUnFlipped { get; internal set; }
+    internal Vector2 uvTopLeftUnFlipped { get; internal set; }
+    public Vector2 uvBottomLeft { get; public set; }
+    public Vector2 uvBottomRight { get; public set; }
+    public Vector2 uvTopRight { get; public set; }
+    public Vector2 uvTopLeft { get; public set; }
+    public int get_advance();
+    public void set_advance(int value);
+    public int get_glyphWidth();
+    public void set_glyphWidth(int value);
+    public int get_glyphHeight();
+    public void set_glyphHeight(int value);
+    public int get_bearing();
+    public void set_bearing(int value);
+    public int get_minY();
+    public void set_minY(int value);
+    public int get_maxY();
+    public void set_maxY(int value);
+    public int get_minX();
+    public void set_minX(int value);
+    public int get_maxX();
+    public void set_maxX(int value);
+    internal Vector2 get_uvBottomLeftUnFlipped();
+    internal void set_uvBottomLeftUnFlipped(Vector2 value);
+    internal Vector2 get_uvBottomRightUnFlipped();
+    internal void set_uvBottomRightUnFlipped(Vector2 value);
+    internal Vector2 get_uvTopRightUnFlipped();
+    internal void set_uvTopRightUnFlipped(Vector2 value);
+    internal Vector2 get_uvTopLeftUnFlipped();
+    internal void set_uvTopLeftUnFlipped(Vector2 value);
+    public Vector2 get_uvBottomLeft();
+    public void set_uvBottomLeft(Vector2 value);
+    public Vector2 get_uvBottomRight();
+    public void set_uvBottomRight(Vector2 value);
+    public Vector2 get_uvTopRight();
+    public void set_uvTopRight(Vector2 value);
+    public Vector2 get_uvTopLeft();
+    public void set_uvTopLeft(Vector2 value);
+}
+[NativeClassAttribute("TextRendering::Font")]
+[NativeHeaderAttribute("Modules/TextRendering/Public/Font.h")]
+[NativeHeaderAttribute("Modules/TextRendering/Public/FontImpl.h")]
+[StaticAccessorAttribute("TextRenderingPrivate", "2")]
+public class UnityEngine.Font : Object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action`1<Font> textureRebuilt;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private FontTextureRebuildCallback m_FontTextureRebuildCallback;
+    public Material material { get; public set; }
+    public String[] fontNames { get; public set; }
+    public bool dynamic { get; }
+    public int ascent { get; }
+    public int fontSize { get; }
+    public CharacterInfo[] characterInfo { get; public set; }
+    [NativePropertyAttribute("LineSpacing", "False", "0")]
+public int lineHeight { get; }
+    [ObsoleteAttribute("Font.textureRebuildCallback has been deprecated. Use Font.textureRebuilt instead.")]
+public FontTextureRebuildCallback textureRebuildCallback { get; public set; }
+    public Font(string name);
+    private Font(String[] names, int size);
+    [CompilerGeneratedAttribute]
+public static void add_textureRebuilt(Action`1<Font> value);
+    [CompilerGeneratedAttribute]
+public static void remove_textureRebuilt(Action`1<Font> value);
+    [CompilerGeneratedAttribute]
+private void add_m_FontTextureRebuildCallback(FontTextureRebuildCallback value);
+    [CompilerGeneratedAttribute]
+private void remove_m_FontTextureRebuildCallback(FontTextureRebuildCallback value);
+    public Material get_material();
+    public void set_material(Material value);
+    public String[] get_fontNames();
+    public void set_fontNames(String[] value);
+    public bool get_dynamic();
+    public int get_ascent();
+    public int get_fontSize();
+    [FreeFunctionAttribute("TextRenderingPrivate::GetFontCharacterInfo")]
+public CharacterInfo[] get_characterInfo();
+    [FreeFunctionAttribute("TextRenderingPrivate::SetFontCharacterInfo")]
+public void set_characterInfo(CharacterInfo[] value);
+    public int get_lineHeight();
+    public FontTextureRebuildCallback get_textureRebuildCallback();
+    public void set_textureRebuildCallback(FontTextureRebuildCallback value);
+    public static Font CreateDynamicFontFromOSFont(string fontname, int size);
+    public static Font CreateDynamicFontFromOSFont(String[] fontnames, int size);
+    [RequiredByNativeCodeAttribute]
+internal static void InvokeTextureRebuilt_Internal(Font font);
+    public static int GetMaxVertsForString(string str);
+    internal static Font GetDefault();
+    public bool HasCharacter(char c);
+    private bool HasCharacter(int c);
+    public static String[] GetOSInstalledFontNames();
+    public static String[] GetPathsToOSFonts();
+    private static void Internal_CreateFont(Font self, string name);
+    private static void Internal_CreateFontFromPath(Font self, string fontPath);
+    private static void Internal_CreateDynamicFont(Font self, String[] _names, int size);
+    [FreeFunctionAttribute("TextRenderingPrivate::GetCharacterInfo")]
+public bool GetCharacterInfo(char ch, CharacterInfo& info, int size, FontStyle style);
+    [ExcludeFromDocsAttribute]
+public bool GetCharacterInfo(char ch, CharacterInfo& info, int size);
+    [ExcludeFromDocsAttribute]
+public bool GetCharacterInfo(char ch, CharacterInfo& info);
+    public void RequestCharactersInTexture(string characters, int size, FontStyle style);
+    [ExcludeFromDocsAttribute]
+public void RequestCharactersInTexture(string characters, int size);
+    [ExcludeFromDocsAttribute]
+public void RequestCharactersInTexture(string characters);
+}
+public enum UnityEngine.FontStyle : Enum {
+    public int value__;
+    public static FontStyle Normal;
+    public static FontStyle Bold;
+    public static FontStyle Italic;
+    public static FontStyle BoldAndItalic;
+}
+[EditorBrowsableAttribute("1")]
+[ExcludeFromObjectFactoryAttribute]
+[ExcludeFromPresetAttribute]
+[ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public class UnityEngine.GUIText : object {
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public bool text { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public Material material { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public Font font { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public TextAlignment alignment { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public TextAnchor anchor { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public float lineSpacing { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public float tabSize { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public int fontSize { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public FontStyle fontStyle { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public bool richText { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public Color color { get; public set; }
+    [ObsoleteAttribute("GUIText has been removed. Use UI.Text instead.", "True")]
+public Vector2 pixelOffset { get; public set; }
+    private static void FeatureRemoved();
+    public bool get_text();
+    public void set_text(bool value);
+    public Material get_material();
+    public void set_material(Material value);
+    public Font get_font();
+    public void set_font(Font value);
+    public TextAlignment get_alignment();
+    public void set_alignment(TextAlignment value);
+    public TextAnchor get_anchor();
+    public void set_anchor(TextAnchor value);
+    public float get_lineSpacing();
+    public void set_lineSpacing(float value);
+    public float get_tabSize();
+    public void set_tabSize(float value);
+    public int get_fontSize();
+    public void set_fontSize(int value);
+    public FontStyle get_fontStyle();
+    public void set_fontStyle(FontStyle value);
+    public bool get_richText();
+    public void set_richText(bool value);
+    public Color get_color();
+    public void set_color(Color value);
+    public Vector2 get_pixelOffset();
+    public void set_pixelOffset(Vector2 value);
+}
+public enum UnityEngine.HorizontalWrapMode : Enum {
+    public int value__;
+    public static HorizontalWrapMode Wrap;
+    public static HorizontalWrapMode Overflow;
+}
+public enum UnityEngine.TextAlignment : Enum {
+    public int value__;
+    public static TextAlignment Left;
+    public static TextAlignment Center;
+    public static TextAlignment Right;
+}
+public enum UnityEngine.TextAnchor : Enum {
+    public int value__;
+    public static TextAnchor UpperLeft;
+    public static TextAnchor UpperCenter;
+    public static TextAnchor UpperRight;
+    public static TextAnchor MiddleLeft;
+    public static TextAnchor MiddleCenter;
+    public static TextAnchor MiddleRight;
+    public static TextAnchor LowerLeft;
+    public static TextAnchor LowerCenter;
+    public static TextAnchor LowerRight;
+}
+[FlagsAttribute]
+internal enum UnityEngine.TextGenerationError : Enum {
+    public int value__;
+    public static TextGenerationError None;
+    public static TextGenerationError CustomSizeOnNonDynamicFont;
+    public static TextGenerationError CustomStyleOnNonDynamicFont;
+    public static TextGenerationError NoFont;
+}
+public class UnityEngine.TextGenerationSettings : ValueType {
+    public Font font;
+    public Color color;
+    public int fontSize;
+    public float lineSpacing;
+    public bool richText;
+    public float scaleFactor;
+    public FontStyle fontStyle;
+    public TextAnchor textAnchor;
+    public bool alignByGeometry;
+    public bool resizeTextForBestFit;
+    public int resizeTextMinSize;
+    public int resizeTextMaxSize;
+    public bool updateBounds;
+    public VerticalWrapMode verticalOverflow;
+    public HorizontalWrapMode horizontalOverflow;
+    public Vector2 generationExtents;
+    public Vector2 pivot;
+    public bool generateOutOfBounds;
+    private bool CompareColors(Color left, Color right);
+    private bool CompareVector2(Vector2 left, Vector2 right);
+    public bool Equals(TextGenerationSettings other);
+}
+[NativeHeaderAttribute("Modules/TextRendering/TextGenerator.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.TextGenerator : object {
+    internal IntPtr m_Ptr;
+    private string m_LastString;
+    private TextGenerationSettings m_LastSettings;
+    private bool m_HasGenerated;
+    private TextGenerationError m_LastValid;
+    private List`1<UIVertex> m_Verts;
+    private List`1<UICharInfo> m_Characters;
+    private List`1<UILineInfo> m_Lines;
+    private bool m_CachedVerts;
+    private bool m_CachedCharacters;
+    private bool m_CachedLines;
+    public int characterCountVisible { get; }
+    public IList`1<UIVertex> verts { get; }
+    public IList`1<UICharInfo> characters { get; }
+    public IList`1<UILineInfo> lines { get; }
+    public Rect rectExtents { get; }
+    public int vertexCount { get; }
+    public int characterCount { get; }
+    public int lineCount { get; }
+    [NativePropertyAttribute("FontSizeFoundForBestFit", "False", "0")]
+public int fontSizeUsedForBestFit { get; }
+    public TextGenerator(int initialCapacity);
+    protected virtual override void Finalize();
+    private sealed virtual override void System.IDisposable.Dispose();
+    public int get_characterCountVisible();
+    private TextGenerationSettings ValidatedSettings(TextGenerationSettings settings);
+    public void Invalidate();
+    public void GetCharacters(List`1<UICharInfo> characters);
+    public void GetLines(List`1<UILineInfo> lines);
+    public void GetVertices(List`1<UIVertex> vertices);
+    public float GetPreferredWidth(string str, TextGenerationSettings settings);
+    public float GetPreferredHeight(string str, TextGenerationSettings settings);
+    public bool PopulateWithErrors(string str, TextGenerationSettings settings, GameObject context);
+    public bool Populate(string str, TextGenerationSettings settings);
+    private TextGenerationError PopulateWithError(string str, TextGenerationSettings settings);
+    private TextGenerationError PopulateAlways(string str, TextGenerationSettings settings);
+    public IList`1<UIVertex> get_verts();
+    public IList`1<UICharInfo> get_characters();
+    public IList`1<UILineInfo> get_lines();
+    public Rect get_rectExtents();
+    public int get_vertexCount();
+    public int get_characterCount();
+    public int get_lineCount();
+    public int get_fontSizeUsedForBestFit();
+    [NativeMethodAttribute]
+private static IntPtr Internal_Create();
+    [NativeMethodAttribute]
+private static void Internal_Destroy(IntPtr ptr);
+    internal bool Populate_Internal(string str, Font font, Color color, int fontSize, float scaleFactor, float lineSpacing, FontStyle style, bool richText, bool resizeTextForBestFit, int resizeTextMinSize, int resizeTextMaxSize, int verticalOverFlow, int horizontalOverflow, bool updateBounds, TextAnchor anchor, float extentsX, float extentsY, float pivotX, float pivotY, bool generateOutOfBounds, bool alignByGeometry, UInt32& error);
+    internal bool Populate_Internal(string str, Font font, Color color, int fontSize, float scaleFactor, float lineSpacing, FontStyle style, bool richText, bool resizeTextForBestFit, int resizeTextMinSize, int resizeTextMaxSize, VerticalWrapMode verticalOverFlow, HorizontalWrapMode horizontalOverflow, bool updateBounds, TextAnchor anchor, Vector2 extents, Vector2 pivot, bool generateOutOfBounds, bool alignByGeometry, TextGenerationError& error);
+    public UIVertex[] GetVerticesArray();
+    public UICharInfo[] GetCharactersArray();
+    public UILineInfo[] GetLinesArray();
+    [NativeThrowsAttribute]
+private void GetVerticesInternal(object vertices);
+    [NativeThrowsAttribute]
+private void GetCharactersInternal(object characters);
+    [NativeThrowsAttribute]
+private void GetLinesInternal(object lines);
+    private void get_rectExtents_Injected(Rect& ret);
+    private bool Populate_Internal_Injected(string str, Font font, Color& color, int fontSize, float scaleFactor, float lineSpacing, FontStyle style, bool richText, bool resizeTextForBestFit, int resizeTextMinSize, int resizeTextMaxSize, int verticalOverFlow, int horizontalOverflow, bool updateBounds, TextAnchor anchor, float extentsX, float extentsY, float pivotX, float pivotY, bool generateOutOfBounds, bool alignByGeometry, UInt32& error);
+}
+[NativeClassAttribute("TextRenderingPrivate::TextMesh")]
+[NativeHeaderAttribute("Modules/TextRendering/Public/TextMesh.h")]
+[RequireComponent("UnityEngine.Transform", "UnityEngine.MeshRenderer")]
+public class UnityEngine.TextMesh : Component {
+    public string text { get; public set; }
+    public Font font { get; public set; }
+    public int fontSize { get; public set; }
+    public FontStyle fontStyle { get; public set; }
+    public float offsetZ { get; public set; }
+    public TextAlignment alignment { get; public set; }
+    public TextAnchor anchor { get; public set; }
+    public float characterSize { get; public set; }
+    public float lineSpacing { get; public set; }
+    public float tabSize { get; public set; }
+    public bool richText { get; public set; }
+    public Color color { get; public set; }
+    public string get_text();
+    public void set_text(string value);
+    public Font get_font();
+    public void set_font(Font value);
+    public int get_fontSize();
+    public void set_fontSize(int value);
+    public FontStyle get_fontStyle();
+    public void set_fontStyle(FontStyle value);
+    public float get_offsetZ();
+    public void set_offsetZ(float value);
+    public TextAlignment get_alignment();
+    public void set_alignment(TextAlignment value);
+    public TextAnchor get_anchor();
+    public void set_anchor(TextAnchor value);
+    public float get_characterSize();
+    public void set_characterSize(float value);
+    public float get_lineSpacing();
+    public void set_lineSpacing(float value);
+    public float get_tabSize();
+    public void set_tabSize(float value);
+    public bool get_richText();
+    public void set_richText(bool value);
+    public Color get_color();
+    public void set_color(Color value);
+    private void get_color_Injected(Color& ret);
+    private void set_color_Injected(Color& value);
+}
+[UsedByNativeCodeAttribute]
+public class UnityEngine.UICharInfo : ValueType {
+    public Vector2 cursorPos;
+    public float charWidth;
+}
+[UsedByNativeCodeAttribute]
+public class UnityEngine.UILineInfo : ValueType {
+    public int startCharIdx;
+    public int height;
+    public float topY;
+    public float leading;
+}
+[UsedByNativeCodeAttribute]
+public class UnityEngine.UIVertex : ValueType {
+    public Vector3 position;
+    public Vector3 normal;
+    public Vector4 tangent;
+    public Color32 color;
+    public Vector4 uv0;
+    public Vector4 uv1;
+    public Vector4 uv2;
+    public Vector4 uv3;
+    private static Color32 s_DefaultColor;
+    private static Vector4 s_DefaultTangent;
+    public static UIVertex simpleVert;
+    private static UIVertex();
+}
+public enum UnityEngine.VerticalWrapMode : Enum {
+    public int value__;
+    public static VerticalWrapMode Truncate;
+    public static VerticalWrapMode Overflow;
+}

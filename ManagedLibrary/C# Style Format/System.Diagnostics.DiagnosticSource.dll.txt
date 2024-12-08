@@ -1,0 +1,1803 @@
+internal static class FxResources.System.Diagnostics.DiagnosticSource.SR : object {
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.Activity : object {
+    private static IEnumerable`1<KeyValuePair`2<string, string>> s_emptyBaggageTags;
+    private static IEnumerable`1<KeyValuePair`2<string, object>> s_emptyTagObjects;
+    private static IEnumerable`1<ActivityLink> s_emptyLinks;
+    private static IEnumerable`1<ActivityEvent> s_emptyEvents;
+    private static ActivitySource s_defaultSource;
+    private static byte ActivityTraceFlagsIsSet;
+    private static int RequestIdMaxLength;
+    private static string s_uniqSuffix;
+    private static long s_currentRootId;
+    private static ActivityIdFormat s_defaultIdFormat;
+    [CompilerGeneratedAttribute]
+private static bool <ForceDefaultIdFormat>k__BackingField;
+    private string _traceState;
+    private State _state;
+    private int _currentChildId;
+    private string _id;
+    private string _rootId;
+    private string _parentId;
+    private string _parentSpanId;
+    private string _traceId;
+    private string _spanId;
+    private byte _w3CIdFlags;
+    private byte _parentTraceFlags;
+    private TagsLinkedList _tags;
+    private BaggageLinkedList _baggage;
+    private DiagLinkedList`1<ActivityLink> _links;
+    private DiagLinkedList`1<ActivityEvent> _events;
+    private Dictionary`2<string, object> _customProperties;
+    private string _displayName;
+    private ActivityStatusCode _statusCode;
+    private string _statusDescription;
+    private Activity _previousActiveActivity;
+    [CompilerGeneratedAttribute]
+private ActivityKind <Kind>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <OperationName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ActivitySource <Source>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Activity <Parent>k__BackingField;
+    [CompilerGeneratedAttribute]
+private TimeSpan <Duration>k__BackingField;
+    [CompilerGeneratedAttribute]
+private DateTime <StartTimeUtc>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <IsAllDataRequested>k__BackingField;
+    [CompilerGeneratedAttribute]
+private static Func`1<ActivityTraceId> <TraceIdGenerator>k__BackingField;
+    private static AsyncLocal`1<Activity> s_current;
+    public static bool ForceDefaultIdFormat { get; public set; }
+    public ActivityStatusCode Status { get; }
+    [NullableAttribute("2")]
+public string StatusDescription { get; }
+    public ActivityKind Kind { get; private set; }
+    public string OperationName { get; }
+    public string DisplayName { get; public set; }
+    public ActivitySource Source { get; private set; }
+    [NullableAttribute("2")]
+public Activity Parent { get; private set; }
+    public TimeSpan Duration { get; private set; }
+    public DateTime StartTimeUtc { get; private set; }
+    [NullableAttribute("2")]
+public string Id { get; }
+    [NullableAttribute("2")]
+public string ParentId { get; }
+    [NullableAttribute("2")]
+public string RootId { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public IEnumerable`1<KeyValuePair`2<string, string>> Tags { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public IEnumerable`1<KeyValuePair`2<string, object>> TagObjects { get; }
+    public IEnumerable`1<ActivityEvent> Events { get; }
+    public IEnumerable`1<ActivityLink> Links { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public IEnumerable`1<KeyValuePair`2<string, string>> Baggage { get; }
+    public ActivityContext Context { get; }
+    [NullableAttribute("2")]
+public string TraceStateString { get; public set; }
+    public ActivitySpanId SpanId { get; }
+    public ActivityTraceId TraceId { get; }
+    public bool Recorded { get; }
+    public bool IsAllDataRequested { get; public set; }
+    public ActivityTraceFlags ActivityTraceFlags { get; public set; }
+    public ActivitySpanId ParentSpanId { get; }
+    [NullableAttribute("2")]
+public static Func`1<ActivityTraceId> TraceIdGenerator { get; public set; }
+    public static ActivityIdFormat DefaultIdFormat { get; public set; }
+    private bool W3CIdFlagsSet { get; }
+    private bool IsFinished { get; private set; }
+    public ActivityIdFormat IdFormat { get; private set; }
+    [NullableAttribute("2")]
+public static Activity Current { get; public set; }
+    public Activity(string operationName);
+    private static Activity();
+    [CompilerGeneratedAttribute]
+public static bool get_ForceDefaultIdFormat();
+    [CompilerGeneratedAttribute]
+public static void set_ForceDefaultIdFormat(bool value);
+    public ActivityStatusCode get_Status();
+    [NullableContextAttribute("2")]
+public string get_StatusDescription();
+    public Activity SetStatus(ActivityStatusCode code, string description);
+    [CompilerGeneratedAttribute]
+public ActivityKind get_Kind();
+    [CompilerGeneratedAttribute]
+private void set_Kind(ActivityKind value);
+    [CompilerGeneratedAttribute]
+public string get_OperationName();
+    public string get_DisplayName();
+    public void set_DisplayName(string value);
+    [CompilerGeneratedAttribute]
+public ActivitySource get_Source();
+    [CompilerGeneratedAttribute]
+private void set_Source(ActivitySource value);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public Activity get_Parent();
+    [CompilerGeneratedAttribute]
+private void set_Parent(Activity value);
+    [CompilerGeneratedAttribute]
+public TimeSpan get_Duration();
+    [CompilerGeneratedAttribute]
+private void set_Duration(TimeSpan value);
+    [CompilerGeneratedAttribute]
+public DateTime get_StartTimeUtc();
+    [CompilerGeneratedAttribute]
+private void set_StartTimeUtc(DateTime value);
+    [NullableContextAttribute("2")]
+public string get_Id();
+    [NullableContextAttribute("2")]
+public string get_ParentId();
+    [NullableContextAttribute("2")]
+public string get_RootId();
+    public IEnumerable`1<KeyValuePair`2<string, string>> get_Tags();
+    public IEnumerable`1<KeyValuePair`2<string, object>> get_TagObjects();
+    public IEnumerable`1<ActivityEvent> get_Events();
+    public IEnumerable`1<ActivityLink> get_Links();
+    public IEnumerable`1<KeyValuePair`2<string, string>> get_Baggage();
+    public string GetBaggageItem(string key);
+    public object GetTagItem(string key);
+    public Activity AddTag(string key, string value);
+    public Activity AddTag(string key, object value);
+    public Activity SetTag(string key, object value);
+    public Activity AddEvent(ActivityEvent e);
+    public Activity AddBaggage(string key, string value);
+    public Activity SetBaggage(string key, string value);
+    public Activity SetParentId(string parentId);
+    public Activity SetParentId(ActivityTraceId traceId, ActivitySpanId spanId, ActivityTraceFlags activityTraceFlags);
+    public Activity SetStartTime(DateTime startTimeUtc);
+    public Activity SetEndTime(DateTime endTimeUtc);
+    public ActivityContext get_Context();
+    public Activity Start();
+    public void Stop();
+    [NullableContextAttribute("2")]
+public string get_TraceStateString();
+    [NullableContextAttribute("2")]
+public void set_TraceStateString(string value);
+    public ActivitySpanId get_SpanId();
+    public ActivityTraceId get_TraceId();
+    public bool get_Recorded();
+    [CompilerGeneratedAttribute]
+public bool get_IsAllDataRequested();
+    [CompilerGeneratedAttribute]
+public void set_IsAllDataRequested(bool value);
+    public ActivityTraceFlags get_ActivityTraceFlags();
+    public void set_ActivityTraceFlags(ActivityTraceFlags value);
+    public ActivitySpanId get_ParentSpanId();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public static Func`1<ActivityTraceId> get_TraceIdGenerator();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public static void set_TraceIdGenerator(Func`1<ActivityTraceId> value);
+    public static ActivityIdFormat get_DefaultIdFormat();
+    public static void set_DefaultIdFormat(ActivityIdFormat value);
+    public Activity SetIdFormat(ActivityIdFormat format);
+    private static bool IsW3CId(string id);
+    internal static bool TryConvertIdToContext(string traceParent, string traceState, ActivityContext& context);
+    public sealed virtual void Dispose();
+    protected virtual void Dispose(bool disposing);
+    public void SetCustomProperty(string propertyName, object propertyValue);
+    public object GetCustomProperty(string propertyName);
+    internal static Activity Create(ActivitySource source, string name, ActivityKind kind, string parentId, ActivityContext parentContext, IEnumerable`1<KeyValuePair`2<string, object>> tags, IEnumerable`1<ActivityLink> links, DateTimeOffset startTime, ActivityTagsCollection samplerTags, ActivitySamplingResult request, bool startIt, ActivityIdFormat idFormat);
+    private void GenerateW3CId();
+    private static void NotifyError(Exception exception);
+    private string GenerateHierarchicalId();
+    private string GetRootId(string id);
+    private string AppendSuffix(string parentId, string suffix, char delimiter);
+    private static long GetRandomNumber();
+    private static bool ValidateSetCurrent(Activity activity);
+    private bool TrySetTraceIdFromParent();
+    private void TrySetTraceFlagsFromParent();
+    private bool get_W3CIdFlagsSet();
+    private bool get_IsFinished();
+    private void set_IsFinished(bool value);
+    public ActivityIdFormat get_IdFormat();
+    private void set_IdFormat(ActivityIdFormat value);
+    [NullableContextAttribute("2")]
+public static Activity get_Current();
+    [NullableContextAttribute("2")]
+public static void set_Current(Activity value);
+    private static void SetCurrent(Activity activity);
+    internal static DateTime GetUtcNow();
+    private static string GenerateRootId();
+    [CompilerGeneratedAttribute]
+[IteratorStateMachineAttribute("System.Diagnostics.Activity/<<get_Baggage>g__Iterate|80_0>d")]
+internal static IEnumerable`1<KeyValuePair`2<string, string>> <get_Baggage>g__Iterate|80_0(Activity activity);
+}
+[IsReadOnlyAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Diagnostics.ActivityContext : ValueType {
+    [CompilerGeneratedAttribute]
+private ActivityTraceId <TraceId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ActivitySpanId <SpanId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ActivityTraceFlags <TraceFlags>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <TraceState>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <IsRemote>k__BackingField;
+    public ActivityTraceId TraceId { get; }
+    public ActivitySpanId SpanId { get; }
+    public ActivityTraceFlags TraceFlags { get; }
+    public string TraceState { get; }
+    public bool IsRemote { get; }
+    public ActivityContext(ActivityTraceId traceId, ActivitySpanId spanId, ActivityTraceFlags traceFlags, string traceState, bool isRemote);
+    [CompilerGeneratedAttribute]
+public ActivityTraceId get_TraceId();
+    [CompilerGeneratedAttribute]
+public ActivitySpanId get_SpanId();
+    [CompilerGeneratedAttribute]
+public ActivityTraceFlags get_TraceFlags();
+    [CompilerGeneratedAttribute]
+public string get_TraceState();
+    [CompilerGeneratedAttribute]
+public bool get_IsRemote();
+    public static bool TryParse(string traceParent, string traceState, ActivityContext& context);
+    [NullableContextAttribute("1")]
+public static ActivityContext Parse(string traceParent, string traceState);
+    public sealed virtual bool Equals(ActivityContext value);
+    public virtual bool Equals(object obj);
+    public static bool op_Equality(ActivityContext left, ActivityContext right);
+    public static bool op_Inequality(ActivityContext left, ActivityContext right);
+    public virtual int GetHashCode();
+}
+[IsReadOnlyAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.ActivityCreationOptions`1 : ValueType {
+    private ActivityTagsCollection _samplerTags;
+    private ActivityContext _context;
+    [CompilerGeneratedAttribute]
+private ActivitySource <Source>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ActivityKind <Kind>k__BackingField;
+    [CompilerGeneratedAttribute]
+private T <Parent>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IEnumerable`1<KeyValuePair`2<string, object>> <Tags>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IEnumerable`1<ActivityLink> <Links>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ActivityIdFormat <IdFormat>k__BackingField;
+    public ActivitySource Source { get; }
+    public string Name { get; }
+    public ActivityKind Kind { get; }
+    public T Parent { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public IEnumerable`1<KeyValuePair`2<string, object>> Tags { get; }
+    [NullableAttribute("2")]
+public IEnumerable`1<ActivityLink> Links { get; }
+    public ActivityTagsCollection SamplingTags { get; }
+    public ActivityTraceId TraceId { get; }
+    internal ActivityIdFormat IdFormat { get; }
+    internal ActivityCreationOptions`1(ActivitySource source, string name, T parent, ActivityKind kind, IEnumerable`1<KeyValuePair`2<string, object>> tags, IEnumerable`1<ActivityLink> links, ActivityIdFormat idFormat);
+    [CompilerGeneratedAttribute]
+public ActivitySource get_Source();
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+public ActivityKind get_Kind();
+    [CompilerGeneratedAttribute]
+public T get_Parent();
+    [CompilerGeneratedAttribute]
+public IEnumerable`1<KeyValuePair`2<string, object>> get_Tags();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public IEnumerable`1<ActivityLink> get_Links();
+    public ActivityTagsCollection get_SamplingTags();
+    public ActivityTraceId get_TraceId();
+    [CompilerGeneratedAttribute]
+internal ActivityIdFormat get_IdFormat();
+    internal ActivityTagsCollection GetSamplingTags();
+    internal ActivityContext GetContext();
+}
+[IsReadOnlyAttribute]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.ActivityEvent : ValueType {
+    private static ActivityTagsCollection s_emptyTags;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private DateTimeOffset <Timestamp>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IEnumerable`1<KeyValuePair`2<string, object>> <Tags>k__BackingField;
+    public string Name { get; }
+    public DateTimeOffset Timestamp { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public IEnumerable`1<KeyValuePair`2<string, object>> Tags { get; }
+    public ActivityEvent(string name);
+    public ActivityEvent(string name, DateTimeOffset timestamp, ActivityTagsCollection tags);
+    private static ActivityEvent();
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+public DateTimeOffset get_Timestamp();
+    [CompilerGeneratedAttribute]
+public IEnumerable`1<KeyValuePair`2<string, object>> get_Tags();
+}
+public enum System.Diagnostics.ActivityIdFormat : Enum {
+    public int value__;
+    public static ActivityIdFormat Unknown;
+    public static ActivityIdFormat Hierarchical;
+    public static ActivityIdFormat W3C;
+}
+public enum System.Diagnostics.ActivityKind : Enum {
+    public int value__;
+    public static ActivityKind Internal;
+    public static ActivityKind Server;
+    public static ActivityKind Client;
+    public static ActivityKind Producer;
+    public static ActivityKind Consumer;
+}
+[IsReadOnlyAttribute]
+public class System.Diagnostics.ActivityLink : ValueType {
+    [CompilerGeneratedAttribute]
+private ActivityContext <Context>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IEnumerable`1<KeyValuePair`2<string, object>> <Tags>k__BackingField;
+    public ActivityContext Context { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public IEnumerable`1<KeyValuePair`2<string, object>> Tags { get; }
+    [NullableContextAttribute("2")]
+public ActivityLink(ActivityContext context, ActivityTagsCollection tags);
+    [CompilerGeneratedAttribute]
+public ActivityContext get_Context();
+    [CompilerGeneratedAttribute]
+public IEnumerable`1<KeyValuePair`2<string, object>> get_Tags();
+    [NullableContextAttribute("2")]
+public virtual bool Equals(object obj);
+    public sealed virtual bool Equals(ActivityLink value);
+    public static bool op_Equality(ActivityLink left, ActivityLink right);
+    public static bool op_Inequality(ActivityLink left, ActivityLink right);
+    public virtual int GetHashCode();
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Diagnostics.ActivityListener : object {
+    [CompilerGeneratedAttribute]
+private Action`1<Activity> <ActivityStarted>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<Activity> <ActivityStopped>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Func`2<ActivitySource, bool> <ShouldListenTo>k__BackingField;
+    [CompilerGeneratedAttribute]
+private SampleActivity`1<string> <SampleUsingParentId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private SampleActivity`1<ActivityContext> <Sample>k__BackingField;
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public Action`1<Activity> ActivityStarted { get; public set; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public Action`1<Activity> ActivityStopped { get; public set; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public Func`2<ActivitySource, bool> ShouldListenTo { get; public set; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public SampleActivity`1<string> SampleUsingParentId { get; public set; }
+    public SampleActivity`1<ActivityContext> Sample { get; public set; }
+    [CompilerGeneratedAttribute]
+public Action`1<Activity> get_ActivityStarted();
+    [CompilerGeneratedAttribute]
+public void set_ActivityStarted(Action`1<Activity> value);
+    [CompilerGeneratedAttribute]
+public Action`1<Activity> get_ActivityStopped();
+    [CompilerGeneratedAttribute]
+public void set_ActivityStopped(Action`1<Activity> value);
+    [CompilerGeneratedAttribute]
+public Func`2<ActivitySource, bool> get_ShouldListenTo();
+    [CompilerGeneratedAttribute]
+public void set_ShouldListenTo(Func`2<ActivitySource, bool> value);
+    [CompilerGeneratedAttribute]
+public SampleActivity`1<string> get_SampleUsingParentId();
+    [CompilerGeneratedAttribute]
+public void set_SampleUsingParentId(SampleActivity`1<string> value);
+    [CompilerGeneratedAttribute]
+public SampleActivity`1<ActivityContext> get_Sample();
+    [CompilerGeneratedAttribute]
+public void set_Sample(SampleActivity`1<ActivityContext> value);
+    public sealed virtual void Dispose();
+}
+public enum System.Diagnostics.ActivitySamplingResult : Enum {
+    public int value__;
+    public static ActivitySamplingResult None;
+    public static ActivitySamplingResult PropagationData;
+    public static ActivitySamplingResult AllData;
+    public static ActivitySamplingResult AllDataAndRecorded;
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.ActivitySource : object {
+    private static SynchronizedList`1<ActivitySource> s_activeSources;
+    private static SynchronizedList`1<ActivityListener> s_allListeners;
+    private SynchronizedList`1<ActivityListener> _listeners;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Version>k__BackingField;
+    public string Name { get; }
+    [NullableAttribute("2")]
+public string Version { get; }
+    public ActivitySource(string name, string version);
+    private static ActivitySource();
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public string get_Version();
+    public bool HasListeners();
+    public Activity CreateActivity(string name, ActivityKind kind);
+    [NullableContextAttribute("2")]
+public Activity CreateActivity(string name, ActivityKind kind, ActivityContext parentContext, IEnumerable`1<KeyValuePair`2<string, object>> tags, IEnumerable`1<ActivityLink> links, ActivityIdFormat idFormat);
+    public Activity CreateActivity(string name, ActivityKind kind, string parentId, IEnumerable`1<KeyValuePair`2<string, object>> tags, IEnumerable`1<ActivityLink> links, ActivityIdFormat idFormat);
+    public Activity StartActivity(string name, ActivityKind kind);
+    [NullableContextAttribute("2")]
+public Activity StartActivity(string name, ActivityKind kind, ActivityContext parentContext, IEnumerable`1<KeyValuePair`2<string, object>> tags, IEnumerable`1<ActivityLink> links, DateTimeOffset startTime);
+    public Activity StartActivity(string name, ActivityKind kind, string parentId, IEnumerable`1<KeyValuePair`2<string, object>> tags, IEnumerable`1<ActivityLink> links, DateTimeOffset startTime);
+    [NullableContextAttribute("2")]
+public Activity StartActivity(ActivityKind kind, ActivityContext parentContext, IEnumerable`1<KeyValuePair`2<string, object>> tags, IEnumerable`1<ActivityLink> links, DateTimeOffset startTime, string name);
+    private Activity CreateActivity(string name, ActivityKind kind, ActivityContext context, string parentId, IEnumerable`1<KeyValuePair`2<string, object>> tags, IEnumerable`1<ActivityLink> links, DateTimeOffset startTime, bool startIt, ActivityIdFormat idFormat);
+    public sealed virtual void Dispose();
+    public static void AddActivityListener(ActivityListener listener);
+    internal void AddListener(ActivityListener listener);
+    internal static void DetachListener(ActivityListener listener);
+    internal void NotifyActivityStart(Activity activity);
+    internal void NotifyActivityStop(Activity activity);
+}
+[IsReadOnlyAttribute]
+public class System.Diagnostics.ActivitySpanId : ValueType {
+    private string _hexString;
+    internal ActivitySpanId(string hexString);
+    private ActivitySpanId(ReadOnlySpan`1<byte> idData);
+    public static ActivitySpanId CreateRandom();
+    public static ActivitySpanId CreateFromBytes(ReadOnlySpan`1<byte> idData);
+    public static ActivitySpanId CreateFromUtf8String(ReadOnlySpan`1<byte> idData);
+    public static ActivitySpanId CreateFromString(ReadOnlySpan`1<char> idData);
+    [NullableContextAttribute("1")]
+public string ToHexString();
+    [NullableContextAttribute("1")]
+public virtual string ToString();
+    public static bool op_Equality(ActivitySpanId spanId1, ActivitySpanId spandId2);
+    public static bool op_Inequality(ActivitySpanId spanId1, ActivitySpanId spandId2);
+    public sealed virtual bool Equals(ActivitySpanId spanId);
+    [NullableContextAttribute("2")]
+public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public void CopyTo(Span`1<byte> destination);
+}
+public enum System.Diagnostics.ActivityStatusCode : Enum {
+    public int value__;
+    public static ActivityStatusCode Unset;
+    public static ActivityStatusCode Ok;
+    public static ActivityStatusCode Error;
+}
+[DefaultMemberAttribute("Item")]
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.ActivityTagsCollection : object {
+    private List`1<KeyValuePair`2<string, object>> _list;
+    [NullableAttribute("2")]
+public object Item { get; public set; }
+    public ICollection`1<string> Keys { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public ICollection`1<object> Values { get; }
+    public bool IsReadOnly { get; }
+    public int Count { get; }
+    public ActivityTagsCollection(IEnumerable`1<KeyValuePair`2<string, object>> list);
+    public sealed virtual object get_Item(string key);
+    public sealed virtual void set_Item(string key, object value);
+    public sealed virtual ICollection`1<string> get_Keys();
+    public sealed virtual ICollection`1<object> get_Values();
+    public sealed virtual bool get_IsReadOnly();
+    public sealed virtual int get_Count();
+    public sealed virtual void Add(string key, object value);
+    public sealed virtual void Add(KeyValuePair`2<string, object> item);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(KeyValuePair`2<string, object> item);
+    public sealed virtual bool ContainsKey(string key);
+    public sealed virtual void CopyTo(KeyValuePair`2[] array, int arrayIndex);
+    private sealed virtual override IEnumerator`1<KeyValuePair`2<string, object>> System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<System.String,System.Object>>.GetEnumerator();
+    public Enumerator GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public sealed virtual bool Remove(string key);
+    public sealed virtual bool Remove(KeyValuePair`2<string, object> item);
+    public sealed virtual bool TryGetValue(string key, Object& value);
+    private int FindIndex(string key);
+}
+[FlagsAttribute]
+public enum System.Diagnostics.ActivityTraceFlags : Enum {
+    public int value__;
+    public static ActivityTraceFlags None;
+    public static ActivityTraceFlags Recorded;
+}
+[IsReadOnlyAttribute]
+public class System.Diagnostics.ActivityTraceId : ValueType {
+    private string _hexString;
+    internal ActivityTraceId(string hexString);
+    private ActivityTraceId(ReadOnlySpan`1<byte> idData);
+    public static ActivityTraceId CreateRandom();
+    public static ActivityTraceId CreateFromBytes(ReadOnlySpan`1<byte> idData);
+    public static ActivityTraceId CreateFromUtf8String(ReadOnlySpan`1<byte> idData);
+    public static ActivityTraceId CreateFromString(ReadOnlySpan`1<char> idData);
+    [NullableContextAttribute("1")]
+public string ToHexString();
+    [NullableContextAttribute("1")]
+public virtual string ToString();
+    public static bool op_Equality(ActivityTraceId traceId1, ActivityTraceId traceId2);
+    public static bool op_Inequality(ActivityTraceId traceId1, ActivityTraceId traceId2);
+    public sealed virtual bool Equals(ActivityTraceId traceId);
+    [NullableContextAttribute("2")]
+public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public void CopyTo(Span`1<byte> destination);
+    internal static void SetToRandomBytes(Span`1<byte> outBytes);
+    internal static void SetSpanFromHexChars(ReadOnlySpan`1<char> charData, Span`1<byte> outBytes);
+    internal static byte HexByteFromChars(char char1, char char2);
+    internal static bool IsLowerCaseHexAndNotAllZeros(ReadOnlySpan`1<char> idData);
+}
+[AttributeUsageAttribute("2432")]
+internal class System.Diagnostics.CodeAnalysis.AllowNullAttribute : Attribute {
+}
+[AttributeUsageAttribute("2432")]
+internal class System.Diagnostics.CodeAnalysis.DisallowNullAttribute : Attribute {
+}
+[AttributeUsageAttribute("64")]
+internal class System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute : Attribute {
+}
+[AttributeUsageAttribute("2048")]
+internal class System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <ParameterValue>k__BackingField;
+    public bool ParameterValue { get; }
+    public DoesNotReturnIfAttribute(bool parameterValue);
+    [CompilerGeneratedAttribute]
+public bool get_ParameterValue();
+}
+[FlagsAttribute]
+internal enum System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes : Enum {
+    public int value__;
+    public static DynamicallyAccessedMemberTypes None;
+    public static DynamicallyAccessedMemberTypes PublicParameterlessConstructor;
+    public static DynamicallyAccessedMemberTypes PublicConstructors;
+    public static DynamicallyAccessedMemberTypes NonPublicConstructors;
+    public static DynamicallyAccessedMemberTypes PublicMethods;
+    public static DynamicallyAccessedMemberTypes NonPublicMethods;
+    public static DynamicallyAccessedMemberTypes PublicFields;
+    public static DynamicallyAccessedMemberTypes NonPublicFields;
+    public static DynamicallyAccessedMemberTypes PublicNestedTypes;
+    public static DynamicallyAccessedMemberTypes NonPublicNestedTypes;
+    public static DynamicallyAccessedMemberTypes PublicProperties;
+    public static DynamicallyAccessedMemberTypes NonPublicProperties;
+    public static DynamicallyAccessedMemberTypes PublicEvents;
+    public static DynamicallyAccessedMemberTypes NonPublicEvents;
+    public static DynamicallyAccessedMemberTypes Interfaces;
+    public static DynamicallyAccessedMemberTypes All;
+}
+[AttributeUsageAttribute("352")]
+internal class System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <MemberSignature>k__BackingField;
+    [CompilerGeneratedAttribute]
+private DynamicallyAccessedMemberTypes <MemberTypes>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Type <Type>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <TypeName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <AssemblyName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Condition>k__BackingField;
+    public string MemberSignature { get; }
+    public DynamicallyAccessedMemberTypes MemberTypes { get; }
+    public Type Type { get; }
+    public string TypeName { get; }
+    public string AssemblyName { get; }
+    public string Condition { get; public set; }
+    public DynamicDependencyAttribute(string memberSignature);
+    public DynamicDependencyAttribute(string memberSignature, Type type);
+    public DynamicDependencyAttribute(string memberSignature, string typeName, string assemblyName);
+    public DynamicDependencyAttribute(DynamicallyAccessedMemberTypes memberTypes, Type type);
+    public DynamicDependencyAttribute(DynamicallyAccessedMemberTypes memberTypes, string typeName, string assemblyName);
+    [CompilerGeneratedAttribute]
+public string get_MemberSignature();
+    [CompilerGeneratedAttribute]
+public DynamicallyAccessedMemberTypes get_MemberTypes();
+    [CompilerGeneratedAttribute]
+public Type get_Type();
+    [CompilerGeneratedAttribute]
+public string get_TypeName();
+    [CompilerGeneratedAttribute]
+public string get_AssemblyName();
+    [CompilerGeneratedAttribute]
+public string get_Condition();
+    [CompilerGeneratedAttribute]
+public void set_Condition(string value);
+}
+[AttributeUsageAttribute("10624")]
+internal class System.Diagnostics.CodeAnalysis.MaybeNullAttribute : Attribute {
+}
+[AttributeUsageAttribute("2048")]
+internal class System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <ReturnValue>k__BackingField;
+    public bool ReturnValue { get; }
+    public MaybeNullWhenAttribute(bool returnValue);
+    [CompilerGeneratedAttribute]
+public bool get_ReturnValue();
+}
+[AttributeUsageAttribute("192")]
+internal class System.Diagnostics.CodeAnalysis.MemberNotNullAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private String[] <Members>k__BackingField;
+    public String[] Members { get; }
+    public MemberNotNullAttribute(string member);
+    public MemberNotNullAttribute(String[] members);
+    [CompilerGeneratedAttribute]
+public String[] get_Members();
+}
+[AttributeUsageAttribute("192")]
+internal class System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <ReturnValue>k__BackingField;
+    [CompilerGeneratedAttribute]
+private String[] <Members>k__BackingField;
+    public bool ReturnValue { get; }
+    public String[] Members { get; }
+    public MemberNotNullWhenAttribute(bool returnValue, string member);
+    public MemberNotNullWhenAttribute(bool returnValue, String[] members);
+    [CompilerGeneratedAttribute]
+public bool get_ReturnValue();
+    [CompilerGeneratedAttribute]
+public String[] get_Members();
+}
+[AttributeUsageAttribute("10624")]
+internal class System.Diagnostics.CodeAnalysis.NotNullAttribute : Attribute {
+}
+[AttributeUsageAttribute("10368")]
+internal class System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <ParameterName>k__BackingField;
+    public string ParameterName { get; }
+    public NotNullIfNotNullAttribute(string parameterName);
+    [CompilerGeneratedAttribute]
+public string get_ParameterName();
+}
+[AttributeUsageAttribute("2048")]
+internal class System.Diagnostics.CodeAnalysis.NotNullWhenAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private bool <ReturnValue>k__BackingField;
+    public bool ReturnValue { get; }
+    public NotNullWhenAttribute(bool returnValue);
+    [CompilerGeneratedAttribute]
+public bool get_ReturnValue();
+}
+[AttributeUsageAttribute("100")]
+internal class System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Message>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Url>k__BackingField;
+    public string Message { get; }
+    public string Url { get; public set; }
+    public RequiresUnreferencedCodeAttribute(string message);
+    [CompilerGeneratedAttribute]
+public string get_Message();
+    [CompilerGeneratedAttribute]
+public string get_Url();
+    [CompilerGeneratedAttribute]
+public void set_Url(string value);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <Category>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <CheckId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Scope>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Target>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <MessageId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Justification>k__BackingField;
+    public string Category { get; }
+    public string CheckId { get; }
+    public string Scope { get; public set; }
+    public string Target { get; public set; }
+    public string MessageId { get; public set; }
+    public string Justification { get; public set; }
+    public UnconditionalSuppressMessageAttribute(string category, string checkId);
+    [CompilerGeneratedAttribute]
+public string get_Category();
+    [CompilerGeneratedAttribute]
+public string get_CheckId();
+    [CompilerGeneratedAttribute]
+public string get_Scope();
+    [CompilerGeneratedAttribute]
+public void set_Scope(string value);
+    [CompilerGeneratedAttribute]
+public string get_Target();
+    [CompilerGeneratedAttribute]
+public void set_Target(string value);
+    [CompilerGeneratedAttribute]
+public string get_MessageId();
+    [CompilerGeneratedAttribute]
+public void set_MessageId(string value);
+    [CompilerGeneratedAttribute]
+public string get_Justification();
+    [CompilerGeneratedAttribute]
+public void set_Justification(string value);
+}
+internal class System.Diagnostics.DiagLinkedList`1 : object {
+    private DiagNode`1<T> _first;
+    private DiagNode`1<T> _last;
+    public DiagNode`1<T> First { get; }
+    public DiagLinkedList`1(T firstValue);
+    public DiagLinkedList`1(IEnumerator`1<T> e);
+    public DiagNode`1<T> get_First();
+    public void Clear();
+    private void UnsafeAdd(DiagNode`1<T> newNode);
+    public void Add(T value);
+    public bool AddIfNotExist(T value, Func`3<T, T, bool> compare);
+    public T Remove(T value, Func`3<T, T, bool> compare);
+    public void AddFront(T value);
+    public Enumerator`1<T> GetEnumerator();
+    private sealed virtual override IEnumerator`1<T> System.Collections.Generic.IEnumerable<T>.GetEnumerator();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+}
+internal class System.Diagnostics.DiagNode`1 : object {
+    public T Value;
+    public DiagNode`1<T> Next;
+    public DiagNode`1(T value);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public class System.Diagnostics.DiagnosticListener : DiagnosticSource {
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    private DiagnosticSubscription modreq(System.Runtime.CompilerServices.IsVolatile) _subscriptions;
+    private DiagnosticListener _next;
+    private bool _disposed;
+    private static DiagnosticListener s_allListeners;
+    private static AllListenerObservable modreq(System.Runtime.CompilerServices.IsVolatile) s_allListenerObservable;
+    private static object s_allListenersLock;
+    public static IObservable`1<DiagnosticListener> AllListeners { get; }
+    public string Name { get; private set; }
+    public DiagnosticListener(string name);
+    private static DiagnosticListener();
+    public static IObservable`1<DiagnosticListener> get_AllListeners();
+    public virtual IDisposable Subscribe(IObserver`1<KeyValuePair`2<string, object>> observer, Predicate`1<string> isEnabled);
+    public virtual IDisposable Subscribe(IObserver`1<KeyValuePair`2<string, object>> observer, Func`4<string, object, object, bool> isEnabled);
+    public virtual IDisposable Subscribe(IObserver`1<KeyValuePair`2<string, object>> observer);
+    public virtual void Dispose();
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+private void set_Name(string value);
+    public virtual string ToString();
+    public bool IsEnabled();
+    public virtual bool IsEnabled(string name);
+    [NullableContextAttribute("2")]
+public virtual bool IsEnabled(string name, object arg1, object arg2);
+    [RequiresUnreferencedCodeAttribute("The type of object being written to DiagnosticSource cannot be discovered statically.")]
+public virtual void Write(string name, object value);
+    private IDisposable SubscribeInternal(IObserver`1<KeyValuePair`2<string, object>> observer, Predicate`1<string> isEnabled1Arg, Func`4<string, object, object, bool> isEnabled3Arg, Action`2<Activity, object> onActivityImport, Action`2<Activity, object> onActivityExport);
+    public virtual void OnActivityImport(Activity activity, object payload);
+    public virtual void OnActivityExport(Activity activity, object payload);
+    public virtual IDisposable Subscribe(IObserver`1<KeyValuePair`2<string, object>> observer, Func`4<string, object, object, bool> isEnabled, Action`2<Activity, object> onActivityImport, Action`2<Activity, object> onActivityExport);
+    [CompilerGeneratedAttribute]
+private bool <Subscribe>b__3_0(string name);
+    [CompilerGeneratedAttribute]
+private bool <Subscribe>b__27_0(string name);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public abstract class System.Diagnostics.DiagnosticSource : object {
+    internal static string WriteRequiresUnreferencedCode;
+    [RequiresUnreferencedCodeAttribute("The type of object being written to DiagnosticSource cannot be discovered statically.")]
+public abstract virtual void Write(string name, object value);
+    public abstract virtual bool IsEnabled(string name);
+    [NullableContextAttribute("2")]
+public virtual bool IsEnabled(string name, object arg1, object arg2);
+    [RequiresUnreferencedCodeAttribute("The type of object being written to DiagnosticSource cannot be discovered statically.")]
+public Activity StartActivity(Activity activity, object args);
+    [RequiresUnreferencedCodeAttribute("The type of object being written to DiagnosticSource cannot be discovered statically.")]
+public void StopActivity(Activity activity, object args);
+    public virtual void OnActivityImport(Activity activity, object payload);
+    public virtual void OnActivityExport(Activity activity, object payload);
+}
+[EventSourceAttribute]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2113:ReflectionToRequiresUnreferencedCode")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2115:ReflectionToDynamicallyAccessedMembers")]
+internal class System.Diagnostics.DiagnosticSourceEventSource : EventSource {
+    public static DiagnosticSourceEventSource Log;
+    private string AspNetCoreHostingKeywordValue;
+    private string EntityFrameworkCoreCommandsKeywordValue;
+    private Boolean modreq(System.Runtime.CompilerServices.IsVolatile) _false;
+    private FilterAndTransform _specs;
+    private FilterAndTransform _activitySourceSpecs;
+    private ActivityListener _activityListener;
+    private static DiagnosticSourceEventSource();
+    [EventAttribute("1")]
+public void Message(string Message);
+    [EventAttribute("2")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void Event(string SourceName, string EventName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [EventAttribute("3")]
+private void EventJson(string SourceName, string EventName, string ArgmentsJson);
+    [EventAttribute("4")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void Activity1Start(string SourceName, string EventName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [EventAttribute("5")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void Activity1Stop(string SourceName, string EventName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [EventAttribute("6")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void Activity2Start(string SourceName, string EventName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [EventAttribute("7")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void Activity2Stop(string SourceName, string EventName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [EventAttribute("8")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void RecursiveActivity1Start(string SourceName, string EventName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [EventAttribute("9")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void RecursiveActivity1Stop(string SourceName, string EventName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [EventAttribute("10")]
+private void NewDiagnosticListener(string SourceName);
+    [EventAttribute("11")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void ActivityStart(string SourceName, string ActivityName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [EventAttribute("12")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+private void ActivityStop(string SourceName, string ActivityName, IEnumerable`1<KeyValuePair`2<string, string>> Arguments);
+    [NonEventAttribute]
+protected virtual void OnEventCommand(EventCommandEventArgs command);
+    private static string NewLineSeparate(string str1, string str2);
+    [NonEventAttribute]
+private void BreakPointWithDebuggerFuncEval();
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public abstract class System.Diagnostics.DistributedContextPropagator : object {
+    private static DistributedContextPropagator s_current;
+    internal static string TraceParent;
+    internal static string RequestId;
+    internal static string TraceState;
+    internal static string Baggage;
+    internal static string CorrelationContext;
+    internal static char Space;
+    internal static char Tab;
+    internal static char Comma;
+    internal static char Semicolon;
+    internal static string CommaWithSpace;
+    internal static Char[] s_trimmingSpaceCharacters;
+    public IReadOnlyCollection`1<string> Fields { get; }
+    public static DistributedContextPropagator Current { get; public set; }
+    private static DistributedContextPropagator();
+    public abstract virtual IReadOnlyCollection`1<string> get_Fields();
+    [NullableContextAttribute("2")]
+public abstract virtual void Inject(Activity activity, object carrier, PropagatorSetterCallback setter);
+    [NullableContextAttribute("2")]
+public abstract virtual void ExtractTraceIdAndState(object carrier, PropagatorGetterCallback getter, String& traceId, String& traceState);
+    [NullableContextAttribute("2")]
+public abstract virtual IEnumerable`1<KeyValuePair`2<string, string>> ExtractBaggage(object carrier, PropagatorGetterCallback getter);
+    public static DistributedContextPropagator get_Current();
+    public static void set_Current(DistributedContextPropagator value);
+    public static DistributedContextPropagator CreateDefaultPropagator();
+    public static DistributedContextPropagator CreatePassThroughPropagator();
+    public static DistributedContextPropagator CreateNoOutputPropagator();
+    internal static void InjectBaggage(object carrier, IEnumerable`1<KeyValuePair`2<string, string>> baggage, PropagatorSetterCallback setter);
+}
+internal class System.Diagnostics.Enumerator`1 : ValueType {
+    private DiagNode`1<T> _nextNode;
+    [AllowNullAttribute]
+[MaybeNullAttribute]
+private T _currentItem;
+    public T Current { get; }
+    private object System.Collections.IEnumerator.Current { get; }
+    public Enumerator`1(DiagNode`1<T> head);
+    public sealed virtual T get_Current();
+    private sealed virtual override object System.Collections.IEnumerator.get_Current();
+    public sealed virtual bool MoveNext();
+    public sealed virtual void Reset();
+    public sealed virtual void Dispose();
+}
+internal class System.Diagnostics.LegacyPropagator : DistributedContextPropagator {
+    [CompilerGeneratedAttribute]
+private static DistributedContextPropagator <Instance>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IReadOnlyCollection`1<string> <Fields>k__BackingField;
+    internal static DistributedContextPropagator Instance { get; }
+    public IReadOnlyCollection`1<string> Fields { get; }
+    private static LegacyPropagator();
+    [CompilerGeneratedAttribute]
+internal static DistributedContextPropagator get_Instance();
+    [CompilerGeneratedAttribute]
+public virtual IReadOnlyCollection`1<string> get_Fields();
+    public virtual void Inject(Activity activity, object carrier, PropagatorSetterCallback setter);
+    public virtual void ExtractTraceIdAndState(object carrier, PropagatorGetterCallback getter, String& traceId, String& traceState);
+    public virtual IEnumerable`1<KeyValuePair`2<string, string>> ExtractBaggage(object carrier, PropagatorGetterCallback getter);
+    internal static bool TryExtractBaggage(string baggageString, IEnumerable`1& baggage);
+}
+[SecuritySafeCriticalAttribute]
+[UnsupportedOSPlatformAttribute("browser")]
+internal class System.Diagnostics.Metrics.AggregationManager : object {
+    public static double MinCollectionTimeSecs;
+    private static QuantileAggregation s_defaultHistogramConfig;
+    private List`1<Predicate`1<Instrument>> _instrumentConfigFuncs;
+    private TimeSpan _collectionPeriod;
+    private ConcurrentDictionary`2<Instrument, InstrumentState> _instrumentStates;
+    private CancellationTokenSource _cts;
+    private Thread _collectThread;
+    private MeterListener _listener;
+    private int _currentTimeSeries;
+    private int _currentHistograms;
+    private int _maxTimeSeries;
+    private int _maxHistograms;
+    private Action`2<Instrument, LabeledAggregationStatistics> _collectMeasurement;
+    private Action`2<DateTime, DateTime> _beginCollection;
+    private Action`2<DateTime, DateTime> _endCollection;
+    private Action`1<Instrument> _beginInstrumentMeasurements;
+    private Action`1<Instrument> _endInstrumentMeasurements;
+    private Action`1<Instrument> _instrumentPublished;
+    private Action _initialInstrumentEnumerationComplete;
+    private Action`1<Exception> _collectionError;
+    private Action _timeSeriesLimitReached;
+    private Action _histogramLimitReached;
+    private Action`1<Exception> _observableInstrumentCallbackError;
+    public AggregationManager(int maxTimeSeries, int maxHistograms, Action`2<Instrument, LabeledAggregationStatistics> collectMeasurement, Action`2<DateTime, DateTime> beginCollection, Action`2<DateTime, DateTime> endCollection, Action`1<Instrument> beginInstrumentMeasurements, Action`1<Instrument> endInstrumentMeasurements, Action`1<Instrument> instrumentPublished, Action initialInstrumentEnumerationComplete, Action`1<Exception> collectionError, Action timeSeriesLimitReached, Action histogramLimitReached, Action`1<Exception> observableInstrumentCallbackError);
+    private static AggregationManager();
+    public void Include(string meterName);
+    public void Include(string meterName, string instrumentName);
+    private void Include(Predicate`1<Instrument> instrumentFilter);
+    public AggregationManager SetCollectionPeriod(TimeSpan collectionPeriod);
+    public void Start();
+    private void CollectWorker(CancellationToken cancelToken);
+    public void Dispose();
+    private void RemoveInstrumentState(Instrument instrument, InstrumentState state);
+    private InstrumentState GetInstrumentState(Instrument instrument);
+    internal InstrumentState BuildInstrumentState(Instrument instrument);
+    private Func`1<Aggregator> GetAggregatorFactory(Instrument instrument);
+    private bool CheckTimeSeriesAllowed();
+    private bool CheckHistogramAllowed();
+    internal void Collect();
+    [CompilerGeneratedAttribute]
+private void <.ctor>b__23_7(Instrument instrument, MeterListener listener);
+    [CompilerGeneratedAttribute]
+private void <.ctor>b__23_8(Instrument instrument, object cookie);
+    [CompilerGeneratedAttribute]
+private void <Start>b__28_0();
+    [CompilerGeneratedAttribute]
+private Aggregator <GetAggregatorFactory>b__34_0();
+    [CompilerGeneratedAttribute]
+private Aggregator <GetAggregatorFactory>b__34_1();
+    [CompilerGeneratedAttribute]
+private Aggregator <GetAggregatorFactory>b__34_2();
+    [CompilerGeneratedAttribute]
+private Aggregator <GetAggregatorFactory>b__34_3();
+}
+internal abstract class System.Diagnostics.Metrics.Aggregator : object {
+    public abstract virtual void Update(double measurement);
+    public abstract virtual IAggregationStatistics Collect();
+}
+internal class System.Diagnostics.Metrics.AggregatorLookupFunc`1 : MulticastDelegate {
+    public AggregatorLookupFunc`1(object object, IntPtr method);
+    public virtual bool Invoke(ReadOnlySpan`1<KeyValuePair`2<string, object>> labels, TAggregator& aggregator);
+    public virtual IAsyncResult BeginInvoke(ReadOnlySpan`1<KeyValuePair`2<string, object>> labels, TAggregator& aggregator, AsyncCallback callback, object object);
+    public virtual bool EndInvoke(TAggregator& aggregator, IAsyncResult result);
+}
+[SecuritySafeCriticalAttribute]
+internal class System.Diagnostics.Metrics.AggregatorStore`1 : ValueType {
+    private Object modreq(System.Runtime.CompilerServices.IsVolatile) _stateUnion;
+    private AggregatorLookupFunc`1 modreq(System.Runtime.CompilerServices.IsVolatile) _cachedLookupFunc;
+    private Func`1<TAggregator> _createAggregatorFunc;
+    public AggregatorStore`1(Func`1<TAggregator> createAggregator);
+    public TAggregator GetAggregator(ReadOnlySpan`1<KeyValuePair`2<string, object>> labels);
+    private TAggregator GetAggregatorSlow(ReadOnlySpan`1<KeyValuePair`2<string, object>> labels);
+    public void Collect(Action`1<LabeledAggregationStatistics> visitFunc);
+    public TAggregator GetAggregator();
+    public ConcurrentDictionary`2<TObjectSequence, TAggregator> GetLabelValuesDictionary(TStringSequence& names);
+}
+public class System.Diagnostics.Metrics.Counter`1 : Instrument`1<T> {
+    internal Counter`1(Meter meter, string name, string unit, string description);
+    public void Add(T delta);
+    public void Add(T delta, KeyValuePair`2<string, object> tag);
+    public void Add(T delta, KeyValuePair`2<string, object> tag1, KeyValuePair`2<string, object> tag2);
+    public void Add(T delta, KeyValuePair`2<string, object> tag1, KeyValuePair`2<string, object> tag2, KeyValuePair`2<string, object> tag3);
+    public void Add(T delta, ReadOnlySpan`1<KeyValuePair`2<string, object>> tags);
+    public void Add(T delta, KeyValuePair`2[] tags);
+    public void Add(T delta, TagList& tagList);
+}
+internal class System.Diagnostics.Metrics.ExponentialHistogramAggregator : Aggregator {
+    private static int ExponentArraySize;
+    private static int ExponentShift;
+    private static double MinRelativeError;
+    private QuantileAggregation _config;
+    private Int32[][] _counters;
+    private int _count;
+    private int _mantissaMax;
+    private int _mantissaMask;
+    private int _mantissaShift;
+    public ExponentialHistogramAggregator(QuantileAggregation config);
+    public virtual IAggregationStatistics Collect();
+    private int GetInvalidCount(Int32[][] counters);
+    [IteratorStateMachineAttribute("System.Diagnostics.Metrics.ExponentialHistogramAggregator/<IterateBuckets>d__13")]
+private IEnumerable`1<Bucket> IterateBuckets(Int32[][] counters);
+    public virtual void Update(double measurement);
+    private int QuantileToRank(double quantile, int count);
+    private double GetBucketCanonicalValue(int exponent, int mantissa);
+}
+internal class System.Diagnostics.Metrics.FixedSizeLabelNameDictionary`3 : ConcurrentDictionary`2<TStringSequence, ConcurrentDictionary`2<TObjectSequence, TAggregator>> {
+    public void Collect(Action`1<LabeledAggregationStatistics> visitFunc);
+    public ConcurrentDictionary`2<TObjectSequence, TAggregator> GetValuesDictionary(TStringSequence& names);
+}
+public class System.Diagnostics.Metrics.Histogram`1 : Instrument`1<T> {
+    internal Histogram`1(Meter meter, string name, string unit, string description);
+    public void Record(T value);
+    public void Record(T value, KeyValuePair`2<string, object> tag);
+    public void Record(T value, KeyValuePair`2<string, object> tag1, KeyValuePair`2<string, object> tag2);
+    public void Record(T value, KeyValuePair`2<string, object> tag1, KeyValuePair`2<string, object> tag2, KeyValuePair`2<string, object> tag3);
+    public void Record(T value, ReadOnlySpan`1<KeyValuePair`2<string, object>> tags);
+    public void Record(T value, KeyValuePair`2[] tags);
+    public void Record(T value, TagList& tagList);
+}
+internal class System.Diagnostics.Metrics.HistogramStatistics : object {
+    [CompilerGeneratedAttribute]
+private QuantileValue[] <Quantiles>k__BackingField;
+    public QuantileValue[] Quantiles { get; }
+    internal HistogramStatistics(QuantileValue[] quantiles);
+    [CompilerGeneratedAttribute]
+public QuantileValue[] get_Quantiles();
+}
+internal interface System.Diagnostics.Metrics.IAggregationStatistics {
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("1")]
+public abstract class System.Diagnostics.Metrics.Instrument : object {
+    [CompilerGeneratedAttribute]
+private static object <SyncObject>k__BackingField;
+    internal DiagLinkedList`1<ListenerSubscription> _subscriptions;
+    [CompilerGeneratedAttribute]
+private Meter <Meter>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Description>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Unit>k__BackingField;
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+internal static KeyValuePair`2[] EmptyTags { get; }
+    internal static object SyncObject { get; }
+    public Meter Meter { get; }
+    public string Name { get; }
+    [NullableAttribute("2")]
+public string Description { get; }
+    [NullableAttribute("2")]
+public string Unit { get; }
+    public bool Enabled { get; }
+    public bool IsObservable { get; }
+    protected Instrument(Meter meter, string name, string unit, string description);
+    private static Instrument();
+    internal static KeyValuePair`2[] get_EmptyTags();
+    [CompilerGeneratedAttribute]
+internal static object get_SyncObject();
+    protected void Publish();
+    [CompilerGeneratedAttribute]
+public Meter get_Meter();
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public string get_Description();
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("2")]
+public string get_Unit();
+    public bool get_Enabled();
+    public virtual bool get_IsObservable();
+    internal void NotifyForUnpublishedInstrument();
+    internal static void ValidateTypeParameter();
+    internal object EnableMeasurement(ListenerSubscription subscription, Boolean& oldStateStored);
+    internal object DisableMeasurements(MeterListener listener);
+    internal virtual void Observe(MeterListener listener);
+    internal object GetSubscriptionState(MeterListener listener);
+}
+public abstract class System.Diagnostics.Metrics.Instrument`1 : Instrument {
+    [ThreadStaticAttribute]
+private KeyValuePair`2[] ts_tags;
+    private static int MaxTagsCount;
+    [NullableContextAttribute("1")]
+protected Instrument`1(Meter meter, string name, string unit, string description);
+    protected void RecordMeasurement(T measurement);
+    protected void RecordMeasurement(T measurement, ReadOnlySpan`1<KeyValuePair`2<string, object>> tags);
+    protected void RecordMeasurement(T measurement, KeyValuePair`2<string, object> tag);
+    protected void RecordMeasurement(T measurement, KeyValuePair`2<string, object> tag1, KeyValuePair`2<string, object> tag2);
+    protected void RecordMeasurement(T measurement, KeyValuePair`2<string, object> tag1, KeyValuePair`2<string, object> tag2, KeyValuePair`2<string, object> tag3);
+    protected void RecordMeasurement(T measurement, TagList& tagList);
+}
+internal abstract class System.Diagnostics.Metrics.InstrumentState : object {
+    [SecuritySafeCriticalAttribute]
+public abstract virtual void Update(double measurement, ReadOnlySpan`1<KeyValuePair`2<string, object>> labels);
+    public abstract virtual void Collect(Instrument instrument, Action`1<LabeledAggregationStatistics> aggregationVisitFunc);
+}
+internal class System.Diagnostics.Metrics.InstrumentState`1 : InstrumentState {
+    private AggregatorStore`1<TAggregator> _aggregatorStore;
+    public InstrumentState`1(Func`1<TAggregator> createAggregatorFunc);
+    public virtual void Collect(Instrument instrument, Action`1<LabeledAggregationStatistics> aggregationVisitFunc);
+    [SecuritySafeCriticalAttribute]
+public virtual void Update(double measurement, ReadOnlySpan`1<KeyValuePair`2<string, object>> labels);
+}
+[DefaultMemberAttribute("Item")]
+internal interface System.Diagnostics.Metrics.IObjectSequence {
+    public object Item { get; public set; }
+    public abstract virtual object get_Item(int i);
+    public abstract virtual void set_Item(int i, object value);
+}
+[DefaultMemberAttribute("Item")]
+internal interface System.Diagnostics.Metrics.IStringSequence {
+    public string Item { get; public set; }
+    public int Length { get; }
+    public abstract virtual string get_Item(int i);
+    public abstract virtual void set_Item(int i, string value);
+    public abstract virtual int get_Length();
+}
+internal class System.Diagnostics.Metrics.LabeledAggregationStatistics : object {
+    [CompilerGeneratedAttribute]
+private KeyValuePair`2[] <Labels>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IAggregationStatistics <AggregationStatistics>k__BackingField;
+    public KeyValuePair`2[] Labels { get; }
+    public IAggregationStatistics AggregationStatistics { get; }
+    public LabeledAggregationStatistics(IAggregationStatistics stats, KeyValuePair`2[] labels);
+    [CompilerGeneratedAttribute]
+public KeyValuePair`2[] get_Labels();
+    [CompilerGeneratedAttribute]
+public IAggregationStatistics get_AggregationStatistics();
+}
+internal class System.Diagnostics.Metrics.LabelInstruction : ValueType {
+    [CompilerGeneratedAttribute]
+private int <SourceIndex>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <LabelName>k__BackingField;
+    public int SourceIndex { get; }
+    public string LabelName { get; }
+    public LabelInstruction(int sourceIndex, string labelName);
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public int get_SourceIndex();
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public string get_LabelName();
+}
+[SecurityCriticalAttribute]
+internal static class System.Diagnostics.Metrics.LabelInstructionCompiler : object {
+    public static AggregatorLookupFunc`1<TAggregator> Create(AggregatorStore`1& aggregatorStore, Func`1<TAggregator> createAggregatorFunc, ReadOnlySpan`1<KeyValuePair`2<string, object>> labels);
+    private static LabelInstruction[] Compile(ReadOnlySpan`1<KeyValuePair`2<string, object>> labels);
+}
+[SecurityCriticalAttribute]
+internal class System.Diagnostics.Metrics.LabelInstructionInterpretter`2 : object {
+    private int _expectedLabelCount;
+    private LabelInstruction[] _instructions;
+    private ConcurrentDictionary`2<TObjectSequence, TAggregator> _valuesDict;
+    private Func`2<TObjectSequence, TAggregator> _createAggregator;
+    public LabelInstructionInterpretter`2(int expectedLabelCount, LabelInstruction[] instructions, ConcurrentDictionary`2<TObjectSequence, TAggregator> valuesDict, Func`1<TAggregator> createAggregator);
+    public bool GetAggregator(ReadOnlySpan`1<KeyValuePair`2<string, object>> labels, TAggregator& aggregator);
+}
+internal class System.Diagnostics.Metrics.LastValue : Aggregator {
+    private Nullable`1<double> _lastValue;
+    public virtual void Update(double value);
+    public virtual IAggregationStatistics Collect();
+}
+internal class System.Diagnostics.Metrics.LastValueStatistics : object {
+    [CompilerGeneratedAttribute]
+private Nullable`1<double> <LastValue>k__BackingField;
+    public Nullable`1<double> LastValue { get; }
+    internal LastValueStatistics(Nullable`1<double> lastValue);
+    [CompilerGeneratedAttribute]
+public Nullable`1<double> get_LastValue();
+}
+[IsReadOnlyAttribute]
+internal class System.Diagnostics.Metrics.ListenerSubscription : ValueType {
+    [CompilerGeneratedAttribute]
+private MeterListener <Listener>k__BackingField;
+    [CompilerGeneratedAttribute]
+private object <State>k__BackingField;
+    internal MeterListener Listener { get; }
+    internal object State { get; }
+    internal ListenerSubscription(MeterListener listener, object state);
+    [CompilerGeneratedAttribute]
+internal MeterListener get_Listener();
+    [CompilerGeneratedAttribute]
+internal object get_State();
+}
+[IsReadOnlyAttribute]
+public class System.Diagnostics.Metrics.Measurement`1 : ValueType {
+    private KeyValuePair`2[] _tags;
+    [CompilerGeneratedAttribute]
+private T <Value>k__BackingField;
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public ReadOnlySpan`1<KeyValuePair`2<string, object>> Tags { get; }
+    public T Value { get; }
+    public Measurement`1(T value);
+    public Measurement`1(T value, IEnumerable`1<KeyValuePair`2<string, object>> tags);
+    public Measurement`1(T value, KeyValuePair`2[] tags);
+    public Measurement`1(T value, ReadOnlySpan`1<KeyValuePair`2<string, object>> tags);
+    public ReadOnlySpan`1<KeyValuePair`2<string, object>> get_Tags();
+    [CompilerGeneratedAttribute]
+public T get_Value();
+    private static KeyValuePair`2[] ToArray(IEnumerable`1<KeyValuePair`2<string, object>> tags);
+}
+public class System.Diagnostics.Metrics.MeasurementCallback`1 : MulticastDelegate {
+    public MeasurementCallback`1(object object, IntPtr method);
+    public virtual void Invoke(Instrument instrument, T measurement, ReadOnlySpan`1<KeyValuePair`2<string, object>> tags, object state);
+    public virtual IAsyncResult BeginInvoke(Instrument instrument, T measurement, ReadOnlySpan`1<KeyValuePair`2<string, object>> tags, object state, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+[NullableAttribute("0")]
+[NullableContextAttribute("2")]
+public class System.Diagnostics.Metrics.Meter : object {
+    private static List`1<Meter> s_allMeters;
+    private List`1<Instrument> _instruments;
+    [CompilerGeneratedAttribute]
+private bool <Disposed>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Version>k__BackingField;
+    internal bool Disposed { get; private set; }
+    [NullableAttribute("1")]
+public string Name { get; }
+    public string Version { get; }
+    [NullableContextAttribute("1")]
+public Meter(string name);
+    [NullableContextAttribute("1")]
+public Meter(string name, string version);
+    private static Meter();
+    [CompilerGeneratedAttribute]
+internal bool get_Disposed();
+    [CompilerGeneratedAttribute]
+private void set_Disposed(bool value);
+    [CompilerGeneratedAttribute]
+[NullableContextAttribute("1")]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+public string get_Version();
+    public Counter`1<T> CreateCounter(string name, string unit, string description);
+    public Histogram`1<T> CreateHistogram(string name, string unit, string description);
+    public ObservableCounter`1<T> CreateObservableCounter(string name, Func`1<T> observeValue, string unit, string description);
+    public ObservableCounter`1<T> CreateObservableCounter(string name, Func`1<Measurement`1<T>> observeValue, string unit, string description);
+    public ObservableCounter`1<T> CreateObservableCounter(string name, Func`1<IEnumerable`1<Measurement`1<T>>> observeValues, string unit, string description);
+    public ObservableGauge`1<T> CreateObservableGauge(string name, Func`1<T> observeValue, string unit, string description);
+    public ObservableGauge`1<T> CreateObservableGauge(string name, Func`1<Measurement`1<T>> observeValue, string unit, string description);
+    public ObservableGauge`1<T> CreateObservableGauge(string name, Func`1<IEnumerable`1<Measurement`1<T>>> observeValues, string unit, string description);
+    public sealed virtual void Dispose();
+    internal bool AddInstrument(Instrument instrument);
+    internal static List`1<Instrument> GetPublishedInstruments();
+}
+public class System.Diagnostics.Metrics.MeterListener : object {
+    private static List`1<MeterListener> s_allStartedListeners;
+    private DiagLinkedList`1<Instrument> _enabledMeasurementInstruments;
+    private bool _disposed;
+    private MeasurementCallback`1<byte> _byteMeasurementCallback;
+    private MeasurementCallback`1<short> _shortMeasurementCallback;
+    private MeasurementCallback`1<int> _intMeasurementCallback;
+    private MeasurementCallback`1<long> _longMeasurementCallback;
+    private MeasurementCallback`1<float> _floatMeasurementCallback;
+    private MeasurementCallback`1<double> _doubleMeasurementCallback;
+    private MeasurementCallback`1<decimal> _decimalMeasurementCallback;
+    [CompilerGeneratedAttribute]
+private Action`2<Instrument, MeterListener> <InstrumentPublished>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`2<Instrument, object> <MeasurementsCompleted>k__BackingField;
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public Action`2<Instrument, MeterListener> InstrumentPublished { get; public set; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public Action`2<Instrument, object> MeasurementsCompleted { get; public set; }
+    private static MeterListener();
+    [CompilerGeneratedAttribute]
+public Action`2<Instrument, MeterListener> get_InstrumentPublished();
+    [CompilerGeneratedAttribute]
+public void set_InstrumentPublished(Action`2<Instrument, MeterListener> value);
+    [CompilerGeneratedAttribute]
+public Action`2<Instrument, object> get_MeasurementsCompleted();
+    [CompilerGeneratedAttribute]
+public void set_MeasurementsCompleted(Action`2<Instrument, object> value);
+    [NullableContextAttribute("1")]
+public void EnableMeasurementEvents(Instrument instrument, object state);
+    [NullableContextAttribute("1")]
+public object DisableMeasurementEvents(Instrument instrument);
+    public void SetMeasurementEventCallback(MeasurementCallback`1<T> measurementCallback);
+    public void Start();
+    public void RecordObservableInstruments();
+    public sealed virtual void Dispose();
+    internal static List`1<MeterListener> GetAllListeners();
+    internal void NotifyMeasurement(Instrument instrument, T measurement, ReadOnlySpan`1<KeyValuePair`2<string, object>> tags, object state);
+}
+[EventSourceAttribute]
+internal class System.Diagnostics.Metrics.MetricsEventSource : EventSource {
+    public static MetricsEventSource Log;
+    private CommandHandler _handler;
+    private CommandHandler Handler { get; }
+    private static MetricsEventSource();
+    private CommandHandler get_Handler();
+    [EventAttribute("1")]
+public void Message(string Message);
+    [EventAttribute("2")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+public void CollectionStart(string sessionId, DateTime intervalStartTime, DateTime intervalEndTime);
+    [EventAttribute("3")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+public void CollectionStop(string sessionId, DateTime intervalStartTime, DateTime intervalEndTime);
+    [EventAttribute("4")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+public void CounterRateValuePublished(string sessionId, string meterName, string meterVersion, string instrumentName, string unit, string tags, string rate);
+    [EventAttribute("5")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+public void GaugeValuePublished(string sessionId, string meterName, string meterVersion, string instrumentName, string unit, string tags, string lastValue);
+    [EventAttribute("6")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+public void HistogramValuePublished(string sessionId, string meterName, string meterVersion, string instrumentName, string unit, string tags, string quantiles);
+    [EventAttribute("7")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+public void BeginInstrumentReporting(string sessionId, string meterName, string meterVersion, string instrumentName, string instrumentType, string unit, string description);
+    [EventAttribute("8")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+public void EndInstrumentReporting(string sessionId, string meterName, string meterVersion, string instrumentName, string instrumentType, string unit, string description);
+    [EventAttribute("9")]
+public void Error(string sessionId, string errorMessage);
+    [EventAttribute("10")]
+public void InitialInstrumentEnumerationComplete(string sessionId);
+    [EventAttribute("11")]
+[UnconditionalSuppressMessageAttribute("ReflectionAnalysis", "IL2026:RequiresUnreferencedCode")]
+public void InstrumentPublished(string sessionId, string meterName, string meterVersion, string instrumentName, string instrumentType, string unit, string description);
+    [EventAttribute("12")]
+public void TimeSeriesLimitReached(string sessionId);
+    [EventAttribute("13")]
+public void HistogramLimitReached(string sessionId);
+    [EventAttribute("14")]
+public void ObservableInstrumentCallbackError(string sessionId, string errorMessage);
+    [EventAttribute("15")]
+public void MultipleSessionsNotSupportedError(string runningSessionId);
+    [NonEventAttribute]
+protected virtual void OnEventCommand(EventCommandEventArgs command);
+}
+internal class System.Diagnostics.Metrics.MultiSizeLabelNameDictionary`1 : object {
+    private TAggregator NoLabelAggregator;
+    private FixedSizeLabelNameDictionary`3<StringSequence1, ObjectSequence1, TAggregator> Label1;
+    private FixedSizeLabelNameDictionary`3<StringSequence2, ObjectSequence2, TAggregator> Label2;
+    private FixedSizeLabelNameDictionary`3<StringSequence3, ObjectSequence3, TAggregator> Label3;
+    private FixedSizeLabelNameDictionary`3<StringSequenceMany, ObjectSequenceMany, TAggregator> LabelMany;
+    public MultiSizeLabelNameDictionary`1(object initialLabelNameDict);
+    public TAggregator GetNoLabelAggregator(Func`1<TAggregator> createFunc);
+    public FixedSizeLabelNameDictionary`3<TStringSequence, TObjectSequence, TAggregator> GetFixedSizeLabelNameDictionary();
+    public void Collect(Action`1<LabeledAggregationStatistics> visitFunc);
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Diagnostics.Metrics.ObjectSequence1 : ValueType {
+    public object Value1;
+    public object Item { get; public set; }
+    public ObjectSequence1(object value1);
+    public virtual int GetHashCode();
+    public sealed virtual bool Equals(ObjectSequence1 other);
+    public virtual bool Equals(object obj);
+    public sealed virtual object get_Item(int i);
+    public sealed virtual void set_Item(int i, object value);
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Diagnostics.Metrics.ObjectSequence2 : ValueType {
+    public object Value1;
+    public object Value2;
+    public object Item { get; public set; }
+    public ObjectSequence2(object value1, object value2);
+    public sealed virtual bool Equals(ObjectSequence2 other);
+    public virtual bool Equals(object obj);
+    public sealed virtual object get_Item(int i);
+    public sealed virtual void set_Item(int i, object value);
+    public virtual int GetHashCode();
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Diagnostics.Metrics.ObjectSequence3 : ValueType {
+    public object Value1;
+    public object Value2;
+    public object Value3;
+    public object Item { get; public set; }
+    public ObjectSequence3(object value1, object value2, object value3);
+    public sealed virtual bool Equals(ObjectSequence3 other);
+    public virtual bool Equals(object obj);
+    public sealed virtual object get_Item(int i);
+    public sealed virtual void set_Item(int i, object value);
+    public virtual int GetHashCode();
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Diagnostics.Metrics.ObjectSequenceMany : ValueType {
+    private Object[] _values;
+    public object Item { get; public set; }
+    public ObjectSequenceMany(Object[] values);
+    public sealed virtual bool Equals(ObjectSequenceMany other);
+    public virtual bool Equals(object obj);
+    public sealed virtual object get_Item(int i);
+    public sealed virtual void set_Item(int i, object value);
+    public virtual int GetHashCode();
+}
+public class System.Diagnostics.Metrics.ObservableCounter`1 : ObservableInstrument`1<T> {
+    private object _callback;
+    internal ObservableCounter`1(Meter meter, string name, Func`1<T> observeValue, string unit, string description);
+    internal ObservableCounter`1(Meter meter, string name, Func`1<Measurement`1<T>> observeValue, string unit, string description);
+    internal ObservableCounter`1(Meter meter, string name, Func`1<IEnumerable`1<Measurement`1<T>>> observeValues, string unit, string description);
+    protected virtual IEnumerable`1<Measurement`1<T>> Observe();
+}
+public class System.Diagnostics.Metrics.ObservableGauge`1 : ObservableInstrument`1<T> {
+    private object _callback;
+    internal ObservableGauge`1(Meter meter, string name, Func`1<T> observeValue, string unit, string description);
+    internal ObservableGauge`1(Meter meter, string name, Func`1<Measurement`1<T>> observeValue, string unit, string description);
+    internal ObservableGauge`1(Meter meter, string name, Func`1<IEnumerable`1<Measurement`1<T>>> observeValues, string unit, string description);
+    protected virtual IEnumerable`1<Measurement`1<T>> Observe();
+}
+public abstract class System.Diagnostics.Metrics.ObservableInstrument`1 : Instrument {
+    public bool IsObservable { get; }
+    [NullableContextAttribute("1")]
+protected ObservableInstrument`1(Meter meter, string name, string unit, string description);
+    protected abstract virtual IEnumerable`1<Measurement`1<T>> Observe();
+    public virtual bool get_IsObservable();
+    internal virtual void Observe(MeterListener listener);
+    internal IEnumerable`1<Measurement`1<T>> Observe(object callback);
+}
+internal class System.Diagnostics.Metrics.QuantileAggregation : object {
+    [CompilerGeneratedAttribute]
+private Double[] <Quantiles>k__BackingField;
+    [CompilerGeneratedAttribute]
+private double <MaxRelativeError>k__BackingField;
+    public Double[] Quantiles { get; public set; }
+    public double MaxRelativeError { get; public set; }
+    public QuantileAggregation(Double[] quantiles);
+    [CompilerGeneratedAttribute]
+public Double[] get_Quantiles();
+    [CompilerGeneratedAttribute]
+public void set_Quantiles(Double[] value);
+    [CompilerGeneratedAttribute]
+public double get_MaxRelativeError();
+    [CompilerGeneratedAttribute]
+public void set_MaxRelativeError(double value);
+}
+[IsReadOnlyAttribute]
+internal class System.Diagnostics.Metrics.QuantileValue : ValueType {
+    [CompilerGeneratedAttribute]
+private double <Quantile>k__BackingField;
+    [CompilerGeneratedAttribute]
+private double <Value>k__BackingField;
+    public double Quantile { get; }
+    public double Value { get; }
+    public QuantileValue(double quantile, double value);
+    [CompilerGeneratedAttribute]
+public double get_Quantile();
+    [CompilerGeneratedAttribute]
+public double get_Value();
+}
+internal class System.Diagnostics.Metrics.RateAggregator : Aggregator {
+    private Nullable`1<double> _prevValue;
+    private double _value;
+    public virtual void Update(double value);
+    public virtual IAggregationStatistics Collect();
+}
+internal class System.Diagnostics.Metrics.RateStatistics : object {
+    [CompilerGeneratedAttribute]
+private Nullable`1<double> <Delta>k__BackingField;
+    public Nullable`1<double> Delta { get; }
+    public RateStatistics(Nullable`1<double> delta);
+    [CompilerGeneratedAttribute]
+public Nullable`1<double> get_Delta();
+}
+internal class System.Diagnostics.Metrics.RateSumAggregator : Aggregator {
+    private double _sum;
+    public virtual void Update(double value);
+    public virtual IAggregationStatistics Collect();
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Diagnostics.Metrics.StringSequence1 : ValueType {
+    public string Value1;
+    public string Item { get; public set; }
+    public int Length { get; }
+    public StringSequence1(string value1);
+    public virtual int GetHashCode();
+    public sealed virtual bool Equals(StringSequence1 other);
+    public virtual bool Equals(object obj);
+    public sealed virtual string get_Item(int i);
+    public sealed virtual void set_Item(int i, string value);
+    public sealed virtual int get_Length();
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Diagnostics.Metrics.StringSequence2 : ValueType {
+    public string Value1;
+    public string Value2;
+    public string Item { get; public set; }
+    public int Length { get; }
+    public StringSequence2(string value1, string value2);
+    public sealed virtual bool Equals(StringSequence2 other);
+    public virtual bool Equals(object obj);
+    public sealed virtual string get_Item(int i);
+    public sealed virtual void set_Item(int i, string value);
+    public sealed virtual int get_Length();
+    public virtual int GetHashCode();
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Diagnostics.Metrics.StringSequence3 : ValueType {
+    public string Value1;
+    public string Value2;
+    public string Value3;
+    public string Item { get; public set; }
+    public int Length { get; }
+    public StringSequence3(string value1, string value2, string value3);
+    public sealed virtual bool Equals(StringSequence3 other);
+    public virtual bool Equals(object obj);
+    public sealed virtual string get_Item(int i);
+    public sealed virtual void set_Item(int i, string value);
+    public sealed virtual int get_Length();
+    public virtual int GetHashCode();
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Diagnostics.Metrics.StringSequenceMany : ValueType {
+    private String[] _values;
+    public string Item { get; public set; }
+    public int Length { get; }
+    public StringSequenceMany(String[] values);
+    public Span`1<string> AsSpan();
+    public sealed virtual bool Equals(StringSequenceMany other);
+    public virtual bool Equals(object obj);
+    public sealed virtual string get_Item(int i);
+    public sealed virtual void set_Item(int i, string value);
+    public sealed virtual int get_Length();
+    public virtual int GetHashCode();
+}
+internal class System.Diagnostics.NoOutputPropagator : DistributedContextPropagator {
+    [CompilerGeneratedAttribute]
+private static DistributedContextPropagator <Instance>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IReadOnlyCollection`1<string> <Fields>k__BackingField;
+    internal static DistributedContextPropagator Instance { get; }
+    public IReadOnlyCollection`1<string> Fields { get; }
+    private static NoOutputPropagator();
+    [CompilerGeneratedAttribute]
+internal static DistributedContextPropagator get_Instance();
+    [CompilerGeneratedAttribute]
+public virtual IReadOnlyCollection`1<string> get_Fields();
+    public virtual void Inject(Activity activity, object carrier, PropagatorSetterCallback setter);
+    public virtual void ExtractTraceIdAndState(object carrier, PropagatorGetterCallback getter, String& traceId, String& traceState);
+    public virtual IEnumerable`1<KeyValuePair`2<string, string>> ExtractBaggage(object carrier, PropagatorGetterCallback getter);
+}
+internal class System.Diagnostics.PassThroughPropagator : DistributedContextPropagator {
+    [CompilerGeneratedAttribute]
+private static DistributedContextPropagator <Instance>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IReadOnlyCollection`1<string> <Fields>k__BackingField;
+    internal static DistributedContextPropagator Instance { get; }
+    public IReadOnlyCollection`1<string> Fields { get; }
+    private static PassThroughPropagator();
+    [CompilerGeneratedAttribute]
+internal static DistributedContextPropagator get_Instance();
+    [CompilerGeneratedAttribute]
+public virtual IReadOnlyCollection`1<string> get_Fields();
+    public virtual void Inject(Activity activity, object carrier, PropagatorSetterCallback setter);
+    public virtual void ExtractTraceIdAndState(object carrier, PropagatorGetterCallback getter, String& traceId, String& traceState);
+    public virtual IEnumerable`1<KeyValuePair`2<string, string>> ExtractBaggage(object carrier, PropagatorGetterCallback getter);
+    private static void GetRootId(String& parentId, String& traceState, Boolean& isW3c, IEnumerable`1& baggage);
+}
+internal class System.Diagnostics.RandomNumberGenerator : object {
+    [ThreadStaticAttribute]
+private static RandomNumberGenerator t_random;
+    private ulong _s0;
+    private ulong _s1;
+    private ulong _s2;
+    private ulong _s3;
+    public static RandomNumberGenerator Current { get; }
+    public static RandomNumberGenerator get_Current();
+    private ulong Rol64(ulong x, int k);
+    public long Next();
+}
+public class System.Diagnostics.SampleActivity`1 : MulticastDelegate {
+    public SampleActivity`1(object object, IntPtr method);
+    public virtual ActivitySamplingResult Invoke(ActivityCreationOptions`1& options);
+    public virtual IAsyncResult BeginInvoke(ActivityCreationOptions`1& options, AsyncCallback callback, object object);
+    public virtual ActivitySamplingResult EndInvoke(ActivityCreationOptions`1& options, IAsyncResult result);
+}
+internal class System.Diagnostics.SynchronizedList`1 : object {
+    private List`1<T> _list;
+    private UInt32 _version;
+    public int Count { get; }
+    public void Add(T item);
+    public bool AddIfNotExist(T item);
+    public bool Remove(T item);
+    public int get_Count();
+    public void EnumWithFunc(Function`2<T, TParent> func, ActivityCreationOptions`1& data, ActivitySamplingResult& samplingResult, ActivityCreationOptions`1& dataWithContext);
+    public void EnumWithAction(Action`2<T, object> action, object arg);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Diagnostics.TagList : ValueType {
+    internal KeyValuePair`2<string, object> Tag1;
+    internal KeyValuePair`2<string, object> Tag2;
+    internal KeyValuePair`2<string, object> Tag3;
+    internal KeyValuePair`2<string, object> Tag4;
+    internal KeyValuePair`2<string, object> Tag5;
+    internal KeyValuePair`2<string, object> Tag6;
+    internal KeyValuePair`2<string, object> Tag7;
+    internal KeyValuePair`2<string, object> Tag8;
+    private int _tagsCount;
+    private KeyValuePair`2[] _overflowTags;
+    private static int OverflowAdditionalCapacity;
+    public int Count { get; }
+    public bool IsReadOnly { get; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+public KeyValuePair`2<string, object> Item { get; public set; }
+    [NullableAttribute("Mono.Cecil.CustomAttributeArgument[]")]
+internal KeyValuePair`2[] Tags { get; }
+    public TagList(ReadOnlySpan`1<KeyValuePair`2<string, object>> tagList);
+    [IsReadOnlyAttribute]
+public sealed virtual int get_Count();
+    [IsReadOnlyAttribute]
+public sealed virtual bool get_IsReadOnly();
+    [IsReadOnlyAttribute]
+public sealed virtual KeyValuePair`2<string, object> get_Item(int index);
+    public sealed virtual void set_Item(int index, KeyValuePair`2<string, object> value);
+    [NullableContextAttribute("1")]
+public void Add(string key, object value);
+    public sealed virtual void Add(KeyValuePair`2<string, object> tag);
+    [IsReadOnlyAttribute]
+public void CopyTo(Span`1<KeyValuePair`2<string, object>> tags);
+    [IsReadOnlyAttribute]
+public sealed virtual void CopyTo(KeyValuePair`2[] array, int arrayIndex);
+    public sealed virtual void Insert(int index, KeyValuePair`2<string, object> item);
+    public sealed virtual void RemoveAt(int index);
+    public sealed virtual void Clear();
+    [IsReadOnlyAttribute]
+public sealed virtual bool Contains(KeyValuePair`2<string, object> item);
+    public sealed virtual bool Remove(KeyValuePair`2<string, object> item);
+    [IsReadOnlyAttribute]
+public sealed virtual IEnumerator`1<KeyValuePair`2<string, object>> GetEnumerator();
+    [IsReadOnlyAttribute]
+private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    [IsReadOnlyAttribute]
+public sealed virtual int IndexOf(KeyValuePair`2<string, object> item);
+    [IsReadOnlyAttribute]
+internal KeyValuePair`2[] get_Tags();
+    private static bool TagsEqual(KeyValuePair`2<string, object> tag1, KeyValuePair`2<string, object> tag2);
+    private void MoveTagsToTheArray();
+}
+internal static class System.HexConverter : object {
+    public static ReadOnlySpan`1<byte> CharToHexLookup { get; }
+    public static void ToBytesBuffer(byte value, Span`1<byte> buffer, int startingIndex, Casing casing);
+    public static void ToCharsBuffer(byte value, Span`1<char> buffer, int startingIndex, Casing casing);
+    public static void EncodeToUtf16(ReadOnlySpan`1<byte> bytes, Span`1<char> chars, Casing casing);
+    public static string ToString(ReadOnlySpan`1<byte> bytes, Casing casing);
+    public static char ToCharUpper(int value);
+    public static char ToCharLower(int value);
+    public static bool TryDecodeFromUtf16(ReadOnlySpan`1<char> chars, Span`1<byte> bytes);
+    public static bool TryDecodeFromUtf16(ReadOnlySpan`1<char> chars, Span`1<byte> bytes, Int32& charsProcessed);
+    public static int FromChar(int c);
+    public static int FromUpperChar(int c);
+    public static int FromLowerChar(int c);
+    public static bool IsHexChar(int c);
+    public static bool IsHexUpperChar(int c);
+    public static bool IsHexLowerChar(int c);
+    public static ReadOnlySpan`1<byte> get_CharToHexLookup();
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.IsReadOnlyAttribute : Attribute {
+}
+[AttributeUsageAttribute("27524")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullableAttribute : Attribute {
+    public Byte[] NullableFlags;
+    public NullableAttribute(byte );
+    public NullableAttribute(Byte[] );
+}
+[AttributeUsageAttribute("5196")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullableContextAttribute : Attribute {
+    public byte Flag;
+    public NullableContextAttribute(byte );
+}
+[AttributeUsageAttribute("2")]
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.NullablePublicOnlyAttribute : Attribute {
+    public bool IncludesInternals;
+    public NullablePublicOnlyAttribute(bool );
+}
+internal abstract class System.Runtime.Versioning.OSPlatformAttribute : Attribute {
+    [CompilerGeneratedAttribute]
+private string <PlatformName>k__BackingField;
+    public string PlatformName { get; }
+    private protected OSPlatformAttribute(string platformName);
+    [CompilerGeneratedAttribute]
+public string get_PlatformName();
+}
+[AttributeUsageAttribute("2047")]
+internal class System.Runtime.Versioning.SupportedOSPlatformAttribute : OSPlatformAttribute {
+    public SupportedOSPlatformAttribute(string platformName);
+}
+[AttributeUsageAttribute("448")]
+internal class System.Runtime.Versioning.SupportedOSPlatformGuardAttribute : OSPlatformAttribute {
+    public SupportedOSPlatformGuardAttribute(string platformName);
+}
+[AttributeUsageAttribute("1")]
+internal class System.Runtime.Versioning.TargetPlatformAttribute : OSPlatformAttribute {
+    public TargetPlatformAttribute(string platformName);
+}
+[AttributeUsageAttribute("2047")]
+internal class System.Runtime.Versioning.UnsupportedOSPlatformAttribute : OSPlatformAttribute {
+    public UnsupportedOSPlatformAttribute(string platformName);
+}
+[AttributeUsageAttribute("448")]
+internal class System.Runtime.Versioning.UnsupportedOSPlatformGuardAttribute : OSPlatformAttribute {
+    public UnsupportedOSPlatformGuardAttribute(string platformName);
+}
+internal static class System.SR : object {
+    private static bool s_usingResourceKeys;
+    private static ResourceManager s_resourceManager;
+    internal static ResourceManager ResourceManager { get; }
+    internal static string ActivityIdFormatInvalid { get; }
+    internal static string ActivityNotRunning { get; }
+    internal static string ActivityNotStarted { get; }
+    internal static string ActivityStartAlreadyStarted { get; }
+    internal static string EndTimeNotUtc { get; }
+    internal static string OperationNameInvalid { get; }
+    internal static string ParentIdAlreadySet { get; }
+    internal static string ParentIdInvalid { get; }
+    internal static string SetFormatOnStartedActivity { get; }
+    internal static string SetLinkInvalid { get; }
+    internal static string SetParentIdOnActivityWithParent { get; }
+    internal static string StartTimeNotUtc { get; }
+    internal static string KeyAlreadyExist { get; }
+    internal static string InvalidTraceParent { get; }
+    internal static string UnableAccessServicePointTable { get; }
+    internal static string UnableToInitialize { get; }
+    internal static string UnsupportedType { get; }
+    internal static string Arg_BufferTooSmall { get; }
+    private static SR();
+    private static bool UsingResourceKeys();
+    internal static string GetResourceString(string resourceKey);
+    internal static string GetResourceString(string resourceKey, string defaultString);
+    internal static string Format(string resourceFormat, object p1);
+    internal static string Format(string resourceFormat, object p1, object p2);
+    internal static string Format(string resourceFormat, object p1, object p2, object p3);
+    internal static string Format(string resourceFormat, Object[] args);
+    internal static string Format(IFormatProvider provider, string resourceFormat, object p1);
+    internal static string Format(IFormatProvider provider, string resourceFormat, object p1, object p2);
+    internal static string Format(IFormatProvider provider, string resourceFormat, object p1, object p2, object p3);
+    internal static string Format(IFormatProvider provider, string resourceFormat, Object[] args);
+    internal static ResourceManager get_ResourceManager();
+    internal static string get_ActivityIdFormatInvalid();
+    internal static string get_ActivityNotRunning();
+    internal static string get_ActivityNotStarted();
+    internal static string get_ActivityStartAlreadyStarted();
+    internal static string get_EndTimeNotUtc();
+    internal static string get_OperationNameInvalid();
+    internal static string get_ParentIdAlreadySet();
+    internal static string get_ParentIdInvalid();
+    internal static string get_SetFormatOnStartedActivity();
+    internal static string get_SetLinkInvalid();
+    internal static string get_SetParentIdOnActivityWithParent();
+    internal static string get_StartTimeNotUtc();
+    internal static string get_KeyAlreadyExist();
+    internal static string get_InvalidTraceParent();
+    internal static string get_UnableAccessServicePointTable();
+    internal static string get_UnableToInitialize();
+    internal static string get_UnsupportedType();
+    internal static string get_Arg_BufferTooSmall();
+}

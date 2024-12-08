@@ -1,0 +1,1678 @@
+Сборка: System.Net.Http.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Net.Http.CancellationHelper
+Наследуется от: object
+Поля:
+  string s_cancellationMessage
+Свойства:
+Методы:
+  bool ShouldWrapInOperationCanceledException(Exception exception, CancellationToken cancellationToken)
+  Exception CreateOperationCanceledException(Exception innerException, CancellationToken cancellationToken)
+  void ThrowOperationCanceledException(Exception innerException, CancellationToken cancellationToken)
+  void ThrowIfCancellationRequested(CancellationToken cancellationToken)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Net.Http.ConnectHelper
+Наследуется от: object
+Поля:
+  Segment<ConnectEventArgs> s_connectEventArgs
+Свойства:
+Методы:
+  ValueTask`1<ValueTuple`2<Socket, Stream>> ConnectAsync(string host, int port, CancellationToken cancellationToken)
+  ValueTask`1<SslStream> EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Stream stream, CancellationToken cancellationToken)
+  ValueTask`1<SslStream> EstablishSslConnectionAsyncCore(Stream stream, SslClientAuthenticationOptions sslOptions, CancellationToken cancellationToken)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Net.Http.HttpClientHandler
+Наследуется от: HttpMessageHandler
+Поля:
+  IMonoHttpClientHandler _delegatingHandler
+  ClientCertificateOption _clientCertificateOptions
+Свойства:
+  Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> DangerousAcceptAnyServerCertificateValidator
+  bool SupportsAutomaticDecompression
+  bool SupportsProxy
+  bool SupportsRedirectConfiguration
+  bool UseCookies
+  CookieContainer CookieContainer
+  ClientCertificateOption ClientCertificateOptions
+  X509CertificateCollection ClientCertificates
+  Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> ServerCertificateCustomValidationCallback
+  bool CheckCertificateRevocationList
+  SslProtocols SslProtocols
+  DecompressionMethods AutomaticDecompression
+  bool UseProxy
+  IWebProxy Proxy
+  ICredentials DefaultProxyCredentials
+  bool PreAuthenticate
+  bool UseDefaultCredentials
+  ICredentials Credentials
+  bool AllowAutoRedirect
+  int MaxAutomaticRedirections
+  int MaxConnectionsPerServer
+  int MaxResponseHeadersLength
+  long MaxRequestContentBufferSize
+  IDictionary`2<string, object> Properties
+Методы:
+  IMonoHttpClientHandler CreateDefaultHandler()
+  Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> get_DangerousAcceptAnyServerCertificateValidator()
+  void .ctor()
+  void .ctor(IMonoHttpClientHandler handler)
+  void Dispose(bool disposing)
+  bool get_SupportsAutomaticDecompression()
+  bool get_SupportsProxy()
+  bool get_SupportsRedirectConfiguration()
+  bool get_UseCookies()
+  void set_UseCookies(bool value)
+  CookieContainer get_CookieContainer()
+  void set_CookieContainer(CookieContainer value)
+  void ThrowForModifiedManagedSslOptionsIfStarted()
+  ClientCertificateOption get_ClientCertificateOptions()
+  void set_ClientCertificateOptions(ClientCertificateOption value)
+  X509CertificateCollection get_ClientCertificates()
+  Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> get_ServerCertificateCustomValidationCallback()
+  void set_ServerCertificateCustomValidationCallback(Func`5<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool> value)
+  bool get_CheckCertificateRevocationList()
+  void set_CheckCertificateRevocationList(bool value)
+  SslProtocols get_SslProtocols()
+  void set_SslProtocols(SslProtocols value)
+  DecompressionMethods get_AutomaticDecompression()
+  void set_AutomaticDecompression(DecompressionMethods value)
+  bool get_UseProxy()
+  void set_UseProxy(bool value)
+  IWebProxy get_Proxy()
+  void set_Proxy(IWebProxy value)
+  ICredentials get_DefaultProxyCredentials()
+  void set_DefaultProxyCredentials(ICredentials value)
+  bool get_PreAuthenticate()
+  void set_PreAuthenticate(bool value)
+  bool get_UseDefaultCredentials()
+  void set_UseDefaultCredentials(bool value)
+  ICredentials get_Credentials()
+  void set_Credentials(ICredentials value)
+  bool get_AllowAutoRedirect()
+  void set_AllowAutoRedirect(bool value)
+  int get_MaxAutomaticRedirections()
+  void set_MaxAutomaticRedirections(int value)
+  int get_MaxConnectionsPerServer()
+  void set_MaxConnectionsPerServer(int value)
+  int get_MaxResponseHeadersLength()
+  void set_MaxResponseHeadersLength(int value)
+  long get_MaxRequestContentBufferSize()
+  void set_MaxRequestContentBufferSize(long value)
+  IDictionary`2<string, object> get_Properties()
+  void SetWebRequestTimeout(TimeSpan timeout)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+  X509Certificate <set_ClientCertificateOptions>b__23_0(object sender, string targetHost, X509CertificateCollection localCertificates, X509Certificate remoteCertificate, String[] acceptableIssuers)
+--------------------------------------------------
+Класс: System.Net.Http.IMonoHttpClientHandler
+Поля:
+Свойства:
+  bool SupportsAutomaticDecompression
+  bool UseCookies
+  CookieContainer CookieContainer
+  SslClientAuthenticationOptions SslOptions
+  DecompressionMethods AutomaticDecompression
+  bool UseProxy
+  IWebProxy Proxy
+  ICredentials DefaultProxyCredentials
+  bool PreAuthenticate
+  ICredentials Credentials
+  bool AllowAutoRedirect
+  int MaxAutomaticRedirections
+  int MaxConnectionsPerServer
+  int MaxResponseHeadersLength
+  long MaxRequestContentBufferSize
+  IDictionary`2<string, object> Properties
+Методы:
+  bool get_SupportsAutomaticDecompression()
+  bool get_UseCookies()
+  void set_UseCookies(bool value)
+  CookieContainer get_CookieContainer()
+  void set_CookieContainer(CookieContainer value)
+  SslClientAuthenticationOptions get_SslOptions()
+  void set_SslOptions(SslClientAuthenticationOptions value)
+  DecompressionMethods get_AutomaticDecompression()
+  void set_AutomaticDecompression(DecompressionMethods value)
+  bool get_UseProxy()
+  void set_UseProxy(bool value)
+  IWebProxy get_Proxy()
+  void set_Proxy(IWebProxy value)
+  ICredentials get_DefaultProxyCredentials()
+  void set_DefaultProxyCredentials(ICredentials value)
+  bool get_PreAuthenticate()
+  void set_PreAuthenticate(bool value)
+  ICredentials get_Credentials()
+  void set_Credentials(ICredentials value)
+  bool get_AllowAutoRedirect()
+  void set_AllowAutoRedirect(bool value)
+  int get_MaxAutomaticRedirections()
+  void set_MaxAutomaticRedirections(int value)
+  int get_MaxConnectionsPerServer()
+  void set_MaxConnectionsPerServer(int value)
+  int get_MaxResponseHeadersLength()
+  void set_MaxResponseHeadersLength(int value)
+  long get_MaxRequestContentBufferSize()
+  void set_MaxRequestContentBufferSize(long value)
+  IDictionary`2<string, object> get_Properties()
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+  void SetWebRequestTimeout(TimeSpan timeout)
+--------------------------------------------------
+Класс: System.Net.Http.MonoWebRequestHandler
+Наследуется от: object
+Поля:
+  long groupCounter
+  bool allowAutoRedirect
+  DecompressionMethods automaticDecompression
+  CookieContainer cookieContainer
+  ICredentials credentials
+  int maxAutomaticRedirections
+  long maxRequestContentBufferSize
+  bool preAuthenticate
+  IWebProxy proxy
+  bool useCookies
+  bool useProxy
+  SslClientAuthenticationOptions sslOptions
+  bool allowPipelining
+  RequestCachePolicy cachePolicy
+  AuthenticationLevel authenticationLevel
+  TimeSpan continueTimeout
+  TokenImpersonationLevel impersonationLevel
+  int maxResponseHeadersLength
+  int readWriteTimeout
+  RemoteCertificateValidationCallback serverCertificateValidationCallback
+  bool unsafeAuthenticatedConnectionSharing
+  bool sentRequest
+  string connectionGroupName
+  Nullable`1<TimeSpan> timeout
+  bool disposed
+Свойства:
+  bool AllowAutoRedirect
+  DecompressionMethods AutomaticDecompression
+  CookieContainer CookieContainer
+  ICredentials Credentials
+  int MaxAutomaticRedirections
+  long MaxRequestContentBufferSize
+  bool PreAuthenticate
+  IWebProxy Proxy
+  bool SupportsAutomaticDecompression
+  bool SupportsProxy
+  bool SupportsRedirectConfiguration
+  bool UseCookies
+  bool UseProxy
+  bool AllowPipelining
+  RequestCachePolicy CachePolicy
+  AuthenticationLevel AuthenticationLevel
+  TimeSpan ContinueTimeout
+  TokenImpersonationLevel ImpersonationLevel
+  int MaxResponseHeadersLength
+  int ReadWriteTimeout
+  RemoteCertificateValidationCallback ServerCertificateValidationCallback
+  bool UnsafeAuthenticatedConnectionSharing
+  SslClientAuthenticationOptions SslOptions
+  ICredentials DefaultProxyCredentials
+  int MaxConnectionsPerServer
+  IDictionary`2<string, object> Properties
+Методы:
+  void .ctor()
+  void EnsureModifiability()
+  bool get_AllowAutoRedirect()
+  void set_AllowAutoRedirect(bool value)
+  DecompressionMethods get_AutomaticDecompression()
+  void set_AutomaticDecompression(DecompressionMethods value)
+  CookieContainer get_CookieContainer()
+  void set_CookieContainer(CookieContainer value)
+  ICredentials get_Credentials()
+  void set_Credentials(ICredentials value)
+  int get_MaxAutomaticRedirections()
+  void set_MaxAutomaticRedirections(int value)
+  long get_MaxRequestContentBufferSize()
+  void set_MaxRequestContentBufferSize(long value)
+  bool get_PreAuthenticate()
+  void set_PreAuthenticate(bool value)
+  IWebProxy get_Proxy()
+  void set_Proxy(IWebProxy value)
+  bool get_SupportsAutomaticDecompression()
+  bool get_SupportsProxy()
+  bool get_SupportsRedirectConfiguration()
+  bool get_UseCookies()
+  void set_UseCookies(bool value)
+  bool get_UseProxy()
+  void set_UseProxy(bool value)
+  bool get_AllowPipelining()
+  void set_AllowPipelining(bool value)
+  RequestCachePolicy get_CachePolicy()
+  void set_CachePolicy(RequestCachePolicy value)
+  AuthenticationLevel get_AuthenticationLevel()
+  void set_AuthenticationLevel(AuthenticationLevel value)
+  TimeSpan get_ContinueTimeout()
+  void set_ContinueTimeout(TimeSpan value)
+  TokenImpersonationLevel get_ImpersonationLevel()
+  void set_ImpersonationLevel(TokenImpersonationLevel value)
+  int get_MaxResponseHeadersLength()
+  void set_MaxResponseHeadersLength(int value)
+  int get_ReadWriteTimeout()
+  void set_ReadWriteTimeout(int value)
+  RemoteCertificateValidationCallback get_ServerCertificateValidationCallback()
+  void set_ServerCertificateValidationCallback(RemoteCertificateValidationCallback value)
+  bool get_UnsafeAuthenticatedConnectionSharing()
+  void set_UnsafeAuthenticatedConnectionSharing(bool value)
+  SslClientAuthenticationOptions get_SslOptions()
+  void set_SslOptions(SslClientAuthenticationOptions value)
+  void Dispose()
+  void Dispose(bool disposing)
+  bool GetConnectionKeepAlive(HttpRequestHeaders headers)
+  HttpWebRequest CreateWebRequest(HttpRequestMessage request)
+  HttpResponseMessage CreateResponseMessage(HttpWebResponse wr, HttpRequestMessage requestMessage, CancellationToken cancellationToken)
+  bool MethodHasBody(HttpMethod method)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+  ICredentials get_DefaultProxyCredentials()
+  void set_DefaultProxyCredentials(ICredentials value)
+  int get_MaxConnectionsPerServer()
+  void set_MaxConnectionsPerServer(int value)
+  IDictionary`2<string, object> get_Properties()
+  void System.Net.Http.IMonoHttpClientHandler.SetWebRequestTimeout(TimeSpan timeout)
+--------------------------------------------------
+Класс: System.Net.Http.PlatformHelper
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool IsContentHeader(string name)
+  string GetSingleHeaderString(string name, IEnumerable`1<string> values)
+  StreamContent CreateStreamContent(Stream stream, CancellationToken cancellationToken)
+--------------------------------------------------
+Класс: System.Net.Http.ByteArrayContent
+Наследуется от: HttpContent
+Поля:
+  Byte[] content
+  int offset
+  int count
+Свойства:
+Методы:
+  void .ctor(Byte[] content)
+  void .ctor(Byte[] content, int offset, int count)
+  Task`1<Stream> CreateContentReadStreamAsync()
+  Task SerializeToStreamAsync(Stream stream, TransportContext context)
+  bool TryComputeLength(Int64& length)
+--------------------------------------------------
+Класс: System.Net.Http.ClientCertificateOption
+Наследуется от: Enum
+Поля:
+  int value__
+  ClientCertificateOption Manual
+  ClientCertificateOption Automatic
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Net.Http.DelegatingHandler
+Наследуется от: HttpMessageHandler
+Поля:
+  bool disposed
+  HttpMessageHandler handler
+Свойства:
+  HttpMessageHandler InnerHandler
+Методы:
+  void .ctor()
+  void .ctor(HttpMessageHandler innerHandler)
+  HttpMessageHandler get_InnerHandler()
+  void set_InnerHandler(HttpMessageHandler value)
+  void Dispose(bool disposing)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+--------------------------------------------------
+Класс: System.Net.Http.FormUrlEncodedContent
+Наследуется от: ByteArrayContent
+Поля:
+Свойства:
+Методы:
+  void .ctor(IEnumerable`1<KeyValuePair`2<string, string>> nameValueCollection)
+  Byte[] EncodeContent(IEnumerable`1<KeyValuePair`2<string, string>> nameValueCollection)
+  Byte[] SerializeValue(string value)
+--------------------------------------------------
+Класс: System.Net.Http.HttpClient
+Наследуется от: HttpMessageInvoker
+Поля:
+  TimeSpan TimeoutDefault
+  Uri base_address
+  CancellationTokenSource cts
+  bool disposed
+  HttpRequestHeaders headers
+  long buffer_size
+  TimeSpan timeout
+Свойства:
+  Uri BaseAddress
+  HttpRequestHeaders DefaultRequestHeaders
+  long MaxResponseContentBufferSize
+  TimeSpan Timeout
+Методы:
+  void .ctor()
+  void .ctor(HttpMessageHandler handler)
+  void .ctor(HttpMessageHandler handler, bool disposeHandler)
+  Uri get_BaseAddress()
+  void set_BaseAddress(Uri value)
+  HttpRequestHeaders get_DefaultRequestHeaders()
+  long get_MaxResponseContentBufferSize()
+  void set_MaxResponseContentBufferSize(long value)
+  TimeSpan get_Timeout()
+  void set_Timeout(TimeSpan value)
+  void CancelPendingRequests()
+  void Dispose(bool disposing)
+  Task`1<HttpResponseMessage> DeleteAsync(string requestUri)
+  Task`1<HttpResponseMessage> DeleteAsync(string requestUri, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> DeleteAsync(Uri requestUri)
+  Task`1<HttpResponseMessage> DeleteAsync(Uri requestUri, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> GetAsync(string requestUri)
+  Task`1<HttpResponseMessage> GetAsync(string requestUri, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> GetAsync(string requestUri, HttpCompletionOption completionOption)
+  Task`1<HttpResponseMessage> GetAsync(string requestUri, HttpCompletionOption completionOption, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> GetAsync(Uri requestUri)
+  Task`1<HttpResponseMessage> GetAsync(Uri requestUri, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> GetAsync(Uri requestUri, HttpCompletionOption completionOption)
+  Task`1<HttpResponseMessage> GetAsync(Uri requestUri, HttpCompletionOption completionOption, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> PostAsync(string requestUri, HttpContent content)
+  Task`1<HttpResponseMessage> PostAsync(string requestUri, HttpContent content, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> PostAsync(Uri requestUri, HttpContent content)
+  Task`1<HttpResponseMessage> PostAsync(Uri requestUri, HttpContent content, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> PutAsync(Uri requestUri, HttpContent content)
+  Task`1<HttpResponseMessage> PutAsync(Uri requestUri, HttpContent content, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> PutAsync(string requestUri, HttpContent content)
+  Task`1<HttpResponseMessage> PutAsync(string requestUri, HttpContent content, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, HttpCompletionOption completionOption)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> SendAsyncWorker(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationToken cancellationToken)
+  Task`1<Byte[]> GetByteArrayAsync(string requestUri)
+  Task`1<Byte[]> GetByteArrayAsync(Uri requestUri)
+  Task`1<Stream> GetStreamAsync(string requestUri)
+  Task`1<Stream> GetStreamAsync(Uri requestUri)
+  Task`1<string> GetStringAsync(string requestUri)
+  Task`1<string> GetStringAsync(Uri requestUri)
+  Task`1<HttpResponseMessage> PatchAsync(string requestUri, HttpContent content)
+  Task`1<HttpResponseMessage> PatchAsync(string requestUri, HttpContent content, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> PatchAsync(Uri requestUri, HttpContent content)
+  Task`1<HttpResponseMessage> PatchAsync(Uri requestUri, HttpContent content, CancellationToken cancellationToken)
+  void .cctor()
+  Task`1<HttpResponseMessage> <>n__0(HttpRequestMessage request, CancellationToken cancellationToken)
+--------------------------------------------------
+Класс: System.Net.Http.HttpCompletionOption
+Наследуется от: Enum
+Поля:
+  int value__
+  HttpCompletionOption ResponseContentRead
+  HttpCompletionOption ResponseHeadersRead
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Net.Http.HttpContent
+Наследуется от: object
+Поля:
+  FixedMemoryStream buffer
+  Stream stream
+  bool disposed
+  HttpContentHeaders headers
+Свойства:
+  HttpContentHeaders Headers
+  Nullable`1<long> LoadedBufferLength
+Методы:
+  HttpContentHeaders get_Headers()
+  Nullable`1<long> get_LoadedBufferLength()
+  void CopyTo(Stream stream)
+  Task CopyToAsync(Stream stream)
+  Task CopyToAsync(Stream stream, TransportContext context)
+  Task`1<Stream> CreateContentReadStreamAsync()
+  FixedMemoryStream CreateFixedMemoryStream(long maxBufferSize)
+  void Dispose()
+  void Dispose(bool disposing)
+  Task LoadIntoBufferAsync()
+  Task LoadIntoBufferAsync(long maxBufferSize)
+  Task`1<Stream> ReadAsStreamAsync()
+  Task`1<Byte[]> ReadAsByteArrayAsync()
+  Task`1<string> ReadAsStringAsync()
+  Encoding GetEncodingFromBuffer(Byte[] buffer, int length, Int32& preambleLength)
+  int StartsWith(Byte[] array, int length, Byte[] value)
+  Task SerializeToStreamAsync_internal(Stream stream, TransportContext context)
+  Task SerializeToStreamAsync(Stream stream, TransportContext context)
+  bool TryComputeLength(Int64& length)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Net.Http.HttpMessageHandler
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Dispose()
+  void Dispose(bool disposing)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Net.Http.HttpMessageInvoker
+Наследуется от: object
+Поля:
+  HttpMessageHandler handler
+  bool disposeHandler
+Свойства:
+Методы:
+  void .ctor(HttpMessageHandler handler)
+  void .ctor(HttpMessageHandler handler, bool disposeHandler)
+  void Dispose()
+  void Dispose(bool disposing)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+--------------------------------------------------
+Класс: System.Net.Http.HttpMethod
+Наследуется от: object
+Поля:
+  HttpMethod delete_method
+  HttpMethod get_method
+  HttpMethod head_method
+  HttpMethod options_method
+  HttpMethod post_method
+  HttpMethod put_method
+  HttpMethod trace_method
+  string method
+Свойства:
+  HttpMethod Delete
+  HttpMethod Get
+  HttpMethod Head
+  string Method
+  HttpMethod Options
+  HttpMethod Post
+  HttpMethod Put
+  HttpMethod Trace
+  HttpMethod Patch
+Методы:
+  void .ctor(string method)
+  HttpMethod get_Delete()
+  HttpMethod get_Get()
+  HttpMethod get_Head()
+  string get_Method()
+  HttpMethod get_Options()
+  HttpMethod get_Post()
+  HttpMethod get_Put()
+  HttpMethod get_Trace()
+  bool op_Equality(HttpMethod left, HttpMethod right)
+  bool op_Inequality(HttpMethod left, HttpMethod right)
+  bool Equals(HttpMethod other)
+  bool Equals(object obj)
+  int GetHashCode()
+  string ToString()
+  HttpMethod get_Patch()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Net.Http.HttpRequestException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception inner)
+--------------------------------------------------
+Класс: System.Net.Http.HttpRequestMessage
+Наследуется от: object
+Поля:
+  HttpRequestHeaders headers
+  HttpMethod method
+  Version version
+  Dictionary`2<string, object> properties
+  Uri uri
+  bool is_used
+  bool disposed
+  HttpContent <Content>k__BackingField
+Свойства:
+  HttpContent Content
+  HttpRequestHeaders Headers
+  HttpMethod Method
+  IDictionary`2<string, object> Properties
+  Uri RequestUri
+  Version Version
+Методы:
+  void .ctor()
+  void .ctor(HttpMethod method, string requestUri)
+  void .ctor(HttpMethod method, Uri requestUri)
+  HttpContent get_Content()
+  void set_Content(HttpContent value)
+  HttpRequestHeaders get_Headers()
+  HttpMethod get_Method()
+  void set_Method(HttpMethod value)
+  IDictionary`2<string, object> get_Properties()
+  Uri get_RequestUri()
+  void set_RequestUri(Uri value)
+  bool IsAllowedAbsoluteUri(Uri uri)
+  Version get_Version()
+  void set_Version(Version value)
+  void Dispose()
+  void Dispose(bool disposing)
+  bool SetIsUsed()
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.HttpResponseMessage
+Наследуется от: object
+Поля:
+  HttpResponseHeaders headers
+  HttpResponseHeaders trailingHeaders
+  string reasonPhrase
+  HttpStatusCode statusCode
+  Version version
+  bool disposed
+  HttpContent <Content>k__BackingField
+  HttpRequestMessage <RequestMessage>k__BackingField
+Свойства:
+  HttpContent Content
+  HttpResponseHeaders Headers
+  bool IsSuccessStatusCode
+  string ReasonPhrase
+  HttpRequestMessage RequestMessage
+  HttpStatusCode StatusCode
+  Version Version
+  HttpResponseHeaders TrailingHeaders
+Методы:
+  void .ctor()
+  void .ctor(HttpStatusCode statusCode)
+  HttpContent get_Content()
+  void set_Content(HttpContent value)
+  HttpResponseHeaders get_Headers()
+  bool get_IsSuccessStatusCode()
+  string get_ReasonPhrase()
+  void set_ReasonPhrase(string value)
+  HttpRequestMessage get_RequestMessage()
+  void set_RequestMessage(HttpRequestMessage value)
+  HttpStatusCode get_StatusCode()
+  void set_StatusCode(HttpStatusCode value)
+  Version get_Version()
+  void set_Version(Version value)
+  void Dispose()
+  void Dispose(bool disposing)
+  HttpResponseMessage EnsureSuccessStatusCode()
+  string ToString()
+  HttpResponseHeaders get_TrailingHeaders()
+--------------------------------------------------
+Класс: System.Net.Http.MessageProcessingHandler
+Наследуется от: DelegatingHandler
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(HttpMessageHandler innerHandler)
+  HttpRequestMessage ProcessRequest(HttpRequestMessage request, CancellationToken cancellationToken)
+  HttpResponseMessage ProcessResponse(HttpResponseMessage response, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+  Task`1<HttpResponseMessage> <>n__0(HttpRequestMessage request, CancellationToken cancellationToken)
+--------------------------------------------------
+Класс: System.Net.Http.MultipartContent
+Наследуется от: HttpContent
+Поля:
+  List`1<HttpContent> nested_content
+  string boundary
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string subtype)
+  void .ctor(string subtype, string boundary)
+  bool IsValidRFC2049(string s)
+  void Add(HttpContent content)
+  void Dispose(bool disposing)
+  Task SerializeToStreamAsync(Stream stream, TransportContext context)
+  bool TryComputeLength(Int64& length)
+  IEnumerator`1<HttpContent> GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+--------------------------------------------------
+Класс: System.Net.Http.MultipartFormDataContent
+Наследуется от: MultipartContent
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string boundary)
+  void Add(HttpContent content)
+  void Add(HttpContent content, string name)
+  void Add(HttpContent content, string name, string fileName)
+  void AddContentDisposition(HttpContent content, string name, string fileName)
+--------------------------------------------------
+Класс: System.Net.Http.StreamContent
+Наследуется от: HttpContent
+Поля:
+  Stream content
+  int bufferSize
+  CancellationToken cancellationToken
+  long startPosition
+  bool contentCopied
+Свойства:
+Методы:
+  void .ctor(Stream content)
+  void .ctor(Stream content, int bufferSize)
+  void .ctor(Stream content, CancellationToken cancellationToken)
+  Task`1<Stream> CreateContentReadStreamAsync()
+  void Dispose(bool disposing)
+  Task SerializeToStreamAsync(Stream stream, TransportContext context)
+  bool TryComputeLength(Int64& length)
+--------------------------------------------------
+Класс: System.Net.Http.StringContent
+Наследуется от: ByteArrayContent
+Поля:
+Свойства:
+Методы:
+  void .ctor(string content)
+  void .ctor(string content, Encoding encoding)
+  void .ctor(string content, Encoding encoding, string mediaType)
+  Byte[] GetByteArray(string content, Encoding encoding)
+--------------------------------------------------
+Класс: System.Net.Http.ReadOnlyMemoryContent
+Наследуется от: HttpContent
+Поля:
+Свойства:
+Методы:
+  void .ctor(ReadOnlyMemory`1<byte> content)
+  Task SerializeToStreamAsync(Stream stream, TransportContext context)
+  bool TryComputeLength(Int64& length)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.AuthenticationHeaderValue
+Наследуется от: object
+Поля:
+  string <Parameter>k__BackingField
+  string <Scheme>k__BackingField
+Свойства:
+  string Parameter
+  string Scheme
+Методы:
+  void .ctor(string scheme)
+  void .ctor(string scheme, string parameter)
+  void .ctor()
+  string get_Parameter()
+  void set_Parameter(string value)
+  string get_Scheme()
+  void set_Scheme(string value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  AuthenticationHeaderValue Parse(string input)
+  bool TryParse(string input, AuthenticationHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, AuthenticationHeaderValue& parsedValue, Token& t)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.CacheControlHeaderValue
+Наследуется от: object
+Поля:
+  List`1<NameValueHeaderValue> extensions
+  List`1<string> no_cache_headers
+  List`1<string> private_headers
+  Nullable`1<TimeSpan> <MaxAge>k__BackingField
+  bool <MaxStale>k__BackingField
+  Nullable`1<TimeSpan> <MaxStaleLimit>k__BackingField
+  Nullable`1<TimeSpan> <MinFresh>k__BackingField
+  bool <MustRevalidate>k__BackingField
+  bool <NoCache>k__BackingField
+  bool <NoStore>k__BackingField
+  bool <NoTransform>k__BackingField
+  bool <OnlyIfCached>k__BackingField
+  bool <Private>k__BackingField
+  bool <ProxyRevalidate>k__BackingField
+  bool <Public>k__BackingField
+  Nullable`1<TimeSpan> <SharedMaxAge>k__BackingField
+Свойства:
+  ICollection`1<NameValueHeaderValue> Extensions
+  Nullable`1<TimeSpan> MaxAge
+  bool MaxStale
+  Nullable`1<TimeSpan> MaxStaleLimit
+  Nullable`1<TimeSpan> MinFresh
+  bool MustRevalidate
+  bool NoCache
+  ICollection`1<string> NoCacheHeaders
+  bool NoStore
+  bool NoTransform
+  bool OnlyIfCached
+  bool Private
+  ICollection`1<string> PrivateHeaders
+  bool ProxyRevalidate
+  bool Public
+  Nullable`1<TimeSpan> SharedMaxAge
+Методы:
+  ICollection`1<NameValueHeaderValue> get_Extensions()
+  Nullable`1<TimeSpan> get_MaxAge()
+  void set_MaxAge(Nullable`1<TimeSpan> value)
+  bool get_MaxStale()
+  void set_MaxStale(bool value)
+  Nullable`1<TimeSpan> get_MaxStaleLimit()
+  void set_MaxStaleLimit(Nullable`1<TimeSpan> value)
+  Nullable`1<TimeSpan> get_MinFresh()
+  void set_MinFresh(Nullable`1<TimeSpan> value)
+  bool get_MustRevalidate()
+  void set_MustRevalidate(bool value)
+  bool get_NoCache()
+  void set_NoCache(bool value)
+  ICollection`1<string> get_NoCacheHeaders()
+  bool get_NoStore()
+  void set_NoStore(bool value)
+  bool get_NoTransform()
+  void set_NoTransform(bool value)
+  bool get_OnlyIfCached()
+  void set_OnlyIfCached(bool value)
+  bool get_Private()
+  void set_Private(bool value)
+  ICollection`1<string> get_PrivateHeaders()
+  bool get_ProxyRevalidate()
+  void set_ProxyRevalidate(bool value)
+  bool get_Public()
+  void set_Public(bool value)
+  Nullable`1<TimeSpan> get_SharedMaxAge()
+  void set_SharedMaxAge(Nullable`1<TimeSpan> value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  CacheControlHeaderValue Parse(string input)
+  bool TryParse(string input, CacheControlHeaderValue& parsedValue)
+  string ToString()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.CollectionExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool SequenceEqual(List`1<TSource> first, List`1<TSource> second)
+  void SetValue(List`1<NameValueHeaderValue> parameters, string key, string value)
+  string ToString(List`1<T> list)
+  void ToStringBuilder(List`1<T> list, StringBuilder sb)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.ElementTryParser`1
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  bool Invoke(Lexer lexer, T& parsedValue, Token& token)
+  IAsyncResult BeginInvoke(Lexer lexer, T& parsedValue, Token& token, AsyncCallback callback, object object)
+  bool EndInvoke(T& parsedValue, Token& token, IAsyncResult result)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.CollectionParser
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool TryParse(string input, int minimalCount, ElementTryParser`1<T> parser, List`1& result)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseRepetition(string input, int minimalCount, List`1& result)
+  bool TryParseStringElement(Lexer lexer, String& parsedValue, Token& t)
+  bool TryParseRepetition(string input, int minimalCount, ElementTryParser`1<T> parser, List`1& result)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.ContentDispositionHeaderValue
+Наследуется от: object
+Поля:
+  string dispositionType
+  List`1<NameValueHeaderValue> parameters
+Свойства:
+  Nullable`1<DateTimeOffset> CreationDate
+  string DispositionType
+  string FileName
+  string FileNameStar
+  Nullable`1<DateTimeOffset> ModificationDate
+  string Name
+  ICollection`1<NameValueHeaderValue> Parameters
+  Nullable`1<DateTimeOffset> ReadDate
+  Nullable`1<long> Size
+Методы:
+  void .ctor()
+  void .ctor(string dispositionType)
+  void .ctor(ContentDispositionHeaderValue source)
+  Nullable`1<DateTimeOffset> get_CreationDate()
+  void set_CreationDate(Nullable`1<DateTimeOffset> value)
+  string get_DispositionType()
+  void set_DispositionType(string value)
+  string get_FileName()
+  void set_FileName(string value)
+  string get_FileNameStar()
+  void set_FileNameStar(string value)
+  Nullable`1<DateTimeOffset> get_ModificationDate()
+  void set_ModificationDate(Nullable`1<DateTimeOffset> value)
+  string get_Name()
+  void set_Name(string value)
+  ICollection`1<NameValueHeaderValue> get_Parameters()
+  Nullable`1<DateTimeOffset> get_ReadDate()
+  void set_ReadDate(Nullable`1<DateTimeOffset> value)
+  Nullable`1<long> get_Size()
+  void set_Size(Nullable`1<long> value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  string FindParameter(string name)
+  Nullable`1<DateTimeOffset> GetDateValue(string name)
+  string EncodeBase64Value(string value)
+  string EncodeRFC5987(string value)
+  string DecodeValue(string value, bool extendedNotation)
+  int GetHashCode()
+  ContentDispositionHeaderValue Parse(string input)
+  void SetDateValue(string key, Nullable`1<DateTimeOffset> value)
+  void SetValue(string key, string value)
+  string ToString()
+  bool TryParse(string input, ContentDispositionHeaderValue& parsedValue)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.ContentRangeHeaderValue
+Наследуется от: object
+Поля:
+  string unit
+  Nullable`1<long> <From>k__BackingField
+  Nullable`1<long> <Length>k__BackingField
+  Nullable`1<long> <To>k__BackingField
+Свойства:
+  Nullable`1<long> From
+  bool HasLength
+  bool HasRange
+  Nullable`1<long> Length
+  Nullable`1<long> To
+  string Unit
+Методы:
+  void .ctor()
+  void .ctor(long length)
+  void .ctor(long from, long to)
+  void .ctor(long from, long to, long length)
+  Nullable`1<long> get_From()
+  void set_From(Nullable`1<long> value)
+  bool get_HasLength()
+  bool get_HasRange()
+  Nullable`1<long> get_Length()
+  void set_Length(Nullable`1<long> value)
+  Nullable`1<long> get_To()
+  void set_To(Nullable`1<long> value)
+  string get_Unit()
+  void set_Unit(string value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  ContentRangeHeaderValue Parse(string input)
+  bool TryParse(string input, ContentRangeHeaderValue& parsedValue)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.EntityTagHeaderValue
+Наследуется от: object
+Поля:
+  EntityTagHeaderValue any
+  bool <IsWeak>k__BackingField
+  string <Tag>k__BackingField
+Свойства:
+  EntityTagHeaderValue Any
+  bool IsWeak
+  string Tag
+Методы:
+  void .ctor(string tag)
+  void .ctor(string tag, bool isWeak)
+  void .ctor()
+  EntityTagHeaderValue get_Any()
+  bool get_IsWeak()
+  void set_IsWeak(bool value)
+  string get_Tag()
+  void set_Tag(string value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  EntityTagHeaderValue Parse(string input)
+  bool TryParse(string input, EntityTagHeaderValue& parsedValue)
+  bool TryParseElement(Lexer lexer, EntityTagHeaderValue& parsedValue, Token& t)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  string ToString()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.HashCodeCalculator
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  int Calculate(ICollection`1<T> list)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.TryParseDelegate`1
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  bool Invoke(string value, T& result)
+  IAsyncResult BeginInvoke(string value, T& result, AsyncCallback callback, object object)
+  bool EndInvoke(T& result, IAsyncResult __result)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.TryParseListDelegate`1
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  bool Invoke(string value, int minimalCount, List`1& result)
+  IAsyncResult BeginInvoke(string value, int minimalCount, List`1& result, AsyncCallback callback, object object)
+  bool EndInvoke(List`1& result, IAsyncResult __result)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.HeaderInfo
+Наследуется от: object
+Поля:
+  bool AllowsMany
+  HttpHeaderKind HeaderKind
+  string Name
+  Func`2<object, string> <CustomToString>k__BackingField
+Свойства:
+  Func`2<object, string> CustomToString
+  string Separator
+Методы:
+  void .ctor(string name, HttpHeaderKind headerKind)
+  HeaderInfo CreateSingle(string name, TryParseDelegate`1<T> parser, HttpHeaderKind headerKind, Func`2<object, string> toString)
+  HeaderInfo CreateMulti(string name, TryParseListDelegate`1<T> elementParser, HttpHeaderKind headerKind, int minimalCount, string separator)
+  object CreateCollection(HttpHeaders headers)
+  Func`2<object, string> get_CustomToString()
+  void set_CustomToString(Func`2<object, string> value)
+  string get_Separator()
+  void AddToCollection(object collection, object value)
+  object CreateCollection(HttpHeaders headers, HeaderInfo headerInfo)
+  List`1<string> ToStringCollection(object collection)
+  bool TryParse(string value, Object& result)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.HttpContentHeaders
+Наследуется от: HttpHeaders
+Поля:
+  HttpContent content
+Свойства:
+  ICollection`1<string> Allow
+  ICollection`1<string> ContentEncoding
+  ContentDispositionHeaderValue ContentDisposition
+  ICollection`1<string> ContentLanguage
+  Nullable`1<long> ContentLength
+  Uri ContentLocation
+  Byte[] ContentMD5
+  ContentRangeHeaderValue ContentRange
+  MediaTypeHeaderValue ContentType
+  Nullable`1<DateTimeOffset> Expires
+  Nullable`1<DateTimeOffset> LastModified
+Методы:
+  void .ctor(HttpContent content)
+  ICollection`1<string> get_Allow()
+  ICollection`1<string> get_ContentEncoding()
+  ContentDispositionHeaderValue get_ContentDisposition()
+  void set_ContentDisposition(ContentDispositionHeaderValue value)
+  ICollection`1<string> get_ContentLanguage()
+  Nullable`1<long> get_ContentLength()
+  void set_ContentLength(Nullable`1<long> value)
+  Uri get_ContentLocation()
+  void set_ContentLocation(Uri value)
+  Byte[] get_ContentMD5()
+  void set_ContentMD5(Byte[] value)
+  ContentRangeHeaderValue get_ContentRange()
+  void set_ContentRange(ContentRangeHeaderValue value)
+  MediaTypeHeaderValue get_ContentType()
+  void set_ContentType(MediaTypeHeaderValue value)
+  Nullable`1<DateTimeOffset> get_Expires()
+  void set_Expires(Nullable`1<DateTimeOffset> value)
+  Nullable`1<DateTimeOffset> get_LastModified()
+  void set_LastModified(Nullable`1<DateTimeOffset> value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.HttpHeaderKind
+Наследуется от: Enum
+Поля:
+  int value__
+  HttpHeaderKind None
+  HttpHeaderKind Request
+  HttpHeaderKind Response
+  HttpHeaderKind Content
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Net.Http.Headers.HttpHeaderValueCollection`1
+Наследуется от: object
+Поля:
+  List`1<T> list
+  HttpHeaders headers
+  HeaderInfo headerInfo
+  List`1<string> invalidValues
+Свойства:
+  int Count
+  List`1<string> InvalidValues
+  bool IsReadOnly
+Методы:
+  void .ctor(HttpHeaders headers, HeaderInfo headerInfo)
+  int get_Count()
+  List`1<string> get_InvalidValues()
+  bool get_IsReadOnly()
+  void Add(T item)
+  void AddRange(List`1<T> values)
+  void AddInvalidValue(string invalidValue)
+  void Clear()
+  bool Contains(T item)
+  void CopyTo(T[] array, int arrayIndex)
+  void ParseAdd(string input)
+  bool Remove(T item)
+  string ToString()
+  bool TryParseAdd(string input)
+  IEnumerator`1<T> GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  T Find(Predicate`1<T> predicate)
+  void Remove(Predicate`1<T> predicate)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.HttpHeaders
+Наследуется от: object
+Поля:
+  Dictionary`2<string, HeaderInfo> known_headers
+  Dictionary`2<string, HeaderBucket> headers
+  HttpHeaderKind HeaderKind
+  Nullable`1<bool> connectionclose
+  Nullable`1<bool> transferEncodingChunked
+Свойства:
+Методы:
+  void .cctor()
+  void .ctor()
+  void .ctor(HttpHeaderKind headerKind)
+  void Add(string name, string value)
+  void Add(string name, IEnumerable`1<string> values)
+  bool AddValue(string value, HeaderInfo headerInfo, bool ignoreInvalid)
+  bool AddInternal(string name, IEnumerable`1<string> values, HeaderInfo headerInfo, bool ignoreInvalid)
+  bool TryAddWithoutValidation(string name, string value)
+  bool TryAddWithoutValidation(string name, IEnumerable`1<string> values)
+  HeaderInfo CheckName(string name)
+  bool TryCheckName(string name, HeaderInfo& headerInfo)
+  void Clear()
+  bool Contains(string name)
+  IEnumerator`1<KeyValuePair`2<string, IEnumerable`1<string>>> GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  IEnumerable`1<string> GetValues(string name)
+  bool Remove(string name)
+  bool TryGetValues(string name, IEnumerable`1& values)
+  string GetSingleHeaderString(string key, IEnumerable`1<string> values)
+  string ToString()
+  void AddOrRemove(string name, string value)
+  void AddOrRemove(string name, T value, Func`2<object, string> converter)
+  void AddOrRemove(string name, Nullable`1<T> value)
+  void AddOrRemove(string name, Nullable`1<T> value, Func`2<object, string> converter)
+  List`1<string> GetAllHeaderValues(HeaderBucket bucket, HeaderInfo headerInfo)
+  HttpHeaderKind GetKnownHeaderKind(string name)
+  T GetValue(string name)
+  HttpHeaderValueCollection`1<T> GetValues(string name)
+  void SetValue(string name, T value, Func`2<object, string> toStringConverter)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.HttpRequestHeaders
+Наследуется от: HttpHeaders
+Поля:
+  Nullable`1<bool> expectContinue
+Свойства:
+  HttpHeaderValueCollection`1<MediaTypeWithQualityHeaderValue> Accept
+  HttpHeaderValueCollection`1<StringWithQualityHeaderValue> AcceptCharset
+  HttpHeaderValueCollection`1<StringWithQualityHeaderValue> AcceptEncoding
+  HttpHeaderValueCollection`1<StringWithQualityHeaderValue> AcceptLanguage
+  AuthenticationHeaderValue Authorization
+  CacheControlHeaderValue CacheControl
+  HttpHeaderValueCollection`1<string> Connection
+  Nullable`1<bool> ConnectionClose
+  bool ConnectionKeepAlive
+  Nullable`1<DateTimeOffset> Date
+  HttpHeaderValueCollection`1<NameValueWithParametersHeaderValue> Expect
+  Nullable`1<bool> ExpectContinue
+  string From
+  string Host
+  HttpHeaderValueCollection`1<EntityTagHeaderValue> IfMatch
+  Nullable`1<DateTimeOffset> IfModifiedSince
+  HttpHeaderValueCollection`1<EntityTagHeaderValue> IfNoneMatch
+  RangeConditionHeaderValue IfRange
+  Nullable`1<DateTimeOffset> IfUnmodifiedSince
+  Nullable`1<int> MaxForwards
+  HttpHeaderValueCollection`1<NameValueHeaderValue> Pragma
+  AuthenticationHeaderValue ProxyAuthorization
+  RangeHeaderValue Range
+  Uri Referrer
+  HttpHeaderValueCollection`1<TransferCodingWithQualityHeaderValue> TE
+  HttpHeaderValueCollection`1<string> Trailer
+  HttpHeaderValueCollection`1<TransferCodingHeaderValue> TransferEncoding
+  Nullable`1<bool> TransferEncodingChunked
+  HttpHeaderValueCollection`1<ProductHeaderValue> Upgrade
+  HttpHeaderValueCollection`1<ProductInfoHeaderValue> UserAgent
+  HttpHeaderValueCollection`1<ViaHeaderValue> Via
+  HttpHeaderValueCollection`1<WarningHeaderValue> Warning
+Методы:
+  void .ctor()
+  HttpHeaderValueCollection`1<MediaTypeWithQualityHeaderValue> get_Accept()
+  HttpHeaderValueCollection`1<StringWithQualityHeaderValue> get_AcceptCharset()
+  HttpHeaderValueCollection`1<StringWithQualityHeaderValue> get_AcceptEncoding()
+  HttpHeaderValueCollection`1<StringWithQualityHeaderValue> get_AcceptLanguage()
+  AuthenticationHeaderValue get_Authorization()
+  void set_Authorization(AuthenticationHeaderValue value)
+  CacheControlHeaderValue get_CacheControl()
+  void set_CacheControl(CacheControlHeaderValue value)
+  HttpHeaderValueCollection`1<string> get_Connection()
+  Nullable`1<bool> get_ConnectionClose()
+  void set_ConnectionClose(Nullable`1<bool> value)
+  bool get_ConnectionKeepAlive()
+  Nullable`1<DateTimeOffset> get_Date()
+  void set_Date(Nullable`1<DateTimeOffset> value)
+  HttpHeaderValueCollection`1<NameValueWithParametersHeaderValue> get_Expect()
+  Nullable`1<bool> get_ExpectContinue()
+  void set_ExpectContinue(Nullable`1<bool> value)
+  string get_From()
+  void set_From(string value)
+  string get_Host()
+  void set_Host(string value)
+  HttpHeaderValueCollection`1<EntityTagHeaderValue> get_IfMatch()
+  Nullable`1<DateTimeOffset> get_IfModifiedSince()
+  void set_IfModifiedSince(Nullable`1<DateTimeOffset> value)
+  HttpHeaderValueCollection`1<EntityTagHeaderValue> get_IfNoneMatch()
+  RangeConditionHeaderValue get_IfRange()
+  void set_IfRange(RangeConditionHeaderValue value)
+  Nullable`1<DateTimeOffset> get_IfUnmodifiedSince()
+  void set_IfUnmodifiedSince(Nullable`1<DateTimeOffset> value)
+  Nullable`1<int> get_MaxForwards()
+  void set_MaxForwards(Nullable`1<int> value)
+  HttpHeaderValueCollection`1<NameValueHeaderValue> get_Pragma()
+  AuthenticationHeaderValue get_ProxyAuthorization()
+  void set_ProxyAuthorization(AuthenticationHeaderValue value)
+  RangeHeaderValue get_Range()
+  void set_Range(RangeHeaderValue value)
+  Uri get_Referrer()
+  void set_Referrer(Uri value)
+  HttpHeaderValueCollection`1<TransferCodingWithQualityHeaderValue> get_TE()
+  HttpHeaderValueCollection`1<string> get_Trailer()
+  HttpHeaderValueCollection`1<TransferCodingHeaderValue> get_TransferEncoding()
+  Nullable`1<bool> get_TransferEncodingChunked()
+  void set_TransferEncodingChunked(Nullable`1<bool> value)
+  HttpHeaderValueCollection`1<ProductHeaderValue> get_Upgrade()
+  HttpHeaderValueCollection`1<ProductInfoHeaderValue> get_UserAgent()
+  HttpHeaderValueCollection`1<ViaHeaderValue> get_Via()
+  HttpHeaderValueCollection`1<WarningHeaderValue> get_Warning()
+  void AddHeaders(HttpRequestHeaders headers)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.HttpResponseHeaders
+Наследуется от: HttpHeaders
+Поля:
+Свойства:
+  HttpHeaderValueCollection`1<string> AcceptRanges
+  Nullable`1<TimeSpan> Age
+  CacheControlHeaderValue CacheControl
+  HttpHeaderValueCollection`1<string> Connection
+  Nullable`1<bool> ConnectionClose
+  Nullable`1<DateTimeOffset> Date
+  EntityTagHeaderValue ETag
+  Uri Location
+  HttpHeaderValueCollection`1<NameValueHeaderValue> Pragma
+  HttpHeaderValueCollection`1<AuthenticationHeaderValue> ProxyAuthenticate
+  RetryConditionHeaderValue RetryAfter
+  HttpHeaderValueCollection`1<ProductInfoHeaderValue> Server
+  HttpHeaderValueCollection`1<string> Trailer
+  HttpHeaderValueCollection`1<TransferCodingHeaderValue> TransferEncoding
+  Nullable`1<bool> TransferEncodingChunked
+  HttpHeaderValueCollection`1<ProductHeaderValue> Upgrade
+  HttpHeaderValueCollection`1<string> Vary
+  HttpHeaderValueCollection`1<ViaHeaderValue> Via
+  HttpHeaderValueCollection`1<WarningHeaderValue> Warning
+  HttpHeaderValueCollection`1<AuthenticationHeaderValue> WwwAuthenticate
+Методы:
+  void .ctor()
+  HttpHeaderValueCollection`1<string> get_AcceptRanges()
+  Nullable`1<TimeSpan> get_Age()
+  void set_Age(Nullable`1<TimeSpan> value)
+  CacheControlHeaderValue get_CacheControl()
+  void set_CacheControl(CacheControlHeaderValue value)
+  HttpHeaderValueCollection`1<string> get_Connection()
+  Nullable`1<bool> get_ConnectionClose()
+  void set_ConnectionClose(Nullable`1<bool> value)
+  Nullable`1<DateTimeOffset> get_Date()
+  void set_Date(Nullable`1<DateTimeOffset> value)
+  EntityTagHeaderValue get_ETag()
+  void set_ETag(EntityTagHeaderValue value)
+  Uri get_Location()
+  void set_Location(Uri value)
+  HttpHeaderValueCollection`1<NameValueHeaderValue> get_Pragma()
+  HttpHeaderValueCollection`1<AuthenticationHeaderValue> get_ProxyAuthenticate()
+  RetryConditionHeaderValue get_RetryAfter()
+  void set_RetryAfter(RetryConditionHeaderValue value)
+  HttpHeaderValueCollection`1<ProductInfoHeaderValue> get_Server()
+  HttpHeaderValueCollection`1<string> get_Trailer()
+  HttpHeaderValueCollection`1<TransferCodingHeaderValue> get_TransferEncoding()
+  Nullable`1<bool> get_TransferEncodingChunked()
+  void set_TransferEncodingChunked(Nullable`1<bool> value)
+  HttpHeaderValueCollection`1<ProductHeaderValue> get_Upgrade()
+  HttpHeaderValueCollection`1<string> get_Vary()
+  HttpHeaderValueCollection`1<ViaHeaderValue> get_Via()
+  HttpHeaderValueCollection`1<WarningHeaderValue> get_Warning()
+  HttpHeaderValueCollection`1<AuthenticationHeaderValue> get_WwwAuthenticate()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.Token
+Наследуется от: ValueType
+Поля:
+  Token Empty
+  Type type
+  int <StartPosition>k__BackingField
+  int <EndPosition>k__BackingField
+Свойства:
+  int StartPosition
+  int EndPosition
+  Type Kind
+Методы:
+  void .ctor(Type type, int startPosition, int endPosition)
+  int get_StartPosition()
+  void set_StartPosition(int value)
+  int get_EndPosition()
+  void set_EndPosition(int value)
+  Type get_Kind()
+  Type op_Implicit(Token token)
+  string ToString()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.Lexer
+Наследуется от: object
+Поля:
+  Boolean[] token_chars
+  int last_token_char
+  String[] dt_formats
+  string s
+  int pos
+Свойства:
+  int Position
+Методы:
+  void .ctor(string stream)
+  int get_Position()
+  void set_Position(int value)
+  string GetStringValue(Token token)
+  string GetStringValue(Token start, Token end)
+  string GetQuotedStringValue(Token start)
+  string GetRemainingStringValue(int position)
+  bool IsStarStringValue(Token token)
+  bool TryGetNumericValue(Token token, Int32& value)
+  bool TryGetNumericValue(Token token, Int64& value)
+  Nullable`1<TimeSpan> TryGetTimeSpanValue(Token token)
+  bool TryGetDateValue(Token token, DateTimeOffset& value)
+  bool TryGetDateValue(string text, DateTimeOffset& value)
+  bool TryGetDoubleValue(Token token, Double& value)
+  bool IsValidToken(string input)
+  bool IsValidCharacter(char input)
+  void EatChar()
+  int PeekChar()
+  bool ScanCommentOptional(String& value)
+  bool ScanCommentOptional(String& value, Token& readToken)
+  Token Scan(bool recognizeDash)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.MediaTypeHeaderValue
+Наследуется от: object
+Поля:
+  List`1<NameValueHeaderValue> parameters
+  string media_type
+Свойства:
+  string CharSet
+  string MediaType
+  ICollection`1<NameValueHeaderValue> Parameters
+Методы:
+  void .ctor(string mediaType)
+  void .ctor(MediaTypeHeaderValue source)
+  void .ctor()
+  string get_CharSet()
+  void set_CharSet(string value)
+  string get_MediaType()
+  void set_MediaType(string value)
+  ICollection`1<NameValueHeaderValue> get_Parameters()
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  MediaTypeHeaderValue Parse(string input)
+  string ToString()
+  bool TryParse(string input, MediaTypeHeaderValue& parsedValue)
+  Nullable`1<Token> TryParseMediaType(Lexer lexer, String& media)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.MediaTypeWithQualityHeaderValue
+Наследуется от: MediaTypeHeaderValue
+Поля:
+Свойства:
+  Nullable`1<double> Quality
+Методы:
+  void .ctor(string mediaType)
+  void .ctor(string mediaType, double quality)
+  void .ctor()
+  Nullable`1<double> get_Quality()
+  void set_Quality(Nullable`1<double> value)
+  MediaTypeWithQualityHeaderValue Parse(string input)
+  bool TryParse(string input, MediaTypeWithQualityHeaderValue& parsedValue)
+  bool TryParseElement(Lexer lexer, MediaTypeWithQualityHeaderValue& parsedValue, Token& t)
+  bool TryParse(string input, int minimalCount, List`1& result)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.NameValueHeaderValue
+Наследуется от: object
+Поля:
+  string value
+  string <Name>k__BackingField
+Свойства:
+  string Name
+  string Value
+Методы:
+  void .ctor(string name)
+  void .ctor(string name, string value)
+  void .ctor(NameValueHeaderValue source)
+  void .ctor()
+  string get_Name()
+  void set_Name(string value)
+  string get_Value()
+  void set_Value(string value)
+  NameValueHeaderValue Create(string name, string value)
+  object System.ICloneable.Clone()
+  int GetHashCode()
+  bool Equals(object obj)
+  NameValueHeaderValue Parse(string input)
+  bool TryParsePragma(string input, int minimalCount, List`1& result)
+  bool TryParseParameters(Lexer lexer, List`1& result, Token& t)
+  string ToString()
+  bool TryParse(string input, NameValueHeaderValue& parsedValue)
+  bool TryParseElement(Lexer lexer, NameValueHeaderValue& parsedValue, Token& t)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.NameValueWithParametersHeaderValue
+Наследуется от: NameValueHeaderValue
+Поля:
+  List`1<NameValueHeaderValue> parameters
+Свойства:
+  ICollection`1<NameValueHeaderValue> Parameters
+Методы:
+  void .ctor(string name)
+  void .ctor(string name, string value)
+  void .ctor(NameValueWithParametersHeaderValue source)
+  void .ctor()
+  ICollection`1<NameValueHeaderValue> get_Parameters()
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  NameValueWithParametersHeaderValue Parse(string input)
+  string ToString()
+  bool TryParse(string input, NameValueWithParametersHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, NameValueWithParametersHeaderValue& parsedValue, Token& t)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.Parser
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Net.Http.Headers.ProductHeaderValue
+Наследуется от: object
+Поля:
+  string <Name>k__BackingField
+  string <Version>k__BackingField
+Свойства:
+  string Name
+  string Version
+Методы:
+  void .ctor(string name)
+  void .ctor(string name, string version)
+  void .ctor()
+  string get_Name()
+  void set_Name(string value)
+  string get_Version()
+  void set_Version(string value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  ProductHeaderValue Parse(string input)
+  bool TryParse(string input, ProductHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, ProductHeaderValue& parsedValue, Token& t)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.ProductInfoHeaderValue
+Наследуется от: object
+Поля:
+  string <Comment>k__BackingField
+  ProductHeaderValue <Product>k__BackingField
+Свойства:
+  string Comment
+  ProductHeaderValue Product
+Методы:
+  void .ctor(ProductHeaderValue product)
+  void .ctor(string comment)
+  void .ctor(string productName, string productVersion)
+  void .ctor()
+  string get_Comment()
+  void set_Comment(string value)
+  ProductHeaderValue get_Product()
+  void set_Product(ProductHeaderValue value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  ProductInfoHeaderValue Parse(string input)
+  bool TryParse(string input, ProductInfoHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, ProductInfoHeaderValue& parsedValue)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.QualityValue
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Nullable`1<double> GetValue(List`1<NameValueHeaderValue> parameters)
+  void SetValue(List`1& parameters, Nullable`1<double> value)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.RangeConditionHeaderValue
+Наследуется от: object
+Поля:
+  Nullable`1<DateTimeOffset> <Date>k__BackingField
+  EntityTagHeaderValue <EntityTag>k__BackingField
+Свойства:
+  Nullable`1<DateTimeOffset> Date
+  EntityTagHeaderValue EntityTag
+Методы:
+  void .ctor(DateTimeOffset date)
+  void .ctor(EntityTagHeaderValue entityTag)
+  void .ctor(string entityTag)
+  Nullable`1<DateTimeOffset> get_Date()
+  void set_Date(Nullable`1<DateTimeOffset> value)
+  EntityTagHeaderValue get_EntityTag()
+  void set_EntityTag(EntityTagHeaderValue value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  RangeConditionHeaderValue Parse(string input)
+  bool TryParse(string input, RangeConditionHeaderValue& parsedValue)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.RangeHeaderValue
+Наследуется от: object
+Поля:
+  List`1<RangeItemHeaderValue> ranges
+  string unit
+Свойства:
+  ICollection`1<RangeItemHeaderValue> Ranges
+  string Unit
+Методы:
+  void .ctor()
+  void .ctor(Nullable`1<long> from, Nullable`1<long> to)
+  void .ctor(RangeHeaderValue source)
+  ICollection`1<RangeItemHeaderValue> get_Ranges()
+  string get_Unit()
+  void set_Unit(string value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  RangeHeaderValue Parse(string input)
+  bool TryParse(string input, RangeHeaderValue& parsedValue)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.RangeItemHeaderValue
+Наследуется от: object
+Поля:
+  Nullable`1<long> <From>k__BackingField
+  Nullable`1<long> <To>k__BackingField
+Свойства:
+  Nullable`1<long> From
+  Nullable`1<long> To
+Методы:
+  void .ctor(Nullable`1<long> from, Nullable`1<long> to)
+  Nullable`1<long> get_From()
+  void set_From(Nullable`1<long> value)
+  Nullable`1<long> get_To()
+  void set_To(Nullable`1<long> value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.RetryConditionHeaderValue
+Наследуется от: object
+Поля:
+  Nullable`1<DateTimeOffset> <Date>k__BackingField
+  Nullable`1<TimeSpan> <Delta>k__BackingField
+Свойства:
+  Nullable`1<DateTimeOffset> Date
+  Nullable`1<TimeSpan> Delta
+Методы:
+  void .ctor(DateTimeOffset date)
+  void .ctor(TimeSpan delta)
+  Nullable`1<DateTimeOffset> get_Date()
+  void set_Date(Nullable`1<DateTimeOffset> value)
+  Nullable`1<TimeSpan> get_Delta()
+  void set_Delta(Nullable`1<TimeSpan> value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  RetryConditionHeaderValue Parse(string input)
+  bool TryParse(string input, RetryConditionHeaderValue& parsedValue)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.StringWithQualityHeaderValue
+Наследуется от: object
+Поля:
+  Nullable`1<double> <Quality>k__BackingField
+  string <Value>k__BackingField
+Свойства:
+  Nullable`1<double> Quality
+  string Value
+Методы:
+  void .ctor(string value)
+  void .ctor(string value, double quality)
+  void .ctor()
+  Nullable`1<double> get_Quality()
+  void set_Quality(Nullable`1<double> value)
+  string get_Value()
+  void set_Value(string value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  StringWithQualityHeaderValue Parse(string input)
+  bool TryParse(string input, StringWithQualityHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, StringWithQualityHeaderValue& parsedValue, Token& t)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.TransferCodingHeaderValue
+Наследуется от: object
+Поля:
+  string value
+  List`1<NameValueHeaderValue> parameters
+Свойства:
+  ICollection`1<NameValueHeaderValue> Parameters
+  string Value
+Методы:
+  void .ctor(string value)
+  void .ctor(TransferCodingHeaderValue source)
+  void .ctor()
+  ICollection`1<NameValueHeaderValue> get_Parameters()
+  string get_Value()
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  TransferCodingHeaderValue Parse(string input)
+  string ToString()
+  bool TryParse(string input, TransferCodingHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, TransferCodingHeaderValue& parsedValue, Token& t)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.TransferCodingWithQualityHeaderValue
+Наследуется от: TransferCodingHeaderValue
+Поля:
+Свойства:
+  Nullable`1<double> Quality
+Методы:
+  void .ctor(string value)
+  void .ctor(string value, double quality)
+  void .ctor()
+  Nullable`1<double> get_Quality()
+  void set_Quality(Nullable`1<double> value)
+  TransferCodingWithQualityHeaderValue Parse(string input)
+  bool TryParse(string input, TransferCodingWithQualityHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, TransferCodingWithQualityHeaderValue& parsedValue, Token& t)
+--------------------------------------------------
+Класс: System.Net.Http.Headers.ViaHeaderValue
+Наследуется от: object
+Поля:
+  string <Comment>k__BackingField
+  string <ProtocolName>k__BackingField
+  string <ProtocolVersion>k__BackingField
+  string <ReceivedBy>k__BackingField
+Свойства:
+  string Comment
+  string ProtocolName
+  string ProtocolVersion
+  string ReceivedBy
+Методы:
+  void .ctor(string protocolVersion, string receivedBy)
+  void .ctor(string protocolVersion, string receivedBy, string protocolName)
+  void .ctor(string protocolVersion, string receivedBy, string protocolName, string comment)
+  void .ctor()
+  string get_Comment()
+  void set_Comment(string value)
+  string get_ProtocolName()
+  void set_ProtocolName(string value)
+  string get_ProtocolVersion()
+  void set_ProtocolVersion(string value)
+  string get_ReceivedBy()
+  void set_ReceivedBy(string value)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  ViaHeaderValue Parse(string input)
+  bool TryParse(string input, ViaHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, ViaHeaderValue& parsedValue, Token& t)
+  string ToString()
+--------------------------------------------------
+Класс: System.Net.Http.Headers.WarningHeaderValue
+Наследуется от: object
+Поля:
+  string <Agent>k__BackingField
+  int <Code>k__BackingField
+  Nullable`1<DateTimeOffset> <Date>k__BackingField
+  string <Text>k__BackingField
+Свойства:
+  string Agent
+  int Code
+  Nullable`1<DateTimeOffset> Date
+  string Text
+Методы:
+  void .ctor(int code, string agent, string text)
+  void .ctor(int code, string agent, string text, DateTimeOffset date)
+  void .ctor()
+  string get_Agent()
+  void set_Agent(string value)
+  int get_Code()
+  void set_Code(int value)
+  Nullable`1<DateTimeOffset> get_Date()
+  void set_Date(Nullable`1<DateTimeOffset> value)
+  string get_Text()
+  void set_Text(string value)
+  bool IsCodeValid(int code)
+  object System.ICloneable.Clone()
+  bool Equals(object obj)
+  int GetHashCode()
+  WarningHeaderValue Parse(string input)
+  bool TryParse(string input, WarningHeaderValue& parsedValue)
+  bool TryParse(string input, int minimalCount, List`1& result)
+  bool TryParseElement(Lexer lexer, WarningHeaderValue& parsedValue, Token& t)
+  string ToString()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=127 1D59178A3E2B293760F6FE72820F96FEC4071964A5B9E4BB13F7EA51510A4729
+Свойства:
+Методы:
+  UInt32 ComputeStringHash(string s)
+--------------------------------------------------
+Класс: Unity.ThrowStub
+Наследуется от: ObjectDisposedException
+Поля:
+Свойства:
+Методы:
+  void ThrowNotSupportedException()
+--------------------------------------------------

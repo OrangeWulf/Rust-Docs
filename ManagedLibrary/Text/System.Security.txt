@@ -1,0 +1,4354 @@
+Сборка: System.Security.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Interop
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Permissions.DataProtectionPermission
+Наследуется от: CodeAccessPermission
+Поля:
+  int version
+  DataProtectionPermissionFlags _flags
+Свойства:
+  DataProtectionPermissionFlags Flags
+Методы:
+  void .ctor(PermissionState state)
+  void .ctor(DataProtectionPermissionFlags flag)
+  DataProtectionPermissionFlags get_Flags()
+  void set_Flags(DataProtectionPermissionFlags value)
+  bool IsUnrestricted()
+  IPermission Copy()
+  IPermission Intersect(IPermission target)
+  IPermission Union(IPermission target)
+  bool IsSubsetOf(IPermission target)
+  void FromXml(SecurityElement securityElement)
+  SecurityElement ToXml()
+  DataProtectionPermission Cast(IPermission target)
+--------------------------------------------------
+Класс: System.Security.Permissions.DataProtectionPermissionAttribute
+Наследуется от: CodeAccessSecurityAttribute
+Поля:
+  DataProtectionPermissionFlags _flags
+Свойства:
+  DataProtectionPermissionFlags Flags
+  bool ProtectData
+  bool UnprotectData
+  bool ProtectMemory
+  bool UnprotectMemory
+Методы:
+  void .ctor(SecurityAction action)
+  DataProtectionPermissionFlags get_Flags()
+  void set_Flags(DataProtectionPermissionFlags value)
+  bool get_ProtectData()
+  void set_ProtectData(bool value)
+  bool get_UnprotectData()
+  void set_UnprotectData(bool value)
+  bool get_ProtectMemory()
+  void set_ProtectMemory(bool value)
+  bool get_UnprotectMemory()
+  void set_UnprotectMemory(bool value)
+  IPermission CreatePermission()
+--------------------------------------------------
+Класс: System.Security.Permissions.DataProtectionPermissionFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  DataProtectionPermissionFlags NoFlags
+  DataProtectionPermissionFlags ProtectData
+  DataProtectionPermissionFlags UnprotectData
+  DataProtectionPermissionFlags ProtectMemory
+  DataProtectionPermissionFlags UnprotectMemory
+  DataProtectionPermissionFlags AllFlags
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Permissions.PermissionHelper
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  SecurityElement Element(Type type, int version)
+  PermissionState CheckPermissionState(PermissionState state, bool allowUnrestricted)
+  int CheckSecurityElement(SecurityElement se, string parameterName, int minimumVersion, int maximumVersion)
+  bool IsUnrestricted(SecurityElement se)
+  void ThrowInvalidPermission(IPermission target, Type expected)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.CryptographicAttributeObject
+Наследуется от: object
+Поля:
+  AsnEncodedDataCollection <Values>k__BackingField
+  Oid _oid
+Свойства:
+  Oid Oid
+  AsnEncodedDataCollection Values
+Методы:
+  void .ctor(Oid oid)
+  void .ctor(Oid oid, AsnEncodedDataCollection values)
+  Oid get_Oid()
+  AsnEncodedDataCollection get_Values()
+--------------------------------------------------
+Класс: System.Security.Cryptography.CryptographicAttributeObjectCollection
+Наследуется от: object
+Поля:
+  List`1<CryptographicAttributeObject> _list
+Свойства:
+  CryptographicAttributeObject Item
+  int Count
+  bool IsSynchronized
+  object SyncRoot
+Методы:
+  void .ctor()
+  void .ctor(CryptographicAttributeObject attribute)
+  int Add(AsnEncodedData asnEncodedData)
+  int Add(CryptographicAttributeObject attribute)
+  void AddWithoutMerge(CryptographicAttributeObject attribute)
+  void Remove(CryptographicAttributeObject attribute)
+  CryptographicAttributeObject get_Item(int index)
+  int get_Count()
+  bool get_IsSynchronized()
+  object get_SyncRoot()
+  CryptographicAttributeObjectEnumerator GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  void System.Collections.ICollection.CopyTo(Array array, int index)
+  void CopyTo(CryptographicAttributeObject[] array, int index)
+--------------------------------------------------
+Класс: System.Security.Cryptography.CryptographicAttributeObjectEnumerator
+Наследуется от: object
+Поля:
+  CryptographicAttributeObjectCollection _attributes
+  int _current
+Свойства:
+  CryptographicAttributeObject Current
+  object System.Collections.IEnumerator.Current
+Методы:
+  void .ctor(CryptographicAttributeObjectCollection attributes)
+  CryptographicAttributeObject get_Current()
+  object System.Collections.IEnumerator.get_Current()
+  bool MoveNext()
+  void Reset()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.DataProtectionScope
+Наследуется от: Enum
+Поля:
+  int value__
+  DataProtectionScope CurrentUser
+  DataProtectionScope LocalMachine
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.ProtectedData
+Наследуется от: object
+Поля:
+  Byte[] s_nonEmpty
+Свойства:
+Методы:
+  Byte[] Protect(Byte[] userData, Byte[] optionalEntropy, DataProtectionScope scope)
+  Byte[] Unprotect(Byte[] encryptedData, Byte[] optionalEntropy, DataProtectionScope scope)
+  Byte[] ProtectOrUnprotect(Byte[] inputData, Byte[] optionalEntropy, DataProtectionScope scope, bool protect)
+  bool ErrorMayBeCausedByUnloadedProfile(int errorCode)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.DataProtector
+Наследуется от: object
+Поля:
+  string m_applicationName
+  string m_primaryPurpose
+  IEnumerable`1<string> m_specificPurposes
+  Byte[] modreq(System.Runtime.CompilerServices.IsVolatile) m_hashedPurpose
+Свойства:
+  string ApplicationName
+  bool PrependHashedPurposeToPlaintext
+  string PrimaryPurpose
+  IEnumerable`1<string> SpecificPurposes
+Методы:
+  void .ctor(string applicationName, string primaryPurpose, String[] specificPurposes)
+  string get_ApplicationName()
+  bool get_PrependHashedPurposeToPlaintext()
+  Byte[] GetHashedPurpose()
+  bool IsReprotectRequired(Byte[] encryptedData)
+  string get_PrimaryPurpose()
+  IEnumerable`1<string> get_SpecificPurposes()
+  DataProtector Create(string providerClass, string applicationName, string primaryPurpose, String[] specificPurposes)
+  Byte[] Protect(Byte[] userData)
+  Byte[] ProviderProtect(Byte[] userData)
+  Byte[] ProviderUnprotect(Byte[] encryptedData)
+  Byte[] Unprotect(Byte[] encryptedData)
+--------------------------------------------------
+Класс: System.Security.Cryptography.MemoryProtectionScope
+Наследуется от: Enum
+Поля:
+  int value__
+  MemoryProtectionScope SameProcess
+  MemoryProtectionScope CrossProcess
+  MemoryProtectionScope SameLogon
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.ProtectedMemory
+Наследуется от: object
+Поля:
+  int BlockSize
+  MemoryProtectionImplementation impl
+Свойства:
+Методы:
+  void .ctor()
+  void Protect(Byte[] userData, MemoryProtectionScope scope)
+  void Unprotect(Byte[] encryptedData, MemoryProtectionScope scope)
+  void Detect()
+  void Check(int size, MemoryProtectionScope scope)
+  int RtlEncryptMemory(Byte[] pData, UInt32 cbData, UInt32 dwFlags)
+  int RtlDecryptMemory(Byte[] pData, UInt32 cbData, UInt32 dwFlags)
+  bool CryptProtectMemory(Byte[] pData, UInt32 cbData, UInt32 dwFlags)
+  bool CryptUnprotectMemory(Byte[] pData, UInt32 cbData, UInt32 dwFlags)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Translation.SR
+Наследуется от: object
+Поля:
+  string Cryptography_DataProtector_InvalidAppNameOrPurpose
+  string Cryptography_DataProtector_InvalidPurpose
+  string ArgumentOutOfRange_Index
+  string Arg_EmptyOrNullString
+  string Cryptography_Partial_Chain
+  string Cryptography_Xml_BadWrappedKeySize
+  string Cryptography_Xml_CipherValueElementRequired
+  string Cryptography_Xml_CreateHashAlgorithmFailed
+  string Cryptography_Xml_CreateTransformFailed
+  string Cryptography_Xml_CreatedKeyFailed
+  string Cryptography_Xml_DigestMethodRequired
+  string Cryptography_Xml_DigestValueRequired
+  string Cryptography_Xml_EnvelopedSignatureRequiresContext
+  string Cryptography_Xml_InvalidElement
+  string Cryptography_Xml_InvalidEncryptionProperty
+  string Cryptography_Xml_InvalidKeySize
+  string Cryptography_Xml_InvalidReference
+  string Cryptography_Xml_InvalidSignatureLength
+  string Cryptography_Xml_InvalidSignatureLength2
+  string Cryptography_Xml_InvalidX509IssuerSerialNumber
+  string Cryptography_Xml_KeyInfoRequired
+  string Cryptography_Xml_KW_BadKeySize
+  string Cryptography_Xml_LoadKeyFailed
+  string Cryptography_Xml_MissingAlgorithm
+  string Cryptography_Xml_MissingCipherData
+  string Cryptography_Xml_MissingDecryptionKey
+  string Cryptography_Xml_MissingEncryptionKey
+  string Cryptography_Xml_NotSupportedCryptographicTransform
+  string Cryptography_Xml_ReferenceElementRequired
+  string Cryptography_Xml_ReferenceTypeRequired
+  string Cryptography_Xml_SelfReferenceRequiresContext
+  string Cryptography_Xml_SignatureDescriptionNotCreated
+  string Cryptography_Xml_SignatureMethodKeyMismatch
+  string Cryptography_Xml_SignatureMethodRequired
+  string Cryptography_Xml_SignatureValueRequired
+  string Cryptography_Xml_SignedInfoRequired
+  string Cryptography_Xml_TransformIncorrectInputType
+  string Cryptography_Xml_IncorrectObjectType
+  string Cryptography_Xml_UnknownTransform
+  string Cryptography_Xml_UriNotResolved
+  string Cryptography_Xml_UriNotSupported
+  string Cryptography_Xml_UriRequired
+  string Cryptography_Xml_XrmlMissingContext
+  string Cryptography_Xml_XrmlMissingIRelDecryptor
+  string Cryptography_Xml_XrmlMissingIssuer
+  string Cryptography_Xml_XrmlMissingLicence
+  string Cryptography_Xml_XrmlUnableToDecryptGrant
+  string NotSupported_KeyAlgorithm
+  string Log_ActualHashValue
+  string Log_BeginCanonicalization
+  string Log_BeginSignatureComputation
+  string Log_BeginSignatureVerification
+  string Log_BuildX509Chain
+  string Log_CanonicalizationSettings
+  string Log_CanonicalizedOutput
+  string Log_CertificateChain
+  string Log_CheckSignatureFormat
+  string Log_CheckSignedInfo
+  string Log_FormatValidationSuccessful
+  string Log_FormatValidationNotSuccessful
+  string Log_KeyUsages
+  string Log_NoNamespacesPropagated
+  string Log_PropagatingNamespace
+  string Log_RawSignatureValue
+  string Log_ReferenceHash
+  string Log_RevocationMode
+  string Log_RevocationFlag
+  string Log_SigningAsymmetric
+  string Log_SigningHmac
+  string Log_SigningReference
+  string Log_TransformedReferenceContents
+  string Log_UnsafeCanonicalizationMethod
+  string Log_UrlTimeout
+  string Log_VerificationFailed
+  string Log_VerificationFailed_References
+  string Log_VerificationFailed_SignedInfo
+  string Log_VerificationFailed_X509Chain
+  string Log_VerificationFailed_X509KeyUsage
+  string Log_VerificationFlag
+  string Log_VerificationTime
+  string Log_VerificationWithKeySuccessful
+  string Log_VerificationWithKeyNotSuccessful
+  string Log_VerifyReference
+  string Log_VerifySignedInfoAsymmetric
+  string Log_VerifySignedInfoHmac
+  string Log_X509ChainError
+  string Log_XmlContext
+  string Log_SignedXmlRecursionLimit
+  string Log_UnsafeTransformMethod
+  string Arg_RankMultiDimNotSupported
+  string Argument_InvalidOffLen
+  string Argument_InvalidOidValue
+  string Cryptography_Asn_EnumeratedValueRequiresNonFlagsEnum
+  string Cryptography_Asn_NamedBitListRequiresFlagsEnum
+  string Cryptography_Asn_NamedBitListValueTooBig
+  string Cryptography_Asn_UniversalValueIsFixed
+  string Cryptography_Asn_UnusedBitCountRange
+  string Cryptography_AsnSerializer_AmbiguousFieldType
+  string Cryptography_AsnSerializer_Choice_AllowNullNonNullable
+  string Cryptography_AsnSerializer_Choice_ConflictingTagMapping
+  string Cryptography_AsnSerializer_Choice_DefaultValueDisallowed
+  string Cryptography_AsnSerializer_Choice_NoChoiceWasMade
+  string Cryptography_AsnSerializer_Choice_NonNullableField
+  string Cryptography_AsnSerializer_Choice_TooManyValues
+  string Cryptography_AsnSerializer_Choice_TypeCycle
+  string Cryptography_AsnSerializer_MultipleAsnTypeAttributes
+  string Cryptography_AsnSerializer_NoJaggedArrays
+  string Cryptography_AsnSerializer_NoMultiDimensionalArrays
+  string Cryptography_AsnSerializer_NoOpenTypes
+  string Cryptography_AsnSerializer_Optional_NonNullableField
+  string Cryptography_AsnSerializer_PopulateFriendlyNameOnString
+  string Cryptography_AsnSerializer_SetValueException
+  string Cryptography_AsnSerializer_SpecificTagChoice
+  string Cryptography_AsnSerializer_UnexpectedTypeForAttribute
+  string Cryptography_AsnSerializer_UtcTimeTwoDigitYearMaxTooSmall
+  string Cryptography_AsnSerializer_UnhandledType
+  string Cryptography_AsnWriter_EncodeUnbalancedStack
+  string Cryptography_AsnWriter_PopWrongTag
+  string Cryptography_BadHashValue
+  string Cryptography_BadSignature
+  string Cryptography_Cms_CannotDetermineSignatureAlgorithm
+  string Cryptography_Cms_IncompleteCertChain
+  string Cryptography_Cms_Invalid_Originator_Identifier_Choice
+  string Cryptography_Cms_Invalid_Subject_Identifier_Type
+  string Cryptography_Cms_InvalidMessageType
+  string Cryptography_Cms_InvalidSignerHashForSignatureAlg
+  string Cryptography_Cms_Key_Agree_Date_Not_Available
+  string Cryptography_Cms_MessageNotEncrypted
+  string Cryptography_Cms_MessageNotSigned
+  string Cryptography_Cms_MissingAuthenticatedAttribute
+  string Cryptography_Cms_NoCounterCounterSigner
+  string Cryptography_Cms_NoRecipients
+  string Cryptography_Cms_NoSignerCert
+  string Cryptography_Cms_NoSignerAtIndex
+  string Cryptography_Cms_RecipientNotFound
+  string Cryptography_Cms_RecipientType_NotSupported
+  string Cryptography_Cms_Sign_Empty_Content
+  string Cryptography_Cms_SignerNotFound
+  string Cryptography_Cms_Signing_RequiresPrivateKey
+  string Cryptography_Cms_TrustFailure
+  string Cryptography_Cms_UnknownAlgorithm
+  string Cryptography_Cms_UnknownKeySpec
+  string Cryptography_Cms_WrongKeyUsage
+  string Cryptography_Pkcs_InvalidSignatureParameters
+  string Cryptography_Pkcs9_AttributeMismatch
+  string Cryptography_Pkcs9_MultipleSigningTimeNotAllowed
+  string Cryptography_Pkcs_PssParametersMissing
+  string Cryptography_Pkcs_PssParametersHashMismatch
+  string Cryptography_Pkcs_PssParametersMgfHashMismatch
+  string Cryptography_Pkcs_PssParametersMgfNotSupported
+  string Cryptography_Pkcs_PssParametersSaltMismatch
+  string Cryptography_TimestampReq_BadNonce
+  string Cryptography_TimestampReq_BadResponse
+  string Cryptography_TimestampReq_Failure
+  string Cryptography_TimestampReq_NoCertFound
+  string Cryptography_TimestampReq_UnexpectedCertFound
+  string InvalidOperation_DuplicateItemNotAllowed
+  string InvalidOperation_WrongOidInAsnCollection
+  string PlatformNotSupported_CryptographyPkcs
+  string Cryptography_Der_Invalid_Encoding
+  string Cryptography_Invalid_IA5String
+  string Cryptography_UnknownHashAlgorithm
+  string Cryptography_WriteEncodedValue_OneValueAtATime
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.X509Certificates.X509Certificate2UI
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void DisplayCertificate(X509Certificate2 certificate)
+  void DisplayCertificate(X509Certificate2 certificate, IntPtr hwndParent)
+  X509Certificate2Collection SelectFromCollection(X509Certificate2Collection certificates, string title, string message, X509SelectionFlag selectionFlag)
+  X509Certificate2Collection SelectFromCollection(X509Certificate2Collection certificates, string title, string message, X509SelectionFlag selectionFlag, IntPtr hwndParent)
+--------------------------------------------------
+Класс: System.Security.Cryptography.X509Certificates.X509SelectionFlag
+Наследуется от: Enum
+Поля:
+  int value__
+  X509SelectionFlag SingleSelection
+  X509SelectionFlag MultiSelection
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.X509IssuerSerial
+Наследуется от: ValueType
+Поля:
+  string <IssuerName>k__BackingField
+  string <SerialNumber>k__BackingField
+Свойства:
+  string IssuerName
+  string SerialNumber
+Методы:
+  void .ctor(string issuerName, string serialNumber)
+  string get_IssuerName()
+  void set_IssuerName(string value)
+  string get_SerialNumber()
+  void set_SerialNumber(string value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.AncestralNamespaceContextManager
+Наследуется от: object
+Поля:
+  ArrayList _ancestorStack
+Свойства:
+Методы:
+  NamespaceFrame GetScopeAt(int i)
+  NamespaceFrame GetCurrentScope()
+  XmlAttribute GetNearestRenderedNamespaceWithMatchingPrefix(string nsPrefix, Int32& depth)
+  XmlAttribute GetNearestUnrenderedNamespaceWithMatchingPrefix(string nsPrefix, Int32& depth)
+  void EnterElementContext()
+  void ExitElementContext()
+  void TrackNamespaceNode(XmlAttribute attr, SortedList nsListToRender, Hashtable nsLocallyDeclared)
+  void TrackXmlNamespaceNode(XmlAttribute attr, SortedList nsListToRender, SortedList attrListToRender, Hashtable nsLocallyDeclared)
+  void GetNamespacesToRender(XmlElement element, SortedList attrListToRender, SortedList nsListToRender, Hashtable nsLocallyDeclared)
+  void LoadUnrenderedNamespaces(Hashtable nsLocallyDeclared)
+  void LoadRenderedNamespaces(SortedList nsRenderedList)
+  void AddRendered(XmlAttribute attr)
+  void AddUnrendered(XmlAttribute attr)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.AttributeSortOrder
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  int Compare(object a, object b)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.C14NAncestralNamespaceContextManager
+Наследуется от: AncestralNamespaceContextManager
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void GetNamespaceToRender(string nsPrefix, SortedList attrListToRender, SortedList nsListToRender, Hashtable nsLocallyDeclared)
+  void GetNamespacesToRender(XmlElement element, SortedList attrListToRender, SortedList nsListToRender, Hashtable nsLocallyDeclared)
+  void TrackNamespaceNode(XmlAttribute attr, SortedList nsListToRender, Hashtable nsLocallyDeclared)
+  void TrackXmlNamespaceNode(XmlAttribute attr, SortedList nsListToRender, SortedList attrListToRender, Hashtable nsLocallyDeclared)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXml
+Наследуется от: object
+Поля:
+  CanonicalXmlDocument _c14nDoc
+  C14NAncestralNamespaceContextManager _ancMgr
+Свойства:
+Методы:
+  void .ctor(Stream inputStream, bool includeComments, XmlResolver resolver, string strBaseUri)
+  void .ctor(XmlDocument document, XmlResolver resolver)
+  void .ctor(XmlDocument document, XmlResolver resolver, bool includeComments)
+  void .ctor(XmlNodeList nodeList, XmlResolver resolver, bool includeComments)
+  void MarkNodeAsIncluded(XmlNode node)
+  void MarkInclusionStateForNodes(XmlNodeList nodeList, XmlDocument inputRoot, XmlDocument root)
+  Byte[] GetBytes()
+  Byte[] GetDigestedBytes(HashAlgorithm hash)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlAttribute
+Наследуется от: XmlAttribute
+Поля:
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(string prefix, string localName, string namespaceURI, XmlDocument doc, bool defaultNodeSetInclusionState)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlCDataSection
+Наследуется от: XmlCDataSection
+Поля:
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(string data, XmlDocument doc, bool defaultNodeSetInclusionState)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlComment
+Наследуется от: XmlComment
+Поля:
+  bool _isInNodeSet
+  bool _includeComments
+Свойства:
+  bool IsInNodeSet
+  bool IncludeComments
+Методы:
+  void .ctor(string comment, XmlDocument doc, bool defaultNodeSetInclusionState, bool includeComments)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  bool get_IncludeComments()
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlDocument
+Наследуется от: XmlDocument
+Поля:
+  bool _defaultNodeSetInclusionState
+  bool _includeComments
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(bool defaultNodeSetInclusionState, bool includeComments)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+  XmlElement CreateElement(string prefix, string localName, string namespaceURI)
+  XmlAttribute CreateAttribute(string prefix, string localName, string namespaceURI)
+  XmlAttribute CreateDefaultAttribute(string prefix, string localName, string namespaceURI)
+  XmlText CreateTextNode(string text)
+  XmlWhitespace CreateWhitespace(string prefix)
+  XmlSignificantWhitespace CreateSignificantWhitespace(string text)
+  XmlProcessingInstruction CreateProcessingInstruction(string target, string data)
+  XmlComment CreateComment(string data)
+  XmlEntityReference CreateEntityReference(string name)
+  XmlCDataSection CreateCDataSection(string data)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlElement
+Наследуется от: XmlElement
+Поля:
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(string prefix, string localName, string namespaceURI, XmlDocument doc, bool defaultNodeSetInclusionState)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlEntityReference
+Наследуется от: XmlEntityReference
+Поля:
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(string name, XmlDocument doc, bool defaultNodeSetInclusionState)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlNodeList
+Наследуется от: XmlNodeList
+Поля:
+  ArrayList _nodeArray
+Свойства:
+  int Count
+  bool IsFixedSize
+  bool IsReadOnly
+  object System.Collections.IList.Item
+  object SyncRoot
+  bool IsSynchronized
+Методы:
+  void .ctor()
+  XmlNode Item(int index)
+  IEnumerator GetEnumerator()
+  int get_Count()
+  int Add(object value)
+  void Clear()
+  bool Contains(object value)
+  int IndexOf(object value)
+  void Insert(int index, object value)
+  void Remove(object value)
+  void RemoveAt(int index)
+  bool get_IsFixedSize()
+  bool get_IsReadOnly()
+  object System.Collections.IList.get_Item(int index)
+  void System.Collections.IList.set_Item(int index, object value)
+  void CopyTo(Array array, int index)
+  object get_SyncRoot()
+  bool get_IsSynchronized()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlProcessingInstruction
+Наследуется от: XmlProcessingInstruction
+Поля:
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(string target, string data, XmlDocument doc, bool defaultNodeSetInclusionState)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlSignificantWhitespace
+Наследуется от: XmlSignificantWhitespace
+Поля:
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(string strData, XmlDocument doc, bool defaultNodeSetInclusionState)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlText
+Наследуется от: XmlText
+Поля:
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(string strData, XmlDocument doc, bool defaultNodeSetInclusionState)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalXmlWhitespace
+Наследуется от: XmlWhitespace
+Поля:
+  bool _isInNodeSet
+Свойства:
+  bool IsInNodeSet
+Методы:
+  void .ctor(string strData, XmlDocument doc, bool defaultNodeSetInclusionState)
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CanonicalizationDispatcher
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void Write(XmlNode node, StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteGenericNode(XmlNode node, StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(XmlNode node, HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHashGenericNode(XmlNode node, HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CertUsageType
+Наследуется от: Enum
+Поля:
+  int value__
+  CertUsageType Verification
+  CertUsageType Decryption
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CipherData
+Наследуется от: object
+Поля:
+  XmlElement _cachedXml
+  CipherReference _cipherReference
+  Byte[] _cipherValue
+Свойства:
+  bool CacheValid
+  CipherReference CipherReference
+  Byte[] CipherValue
+Методы:
+  void .ctor()
+  void .ctor(Byte[] cipherValue)
+  void .ctor(CipherReference cipherReference)
+  bool get_CacheValid()
+  CipherReference get_CipherReference()
+  void set_CipherReference(CipherReference value)
+  Byte[] get_CipherValue()
+  void set_CipherValue(Byte[] value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CipherReference
+Наследуется от: EncryptedReference
+Поля:
+  Byte[] _cipherValue
+Свойства:
+  Byte[] CipherValue
+Методы:
+  void .ctor()
+  void .ctor(string uri)
+  void .ctor(string uri, TransformChain transformChain)
+  Byte[] get_CipherValue()
+  void set_CipherValue(Byte[] value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CryptoHelpers
+Наследуется от: object
+Поля:
+  Char[] _invalidChars
+Свойства:
+Методы:
+  object CreateFromKnownName(string name)
+  T CreateFromName(string name)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.CryptoSignedXmlRecursionException
+Наследуется от: XmlException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception inner)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.DSAKeyValue
+Наследуется от: KeyInfoClause
+Поля:
+  DSA _key
+  string KeyValueElementName
+  string DSAKeyValueElementName
+  string PElementName
+  string QElementName
+  string GElementName
+  string JElementName
+  string YElementName
+  string SeedElementName
+  string PgenCounterElementName
+Свойства:
+  DSA Key
+Методы:
+  void .ctor()
+  void .ctor(DSA key)
+  DSA get_Key()
+  void set_Key(DSA value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.DSASignatureDescription
+Наследуется от: SignatureDescription
+Поля:
+  string HashAlgorithm
+Свойства:
+Методы:
+  void .ctor()
+  AsymmetricSignatureDeformatter CreateDeformatter(AsymmetricAlgorithm key)
+  AsymmetricSignatureFormatter CreateFormatter(AsymmetricAlgorithm key)
+  HashAlgorithm CreateDigest()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.DataObject
+Наследуется от: object
+Поля:
+  string _id
+  string _mimeType
+  string _encoding
+  CanonicalXmlNodeList _elData
+  XmlElement _cachedXml
+Свойства:
+  string Id
+  string MimeType
+  string Encoding
+  XmlNodeList Data
+  bool CacheValid
+Методы:
+  void .ctor()
+  void .ctor(string id, string mimeType, string encoding, XmlElement data)
+  string get_Id()
+  void set_Id(string value)
+  string get_MimeType()
+  void set_MimeType(string value)
+  string get_Encoding()
+  void set_Encoding(string value)
+  XmlNodeList get_Data()
+  void set_Data(XmlNodeList value)
+  bool get_CacheValid()
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.DataReference
+Наследуется от: EncryptedReference
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string uri)
+  void .ctor(string uri, TransformChain transformChain)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.DocPosition
+Наследуется от: Enum
+Поля:
+  int value__
+  DocPosition BeforeRootElement
+  DocPosition InRootElement
+  DocPosition AfterRootElement
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.EncryptedData
+Наследуется от: EncryptedType
+Поля:
+Свойства:
+Методы:
+  void LoadXml(XmlElement value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.EncryptedKey
+Наследуется от: EncryptedType
+Поля:
+  string _recipient
+  string _carriedKeyName
+  ReferenceList _referenceList
+Свойства:
+  string Recipient
+  string CarriedKeyName
+  ReferenceList ReferenceList
+Методы:
+  void .ctor()
+  string get_Recipient()
+  void set_Recipient(string value)
+  string get_CarriedKeyName()
+  void set_CarriedKeyName(string value)
+  ReferenceList get_ReferenceList()
+  void AddReference(DataReference dataReference)
+  void AddReference(KeyReference keyReference)
+  void LoadXml(XmlElement value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.EncryptedReference
+Наследуется от: object
+Поля:
+  string _uri
+  string _referenceType
+  TransformChain _transformChain
+  XmlElement _cachedXml
+Свойства:
+  string Uri
+  TransformChain TransformChain
+  string ReferenceType
+  bool CacheValid
+Методы:
+  void .ctor()
+  void .ctor(string uri)
+  void .ctor(string uri, TransformChain transformChain)
+  string get_Uri()
+  void set_Uri(string value)
+  TransformChain get_TransformChain()
+  void set_TransformChain(TransformChain value)
+  void AddTransform(Transform transform)
+  string get_ReferenceType()
+  void set_ReferenceType(string value)
+  bool get_CacheValid()
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.EncryptedType
+Наследуется от: object
+Поля:
+  string _id
+  string _type
+  string _mimeType
+  string _encoding
+  EncryptionMethod _encryptionMethod
+  CipherData _cipherData
+  EncryptionPropertyCollection _props
+  KeyInfo _keyInfo
+  XmlElement _cachedXml
+Свойства:
+  bool CacheValid
+  string Id
+  string Type
+  string MimeType
+  string Encoding
+  KeyInfo KeyInfo
+  EncryptionMethod EncryptionMethod
+  EncryptionPropertyCollection EncryptionProperties
+  CipherData CipherData
+Методы:
+  bool get_CacheValid()
+  string get_Id()
+  void set_Id(string value)
+  string get_Type()
+  void set_Type(string value)
+  string get_MimeType()
+  void set_MimeType(string value)
+  string get_Encoding()
+  void set_Encoding(string value)
+  KeyInfo get_KeyInfo()
+  void set_KeyInfo(KeyInfo value)
+  EncryptionMethod get_EncryptionMethod()
+  void set_EncryptionMethod(EncryptionMethod value)
+  EncryptionPropertyCollection get_EncryptionProperties()
+  void AddProperty(EncryptionProperty ep)
+  CipherData get_CipherData()
+  void set_CipherData(CipherData value)
+  void LoadXml(XmlElement value)
+  XmlElement GetXml()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.EncryptedXml
+Наследуется от: object
+Поля:
+  string XmlEncNamespaceUrl
+  string XmlEncElementUrl
+  string XmlEncElementContentUrl
+  string XmlEncEncryptedKeyUrl
+  string XmlEncDESUrl
+  string XmlEncTripleDESUrl
+  string XmlEncAES128Url
+  string XmlEncAES256Url
+  string XmlEncAES192Url
+  string XmlEncRSA15Url
+  string XmlEncRSAOAEPUrl
+  string XmlEncTripleDESKeyWrapUrl
+  string XmlEncAES128KeyWrapUrl
+  string XmlEncAES256KeyWrapUrl
+  string XmlEncAES192KeyWrapUrl
+  string XmlEncSHA256Url
+  string XmlEncSHA512Url
+  XmlDocument _document
+  Evidence _evidence
+  XmlResolver _xmlResolver
+  int _capacity
+  Hashtable _keyNameMapping
+  PaddingMode _padding
+  CipherMode _mode
+  Encoding _encoding
+  string _recipient
+  int _xmlDsigSearchDepthCounter
+  int _xmlDsigSearchDepth
+Свойства:
+  int XmlDSigSearchDepth
+  Evidence DocumentEvidence
+  XmlResolver Resolver
+  PaddingMode Padding
+  CipherMode Mode
+  Encoding Encoding
+  string Recipient
+Методы:
+  void .ctor()
+  void .ctor(XmlDocument document)
+  void .ctor(XmlDocument document, Evidence evidence)
+  bool IsOverXmlDsigRecursionLimit()
+  int get_XmlDSigSearchDepth()
+  void set_XmlDSigSearchDepth(int value)
+  Evidence get_DocumentEvidence()
+  void set_DocumentEvidence(Evidence value)
+  XmlResolver get_Resolver()
+  void set_Resolver(XmlResolver value)
+  PaddingMode get_Padding()
+  void set_Padding(PaddingMode value)
+  CipherMode get_Mode()
+  void set_Mode(CipherMode value)
+  Encoding get_Encoding()
+  void set_Encoding(Encoding value)
+  string get_Recipient()
+  void set_Recipient(string value)
+  Byte[] GetCipherValue(CipherData cipherData)
+  XmlElement GetIdElement(XmlDocument document, string idValue)
+  Byte[] GetDecryptionIV(EncryptedData encryptedData, string symmetricAlgorithmUri)
+  SymmetricAlgorithm GetDecryptionKey(EncryptedData encryptedData, string symmetricAlgorithmUri)
+  Byte[] DecryptEncryptedKey(EncryptedKey encryptedKey)
+  void AddKeyNameMapping(string keyName, object keyObject)
+  void ClearKeyNameMappings()
+  EncryptedData Encrypt(XmlElement inputElement, X509Certificate2 certificate)
+  EncryptedData Encrypt(XmlElement inputElement, string keyName)
+  void DecryptDocument()
+  Byte[] EncryptData(Byte[] plaintext, SymmetricAlgorithm symmetricAlgorithm)
+  Byte[] EncryptData(XmlElement inputElement, SymmetricAlgorithm symmetricAlgorithm, bool content)
+  Byte[] DecryptData(EncryptedData encryptedData, SymmetricAlgorithm symmetricAlgorithm)
+  void ReplaceData(XmlElement inputElement, Byte[] decryptedData)
+  void ReplaceElement(XmlElement inputElement, EncryptedData encryptedData, bool content)
+  Byte[] EncryptKey(Byte[] keyData, SymmetricAlgorithm symmetricAlgorithm)
+  Byte[] EncryptKey(Byte[] keyData, RSA rsa, bool useOAEP)
+  Byte[] DecryptKey(Byte[] keyData, SymmetricAlgorithm symmetricAlgorithm)
+  Byte[] DecryptKey(Byte[] keyData, RSA rsa, bool useOAEP)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.EncryptionMethod
+Наследуется от: object
+Поля:
+  XmlElement _cachedXml
+  int _keySize
+  string _algorithm
+Свойства:
+  bool CacheValid
+  int KeySize
+  string KeyAlgorithm
+Методы:
+  void .ctor()
+  void .ctor(string algorithm)
+  bool get_CacheValid()
+  int get_KeySize()
+  void set_KeySize(int value)
+  string get_KeyAlgorithm()
+  void set_KeyAlgorithm(string value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.EncryptionProperty
+Наследуется от: object
+Поля:
+  string _target
+  string _id
+  XmlElement _elemProp
+  XmlElement _cachedXml
+Свойства:
+  string Id
+  string Target
+  XmlElement PropertyElement
+  bool CacheValid
+Методы:
+  void .ctor()
+  void .ctor(XmlElement elementProperty)
+  string get_Id()
+  string get_Target()
+  XmlElement get_PropertyElement()
+  void set_PropertyElement(XmlElement value)
+  bool get_CacheValid()
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.EncryptionPropertyCollection
+Наследуется от: object
+Поля:
+  ArrayList _props
+Свойства:
+  int Count
+  bool IsFixedSize
+  bool IsReadOnly
+  EncryptionProperty ItemOf
+  object System.Collections.IList.Item
+  object SyncRoot
+  bool IsSynchronized
+Методы:
+  void .ctor()
+  IEnumerator GetEnumerator()
+  int get_Count()
+  int System.Collections.IList.Add(object value)
+  int Add(EncryptionProperty value)
+  void Clear()
+  bool System.Collections.IList.Contains(object value)
+  bool Contains(EncryptionProperty value)
+  int System.Collections.IList.IndexOf(object value)
+  int IndexOf(EncryptionProperty value)
+  void System.Collections.IList.Insert(int index, object value)
+  void Insert(int index, EncryptionProperty value)
+  void System.Collections.IList.Remove(object value)
+  void Remove(EncryptionProperty value)
+  void RemoveAt(int index)
+  bool get_IsFixedSize()
+  bool get_IsReadOnly()
+  EncryptionProperty Item(int index)
+  EncryptionProperty get_ItemOf(int index)
+  void set_ItemOf(int index, EncryptionProperty value)
+  object System.Collections.IList.get_Item(int index)
+  void System.Collections.IList.set_Item(int index, object value)
+  void CopyTo(Array array, int index)
+  void CopyTo(EncryptionProperty[] array, int index)
+  object get_SyncRoot()
+  bool get_IsSynchronized()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.ExcAncestralNamespaceContextManager
+Наследуется от: AncestralNamespaceContextManager
+Поля:
+  Hashtable _inclusivePrefixSet
+Свойства:
+Методы:
+  void .ctor(string inclusiveNamespacesPrefixList)
+  bool HasNonRedundantInclusivePrefix(XmlAttribute attr)
+  void GatherNamespaceToRender(string nsPrefix, SortedList nsListToRender, Hashtable nsLocallyDeclared)
+  void GetNamespacesToRender(XmlElement element, SortedList attrListToRender, SortedList nsListToRender, Hashtable nsLocallyDeclared)
+  void TrackNamespaceNode(XmlAttribute attr, SortedList nsListToRender, Hashtable nsLocallyDeclared)
+  void TrackXmlNamespaceNode(XmlAttribute attr, SortedList nsListToRender, SortedList attrListToRender, Hashtable nsLocallyDeclared)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.ExcCanonicalXml
+Наследуется от: object
+Поля:
+  CanonicalXmlDocument _c14nDoc
+  ExcAncestralNamespaceContextManager _ancMgr
+Свойства:
+Методы:
+  void .ctor(Stream inputStream, bool includeComments, string inclusiveNamespacesPrefixList, XmlResolver resolver, string strBaseUri)
+  void .ctor(XmlDocument document, bool includeComments, string inclusiveNamespacesPrefixList, XmlResolver resolver)
+  void .ctor(XmlNodeList nodeList, bool includeComments, string inclusiveNamespacesPrefixList, XmlResolver resolver)
+  Byte[] GetBytes()
+  Byte[] GetDigestedBytes(HashAlgorithm hash)
+  void MarkInclusionStateForNodes(XmlNodeList nodeList, XmlDocument inputRoot, XmlDocument root)
+  void MarkNodeAsIncluded(XmlNode node)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.ICanonicalizableNode
+Поля:
+Свойства:
+  bool IsInNodeSet
+Методы:
+  bool get_IsInNodeSet()
+  void set_IsInNodeSet(bool value)
+  void Write(StringBuilder strBuilder, DocPosition docPos, AncestralNamespaceContextManager anc)
+  void WriteHash(HashAlgorithm hash, DocPosition docPos, AncestralNamespaceContextManager anc)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.IRelDecryptor
+Поля:
+Свойства:
+Методы:
+  Stream Decrypt(EncryptionMethod encryptionMethod, KeyInfo keyInfo, Stream toDecrypt)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.KeyInfo
+Наследуется от: object
+Поля:
+  string _id
+  ArrayList _keyInfoClauses
+Свойства:
+  string Id
+  int Count
+Методы:
+  void .ctor()
+  string get_Id()
+  void set_Id(string value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement value)
+  int get_Count()
+  void AddClause(KeyInfoClause clause)
+  IEnumerator GetEnumerator()
+  IEnumerator GetEnumerator(Type requestedObjectType)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.KeyInfoClause
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement element)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.KeyInfoEncryptedKey
+Наследуется от: KeyInfoClause
+Поля:
+  EncryptedKey _encryptedKey
+Свойства:
+  EncryptedKey EncryptedKey
+Методы:
+  void .ctor()
+  void .ctor(EncryptedKey encryptedKey)
+  EncryptedKey get_EncryptedKey()
+  void set_EncryptedKey(EncryptedKey value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.KeyInfoName
+Наследуется от: KeyInfoClause
+Поля:
+  string _keyName
+Свойства:
+  string Value
+Методы:
+  void .ctor()
+  void .ctor(string keyName)
+  string get_Value()
+  void set_Value(string value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.KeyInfoNode
+Наследуется от: KeyInfoClause
+Поля:
+  XmlElement _node
+Свойства:
+  XmlElement Value
+Методы:
+  void .ctor()
+  void .ctor(XmlElement node)
+  XmlElement get_Value()
+  void set_Value(XmlElement value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.KeyInfoRetrievalMethod
+Наследуется от: KeyInfoClause
+Поля:
+  string _uri
+  string _type
+Свойства:
+  string Uri
+  string Type
+Методы:
+  void .ctor()
+  void .ctor(string strUri)
+  void .ctor(string strUri, string typeName)
+  string get_Uri()
+  void set_Uri(string value)
+  string get_Type()
+  void set_Type(string value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.KeyInfoX509Data
+Наследуется от: KeyInfoClause
+Поля:
+  ArrayList _certificates
+  ArrayList _issuerSerials
+  ArrayList _subjectKeyIds
+  ArrayList _subjectNames
+  Byte[] _CRL
+Свойства:
+  ArrayList Certificates
+  ArrayList SubjectKeyIds
+  ArrayList SubjectNames
+  ArrayList IssuerSerials
+  Byte[] CRL
+Методы:
+  void .ctor()
+  void .ctor(Byte[] rgbCert)
+  void .ctor(X509Certificate cert)
+  void .ctor(X509Certificate cert, X509IncludeOption includeOption)
+  ArrayList get_Certificates()
+  void AddCertificate(X509Certificate certificate)
+  ArrayList get_SubjectKeyIds()
+  void AddSubjectKeyId(Byte[] subjectKeyId)
+  void AddSubjectKeyId(string subjectKeyId)
+  ArrayList get_SubjectNames()
+  void AddSubjectName(string subjectName)
+  ArrayList get_IssuerSerials()
+  void AddIssuerSerial(string issuerName, string serialNumber)
+  void InternalAddIssuerSerial(string issuerName, string serialNumber)
+  Byte[] get_CRL()
+  void set_CRL(Byte[] value)
+  void Clear()
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement element)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.KeyReference
+Наследуется от: EncryptedReference
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string uri)
+  void .ctor(string uri, TransformChain transformChain)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.MyXmlDocument
+Наследуется от: XmlDocument
+Поля:
+Свойства:
+Методы:
+  XmlAttribute CreateDefaultAttribute(string prefix, string localName, string namespaceURI)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.NamespaceFrame
+Наследуется от: object
+Поля:
+  Hashtable _rendered
+  Hashtable _unrendered
+Свойства:
+Методы:
+  void .ctor()
+  void AddRendered(XmlAttribute attr)
+  XmlAttribute GetRendered(string nsPrefix)
+  void AddUnrendered(XmlAttribute attr)
+  XmlAttribute GetUnrendered(string nsPrefix)
+  Hashtable GetUnrendered()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.NamespaceSortOrder
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  int Compare(object a, object b)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.RSAKeyValue
+Наследуется от: KeyInfoClause
+Поля:
+  RSA _key
+  string KeyValueElementName
+  string RSAKeyValueElementName
+  string ModulusElementName
+  string ExponentElementName
+Свойства:
+  RSA Key
+Методы:
+  void .ctor()
+  void .ctor(RSA key)
+  RSA get_Key()
+  void set_Key(RSA value)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument xmlDocument)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.RSAPKCS1SHA1SignatureDescription
+Наследуется от: RSAPKCS1SignatureDescription
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  HashAlgorithm CreateDigest()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.RSAPKCS1SHA256SignatureDescription
+Наследуется от: RSAPKCS1SignatureDescription
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  HashAlgorithm CreateDigest()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.RSAPKCS1SHA384SignatureDescription
+Наследуется от: RSAPKCS1SignatureDescription
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  HashAlgorithm CreateDigest()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.RSAPKCS1SHA512SignatureDescription
+Наследуется от: RSAPKCS1SignatureDescription
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  HashAlgorithm CreateDigest()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.RSAPKCS1SignatureDescription
+Наследуется от: SignatureDescription
+Поля:
+Свойства:
+Методы:
+  void .ctor(string hashAlgorithmName)
+  AsymmetricSignatureDeformatter CreateDeformatter(AsymmetricAlgorithm key)
+  AsymmetricSignatureFormatter CreateFormatter(AsymmetricAlgorithm key)
+  HashAlgorithm CreateDigest()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.Reference
+Наследуется от: object
+Поля:
+  string DefaultDigestMethod
+  string _id
+  string _uri
+  string _type
+  TransformChain _transformChain
+  string _digestMethod
+  Byte[] _digestValue
+  HashAlgorithm _hashAlgorithm
+  object _refTarget
+  ReferenceTargetType _refTargetType
+  XmlElement _cachedXml
+  SignedXml _signedXml
+  CanonicalXmlNodeList _namespaces
+Свойства:
+  string Id
+  string Uri
+  string Type
+  string DigestMethod
+  Byte[] DigestValue
+  TransformChain TransformChain
+  bool CacheValid
+  SignedXml SignedXml
+  ReferenceTargetType ReferenceTargetType
+Методы:
+  void .ctor()
+  void .ctor(Stream stream)
+  void .ctor(string uri)
+  void .ctor(XmlElement element)
+  string get_Id()
+  void set_Id(string value)
+  string get_Uri()
+  void set_Uri(string value)
+  string get_Type()
+  void set_Type(string value)
+  string get_DigestMethod()
+  void set_DigestMethod(string value)
+  Byte[] get_DigestValue()
+  void set_DigestValue(Byte[] value)
+  TransformChain get_TransformChain()
+  void set_TransformChain(TransformChain value)
+  bool get_CacheValid()
+  SignedXml get_SignedXml()
+  void set_SignedXml(SignedXml value)
+  ReferenceTargetType get_ReferenceTargetType()
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+  void AddTransform(Transform transform)
+  void UpdateHashValue(XmlDocument document, CanonicalXmlNodeList refList)
+  Byte[] CalculateHashValue(XmlDocument document, CanonicalXmlNodeList refList)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.ReferenceList
+Наследуется от: object
+Поля:
+  ArrayList _references
+Свойства:
+  int Count
+  EncryptedReference ItemOf
+  object System.Collections.IList.Item
+  bool System.Collections.IList.IsFixedSize
+  bool System.Collections.IList.IsReadOnly
+  object SyncRoot
+  bool IsSynchronized
+Методы:
+  void .ctor()
+  IEnumerator GetEnumerator()
+  int get_Count()
+  int Add(object value)
+  void Clear()
+  bool Contains(object value)
+  int IndexOf(object value)
+  void Insert(int index, object value)
+  void Remove(object value)
+  void RemoveAt(int index)
+  EncryptedReference Item(int index)
+  EncryptedReference get_ItemOf(int index)
+  void set_ItemOf(int index, EncryptedReference value)
+  object System.Collections.IList.get_Item(int index)
+  void System.Collections.IList.set_Item(int index, object value)
+  void CopyTo(Array array, int index)
+  bool System.Collections.IList.get_IsFixedSize()
+  bool System.Collections.IList.get_IsReadOnly()
+  object get_SyncRoot()
+  bool get_IsSynchronized()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.ReferenceTargetType
+Наследуется от: Enum
+Поля:
+  int value__
+  ReferenceTargetType Stream
+  ReferenceTargetType XmlElement
+  ReferenceTargetType UriReference
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.Signature
+Наследуется от: object
+Поля:
+  string _id
+  SignedInfo _signedInfo
+  Byte[] _signatureValue
+  string _signatureValueId
+  KeyInfo _keyInfo
+  IList _embeddedObjects
+  CanonicalXmlNodeList _referencedItems
+  SignedXml _signedXml
+Свойства:
+  SignedXml SignedXml
+  string Id
+  SignedInfo SignedInfo
+  Byte[] SignatureValue
+  KeyInfo KeyInfo
+  IList ObjectList
+  CanonicalXmlNodeList ReferencedItems
+Методы:
+  SignedXml get_SignedXml()
+  void set_SignedXml(SignedXml value)
+  void .ctor()
+  string get_Id()
+  void set_Id(string value)
+  SignedInfo get_SignedInfo()
+  void set_SignedInfo(SignedInfo value)
+  Byte[] get_SignatureValue()
+  void set_SignatureValue(Byte[] value)
+  KeyInfo get_KeyInfo()
+  void set_KeyInfo(KeyInfo value)
+  IList get_ObjectList()
+  void set_ObjectList(IList value)
+  CanonicalXmlNodeList get_ReferencedItems()
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+  void AddObject(DataObject dataObject)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.SignedInfo
+Наследуется от: object
+Поля:
+  string _id
+  string _canonicalizationMethod
+  string _signatureMethod
+  string _signatureLength
+  ArrayList _references
+  XmlElement _cachedXml
+  SignedXml _signedXml
+  Transform _canonicalizationMethodTransform
+Свойства:
+  SignedXml SignedXml
+  int Count
+  bool IsReadOnly
+  bool IsSynchronized
+  object SyncRoot
+  string Id
+  string CanonicalizationMethod
+  Transform CanonicalizationMethodObject
+  string SignatureMethod
+  string SignatureLength
+  ArrayList References
+  bool CacheValid
+Методы:
+  SignedXml get_SignedXml()
+  void set_SignedXml(SignedXml value)
+  void .ctor()
+  IEnumerator GetEnumerator()
+  void CopyTo(Array array, int index)
+  int get_Count()
+  bool get_IsReadOnly()
+  bool get_IsSynchronized()
+  object get_SyncRoot()
+  string get_Id()
+  void set_Id(string value)
+  string get_CanonicalizationMethod()
+  void set_CanonicalizationMethod(string value)
+  Transform get_CanonicalizationMethodObject()
+  string get_SignatureMethod()
+  void set_SignatureMethod(string value)
+  string get_SignatureLength()
+  void set_SignatureLength(string value)
+  ArrayList get_References()
+  bool get_CacheValid()
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  void LoadXml(XmlElement value)
+  void AddReference(Reference reference)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.SignedXml
+Наследуется от: object
+Поля:
+  Signature m_signature
+  string m_strSigningKeyName
+  AsymmetricAlgorithm _signingKey
+  XmlDocument _containingDocument
+  IEnumerator _keyInfoEnum
+  X509Certificate2Collection _x509Collection
+  IEnumerator _x509Enum
+  Boolean[] _refProcessed
+  Int32[] _refLevelCache
+  XmlResolver _xmlResolver
+  XmlElement _context
+  bool _bResolverSet
+  Func`2<SignedXml, bool> _signatureFormatValidator
+  Collection`1<string> _safeCanonicalizationMethods
+  IList`1<string> s_knownCanonicalizationMethods
+  IList`1<string> s_defaultSafeTransformMethods
+  string XmlDsigMoreHMACMD5Url
+  string XmlDsigMoreHMACSHA256Url
+  string XmlDsigMoreHMACSHA384Url
+  string XmlDsigMoreHMACSHA512Url
+  string XmlDsigMoreHMACRIPEMD160Url
+  EncryptedXml _exml
+  string XmlDsigNamespaceUrl
+  string XmlDsigMinimalCanonicalizationUrl
+  string XmlDsigCanonicalizationUrl
+  string XmlDsigCanonicalizationWithCommentsUrl
+  string XmlDsigSHA1Url
+  string XmlDsigDSAUrl
+  string XmlDsigRSASHA1Url
+  string XmlDsigHMACSHA1Url
+  string XmlDsigSHA256Url
+  string XmlDsigRSASHA256Url
+  string XmlDsigSHA384Url
+  string XmlDsigRSASHA384Url
+  string XmlDsigSHA512Url
+  string XmlDsigRSASHA512Url
+  string XmlDsigC14NTransformUrl
+  string XmlDsigC14NWithCommentsTransformUrl
+  string XmlDsigExcC14NTransformUrl
+  string XmlDsigExcC14NWithCommentsTransformUrl
+  string XmlDsigBase64TransformUrl
+  string XmlDsigXPathTransformUrl
+  string XmlDsigXsltTransformUrl
+  string XmlDsigEnvelopedSignatureTransformUrl
+  string XmlDecryptionTransformUrl
+  string XmlLicenseTransformUrl
+  bool _bCacheValid
+  Byte[] _digestedSignedInfo
+Свойства:
+  string SigningKeyName
+  XmlResolver Resolver
+  bool ResolverSet
+  Func`2<SignedXml, bool> SignatureFormatValidator
+  Collection`1<string> SafeCanonicalizationMethods
+  AsymmetricAlgorithm SigningKey
+  EncryptedXml EncryptedXml
+  Signature Signature
+  SignedInfo SignedInfo
+  string SignatureMethod
+  string SignatureLength
+  Byte[] SignatureValue
+  KeyInfo KeyInfo
+  IList`1<string> KnownCanonicalizationMethods
+  IList`1<string> DefaultSafeTransformMethods
+Методы:
+  void .ctor()
+  void .ctor(XmlDocument document)
+  void .ctor(XmlElement elem)
+  void Initialize(XmlElement element)
+  string get_SigningKeyName()
+  void set_SigningKeyName(string value)
+  void set_Resolver(XmlResolver value)
+  bool get_ResolverSet()
+  Func`2<SignedXml, bool> get_SignatureFormatValidator()
+  void set_SignatureFormatValidator(Func`2<SignedXml, bool> value)
+  Collection`1<string> get_SafeCanonicalizationMethods()
+  AsymmetricAlgorithm get_SigningKey()
+  void set_SigningKey(AsymmetricAlgorithm value)
+  EncryptedXml get_EncryptedXml()
+  void set_EncryptedXml(EncryptedXml value)
+  Signature get_Signature()
+  SignedInfo get_SignedInfo()
+  string get_SignatureMethod()
+  string get_SignatureLength()
+  Byte[] get_SignatureValue()
+  KeyInfo get_KeyInfo()
+  void set_KeyInfo(KeyInfo value)
+  XmlElement GetXml()
+  void LoadXml(XmlElement value)
+  void AddReference(Reference reference)
+  void AddObject(DataObject dataObject)
+  bool CheckSignature()
+  bool CheckSignatureReturningKey(AsymmetricAlgorithm& signingKey)
+  bool CheckSignature(AsymmetricAlgorithm key)
+  bool CheckSignature(KeyedHashAlgorithm macAlg)
+  bool CheckSignature(X509Certificate2 certificate, bool verifySignatureOnly)
+  void ComputeSignature()
+  void ComputeSignature(KeyedHashAlgorithm macAlg)
+  AsymmetricAlgorithm GetPublicKey()
+  X509Certificate2Collection BuildBagOfCerts()
+  AsymmetricAlgorithm GetNextCertificatePublicKey()
+  XmlElement GetIdElement(XmlDocument document, string idValue)
+  XmlElement DefaultGetIdElement(XmlDocument document, string idValue)
+  bool DefaultSignatureFormatValidator(SignedXml signedXml)
+  bool DoesSignatureUseTruncatedHmac()
+  bool DoesSignatureUseSafeCanonicalizationMethod()
+  bool ReferenceUsesSafeTransformMethods(Reference reference)
+  bool IsSafeTransform(string transformAlgorithm)
+  IList`1<string> get_KnownCanonicalizationMethods()
+  IList`1<string> get_DefaultSafeTransformMethods()
+  Byte[] GetC14NDigest(HashAlgorithm hash)
+  int GetReferenceLevel(int index, ArrayList references)
+  void BuildDigestedReferences()
+  bool CheckDigestedReferences()
+  bool CryptographicEquals(Byte[] a, Byte[] b)
+  bool CheckSignatureFormat()
+  bool CheckSignedInfo(AsymmetricAlgorithm key)
+  bool CheckSignedInfo(KeyedHashAlgorithm macAlg)
+  XmlElement GetSingleReferenceTarget(XmlDocument document, string idAttributeName, string idValue)
+  bool IsKeyTheCorrectAlgorithm(AsymmetricAlgorithm key, Type expectedType)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.SignedXmlDebugLog
+Наследуется от: object
+Поля:
+  string NullString
+  TraceSource s_traceSource
+  Boolean modreq(System.Runtime.CompilerServices.IsVolatile) s_haveVerboseLogging
+  Boolean modreq(System.Runtime.CompilerServices.IsVolatile) s_verboseLogging
+  Boolean modreq(System.Runtime.CompilerServices.IsVolatile) s_haveInformationLogging
+  Boolean modreq(System.Runtime.CompilerServices.IsVolatile) s_informationLogging
+Свойства:
+  bool InformationLoggingEnabled
+  bool VerboseLoggingEnabled
+Методы:
+  bool get_InformationLoggingEnabled()
+  bool get_VerboseLoggingEnabled()
+  string FormatBytes(Byte[] bytes)
+  string GetKeyName(object key)
+  string GetObjectId(object o)
+  string GetOidName(Oid oid)
+  void LogBeginCanonicalization(SignedXml signedXml, Transform canonicalizationTransform)
+  void LogBeginCheckSignatureFormat(SignedXml signedXml, Func`2<SignedXml, bool> formatValidator)
+  void LogBeginCheckSignedInfo(SignedXml signedXml, SignedInfo signedInfo)
+  void LogBeginSignatureComputation(SignedXml signedXml, XmlElement context)
+  void LogBeginSignatureVerification(SignedXml signedXml, XmlElement context)
+  void LogCanonicalizedOutput(SignedXml signedXml, Transform canonicalizationTransform)
+  void LogFormatValidationResult(SignedXml signedXml, bool result)
+  void LogUnsafeCanonicalizationMethod(SignedXml signedXml, string algorithm, IEnumerable`1<string> validAlgorithms)
+  void LogUnsafeTransformMethod(SignedXml signedXml, string algorithm, IEnumerable`1<string> validC14nAlgorithms, IEnumerable`1<string> validTransformAlgorithms)
+  void LogNamespacePropagation(SignedXml signedXml, XmlNodeList namespaces)
+  Stream LogReferenceData(Reference reference, Stream data)
+  void LogSigning(SignedXml signedXml, object key, SignatureDescription signatureDescription, HashAlgorithm hash, AsymmetricSignatureFormatter asymmetricSignatureFormatter)
+  void LogSigning(SignedXml signedXml, KeyedHashAlgorithm key)
+  void LogSigningReference(SignedXml signedXml, Reference reference)
+  void LogVerificationFailure(SignedXml signedXml, string failureLocation)
+  void LogVerificationResult(SignedXml signedXml, object key, bool verified)
+  void LogVerifyKeyUsage(SignedXml signedXml, X509Certificate certificate, X509KeyUsageExtension keyUsages)
+  void LogVerifyReference(SignedXml signedXml, Reference reference)
+  void LogVerifyReferenceHash(SignedXml signedXml, Reference reference, Byte[] actualHash, Byte[] expectedHash)
+  void LogVerifySignedInfo(SignedXml signedXml, AsymmetricAlgorithm key, SignatureDescription signatureDescription, HashAlgorithm hashAlgorithm, AsymmetricSignatureDeformatter asymmetricSignatureDeformatter, Byte[] actualHashValue, Byte[] signatureValue)
+  void LogVerifySignedInfo(SignedXml signedXml, KeyedHashAlgorithm mac, Byte[] actualHashValue, Byte[] signatureValue)
+  void LogVerifyX509Chain(SignedXml signedXml, X509Chain chain, X509Certificate certificate)
+  void LogSignedXmlRecursionLimit(SignedXml signedXml, Reference reference)
+  void WriteLine(object source, TraceEventType eventType, SignedXmlDebugEvent eventId, string data)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.SymmetricKeyWrap
+Наследуется от: object
+Поля:
+  Byte[] s_rgbTripleDES_KW_IV
+  Byte[] s_rgbAES_KW_IV
+Свойства:
+Методы:
+  Byte[] TripleDESKeyWrapEncrypt(Byte[] rgbKey, Byte[] rgbWrappedKeyData)
+  Byte[] TripleDESKeyWrapDecrypt(Byte[] rgbKey, Byte[] rgbEncryptedWrappedKeyData)
+  Byte[] AESKeyWrapEncrypt(Byte[] rgbKey, Byte[] rgbWrappedKeyData)
+  Byte[] AESKeyWrapDecrypt(Byte[] rgbKey, Byte[] rgbEncryptedWrappedKeyData)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.Transform
+Наследуется от: object
+Поля:
+  string _algorithm
+  string _baseUri
+  XmlResolver _xmlResolver
+  bool _bResolverSet
+  SignedXml _signedXml
+  Reference _reference
+  Hashtable _propagatedNamespaces
+  XmlElement _context
+Свойства:
+  string BaseURI
+  SignedXml SignedXml
+  Reference Reference
+  string Algorithm
+  XmlResolver Resolver
+  bool ResolverSet
+  Type[] InputTypes
+  Type[] OutputTypes
+  XmlElement Context
+  Hashtable PropagatedNamespaces
+Методы:
+  string get_BaseURI()
+  void set_BaseURI(string value)
+  SignedXml get_SignedXml()
+  void set_SignedXml(SignedXml value)
+  Reference get_Reference()
+  void set_Reference(Reference value)
+  void .ctor()
+  string get_Algorithm()
+  void set_Algorithm(string value)
+  void set_Resolver(XmlResolver value)
+  XmlResolver get_Resolver()
+  bool get_ResolverSet()
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  bool AcceptsType(Type inputType)
+  XmlElement GetXml()
+  XmlElement GetXml(XmlDocument document)
+  XmlElement GetXml(XmlDocument document, string name)
+  void LoadInnerXml(XmlNodeList nodeList)
+  XmlNodeList GetInnerXml()
+  void LoadInput(object obj)
+  object GetOutput()
+  object GetOutput(Type type)
+  Byte[] GetDigestedOutput(HashAlgorithm hash)
+  XmlElement get_Context()
+  void set_Context(XmlElement value)
+  Hashtable get_PropagatedNamespaces()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.TransformChain
+Наследуется от: object
+Поля:
+  ArrayList _transforms
+Свойства:
+  int Count
+  Transform Item
+Методы:
+  void .ctor()
+  void Add(Transform transform)
+  IEnumerator GetEnumerator()
+  int get_Count()
+  Transform get_Item(int index)
+  Stream TransformToOctetStream(object inputObject, Type inputType, XmlResolver resolver, string baseUri)
+  Stream TransformToOctetStream(Stream input, XmlResolver resolver, string baseUri)
+  Stream TransformToOctetStream(XmlDocument document, XmlResolver resolver, string baseUri)
+  XmlElement GetXml(XmlDocument document, string ns)
+  void LoadXml(XmlElement value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.Utils
+Наследуется от: object
+Поля:
+  int MaxCharactersInDocument
+  long MaxCharactersFromEntities
+  int XmlDsigSearchDepth
+  Char[] s_hexValues
+  int MaxTransformsPerReference
+  int MaxReferencesPerSignedInfo
+Свойства:
+Методы:
+  void .ctor()
+  bool HasNamespace(XmlElement element, string prefix, string value)
+  bool IsCommittedNamespace(XmlElement element, string prefix, string value)
+  bool IsRedundantNamespace(XmlElement element, string prefix, string value)
+  string GetAttribute(XmlElement element, string localName, string namespaceURI)
+  bool HasAttribute(XmlElement element, string localName, string namespaceURI)
+  bool VerifyAttributes(XmlElement element, string expectedAttrName)
+  bool VerifyAttributes(XmlElement element, String[] expectedAttrNames)
+  bool IsNamespaceNode(XmlNode n)
+  bool IsXmlNamespaceNode(XmlNode n)
+  bool IsDefaultNamespaceNode(XmlNode n)
+  bool IsEmptyDefaultNamespaceNode(XmlNode n)
+  string GetNamespacePrefix(XmlAttribute a)
+  bool HasNamespacePrefix(XmlAttribute a, string nsPrefix)
+  bool IsNonRedundantNamespaceDecl(XmlAttribute a, XmlAttribute nearestAncestorWithSamePrefix)
+  bool IsXmlPrefixDefinitionNode(XmlAttribute a)
+  string DiscardWhiteSpaces(string inputBuffer)
+  string DiscardWhiteSpaces(string inputBuffer, int inputOffset, int inputCount)
+  void SBReplaceCharWithString(StringBuilder sb, char oldChar, string newString)
+  XmlReader PreProcessStreamInput(Stream inputStream, XmlResolver xmlResolver, string baseUri)
+  XmlReaderSettings GetSecureXmlReaderSettings(XmlResolver xmlResolver)
+  XmlDocument PreProcessDocumentInput(XmlDocument document, XmlResolver xmlResolver, string baseUri)
+  XmlDocument PreProcessElementInput(XmlElement elem, XmlResolver xmlResolver, string baseUri)
+  XmlDocument DiscardComments(XmlDocument document)
+  XmlNodeList AllDescendantNodes(XmlNode node, bool includeComments)
+  bool NodeInList(XmlNode node, XmlNodeList nodeList)
+  string GetIdFromLocalUri(string uri, Boolean& discardComments)
+  string ExtractIdFromLocalUri(string uri)
+  void RemoveAllChildren(XmlElement inputElement)
+  long Pump(Stream input, Stream output)
+  Hashtable TokenizePrefixListString(string s)
+  string EscapeWhitespaceData(string data)
+  string EscapeTextData(string data)
+  string EscapeCData(string data)
+  string EscapeAttributeValue(string value)
+  XmlDocument GetOwnerDocument(XmlNodeList nodeList)
+  void AddNamespaces(XmlElement elem, CanonicalXmlNodeList namespaces)
+  void AddNamespaces(XmlElement elem, Hashtable namespaces)
+  CanonicalXmlNodeList GetPropagatedAttributes(XmlElement elem)
+  Byte[] ConvertIntToByteArray(int dwInput)
+  int ConvertByteArrayToInt(Byte[] input)
+  int GetHexArraySize(Byte[] hex)
+  X509IssuerSerial CreateX509IssuerSerial(string issuerName, string serialNumber)
+  X509Certificate2Collection BuildBagOfCerts(KeyInfoX509Data keyInfoX509Data, CertUsageType certUsageType)
+  string EncodeHexString(Byte[] sArray)
+  string EncodeHexString(Byte[] sArray, UInt32 start, UInt32 end)
+  Byte[] DecodeHexString(string s)
+  byte HexToByte(char val)
+  bool IsSelfSigned(X509Chain chain)
+  AsymmetricAlgorithm GetAnyPublicKey(X509Certificate2 certificate)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDecryptionTransform
+Наследуется от: Transform
+Поля:
+  Type[] _inputTypes
+  Type[] _outputTypes
+  XmlNodeList _encryptedDataList
+  ArrayList _arrayListUri
+  EncryptedXml _exml
+  XmlDocument _containingDocument
+  XmlNamespaceManager _nsm
+  string XmlDecryptionTransformNamespaceUrl
+Свойства:
+  ArrayList ExceptUris
+  EncryptedXml EncryptedXml
+  Type[] InputTypes
+  Type[] OutputTypes
+Методы:
+  void .ctor()
+  ArrayList get_ExceptUris()
+  bool IsTargetElement(XmlElement inputElement, string idValue)
+  EncryptedXml get_EncryptedXml()
+  void set_EncryptedXml(EncryptedXml value)
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  void AddExceptUri(string uri)
+  void LoadInnerXml(XmlNodeList nodeList)
+  XmlNodeList GetInnerXml()
+  void LoadInput(object obj)
+  void LoadStreamInput(Stream stream)
+  void LoadXmlDocumentInput(XmlDocument document)
+  void ReplaceEncryptedData(XmlElement encryptedDataElement, Byte[] decrypted)
+  bool ProcessEncryptedDataItem(XmlElement encryptedDataElement)
+  void ProcessElementRecursively(XmlNodeList encryptedDatas)
+  object GetOutput()
+  object GetOutput(Type type)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDsigBase64Transform
+Наследуется от: Transform
+Поля:
+  Type[] _inputTypes
+  Type[] _outputTypes
+  CryptoStream _cs
+Свойства:
+  Type[] InputTypes
+  Type[] OutputTypes
+Методы:
+  void .ctor()
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  void LoadInnerXml(XmlNodeList nodeList)
+  XmlNodeList GetInnerXml()
+  void LoadInput(object obj)
+  void LoadStreamInput(Stream inputStream)
+  void LoadXmlNodeListInput(XmlNodeList nodeList)
+  object GetOutput()
+  object GetOutput(Type type)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDsigC14NTransform
+Наследуется от: Transform
+Поля:
+  Type[] _inputTypes
+  Type[] _outputTypes
+  CanonicalXml _cXml
+  bool _includeComments
+Свойства:
+  Type[] InputTypes
+  Type[] OutputTypes
+Методы:
+  void .ctor()
+  void .ctor(bool includeComments)
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  void LoadInnerXml(XmlNodeList nodeList)
+  XmlNodeList GetInnerXml()
+  void LoadInput(object obj)
+  object GetOutput()
+  object GetOutput(Type type)
+  Byte[] GetDigestedOutput(HashAlgorithm hash)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDsigC14NWithCommentsTransform
+Наследуется от: XmlDsigC14NTransform
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDsigEnvelopedSignatureTransform
+Наследуется от: Transform
+Поля:
+  Type[] _inputTypes
+  Type[] _outputTypes
+  XmlNodeList _inputNodeList
+  bool _includeComments
+  XmlNamespaceManager _nsm
+  XmlDocument _containingDocument
+  int _signaturePosition
+Свойства:
+  int SignaturePosition
+  Type[] InputTypes
+  Type[] OutputTypes
+Методы:
+  void set_SignaturePosition(int value)
+  void .ctor()
+  void .ctor(bool includeComments)
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  void LoadInnerXml(XmlNodeList nodeList)
+  XmlNodeList GetInnerXml()
+  void LoadInput(object obj)
+  void LoadStreamInput(Stream stream)
+  void LoadXmlNodeListInput(XmlNodeList nodeList)
+  void LoadXmlDocumentInput(XmlDocument doc)
+  object GetOutput()
+  object GetOutput(Type type)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDsigExcC14NTransform
+Наследуется от: Transform
+Поля:
+  Type[] _inputTypes
+  Type[] _outputTypes
+  bool _includeComments
+  string _inclusiveNamespacesPrefixList
+  ExcCanonicalXml _excCanonicalXml
+Свойства:
+  string InclusiveNamespacesPrefixList
+  Type[] InputTypes
+  Type[] OutputTypes
+Методы:
+  void .ctor()
+  void .ctor(bool includeComments)
+  void .ctor(string inclusiveNamespacesPrefixList)
+  void .ctor(bool includeComments, string inclusiveNamespacesPrefixList)
+  string get_InclusiveNamespacesPrefixList()
+  void set_InclusiveNamespacesPrefixList(string value)
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  void LoadInnerXml(XmlNodeList nodeList)
+  void LoadInput(object obj)
+  XmlNodeList GetInnerXml()
+  object GetOutput()
+  object GetOutput(Type type)
+  Byte[] GetDigestedOutput(HashAlgorithm hash)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDsigExcC14NWithCommentsTransform
+Наследуется от: XmlDsigExcC14NTransform
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string inclusiveNamespacesPrefixList)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDsigXPathTransform
+Наследуется от: Transform
+Поля:
+  Type[] _inputTypes
+  Type[] _outputTypes
+  string _xpathexpr
+  XmlDocument _document
+  XmlNamespaceManager _nsm
+Свойства:
+  Type[] InputTypes
+  Type[] OutputTypes
+Методы:
+  void .ctor()
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  void LoadInnerXml(XmlNodeList nodeList)
+  XmlNodeList GetInnerXml()
+  void LoadInput(object obj)
+  void LoadStreamInput(Stream stream)
+  void LoadXmlNodeListInput(XmlNodeList nodeList)
+  void LoadXmlDocumentInput(XmlDocument doc)
+  object GetOutput()
+  object GetOutput(Type type)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlDsigXsltTransform
+Наследуется от: Transform
+Поля:
+  Type[] _inputTypes
+  Type[] _outputTypes
+  XmlNodeList _xslNodes
+  string _xslFragment
+  Stream _inputStream
+  bool _includeComments
+Свойства:
+  Type[] InputTypes
+  Type[] OutputTypes
+Методы:
+  void .ctor()
+  void .ctor(bool includeComments)
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  void LoadInnerXml(XmlNodeList nodeList)
+  XmlNodeList GetInnerXml()
+  void LoadInput(object obj)
+  object GetOutput()
+  object GetOutput(Type type)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Xml.XmlLicenseTransform
+Наследуется от: Transform
+Поля:
+  Type[] _inputTypes
+  Type[] _outputTypes
+  XmlNamespaceManager _namespaceManager
+  XmlDocument _license
+  IRelDecryptor _relDecryptor
+  string ElementIssuer
+  string NamespaceUriCore
+Свойства:
+  Type[] InputTypes
+  Type[] OutputTypes
+  IRelDecryptor Decryptor
+Методы:
+  void .ctor()
+  Type[] get_InputTypes()
+  Type[] get_OutputTypes()
+  IRelDecryptor get_Decryptor()
+  void set_Decryptor(IRelDecryptor value)
+  void DecryptEncryptedGrants(XmlNodeList encryptedGrantList, IRelDecryptor decryptor)
+  XmlNodeList GetInnerXml()
+  object GetOutput()
+  object GetOutput(Type type)
+  void LoadInnerXml(XmlNodeList nodeList)
+  void LoadInput(object obj)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.AlgorithmIdentifier
+Наследуется от: object
+Поля:
+  Oid <Oid>k__BackingField
+  int <KeyLength>k__BackingField
+  Byte[] <Parameters>k__BackingField
+Свойства:
+  Oid Oid
+  int KeyLength
+  Byte[] Parameters
+Методы:
+  void .ctor()
+  void .ctor(Oid oid)
+  void .ctor(Oid oid, int keyLength)
+  Oid get_Oid()
+  void set_Oid(Oid value)
+  int get_KeyLength()
+  void set_KeyLength(int value)
+  Byte[] get_Parameters()
+  void set_Parameters(Byte[] value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.CmsRecipient
+Наследуется от: object
+Поля:
+  SubjectIdentifierType <RecipientIdentifierType>k__BackingField
+  X509Certificate2 <Certificate>k__BackingField
+Свойства:
+  SubjectIdentifierType RecipientIdentifierType
+  X509Certificate2 Certificate
+Методы:
+  void .ctor(X509Certificate2 certificate)
+  void .ctor(SubjectIdentifierType recipientIdentifierType, X509Certificate2 certificate)
+  SubjectIdentifierType get_RecipientIdentifierType()
+  X509Certificate2 get_Certificate()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.CmsRecipientCollection
+Наследуется от: object
+Поля:
+  List`1<CmsRecipient> _recipients
+Свойства:
+  CmsRecipient Item
+  int Count
+  bool IsSynchronized
+  object SyncRoot
+Методы:
+  void .ctor()
+  void .ctor(CmsRecipient recipient)
+  void .ctor(SubjectIdentifierType recipientIdentifierType, X509Certificate2Collection certificates)
+  CmsRecipient get_Item(int index)
+  int get_Count()
+  int Add(CmsRecipient recipient)
+  void Remove(CmsRecipient recipient)
+  CmsRecipientEnumerator GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  void CopyTo(Array array, int index)
+  void CopyTo(CmsRecipient[] array, int index)
+  bool get_IsSynchronized()
+  object get_SyncRoot()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.CmsRecipientEnumerator
+Наследуется от: object
+Поля:
+  CmsRecipientCollection _recipients
+  int _current
+Свойства:
+  CmsRecipient Current
+  object System.Collections.IEnumerator.Current
+Методы:
+  void .ctor(CmsRecipientCollection recipients)
+  CmsRecipient get_Current()
+  object System.Collections.IEnumerator.get_Current()
+  bool MoveNext()
+  void Reset()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.CmsSignature
+Наследуется от: object
+Поля:
+  Dictionary`2<string, CmsSignature> s_lookup
+Свойства:
+Методы:
+  void .cctor()
+  void PrepareRegistrationRsa(Dictionary`2<string, CmsSignature> lookup)
+  void PrepareRegistrationDsa(Dictionary`2<string, CmsSignature> lookup)
+  void PrepareRegistrationECDsa(Dictionary`2<string, CmsSignature> lookup)
+  bool VerifySignature(Byte[] valueHash, Byte[] signature, string digestAlgorithmOid, HashAlgorithmName digestAlgorithmName, Nullable`1<ReadOnlyMemory`1<byte>> signatureParameters, X509Certificate2 certificate)
+  bool Sign(Byte[] dataHash, HashAlgorithmName hashAlgorithmName, X509Certificate2 certificate, bool silent, Oid& signatureAlgorithm, Byte[]& signatureValue)
+  CmsSignature Resolve(string signatureAlgorithmOid)
+  bool Sign(Byte[] dataHash, HashAlgorithmName hashAlgorithmName, X509Certificate2 certificate, bool silent, Oid& oid, ReadOnlyMemory`1& signatureValue)
+  bool DsaDerToIeee(ReadOnlyMemory`1<byte> derSignature, Span`1<byte> ieeeSignature)
+  Byte[] DsaIeeeToDer(ReadOnlySpan`1<byte> ieeeSignature)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.CmsSigner
+Наследуется от: object
+Поля:
+  Oid s_defaultAlgorithm
+  SubjectIdentifierType _signerIdentifierType
+  X509Certificate2 <Certificate>k__BackingField
+  AsymmetricAlgorithm <PrivateKey>k__BackingField
+  X509Certificate2Collection <Certificates>k__BackingField
+  Oid <DigestAlgorithm>k__BackingField
+  X509IncludeOption <IncludeOption>k__BackingField
+  CryptographicAttributeObjectCollection <SignedAttributes>k__BackingField
+  CryptographicAttributeObjectCollection <UnsignedAttributes>k__BackingField
+Свойства:
+  X509Certificate2 Certificate
+  AsymmetricAlgorithm PrivateKey
+  X509Certificate2Collection Certificates
+  Oid DigestAlgorithm
+  X509IncludeOption IncludeOption
+  CryptographicAttributeObjectCollection SignedAttributes
+  CryptographicAttributeObjectCollection UnsignedAttributes
+  SubjectIdentifierType SignerIdentifierType
+Методы:
+  X509Certificate2 get_Certificate()
+  void set_Certificate(X509Certificate2 value)
+  AsymmetricAlgorithm get_PrivateKey()
+  void set_PrivateKey(AsymmetricAlgorithm value)
+  X509Certificate2Collection get_Certificates()
+  void set_Certificates(X509Certificate2Collection value)
+  Oid get_DigestAlgorithm()
+  void set_DigestAlgorithm(Oid value)
+  X509IncludeOption get_IncludeOption()
+  void set_IncludeOption(X509IncludeOption value)
+  CryptographicAttributeObjectCollection get_SignedAttributes()
+  void set_SignedAttributes(CryptographicAttributeObjectCollection value)
+  CryptographicAttributeObjectCollection get_UnsignedAttributes()
+  void set_UnsignedAttributes(CryptographicAttributeObjectCollection value)
+  SubjectIdentifierType get_SignerIdentifierType()
+  void set_SignerIdentifierType(SubjectIdentifierType value)
+  void .ctor()
+  void .ctor(SubjectIdentifierType signerIdentifierType)
+  void .ctor(X509Certificate2 certificate)
+  void .ctor(CspParameters parameters)
+  void .ctor(SubjectIdentifierType signerIdentifierType, X509Certificate2 certificate)
+  void CheckCertificateValue()
+  SignerInfoAsn Sign(ReadOnlyMemory`1<byte> data, string contentTypeOid, bool silent, X509Certificate2Collection& chainCerts)
+  List`1<AttributeAsn> BuildAttributes(CryptographicAttributeObjectCollection attributes)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.ContentInfo
+Наследуется от: object
+Поля:
+  Oid <ContentType>k__BackingField
+  Byte[] <Content>k__BackingField
+Свойства:
+  Oid ContentType
+  Byte[] Content
+Методы:
+  void .ctor(Byte[] content)
+  void .ctor(Oid contentType, Byte[] content)
+  Oid get_ContentType()
+  Byte[] get_Content()
+  Oid GetContentType(Byte[] encodedMessage)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.EnvelopedCms
+Наследуется от: object
+Поля:
+  int <Version>k__BackingField
+  ContentInfo <ContentInfo>k__BackingField
+  AlgorithmIdentifier <ContentEncryptionAlgorithm>k__BackingField
+  X509Certificate2Collection <Certificates>k__BackingField
+  CryptographicAttributeObjectCollection <UnprotectedAttributes>k__BackingField
+  DecryptorPal _decryptorPal
+  Byte[] _encodedMessage
+  LastCall _lastCall
+Свойства:
+  int Version
+  ContentInfo ContentInfo
+  AlgorithmIdentifier ContentEncryptionAlgorithm
+  X509Certificate2Collection Certificates
+  CryptographicAttributeObjectCollection UnprotectedAttributes
+  RecipientInfoCollection RecipientInfos
+Методы:
+  void .ctor()
+  void .ctor(ContentInfo contentInfo)
+  void .ctor(ContentInfo contentInfo, AlgorithmIdentifier encryptionAlgorithm)
+  int get_Version()
+  void set_Version(int value)
+  ContentInfo get_ContentInfo()
+  void set_ContentInfo(ContentInfo value)
+  AlgorithmIdentifier get_ContentEncryptionAlgorithm()
+  void set_ContentEncryptionAlgorithm(AlgorithmIdentifier value)
+  X509Certificate2Collection get_Certificates()
+  void set_Certificates(X509Certificate2Collection value)
+  CryptographicAttributeObjectCollection get_UnprotectedAttributes()
+  void set_UnprotectedAttributes(CryptographicAttributeObjectCollection value)
+  RecipientInfoCollection get_RecipientInfos()
+  void Encrypt(CmsRecipient recipient)
+  void Encrypt(CmsRecipientCollection recipients)
+  Byte[] Encode()
+  void Decode(Byte[] encodedMessage)
+  void Decrypt()
+  void Decrypt(RecipientInfo recipientInfo)
+  void Decrypt(RecipientInfo recipientInfo, X509Certificate2Collection extraStore)
+  void Decrypt(X509Certificate2Collection extraStore)
+  void DecryptContent(RecipientInfoCollection recipientInfos, X509Certificate2Collection extraStore)
+  void .ctor(SubjectIdentifierType recipientIdentifierType, ContentInfo contentInfo)
+  void .ctor(SubjectIdentifierType recipientIdentifierType, ContentInfo contentInfo, AlgorithmIdentifier encryptionAlgorithm)
+  void Encrypt()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.KeyAgreeRecipientInfo
+Наследуется от: RecipientInfo
+Поля:
+  SubjectIdentifier modreq(System.Runtime.CompilerServices.IsVolatile) _lazyRecipientIdentifier
+  AlgorithmIdentifier modreq(System.Runtime.CompilerServices.IsVolatile) _lazyKeyEncryptionAlgorithm
+  Byte[] modreq(System.Runtime.CompilerServices.IsVolatile) _lazyEncryptedKey
+  SubjectIdentifierOrKey modreq(System.Runtime.CompilerServices.IsVolatile) _lazyOriginatorIdentifierKey
+  Nullable`1<DateTime> _lazyDate
+  CryptographicAttributeObject modreq(System.Runtime.CompilerServices.IsVolatile) _lazyOtherKeyAttribute
+Свойства:
+  int Version
+  SubjectIdentifier RecipientIdentifier
+  AlgorithmIdentifier KeyEncryptionAlgorithm
+  Byte[] EncryptedKey
+  SubjectIdentifierOrKey OriginatorIdentifierOrKey
+  DateTime Date
+  CryptographicAttributeObject OtherKeyAttribute
+  KeyAgreeRecipientInfoPal Pal
+Методы:
+  void .ctor(KeyAgreeRecipientInfoPal pal)
+  int get_Version()
+  SubjectIdentifier get_RecipientIdentifier()
+  AlgorithmIdentifier get_KeyEncryptionAlgorithm()
+  Byte[] get_EncryptedKey()
+  SubjectIdentifierOrKey get_OriginatorIdentifierOrKey()
+  DateTime get_Date()
+  CryptographicAttributeObject get_OtherKeyAttribute()
+  KeyAgreeRecipientInfoPal get_Pal()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.KeyTransRecipientInfo
+Наследуется от: RecipientInfo
+Поля:
+  SubjectIdentifier modreq(System.Runtime.CompilerServices.IsVolatile) _lazyRecipientIdentifier
+  AlgorithmIdentifier modreq(System.Runtime.CompilerServices.IsVolatile) _lazyKeyEncryptionAlgorithm
+  Byte[] modreq(System.Runtime.CompilerServices.IsVolatile) _lazyEncryptedKey
+Свойства:
+  int Version
+  SubjectIdentifier RecipientIdentifier
+  AlgorithmIdentifier KeyEncryptionAlgorithm
+  Byte[] EncryptedKey
+  KeyTransRecipientInfoPal Pal
+Методы:
+  void .ctor(KeyTransRecipientInfoPal pal)
+  int get_Version()
+  SubjectIdentifier get_RecipientIdentifier()
+  AlgorithmIdentifier get_KeyEncryptionAlgorithm()
+  Byte[] get_EncryptedKey()
+  KeyTransRecipientInfoPal get_Pal()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs9AttributeObject
+Наследуется от: AsnEncodedData
+Поля:
+Свойства:
+  Oid Oid
+Методы:
+  void .ctor()
+  void .ctor(string oid, Byte[] encodedData)
+  void .ctor(Oid oid, Byte[] encodedData)
+  void .ctor(AsnEncodedData asnEncodedData)
+  void .ctor(Oid oid)
+  Oid get_Oid()
+  void CopyFrom(AsnEncodedData asnEncodedData)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs9ContentType
+Наследуется от: Pkcs9AttributeObject
+Поля:
+  Oid modreq(System.Runtime.CompilerServices.IsVolatile) _lazyContentType
+Свойства:
+  Oid ContentType
+Методы:
+  void .ctor()
+  Oid get_ContentType()
+  void CopyFrom(AsnEncodedData asnEncodedData)
+  Oid Decode(Byte[] rawData)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs9DocumentDescription
+Наследуется от: Pkcs9AttributeObject
+Поля:
+  String modreq(System.Runtime.CompilerServices.IsVolatile) _lazyDocumentDescription
+Свойства:
+  string DocumentDescription
+Методы:
+  void .ctor()
+  void .ctor(string documentDescription)
+  void .ctor(Byte[] encodedDocumentDescription)
+  string get_DocumentDescription()
+  void CopyFrom(AsnEncodedData asnEncodedData)
+  string Decode(Byte[] rawData)
+  Byte[] Encode(string documentDescription)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs9DocumentName
+Наследуется от: Pkcs9AttributeObject
+Поля:
+  String modreq(System.Runtime.CompilerServices.IsVolatile) _lazyDocumentName
+Свойства:
+  string DocumentName
+Методы:
+  void .ctor()
+  void .ctor(string documentName)
+  void .ctor(Byte[] encodedDocumentName)
+  string get_DocumentName()
+  void CopyFrom(AsnEncodedData asnEncodedData)
+  string Decode(Byte[] rawData)
+  Byte[] Encode(string documentName)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs9MessageDigest
+Наследуется от: Pkcs9AttributeObject
+Поля:
+  Byte[] modreq(System.Runtime.CompilerServices.IsVolatile) _lazyMessageDigest
+Свойства:
+  Byte[] MessageDigest
+Методы:
+  void .ctor()
+  void .ctor(ReadOnlySpan`1<byte> signatureDigest)
+  Byte[] get_MessageDigest()
+  void CopyFrom(AsnEncodedData asnEncodedData)
+  Byte[] Decode(Byte[] rawData)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs9SigningTime
+Наследуется от: Pkcs9AttributeObject
+Поля:
+  Nullable`1<DateTime> _lazySigningTime
+Свойства:
+  DateTime SigningTime
+Методы:
+  void .ctor()
+  void .ctor(DateTime signingTime)
+  void .ctor(Byte[] encodedSigningTime)
+  DateTime get_SigningTime()
+  void CopyFrom(AsnEncodedData asnEncodedData)
+  DateTime Decode(Byte[] rawData)
+  Byte[] Encode(DateTime signingTime)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.PublicKeyInfo
+Наследуется от: object
+Поля:
+  AlgorithmIdentifier <Algorithm>k__BackingField
+  Byte[] <KeyValue>k__BackingField
+Свойства:
+  AlgorithmIdentifier Algorithm
+  Byte[] KeyValue
+Методы:
+  void .ctor(AlgorithmIdentifier algorithm, Byte[] keyValue)
+  AlgorithmIdentifier get_Algorithm()
+  Byte[] get_KeyValue()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.RecipientInfo
+Наследуется от: object
+Поля:
+  RecipientInfoType <Type>k__BackingField
+  RecipientInfoPal <Pal>k__BackingField
+Свойства:
+  RecipientInfoType Type
+  int Version
+  SubjectIdentifier RecipientIdentifier
+  AlgorithmIdentifier KeyEncryptionAlgorithm
+  Byte[] EncryptedKey
+  RecipientInfoPal Pal
+Методы:
+  void .ctor(RecipientInfoType type, RecipientInfoPal pal)
+  RecipientInfoType get_Type()
+  int get_Version()
+  SubjectIdentifier get_RecipientIdentifier()
+  AlgorithmIdentifier get_KeyEncryptionAlgorithm()
+  Byte[] get_EncryptedKey()
+  RecipientInfoPal get_Pal()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.RecipientInfoCollection
+Наследуется от: object
+Поля:
+  RecipientInfo[] _recipientInfos
+Свойства:
+  RecipientInfo Item
+  int Count
+  bool IsSynchronized
+  object SyncRoot
+Методы:
+  void .ctor()
+  void .ctor(RecipientInfo recipientInfo)
+  void .ctor(ICollection`1<RecipientInfo> recipientInfos)
+  RecipientInfo get_Item(int index)
+  int get_Count()
+  RecipientInfoEnumerator GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  void CopyTo(Array array, int index)
+  void CopyTo(RecipientInfo[] array, int index)
+  bool get_IsSynchronized()
+  object get_SyncRoot()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.RecipientInfoEnumerator
+Наследуется от: object
+Поля:
+  RecipientInfoCollection _recipientInfos
+  int _current
+Свойства:
+  RecipientInfo Current
+  object System.Collections.IEnumerator.Current
+Методы:
+  void .ctor(RecipientInfoCollection RecipientInfos)
+  RecipientInfo get_Current()
+  object System.Collections.IEnumerator.get_Current()
+  bool MoveNext()
+  void Reset()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.RecipientInfoType
+Наследуется от: Enum
+Поля:
+  int value__
+  RecipientInfoType Unknown
+  RecipientInfoType KeyTransport
+  RecipientInfoType KeyAgreement
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.SignedCms
+Наследуется от: object
+Поля:
+  Oid s_cmsDataOid
+  SignedDataAsn _signedData
+  bool _hasData
+  Memory`1<byte> _heldData
+  Nullable`1<ReadOnlyMemory`1<byte>> _heldContent
+  bool _hasPkcs7Content
+  string _contentType
+  int <Version>k__BackingField
+  ContentInfo <ContentInfo>k__BackingField
+  bool <Detached>k__BackingField
+Свойства:
+  int Version
+  ContentInfo ContentInfo
+  bool Detached
+  X509Certificate2Collection Certificates
+  SignerInfoCollection SignerInfos
+Методы:
+  ContentInfo MakeEmptyContentInfo()
+  void .ctor()
+  void .ctor(SubjectIdentifierType signerIdentifierType)
+  void .ctor(ContentInfo contentInfo)
+  void .ctor(SubjectIdentifierType signerIdentifierType, ContentInfo contentInfo)
+  void .ctor(ContentInfo contentInfo, bool detached)
+  int get_Version()
+  void set_Version(int value)
+  ContentInfo get_ContentInfo()
+  void set_ContentInfo(ContentInfo value)
+  bool get_Detached()
+  void set_Detached(bool value)
+  void .ctor(SubjectIdentifierType signerIdentifierType, ContentInfo contentInfo, bool detached)
+  X509Certificate2Collection get_Certificates()
+  SignerInfoCollection get_SignerInfos()
+  Byte[] Encode()
+  void Decode(Byte[] encodedMessage)
+  void Decode(ReadOnlyMemory`1<byte> encodedMessage)
+  ReadOnlyMemory`1<byte> GetContent(ReadOnlyMemory`1<byte> wrappedContent, string contentType)
+  void ComputeSignature()
+  void ComputeSignature(CmsSigner signer)
+  void ComputeSignature(CmsSigner signer, bool silent)
+  void RemoveSignature(int index)
+  void RemoveSignature(SignerInfo signerInfo)
+  ReadOnlySpan`1<byte> GetHashableContentSpan()
+  void Reencode()
+  void UpdateMetadata()
+  void ConsiderDigestAddition(AlgorithmIdentifierAsn candidate)
+  void ConsiderDigestRemoval(AlgorithmIdentifierAsn candidate)
+  void UpdateCertificatesFromAddition(X509Certificate2Collection newCerts)
+  void CheckSignature(bool verifySignatureOnly)
+  void CheckSignature(X509Certificate2Collection extraStore, bool verifySignatureOnly)
+  void CheckSignatures(SignerInfoCollection signers, X509Certificate2Collection extraStore, bool verifySignatureOnly)
+  void CheckHash()
+  SignedDataAsn& GetRawData()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.SignerInfo
+Наследуется от: object
+Поля:
+  int <Version>k__BackingField
+  SubjectIdentifier <SignerIdentifier>k__BackingField
+  Oid _digestAlgorithm
+  AttributeAsn[] _signedAttributes
+  Nullable`1<ReadOnlyMemory`1<byte>> _signedAttributesMemory
+  Oid _signatureAlgorithm
+  Nullable`1<ReadOnlyMemory`1<byte>> _signatureAlgorithmParameters
+  ReadOnlyMemory`1<byte> _signature
+  AttributeAsn[] _unsignedAttributes
+  SignedCms _document
+  X509Certificate2 _signerCertificate
+  SignerInfo _parentSignerInfo
+  CryptographicAttributeObjectCollection _parsedSignedAttrs
+  CryptographicAttributeObjectCollection _parsedUnsignedAttrs
+Свойства:
+  int Version
+  SubjectIdentifier SignerIdentifier
+  CryptographicAttributeObjectCollection SignedAttributes
+  CryptographicAttributeObjectCollection UnsignedAttributes
+  X509Certificate2 Certificate
+  SignerInfoCollection CounterSignerInfos
+  Oid DigestAlgorithm
+  Oid SignatureAlgorithm
+Методы:
+  int get_Version()
+  SubjectIdentifier get_SignerIdentifier()
+  void .ctor(SignerInfoAsn& parsedData, SignedCms ownerDocument)
+  CryptographicAttributeObjectCollection get_SignedAttributes()
+  CryptographicAttributeObjectCollection get_UnsignedAttributes()
+  ReadOnlyMemory`1<byte> GetSignatureMemory()
+  Byte[] GetSignature()
+  X509Certificate2 get_Certificate()
+  SignerInfoCollection get_CounterSignerInfos()
+  Oid get_DigestAlgorithm()
+  Oid get_SignatureAlgorithm()
+  SignerInfoCollection GetCounterSigners(AttributeAsn[] unsignedAttrs)
+  void ComputeCounterSignature()
+  void ComputeCounterSignature(CmsSigner signer)
+  void RemoveCounterSignature(int index)
+  void RemoveCounterSignature(SignerInfo counterSignerInfo)
+  void CheckSignature(bool verifySignatureOnly)
+  void CheckSignature(X509Certificate2Collection extraStore, bool verifySignatureOnly)
+  void CheckHash()
+  bool CheckHash(bool compatMode)
+  X509Certificate2 FindSignerCertificate()
+  X509Certificate2 FindSignerCertificate(SubjectIdentifier signerIdentifier, X509Certificate2Collection extraStore)
+  IncrementalHash PrepareDigest(bool compatMode)
+  void Verify(X509Certificate2Collection extraStore, X509Certificate2 certificate, bool verifySignatureOnly)
+  bool VerifySignature(CmsSignature signatureProcessor, X509Certificate2 certificate, bool compatMode)
+  HashAlgorithmName GetDigestAlgorithm()
+  CryptographicAttributeObjectCollection MakeAttributeCollection(AttributeAsn[] attributes)
+  CryptographicAttributeObject MakeAttribute(AttributeAsn attribute)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.SignerInfoCollection
+Наследуется от: object
+Поля:
+  SignerInfo[] _signerInfos
+Свойства:
+  SignerInfo Item
+  int Count
+  bool IsSynchronized
+  object SyncRoot
+Методы:
+  void .ctor()
+  void .ctor(SignerInfo[] signerInfos)
+  void .ctor(SignerInfoAsn[] signedDataSignerInfos, SignedCms ownerDocument)
+  SignerInfo get_Item(int index)
+  int get_Count()
+  SignerInfoEnumerator GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  void CopyTo(Array array, int index)
+  void CopyTo(SignerInfo[] array, int index)
+  bool get_IsSynchronized()
+  object get_SyncRoot()
+  int FindIndexForSigner(SignerInfo signer)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.SignerInfoEnumerator
+Наследуется от: object
+Поля:
+  SignerInfoCollection _signerInfos
+  int _position
+Свойства:
+  SignerInfo Current
+  object System.Collections.IEnumerator.Current
+Методы:
+  void .ctor()
+  void .ctor(SignerInfoCollection signerInfos)
+  SignerInfo get_Current()
+  object System.Collections.IEnumerator.get_Current()
+  bool MoveNext()
+  void Reset()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.SubjectIdentifier
+Наследуется от: object
+Поля:
+  string DummySignerSubjectName
+  Byte[] DummySignerEncodedValue
+  SubjectIdentifierType <Type>k__BackingField
+  object <Value>k__BackingField
+Свойства:
+  SubjectIdentifierType Type
+  object Value
+Методы:
+  void .ctor(SubjectIdentifierType type, object value)
+  void .ctor(SignerIdentifierAsn signerIdentifierAsn)
+  void .ctor(Nullable`1<IssuerAndSerialNumberAsn> issuerAndSerialNumber, Nullable`1<ReadOnlyMemory`1<byte>> subjectKeyIdentifier)
+  SubjectIdentifierType get_Type()
+  object get_Value()
+  void .cctor()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.SubjectIdentifierOrKey
+Наследуется от: object
+Поля:
+  SubjectIdentifierOrKeyType <Type>k__BackingField
+  object <Value>k__BackingField
+Свойства:
+  SubjectIdentifierOrKeyType Type
+  object Value
+Методы:
+  void .ctor(SubjectIdentifierOrKeyType type, object value)
+  SubjectIdentifierOrKeyType get_Type()
+  object get_Value()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.SubjectIdentifierOrKeyType
+Наследуется от: Enum
+Поля:
+  int value__
+  SubjectIdentifierOrKeyType Unknown
+  SubjectIdentifierOrKeyType IssuerAndSerialNumber
+  SubjectIdentifierOrKeyType SubjectKeyIdentifier
+  SubjectIdentifierOrKeyType PublicKeyInfo
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.SubjectIdentifierType
+Наследуется от: Enum
+Поля:
+  int value__
+  SubjectIdentifierType Unknown
+  SubjectIdentifierType IssuerAndSerialNumber
+  SubjectIdentifierType SubjectKeyIdentifier
+  SubjectIdentifierType NoSignature
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.KeyAgreeKeyChoice
+Наследуется от: Enum
+Поля:
+  int value__
+  KeyAgreeKeyChoice Unknown
+  KeyAgreeKeyChoice EphemeralKey
+  KeyAgreeKeyChoice StaticKey
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12Builder
+Наследуется от: object
+Поля:
+Свойства:
+  bool IsSealed
+Методы:
+  bool get_IsSealed()
+  void AddSafeContentsEncrypted(Pkcs12SafeContents safeContents, Byte[] passwordBytes, PbeParameters pbeParameters)
+  void AddSafeContentsEncrypted(Pkcs12SafeContents safeContents, ReadOnlySpan`1<byte> passwordBytes, PbeParameters pbeParameters)
+  void AddSafeContentsEncrypted(Pkcs12SafeContents safeContents, ReadOnlySpan`1<char> password, PbeParameters pbeParameters)
+  void AddSafeContentsEncrypted(Pkcs12SafeContents safeContents, string password, PbeParameters pbeParameters)
+  void AddSafeContentsUnencrypted(Pkcs12SafeContents safeContents)
+  Byte[] Encode()
+  void SealWithMac(ReadOnlySpan`1<char> password, HashAlgorithmName hashAlgorithm, int iterationCount)
+  void SealWithMac(string password, HashAlgorithmName hashAlgorithm, int iterationCount)
+  void SealWithoutIntegrity()
+  bool TryEncode(Span`1<byte> destination, Int32& bytesWritten)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12CertBag
+Наследуется от: Pkcs12SafeBag
+Поля:
+Свойства:
+  ReadOnlyMemory`1<byte> EncodedCertificate
+  bool IsX509Certificate
+Методы:
+  ReadOnlyMemory`1<byte> get_EncodedCertificate()
+  bool get_IsX509Certificate()
+  void .ctor(Oid certificateType, ReadOnlyMemory`1<byte> encodedCertificate)
+  X509Certificate2 GetCertificate()
+  Oid GetCertificateType()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12ConfidentialityMode
+Наследуется от: Enum
+Поля:
+  int value__
+  Pkcs12ConfidentialityMode None
+  Pkcs12ConfidentialityMode Password
+  Pkcs12ConfidentialityMode PublicKey
+  Pkcs12ConfidentialityMode Unknown
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12Info
+Наследуется от: object
+Поля:
+Свойства:
+  ReadOnlyCollection`1<Pkcs12SafeContents> AuthenticatedSafe
+  Pkcs12IntegrityMode IntegrityMode
+Методы:
+  ReadOnlyCollection`1<Pkcs12SafeContents> get_AuthenticatedSafe()
+  Pkcs12IntegrityMode get_IntegrityMode()
+  void .ctor()
+  Pkcs12Info Decode(ReadOnlyMemory`1<byte> encodedBytes, Int32& bytesConsumed, bool skipCopy)
+  bool VerifyMac(ReadOnlySpan`1<char> password)
+  bool VerifyMac(string password)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12IntegrityMode
+Наследуется от: Enum
+Поля:
+  int value__
+  Pkcs12IntegrityMode None
+  Pkcs12IntegrityMode Password
+  Pkcs12IntegrityMode PublicKey
+  Pkcs12IntegrityMode Unknown
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12KeyBag
+Наследуется от: Pkcs12SafeBag
+Поля:
+Свойства:
+  ReadOnlyMemory`1<byte> Pkcs8PrivateKey
+Методы:
+  ReadOnlyMemory`1<byte> get_Pkcs8PrivateKey()
+  void .ctor(ReadOnlyMemory`1<byte> pkcs8PrivateKey, bool skipCopy)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12SafeBag
+Наследуется от: object
+Поля:
+Свойства:
+  CryptographicAttributeObjectCollection Attributes
+  ReadOnlyMemory`1<byte> EncodedBagValue
+Методы:
+  CryptographicAttributeObjectCollection get_Attributes()
+  ReadOnlyMemory`1<byte> get_EncodedBagValue()
+  void .ctor(string bagIdValue, ReadOnlyMemory`1<byte> encodedBagValue, bool skipCopy)
+  Byte[] Encode()
+  Oid GetBagId()
+  bool TryEncode(Span`1<byte> destination, Int32& bytesWritten)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12SafeContents
+Наследуется от: object
+Поля:
+Свойства:
+  Pkcs12ConfidentialityMode ConfidentialityMode
+  bool IsReadOnly
+Методы:
+  Pkcs12ConfidentialityMode get_ConfidentialityMode()
+  bool get_IsReadOnly()
+  Pkcs12CertBag AddCertificate(X509Certificate2 certificate)
+  Pkcs12KeyBag AddKeyUnencrypted(AsymmetricAlgorithm key)
+  Pkcs12SafeContentsBag AddNestedContents(Pkcs12SafeContents safeContents)
+  void AddSafeBag(Pkcs12SafeBag safeBag)
+  Pkcs12SecretBag AddSecret(Oid secretType, ReadOnlyMemory`1<byte> secretValue)
+  Pkcs12ShroudedKeyBag AddShroudedKey(AsymmetricAlgorithm key, Byte[] passwordBytes, PbeParameters pbeParameters)
+  Pkcs12ShroudedKeyBag AddShroudedKey(AsymmetricAlgorithm key, ReadOnlySpan`1<byte> passwordBytes, PbeParameters pbeParameters)
+  Pkcs12ShroudedKeyBag AddShroudedKey(AsymmetricAlgorithm key, ReadOnlySpan`1<char> password, PbeParameters pbeParameters)
+  Pkcs12ShroudedKeyBag AddShroudedKey(AsymmetricAlgorithm key, string password, PbeParameters pbeParameters)
+  void Decrypt(Byte[] passwordBytes)
+  void Decrypt(ReadOnlySpan`1<byte> passwordBytes)
+  void Decrypt(ReadOnlySpan`1<char> password)
+  void Decrypt(string password)
+  IEnumerable`1<Pkcs12SafeBag> GetBags()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12SafeContentsBag
+Наследуется от: Pkcs12SafeBag
+Поля:
+Свойства:
+  Pkcs12SafeContents SafeContents
+Методы:
+  Pkcs12SafeContents get_SafeContents()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12SecretBag
+Наследуется от: Pkcs12SafeBag
+Поля:
+Свойства:
+  ReadOnlyMemory`1<byte> SecretValue
+Методы:
+  ReadOnlyMemory`1<byte> get_SecretValue()
+  void .ctor()
+  Oid GetSecretType()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs12ShroudedKeyBag
+Наследуется от: Pkcs12SafeBag
+Поля:
+Свойства:
+  ReadOnlyMemory`1<byte> EncryptedPkcs8PrivateKey
+Методы:
+  ReadOnlyMemory`1<byte> get_EncryptedPkcs8PrivateKey()
+  void .ctor(ReadOnlyMemory`1<byte> encryptedPkcs8PrivateKey, bool skipCopy)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs8PrivateKeyInfo
+Наследуется от: object
+Поля:
+Свойства:
+  Oid AlgorithmId
+  Nullable`1<ReadOnlyMemory`1<byte>> AlgorithmParameters
+  CryptographicAttributeObjectCollection Attributes
+  ReadOnlyMemory`1<byte> PrivateKeyBytes
+Методы:
+  Oid get_AlgorithmId()
+  Nullable`1<ReadOnlyMemory`1<byte>> get_AlgorithmParameters()
+  CryptographicAttributeObjectCollection get_Attributes()
+  ReadOnlyMemory`1<byte> get_PrivateKeyBytes()
+  void .ctor(Oid algorithmId, Nullable`1<ReadOnlyMemory`1<byte>> algorithmParameters, ReadOnlyMemory`1<byte> privateKey, bool skipCopies)
+  Pkcs8PrivateKeyInfo Create(AsymmetricAlgorithm privateKey)
+  Pkcs8PrivateKeyInfo Decode(ReadOnlyMemory`1<byte> source, Int32& bytesRead, bool skipCopy)
+  Pkcs8PrivateKeyInfo DecryptAndDecode(ReadOnlySpan`1<byte> passwordBytes, ReadOnlyMemory`1<byte> source, Int32& bytesRead)
+  Pkcs8PrivateKeyInfo DecryptAndDecode(ReadOnlySpan`1<char> password, ReadOnlyMemory`1<byte> source, Int32& bytesRead)
+  Byte[] Encode()
+  Byte[] Encrypt(ReadOnlySpan`1<byte> passwordBytes, PbeParameters pbeParameters)
+  Byte[] Encrypt(ReadOnlySpan`1<char> password, PbeParameters pbeParameters)
+  bool TryEncode(Span`1<byte> destination, Int32& bytesWritten)
+  bool TryEncrypt(ReadOnlySpan`1<byte> passwordBytes, PbeParameters pbeParameters, Span`1<byte> destination, Int32& bytesWritten)
+  bool TryEncrypt(ReadOnlySpan`1<char> password, PbeParameters pbeParameters, Span`1<byte> destination, Int32& bytesWritten)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Pkcs9LocalKeyId
+Наследуется от: Pkcs9AttributeObject
+Поля:
+Свойства:
+  ReadOnlyMemory`1<byte> KeyId
+Методы:
+  ReadOnlyMemory`1<byte> get_KeyId()
+  void .ctor()
+  void .ctor(Byte[] keyId)
+  void .ctor(ReadOnlySpan`1<byte> keyId)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Rfc3161TimestampRequest
+Наследуется от: object
+Поля:
+Свойства:
+  bool HasExtensions
+  Oid HashAlgorithmId
+  Oid RequestedPolicyId
+  bool RequestSignerCertificate
+  int Version
+Методы:
+  bool get_HasExtensions()
+  Oid get_HashAlgorithmId()
+  Oid get_RequestedPolicyId()
+  bool get_RequestSignerCertificate()
+  int get_Version()
+  void .ctor()
+  Rfc3161TimestampRequest CreateFromData(ReadOnlySpan`1<byte> data, HashAlgorithmName hashAlgorithm, Oid requestedPolicyId, Nullable`1<ReadOnlyMemory`1<byte>> nonce, bool requestSignerCertificates, X509ExtensionCollection extensions)
+  Rfc3161TimestampRequest CreateFromHash(ReadOnlyMemory`1<byte> hash, HashAlgorithmName hashAlgorithm, Oid requestedPolicyId, Nullable`1<ReadOnlyMemory`1<byte>> nonce, bool requestSignerCertificates, X509ExtensionCollection extensions)
+  Rfc3161TimestampRequest CreateFromHash(ReadOnlyMemory`1<byte> hash, Oid hashAlgorithmId, Oid requestedPolicyId, Nullable`1<ReadOnlyMemory`1<byte>> nonce, bool requestSignerCertificates, X509ExtensionCollection extensions)
+  Rfc3161TimestampRequest CreateFromSignerInfo(SignerInfo signerInfo, HashAlgorithmName hashAlgorithm, Oid requestedPolicyId, Nullable`1<ReadOnlyMemory`1<byte>> nonce, bool requestSignerCertificates, X509ExtensionCollection extensions)
+  Byte[] Encode()
+  X509ExtensionCollection GetExtensions()
+  ReadOnlyMemory`1<byte> GetMessageHash()
+  Nullable`1<ReadOnlyMemory`1<byte>> GetNonce()
+  Rfc3161TimestampToken ProcessResponse(ReadOnlyMemory`1<byte> responseBytes, Int32& bytesConsumed)
+  bool TryDecode(ReadOnlyMemory`1<byte> encodedBytes, Rfc3161TimestampRequest& request, Int32& bytesConsumed)
+  bool TryEncode(Span`1<byte> destination, Int32& bytesWritten)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Rfc3161TimestampToken
+Наследуется от: object
+Поля:
+Свойства:
+  Rfc3161TimestampTokenInfo TokenInfo
+Методы:
+  Rfc3161TimestampTokenInfo get_TokenInfo()
+  void .ctor()
+  SignedCms AsSignedCms()
+  bool TryDecode(ReadOnlyMemory`1<byte> encodedBytes, Rfc3161TimestampToken& token, Int32& bytesConsumed)
+  bool VerifySignatureForData(ReadOnlySpan`1<byte> data, X509Certificate2& signerCertificate, X509Certificate2Collection extraCandidates)
+  bool VerifySignatureForHash(ReadOnlySpan`1<byte> hash, HashAlgorithmName hashAlgorithm, X509Certificate2& signerCertificate, X509Certificate2Collection extraCandidates)
+  bool VerifySignatureForHash(ReadOnlySpan`1<byte> hash, Oid hashAlgorithmId, X509Certificate2& signerCertificate, X509Certificate2Collection extraCandidates)
+  bool VerifySignatureForSignerInfo(SignerInfo signerInfo, X509Certificate2& signerCertificate, X509Certificate2Collection extraCandidates)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Rfc3161TimestampTokenInfo
+Наследуется от: object
+Поля:
+Свойства:
+  Nullable`1<long> AccuracyInMicroseconds
+  bool HasExtensions
+  Oid HashAlgorithmId
+  bool IsOrdering
+  Oid PolicyId
+  DateTimeOffset Timestamp
+  int Version
+Методы:
+  Nullable`1<long> get_AccuracyInMicroseconds()
+  bool get_HasExtensions()
+  Oid get_HashAlgorithmId()
+  bool get_IsOrdering()
+  Oid get_PolicyId()
+  DateTimeOffset get_Timestamp()
+  int get_Version()
+  void .ctor(Oid policyId, Oid hashAlgorithmId, ReadOnlyMemory`1<byte> messageHash, ReadOnlyMemory`1<byte> serialNumber, DateTimeOffset timestamp, Nullable`1<long> accuracyInMicroseconds, bool isOrdering, Nullable`1<ReadOnlyMemory`1<byte>> nonce, Nullable`1<ReadOnlyMemory`1<byte>> timestampAuthorityName, X509ExtensionCollection extensions)
+  Byte[] Encode()
+  X509ExtensionCollection GetExtensions()
+  ReadOnlyMemory`1<byte> GetMessageHash()
+  Nullable`1<ReadOnlyMemory`1<byte>> GetNonce()
+  ReadOnlyMemory`1<byte> GetSerialNumber()
+  Nullable`1<ReadOnlyMemory`1<byte>> GetTimestampAuthorityName()
+  bool TryDecode(ReadOnlyMemory`1<byte> encodedBytes, Rfc3161TimestampTokenInfo& timestampTokenInfo, Int32& bytesConsumed)
+  bool TryEncode(Span`1<byte> destination, Int32& bytesWritten)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.AlgorithmIdentifierAsn
+Наследуется от: ValueType
+Поля:
+  ReadOnlyMemory`1<byte> ExplicitDerNull
+  Oid Algorithm
+  Nullable`1<ReadOnlyMemory`1<byte>> Parameters
+Свойства:
+Методы:
+  bool Equals(AlgorithmIdentifierAsn& other)
+  bool RepresentsNull(Nullable`1<ReadOnlyMemory`1<byte>> parameters)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.AttributeAsn
+Наследуется от: ValueType
+Поля:
+  Oid AttrType
+  ReadOnlyMemory`1<byte> AttrValues
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.CertificateChoiceAsn
+Наследуется от: ValueType
+Поля:
+  Nullable`1<ReadOnlyMemory`1<byte>> Certificate
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.ContentInfoAsn
+Наследуется от: ValueType
+Поля:
+  string ContentType
+  ReadOnlyMemory`1<byte> Content
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.EncapsulatedContentInfoAsn
+Наследуется от: ValueType
+Поля:
+  string ContentType
+  Nullable`1<ReadOnlyMemory`1<byte>> Content
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.EncryptedContentInfoAsn
+Наследуется от: ValueType
+Поля:
+  string ContentType
+  AlgorithmIdentifierAsn ContentEncryptionAlgorithm
+  Nullable`1<ReadOnlyMemory`1<byte>> EncryptedContent
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.EnvelopedDataAsn
+Наследуется от: ValueType
+Поля:
+  int Version
+  OriginatorInfoAsn OriginatorInfo
+  RecipientInfoAsn[] RecipientInfos
+  EncryptedContentInfoAsn EncryptedContentInfo
+  AttributeAsn[] UnprotectedAttributes
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.GeneralName
+Наследуется от: ValueType
+Поля:
+  Nullable`1<OtherName> OtherName
+  string Rfc822Name
+  string DnsName
+  Nullable`1<ReadOnlyMemory`1<byte>> X400Address
+  Nullable`1<ReadOnlyMemory`1<byte>> DirectoryName
+  Nullable`1<EdiPartyName> EdiPartyName
+  string Uri
+  Nullable`1<ReadOnlyMemory`1<byte>> IPAddress
+  string RegisteredId
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.OtherName
+Наследуется от: ValueType
+Поля:
+  string TypeId
+  ReadOnlyMemory`1<byte> Value
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.EdiPartyName
+Наследуется от: ValueType
+Поля:
+  Nullable`1<DirectoryString> NameAssigner
+  DirectoryString PartyName
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.DirectoryString
+Наследуется от: ValueType
+Поля:
+  Nullable`1<ReadOnlyMemory`1<byte>> TeletexString
+  string PrintableString
+  Nullable`1<ReadOnlyMemory`1<byte>> UniversalString
+  string Utf8String
+  string BMPString
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.IssuerAndSerialNumberAsn
+Наследуется от: ValueType
+Поля:
+  ReadOnlyMemory`1<byte> Issuer
+  ReadOnlyMemory`1<byte> SerialNumber
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.KeyAgreeRecipientIdentifierAsn
+Наследуется от: ValueType
+Поля:
+  Nullable`1<IssuerAndSerialNumberAsn> IssuerAndSerialNumber
+  RecipientKeyIdentifier RKeyId
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.KeyAgreeRecipientInfoAsn
+Наследуется от: object
+Поля:
+  int Version
+  OriginatorIdentifierOrKeyAsn Originator
+  Nullable`1<ReadOnlyMemory`1<byte>> Ukm
+  AlgorithmIdentifierAsn KeyEncryptionAlgorithm
+  RecipientEncryptedKeyAsn[] RecipientEncryptedKeys
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.KeyTransRecipientInfoAsn
+Наследуется от: object
+Поля:
+  int Version
+  RecipientIdentifierAsn Rid
+  AlgorithmIdentifierAsn KeyEncryptionAlgorithm
+  ReadOnlyMemory`1<byte> EncryptedKey
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.MessageImprint
+Наследуется от: ValueType
+Поля:
+  AlgorithmIdentifierAsn HashAlgorithm
+  ReadOnlyMemory`1<byte> HashedMessage
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.OriginatorIdentifierOrKeyAsn
+Наследуется от: ValueType
+Поля:
+  Nullable`1<IssuerAndSerialNumberAsn> IssuerAndSerialNumber
+  Nullable`1<ReadOnlyMemory`1<byte>> SubjectKeyIdentifier
+  OriginatorPublicKeyAsn OriginatorKey
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.OriginatorInfoAsn
+Наследуется от: object
+Поля:
+  CertificateChoiceAsn[] CertificateSet
+  Nullable`1<ReadOnlyMemory`1<byte>> RevocationInfoChoices
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.OriginatorPublicKeyAsn
+Наследуется от: object
+Поля:
+  AlgorithmIdentifierAsn Algorithm
+  ReadOnlyMemory`1<byte> PublicKey
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.OtherKeyAttributeAsn
+Наследуется от: ValueType
+Поля:
+  string KeyAttrId
+  Nullable`1<ReadOnlyMemory`1<byte>> KeyAttr
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.PssParamsAsn
+Наследуется от: ValueType
+Поля:
+  AlgorithmIdentifierAsn HashAlgorithm
+  AlgorithmIdentifierAsn MaskGenAlgorithm
+  int SaltLength
+  int TrailerField
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.Rc2CbcParameters
+Наследуется от: ValueType
+Поля:
+  Byte[] s_rc2EkbEncoding
+  int Rc2Version
+  ReadOnlyMemory`1<byte> Iv
+Свойства:
+Методы:
+  void .ctor(ReadOnlyMemory`1<byte> iv, int keySize)
+  int GetEffectiveKeyBits()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.RecipientEncryptedKeyAsn
+Наследуется от: ValueType
+Поля:
+  KeyAgreeRecipientIdentifierAsn Rid
+  ReadOnlyMemory`1<byte> EncryptedKey
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.RecipientIdentifierAsn
+Наследуется от: ValueType
+Поля:
+  Nullable`1<IssuerAndSerialNumberAsn> IssuerAndSerialNumber
+  Nullable`1<ReadOnlyMemory`1<byte>> SubjectKeyIdentifier
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.RecipientInfoAsn
+Наследуется от: ValueType
+Поля:
+  KeyTransRecipientInfoAsn Ktri
+  KeyAgreeRecipientInfoAsn Kari
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.RecipientKeyIdentifier
+Наследуется от: object
+Поля:
+  ReadOnlyMemory`1<byte> SubjectKeyIdentifier
+  Nullable`1<DateTimeOffset> Date
+  Nullable`1<OtherKeyAttributeAsn> Other
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.Rfc3161Accuracy
+Наследуется от: ValueType
+Поля:
+  Nullable`1<int> Seconds
+  Nullable`1<int> Millis
+  Nullable`1<int> Micros
+Свойства:
+  long TotalMicros
+Методы:
+  void .ctor(long accuracyInMicroseconds)
+  long get_TotalMicros()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.Rfc3161TimeStampReq
+Наследуется от: ValueType
+Поля:
+  int Version
+  MessageImprint MessageImprint
+  Oid ReqPolicy
+  Nullable`1<ReadOnlyMemory`1<byte>> Nonce
+  bool CertReq
+  X509ExtensionAsn[] Extensions
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.Rfc3161TimeStampResp
+Наследуется от: ValueType
+Поля:
+  PkiStatusInfo Status
+  Nullable`1<ReadOnlyMemory`1<byte>> TimeStampToken
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.PkiStatusInfo
+Наследуется от: ValueType
+Поля:
+  int Status
+  Nullable`1<ReadOnlyMemory`1<byte>> StatusString
+  Nullable`1<PkiFailureInfo> FailInfo
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.PkiFailureInfo
+Наследуется от: Enum
+Поля:
+  int value__
+  PkiFailureInfo None
+  PkiFailureInfo BadAlg
+  PkiFailureInfo BadMessageCheck
+  PkiFailureInfo BadRequest
+  PkiFailureInfo BadTime
+  PkiFailureInfo BadCertId
+  PkiFailureInfo BadDataFormat
+  PkiFailureInfo WrongAuthority
+  PkiFailureInfo IncorrectData
+  PkiFailureInfo MissingTimeStamp
+  PkiFailureInfo BadPop
+  PkiFailureInfo CertRevoked
+  PkiFailureInfo CertConfirmed
+  PkiFailureInfo WrongIntegrity
+  PkiFailureInfo BadRecipientNonce
+  PkiFailureInfo TimeNotAvailable
+  PkiFailureInfo UnacceptedPolicy
+  PkiFailureInfo UnacceptedExtension
+  PkiFailureInfo AddInfoNotAvailable
+  PkiFailureInfo BadSenderNonce
+  PkiFailureInfo BadCertTemplate
+  PkiFailureInfo SignerNotTrusted
+  PkiFailureInfo TransactionIdInUse
+  PkiFailureInfo UnsupportedVersion
+  PkiFailureInfo NotAuthorized
+  PkiFailureInfo SystemUnavail
+  PkiFailureInfo SystemFailure
+  PkiFailureInfo DuplicateCertReq
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.PkiStatus
+Наследуется от: Enum
+Поля:
+  int value__
+  PkiStatus Granted
+  PkiStatus GrantedWithMods
+  PkiStatus Rejection
+  PkiStatus Waiting
+  PkiStatus RevocationWarning
+  PkiStatus RevocationNotification
+  PkiStatus KeyUpdateWarning
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.Rfc3161TstInfo
+Наследуется от: object
+Поля:
+  int Version
+  Oid Policy
+  MessageImprint MessageImprint
+  ReadOnlyMemory`1<byte> SerialNumber
+  DateTimeOffset GenTime
+  Nullable`1<Rfc3161Accuracy> Accuracy
+  bool Ordering
+  Nullable`1<ReadOnlyMemory`1<byte>> Nonce
+  Nullable`1<GeneralName> Tsa
+  X509ExtensionAsn[] Extensions
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.SignedDataAsn
+Наследуется от: ValueType
+Поля:
+  int Version
+  AlgorithmIdentifierAsn[] DigestAlgorithms
+  EncapsulatedContentInfoAsn EncapContentInfo
+  CertificateChoiceAsn[] CertificateSet
+  Nullable`1<ReadOnlyMemory`1<byte>> RevocationInfoChoices
+  SignerInfoAsn[] SignerInfos
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.SignerIdentifierAsn
+Наследуется от: ValueType
+Поля:
+  Nullable`1<IssuerAndSerialNumberAsn> IssuerAndSerialNumber
+  Nullable`1<ReadOnlyMemory`1<byte>> SubjectKeyIdentifier
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.SignerInfoAsn
+Наследуется от: ValueType
+Поля:
+  int Version
+  SignerIdentifierAsn Sid
+  AlgorithmIdentifierAsn DigestAlgorithm
+  Nullable`1<ReadOnlyMemory`1<byte>> SignedAttributes
+  AlgorithmIdentifierAsn SignatureAlgorithm
+  ReadOnlyMemory`1<byte> SignatureValue
+  AttributeAsn[] UnsignedAttributes
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.SignedAttributesSet
+Наследуется от: ValueType
+Поля:
+  AttributeAsn[] SignedAttributes
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.SigningCertificateAsn
+Наследуется от: ValueType
+Поля:
+  EssCertId[] Certs
+  PolicyInformation[] Policies
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.EssCertId
+Наследуется от: object
+Поля:
+  ReadOnlyMemory`1<byte> Hash
+  Nullable`1<CadesIssuerSerial> IssuerSerial
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.CadesIssuerSerial
+Наследуется от: ValueType
+Поля:
+  GeneralName[] Issuer
+  ReadOnlyMemory`1<byte> SerialNumber
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.PolicyInformation
+Наследуется от: ValueType
+Поля:
+  string PolicyIdentifier
+  PolicyQualifierInfo[] PolicyQualifiers
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.PolicyQualifierInfo
+Наследуется от: ValueType
+Поля:
+  string PolicyQualifierId
+  ReadOnlyMemory`1<byte> Qualifier
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.SigningCertificateV2Asn
+Наследуется от: ValueType
+Поля:
+  EssCertIdV2[] Certs
+  PolicyInformation[] Policies
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.EssCertIdV2
+Наследуется от: object
+Поля:
+  AlgorithmIdentifierAsn HashAlgorithm
+  ReadOnlyMemory`1<byte> Hash
+  Nullable`1<CadesIssuerSerial> IssuerSerial
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Pkcs.Asn1.X509ExtensionAsn
+Наследуется от: ValueType
+Поля:
+  string ExtnId
+  bool Critical
+  ReadOnlyMemory`1<byte> ExtnValue
+Свойства:
+Методы:
+  void .ctor(X509Extension extension, bool copyValue)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnSerializationConstraintException
+Наследуется от: CryptographicException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception inner)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnAmbiguousFieldTypeException
+Наследуется от: AsnSerializationConstraintException
+Поля:
+Свойства:
+Методы:
+  void .ctor(FieldInfo fieldInfo, Type ambiguousType)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnSerializerInvalidDefaultException
+Наследуется от: AsnSerializationConstraintException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(Exception innerException)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnSerializer
+Наследуется от: object
+Поля:
+  BindingFlags FieldFlags
+  ConcurrentDictionary`2<Type, FieldInfo[]> s_orderedFields
+Свойства:
+Методы:
+  Deserializer TryOrFail(TryDeserializer`1<T> tryDeserializer)
+  FieldInfo[] GetOrderedFields(Type typeT)
+  ChoiceAttribute GetChoiceAttribute(Type typeT)
+  bool CanBeNull(Type t)
+  void PopulateChoiceLookup(Dictionary`2<ValueTuple`2<TagClass, int>, LinkedList`1<FieldInfo>> lookup, Type typeT, LinkedList`1<FieldInfo> currentSet)
+  void SerializeChoice(Type typeT, object value, AsnWriter writer)
+  object DeserializeChoice(AsnReader reader, Type typeT)
+  void SerializeCustomType(Type typeT, object value, AsnWriter writer, Asn1Tag tag)
+  object DeserializeCustomType(AsnReader reader, Type typeT, Asn1Tag expectedTag)
+  Deserializer ExplicitValueDeserializer(Deserializer valueDeserializer, Asn1Tag expectedTag)
+  object ExplicitValueDeserializer(AsnReader reader, Deserializer valueDeserializer, Asn1Tag expectedTag)
+  Deserializer DefaultValueDeserializer(Deserializer valueDeserializer, bool isOptional, Byte[] defaultContents, Nullable`1<Asn1Tag> expectedTag)
+  object DefaultValueDeserializer(AsnReader reader, Nullable`1<Asn1Tag> expectedTag, Deserializer valueDeserializer, Byte[] defaultContents, bool isOptional)
+  Serializer GetSerializer(Type typeT, FieldInfo fieldInfo)
+  Serializer GetSimpleSerializer(Type typeT, FieldInfo fieldInfo, Byte[]& defaultContents, Boolean& isOptional, Nullable`1& explicitTag)
+  Deserializer GetDeserializer(Type typeT, FieldInfo fieldInfo)
+  Deserializer GetSimpleDeserializer(Type typeT, FieldInfo fieldInfo, SerializerFieldData& fieldData)
+  object DefaultValue(Byte[] defaultContents, Deserializer valueDeserializer)
+  void GetFieldInfo(Type typeT, FieldInfo fieldInfo, SerializerFieldData& serializerFieldData)
+  Type UnpackIfNullable(Type typeT)
+  Deserializer GetPrimitiveDeserializer(Type typeT, Asn1Tag tag)
+  Serializer GetPrimitiveSerializer(Type typeT, Asn1Tag primitiveTag)
+  T Deserialize(ReadOnlyMemory`1<byte> source, AsnEncodingRules ruleSet)
+  T Deserialize(ReadOnlyMemory`1<byte> source, AsnEncodingRules ruleSet, Int32& bytesRead)
+  AsnWriter Serialize(T value, AsnEncodingRules ruleSet)
+  void Serialize(T value, AsnWriter existingWriter)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.ExpectedTagAttribute
+Наследуется от: Attribute
+Поля:
+  TagClass <TagClass>k__BackingField
+  int <TagValue>k__BackingField
+  bool <ExplicitTag>k__BackingField
+Свойства:
+  TagClass TagClass
+  int TagValue
+  bool ExplicitTag
+Методы:
+  TagClass get_TagClass()
+  int get_TagValue()
+  bool get_ExplicitTag()
+  void set_ExplicitTag(bool value)
+  void .ctor(int tagValue)
+  void .ctor(TagClass tagClass, int tagValue)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnTypeAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnEncodingRuleAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.OctetStringAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.BitStringAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AnyValueAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.ObjectIdentifierAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+  bool <PopulateFriendlyName>k__BackingField
+Свойства:
+  bool PopulateFriendlyName
+Методы:
+  void .ctor()
+  bool get_PopulateFriendlyName()
+  void set_PopulateFriendlyName(bool value)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.BMPStringAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.IA5StringAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.UTF8StringAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.PrintableStringAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.VisibleStringAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.SequenceOfAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.SetOfAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.IntegerAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.UtcTimeAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+  int <TwoDigitYearMax>k__BackingField
+Свойства:
+  int TwoDigitYearMax
+Методы:
+  int get_TwoDigitYearMax()
+  void set_TwoDigitYearMax(int value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.GeneralizedTimeAttribute
+Наследуется от: AsnTypeAttribute
+Поля:
+  bool <DisallowFractions>k__BackingField
+Свойства:
+  bool DisallowFractions
+Методы:
+  bool get_DisallowFractions()
+  void set_DisallowFractions(bool value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.OptionalValueAttribute
+Наследуется от: AsnEncodingRuleAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.DefaultValueAttribute
+Наследуется от: AsnEncodingRuleAttribute
+Поля:
+  Byte[] <EncodedBytes>k__BackingField
+Свойства:
+  Byte[] EncodedBytes
+  ReadOnlyMemory`1<byte> EncodedValue
+Методы:
+  Byte[] get_EncodedBytes()
+  void .ctor(Byte[] encodedValue)
+  ReadOnlyMemory`1<byte> get_EncodedValue()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.ChoiceAttribute
+Наследуется от: Attribute
+Поля:
+  bool <AllowNull>k__BackingField
+Свойства:
+  bool AllowNull
+Методы:
+  bool get_AllowNull()
+  void set_AllowNull(bool value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnEncodingRules
+Наследуется от: Enum
+Поля:
+  int value__
+  AsnEncodingRules BER
+  AsnEncodingRules CER
+  AsnEncodingRules DER
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.TagClass
+Наследуется от: Enum
+Поля:
+  byte value__
+  TagClass Universal
+  TagClass Application
+  TagClass ContextSpecific
+  TagClass Private
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.UniversalTagNumber
+Наследуется от: Enum
+Поля:
+  int value__
+  UniversalTagNumber EndOfContents
+  UniversalTagNumber Boolean
+  UniversalTagNumber Integer
+  UniversalTagNumber BitString
+  UniversalTagNumber OctetString
+  UniversalTagNumber Null
+  UniversalTagNumber ObjectIdentifier
+  UniversalTagNumber ObjectDescriptor
+  UniversalTagNumber External
+  UniversalTagNumber InstanceOf
+  UniversalTagNumber Real
+  UniversalTagNumber Enumerated
+  UniversalTagNumber Embedded
+  UniversalTagNumber UTF8String
+  UniversalTagNumber RelativeObjectIdentifier
+  UniversalTagNumber Time
+  UniversalTagNumber Sequence
+  UniversalTagNumber SequenceOf
+  UniversalTagNumber Set
+  UniversalTagNumber SetOf
+  UniversalTagNumber NumericString
+  UniversalTagNumber PrintableString
+  UniversalTagNumber TeletexString
+  UniversalTagNumber T61String
+  UniversalTagNumber VideotexString
+  UniversalTagNumber IA5String
+  UniversalTagNumber UtcTime
+  UniversalTagNumber GeneralizedTime
+  UniversalTagNumber GraphicString
+  UniversalTagNumber VisibleString
+  UniversalTagNumber ISO646String
+  UniversalTagNumber GeneralString
+  UniversalTagNumber UniversalString
+  UniversalTagNumber UnrestrictedCharacterString
+  UniversalTagNumber BMPString
+  UniversalTagNumber Date
+  UniversalTagNumber TimeOfDay
+  UniversalTagNumber DateTime
+  UniversalTagNumber Duration
+  UniversalTagNumber ObjectIdentifierIRI
+  UniversalTagNumber RelativeObjectIdentifierIRI
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.Asn1Tag
+Наследуется от: ValueType
+Поля:
+  byte ClassMask
+  byte ConstructedMask
+  byte ControlMask
+  byte TagNumberMask
+  Asn1Tag EndOfContents
+  Asn1Tag Boolean
+  Asn1Tag Integer
+  Asn1Tag PrimitiveBitString
+  Asn1Tag ConstructedBitString
+  Asn1Tag PrimitiveOctetString
+  Asn1Tag ConstructedOctetString
+  Asn1Tag Null
+  Asn1Tag ObjectIdentifier
+  Asn1Tag Enumerated
+  Asn1Tag Sequence
+  Asn1Tag SetOf
+  Asn1Tag UtcTime
+  Asn1Tag GeneralizedTime
+  byte _controlFlags
+  int _tagValue
+Свойства:
+  TagClass TagClass
+  bool IsConstructed
+  int TagValue
+Методы:
+  TagClass get_TagClass()
+  bool get_IsConstructed()
+  int get_TagValue()
+  void .ctor(byte controlFlags, int tagValue)
+  void .ctor(UniversalTagNumber universalTagNumber, bool isConstructed)
+  void .ctor(TagClass tagClass, int tagValue, bool isConstructed)
+  Asn1Tag AsConstructed()
+  Asn1Tag AsPrimitive()
+  bool TryParse(ReadOnlySpan`1<byte> source, Asn1Tag& tag, Int32& bytesRead)
+  int CalculateEncodedSize()
+  bool TryWrite(Span`1<byte> destination, Int32& bytesWritten)
+  bool Equals(Asn1Tag other)
+  bool Equals(object obj)
+  int GetHashCode()
+  bool op_Equality(Asn1Tag left, Asn1Tag right)
+  bool op_Inequality(Asn1Tag left, Asn1Tag right)
+  string ToString()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnCharacterStringEncodings
+Наследуется от: object
+Поля:
+  Encoding s_utf8Encoding
+  Encoding s_bmpEncoding
+  Encoding s_ia5Encoding
+  Encoding s_visibleStringEncoding
+  Encoding s_printableStringEncoding
+Свойства:
+Методы:
+  Encoding GetEncoding(UniversalTagNumber encodingType)
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.SpanBasedEncoding
+Наследуется от: Encoding
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  int GetBytes(ReadOnlySpan`1<char> chars, Span`1<byte> bytes, bool write)
+  int GetChars(ReadOnlySpan`1<byte> bytes, Span`1<char> chars, bool write)
+  int GetByteCount(Char[] chars, int index, int count)
+  int GetByteCount(Char* chars, int count)
+  int GetByteCount(string s)
+  int GetByteCount(ReadOnlySpan`1<char> chars)
+  int GetBytes(Char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex)
+  int GetBytes(Char* chars, int charCount, Byte* bytes, int byteCount)
+  int GetCharCount(Byte[] bytes, int index, int count)
+  int GetCharCount(Byte* bytes, int count)
+  int GetCharCount(ReadOnlySpan`1<byte> bytes)
+  int GetChars(Byte[] bytes, int byteIndex, int byteCount, Char[] chars, int charIndex)
+  int GetChars(Byte* bytes, int byteCount, Char* chars, int charCount)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.IA5Encoding
+Наследуется от: RestrictedAsciiStringEncoding
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.VisibleStringEncoding
+Наследуется от: RestrictedAsciiStringEncoding
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.PrintableStringEncoding
+Наследуется от: RestrictedAsciiStringEncoding
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.RestrictedAsciiStringEncoding
+Наследуется от: SpanBasedEncoding
+Поля:
+  Boolean[] _isAllowed
+Свойства:
+Методы:
+  void .ctor(byte minCharAllowed, byte maxCharAllowed)
+  void .ctor(IEnumerable`1<char> allowedChars)
+  int GetMaxByteCount(int charCount)
+  int GetMaxCharCount(int byteCount)
+  int GetBytes(ReadOnlySpan`1<char> chars, Span`1<byte> bytes, bool write)
+  int GetChars(ReadOnlySpan`1<byte> bytes, Span`1<char> chars, bool write)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.BMPEncoding
+Наследуется от: SpanBasedEncoding
+Поля:
+Свойства:
+Методы:
+  int GetBytes(ReadOnlySpan`1<char> chars, Span`1<byte> bytes, bool write)
+  int GetChars(ReadOnlySpan`1<byte> bytes, Span`1<char> chars, bool write)
+  int GetMaxByteCount(int charCount)
+  int GetMaxCharCount(int byteCount)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.SetOfValueComparer
+Наследуется от: object
+Поля:
+  SetOfValueComparer <Instance>k__BackingField
+Свойства:
+  SetOfValueComparer Instance
+Методы:
+  SetOfValueComparer get_Instance()
+  int Compare(ReadOnlyMemory`1<byte> x, ReadOnlyMemory`1<byte> y)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnReader
+Наследуется от: object
+Поля:
+  int MaxCERSegmentSize
+  int EndOfContentsEncodedLength
+  ReadOnlyMemory`1<byte> _data
+  AsnEncodingRules _ruleSet
+  byte HmsState
+  byte FracState
+  byte SuffixState
+Свойства:
+  bool HasData
+Методы:
+  bool get_HasData()
+  void .ctor(ReadOnlyMemory`1<byte> data, AsnEncodingRules ruleSet)
+  void ThrowIfNotEmpty()
+  bool TryPeekTag(ReadOnlySpan`1<byte> source, Asn1Tag& tag, Int32& bytesRead)
+  Asn1Tag PeekTag()
+  bool TryReadLength(ReadOnlySpan`1<byte> source, AsnEncodingRules ruleSet, Nullable`1& length, Int32& bytesRead)
+  Asn1Tag ReadTagAndLength(Nullable`1& contentsLength, Int32& bytesRead)
+  void ValidateEndOfContents(Asn1Tag tag, Nullable`1<int> length, int headerLength)
+  int SeekEndOfContents(ReadOnlyMemory`1<byte> source)
+  ReadOnlyMemory`1<byte> PeekEncodedValue()
+  ReadOnlyMemory`1<byte> PeekContentBytes()
+  ReadOnlyMemory`1<byte> GetEncodedValue()
+  bool ReadBooleanValue(ReadOnlySpan`1<byte> source, AsnEncodingRules ruleSet)
+  bool ReadBoolean()
+  bool ReadBoolean(Asn1Tag expectedTag)
+  ReadOnlyMemory`1<byte> GetIntegerContents(Asn1Tag expectedTag, UniversalTagNumber tagNumber, Int32& headerLength)
+  ReadOnlyMemory`1<byte> GetIntegerBytes()
+  ReadOnlyMemory`1<byte> GetIntegerBytes(Asn1Tag expectedTag)
+  BigInteger GetInteger()
+  BigInteger GetInteger(Asn1Tag expectedTag)
+  bool TryReadSignedInteger(int sizeLimit, Asn1Tag expectedTag, UniversalTagNumber tagNumber, Int64& value)
+  bool TryReadUnsignedInteger(int sizeLimit, Asn1Tag expectedTag, UniversalTagNumber tagNumber, UInt64& value)
+  bool TryReadInt32(Int32& value)
+  bool TryReadInt32(Asn1Tag expectedTag, Int32& value)
+  bool TryReadUInt32(UInt32& value)
+  bool TryReadUInt32(Asn1Tag expectedTag, UInt32& value)
+  bool TryReadInt64(Int64& value)
+  bool TryReadInt64(Asn1Tag expectedTag, Int64& value)
+  bool TryReadUInt64(UInt64& value)
+  bool TryReadUInt64(Asn1Tag expectedTag, UInt64& value)
+  bool TryReadInt16(Int16& value)
+  bool TryReadInt16(Asn1Tag expectedTag, Int16& value)
+  bool TryReadUInt16(UInt16& value)
+  bool TryReadUInt16(Asn1Tag expectedTag, UInt16& value)
+  bool TryReadInt8(SByte& value)
+  bool TryReadInt8(Asn1Tag expectedTag, SByte& value)
+  bool TryReadUInt8(Byte& value)
+  bool TryReadUInt8(Asn1Tag expectedTag, Byte& value)
+  void ParsePrimitiveBitStringContents(ReadOnlyMemory`1<byte> source, Int32& unusedBitCount, ReadOnlyMemory`1& value, Byte& normalizedLastByte)
+  void CopyBitStringValue(ReadOnlyMemory`1<byte> value, byte normalizedLastByte, Span`1<byte> destination)
+  int CountConstructedBitString(ReadOnlyMemory`1<byte> source, bool isIndefinite)
+  void CopyConstructedBitString(ReadOnlyMemory`1<byte> source, Span`1<byte> destination, bool isIndefinite, Int32& unusedBitCount, Int32& bytesRead, Int32& bytesWritten)
+  int ProcessConstructedBitString(ReadOnlyMemory`1<byte> source, Span`1<byte> destination, BitStringCopyAction copyAction, bool isIndefinite, Int32& lastUnusedBitCount, Int32& bytesRead)
+  bool TryCopyConstructedBitStringValue(ReadOnlyMemory`1<byte> source, Span`1<byte> dest, bool isIndefinite, Int32& unusedBitCount, Int32& bytesRead, Int32& bytesWritten)
+  bool TryGetPrimitiveBitStringValue(Asn1Tag expectedTag, Asn1Tag& actualTag, Nullable`1& contentsLength, Int32& headerLength, Int32& unusedBitCount, ReadOnlyMemory`1& value, Byte& normalizedLastByte)
+  bool TryGetPrimitiveBitStringValue(Int32& unusedBitCount, ReadOnlyMemory`1& contents)
+  bool TryGetPrimitiveBitStringValue(Asn1Tag expectedTag, Int32& unusedBitCount, ReadOnlyMemory`1& value)
+  bool TryCopyBitStringBytes(Span`1<byte> destination, Int32& unusedBitCount, Int32& bytesWritten)
+  bool TryCopyBitStringBytes(Asn1Tag expectedTag, Span`1<byte> destination, Int32& unusedBitCount, Int32& bytesWritten)
+  TFlagsEnum GetNamedBitListValue()
+  TFlagsEnum GetNamedBitListValue(Asn1Tag expectedTag)
+  Enum GetNamedBitListValue(Type tFlagsEnum)
+  Enum GetNamedBitListValue(Asn1Tag expectedTag, Type tFlagsEnum)
+  long InterpretNamedBitListReversed(ReadOnlySpan`1<byte> valueSpan)
+  ReadOnlyMemory`1<byte> GetEnumeratedBytes()
+  ReadOnlyMemory`1<byte> GetEnumeratedBytes(Asn1Tag expectedTag)
+  TEnum GetEnumeratedValue()
+  TEnum GetEnumeratedValue(Asn1Tag expectedTag)
+  Enum GetEnumeratedValue(Type tEnum)
+  Enum GetEnumeratedValue(Asn1Tag expectedTag, Type tEnum)
+  bool TryGetPrimitiveOctetStringBytes(Asn1Tag expectedTag, Asn1Tag& actualTag, Nullable`1& contentLength, Int32& headerLength, ReadOnlyMemory`1& contents, UniversalTagNumber universalTagNumber)
+  bool TryGetPrimitiveOctetStringBytes(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, ReadOnlyMemory`1& contents)
+  bool TryGetPrimitiveOctetStringBytes(ReadOnlyMemory`1& contents)
+  bool TryGetPrimitiveOctetStringBytes(Asn1Tag expectedTag, ReadOnlyMemory`1& contents)
+  int CountConstructedOctetString(ReadOnlyMemory`1<byte> source, bool isIndefinite)
+  void CopyConstructedOctetString(ReadOnlyMemory`1<byte> source, Span`1<byte> destination, bool isIndefinite, Int32& bytesRead, Int32& bytesWritten)
+  int CopyConstructedOctetString(ReadOnlyMemory`1<byte> source, Span`1<byte> destination, bool write, bool isIndefinite, Int32& bytesRead)
+  bool TryCopyConstructedOctetStringContents(ReadOnlyMemory`1<byte> source, Span`1<byte> dest, bool isIndefinite, Int32& bytesRead, Int32& bytesWritten)
+  bool TryCopyOctetStringBytes(Span`1<byte> destination, Int32& bytesWritten)
+  bool TryCopyOctetStringBytes(Asn1Tag expectedTag, Span`1<byte> destination, Int32& bytesWritten)
+  void ReadNull()
+  void ReadNull(Asn1Tag expectedTag)
+  void ReadSubIdentifier(ReadOnlySpan`1<byte> source, Int32& bytesRead, Nullable`1& smallValue, Nullable`1& largeValue)
+  string ReadObjectIdentifierAsString(Asn1Tag expectedTag, Int32& totalBytesRead)
+  string ReadObjectIdentifierAsString()
+  string ReadObjectIdentifierAsString(Asn1Tag expectedTag)
+  Oid ReadObjectIdentifier(bool skipFriendlyName)
+  Oid ReadObjectIdentifier(Asn1Tag expectedTag, bool skipFriendlyName)
+  bool TryCopyCharacterStringBytes(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, Span`1<byte> destination, Int32& bytesRead, Int32& bytesWritten)
+  bool TryCopyCharacterString(ReadOnlySpan`1<byte> source, Span`1<char> destination, Encoding encoding, Int32& charsWritten)
+  string GetCharacterString(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, Encoding encoding)
+  bool TryCopyCharacterString(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, Encoding encoding, Span`1<char> destination, Int32& charsWritten)
+  bool TryGetPrimitiveCharacterStringBytes(UniversalTagNumber encodingType, ReadOnlyMemory`1& contents)
+  bool TryGetPrimitiveCharacterStringBytes(Asn1Tag expectedTag, UniversalTagNumber encodingType, ReadOnlyMemory`1& contents)
+  bool TryCopyCharacterStringBytes(UniversalTagNumber encodingType, Span`1<byte> destination, Int32& bytesWritten)
+  bool TryCopyCharacterStringBytes(Asn1Tag expectedTag, UniversalTagNumber encodingType, Span`1<byte> destination, Int32& bytesWritten)
+  bool TryCopyCharacterString(UniversalTagNumber encodingType, Span`1<char> destination, Int32& charsWritten)
+  bool TryCopyCharacterString(Asn1Tag expectedTag, UniversalTagNumber encodingType, Span`1<char> destination, Int32& charsWritten)
+  string GetCharacterString(UniversalTagNumber encodingType)
+  string GetCharacterString(Asn1Tag expectedTag, UniversalTagNumber encodingType)
+  AsnReader ReadSequence()
+  AsnReader ReadSequence(Asn1Tag expectedTag)
+  AsnReader ReadSetOf(bool skipSortOrderValidation)
+  AsnReader ReadSetOf(Asn1Tag expectedTag, bool skipSortOrderValidation)
+  int ParseNonNegativeIntAndSlice(ReadOnlySpan`1& data, int bytesToRead)
+  int ParseNonNegativeInt(ReadOnlySpan`1<byte> data)
+  DateTimeOffset ParseUtcTime(ReadOnlySpan`1<byte> contentOctets, int twoDigitYearMax)
+  DateTimeOffset GetUtcTime(int twoDigitYearMax)
+  DateTimeOffset GetUtcTime(Asn1Tag expectedTag, int twoDigitYearMax)
+  Nullable`1<byte> ParseGeneralizedTime_GetNextState(byte octet)
+  DateTimeOffset ParseGeneralizedTime(AsnEncodingRules ruleSet, ReadOnlySpan`1<byte> contentOctets, bool disallowFractions)
+  DateTimeOffset GetGeneralizedTime(bool disallowFractions)
+  DateTimeOffset GetGeneralizedTime(Asn1Tag expectedTag, bool disallowFractions)
+  ReadOnlySpan`1<byte> GetOctetStringContents(Asn1Tag expectedTag, UniversalTagNumber universalTagNumber, Int32& bytesRead, Byte[]& rented, Span`1<byte> tmpSpace)
+  ReadOnlySpan`1<byte> SliceAtMost(ReadOnlySpan`1<byte> source, int longestPermitted)
+  ReadOnlySpan`1<byte> Slice(ReadOnlySpan`1<byte> source, int offset, int length)
+  ReadOnlyMemory`1<byte> Slice(ReadOnlyMemory`1<byte> source, int offset, Nullable`1<int> length)
+  void CheckEncodingRules(AsnEncodingRules ruleSet)
+  void CheckExpectedTag(Asn1Tag tag, Asn1Tag expectedTag, UniversalTagNumber tagNumber)
+  void CheckCharacterStringEncodingType(UniversalTagNumber encodingType)
+--------------------------------------------------
+Класс: System.Security.Cryptography.Asn1.AsnWriter
+Наследуется от: object
+Поля:
+  Byte[] _buffer
+  int _offset
+  Stack`1<ValueTuple`2<Asn1Tag, int>> _nestingStack
+  AsnEncodingRules <RuleSet>k__BackingField
+Свойства:
+  AsnEncodingRules RuleSet
+Методы:
+  AsnEncodingRules get_RuleSet()
+  void .ctor(AsnEncodingRules ruleSet)
+  void Dispose()
+  void EnsureWriteCapacity(int pendingCount)
+  void WriteTag(Asn1Tag tag)
+  void WriteLength(int length)
+  int GetEncodedLengthSubsequentByteCount(int length)
+  void WriteEncodedValue(ReadOnlyMemory`1<byte> preEncodedValue)
+  void WriteEndOfContents()
+  void WriteBoolean(bool value)
+  void WriteBoolean(Asn1Tag tag, bool value)
+  void WriteBooleanCore(Asn1Tag tag, bool value)
+  void WriteInteger(long value)
+  void WriteInteger(ulong value)
+  void WriteInteger(BigInteger value)
+  void WriteInteger(ReadOnlySpan`1<byte> value)
+  void WriteInteger(Asn1Tag tag, long value)
+  void WriteIntegerCore(Asn1Tag tag, long value)
+  void WriteInteger(Asn1Tag tag, ulong value)
+  void WriteNonNegativeIntegerCore(Asn1Tag tag, ulong value)
+  void WriteInteger(Asn1Tag tag, BigInteger value)
+  void WriteInteger(Asn1Tag tag, ReadOnlySpan`1<byte> value)
+  void WriteIntegerCore(Asn1Tag tag, ReadOnlySpan`1<byte> value)
+  void WriteIntegerCore(Asn1Tag tag, BigInteger value)
+  void WriteBitString(ReadOnlySpan`1<byte> bitString, int unusedBitCount)
+  void WriteBitString(Asn1Tag tag, ReadOnlySpan`1<byte> bitString, int unusedBitCount)
+  void WriteBitStringCore(Asn1Tag tag, ReadOnlySpan`1<byte> bitString, int unusedBitCount)
+  void WriteConstructedCerBitString(Asn1Tag tag, ReadOnlySpan`1<byte> payload, int unusedBitCount)
+  void WriteNamedBitList(object enumValue)
+  void WriteNamedBitList(TEnum enumValue)
+  void WriteNamedBitList(Asn1Tag tag, object enumValue)
+  void WriteNamedBitList(Asn1Tag tag, TEnum enumValue)
+  void WriteNamedBitList(Asn1Tag tag, Type tEnum, object enumValue)
+  void WriteNamedBitList(Asn1Tag tag, ulong integralValue)
+  void WriteOctetString(ReadOnlySpan`1<byte> octetString)
+  void WriteOctetString(Asn1Tag tag, ReadOnlySpan`1<byte> octetString)
+  void WriteOctetStringCore(Asn1Tag tag, ReadOnlySpan`1<byte> octetString)
+  void WriteConstructedCerOctetString(Asn1Tag tag, ReadOnlySpan`1<byte> payload)
+  void WriteNull()
+  void WriteNull(Asn1Tag tag)
+  void WriteNullCore(Asn1Tag tag)
+  void WriteObjectIdentifier(Oid oid)
+  void WriteObjectIdentifier(string oidValue)
+  void WriteObjectIdentifier(ReadOnlySpan`1<char> oidValue)
+  void WriteObjectIdentifier(Asn1Tag tag, Oid oid)
+  void WriteObjectIdentifier(Asn1Tag tag, string oidValue)
+  void WriteObjectIdentifier(Asn1Tag tag, ReadOnlySpan`1<char> oidValue)
+  void WriteObjectIdentifierCore(Asn1Tag tag, ReadOnlySpan`1<char> oidValue)
+  BigInteger ParseSubIdentifier(ReadOnlySpan`1& oidValue)
+  int AtoI(char c)
+  int EncodeSubIdentifier(Span`1<byte> dest, BigInteger& subIdentifier)
+  void WriteEnumeratedValue(object enumValue)
+  void WriteEnumeratedValue(TEnum value)
+  void WriteEnumeratedValue(Asn1Tag tag, object enumValue)
+  void WriteEnumeratedValue(Asn1Tag tag, TEnum value)
+  void WriteEnumeratedValue(Asn1Tag tag, Type tEnum, object enumValue)
+  void PushSequence()
+  void PushSequence(Asn1Tag tag)
+  void PushSequenceCore(Asn1Tag tag)
+  void PopSequence()
+  void PopSequence(Asn1Tag tag)
+  void PopSequenceCore(Asn1Tag tag)
+  void PushSetOf()
+  void PushSetOf(Asn1Tag tag)
+  void PushSetOfCore(Asn1Tag tag)
+  void PopSetOf()
+  void PopSetOf(Asn1Tag tag)
+  void PopSetOfCore(Asn1Tag tag)
+  void WriteUtcTime(DateTimeOffset value)
+  void WriteUtcTime(Asn1Tag tag, DateTimeOffset value)
+  void WriteUtcTime(DateTimeOffset value, int minLegalYear)
+  void WriteUtcTimeCore(Asn1Tag tag, DateTimeOffset value)
+  void WriteGeneralizedTime(DateTimeOffset value, bool omitFractionalSeconds)
+  void WriteGeneralizedTime(Asn1Tag tag, DateTimeOffset value, bool omitFractionalSeconds)
+  void WriteGeneralizedTimeCore(Asn1Tag tag, DateTimeOffset value, bool omitFractionalSeconds)
+  bool TryEncode(Span`1<byte> dest, Int32& bytesWritten)
+  Byte[] Encode()
+  ReadOnlySpan`1<byte> EncodeAsSpan()
+  void PushTag(Asn1Tag tag)
+  void PopTag(Asn1Tag tag, bool sortContents)
+  void WriteCharacterString(UniversalTagNumber encodingType, string str)
+  void WriteCharacterString(UniversalTagNumber encodingType, ReadOnlySpan`1<char> str)
+  void WriteCharacterString(Asn1Tag tag, UniversalTagNumber encodingType, string str)
+  void WriteCharacterString(Asn1Tag tag, UniversalTagNumber encodingType, ReadOnlySpan`1<char> str)
+  void WriteCharacterStringCore(Asn1Tag tag, Encoding encoding, ReadOnlySpan`1<char> str)
+  void WriteConstructedCerCharacterString(Asn1Tag tag, Encoding encoding, ReadOnlySpan`1<char> str, int size)
+  void SortContents(Byte[] buffer, int start, int end)
+  void Reverse(Span`1<byte> span)
+  void CheckUniversalTag(Asn1Tag tag, UniversalTagNumber universalTagNumber)
+--------------------------------------------------
+Класс: Internal.Cryptography.CryptoThrowHelper
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  CryptographicException ToCryptographicException(int hr)
+--------------------------------------------------
+Класс: Internal.Cryptography.DecryptorPal
+Наследуется от: object
+Поля:
+  RecipientInfoCollection <RecipientInfos>k__BackingField
+Свойства:
+  RecipientInfoCollection RecipientInfos
+Методы:
+  void .ctor(RecipientInfoCollection recipientInfos)
+  RecipientInfoCollection get_RecipientInfos()
+  ContentInfo TryDecrypt(RecipientInfo recipientInfo, X509Certificate2 cert, X509Certificate2Collection originatorCerts, X509Certificate2Collection extraStore, Exception& exception)
+  void Dispose()
+--------------------------------------------------
+Класс: Internal.Cryptography.Helpers
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void AppendData(IncrementalHash hasher, ReadOnlySpan`1<byte> data)
+  HashAlgorithmName GetDigestAlgorithm(Oid oid)
+  HashAlgorithmName GetDigestAlgorithm(string oidValue)
+  string GetOidFromHashAlgorithm(HashAlgorithmName algName)
+  Byte[] Resize(Byte[] a, int size)
+  void RemoveAt(T[]& arr, int idx)
+  T[] NormalizeSet(T[] setItems, Action`1<Byte[]> encodedValueProcessor)
+  Byte[] EncodeContentInfo(T value, string contentType, AsnEncodingRules ruleSet)
+  CmsRecipientCollection DeepCopy(CmsRecipientCollection recipients)
+  Byte[] UnicodeToOctetString(string s)
+  string OctetStringToUnicode(Byte[] octets)
+  X509Certificate2Collection GetStoreCertificates(StoreName storeName, StoreLocation storeLocation, bool openExistingOnly)
+  X509Certificate2 TryFindMatchingCertificate(X509Certificate2Collection certs, SubjectIdentifier recipientIdentifier)
+  bool AreByteArraysEqual(Byte[] ba1, Byte[] ba2)
+  Byte[] ToSkiBytes(string skiString)
+  string ToSkiString(Byte[] skiBytes)
+  string ToBigEndianHex(ReadOnlySpan`1<byte> bytes)
+  Byte[] ToSerialBytes(string serialString)
+  string ToSerialString(Byte[] serialBytes)
+  string ToUpperHexString(ReadOnlySpan`1<byte> ba)
+  Byte[] UpperHexStringToByteArray(string normalizedString)
+  byte UpperHexCharToNybble(char c)
+  Pkcs9AttributeObject CreateBestPkcs9AttributeObjectAvailable(Oid oid, Byte[] encodedAttribute)
+  T Upgrade(Pkcs9AttributeObject basicAttribute)
+  Byte[] GetSubjectKeyIdentifier(X509Certificate2 certificate)
+  Byte[] OneShot(ICryptoTransform transform, Byte[] data)
+  Byte[] OneShot(ICryptoTransform transform, Byte[] data, int offset, int length)
+  ReadOnlyMemory`1<byte> GetSubjectPublicKeyInfo(X509Certificate2 certificate)
+--------------------------------------------------
+Класс: Internal.Cryptography.KeyAgreeRecipientInfoPal
+Наследуется от: RecipientInfoPal
+Поля:
+Свойства:
+  DateTime Date
+  SubjectIdentifierOrKey OriginatorIdentifierOrKey
+  CryptographicAttributeObject OtherKeyAttribute
+Методы:
+  void .ctor()
+  DateTime get_Date()
+  SubjectIdentifierOrKey get_OriginatorIdentifierOrKey()
+  CryptographicAttributeObject get_OtherKeyAttribute()
+--------------------------------------------------
+Класс: Internal.Cryptography.KeyLengths
+Наследуется от: object
+Поля:
+  int Rc2_40Bit
+  int Rc2_56Bit
+  int Rc2_64Bit
+  int Rc2_128Bit
+  int Rc4Max_128Bit
+  int Des_64Bit
+  int TripleDes_192Bit
+  int DefaultKeyLengthForRc2AndRc4
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Internal.Cryptography.KeyTransRecipientInfoPal
+Наследуется от: RecipientInfoPal
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Internal.Cryptography.Oids
+Наследуется от: object
+Поля:
+  string Rc2Cbc
+  string Rc4
+  string TripleDesCbc
+  string DesCbc
+  string Aes128Cbc
+  string Aes192Cbc
+  string Aes256Cbc
+  string Rsa
+  string RsaOaep
+  string RsaPss
+  string RsaPkcs1Sha1
+  string RsaPkcs1Sha256
+  string RsaPkcs1Sha384
+  string RsaPkcs1Sha512
+  string Esdh
+  string SigningTime
+  string ContentType
+  string DocumentDescription
+  string MessageDigest
+  string CounterSigner
+  string SigningCertificate
+  string SigningCertificateV2
+  string DocumentName
+  string CmsRc2Wrap
+  string Cms3DesWrap
+  string Pkcs7Data
+  string Pkcs7Signed
+  string Pkcs7Enveloped
+  string Pkcs7SignedEnveloped
+  string Pkcs7Hashed
+  string Pkcs7Encrypted
+  string Md5
+  string Sha1
+  string Sha256
+  string Sha384
+  string Sha512
+  string DsaPublicKey
+  string DsaWithSha1
+  string DsaWithSha256
+  string DsaWithSha384
+  string DsaWithSha512
+  string EcPublicKey
+  string ECDsaWithSha1
+  string ECDsaWithSha256
+  string ECDsaWithSha384
+  string ECDsaWithSha512
+  string Mgf1
+  string SubjectKeyIdentifier
+  string KeyUsage
+  string TstInfo
+  string TimeStampingPurpose
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Internal.Cryptography.PkcsPal
+Наследуется от: object
+Поля:
+  PkcsPal s_instance
+Свойства:
+  PkcsPal Instance
+Методы:
+  void .ctor()
+  Byte[] Encrypt(CmsRecipientCollection recipients, ContentInfo contentInfo, AlgorithmIdentifier contentEncryptionAlgorithm, X509Certificate2Collection originatorCerts, CryptographicAttributeObjectCollection unprotectedAttributes)
+  DecryptorPal Decode(Byte[] encodedMessage, Int32& version, ContentInfo& contentInfo, AlgorithmIdentifier& contentEncryptionAlgorithm, X509Certificate2Collection& originatorCerts, CryptographicAttributeObjectCollection& unprotectedAttributes)
+  Byte[] EncodeOctetString(Byte[] octets)
+  Byte[] DecodeOctetString(Byte[] encodedOctets)
+  Byte[] EncodeUtcTime(DateTime utcTime)
+  DateTime DecodeUtcTime(Byte[] encodedUtcTime)
+  string DecodeOid(Byte[] encodedOid)
+  Oid GetEncodedMessageType(Byte[] encodedMessage)
+  void AddCertsFromStoreForDecryption(X509Certificate2Collection certs)
+  Exception CreateRecipientsNotFoundException()
+  Exception CreateRecipientInfosAfterEncryptException()
+  Exception CreateDecryptAfterEncryptException()
+  Exception CreateDecryptTwiceException()
+  Byte[] GetSubjectKeyIdentifier(X509Certificate2 certificate)
+  T GetPrivateKeyForSigning(X509Certificate2 certificate, bool silent)
+  T GetPrivateKeyForDecryption(X509Certificate2 certificate, bool silent)
+  PkcsPal get_Instance()
+  void .cctor()
+--------------------------------------------------
+Класс: Internal.Cryptography.RecipientInfoPal
+Наследуется от: object
+Поля:
+Свойства:
+  Byte[] EncryptedKey
+  AlgorithmIdentifier KeyEncryptionAlgorithm
+  SubjectIdentifier RecipientIdentifier
+  int Version
+Методы:
+  void .ctor()
+  Byte[] get_EncryptedKey()
+  AlgorithmIdentifier get_KeyEncryptionAlgorithm()
+  SubjectIdentifier get_RecipientIdentifier()
+  int get_Version()
+--------------------------------------------------
+Класс: Internal.Cryptography.Pal.AnyOS.AsnHelpers
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  SubjectIdentifierOrKey ToSubjectIdentifierOrKey(OriginatorIdentifierOrKeyAsn originator)
+  AlgorithmIdentifier ToPresentationObject(AlgorithmIdentifierAsn asn)
+--------------------------------------------------
+Класс: Internal.Cryptography.Pal.AnyOS.ManagedPkcsPal
+Наследуется от: PkcsPal
+Поля:
+  Byte[] s_invalidEmptyOid
+  Byte[] s_rsaPkcsParameters
+  Byte[] s_rsaOaepSha1Parameters
+Свойства:
+Методы:
+  Byte[] EncodeOctetString(Byte[] octets)
+  Byte[] DecodeOctetString(Byte[] encodedOctets)
+  Byte[] EncodeUtcTime(DateTime utcTime)
+  DateTime DecodeUtcTime(Byte[] encodedUtcTime)
+  string DecodeOid(Byte[] encodedOid)
+  Oid GetEncodedMessageType(Byte[] encodedMessage)
+  DecryptorPal Decode(Byte[] encodedMessage, Int32& version, ContentInfo& contentInfo, AlgorithmIdentifier& contentEncryptionAlgorithm, X509Certificate2Collection& originatorCerts, CryptographicAttributeObjectCollection& unprotectedAttributes)
+  Byte[] Encrypt(CmsRecipientCollection recipients, ContentInfo contentInfo, AlgorithmIdentifier contentEncryptionAlgorithm, X509Certificate2Collection originatorCerts, CryptographicAttributeObjectCollection unprotectedAttributes)
+  Byte[] Encrypt(CmsRecipientCollection recipients, ContentInfo contentInfo, AlgorithmIdentifier contentEncryptionAlgorithm, X509Certificate2Collection originatorCerts, CryptographicAttributeObjectCollection unprotectedAttributes, Byte[] encryptedContent, Byte[] cek, Byte[] parameterBytes)
+  Byte[] EncryptContent(ContentInfo contentInfo, AlgorithmIdentifier contentEncryptionAlgorithm, Byte[]& cek, Byte[]& parameterBytes)
+  Exception CreateRecipientsNotFoundException()
+  Exception CreateRecipientInfosAfterEncryptException()
+  Exception CreateDecryptAfterEncryptException()
+  Exception CreateDecryptTwiceException()
+  Exception CreateInvalidMessageTypeException()
+  KeyTransRecipientInfoAsn MakeKtri(Byte[] cek, CmsRecipient recipient, Boolean& v0Recipient)
+  void AddCertsFromStoreForDecryption(X509Certificate2Collection certs)
+  Byte[] GetSubjectKeyIdentifier(X509Certificate2 certificate)
+  T GetPrivateKeyForSigning(X509Certificate2 certificate, bool silent)
+  T GetPrivateKeyForDecryption(X509Certificate2 certificate, bool silent)
+  T GetPrivateKey(X509Certificate2 certificate)
+  SymmetricAlgorithm OpenAlgorithm(AlgorithmIdentifierAsn contentEncryptionAlgorithm)
+  SymmetricAlgorithm OpenAlgorithm(AlgorithmIdentifier algorithmIdentifier)
+  SymmetricAlgorithm OpenAlgorithm(Oid algorithmIdentifier)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=10 2227CB07D78D81830B0B90D8CD29370C9E8A0D5ADD33A9105598708D5F7A9902
+  long 24B7E3A490F64223F93EC177ED5A641984B68F0783A289AC1F2C94D1D92DA684
+  __StaticArrayInitTypeSize=32 2EF83B43314F8CD03190EEE30ECCF048DA37791237F27C62A579F23EACE9FD70
+  __StaticArrayInitTypeSize=256 678BA95BDBDF562827A4FC9C4DB8ED2C2DA41FEEB1015535877D71C49D0077F2
+  long E0E3CF58E8EBD3158219B64F434304727B1C71307D99BC27D059966A854CB749
+Свойства:
+Методы:
+  UInt32 ComputeStringHash(string s)
+--------------------------------------------------
+Класс: System.Security.Cryptography.DpapiDataProtector
+Наследуется от: DataProtector
+Поля:
+Свойства:
+  DataProtectionScope Scope
+Методы:
+  void .ctor(string appName, string primaryPurpose, String[] specificPurpose)
+  DataProtectionScope get_Scope()
+  void set_Scope(DataProtectionScope value)
+  bool IsReprotectRequired(Byte[] encryptedData)
+  Byte[] ProviderProtect(Byte[] userData)
+  Byte[] ProviderUnprotect(Byte[] encryptedData)
+--------------------------------------------------
+Класс: Unity.ThrowStub
+Наследуется от: ObjectDisposedException
+Поля:
+Свойства:
+Методы:
+  void ThrowNotSupportedException()
+--------------------------------------------------

@@ -1,0 +1,97 @@
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class Microsoft.CodeAnalysis.EmbeddedAttribute : Attribute {
+}
+public interface System.Collections.Generic.IAsyncEnumerable`1 {
+    public abstract virtual IAsyncEnumerator`1<T> GetAsyncEnumerator(CancellationToken cancellationToken);
+}
+public interface System.Collections.Generic.IAsyncEnumerator`1 {
+    public T Current { get; }
+    public abstract virtual ValueTask`1<bool> MoveNextAsync();
+    public abstract virtual T get_Current();
+}
+public interface System.IAsyncDisposable {
+    public abstract virtual ValueTask DisposeAsync();
+}
+public class System.Runtime.CompilerServices.AsyncIteratorMethodBuilder : ValueType {
+    private AsyncTaskMethodBuilder _methodBuilder;
+    private object _id;
+    internal object ObjectIdForDebugger { get; }
+    public static AsyncIteratorMethodBuilder Create();
+    public void MoveNext(TStateMachine& stateMachine);
+    public void AwaitOnCompleted(TAwaiter& awaiter, TStateMachine& stateMachine);
+    public void AwaitUnsafeOnCompleted(TAwaiter& awaiter, TStateMachine& stateMachine);
+    public void Complete();
+    internal object get_ObjectIdForDebugger();
+}
+[AttributeUsageAttribute("64")]
+public class System.Runtime.CompilerServices.AsyncIteratorStateMachineAttribute : StateMachineAttribute {
+    public AsyncIteratorStateMachineAttribute(Type stateMachineType);
+}
+[IsReadOnlyAttribute]
+public class System.Runtime.CompilerServices.ConfiguredAsyncDisposable : ValueType {
+    private IAsyncDisposable _source;
+    private bool _continueOnCapturedContext;
+    internal ConfiguredAsyncDisposable(IAsyncDisposable source, bool continueOnCapturedContext);
+    public ConfiguredValueTaskAwaitable DisposeAsync();
+}
+[IsReadOnlyAttribute]
+public class System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1 : ValueType {
+    private IAsyncEnumerable`1<T> _enumerable;
+    private CancellationToken _cancellationToken;
+    private bool _continueOnCapturedContext;
+    internal ConfiguredCancelableAsyncEnumerable`1(IAsyncEnumerable`1<T> enumerable, bool continueOnCapturedContext, CancellationToken cancellationToken);
+    public ConfiguredCancelableAsyncEnumerable`1<T> ConfigureAwait(bool continueOnCapturedContext);
+    public ConfiguredCancelableAsyncEnumerable`1<T> WithCancellation(CancellationToken cancellationToken);
+    public Enumerator<T> GetAsyncEnumerator();
+}
+[AttributeUsageAttribute("2048")]
+public class System.Runtime.CompilerServices.EnumeratorCancellationAttribute : Attribute {
+}
+[CompilerGeneratedAttribute]
+[EmbeddedAttribute]
+internal class System.Runtime.CompilerServices.IsReadOnlyAttribute : Attribute {
+}
+public class System.Threading.Tasks.Sources.ManualResetValueTaskSourceCore`1 : ValueType {
+    private Action`1<object> _continuation;
+    private object _continuationState;
+    private ExecutionContext _executionContext;
+    private object _capturedContext;
+    private bool _completed;
+    private TResult _result;
+    private ExceptionDispatchInfo _error;
+    private short _version;
+    [CompilerGeneratedAttribute]
+private bool <RunContinuationsAsynchronously>k__BackingField;
+    public bool RunContinuationsAsynchronously { get; public set; }
+    public short Version { get; }
+    [CompilerGeneratedAttribute]
+[IsReadOnlyAttribute]
+public bool get_RunContinuationsAsynchronously();
+    [CompilerGeneratedAttribute]
+public void set_RunContinuationsAsynchronously(bool value);
+    public void Reset();
+    public void SetResult(TResult result);
+    public void SetException(Exception error);
+    public short get_Version();
+    public ValueTaskSourceStatus GetStatus(short token);
+    public TResult GetResult(short token);
+    public void OnCompleted(Action`1<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags);
+    private void ValidateToken(short token);
+    private void SignalCompletion();
+    private void InvokeContinuation();
+}
+internal static class System.Threading.Tasks.Sources.ManualResetValueTaskSourceCoreShared : object {
+    internal static Action`1<object> s_sentinel;
+    private static ManualResetValueTaskSourceCoreShared();
+    private static void CompletionSentinel(object _);
+}
+[ExtensionAttribute]
+public static class System.Threading.Tasks.TaskAsyncEnumerableExtensions : object {
+    [ExtensionAttribute]
+public static ConfiguredAsyncDisposable ConfigureAwait(IAsyncDisposable source, bool continueOnCapturedContext);
+    [ExtensionAttribute]
+public static ConfiguredCancelableAsyncEnumerable`1<T> ConfigureAwait(IAsyncEnumerable`1<T> source, bool continueOnCapturedContext);
+    [ExtensionAttribute]
+public static ConfiguredCancelableAsyncEnumerable`1<T> WithCancellation(IAsyncEnumerable`1<T> source, CancellationToken cancellationToken);
+}

@@ -1,0 +1,385 @@
+public enum AuthResponse : Enum {
+    public int value__;
+    public static AuthResponse Invalid;
+    public static AuthResponse TimedOut;
+    public static AuthResponse OK;
+    public static AuthResponse VACBanned;
+    public static AuthResponse PublisherBanned;
+    public static AuthResponse InvalidAuthSession;
+    public static AuthResponse NetworkIdentityFailure;
+    public static AuthResponse AuthTicketAlreadyUsed;
+    public static AuthResponse AuthTicketCanceled;
+}
+public class AvatarCache : object {
+    private Dictionary`2<ulong, Entry> _entries;
+    private Action`2<ulong, Texture2D> _loadAvatar;
+    public AvatarCache(Action`2<ulong, Texture2D> loadAvatar);
+    public Texture2D Get(ulong userId);
+}
+public class CompositeServerQuery : object {
+    private IServerQuery _queryA;
+    private IServerQuery _queryB;
+    [CompilerGeneratedAttribute]
+private Action`1<ServerInfo> OnServerFound;
+    [CompilerGeneratedAttribute]
+private IReadOnlyList`1<ServerInfo> <Servers>k__BackingField;
+    public IReadOnlyList`1<ServerInfo> Servers { get; }
+    public CompositeServerQuery(IServerQuery queryA, IServerQuery queryB);
+    [CompilerGeneratedAttribute]
+public sealed virtual void add_OnServerFound(Action`1<ServerInfo> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual void remove_OnServerFound(Action`1<ServerInfo> value);
+    [CompilerGeneratedAttribute]
+public sealed virtual IReadOnlyList`1<ServerInfo> get_Servers();
+    public sealed virtual void Dispose();
+    public sealed virtual void AddFilter(string key, string value);
+    [AsyncStateMachineAttribute("CompositeServerQuery/<RunQueryAsync>d__11")]
+public sealed virtual Task RunQueryAsync(double timeoutInSeconds);
+}
+public interface IAchievement {
+    public string Key { get; }
+    public bool IsUnlocked { get; }
+    public abstract virtual string get_Key();
+    public abstract virtual bool get_IsUnlocked();
+    public abstract virtual void Unlock();
+}
+public interface IAuthTicket {
+    public string Token { get; }
+    public Byte[] Data { get; }
+    public abstract virtual string get_Token();
+    public abstract virtual Byte[] get_Data();
+}
+public interface IDownloadableContent {
+    public int AppId { get; }
+    public bool IsInstalled { get; }
+    public abstract virtual int get_AppId();
+    public abstract virtual bool get_IsInstalled();
+}
+public interface IPlatformHooks {
+    public UInt32 SteamAppId { get; }
+    public Nullable`1<ServerParameters> ServerParameters { get; }
+    public abstract virtual UInt32 get_SteamAppId();
+    public abstract virtual void Abort();
+    public abstract virtual void OnItemDefinitionsChanged();
+    public abstract virtual Nullable`1<ServerParameters> get_ServerParameters();
+    public abstract virtual void AuthSessionValidated(ulong userId, ulong ownerUserId, AuthResponse response, string rawResponse);
+}
+public interface IPlatformService {
+    public bool IsValid { get; }
+    public IReadOnlyList`1<IPlayerItemDefinition> ItemDefinitions { get; }
+    public abstract virtual bool Initialize(IPlatformHooks hooks);
+    public abstract virtual void Shutdown();
+    public abstract virtual void Update();
+    public abstract virtual bool get_IsValid();
+    public abstract virtual IReadOnlyList`1<IPlayerItemDefinition> get_ItemDefinitions();
+    public abstract virtual void RefreshItemDefinitions();
+    public abstract virtual IPlayerItemDefinition GetItemDefinition(int definitionId);
+    public abstract virtual Task`1<IPlayerInventory> DeserializeInventory(Byte[] data);
+    public abstract virtual bool PlayerOwnsDownloadableContent(ulong userId, int appId);
+    public abstract virtual Task`1<bool> LoadPlayerStats(ulong userId);
+    public abstract virtual Task`1<bool> SavePlayerStats(ulong userId);
+    public abstract virtual long GetPlayerStatInt(ulong userId, string key, long defaultValue);
+    public abstract virtual bool SetPlayerStatInt(ulong userId, string key, long value);
+    public abstract virtual bool BeginPlayerSession(ulong userId, Byte[] authToken);
+    public abstract virtual void UpdatePlayerSession(ulong userId, string userName);
+    public abstract virtual void EndPlayerSession(ulong userId);
+}
+public interface IPlayerInfo {
+    public ulong UserId { get; }
+    public string UserName { get; }
+    public bool IsOnline { get; }
+    public bool IsMe { get; }
+    public bool IsFriend { get; }
+    public bool IsPlayingThisGame { get; }
+    public string ServerEndpoint { get; }
+    public abstract virtual ulong get_UserId();
+    public abstract virtual string get_UserName();
+    public abstract virtual bool get_IsOnline();
+    public abstract virtual bool get_IsMe();
+    public abstract virtual bool get_IsFriend();
+    public abstract virtual bool get_IsPlayingThisGame();
+    public abstract virtual string get_ServerEndpoint();
+}
+public interface IPlayerInventory {
+    public IReadOnlyList`1<IPlayerItem> Items { get; }
+    public abstract virtual bool BelongsTo(ulong userId);
+    public abstract virtual IReadOnlyList`1<IPlayerItem> get_Items();
+    public abstract virtual Byte[] Serialize();
+}
+public interface IPlayerItem {
+    public ulong Id { get; }
+    public int DefinitionId { get; }
+    public int Quantity { get; }
+    public DateTimeOffset Acquired { get; }
+    public ulong WorkshopId { get; }
+    public string ItemShortName { get; }
+    public abstract virtual ulong get_Id();
+    public abstract virtual int get_DefinitionId();
+    public abstract virtual int get_Quantity();
+    public abstract virtual DateTimeOffset get_Acquired();
+    public abstract virtual ulong get_WorkshopId();
+    public abstract virtual string get_ItemShortName();
+    public abstract virtual Task Consume();
+}
+public interface IPlayerItemDefinition {
+    public int DefinitionId { get; }
+    public string Name { get; }
+    public string Description { get; }
+    public string Type { get; }
+    public string IconUrl { get; }
+    public int LocalPrice { get; }
+    public string LocalPriceFormatted { get; }
+    public string PriceCategory { get; }
+    public bool IsGenerator { get; }
+    public bool IsTradable { get; }
+    public bool IsMarketable { get; }
+    public string StoreTags { get; }
+    public DateTime Created { get; }
+    public DateTime Modified { get; }
+    public string ItemShortName { get; }
+    public ulong WorkshopId { get; }
+    public ulong WorkshopDownload { get; }
+    public abstract virtual int get_DefinitionId();
+    public abstract virtual string get_Name();
+    public abstract virtual string get_Description();
+    public abstract virtual string get_Type();
+    public abstract virtual string get_IconUrl();
+    public abstract virtual int get_LocalPrice();
+    public abstract virtual string get_LocalPriceFormatted();
+    public abstract virtual string get_PriceCategory();
+    public abstract virtual bool get_IsGenerator();
+    public abstract virtual bool get_IsTradable();
+    public abstract virtual bool get_IsMarketable();
+    public abstract virtual string get_StoreTags();
+    public abstract virtual DateTime get_Created();
+    public abstract virtual DateTime get_Modified();
+    public abstract virtual string get_ItemShortName();
+    public abstract virtual ulong get_WorkshopId();
+    public abstract virtual ulong get_WorkshopDownload();
+    public abstract virtual IEnumerable`1<PlayerItemRecipe> GetRecipesContainingThis();
+}
+public interface IServerQuery {
+    public IReadOnlyList`1<ServerInfo> Servers { get; }
+    public abstract virtual IReadOnlyList`1<ServerInfo> get_Servers();
+    [CompilerGeneratedAttribute]
+public abstract virtual void add_OnServerFound(Action`1<ServerInfo> value);
+    [CompilerGeneratedAttribute]
+public abstract virtual void remove_OnServerFound(Action`1<ServerInfo> value);
+    public abstract virtual void AddFilter(string key, string value);
+    public abstract virtual Task RunQueryAsync(double timeoutInSeconds);
+}
+public interface IWorkshopContent {
+    public ulong WorkshopId { get; }
+    public string Title { get; }
+    public string Description { get; }
+    public IEnumerable`1<string> Tags { get; }
+    public string Url { get; }
+    public string PreviewImageUrl { get; }
+    public ulong OwnerId { get; }
+    public IPlayerInfo Owner { get; }
+    public bool IsInstalled { get; }
+    public bool IsDownloadPending { get; }
+    public bool IsDownloading { get; }
+    public string Directory { get; }
+    public abstract virtual ulong get_WorkshopId();
+    public abstract virtual string get_Title();
+    public abstract virtual string get_Description();
+    public abstract virtual IEnumerable`1<string> get_Tags();
+    public abstract virtual string get_Url();
+    public abstract virtual string get_PreviewImageUrl();
+    public abstract virtual ulong get_OwnerId();
+    public abstract virtual IPlayerInfo get_Owner();
+    public abstract virtual bool get_IsInstalled();
+    public abstract virtual bool get_IsDownloadPending();
+    public abstract virtual bool get_IsDownloading();
+    public abstract virtual string get_Directory();
+    public abstract virtual bool Download();
+}
+[IsReadOnlyAttribute]
+public class PlayerItemRecipe : ValueType {
+    [CompilerGeneratedAttribute]
+private IReadOnlyList`1<Ingredient> <Ingredients>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IPlayerItemDefinition <Result>k__BackingField;
+    public IReadOnlyList`1<Ingredient> Ingredients { get; }
+    public IPlayerItemDefinition Result { get; }
+    public PlayerItemRecipe(IReadOnlyList`1<Ingredient> ingredients, IPlayerItemDefinition result);
+    [CompilerGeneratedAttribute]
+public IReadOnlyList`1<Ingredient> get_Ingredients();
+    [CompilerGeneratedAttribute]
+public IPlayerItemDefinition get_Result();
+    public sealed virtual bool Equals(PlayerItemRecipe other);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static bool op_Equality(PlayerItemRecipe left, PlayerItemRecipe right);
+    public static bool op_Inequality(PlayerItemRecipe left, PlayerItemRecipe right);
+}
+[IsReadOnlyAttribute]
+public class Rust.Platform.Common.ServerParameters : ValueType {
+    [CompilerGeneratedAttribute]
+private string <ShortName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <FullName>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Version>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <IsSecure>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <HideIP>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IPAddress <Address>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ushort <GamePort>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ushort <QueryPort>k__BackingField;
+    public string ShortName { get; }
+    public string FullName { get; }
+    public string Version { get; }
+    public bool IsSecure { get; }
+    public bool HideIP { get; }
+    public IPAddress Address { get; }
+    public ushort GamePort { get; }
+    public ushort QueryPort { get; }
+    public ServerParameters(string shortName, string fullName, string version, bool isSecure, bool hideIP, IPAddress address, ushort gamePort, ushort queryPort);
+    [CompilerGeneratedAttribute]
+public string get_ShortName();
+    [CompilerGeneratedAttribute]
+public string get_FullName();
+    [CompilerGeneratedAttribute]
+public string get_Version();
+    [CompilerGeneratedAttribute]
+public bool get_IsSecure();
+    [CompilerGeneratedAttribute]
+public bool get_HideIP();
+    [CompilerGeneratedAttribute]
+public IPAddress get_Address();
+    [CompilerGeneratedAttribute]
+public ushort get_GamePort();
+    [CompilerGeneratedAttribute]
+public ushort get_QueryPort();
+}
+[IsReadOnlyAttribute]
+public class ServerInfo : ValueType {
+    private static HashSet`1<StringView> EmptyTags;
+    [CompilerGeneratedAttribute]
+private UInt32 <AppId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    [CompilerGeneratedAttribute]
+private IPAddress <Address>k__BackingField;
+    [CompilerGeneratedAttribute]
+private UInt32 <AddressRaw>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <ConnectionPort>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <QueryPort>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <Map>k__BackingField;
+    [CompilerGeneratedAttribute]
+private string <TagString>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <IsSecure>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <Players>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <MaxPlayers>k__BackingField;
+    [CompilerGeneratedAttribute]
+private UInt32 <LastTimePlayed>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <Ping>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ulong <SteamId>k__BackingField;
+    [CompilerGeneratedAttribute]
+private StringView <RegionCode>k__BackingField;
+    [CompilerGeneratedAttribute]
+private UInt32 <Born>k__BackingField;
+    [CompilerGeneratedAttribute]
+private HashSet`1<StringView> <Tags>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Protocol <ConnectionProtocol>k__BackingField;
+    public UInt32 AppId { get; }
+    public string Name { get; }
+    public IPAddress Address { get; }
+    public UInt32 AddressRaw { get; }
+    public int ConnectionPort { get; }
+    public int QueryPort { get; }
+    public string Map { get; }
+    public string TagString { get; }
+    public bool IsSecure { get; }
+    public int Players { get; }
+    public int MaxPlayers { get; }
+    public UInt32 LastTimePlayed { get; }
+    public int Ping { get; }
+    public ulong SteamId { get; }
+    public StringView RegionCode { get; }
+    public UInt32 Born { get; }
+    public HashSet`1<StringView> Tags { get; }
+    public Protocol ConnectionProtocol { get; }
+    public string ConnectionString { get; }
+    public ServerInfo(UInt32 appId, string name, IPAddress address, int connectionPort, int queryPort, string map, string tagString, bool isSecure, int players, int maxPlayers, UInt32 lastTimePlayed, int ping, ulong steamId, int authedPlayers);
+    private static ServerInfo();
+    [CompilerGeneratedAttribute]
+public UInt32 get_AppId();
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+public IPAddress get_Address();
+    [CompilerGeneratedAttribute]
+public UInt32 get_AddressRaw();
+    [CompilerGeneratedAttribute]
+public int get_ConnectionPort();
+    [CompilerGeneratedAttribute]
+public int get_QueryPort();
+    [CompilerGeneratedAttribute]
+public string get_Map();
+    [CompilerGeneratedAttribute]
+public string get_TagString();
+    [CompilerGeneratedAttribute]
+public bool get_IsSecure();
+    [CompilerGeneratedAttribute]
+public int get_Players();
+    [CompilerGeneratedAttribute]
+public int get_MaxPlayers();
+    [CompilerGeneratedAttribute]
+public UInt32 get_LastTimePlayed();
+    [CompilerGeneratedAttribute]
+public int get_Ping();
+    [CompilerGeneratedAttribute]
+public ulong get_SteamId();
+    [CompilerGeneratedAttribute]
+public StringView get_RegionCode();
+    [CompilerGeneratedAttribute]
+public UInt32 get_Born();
+    [CompilerGeneratedAttribute]
+public HashSet`1<StringView> get_Tags();
+    [CompilerGeneratedAttribute]
+public Protocol get_ConnectionProtocol();
+    public string get_ConnectionString();
+    private static UInt32 AddressToUInt32(IPAddress address);
+    private static UInt32 Swap(UInt32 x);
+}
+public enum ServerQuerySet : Enum {
+    public int value__;
+    public static ServerQuerySet Whitelist;
+    public static ServerQuerySet Internet;
+    public static ServerQuerySet LocalNetwork;
+    public static ServerQuerySet Friends;
+    public static ServerQuerySet Favorites;
+    public static ServerQuerySet History;
+}
+public static class ServerTagCompressor : object {
+    private static IReadOnlyDictionary`2<char, string> charToTag;
+    private static IReadOnlyDictionary`2<string, char> tagToChar;
+    public static char TagPrefixCharacter;
+    private static StringBuilder normalTags;
+    private static ServerTagCompressor();
+    public static string ShortenTag(string tag);
+    public static string CompressTags(string input);
+    public static void DecompressTags(HashSet`1<string> tags, string compactTag);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

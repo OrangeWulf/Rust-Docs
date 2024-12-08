@@ -1,0 +1,680 @@
+Сборка: System.Transactions.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Consts
+Наследуется от: object
+Поля:
+  string MonoVersion
+  string MonoCompany
+  string MonoProduct
+  string MonoCopyright
+  int MonoCorlibVersion
+  string FxVersion
+  string FxFileVersion
+  string EnvironmentVersion
+  string VsVersion
+  string VsFileVersion
+  string PublicKeyToken
+  string AssemblyI18N
+  string AssemblyMicrosoft_JScript
+  string AssemblyMicrosoft_VisualStudio
+  string AssemblyMicrosoft_VisualStudio_Web
+  string AssemblyMicrosoft_VSDesigner
+  string AssemblyMono_Http
+  string AssemblyMono_Posix
+  string AssemblyMono_Security
+  string AssemblyMono_Messaging_RabbitMQ
+  string AssemblyCorlib
+  string AssemblySystem
+  string AssemblySystem_Data
+  string AssemblySystem_Design
+  string AssemblySystem_DirectoryServices
+  string AssemblySystem_Drawing
+  string AssemblySystem_Drawing_Design
+  string AssemblySystem_Messaging
+  string AssemblySystem_Security
+  string AssemblySystem_ServiceProcess
+  string AssemblySystem_Web
+  string AssemblySystem_Windows_Forms
+  string AssemblySystem_2_0
+  string AssemblySystemCore_3_5
+  string AssemblySystem_Core
+  string WindowsBase_3_0
+  string AssemblyWindowsBase
+  string AssemblyPresentationCore_3_5
+  string AssemblyPresentationCore_4_0
+  string AssemblyPresentationFramework_3_5
+  string AssemblySystemServiceModel_3_0
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Locale
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  string GetText(string msg)
+  string GetText(string fmt, Object[] args)
+--------------------------------------------------
+Класс: System.MonoTODOAttribute
+Наследуется от: Attribute
+Поля:
+  string comment
+Свойства:
+  string Comment
+Методы:
+  void .ctor()
+  void .ctor(string comment)
+  string get_Comment()
+--------------------------------------------------
+Класс: System.MonoDocumentationNoteAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoExtensionAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoInternalNoteAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoLimitationAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoNotSupportedAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.Transactions.CommittableTransaction
+Наследуется от: Transaction
+Поля:
+  TransactionOptions options
+  AsyncCallback callback
+  object user_defined_state
+  IAsyncResult asyncResult
+Свойства:
+  object System.IAsyncResult.AsyncState
+  WaitHandle System.IAsyncResult.AsyncWaitHandle
+  bool System.IAsyncResult.CompletedSynchronously
+  bool System.IAsyncResult.IsCompleted
+Методы:
+  void .ctor()
+  void .ctor(TimeSpan timeout)
+  void .ctor(TransactionOptions options)
+  IAsyncResult BeginCommit(AsyncCallback asyncCallback, object asyncState)
+  void EndCommit(IAsyncResult asyncResult)
+  void CommitCallback(IAsyncResult ar)
+  void Commit()
+  void System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+  object System.IAsyncResult.get_AsyncState()
+  WaitHandle System.IAsyncResult.get_AsyncWaitHandle()
+  bool System.IAsyncResult.get_CompletedSynchronously()
+  bool System.IAsyncResult.get_IsCompleted()
+--------------------------------------------------
+Класс: System.Transactions.HostCurrentTransactionCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  Transaction Invoke()
+  IAsyncResult BeginInvoke(AsyncCallback callback, object object)
+  Transaction EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Transactions.TransactionCompletedEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, TransactionEventArgs e)
+  IAsyncResult BeginInvoke(object sender, TransactionEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Transactions.TransactionStartedEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, TransactionEventArgs e)
+  IAsyncResult BeginInvoke(object sender, TransactionEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: System.Transactions.DependentCloneOption
+Наследуется от: Enum
+Поля:
+  int value__
+  DependentCloneOption BlockCommitUntilComplete
+  DependentCloneOption RollbackIfNotComplete
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Transactions.DependentTransaction
+Наследуется от: Transaction
+Поля:
+  bool completed
+Свойства:
+  bool Completed
+Методы:
+  void .ctor(Transaction parent, DependentCloneOption option)
+  bool get_Completed()
+  void Complete()
+  void System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Transactions.Enlistment
+Наследуется от: object
+Поля:
+  bool done
+Свойства:
+Методы:
+  void .ctor()
+  void Done()
+  void InternalOnDone()
+--------------------------------------------------
+Класс: System.Transactions.EnlistmentOptions
+Наследуется от: Enum
+Поля:
+  int value__
+  EnlistmentOptions None
+  EnlistmentOptions EnlistDuringPrepareRequired
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Transactions.EnterpriseServicesInteropOption
+Наследуется от: Enum
+Поля:
+  int value__
+  EnterpriseServicesInteropOption None
+  EnterpriseServicesInteropOption Automatic
+  EnterpriseServicesInteropOption Full
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Transactions.IDtcTransaction
+Поля:
+Свойства:
+Методы:
+  void Abort(IntPtr reason, int retaining, int async)
+  void Commit(int retaining, int commitType, int reserved)
+  void GetTransactionInfo(IntPtr transactionInformation)
+--------------------------------------------------
+Класс: System.Transactions.IEnlistmentNotification
+Поля:
+Свойства:
+Методы:
+  void Commit(Enlistment enlistment)
+  void InDoubt(Enlistment enlistment)
+  void Prepare(PreparingEnlistment preparingEnlistment)
+  void Rollback(Enlistment enlistment)
+--------------------------------------------------
+Класс: System.Transactions.IPromotableSinglePhaseNotification
+Поля:
+Свойства:
+Методы:
+  void Initialize()
+  void Rollback(SinglePhaseEnlistment singlePhaseEnlistment)
+  void SinglePhaseCommit(SinglePhaseEnlistment singlePhaseEnlistment)
+--------------------------------------------------
+Класс: System.Transactions.ISimpleTransactionSuperior
+Поля:
+Свойства:
+Методы:
+  void Rollback()
+--------------------------------------------------
+Класс: System.Transactions.ISinglePhaseNotification
+Поля:
+Свойства:
+Методы:
+  void SinglePhaseCommit(SinglePhaseEnlistment singlePhaseEnlistment)
+--------------------------------------------------
+Класс: System.Transactions.ITransactionPromoter
+Поля:
+Свойства:
+Методы:
+  Byte[] Promote()
+--------------------------------------------------
+Класс: System.Transactions.IsolationLevel
+Наследуется от: Enum
+Поля:
+  int value__
+  IsolationLevel Serializable
+  IsolationLevel RepeatableRead
+  IsolationLevel ReadCommitted
+  IsolationLevel ReadUncommitted
+  IsolationLevel Snapshot
+  IsolationLevel Chaos
+  IsolationLevel Unspecified
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Transactions.PreparingEnlistment
+Наследуется от: Enlistment
+Поля:
+  bool prepared
+  Transaction tx
+  IEnlistmentNotification enlisted
+  WaitHandle waitHandle
+  Exception ex
+Свойства:
+  bool IsPrepared
+  WaitHandle WaitHandle
+  IEnlistmentNotification EnlistmentNotification
+  Exception Exception
+Методы:
+  void .ctor(Transaction tx, IEnlistmentNotification enlisted)
+  void ForceRollback()
+  void InternalOnDone()
+  void ForceRollback(Exception e)
+  void Prepared()
+  Byte[] RecoveryInformation()
+  bool get_IsPrepared()
+  WaitHandle get_WaitHandle()
+  IEnlistmentNotification get_EnlistmentNotification()
+  Exception get_Exception()
+  void set_Exception(Exception value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Transactions.SinglePhaseEnlistment
+Наследуется от: Enlistment
+Поля:
+  Transaction tx
+  object abortingEnlisted
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(Transaction tx, object abortingEnlisted)
+  void Aborted()
+  void Aborted(Exception e)
+  void Committed()
+  void InDoubt()
+  void InDoubt(Exception e)
+--------------------------------------------------
+Класс: System.Transactions.SubordinateTransaction
+Наследуется от: Transaction
+Поля:
+Свойства:
+Методы:
+  void .ctor(IsolationLevel isoLevel, ISimpleTransactionSuperior superior)
+--------------------------------------------------
+Класс: System.Transactions.Transaction
+Наследуется от: object
+Поля:
+  Transaction ambient
+  IsolationLevel level
+  TransactionInformation info
+  ArrayList dependents
+  List`1<IEnlistmentNotification> volatiles
+  List`1<ISinglePhaseNotification> durables
+  IPromotableSinglePhaseNotification pspe
+  AsyncCommit asyncCommit
+  bool committing
+  bool committed
+  bool aborted
+  TransactionScope scope
+  Exception innerException
+  Guid tag
+  TransactionCompletedEventHandler TransactionCompleted
+Свойства:
+  List`1<IEnlistmentNotification> Volatiles
+  List`1<ISinglePhaseNotification> Durables
+  IPromotableSinglePhaseNotification Pspe
+  Transaction Current
+  Transaction CurrentInternal
+  IsolationLevel IsolationLevel
+  TransactionInformation TransactionInformation
+  Guid PromoterType
+  bool Aborted
+  TransactionScope Scope
+Методы:
+  List`1<IEnlistmentNotification> get_Volatiles()
+  List`1<ISinglePhaseNotification> get_Durables()
+  IPromotableSinglePhaseNotification get_Pspe()
+  void .ctor()
+  void .ctor(Transaction other)
+  void System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+  void add_TransactionCompleted(TransactionCompletedEventHandler value)
+  void remove_TransactionCompleted(TransactionCompletedEventHandler value)
+  Transaction get_Current()
+  void set_Current(Transaction value)
+  Transaction get_CurrentInternal()
+  void set_CurrentInternal(Transaction value)
+  IsolationLevel get_IsolationLevel()
+  TransactionInformation get_TransactionInformation()
+  Transaction Clone()
+  void Dispose()
+  DependentTransaction DependentClone(DependentCloneOption cloneOption)
+  Enlistment EnlistDurable(Guid resourceManagerIdentifier, IEnlistmentNotification enlistmentNotification, EnlistmentOptions enlistmentOptions)
+  Enlistment EnlistDurable(Guid resourceManagerIdentifier, ISinglePhaseNotification singlePhaseNotification, EnlistmentOptions enlistmentOptions)
+  bool EnlistPromotableSinglePhase(IPromotableSinglePhaseNotification promotableSinglePhaseNotification)
+  void SetDistributedTransactionIdentifier(IPromotableSinglePhaseNotification promotableNotification, Guid distributedTransactionIdentifier)
+  bool EnlistPromotableSinglePhase(IPromotableSinglePhaseNotification promotableSinglePhaseNotification, Guid promoterType)
+  Byte[] GetPromotedToken()
+  Guid get_PromoterType()
+  Enlistment EnlistVolatile(IEnlistmentNotification enlistmentNotification, EnlistmentOptions enlistmentOptions)
+  Enlistment EnlistVolatile(ISinglePhaseNotification singlePhaseNotification, EnlistmentOptions enlistmentOptions)
+  Enlistment EnlistVolatileInternal(IEnlistmentNotification notification, EnlistmentOptions options)
+  Enlistment PromoteAndEnlistDurable(Guid manager, IPromotableSinglePhaseNotification promotableNotification, ISinglePhaseNotification notification, EnlistmentOptions options)
+  bool Equals(object obj)
+  bool Equals(Transaction t)
+  bool op_Equality(Transaction x, Transaction y)
+  bool op_Inequality(Transaction x, Transaction y)
+  int GetHashCode()
+  void Rollback()
+  void Rollback(Exception e)
+  void Rollback(Exception ex, object abortingEnlisted)
+  bool get_Aborted()
+  void set_Aborted(bool value)
+  TransactionScope get_Scope()
+  void set_Scope(TransactionScope value)
+  IAsyncResult BeginCommitInternal(AsyncCallback callback)
+  void EndCommitInternal(IAsyncResult ar)
+  void CommitInternal()
+  void DoCommit()
+  void Complete()
+  void InitScope(TransactionScope scope)
+  void PrepareCallbackWrapper(object state)
+  void DoPreparePhase()
+  void DoCommitPhase()
+  void DoSingleCommit(ISinglePhaseNotification single)
+  void DoSingleCommit(IPromotableSinglePhaseNotification single)
+  void CheckAborted()
+  void FireCompleted()
+  void EnsureIncompleteCurrentScope()
+--------------------------------------------------
+Класс: System.Transactions.TransactionAbortedException
+Наследуется от: TransactionException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: System.Transactions.TransactionEventArgs
+Наследуется от: EventArgs
+Поля:
+  Transaction transaction
+Свойства:
+  Transaction Transaction
+Методы:
+  void .ctor()
+  void .ctor(Transaction transaction)
+  Transaction get_Transaction()
+--------------------------------------------------
+Класс: System.Transactions.TransactionException
+Наследуется от: SystemException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: System.Transactions.TransactionInDoubtException
+Наследуется от: TransactionException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: System.Transactions.TransactionInformation
+Наследуется от: object
+Поля:
+  string local_id
+  Guid dtcId
+  DateTime creation_time
+  TransactionStatus status
+Свойства:
+  DateTime CreationTime
+  Guid DistributedIdentifier
+  string LocalIdentifier
+  TransactionStatus Status
+Методы:
+  void .ctor()
+  void .ctor(TransactionInformation other)
+  DateTime get_CreationTime()
+  Guid get_DistributedIdentifier()
+  void set_DistributedIdentifier(Guid value)
+  string get_LocalIdentifier()
+  TransactionStatus get_Status()
+  void set_Status(TransactionStatus value)
+  TransactionInformation Clone(TransactionInformation other)
+--------------------------------------------------
+Класс: System.Transactions.TransactionInterop
+Наследуется от: object
+Поля:
+  Guid PromoterTypeDtc
+Свойства:
+Методы:
+  IDtcTransaction GetDtcTransaction(Transaction transaction)
+  Byte[] GetExportCookie(Transaction transaction, Byte[] whereabouts)
+  Transaction GetTransactionFromDtcTransaction(IDtcTransaction transactionNative)
+  Transaction GetTransactionFromExportCookie(Byte[] cookie)
+  Transaction GetTransactionFromTransmitterPropagationToken(Byte[] propagationToken)
+  Byte[] GetTransmitterPropagationToken(Transaction transaction)
+  Byte[] GetWhereabouts()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Transactions.TransactionManager
+Наследуется от: object
+Поля:
+  DefaultSettingsSection defaultSettings
+  MachineSettingsSection machineSettings
+  TimeSpan defaultTimeout
+  TimeSpan maxTimeout
+  TransactionStartedEventHandler DistributedTransactionStarted
+Свойства:
+  TimeSpan DefaultTimeout
+  HostCurrentTransactionCallback HostCurrentCallback
+  TimeSpan MaximumTimeout
+Методы:
+  void .cctor()
+  TimeSpan get_DefaultTimeout()
+  HostCurrentTransactionCallback get_HostCurrentCallback()
+  void set_HostCurrentCallback(HostCurrentTransactionCallback value)
+  TimeSpan get_MaximumTimeout()
+  void RecoveryComplete(Guid resourceManagerIdentifier)
+  Enlistment Reenlist(Guid resourceManagerIdentifier, Byte[] recoveryInformation, IEnlistmentNotification enlistmentNotification)
+  void add_DistributedTransactionStarted(TransactionStartedEventHandler value)
+  void remove_DistributedTransactionStarted(TransactionStartedEventHandler value)
+--------------------------------------------------
+Класс: System.Transactions.TransactionManagerCommunicationException
+Наследуется от: TransactionException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: System.Transactions.TransactionOptions
+Наследуется от: ValueType
+Поля:
+  IsolationLevel level
+  TimeSpan timeout
+Свойства:
+  IsolationLevel IsolationLevel
+  TimeSpan Timeout
+Методы:
+  void .ctor(IsolationLevel level, TimeSpan timeout)
+  IsolationLevel get_IsolationLevel()
+  void set_IsolationLevel(IsolationLevel value)
+  TimeSpan get_Timeout()
+  void set_Timeout(TimeSpan value)
+  bool op_Equality(TransactionOptions x, TransactionOptions y)
+  bool op_Inequality(TransactionOptions x, TransactionOptions y)
+  bool Equals(object obj)
+  int GetHashCode()
+--------------------------------------------------
+Класс: System.Transactions.TransactionPromotionException
+Наследуется от: TransactionException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: System.Transactions.TransactionScope
+Наследуется от: object
+Поля:
+  TransactionOptions defaultOptions
+  Transaction transaction
+  Transaction oldTransaction
+  TransactionScope parentScope
+  TimeSpan timeout
+  int nested
+  bool disposed
+  bool completed
+  bool isRoot
+  bool asyncFlowEnabled
+Свойства:
+  bool IsComplete
+  TimeSpan Timeout
+Методы:
+  void .ctor()
+  void .ctor(TransactionScopeAsyncFlowOption asyncFlowOption)
+  void .ctor(Transaction transactionToUse)
+  void .ctor(Transaction transactionToUse, TimeSpan scopeTimeout)
+  void .ctor(Transaction transactionToUse, TimeSpan scopeTimeout, EnterpriseServicesInteropOption interopOption)
+  void .ctor(TransactionScopeOption scopeOption)
+  void .ctor(TransactionScopeOption scopeOption, TimeSpan scopeTimeout)
+  void .ctor(TransactionScopeOption option, TransactionScopeAsyncFlowOption asyncFlow)
+  void .ctor(TransactionScopeOption scopeOption, TimeSpan scopeTimeout, TransactionScopeAsyncFlowOption asyncFlow)
+  void .ctor(TransactionScopeOption scopeOption, TransactionOptions transactionOptions)
+  void .ctor(TransactionScopeOption scopeOption, TransactionOptions transactionOptions, EnterpriseServicesInteropOption interopOption)
+  void .ctor(Transaction transactionToUse, TransactionScopeAsyncFlowOption asyncFlowOption)
+  void .ctor(Transaction transactionToUse, TimeSpan scopeTimeout, TransactionScopeAsyncFlowOption asyncFlowOption)
+  void .ctor(TransactionScopeOption scopeOption, TransactionOptions transactionOptions, TransactionScopeAsyncFlowOption asyncFlowOption)
+  void Initialize(TransactionScopeOption scopeOption, Transaction tx, TransactionOptions options, EnterpriseServicesInteropOption interop, TimeSpan scopeTimeout, TransactionScopeAsyncFlowOption asyncFlow)
+  Transaction InitTransaction(Transaction tx, TransactionScopeOption scopeOption)
+  void Complete()
+  bool get_IsComplete()
+  TimeSpan get_Timeout()
+  void Dispose()
+  void .cctor()
+--------------------------------------------------
+Класс: System.Transactions.TransactionScopeAsyncFlowOption
+Наследуется от: Enum
+Поля:
+  int value__
+  TransactionScopeAsyncFlowOption Suppress
+  TransactionScopeAsyncFlowOption Enabled
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Transactions.TransactionScopeOption
+Наследуется от: Enum
+Поля:
+  int value__
+  TransactionScopeOption Required
+  TransactionScopeOption RequiresNew
+  TransactionScopeOption Suppress
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Transactions.TransactionStatus
+Наследуется от: Enum
+Поля:
+  int value__
+  TransactionStatus Active
+  TransactionStatus Committed
+  TransactionStatus Aborted
+  TransactionStatus InDoubt
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.Transactions.Configuration.DefaultSettingsSection
+Наследуется от: ConfigurationSection
+Поля:
+Свойства:
+  TimeSpan Timeout
+  string DistributedTransactionManagerName
+Методы:
+  TimeSpan get_Timeout()
+  void set_Timeout(TimeSpan value)
+  string get_DistributedTransactionManagerName()
+  void set_DistributedTransactionManagerName(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Transactions.Configuration.MachineSettingsSection
+Наследуется от: ConfigurationSection
+Поля:
+Свойства:
+  TimeSpan MaxTimeout
+Методы:
+  TimeSpan get_MaxTimeout()
+  void set_MaxTimeout(TimeSpan value)
+  void .ctor()
+--------------------------------------------------
+Класс: System.Transactions.Configuration.TransactionsSectionGroup
+Наследуется от: ConfigurationSectionGroup
+Поля:
+Свойства:
+  DefaultSettingsSection DefaultSettings
+  MachineSettingsSection MachineSettings
+Методы:
+  TransactionsSectionGroup GetSectionGroup(Configuration config)
+  DefaultSettingsSection get_DefaultSettings()
+  MachineSettingsSection get_MachineSettings()
+  void .ctor()
+--------------------------------------------------
+Класс: System.Transactions.DistributedTransactionPermission
+Наследуется от: CodeAccessPermission
+Поля:
+Свойства:
+Методы:
+  void .ctor(PermissionState state)
+  IPermission Copy()
+  void FromXml(SecurityElement securityElement)
+  IPermission Intersect(IPermission target)
+  bool IsSubsetOf(IPermission target)
+  bool IsUnrestricted()
+  SecurityElement ToXml()
+--------------------------------------------------
+Класс: System.Transactions.DistributedTransactionPermissionAttribute
+Наследуется от: CodeAccessSecurityAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(SecurityAction action)
+  IPermission CreatePermission()
+--------------------------------------------------
+Класс: Unity.ThrowStub
+Наследуется от: ObjectDisposedException
+Поля:
+Свойства:
+Методы:
+  void ThrowNotSupportedException()
+--------------------------------------------------

@@ -1,0 +1,1299 @@
+Сборка: Mono.Data.Tds.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Consts
+Наследуется от: object
+Поля:
+  string MonoVersion
+  string MonoCompany
+  string MonoProduct
+  string MonoCopyright
+  string FxVersion
+  string FxFileVersion
+  string EnvironmentVersion
+  string VsVersion
+  string VsFileVersion
+  string PublicKeyToken
+  string AssemblyI18N
+  string AssemblyMicrosoft_JScript
+  string AssemblyMicrosoft_VisualStudio
+  string AssemblyMicrosoft_VisualStudio_Web
+  string AssemblyMicrosoft_VSDesigner
+  string AssemblyMono_Http
+  string AssemblyMono_Posix
+  string AssemblyMono_Security
+  string AssemblyMono_Messaging_RabbitMQ
+  string AssemblyCorlib
+  string AssemblySystem
+  string AssemblySystem_Data
+  string AssemblySystem_Design
+  string AssemblySystem_DirectoryServices
+  string AssemblySystem_Drawing
+  string AssemblySystem_Drawing_Design
+  string AssemblySystem_Messaging
+  string AssemblySystem_Security
+  string AssemblySystem_ServiceProcess
+  string AssemblySystem_Web
+  string AssemblySystem_Windows_Forms
+  string AssemblySystem_2_0
+  string AssemblySystemCore_3_5
+  string AssemblySystem_Core
+  string WindowsBase_3_0
+  string AssemblyWindowsBase
+  string AssemblyPresentationCore_3_5
+  string AssemblyPresentationCore_4_0
+  string AssemblyPresentationFramework_3_5
+  string AssemblySystemServiceModel_3_0
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Locale
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  string GetText(string msg)
+  string GetText(string fmt, Object[] args)
+--------------------------------------------------
+Класс: Mono.Data.Tds.TdsCollation
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  int LCID(Byte[] collation)
+  int CollationFlags(Byte[] collation)
+  int Version(Byte[] collation)
+  int SortId(Byte[] collation)
+--------------------------------------------------
+Класс: Mono.Data.Tds.TdsCharset
+Наследуется от: object
+Поля:
+  Hashtable lcidCodes
+  Hashtable sortCodes
+Свойства:
+Методы:
+  void .cctor()
+  Encoding GetEncoding(Byte[] collation)
+  Encoding GetEncodingFromLCID(Byte[] collation)
+  Encoding GetEncodingFromLCID(int lcid)
+  Encoding GetEncodingFromSortOrder(Byte[] collation)
+  Encoding GetEncodingFromSortOrder(int sortId)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsRpcProcId
+Наследуется от: Enum
+Поля:
+  int value__
+  TdsRpcProcId Cursor
+  TdsRpcProcId CursorOpen
+  TdsRpcProcId CursorPrepare
+  TdsRpcProcId CursorExecute
+  TdsRpcProcId CursorPrepExec
+  TdsRpcProcId CursorUnprepare
+  TdsRpcProcId CursorFetch
+  TdsRpcProcId CursorOption
+  TdsRpcProcId CursorClose
+  TdsRpcProcId ExecuteSql
+  TdsRpcProcId Prepare
+  TdsRpcProcId Execute
+  TdsRpcProcId PrepExec
+  TdsRpcProcId PrepExecRpc
+  TdsRpcProcId Unprepare
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Tds.FrameworkValueGetter
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  object Invoke(object rawValue, Boolean& updated)
+  IAsyncResult BeginInvoke(object rawValue, Boolean& updated, AsyncCallback callback, object object)
+  object EndInvoke(Boolean& updated, IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Tds.TdsMetaParameter
+Наследуется от: object
+Поля:
+  int maxVarCharCharacters
+  int maxNVarCharCharacters
+  TdsParameterDirection direction
+  byte precision
+  byte scale
+  int size
+  string typeName
+  string name
+  bool isSizeSet
+  bool isNullable
+  object value
+  bool isVariableSizeType
+  FrameworkValueGetter frameworkValueGetter
+  object rawValue
+  bool isUpdated
+  Dictionary`2<string, int> <>f__switch$map0
+  Dictionary`2<string, int> <>f__switch$map1
+  Dictionary`2<string, int> <>f__switch$map2
+  Dictionary`2<string, int> <>f__switch$map3
+Свойства:
+  TdsParameterDirection Direction
+  string TypeName
+  string ParameterName
+  bool IsNullable
+  object Value
+  object RawValue
+  byte Precision
+  byte Scale
+  int Size
+  bool IsVariableSizeType
+  bool IsVarNVarCharMax
+  bool IsVarCharMax
+  bool IsAnyVarCharMax
+  bool IsNonUnicodeText
+  bool IsMoneyType
+  bool IsDateTimeType
+  bool IsTextType
+  bool IsDecimalType
+Методы:
+  void .ctor(string name, object value)
+  void .ctor(string name, FrameworkValueGetter valueGetter)
+  void .ctor(string name, string typeName, object value)
+  void .ctor(string name, int size, bool isNullable, byte precision, byte scale, object value)
+  void .ctor(string name, int size, bool isNullable, byte precision, byte scale, FrameworkValueGetter valueGetter)
+  TdsParameterDirection get_Direction()
+  void set_Direction(TdsParameterDirection value)
+  string get_TypeName()
+  void set_TypeName(string value)
+  string get_ParameterName()
+  void set_ParameterName(string value)
+  bool get_IsNullable()
+  void set_IsNullable(bool value)
+  object get_Value()
+  void set_Value(object value)
+  object get_RawValue()
+  void set_RawValue(object value)
+  byte get_Precision()
+  void set_Precision(byte value)
+  byte get_Scale()
+  void set_Scale(byte value)
+  int get_Size()
+  void set_Size(int value)
+  bool get_IsVariableSizeType()
+  void set_IsVariableSizeType(bool value)
+  bool get_IsVarNVarCharMax()
+  bool get_IsVarCharMax()
+  bool get_IsAnyVarCharMax()
+  bool get_IsNonUnicodeText()
+  bool get_IsMoneyType()
+  bool get_IsDateTimeType()
+  bool get_IsTextType()
+  bool get_IsDecimalType()
+  object ResizeValue(object newValue)
+  string Prepare()
+  int GetActualSize()
+  int GetSize()
+  int GetDateTimePrecision()
+  int GetDateTimeStringLength(TdsColumnType type)
+  string GetDateTimeString(TdsColumnType type)
+  Byte[] GetBytes()
+  TdsColumnType GetMetaType()
+  void CalculateIsVariableType()
+  void Validate(int index)
+--------------------------------------------------
+Класс: Mono.Data.Tds.TdsMetaParameterCollection
+Наследуется от: object
+Поля:
+  ArrayList list
+Свойства:
+  int Count
+  bool IsSynchronized
+  TdsMetaParameter Item
+  TdsMetaParameter Item
+  object SyncRoot
+Методы:
+  void .ctor()
+  int get_Count()
+  bool get_IsSynchronized()
+  TdsMetaParameter get_Item(int index)
+  TdsMetaParameter get_Item(string name)
+  object get_SyncRoot()
+  int Add(TdsMetaParameter value)
+  void Clear()
+  bool Contains(TdsMetaParameter value)
+  void CopyTo(Array array, int index)
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  int IndexOf(TdsMetaParameter value)
+  int IndexOf(string name)
+  void Insert(int index, TdsMetaParameter value)
+  void Remove(TdsMetaParameter value)
+  void Remove(string name)
+  void RemoveAt(int index)
+--------------------------------------------------
+Класс: Mono.Data.Tds.TdsParameterDirection
+Наследуется от: Enum
+Поля:
+  int value__
+  TdsParameterDirection Input
+  TdsParameterDirection Output
+  TdsParameterDirection InputOutput
+  TdsParameterDirection ReturnValue
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.Tds
+Наследуется от: object
+Поля:
+  TdsComm comm
+  TdsVersion tdsVersion
+  TdsConnectionParameters connectionParms
+  Byte[] NTLMSSP_ID
+  int packetSize
+  string dataSource
+  string database
+  string originalDatabase
+  string databaseProductName
+  string databaseProductVersion
+  int databaseMajorVersion
+  CultureInfo locale
+  int lifeTime
+  DateTime created
+  string charset
+  string language
+  bool connected
+  bool moreResults
+  Encoding encoder
+  bool doneProc
+  bool pooling
+  TdsDataRow currentRow
+  TdsDataColumnCollection columns
+  ArrayList tableNames
+  ArrayList columnNames
+  TdsMetaParameterCollection parameters
+  bool queryInProgress
+  int cancelsRequested
+  int cancelsProcessed
+  ArrayList outputParameters
+  TdsInternalErrorCollection messages
+  int recordsAffected
+  long StreamLength
+  long StreamIndex
+  int StreamColumnIndex
+  bool sequentialAccess
+  bool isRowRead
+  bool isResultRead
+  bool LoadInProgress
+  Byte[] collation
+  int poolStatus
+  TdsInternalErrorMessageEventHandler TdsErrorMessage
+  TdsInternalInfoMessageEventHandler TdsInfoMessage
+Свойства:
+  string Charset
+  CultureInfo Locale
+  bool DoneProc
+  string Language
+  ArrayList ColumnNames
+  TdsDataRow ColumnValues
+  TdsComm Comm
+  string Database
+  string DataSource
+  bool IsConnected
+  bool Pooling
+  bool MoreResults
+  int PacketSize
+  int RecordsAffected
+  string ServerVersion
+  TdsDataColumnCollection Columns
+  TdsVersion TdsVersion
+  ArrayList OutputParameters
+  TdsMetaParameterCollection Parameters
+  bool SequentialAccess
+  Byte[] Collation
+  TdsVersion ServerTdsVersion
+  bool Expired
+Методы:
+  void .ctor(string dataSource, int port, int packetSize, int timeout, TdsVersion tdsVersion)
+  void .ctor(string dataSource, int port, int packetSize, int timeout, int lifeTime, TdsVersion tdsVersion)
+  string get_Charset()
+  CultureInfo get_Locale()
+  bool get_DoneProc()
+  string get_Language()
+  ArrayList get_ColumnNames()
+  TdsDataRow get_ColumnValues()
+  TdsComm get_Comm()
+  string get_Database()
+  string get_DataSource()
+  bool get_IsConnected()
+  void set_IsConnected(bool value)
+  bool get_Pooling()
+  void set_Pooling(bool value)
+  bool get_MoreResults()
+  void set_MoreResults(bool value)
+  int get_PacketSize()
+  int get_RecordsAffected()
+  void set_RecordsAffected(int value)
+  string get_ServerVersion()
+  TdsDataColumnCollection get_Columns()
+  TdsVersion get_TdsVersion()
+  ArrayList get_OutputParameters()
+  void set_OutputParameters(ArrayList value)
+  TdsMetaParameterCollection get_Parameters()
+  void set_Parameters(TdsMetaParameterCollection value)
+  bool get_SequentialAccess()
+  void set_SequentialAccess(bool value)
+  Byte[] get_Collation()
+  TdsVersion get_ServerTdsVersion()
+  void SkipRow()
+  void SkipToColumnIndex(int colIndex)
+  object GetSequentialColumnValue(int colIndex)
+  long GetSequentialColumnValue(int colIndex, long fieldIndex, Byte[] buffer, int bufferIndex, int size)
+  void BeginLoad(Nullable`1<TdsColumnType> colType)
+  void EndLoad()
+  long LoadData(long fieldIndex, Byte[] buffer, int bufferIndex, int size)
+  void add_TdsErrorMessage(TdsInternalErrorMessageEventHandler value)
+  void remove_TdsErrorMessage(TdsInternalErrorMessageEventHandler value)
+  void add_TdsInfoMessage(TdsInternalInfoMessageEventHandler value)
+  void remove_TdsInfoMessage(TdsInternalInfoMessageEventHandler value)
+  void InitComm(int port, int timeout)
+  bool get_Expired()
+  void InitExec()
+  void Cancel()
+  bool Connect(TdsConnectionParameters connectionParameters)
+  TdsTimeoutException CreateTimeoutException(string dataSource, string method)
+  void Disconnect()
+  bool Reset()
+  bool IsValidRowCount(byte status, byte op)
+  void Execute(string sql)
+  void ExecProc(string sql)
+  void Execute(string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void ExecProc(string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void ExecPrepared(string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void ExecBulkCopyMetaData(int timeout, bool wantResults)
+  void ExecBulkCopy(int timeout, bool wantResults)
+  void ExecuteQuery(string sql, int timeout, bool wantResults)
+  void ExecRPC(string rpcName, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  bool NextResult()
+  bool NextRow()
+  string Prepare(string sql, TdsMetaParameterCollection parameters)
+  void SkipToEnd()
+  void Unprepare(string statementId)
+  void CheckForData(int timeout)
+  TdsInternalInfoMessageEventArgs CreateTdsInfoMessageEvent(TdsInternalErrorCollection errors)
+  TdsInternalErrorMessageEventArgs CreateTdsErrorMessageEvent(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state)
+  Encoding GetEncodingFromColumnCollation(int lcid, int sortId)
+  object GetColumnValue(Nullable`1<TdsColumnType> colType, bool outParam)
+  object GetColumnValue(Nullable`1<TdsColumnType> colType, bool outParam, int ordinal)
+  object GetBinaryValue()
+  object GetVariantValue()
+  object GetDateTimeValue(Nullable`1<TdsColumnType> type)
+  object GetDecimalValue(byte precision, byte scale)
+  object GetDecimalValueTds70(byte precision, byte scale)
+  object GetDecimalValueTds50(byte precision, byte scale)
+  object GetFloatValue(Nullable`1<TdsColumnType> columnType)
+  object GetImageValue()
+  object GetIntValue(Nullable`1<TdsColumnType> type)
+  object GetMoneyValue(Nullable`1<TdsColumnType> type)
+  object GetStringValue(Nullable`1<TdsColumnType> colType, bool wideChars, bool outputParam, Encoding encoder)
+  object GetStringValue(bool wideChars, int len, Encoding enc)
+  int GetSubPacketLength()
+  object GetTextValue(bool wideChars, Encoding encoder)
+  bool IsBlobType(TdsColumnType columnType)
+  bool IsLargeType(TdsColumnType columnType)
+  bool IsWideType(TdsColumnType columnType)
+  bool IsFixedSizeColumn(TdsColumnType columnType)
+  void LoadRow()
+  int LookupBufferSize(TdsColumnType columnType)
+  int ProcessAuthentication()
+  void ProcessColumnDetail()
+  void ProcessColumnInfo()
+  void ProcessColumnNames()
+  void ProcessEndToken(TdsPacketSubType type)
+  void ProcessEnvironmentChange()
+  void ProcessLoginAck()
+  void OnTdsErrorMessage(TdsInternalErrorMessageEventArgs e)
+  void OnTdsInfoMessage(TdsInternalInfoMessageEventArgs e)
+  void ProcessMessage(TdsPacketSubType subType)
+  void ProcessOutputParam()
+  void ProcessDynamic()
+  TdsPacketSubType ProcessSubPacket()
+  void ProcessTableName()
+  void SetCharset(Encoding encoder)
+  void SetCharset(string charset)
+  void SetLanguage(string language)
+  void ProcessReturnStatus()
+  string GetPlainPassword(SecureString secPass)
+  IAsyncResult BeginExecuteQueryInternal(string sql, bool wantResults, AsyncCallback callback, object state)
+  void EndExecuteQueryInternal(IAsyncResult ar)
+  void OnBeginExecuteQueryCallback(IAsyncResult ar)
+  IAsyncResult BeginExecuteNonQuery(string sql, TdsMetaParameterCollection parameters, AsyncCallback callback, object state)
+  void EndExecuteNonQuery(IAsyncResult ar)
+  IAsyncResult BeginExecuteQuery(string sql, TdsMetaParameterCollection parameters, AsyncCallback callback, object state)
+  void EndExecuteQuery(IAsyncResult ar)
+  IAsyncResult BeginExecuteProcedure(string prolog, string epilog, string cmdText, bool IsNonQuery, TdsMetaParameterCollection parameters, AsyncCallback callback, object state)
+  void EndExecuteProcedure(IAsyncResult ar)
+  void WaitFor(IAsyncResult ar)
+  void CheckAndThrowException(IAsyncResult ar)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.Tds42
+Наследуется от: Tds
+Поля:
+  TdsVersion Version
+Свойства:
+Методы:
+  void .ctor(string server, int port)
+  void .ctor(string server, int port, int packetSize, int timeout)
+  bool Connect(TdsConnectionParameters connectionParameters)
+  void ProcessColumnInfo()
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.Tds50
+Наследуется от: Tds
+Поля:
+  TdsVersion Version
+  int packetSize
+  bool isSelectQuery
+  Dictionary`2<string, int> <>f__switch$map4
+Свойства:
+Методы:
+  void .ctor(string server, int port)
+  void .ctor(string server, int port, int packetSize, int timeout)
+  string BuildExec(string sql)
+  bool Connect(TdsConnectionParameters connectionParameters)
+  void ExecPrepared(string id, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void Execute(string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void ExecProc(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  string BuildProcedureCall(string procedure)
+  string BuildParameters()
+  string FormatParameter(TdsMetaParameter parameter)
+  string Prepare(string sql, TdsMetaParameterCollection parameters)
+  void ProcessColumnInfo()
+  void SendParamFormat()
+  void SendParams()
+  void Unprepare(string statementId)
+  bool IsValidRowCount(byte status, byte op)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.Tds70
+Наследуется от: Tds
+Поля:
+  decimal SMALLMONEY_MIN
+  decimal SMALLMONEY_MAX
+  Dictionary`2<string, int> <>f__switch$map5
+  Dictionary`2<string, int> <>f__switch$map6
+Свойства:
+  Byte[] ClientVersion
+  byte Precision
+Методы:
+  void .ctor(string server, int port)
+  void .ctor(string server, int port, int packetSize, int timeout)
+  void .ctor(string server, int port, int packetSize, int timeout, TdsVersion version)
+  void .ctor(string server, int port, int lifetime)
+  void .ctor(string server, int port, int packetSize, int timeout, int lifeTime)
+  void .ctor(string server, int port, int packetSize, int timeout, int lifeTime, TdsVersion version)
+  Byte[] get_ClientVersion()
+  byte get_Precision()
+  string BuildExec(string sql)
+  string BuildParameters()
+  string BuildPreparedParameters()
+  string BuildPreparedQuery(string id)
+  string BuildProcedureCall(string procedure)
+  bool Connect(TdsConnectionParameters connectionParameters)
+  string EncryptPassword(SecureString secPass)
+  bool Reset()
+  void ExecPrepared(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void ExecProc(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void WriteRpcParameterInfo(TdsMetaParameterCollection parameters)
+  void WritePreparedParameterInfo(TdsMetaParameterCollection parameters)
+  void ExecRPC(TdsRpcProcId rpcId, string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void ExecRPC(string rpcName, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void WriteParameterInfo(TdsMetaParameter param)
+  void Execute(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  string FormatParameter(TdsMetaParameter parameter)
+  string Prepare(string commandText, TdsMetaParameterCollection parameters)
+  void ProcessColumnInfo()
+  void Unprepare(string statementId)
+  bool IsValidRowCount(byte status, byte op)
+  void ProcessReturnStatus()
+  byte GetScale(TdsColumnType type, int columnSize)
+  byte GetPrecision(TdsColumnType type, int columnSize)
+  IAsyncResult BeginExecuteNonQuery(string cmdText, TdsMetaParameterCollection parameters, AsyncCallback callback, object state)
+  void EndExecuteNonQuery(IAsyncResult ar)
+  IAsyncResult BeginExecuteQuery(string cmdText, TdsMetaParameterCollection parameters, AsyncCallback callback, object state)
+  void EndExecuteQuery(IAsyncResult ar)
+  IAsyncResult BeginExecuteProcedure(string prolog, string epilog, string cmdText, bool IsNonQuery, TdsMetaParameterCollection parameters, AsyncCallback callback, object state)
+  void EndExecuteProcedure(IAsyncResult ar)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.Tds80
+Наследуется от: Tds70
+Поля:
+  TdsVersion Version
+Свойства:
+  Byte[] ClientVersion
+  byte Precision
+Методы:
+  void .ctor(string server, int port)
+  void .ctor(string server, int port, int packetSize, int timeout)
+  void .ctor(string server, int port, int lifetime)
+  void .ctor(string server, int port, int packetSize, int timeout, int lifeTime)
+  Byte[] get_ClientVersion()
+  byte get_Precision()
+  bool Connect(TdsConnectionParameters connectionParameters)
+  void ProcessColumnInfo()
+  void ProcessOutputParam()
+  void Execute(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void ExecPrepared(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsBigDecimal
+Наследуется от: object
+Поля:
+  bool isNegative
+  byte precision
+  byte scale
+  Int32[] data
+Свойства:
+  Int32[] Data
+  byte Precision
+  byte Scale
+  bool IsNegative
+Методы:
+  void .ctor(byte precision, byte scale, bool isNegative, Int32[] data)
+  Int32[] get_Data()
+  byte get_Precision()
+  byte get_Scale()
+  bool get_IsNegative()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsBulkCopy
+Наследуется от: object
+Поля:
+  Tds tds
+Свойства:
+Методы:
+  void .ctor(Tds tds)
+  bool SendColumnMetaData(string colMetaData)
+  bool BulkCopyStart(TdsMetaParameterCollection parameters)
+  bool BulkCopyData(object o, bool isNewRow, int size, TdsMetaParameter parameter)
+  bool BulkCopyEnd()
+  void WriteParameterInfo(TdsMetaParameter param)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsColumnStatus
+Наследуется от: Enum
+Поля:
+  int value__
+  TdsColumnStatus IsExpression
+  TdsColumnStatus IsKey
+  TdsColumnStatus Hidden
+  TdsColumnStatus Rename
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsColumnType
+Наследуется от: Enum
+Поля:
+  int value__
+  TdsColumnType Binary
+  TdsColumnType Bit
+  TdsColumnType Char
+  TdsColumnType DateTime
+  TdsColumnType DateTime4
+  TdsColumnType DateTime2
+  TdsColumnType DateTimeOffset
+  TdsColumnType DateTimeN
+  TdsColumnType Decimal
+  TdsColumnType Real
+  TdsColumnType Float8
+  TdsColumnType FloatN
+  TdsColumnType Image
+  TdsColumnType Int1
+  TdsColumnType Int2
+  TdsColumnType Int4
+  TdsColumnType IntN
+  TdsColumnType Void
+  TdsColumnType Text
+  TdsColumnType UniqueIdentifier
+  TdsColumnType VarBinary
+  TdsColumnType VarChar
+  TdsColumnType Money
+  TdsColumnType NText
+  TdsColumnType NVarChar
+  TdsColumnType BitN
+  TdsColumnType Numeric
+  TdsColumnType MoneyN
+  TdsColumnType Money4
+  TdsColumnType NChar
+  TdsColumnType BigBinary
+  TdsColumnType BigVarBinary
+  TdsColumnType BigVarChar
+  TdsColumnType BigNVarChar
+  TdsColumnType BigChar
+  TdsColumnType SmallMoney
+  TdsColumnType Variant
+  TdsColumnType BigInt
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsComm
+Наследуется от: object
+Поля:
+  NetworkStream stream
+  int packetSize
+  TdsPacketType packetType
+  bool connReset
+  Encoding encoder
+  string dataSource
+  int commandTimeout
+  Byte[] outBuffer
+  int outBufferLength
+  int nextOutBufferIndex
+  bool lsb
+  Byte[] inBuffer
+  int inBufferLength
+  int inBufferIndex
+  int headerLength
+  Byte[] tmpBuf
+  Byte[] resBuffer
+  int packetsSent
+  int packetsReceived
+  Socket socket
+  TdsVersion tdsVersion
+Свойства:
+  int CommandTimeout
+  Encoding Encoder
+  int PacketSize
+  bool TdsByteOrder
+  bool ResetConnection
+Методы:
+  void .ctor(string dataSource, int port, int packetSize, int timeout, TdsVersion tdsVersion)
+  int get_CommandTimeout()
+  void set_CommandTimeout(int value)
+  Encoding get_Encoder()
+  void set_Encoder(Encoding value)
+  int get_PacketSize()
+  void set_PacketSize(int value)
+  bool get_TdsByteOrder()
+  void set_TdsByteOrder(bool value)
+  Byte[] Swap(Byte[] toswap)
+  void SendIfFull()
+  void SendIfFull(int reserve)
+  void Append(object o)
+  void Append(byte b)
+  void Append(DateTime t, int bytes)
+  void Append(Byte[] b)
+  void Append(Byte[] b, int len, byte pad)
+  void AppendInternal(short s)
+  void Append(short s)
+  void Append(ushort s)
+  void AppendInternal(int i)
+  void Append(int i)
+  void Append(string s)
+  void AppendNonUnicode(string s)
+  Byte[] Append(string s, int len, byte pad)
+  void Append(double value)
+  void Append(float value)
+  void Append(long l)
+  void Append(decimal d, int bytes)
+  void AppendMoney(decimal d, int size)
+  void AppendDecimal(decimal d, int bytes, int scale)
+  void Close()
+  bool IsConnected()
+  byte GetByte()
+  Byte[] GetBytes(int len, bool exclusiveBuffer)
+  string GetString(int len, Encoding enc)
+  string GetString(int len)
+  string GetString(int len, bool wide, Encoding enc)
+  string GetString(int len, bool wide)
+  int GetNetShort()
+  short GetTdsShort()
+  int GetTdsInt()
+  long GetTdsInt64()
+  void GetPhysicalPacket()
+  int Read(Byte[] buffer, int offset, int count)
+  int GetPhysicalPacketHeader()
+  void GetPhysicalPacketData(int length)
+  int Ntohs(Byte[] buf, int offset)
+  byte Peek()
+  bool Poll(int seconds, SelectMode selectMode)
+  bool Poll(Socket s, int seconds, SelectMode selectMode)
+  void ResizeOutBuf(int newSize)
+  bool get_ResetConnection()
+  void set_ResetConnection(bool value)
+  void SendPacket()
+  void SendPhysicalPacket(bool isLastSegment)
+  void Skip(long i)
+  void StartPacket(TdsPacketType type)
+  void Store(int index, byte value)
+  void Store(int index, short value)
+  IAsyncResult BeginReadPacket(AsyncCallback callback, object stateObject)
+  int EndReadPacket(IAsyncResult ar)
+  void OnReadPacketCallback(IAsyncResult socketAsyncResult)
+  void .cctor()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsConnectionParameters
+Наследуется от: object
+Поля:
+  string ApplicationName
+  string Database
+  string Charset
+  string Hostname
+  string Language
+  string LibraryName
+  SecureString Password
+  bool PasswordSet
+  string ProgName
+  string User
+  bool DomainLogin
+  string DefaultDomain
+  string AttachDBFileName
+Свойства:
+Методы:
+  void .ctor()
+  void Reset()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsConnectionPoolManager
+Наследуется от: object
+Поля:
+  Hashtable pools
+  TdsVersion version
+Свойства:
+Методы:
+  void .ctor(TdsVersion version)
+  TdsConnectionPool GetConnectionPool(string connectionString, TdsConnectionInfo info)
+  TdsConnectionPool GetConnectionPool(string connectionString)
+  Tds CreateConnection(TdsConnectionInfo info)
+  IDictionary GetConnectionPool()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsConnectionInfo
+Наследуется от: object
+Поля:
+  string DataSource
+  int Port
+  int PacketSize
+  int Timeout
+  int LifeTime
+  int PoolMinSize
+  int PoolMaxSize
+Свойства:
+Методы:
+  void .ctor(string dataSource, int port, int packetSize, int timeout, int minSize, int maxSize)
+  void .ctor(string dataSource, int port, int packetSize, int timeout, int minSize, int maxSize, int lifeTime)
+  string ToString()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsConnectionPool
+Наследуется от: object
+Поля:
+  TdsConnectionInfo info
+  bool no_pooling
+  TdsConnectionPoolManager manager
+  Queue available
+  ArrayList conns
+  int in_progress
+Свойства:
+  bool Pooling
+Методы:
+  void .ctor(TdsConnectionPoolManager manager, TdsConnectionInfo info)
+  void InitializePool()
+  bool get_Pooling()
+  void set_Pooling(bool value)
+  Tds GetConnection()
+  void ReleaseConnection(Tds connection)
+  void ResetConnectionPool()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsDataColumn
+Наследуется от: object
+Поля:
+  Hashtable properties
+  Nullable`1<TdsColumnType> <ColumnType>k__BackingField
+  string <ColumnName>k__BackingField
+  Nullable`1<int> <ColumnSize>k__BackingField
+  Nullable`1<int> <ColumnOrdinal>k__BackingField
+  Nullable`1<bool> <IsAutoIncrement>k__BackingField
+  Nullable`1<bool> <IsIdentity>k__BackingField
+  Nullable`1<bool> <IsRowVersion>k__BackingField
+  Nullable`1<bool> <IsUnique>k__BackingField
+  Nullable`1<bool> <IsHidden>k__BackingField
+  Nullable`1<bool> <IsKey>k__BackingField
+  Nullable`1<bool> <IsAliased>k__BackingField
+  Nullable`1<bool> <IsExpression>k__BackingField
+  Nullable`1<bool> <IsReadOnly>k__BackingField
+  Nullable`1<short> <NumericPrecision>k__BackingField
+  Nullable`1<short> <NumericScale>k__BackingField
+  string <BaseServerName>k__BackingField
+  string <BaseCatalogName>k__BackingField
+  string <BaseColumnName>k__BackingField
+  string <BaseSchemaName>k__BackingField
+  string <BaseTableName>k__BackingField
+  Nullable`1<bool> <AllowDBNull>k__BackingField
+  Nullable`1<int> <LCID>k__BackingField
+  Nullable`1<int> <SortOrder>k__BackingField
+  string <DataTypeName>k__BackingField
+Свойства:
+  Nullable`1<TdsColumnType> ColumnType
+  string ColumnName
+  Nullable`1<int> ColumnSize
+  Nullable`1<int> ColumnOrdinal
+  Nullable`1<bool> IsAutoIncrement
+  Nullable`1<bool> IsIdentity
+  Nullable`1<bool> IsRowVersion
+  Nullable`1<bool> IsUnique
+  Nullable`1<bool> IsHidden
+  Nullable`1<bool> IsKey
+  Nullable`1<bool> IsAliased
+  Nullable`1<bool> IsExpression
+  Nullable`1<bool> IsReadOnly
+  Nullable`1<short> NumericPrecision
+  Nullable`1<short> NumericScale
+  string BaseServerName
+  string BaseCatalogName
+  string BaseColumnName
+  string BaseSchemaName
+  string BaseTableName
+  Nullable`1<bool> AllowDBNull
+  Nullable`1<int> LCID
+  Nullable`1<int> SortOrder
+  string DataTypeName
+  object Item
+Методы:
+  void .ctor()
+  Nullable`1<TdsColumnType> get_ColumnType()
+  void set_ColumnType(Nullable`1<TdsColumnType> value)
+  string get_ColumnName()
+  void set_ColumnName(string value)
+  Nullable`1<int> get_ColumnSize()
+  void set_ColumnSize(Nullable`1<int> value)
+  Nullable`1<int> get_ColumnOrdinal()
+  void set_ColumnOrdinal(Nullable`1<int> value)
+  Nullable`1<bool> get_IsAutoIncrement()
+  void set_IsAutoIncrement(Nullable`1<bool> value)
+  Nullable`1<bool> get_IsIdentity()
+  void set_IsIdentity(Nullable`1<bool> value)
+  Nullable`1<bool> get_IsRowVersion()
+  void set_IsRowVersion(Nullable`1<bool> value)
+  Nullable`1<bool> get_IsUnique()
+  void set_IsUnique(Nullable`1<bool> value)
+  Nullable`1<bool> get_IsHidden()
+  void set_IsHidden(Nullable`1<bool> value)
+  Nullable`1<bool> get_IsKey()
+  void set_IsKey(Nullable`1<bool> value)
+  Nullable`1<bool> get_IsAliased()
+  void set_IsAliased(Nullable`1<bool> value)
+  Nullable`1<bool> get_IsExpression()
+  void set_IsExpression(Nullable`1<bool> value)
+  Nullable`1<bool> get_IsReadOnly()
+  void set_IsReadOnly(Nullable`1<bool> value)
+  Nullable`1<short> get_NumericPrecision()
+  void set_NumericPrecision(Nullable`1<short> value)
+  Nullable`1<short> get_NumericScale()
+  void set_NumericScale(Nullable`1<short> value)
+  string get_BaseServerName()
+  void set_BaseServerName(string value)
+  string get_BaseCatalogName()
+  void set_BaseCatalogName(string value)
+  string get_BaseColumnName()
+  void set_BaseColumnName(string value)
+  string get_BaseSchemaName()
+  void set_BaseSchemaName(string value)
+  string get_BaseTableName()
+  void set_BaseTableName(string value)
+  Nullable`1<bool> get_AllowDBNull()
+  void set_AllowDBNull(Nullable`1<bool> value)
+  Nullable`1<int> get_LCID()
+  void set_LCID(Nullable`1<int> value)
+  Nullable`1<int> get_SortOrder()
+  void set_SortOrder(Nullable`1<int> value)
+  string get_DataTypeName()
+  void set_DataTypeName(string value)
+  object get_Item(string key)
+  void set_Item(string key, object value)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsDataColumnCollection
+Наследуется от: object
+Поля:
+  ArrayList list
+Свойства:
+  TdsDataColumn Item
+  int Count
+Методы:
+  void .ctor()
+  TdsDataColumn get_Item(int index)
+  void set_Item(int index, TdsDataColumn value)
+  int get_Count()
+  int Add(TdsDataColumn schema)
+  void Add(TdsDataColumnCollection columns)
+  IEnumerator GetEnumerator()
+  void Clear()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsDataRow
+Наследуется от: object
+Поля:
+  ArrayList list
+  int bigDecimalIndex
+Свойства:
+  int BigDecimalIndex
+  int Count
+  bool IsFixedSize
+  bool IsReadOnly
+  bool IsSynchronized
+  object SyncRoot
+  object Item
+Методы:
+  void .ctor()
+  int get_BigDecimalIndex()
+  void set_BigDecimalIndex(int value)
+  int get_Count()
+  bool get_IsFixedSize()
+  bool get_IsReadOnly()
+  bool get_IsSynchronized()
+  object get_SyncRoot()
+  object get_Item(int index)
+  void set_Item(int index, object value)
+  int Add(object value)
+  void Clear()
+  bool Contains(object value)
+  void CopyTo(Array array, int index)
+  void CopyTo(int index, Array array, int arrayIndex, int count)
+  IEnumerator GetEnumerator()
+  int IndexOf(object value)
+  void Insert(int index, object value)
+  void Remove(object value)
+  void RemoveAt(int index)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsEnvPacketSubType
+Наследуется от: Enum
+Поля:
+  int value__
+  TdsEnvPacketSubType Database
+  TdsEnvPacketSubType CharSet
+  TdsEnvPacketSubType BlockSize
+  TdsEnvPacketSubType Locale
+  TdsEnvPacketSubType CollationInfo
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsInternalError
+Наследуется от: object
+Поля:
+  byte theClass
+  int lineNumber
+  string message
+  int number
+  string procedure
+  string server
+  string source
+  byte state
+Свойства:
+  byte Class
+  int LineNumber
+  string Message
+  int Number
+  string Procedure
+  string Server
+  string Source
+  byte State
+Методы:
+  void .ctor(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state)
+  byte get_Class()
+  void set_Class(byte value)
+  int get_LineNumber()
+  void set_LineNumber(int value)
+  string get_Message()
+  void set_Message(string value)
+  int get_Number()
+  void set_Number(int value)
+  string get_Procedure()
+  void set_Procedure(string value)
+  string get_Server()
+  void set_Server(string value)
+  string get_Source()
+  void set_Source(string value)
+  byte get_State()
+  void set_State(byte value)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsInternalErrorCollection
+Наследуется от: object
+Поля:
+  ArrayList list
+Свойства:
+  int Count
+  TdsInternalError Item
+Методы:
+  void .ctor()
+  int get_Count()
+  TdsInternalError get_Item(int index)
+  void set_Item(int index, TdsInternalError value)
+  int Add(TdsInternalError error)
+  void Clear()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs
+Наследуется от: TdsInternalInfoMessageEventArgs
+Поля:
+Свойства:
+Методы:
+  void .ctor(TdsInternalError error)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, TdsInternalErrorMessageEventArgs e)
+  IAsyncResult BeginInvoke(object sender, TdsInternalErrorMessageEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsInternalException
+Наследуется от: SystemException
+Поля:
+  byte theClass
+  int lineNumber
+  int number
+  string procedure
+  string server
+  string source
+  byte state
+Свойства:
+  byte Class
+  int LineNumber
+  string Message
+  int Number
+  string Procedure
+  string Server
+  string Source
+  byte State
+Методы:
+  void .ctor()
+  void .ctor(string message, Exception innerException)
+  void .ctor(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state)
+  byte get_Class()
+  int get_LineNumber()
+  string get_Message()
+  int get_Number()
+  string get_Procedure()
+  string get_Server()
+  string get_Source()
+  byte get_State()
+  void GetObjectData(SerializationInfo si, StreamingContext context)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsInternalInfoMessageEventArgs
+Наследуется от: EventArgs
+Поля:
+  TdsInternalErrorCollection errors
+Свойства:
+  TdsInternalErrorCollection Errors
+  byte Class
+  int LineNumber
+  string Message
+  int Number
+  string Procedure
+  string Server
+  string Source
+  byte State
+Методы:
+  void .ctor(TdsInternalErrorCollection errors)
+  void .ctor(TdsInternalError error)
+  TdsInternalErrorCollection get_Errors()
+  byte get_Class()
+  int get_LineNumber()
+  string get_Message()
+  int get_Number()
+  string get_Procedure()
+  string get_Server()
+  string get_Source()
+  byte get_State()
+  int Add(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsInternalInfoMessageEventHandler
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(object sender, TdsInternalInfoMessageEventArgs e)
+  IAsyncResult BeginInvoke(object sender, TdsInternalInfoMessageEventArgs e, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsPacketSubType
+Наследуется от: Enum
+Поля:
+  int value__
+  TdsPacketSubType Capability
+  TdsPacketSubType Dynamic
+  TdsPacketSubType Dynamic2
+  TdsPacketSubType EnvironmentChange
+  TdsPacketSubType Error
+  TdsPacketSubType Info
+  TdsPacketSubType EED
+  TdsPacketSubType Param
+  TdsPacketSubType Authentication
+  TdsPacketSubType LoginAck
+  TdsPacketSubType ReturnStatus
+  TdsPacketSubType ProcId
+  TdsPacketSubType Done
+  TdsPacketSubType DoneProc
+  TdsPacketSubType DoneInProc
+  TdsPacketSubType ColumnName
+  TdsPacketSubType ColumnInfo
+  TdsPacketSubType ColumnDetail
+  TdsPacketSubType AltName
+  TdsPacketSubType AltFormat
+  TdsPacketSubType TableName
+  TdsPacketSubType ColumnOrder
+  TdsPacketSubType Control
+  TdsPacketSubType Row
+  TdsPacketSubType ColumnMetadata
+  TdsPacketSubType RowFormat
+  TdsPacketSubType ParamFormat
+  TdsPacketSubType Parameters
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsPacketType
+Наследуется от: Enum
+Поля:
+  int value__
+  TdsPacketType None
+  TdsPacketType Query
+  TdsPacketType Logon
+  TdsPacketType Proc
+  TdsPacketType Reply
+  TdsPacketType Cancel
+  TdsPacketType Bulk
+  TdsPacketType Logon70
+  TdsPacketType SspAuth
+  TdsPacketType Logoff
+  TdsPacketType Normal
+  TdsPacketType DBRPC
+  TdsPacketType RPC
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsTimeoutException
+Наследуется от: TdsInternalException
+Поля:
+Свойства:
+Методы:
+  void .ctor(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsVersion
+Наследуется от: Enum
+Поля:
+  int value__
+  TdsVersion tds42
+  TdsVersion tds50
+  TdsVersion tds70
+  TdsVersion tds80
+  TdsVersion tds81
+  TdsVersion tds90
+  TdsVersion tds100
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: System.MonoTODOAttribute
+Наследуется от: Attribute
+Поля:
+  string comment
+Свойства:
+  string Comment
+Методы:
+  void .ctor()
+  void .ctor(string comment)
+  string get_Comment()
+--------------------------------------------------
+Класс: System.MonoDocumentationNoteAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoExtensionAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoInternalNoteAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoLimitationAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: System.MonoNotSupportedAttribute
+Наследуется от: MonoTODOAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor(string comment)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsAsyncState
+Наследуется от: object
+Поля:
+  object _userState
+  bool _wantResults
+Свойства:
+  object UserState
+  bool WantResults
+Методы:
+  void .ctor(object userState)
+  object get_UserState()
+  void set_UserState(object value)
+  bool get_WantResults()
+  void set_WantResults(bool value)
+--------------------------------------------------
+Класс: Mono.Data.Tds.Protocol.TdsAsyncResult
+Наследуется от: object
+Поля:
+  TdsAsyncState _tdsState
+  WaitHandle _waitHandle
+  bool _completed
+  bool _completedSyncly
+  AsyncCallback _userCallback
+  object _retValue
+  Exception _exception
+Свойства:
+  object AsyncState
+  TdsAsyncState TdsAsyncState
+  WaitHandle AsyncWaitHandle
+  bool IsCompleted
+  bool IsCompletedWithException
+  Exception Exception
+  bool CompletedSynchronously
+  object ReturnValue
+Методы:
+  void .ctor(AsyncCallback userCallback, TdsAsyncState tdsState)
+  void .ctor(AsyncCallback userCallback, object state)
+  object get_AsyncState()
+  TdsAsyncState get_TdsAsyncState()
+  WaitHandle get_AsyncWaitHandle()
+  bool get_IsCompleted()
+  bool get_IsCompletedWithException()
+  Exception get_Exception()
+  bool get_CompletedSynchronously()
+  object get_ReturnValue()
+  void set_ReturnValue(object value)
+  void MarkComplete()
+  void MarkComplete(Exception e)
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  $ArrayType=8 $field-6FA00AC9FFFD87F82A38A7F9ECC8134F4A7052AF
+  $ArrayType=8 $field-D4A2B8DD443B8D4CD0F661948A1B15C57AFFAA9F
+  $ArrayType=8 $field-42EB84ECA4FB2CEE9BBA83DBE2B7BC6A64EC51FA
+  $ArrayType=24 $field-D712FF99532FBBD6977913FAA0F589C4A8727910
+  $ArrayType=24 $field-892BFD75A9B96F874083A177A2D214937E460100
+Свойства:
+Методы:
+--------------------------------------------------

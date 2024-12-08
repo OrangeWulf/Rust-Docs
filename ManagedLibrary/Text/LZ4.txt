@@ -1,0 +1,279 @@
+Сборка: LZ4.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: LZ4ps.LZ4Codec
+Наследуется от: object
+Поля:
+  int MEMORY_USAGE
+  int NOTCOMPRESSIBLE_DETECTIONLEVEL
+  int BLOCK_COPY_LIMIT
+  int MINMATCH
+  int SKIPSTRENGTH
+  int COPYLENGTH
+  int LASTLITERALS
+  int MFLIMIT
+  int MINLENGTH
+  int MAXD_LOG
+  int MAXD
+  int MAXD_MASK
+  int MAX_DISTANCE
+  int ML_BITS
+  int ML_MASK
+  int RUN_BITS
+  int RUN_MASK
+  int STEPSIZE_64
+  int STEPSIZE_32
+  int LZ4_64KLIMIT
+  int HASH_LOG
+  int HASH_TABLESIZE
+  int HASH_ADJUST
+  int HASH64K_LOG
+  int HASH64K_TABLESIZE
+  int HASH64K_ADJUST
+  int HASHHC_LOG
+  int HASHHC_TABLESIZE
+  int HASHHC_ADJUST
+  int MAX_NB_ATTEMPTS
+  int OPTIMAL_ML
+  Int32[] DECODER_TABLE_32
+  Int32[] DECODER_TABLE_64
+  Int32[] DEBRUIJN_TABLE_32
+  Int32[] DEBRUIJN_TABLE_64
+Свойства:
+Методы:
+  int MaximumOutputLength(int inputLength)
+  void CheckArguments(Byte[] input, int inputOffset, Int32& inputLength, Byte[] output, int outputOffset, Int32& outputLength)
+  void Assert(bool condition, string errorMessage)
+  void Poke2(Byte[] buffer, int offset, ushort value)
+  ushort Peek2(Byte[] buffer, int offset)
+  UInt32 Peek4(Byte[] buffer, int offset)
+  UInt32 Xor4(Byte[] buffer, int offset1, int offset2)
+  ulong Xor8(Byte[] buffer, int offset1, int offset2)
+  bool Equal2(Byte[] buffer, int offset1, int offset2)
+  bool Equal4(Byte[] buffer, int offset1, int offset2)
+  void Copy4(Byte[] buf, int src, int dst)
+  void Copy8(Byte[] buf, int src, int dst)
+  void BlockCopy(Byte[] src, int src_0, Byte[] dst, int dst_0, int len)
+  int WildCopy(Byte[] src, int src_0, Byte[] dst, int dst_0, int dst_end)
+  int SecureCopy(Byte[] buffer, int src, int dst, int dst_end)
+  int Encode32(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  Byte[] Encode32(Byte[] input, int inputOffset, int inputLength)
+  int Encode64(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  Byte[] Encode64(Byte[] input, int inputOffset, int inputLength)
+  int Decode32(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength)
+  Byte[] Decode32(Byte[] input, int inputOffset, int inputLength, int outputLength)
+  int Decode64(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength)
+  Byte[] Decode64(Byte[] input, int inputOffset, int inputLength, int outputLength)
+  LZ4HC_Data_Structure LZ4HC_Create(Byte[] src, int src_0, int src_len, Byte[] dst, int dst_0, int dst_len)
+  int LZ4_compressHC_32(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  int Encode32HC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  Byte[] Encode32HC(Byte[] input, int inputOffset, int inputLength)
+  int LZ4_compressHC_64(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  int Encode64HC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  Byte[] Encode64HC(Byte[] input, int inputOffset, int inputLength)
+  int LZ4_compressCtx_safe32(Int32[] hash_table, Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen)
+  int LZ4_compress64kCtx_safe32(UInt16[] hash_table, Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen)
+  int LZ4_uncompress_safe32(Byte[] src, Byte[] dst, int src_0, int dst_0, int dst_len)
+  int LZ4_uncompress_unknownOutputSize_safe32(Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen)
+  void LZ4HC_Insert_32(LZ4HC_Data_Structure ctx, int src_p)
+  int LZ4HC_CommonLength_32(LZ4HC_Data_Structure ctx, int p1, int p2)
+  int LZ4HC_InsertAndFindBestMatch_32(LZ4HC_Data_Structure ctx, int src_p, Int32& src_match)
+  int LZ4HC_InsertAndGetWiderMatch_32(LZ4HC_Data_Structure ctx, int src_p, int startLimit, int longest, Int32& matchpos, Int32& startpos)
+  int LZ4_encodeSequence_32(LZ4HC_Data_Structure ctx, Int32& src_p, Int32& dst_p, Int32& src_anchor, int matchLength, int src_ref, int dst_end)
+  int LZ4_compressHCCtx_32(LZ4HC_Data_Structure ctx)
+  int LZ4_compressCtx_safe64(Int32[] hash_table, Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen)
+  int LZ4_compress64kCtx_safe64(UInt16[] hash_table, Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen)
+  int LZ4_uncompress_safe64(Byte[] src, Byte[] dst, int src_0, int dst_0, int dst_len)
+  int LZ4_uncompress_unknownOutputSize_safe64(Byte[] src, Byte[] dst, int src_0, int dst_0, int src_len, int dst_maxlen)
+  void LZ4HC_Insert_64(LZ4HC_Data_Structure ctx, int src_p)
+  int LZ4HC_CommonLength_64(LZ4HC_Data_Structure ctx, int p1, int p2)
+  int LZ4HC_InsertAndFindBestMatch_64(LZ4HC_Data_Structure ctx, int src_p, Int32& matchpos)
+  int LZ4HC_InsertAndGetWiderMatch_64(LZ4HC_Data_Structure ctx, int src_p, int startLimit, int longest, Int32& matchpos, Int32& startpos)
+  int LZ4_encodeSequence_64(LZ4HC_Data_Structure ctx, Int32& src_p, Int32& dst_p, Int32& src_anchor, int matchLength, int src_ref)
+  int LZ4_compressHCCtx_64(LZ4HC_Data_Structure ctx)
+  void .cctor()
+--------------------------------------------------
+Класс: LZ4.LZ4StreamFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  LZ4StreamFlags None
+  LZ4StreamFlags InteractiveRead
+  LZ4StreamFlags HighCompression
+  LZ4StreamFlags IsolateInnerStream
+  LZ4StreamFlags Default
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: LZ4.LZ4StreamMode
+Наследуется от: Enum
+Поля:
+  int value__
+  LZ4StreamMode Compress
+  LZ4StreamMode Decompress
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: LZ4.ILZ4Service
+Поля:
+Свойства:
+  string CodecName
+Методы:
+  string get_CodecName()
+  int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength)
+--------------------------------------------------
+Класс: LZ4.Services.Safe32LZ4Service
+Наследуется от: object
+Поля:
+Свойства:
+  string CodecName
+Методы:
+  string get_CodecName()
+  int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength)
+  int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  void .ctor()
+--------------------------------------------------
+Класс: LZ4.Services.Safe64LZ4Service
+Наследуется от: object
+Поля:
+Свойства:
+  string CodecName
+Методы:
+  string get_CodecName()
+  int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength)
+  int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  void .ctor()
+--------------------------------------------------
+Класс: LZ4.Services.Unsafe64LZ4Service
+Наследуется от: object
+Поля:
+Свойства:
+  string CodecName
+Методы:
+  string get_CodecName()
+  int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength)
+  int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  void .ctor()
+--------------------------------------------------
+Класс: LZ4.LZ4Codec
+Наследуется от: object
+Поля:
+  int WRAP_OFFSET_0
+  int WRAP_OFFSET_4
+  int WRAP_OFFSET_8
+  int WRAP_LENGTH
+  ILZ4Service Encoder
+  ILZ4Service EncoderHC
+  ILZ4Service Decoder
+  ILZ4Service _service_MM32
+  ILZ4Service _service_MM64
+  ILZ4Service _service_CC32
+  ILZ4Service _service_CC64
+  ILZ4Service _service_N32
+  ILZ4Service _service_N64
+  ILZ4Service _service_S32
+  ILZ4Service _service_S64
+Свойства:
+  string CodecName
+Методы:
+  bool Has2010Runtime()
+  void InitializeLZ4mm()
+  void InitializeLZ4cc()
+  void InitializeLZ4n()
+  void InitializeLZ4s()
+  void .cctor()
+  void SelectCodec(ILZ4Service& encoder, ILZ4Service& decoder, ILZ4Service& encoderHC)
+  ILZ4Service AutoTest(ILZ4Service service)
+  void Try(Action method)
+  T Try(Func`1<T> method, T defaultValue)
+  ILZ4Service TryService()
+  string get_CodecName()
+  int MaximumOutputLength(int inputLength)
+  int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  Byte[] Encode(Byte[] input, int inputOffset, int inputLength)
+  int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  Byte[] EncodeHC(Byte[] input, int inputOffset, int inputLength)
+  int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength)
+  Byte[] Decode(Byte[] input, int inputOffset, int inputLength, int outputLength)
+  void Poke4(Byte[] buffer, int offset, UInt32 value)
+  UInt32 Peek4(Byte[] buffer, int offset)
+  Byte[] Wrap(Byte[] inputBuffer, int inputOffset, int inputLength, bool highCompression)
+  Byte[] Wrap(Byte[] inputBuffer, int inputOffset, int inputLength)
+  Byte[] WrapHC(Byte[] inputBuffer, int inputOffset, int inputLength)
+  Byte[] Unwrap(Byte[] inputBuffer, int inputOffset)
+--------------------------------------------------
+Класс: LZ4.LZ4Stream
+Наследуется от: Stream
+Поля:
+  Stream _innerStream
+  LZ4StreamMode _compressionMode
+  bool _highCompression
+  bool _interactiveRead
+  bool _isolateInnerStream
+  int _blockSize
+  Byte[] _buffer
+  int _bufferLength
+  int _bufferOffset
+Свойства:
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream innerStream, LZ4StreamMode compressionMode, bool highCompression, int blockSize, bool interactiveRead)
+  void .ctor(Stream innerStream, LZ4StreamMode compressionMode, LZ4StreamFlags compressionFlags, int blockSize)
+  NotSupportedException NotSupported(string operationName)
+  EndOfStreamException EndOfStream()
+  bool TryReadVarInt(UInt64& result)
+  ulong ReadVarInt()
+  int ReadBlock(Byte[] buffer, int offset, int length)
+  void WriteVarInt(ulong value)
+  void FlushCurrentChunk()
+  bool AcquireNextChunk()
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  int ReadByte()
+  int Read(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void WriteByte(byte value)
+  void Write(Byte[] buffer, int offset, int count)
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: LZ4.Services.Unsafe32LZ4Service
+Наследуется от: object
+Поля:
+Свойства:
+  string CodecName
+Методы:
+  string get_CodecName()
+  int Encode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  int Decode(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength, bool knownOutputLength)
+  int EncodeHC(Byte[] input, int inputOffset, int inputLength, Byte[] output, int outputOffset, int outputLength)
+  void .ctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>{4136EF42-BA0E-48C1-8B0C-A481CDC84FC8}
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=32 $$method0x600007d-1
+  __StaticArrayInitTypeSize=32 $$method0x600007d-2
+  __StaticArrayInitTypeSize=128 $$method0x600007d-3
+  __StaticArrayInitTypeSize=256 $$method0x600007d-4
+Свойства:
+Методы:
+--------------------------------------------------

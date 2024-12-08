@@ -1,0 +1,154 @@
+internal enum UnityEngine.Experimental.XR.DeleteMe : Enum {
+    public int value__;
+    public static DeleteMe Please;
+}
+public enum UnityEngine.XR.GameViewRenderMode : Enum {
+    public int value__;
+    public static GameViewRenderMode None;
+    public static GameViewRenderMode LeftEye;
+    public static GameViewRenderMode RightEye;
+    public static GameViewRenderMode BothEyes;
+    public static GameViewRenderMode OcclusionMesh;
+}
+[ObsoleteAttribute("This is obsolete, and should no longer be used.  Please use InputTrackingModeFlags.")]
+public enum UnityEngine.XR.TrackingSpaceType : Enum {
+    public int value__;
+    public static TrackingSpaceType Stationary;
+    public static TrackingSpaceType RoomScale;
+}
+internal enum UnityEngine.XR.WSA.Input.DeleteMe : Enum {
+    public int value__;
+    public static DeleteMe Please;
+}
+public enum UnityEngine.XR.WSA.RemoteDeviceVersion : Enum {
+    public int value__;
+    public static RemoteDeviceVersion V1;
+    public static RemoteDeviceVersion V2;
+}
+[NativeConditionalAttribute("ENABLE_VR")]
+public static class UnityEngine.XR.XRDevice : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action`1<string> deviceLoaded;
+    [ObsoleteAttribute("This is obsolete, and should no longer be used. Instead, find the active XRDisplaySubsystem and check that the running property is true (for details, see XRDevice.isPresent documentation).", "True")]
+public static bool isPresent { get; }
+    [NativeNameAttribute("DeviceRefreshRate")]
+[StaticAccessorAttribute("GetIVRDeviceSwapChain()", "3")]
+public static float refreshRate { get; }
+    public static float fovZoomFactor { get; public set; }
+    public static bool get_isPresent();
+    public static float get_refreshRate();
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static IntPtr GetNativePtr();
+    [ObsoleteAttribute("This is obsolete, and should no longer be used.  Please use XRInputSubsystem.GetTrackingOriginMode.")]
+[StaticAccessorAttribute("GetIVRDevice()", "3")]
+public static TrackingSpaceType GetTrackingSpaceType();
+    [ObsoleteAttribute("This is obsolete, and should no longer be used.  Please use XRInputSubsystem.TrySetTrackingOriginMode.")]
+[StaticAccessorAttribute("GetIVRDevice()", "3")]
+public static bool SetTrackingSpaceType(TrackingSpaceType trackingSpaceType);
+    [NativeNameAttribute("DisableAutoVRCameraTracking")]
+[StaticAccessorAttribute("GetIVRDevice()", "3")]
+public static void DisableAutoXRCameraTracking(Camera camera, bool disabled);
+    [NativeNameAttribute("UpdateEyeTextureMSAASetting")]
+[StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static void UpdateEyeTextureMSAASetting();
+    public static float get_fovZoomFactor();
+    [NativeNameAttribute("SetProjectionZoomFactor")]
+[StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static void set_fovZoomFactor(float value);
+    [CompilerGeneratedAttribute]
+public static void add_deviceLoaded(Action`1<string> value);
+    [CompilerGeneratedAttribute]
+public static void remove_deviceLoaded(Action`1<string> value);
+    [RequiredByNativeCodeAttribute]
+private static void InvokeDeviceLoaded(string loadedDeviceName);
+}
+[NativeConditionalAttribute("ENABLE_VR")]
+[NativeHeaderAttribute("Modules/VR/ScriptBindings/XR.bindings.h")]
+[NativeHeaderAttribute("Runtime/GfxDevice/GfxDeviceTypes.h")]
+[NativeHeaderAttribute("Modules/VR/VRModule.h")]
+[NativeHeaderAttribute("Runtime/Interfaces/IVRDevice.h")]
+public static class UnityEngine.XR.XRSettings : object {
+    public static bool enabled { get; public set; }
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static GameViewRenderMode gameViewRenderMode { get; public set; }
+    [NativeNameAttribute("Active")]
+[StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static bool isDeviceActive { get; }
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static bool showDeviceView { get; public set; }
+    [NativeNameAttribute("RenderScale")]
+[StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static float eyeTextureResolutionScale { get; public set; }
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static int eyeTextureWidth { get; }
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static int eyeTextureHeight { get; }
+    [NativeConditionalAttribute("ENABLE_VR", "RenderTextureDesc()")]
+[NativeNameAttribute("IntermediateEyeTextureDesc")]
+[StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static RenderTextureDescriptor eyeTextureDesc { get; }
+    [NativeNameAttribute("DeviceEyeTextureDimension")]
+[StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static TextureDimension deviceEyeTextureDimension { get; }
+    public static float renderViewportScale { get; public set; }
+    [NativeNameAttribute("RenderViewportScale")]
+[StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+internal static float renderViewportScaleInternal { get; internal set; }
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static float occlusionMaskScale { get; public set; }
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static bool useOcclusionMesh { get; public set; }
+    [NativeNameAttribute("DeviceName")]
+[StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static string loadedDeviceName { get; }
+    public static String[] supportedDevices { get; }
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static StereoRenderingMode stereoRenderingMode { get; }
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static bool get_enabled();
+    [ObsoleteAttribute("XRSettings.enabled{set;} is deprecated and should no longer be used. Instead, call Start() and Stop() on an XRDisplaySubystem instance.")]
+public static void set_enabled(bool value);
+    public static GameViewRenderMode get_gameViewRenderMode();
+    public static void set_gameViewRenderMode(GameViewRenderMode value);
+    public static bool get_isDeviceActive();
+    public static bool get_showDeviceView();
+    public static void set_showDeviceView(bool value);
+    public static float get_eyeTextureResolutionScale();
+    public static void set_eyeTextureResolutionScale(float value);
+    public static int get_eyeTextureWidth();
+    public static int get_eyeTextureHeight();
+    public static RenderTextureDescriptor get_eyeTextureDesc();
+    public static TextureDimension get_deviceEyeTextureDimension();
+    public static float get_renderViewportScale();
+    public static void set_renderViewportScale(float value);
+    internal static float get_renderViewportScaleInternal();
+    internal static void set_renderViewportScaleInternal(float value);
+    public static float get_occlusionMaskScale();
+    public static void set_occlusionMaskScale(float value);
+    public static bool get_useOcclusionMesh();
+    public static void set_useOcclusionMesh(bool value);
+    public static string get_loadedDeviceName();
+    [ObsoleteAttribute("XRSettings.LoadDeviceByName is deprecated and should no longer be used. Instead, use the SubsystemManager to load XR devices by querying subsystem descriptors to create and start the subsystems of your choice.")]
+public static void LoadDeviceByName(string deviceName);
+    [ObsoleteAttribute("XRSettings.LoadDeviceByName is deprecated and should no longer be used. Instead, use the SubsystemManager to load XR devices by querying subsystem descriptors to create and start the subsystems of your choice.")]
+public static void LoadDeviceByName(String[] prioritizedDeviceNameList);
+    public static String[] get_supportedDevices();
+    public static StereoRenderingMode get_stereoRenderingMode();
+    private static void get_eyeTextureDesc_Injected(RenderTextureDescriptor& ret);
+}
+[NativeConditionalAttribute("ENABLE_VR")]
+public static class UnityEngine.XR.XRStats : object {
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static bool TryGetGPUTimeLastFrame(Single& gpuTimeLastFrame);
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static bool TryGetDroppedFrameCount(Int32& droppedFrameCount);
+    [StaticAccessorAttribute("GetIVRDeviceScripting()", "3")]
+public static bool TryGetFramePresentCount(Int32& framePresentCount);
+}
+public class UnityEngineInternal.XR.WSA.RemoteSpeechAccess : object {
+    [ObsoleteAttribute("Support for built-in VR will be removed in Unity 2020.2. Please update to the new Unity XR Plugin System. More information about the new XR Plugin System can be found at https://docs.unity3d.com/Manual/XR.html.", "False")]
+public static void EnableRemoteSpeech(RemoteDeviceVersion version);
+    [ObsoleteAttribute("Support for built-in VR will be removed in Unity 2020.2. Please update to the new Unity XR Plugin System. More information about the new XR Plugin System can be found at https://docs.unity3d.com/Manual/XR.html.", "False")]
+public static void DisableRemoteSpeech();
+}

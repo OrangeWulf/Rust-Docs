@@ -1,0 +1,104 @@
+[NativeHeaderAttribute("Runtime/Mono/MonoBehaviour.h")]
+[NativeHeaderAttribute("Modules/Director/PlayableDirector.h")]
+[RequiredByNativeCodeAttribute]
+public class UnityEngine.Playables.PlayableDirector : Behaviour {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Action`1<PlayableDirector> played;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Action`1<PlayableDirector> paused;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Action`1<PlayableDirector> stopped;
+    public PlayState state { get; }
+    public DirectorWrapMode extrapolationMode { get; public set; }
+    public PlayableAsset playableAsset { get; public set; }
+    public PlayableGraph playableGraph { get; }
+    public bool playOnAwake { get; public set; }
+    public DirectorUpdateMode timeUpdateMode { get; public set; }
+    public double time { get; public set; }
+    public double initialTime { get; public set; }
+    public double duration { get; }
+    public PlayState get_state();
+    public void set_extrapolationMode(DirectorWrapMode value);
+    public DirectorWrapMode get_extrapolationMode();
+    public PlayableAsset get_playableAsset();
+    public void set_playableAsset(PlayableAsset value);
+    public PlayableGraph get_playableGraph();
+    public bool get_playOnAwake();
+    public void set_playOnAwake(bool value);
+    public void DeferredEvaluate();
+    internal void Play(FrameRate frameRate);
+    public void Play(PlayableAsset asset);
+    public void Play(PlayableAsset asset, DirectorWrapMode mode);
+    public void SetGenericBinding(Object key, Object value);
+    public void set_timeUpdateMode(DirectorUpdateMode value);
+    public DirectorUpdateMode get_timeUpdateMode();
+    public void set_time(double value);
+    public double get_time();
+    public void set_initialTime(double value);
+    public double get_initialTime();
+    public double get_duration();
+    [NativeThrowsAttribute]
+public void Evaluate();
+    [NativeThrowsAttribute]
+private void PlayOnFrame(FrameRate frameRate);
+    [NativeThrowsAttribute]
+public void Play();
+    public void Stop();
+    public void Pause();
+    public void Resume();
+    [NativeThrowsAttribute]
+public void RebuildGraph();
+    public sealed virtual void ClearReferenceValue(PropertyName id);
+    public sealed virtual void SetReferenceValue(PropertyName id, Object value);
+    public sealed virtual Object GetReferenceValue(PropertyName id, Boolean& idValid);
+    [NativeMethodAttribute("GetBindingFor")]
+public Object GetGenericBinding(Object key);
+    [NativeMethodAttribute("ClearBindingFor")]
+public void ClearGenericBinding(Object key);
+    [NativeThrowsAttribute]
+public void RebindPlayableGraphOutputs();
+    internal void ProcessPendingGraphChanges();
+    [NativeMethodAttribute("HasBinding")]
+internal bool HasGenericBinding(Object key);
+    private PlayState GetPlayState();
+    private void SetWrapMode(DirectorWrapMode mode);
+    private DirectorWrapMode GetWrapMode();
+    [NativeThrowsAttribute]
+private void EvaluateNextFrame();
+    private PlayableGraph GetGraphHandle();
+    private void SetPlayOnAwake(bool on);
+    private bool GetPlayOnAwake();
+    [NativeThrowsAttribute]
+private void Internal_SetGenericBinding(Object key, Object value);
+    private void SetPlayableAsset(ScriptableObject asset);
+    private ScriptableObject Internal_GetPlayableAsset();
+    [CompilerGeneratedAttribute]
+public void add_played(Action`1<PlayableDirector> value);
+    [CompilerGeneratedAttribute]
+public void remove_played(Action`1<PlayableDirector> value);
+    [CompilerGeneratedAttribute]
+public void add_paused(Action`1<PlayableDirector> value);
+    [CompilerGeneratedAttribute]
+public void remove_paused(Action`1<PlayableDirector> value);
+    [CompilerGeneratedAttribute]
+public void add_stopped(Action`1<PlayableDirector> value);
+    [CompilerGeneratedAttribute]
+public void remove_stopped(Action`1<PlayableDirector> value);
+    [NativeHeaderAttribute("Runtime/Director/Core/DirectorManager.h")]
+[StaticAccessorAttribute("GetDirectorManager()", "0")]
+internal static void ResetFrameTiming();
+    [RequiredByNativeCodeAttribute]
+private void SendOnPlayableDirectorPlay();
+    [RequiredByNativeCodeAttribute]
+private void SendOnPlayableDirectorPause();
+    [RequiredByNativeCodeAttribute]
+private void SendOnPlayableDirectorStop();
+    private void PlayOnFrame_Injected(FrameRate& frameRate);
+    private sealed virtual void ClearReferenceValue_Injected(PropertyName& id);
+    private sealed virtual void SetReferenceValue_Injected(PropertyName& id, Object value);
+    private sealed virtual Object GetReferenceValue_Injected(PropertyName& id, Boolean& idValid);
+    private void GetGraphHandle_Injected(PlayableGraph& ret);
+}

@@ -1,0 +1,914 @@
+internal static class Consts : object {
+    public static string MonoCorlibVersion;
+    public static string MonoVersion;
+    public static string MonoCompany;
+    public static string MonoProduct;
+    public static string MonoCopyright;
+    public static string FxVersion;
+    public static string FxFileVersion;
+    public static string EnvironmentVersion;
+    public static string VsVersion;
+    public static string VsFileVersion;
+    private static string PublicKeyToken;
+    public static string AssemblyI18N;
+    public static string AssemblyMicrosoft_JScript;
+    public static string AssemblyMicrosoft_VisualStudio;
+    public static string AssemblyMicrosoft_VisualStudio_Web;
+    public static string AssemblyMicrosoft_VSDesigner;
+    public static string AssemblyMono_Http;
+    public static string AssemblyMono_Posix;
+    public static string AssemblyMono_Security;
+    public static string AssemblyMono_Messaging_RabbitMQ;
+    public static string AssemblyCorlib;
+    public static string AssemblySystem;
+    public static string AssemblySystem_Data;
+    public static string AssemblySystem_Design;
+    public static string AssemblySystem_DirectoryServices;
+    public static string AssemblySystem_Drawing;
+    public static string AssemblySystem_Drawing_Design;
+    public static string AssemblySystem_Messaging;
+    public static string AssemblySystem_Security;
+    public static string AssemblySystem_ServiceProcess;
+    public static string AssemblySystem_Web;
+    public static string AssemblySystem_Windows_Forms;
+    public static string AssemblySystem_2_0;
+    public static string AssemblySystemCore_3_5;
+    public static string AssemblySystem_Core;
+    public static string WindowsBase_3_0;
+    public static string AssemblyWindowsBase;
+    public static string AssemblyPresentationCore_3_5;
+    public static string AssemblyPresentationCore_4_0;
+    public static string AssemblyPresentationFramework_3_5;
+    public static string AssemblySystemServiceModel_3_0;
+}
+internal static class SR : object {
+    public static string Argument_BadFormatSpecifier;
+    public static string Argument_InvalidNumberStyles;
+    public static string Argument_InvalidHexStyle;
+    public static string Argument_MustBeBigInt;
+    public static string Format_TooLarge;
+    public static string ArgumentOutOfRange_MustBeNonNeg;
+    public static string Overflow_BigIntInfinity;
+    public static string Overflow_NotANumber;
+    public static string Overflow_ParseBigInteger;
+    public static string Overflow_Int32;
+    public static string Overflow_Int64;
+    public static string Overflow_UInt32;
+    public static string Overflow_UInt64;
+    public static string Overflow_Decimal;
+    public static string Arg_ArgumentOutOfRangeException;
+    public static string Arg_ElementsInSourceIsGreaterThanDestination;
+    public static string Arg_NullArgumentNullRef;
+    public static string Arg_TypeNotSupported;
+    public static string ArgumentException_BufferNotFromPool;
+    public static string Overflow_Negative_Unsigned;
+    internal static string GetString(string name, Object[] args);
+    internal static string GetString(CultureInfo culture, string name, Object[] args);
+    internal static string GetString(string name);
+    internal static string GetString(CultureInfo culture, string name);
+    internal static string Format(string resourceFormat, Object[] args);
+    internal static string Format(string resourceFormat, object p1);
+    internal static string Format(string resourceFormat, object p1, object p2);
+    internal static string Format(CultureInfo ci, string resourceFormat, object p1, object p2);
+    internal static string Format(string resourceFormat, object p1, object p2, object p3);
+    internal static string GetResourceString(string str);
+}
+internal class System.Globalization.FormatProvider : object {
+    internal static void FormatBigInteger(ValueStringBuilder& sb, int precision, int scale, bool sign, ReadOnlySpan`1<char> format, NumberFormatInfo numberFormatInfo, Char[] digits, int startIndex);
+    internal static bool TryStringToBigInteger(ReadOnlySpan`1<char> s, NumberStyles styles, NumberFormatInfo numberFormatInfo, StringBuilder receiver, Int32& precision, Int32& scale, Boolean& sign);
+}
+[IsReadOnlyAttribute]
+public class System.Numerics.BigInteger : ValueType {
+    private static int knMaskHighBit;
+    private static UInt32 kuMaskHighBit;
+    private static int kcbitUint;
+    private static int kcbitUlong;
+    private static int DecimalScaleFactorMask;
+    private static int DecimalSignMask;
+    internal int _sign;
+    internal UInt32[] _bits;
+    private static BigInteger s_bnMinInt;
+    private static BigInteger s_bnOneInt;
+    private static BigInteger s_bnZeroInt;
+    private static BigInteger s_bnMinusOneInt;
+    private static Byte[] s_success;
+    public static BigInteger Zero { get; }
+    public static BigInteger One { get; }
+    public static BigInteger MinusOne { get; }
+    public bool IsPowerOfTwo { get; }
+    public bool IsZero { get; }
+    public bool IsOne { get; }
+    public bool IsEven { get; }
+    public int Sign { get; }
+    public BigInteger(int value);
+    [CLSCompliantAttribute("False")]
+public BigInteger(UInt32 value);
+    public BigInteger(long value);
+    [CLSCompliantAttribute("False")]
+public BigInteger(ulong value);
+    public BigInteger(float value);
+    public BigInteger(double value);
+    public BigInteger(decimal value);
+    [CLSCompliantAttribute("False")]
+public BigInteger(Byte[] value);
+    public BigInteger(ReadOnlySpan`1<byte> value, bool isUnsigned, bool isBigEndian);
+    internal BigInteger(int n, UInt32[] rgu);
+    internal BigInteger(UInt32[] value, bool negative);
+    private BigInteger(UInt32[] value);
+    private static BigInteger();
+    public static BigInteger get_Zero();
+    public static BigInteger get_One();
+    public static BigInteger get_MinusOne();
+    public bool get_IsPowerOfTwo();
+    public bool get_IsZero();
+    public bool get_IsOne();
+    public bool get_IsEven();
+    public int get_Sign();
+    public static BigInteger Parse(string value);
+    public static BigInteger Parse(string value, NumberStyles style);
+    public static BigInteger Parse(string value, IFormatProvider provider);
+    public static BigInteger Parse(string value, NumberStyles style, IFormatProvider provider);
+    public static bool TryParse(string value, BigInteger& result);
+    public static bool TryParse(string value, NumberStyles style, IFormatProvider provider, BigInteger& result);
+    public static BigInteger Parse(ReadOnlySpan`1<char> value, NumberStyles style, IFormatProvider provider);
+    public static bool TryParse(ReadOnlySpan`1<char> value, BigInteger& result);
+    public static bool TryParse(ReadOnlySpan`1<char> value, NumberStyles style, IFormatProvider provider, BigInteger& result);
+    public static int Compare(BigInteger left, BigInteger right);
+    public static BigInteger Abs(BigInteger value);
+    public static BigInteger Add(BigInteger left, BigInteger right);
+    public static BigInteger Subtract(BigInteger left, BigInteger right);
+    public static BigInteger Multiply(BigInteger left, BigInteger right);
+    public static BigInteger Divide(BigInteger dividend, BigInteger divisor);
+    public static BigInteger Remainder(BigInteger dividend, BigInteger divisor);
+    public static BigInteger DivRem(BigInteger dividend, BigInteger divisor, BigInteger& remainder);
+    public static BigInteger Negate(BigInteger value);
+    public static double Log(BigInteger value);
+    public static double Log(BigInteger value, double baseValue);
+    public static double Log10(BigInteger value);
+    public static BigInteger GreatestCommonDivisor(BigInteger left, BigInteger right);
+    private static BigInteger GreatestCommonDivisor(UInt32[] leftBits, UInt32[] rightBits);
+    public static BigInteger Max(BigInteger left, BigInteger right);
+    public static BigInteger Min(BigInteger left, BigInteger right);
+    public static BigInteger ModPow(BigInteger value, BigInteger exponent, BigInteger modulus);
+    public static BigInteger Pow(BigInteger value, int exponent);
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public bool Equals(long other);
+    [CLSCompliantAttribute("False")]
+public bool Equals(ulong other);
+    public sealed virtual bool Equals(BigInteger other);
+    public int CompareTo(long other);
+    [CLSCompliantAttribute("False")]
+public int CompareTo(ulong other);
+    public sealed virtual int CompareTo(BigInteger other);
+    public sealed virtual int CompareTo(object obj);
+    public Byte[] ToByteArray();
+    public Byte[] ToByteArray(bool isUnsigned, bool isBigEndian);
+    public bool TryWriteBytes(Span`1<byte> destination, Int32& bytesWritten, bool isUnsigned, bool isBigEndian);
+    internal bool TryWriteOrCountBytes(Span`1<byte> destination, Int32& bytesWritten, bool isUnsigned, bool isBigEndian);
+    public int GetByteCount(bool isUnsigned);
+    private Byte[] TryGetBytes(GetBytesMode mode, Span`1<byte> destination, bool isUnsigned, bool isBigEndian, Int32& bytesWritten);
+    private UInt32[] ToUInt32Array();
+    public virtual string ToString();
+    public string ToString(IFormatProvider provider);
+    public string ToString(string format);
+    public sealed virtual string ToString(string format, IFormatProvider provider);
+    public bool TryFormat(Span`1<char> destination, Int32& charsWritten, ReadOnlySpan`1<char> format, IFormatProvider provider);
+    private static BigInteger Add(UInt32[] leftBits, int leftSign, UInt32[] rightBits, int rightSign);
+    public static BigInteger op_Subtraction(BigInteger left, BigInteger right);
+    private static BigInteger Subtract(UInt32[] leftBits, int leftSign, UInt32[] rightBits, int rightSign);
+    public static BigInteger op_Implicit(byte value);
+    [CLSCompliantAttribute("False")]
+public static BigInteger op_Implicit(sbyte value);
+    public static BigInteger op_Implicit(short value);
+    [CLSCompliantAttribute("False")]
+public static BigInteger op_Implicit(ushort value);
+    public static BigInteger op_Implicit(int value);
+    [CLSCompliantAttribute("False")]
+public static BigInteger op_Implicit(UInt32 value);
+    public static BigInteger op_Implicit(long value);
+    [CLSCompliantAttribute("False")]
+public static BigInteger op_Implicit(ulong value);
+    public static BigInteger op_Explicit(float value);
+    public static BigInteger op_Explicit(double value);
+    public static BigInteger op_Explicit(decimal value);
+    public static byte op_Explicit(BigInteger value);
+    [CLSCompliantAttribute("False")]
+public static sbyte op_Explicit(BigInteger value);
+    public static short op_Explicit(BigInteger value);
+    [CLSCompliantAttribute("False")]
+public static ushort op_Explicit(BigInteger value);
+    public static int op_Explicit(BigInteger value);
+    [CLSCompliantAttribute("False")]
+public static UInt32 op_Explicit(BigInteger value);
+    public static long op_Explicit(BigInteger value);
+    [CLSCompliantAttribute("False")]
+public static ulong op_Explicit(BigInteger value);
+    public static float op_Explicit(BigInteger value);
+    public static double op_Explicit(BigInteger value);
+    public static decimal op_Explicit(BigInteger value);
+    public static BigInteger op_BitwiseAnd(BigInteger left, BigInteger right);
+    public static BigInteger op_BitwiseOr(BigInteger left, BigInteger right);
+    public static BigInteger op_ExclusiveOr(BigInteger left, BigInteger right);
+    public static BigInteger op_LeftShift(BigInteger value, int shift);
+    public static BigInteger op_RightShift(BigInteger value, int shift);
+    public static BigInteger op_OnesComplement(BigInteger value);
+    public static BigInteger op_UnaryNegation(BigInteger value);
+    public static BigInteger op_UnaryPlus(BigInteger value);
+    public static BigInteger op_Increment(BigInteger value);
+    public static BigInteger op_Decrement(BigInteger value);
+    public static BigInteger op_Addition(BigInteger left, BigInteger right);
+    public static BigInteger op_Multiply(BigInteger left, BigInteger right);
+    public static BigInteger op_Division(BigInteger dividend, BigInteger divisor);
+    public static BigInteger op_Modulus(BigInteger dividend, BigInteger divisor);
+    public static bool op_LessThan(BigInteger left, BigInteger right);
+    public static bool op_LessThanOrEqual(BigInteger left, BigInteger right);
+    public static bool op_GreaterThan(BigInteger left, BigInteger right);
+    public static bool op_GreaterThanOrEqual(BigInteger left, BigInteger right);
+    public static bool op_Equality(BigInteger left, BigInteger right);
+    public static bool op_Inequality(BigInteger left, BigInteger right);
+    public static bool op_LessThan(BigInteger left, long right);
+    public static bool op_LessThanOrEqual(BigInteger left, long right);
+    public static bool op_GreaterThan(BigInteger left, long right);
+    public static bool op_GreaterThanOrEqual(BigInteger left, long right);
+    public static bool op_Equality(BigInteger left, long right);
+    public static bool op_Inequality(BigInteger left, long right);
+    public static bool op_LessThan(long left, BigInteger right);
+    public static bool op_LessThanOrEqual(long left, BigInteger right);
+    public static bool op_GreaterThan(long left, BigInteger right);
+    public static bool op_GreaterThanOrEqual(long left, BigInteger right);
+    public static bool op_Equality(long left, BigInteger right);
+    public static bool op_Inequality(long left, BigInteger right);
+    [CLSCompliantAttribute("False")]
+public static bool op_LessThan(BigInteger left, ulong right);
+    [CLSCompliantAttribute("False")]
+public static bool op_LessThanOrEqual(BigInteger left, ulong right);
+    [CLSCompliantAttribute("False")]
+public static bool op_GreaterThan(BigInteger left, ulong right);
+    [CLSCompliantAttribute("False")]
+public static bool op_GreaterThanOrEqual(BigInteger left, ulong right);
+    [CLSCompliantAttribute("False")]
+public static bool op_Equality(BigInteger left, ulong right);
+    [CLSCompliantAttribute("False")]
+public static bool op_Inequality(BigInteger left, ulong right);
+    [CLSCompliantAttribute("False")]
+public static bool op_LessThan(ulong left, BigInteger right);
+    [CLSCompliantAttribute("False")]
+public static bool op_LessThanOrEqual(ulong left, BigInteger right);
+    [CLSCompliantAttribute("False")]
+public static bool op_GreaterThan(ulong left, BigInteger right);
+    [CLSCompliantAttribute("False")]
+public static bool op_GreaterThanOrEqual(ulong left, BigInteger right);
+    [CLSCompliantAttribute("False")]
+public static bool op_Equality(ulong left, BigInteger right);
+    [CLSCompliantAttribute("False")]
+public static bool op_Inequality(ulong left, BigInteger right);
+    private static bool GetPartsForBitManipulation(BigInteger& x, UInt32[]& xd, Int32& xl);
+    internal static int GetDiffLength(UInt32[] rgu1, UInt32[] rgu2, int cu);
+    [ConditionalAttribute("DEBUG")]
+private void AssertValid();
+}
+internal static class System.Numerics.BigIntegerCalculator : object {
+    private static int ReducerThreshold;
+    private static int SquareThreshold;
+    private static int AllocationThreshold;
+    private static int MultiplyThreshold;
+    private static BigIntegerCalculator();
+    public static UInt32[] Add(UInt32[] left, UInt32 right);
+    public static UInt32[] Add(UInt32[] left, UInt32[] right);
+    private static void Add(UInt32* left, int leftLength, UInt32* right, int rightLength, UInt32* bits, int bitsLength);
+    private static void AddSelf(UInt32* left, int leftLength, UInt32* right, int rightLength);
+    public static UInt32[] Subtract(UInt32[] left, UInt32 right);
+    public static UInt32[] Subtract(UInt32[] left, UInt32[] right);
+    private static void Subtract(UInt32* left, int leftLength, UInt32* right, int rightLength, UInt32* bits, int bitsLength);
+    private static void SubtractSelf(UInt32* left, int leftLength, UInt32* right, int rightLength);
+    public static int Compare(UInt32[] left, UInt32[] right);
+    private static int Compare(UInt32* left, int leftLength, UInt32* right, int rightLength);
+    public static UInt32[] Divide(UInt32[] left, UInt32 right, UInt32& remainder);
+    public static UInt32[] Divide(UInt32[] left, UInt32 right);
+    public static UInt32 Remainder(UInt32[] left, UInt32 right);
+    public static UInt32[] Divide(UInt32[] left, UInt32[] right, UInt32[]& remainder);
+    public static UInt32[] Divide(UInt32[] left, UInt32[] right);
+    public static UInt32[] Remainder(UInt32[] left, UInt32[] right);
+    private static void Divide(UInt32* left, int leftLength, UInt32* right, int rightLength, UInt32* bits, int bitsLength);
+    private static UInt32 AddDivisor(UInt32* left, int leftLength, UInt32* right, int rightLength);
+    private static UInt32 SubtractDivisor(UInt32* left, int leftLength, UInt32* right, int rightLength, ulong q);
+    private static bool DivideGuessTooBig(ulong q, ulong valHi, UInt32 valLo, UInt32 divHi, UInt32 divLo);
+    private static UInt32[] CreateCopy(UInt32[] value);
+    private static int LeadingZeros(UInt32 value);
+    public static UInt32 Gcd(UInt32 left, UInt32 right);
+    public static ulong Gcd(ulong left, ulong right);
+    public static UInt32 Gcd(UInt32[] left, UInt32 right);
+    public static UInt32[] Gcd(UInt32[] left, UInt32[] right);
+    private static void Gcd(BitsBuffer& left, BitsBuffer& right);
+    private static void ExtractDigits(BitsBuffer& xBuffer, BitsBuffer& yBuffer, UInt64& x, UInt64& y);
+    private static void LehmerCore(BitsBuffer& xBuffer, BitsBuffer& yBuffer, long a, long b, long c, long d);
+    public static UInt32[] Pow(UInt32 value, UInt32 power);
+    public static UInt32[] Pow(UInt32[] value, UInt32 power);
+    private static UInt32[] PowCore(UInt32 power, BitsBuffer& value);
+    private static int PowBound(UInt32 power, int valueLength, int resultLength);
+    private static void PowCore(UInt32 power, BitsBuffer& value, BitsBuffer& result, BitsBuffer& temp);
+    public static UInt32 Pow(UInt32 value, UInt32 power, UInt32 modulus);
+    public static UInt32 Pow(UInt32[] value, UInt32 power, UInt32 modulus);
+    public static UInt32 Pow(UInt32 value, UInt32[] power, UInt32 modulus);
+    public static UInt32 Pow(UInt32[] value, UInt32[] power, UInt32 modulus);
+    private static UInt32 PowCore(UInt32[] power, UInt32 modulus, ulong value, ulong result);
+    private static UInt32 PowCore(UInt32 power, UInt32 modulus, ulong value, ulong result);
+    public static UInt32[] Pow(UInt32 value, UInt32 power, UInt32[] modulus);
+    public static UInt32[] Pow(UInt32[] value, UInt32 power, UInt32[] modulus);
+    public static UInt32[] Pow(UInt32 value, UInt32[] power, UInt32[] modulus);
+    public static UInt32[] Pow(UInt32[] value, UInt32[] power, UInt32[] modulus);
+    private static UInt32[] PowCore(UInt32[] power, UInt32[] modulus, BitsBuffer& value);
+    private static UInt32[] PowCore(UInt32 power, UInt32[] modulus, BitsBuffer& value);
+    private static void PowCore(UInt32[] power, UInt32[] modulus, BitsBuffer& value, BitsBuffer& result, BitsBuffer& temp);
+    private static void PowCore(UInt32 power, UInt32[] modulus, BitsBuffer& value, BitsBuffer& result, BitsBuffer& temp);
+    private static void PowCore(UInt32[] power, FastReducer& reducer, BitsBuffer& value, BitsBuffer& result, BitsBuffer& temp);
+    private static void PowCore(UInt32 power, FastReducer& reducer, BitsBuffer& value, BitsBuffer& result, BitsBuffer& temp);
+    private static int ActualLength(UInt32[] value);
+    private static int ActualLength(UInt32[] value, int length);
+    public static UInt32[] Square(UInt32[] value);
+    private static void Square(UInt32* value, int valueLength, UInt32* bits, int bitsLength);
+    public static UInt32[] Multiply(UInt32[] left, UInt32 right);
+    public static UInt32[] Multiply(UInt32[] left, UInt32[] right);
+    private static void Multiply(UInt32* left, int leftLength, UInt32* right, int rightLength, UInt32* bits, int bitsLength);
+    private static void SubtractCore(UInt32* left, int leftLength, UInt32* right, int rightLength, UInt32* core, int coreLength);
+}
+internal static class System.Numerics.BigNumber : object {
+    private static NumberStyles InvalidNumberStyles;
+    internal static bool TryValidateParseStyleInteger(NumberStyles style, ArgumentException& e);
+    internal static bool TryParseBigInteger(string value, NumberStyles style, NumberFormatInfo info, BigInteger& result);
+    internal static bool TryParseBigInteger(ReadOnlySpan`1<char> value, NumberStyles style, NumberFormatInfo info, BigInteger& result);
+    internal static BigInteger ParseBigInteger(string value, NumberStyles style, NumberFormatInfo info);
+    internal static BigInteger ParseBigInteger(ReadOnlySpan`1<char> value, NumberStyles style, NumberFormatInfo info);
+    private static bool HexNumberToBigInteger(BigNumberBuffer& number, BigInteger& value);
+    private static bool NumberToBigInteger(BigNumberBuffer& number, BigInteger& value);
+    internal static char ParseFormatSpecifier(ReadOnlySpan`1<char> format, Int32& digits);
+    private static string FormatBigIntegerToHex(bool targetSpan, BigInteger value, char format, int digits, NumberFormatInfo info, Span`1<char> destination, Int32& charsWritten, Boolean& spanSuccess);
+    internal static string FormatBigInteger(BigInteger value, string format, NumberFormatInfo info);
+    internal static bool TryFormatBigInteger(BigInteger value, ReadOnlySpan`1<char> format, NumberFormatInfo info, Span`1<char> destination, Int32& charsWritten);
+    private static string FormatBigInteger(bool targetSpan, BigInteger value, string formatString, ReadOnlySpan`1<char> formatSpan, NumberFormatInfo info, Span`1<char> destination, Int32& charsWritten, Boolean& spanSuccess);
+}
+public class System.Numerics.Complex : ValueType {
+    public static Complex Zero;
+    public static Complex One;
+    public static Complex ImaginaryOne;
+    private static double InverseOfLog10;
+    private static double s_sqrtRescaleThreshold;
+    private static double s_asinOverflowThreshold;
+    private static double s_log2;
+    private double m_real;
+    private double m_imaginary;
+    public double Real { get; }
+    public double Imaginary { get; }
+    public double Magnitude { get; }
+    public double Phase { get; }
+    public Complex(double real, double imaginary);
+    private static Complex();
+    public double get_Real();
+    public double get_Imaginary();
+    public double get_Magnitude();
+    public double get_Phase();
+    public static Complex FromPolarCoordinates(double magnitude, double phase);
+    public static Complex Negate(Complex value);
+    public static Complex Add(Complex left, Complex right);
+    public static Complex Subtract(Complex left, Complex right);
+    public static Complex Multiply(Complex left, Complex right);
+    public static Complex Divide(Complex dividend, Complex divisor);
+    public static Complex op_UnaryNegation(Complex value);
+    public static Complex op_Addition(Complex left, Complex right);
+    public static Complex op_Subtraction(Complex left, Complex right);
+    public static Complex op_Multiply(Complex left, Complex right);
+    public static Complex op_Division(Complex left, Complex right);
+    public static double Abs(Complex value);
+    private static double Hypot(double a, double b);
+    private static double Log1P(double x);
+    public static Complex Conjugate(Complex value);
+    public static Complex Reciprocal(Complex value);
+    public static bool op_Equality(Complex left, Complex right);
+    public static bool op_Inequality(Complex left, Complex right);
+    public virtual bool Equals(object obj);
+    public sealed virtual bool Equals(Complex value);
+    public virtual int GetHashCode();
+    public virtual string ToString();
+    public string ToString(string format);
+    public string ToString(IFormatProvider provider);
+    public sealed virtual string ToString(string format, IFormatProvider provider);
+    public static Complex Sin(Complex value);
+    public static Complex Sinh(Complex value);
+    public static Complex Asin(Complex value);
+    public static Complex Cos(Complex value);
+    public static Complex Cosh(Complex value);
+    public static Complex Acos(Complex value);
+    public static Complex Tan(Complex value);
+    public static Complex Tanh(Complex value);
+    public static Complex Atan(Complex value);
+    private static void Asin_Internal(double x, double y, Double& b, Double& bPrime, Double& v);
+    public static Complex Log(Complex value);
+    public static Complex Log(Complex value, double baseValue);
+    public static Complex Log10(Complex value);
+    public static Complex Exp(Complex value);
+    public static Complex Sqrt(Complex value);
+    public static Complex Pow(Complex value, Complex power);
+    public static Complex Pow(Complex value, double power);
+    private static Complex Scale(Complex value, double factor);
+    public static Complex op_Implicit(short value);
+    public static Complex op_Implicit(int value);
+    public static Complex op_Implicit(long value);
+    [CLSCompliantAttribute("False")]
+public static Complex op_Implicit(ushort value);
+    [CLSCompliantAttribute("False")]
+public static Complex op_Implicit(UInt32 value);
+    [CLSCompliantAttribute("False")]
+public static Complex op_Implicit(ulong value);
+    [CLSCompliantAttribute("False")]
+public static Complex op_Implicit(sbyte value);
+    public static Complex op_Implicit(byte value);
+    public static Complex op_Implicit(float value);
+    public static Complex op_Implicit(double value);
+    public static Complex op_Explicit(BigInteger value);
+    public static Complex op_Explicit(decimal value);
+}
+internal class System.Numerics.DoubleUlong : ValueType {
+    public double dbl;
+    public ulong uu;
+}
+internal static class System.Numerics.Hashing.HashHelpers : object {
+    public static int RandomSeed;
+    private static HashHelpers();
+    public static int Combine(int h1, int h2);
+}
+public class System.Numerics.Matrix3x2 : ValueType {
+    public float M11;
+    public float M12;
+    public float M21;
+    public float M22;
+    public float M31;
+    public float M32;
+    private static Matrix3x2 _identity;
+    public static Matrix3x2 Identity { get; }
+    public bool IsIdentity { get; }
+    public Vector2 Translation { get; public set; }
+    public Matrix3x2(float m11, float m12, float m21, float m22, float m31, float m32);
+    private static Matrix3x2();
+    public static Matrix3x2 get_Identity();
+    public bool get_IsIdentity();
+    public Vector2 get_Translation();
+    public void set_Translation(Vector2 value);
+    public static Matrix3x2 CreateTranslation(Vector2 position);
+    public static Matrix3x2 CreateTranslation(float xPosition, float yPosition);
+    public static Matrix3x2 CreateScale(float xScale, float yScale);
+    public static Matrix3x2 CreateScale(float xScale, float yScale, Vector2 centerPoint);
+    public static Matrix3x2 CreateScale(Vector2 scales);
+    public static Matrix3x2 CreateScale(Vector2 scales, Vector2 centerPoint);
+    public static Matrix3x2 CreateScale(float scale);
+    public static Matrix3x2 CreateScale(float scale, Vector2 centerPoint);
+    public static Matrix3x2 CreateSkew(float radiansX, float radiansY);
+    public static Matrix3x2 CreateSkew(float radiansX, float radiansY, Vector2 centerPoint);
+    public static Matrix3x2 CreateRotation(float radians);
+    public static Matrix3x2 CreateRotation(float radians, Vector2 centerPoint);
+    public float GetDeterminant();
+    public static bool Invert(Matrix3x2 matrix, Matrix3x2& result);
+    public static Matrix3x2 Lerp(Matrix3x2 matrix1, Matrix3x2 matrix2, float amount);
+    public static Matrix3x2 Negate(Matrix3x2 value);
+    public static Matrix3x2 Add(Matrix3x2 value1, Matrix3x2 value2);
+    public static Matrix3x2 Subtract(Matrix3x2 value1, Matrix3x2 value2);
+    public static Matrix3x2 Multiply(Matrix3x2 value1, Matrix3x2 value2);
+    public static Matrix3x2 Multiply(Matrix3x2 value1, float value2);
+    public static Matrix3x2 op_UnaryNegation(Matrix3x2 value);
+    public static Matrix3x2 op_Addition(Matrix3x2 value1, Matrix3x2 value2);
+    public static Matrix3x2 op_Subtraction(Matrix3x2 value1, Matrix3x2 value2);
+    public static Matrix3x2 op_Multiply(Matrix3x2 value1, Matrix3x2 value2);
+    public static Matrix3x2 op_Multiply(Matrix3x2 value1, float value2);
+    public static bool op_Equality(Matrix3x2 value1, Matrix3x2 value2);
+    public static bool op_Inequality(Matrix3x2 value1, Matrix3x2 value2);
+    public sealed virtual bool Equals(Matrix3x2 other);
+    public virtual bool Equals(object obj);
+    public virtual string ToString();
+    public virtual int GetHashCode();
+}
+public class System.Numerics.Matrix4x4 : ValueType {
+    public float M11;
+    public float M12;
+    public float M13;
+    public float M14;
+    public float M21;
+    public float M22;
+    public float M23;
+    public float M24;
+    public float M31;
+    public float M32;
+    public float M33;
+    public float M34;
+    public float M41;
+    public float M42;
+    public float M43;
+    public float M44;
+    private static Matrix4x4 _identity;
+    public static Matrix4x4 Identity { get; }
+    public bool IsIdentity { get; }
+    public Vector3 Translation { get; public set; }
+    public Matrix4x4(float m11, float m12, float m13, float m14, float m21, float m22, float m23, float m24, float m31, float m32, float m33, float m34, float m41, float m42, float m43, float m44);
+    public Matrix4x4(Matrix3x2 value);
+    private static Matrix4x4();
+    public static Matrix4x4 get_Identity();
+    public bool get_IsIdentity();
+    public Vector3 get_Translation();
+    public void set_Translation(Vector3 value);
+    public static Matrix4x4 CreateBillboard(Vector3 objectPosition, Vector3 cameraPosition, Vector3 cameraUpVector, Vector3 cameraForwardVector);
+    public static Matrix4x4 CreateConstrainedBillboard(Vector3 objectPosition, Vector3 cameraPosition, Vector3 rotateAxis, Vector3 cameraForwardVector, Vector3 objectForwardVector);
+    public static Matrix4x4 CreateTranslation(Vector3 position);
+    public static Matrix4x4 CreateTranslation(float xPosition, float yPosition, float zPosition);
+    public static Matrix4x4 CreateScale(float xScale, float yScale, float zScale);
+    public static Matrix4x4 CreateScale(float xScale, float yScale, float zScale, Vector3 centerPoint);
+    public static Matrix4x4 CreateScale(Vector3 scales);
+    public static Matrix4x4 CreateScale(Vector3 scales, Vector3 centerPoint);
+    public static Matrix4x4 CreateScale(float scale);
+    public static Matrix4x4 CreateScale(float scale, Vector3 centerPoint);
+    public static Matrix4x4 CreateRotationX(float radians);
+    public static Matrix4x4 CreateRotationX(float radians, Vector3 centerPoint);
+    public static Matrix4x4 CreateRotationY(float radians);
+    public static Matrix4x4 CreateRotationY(float radians, Vector3 centerPoint);
+    public static Matrix4x4 CreateRotationZ(float radians);
+    public static Matrix4x4 CreateRotationZ(float radians, Vector3 centerPoint);
+    public static Matrix4x4 CreateFromAxisAngle(Vector3 axis, float angle);
+    public static Matrix4x4 CreatePerspectiveFieldOfView(float fieldOfView, float aspectRatio, float nearPlaneDistance, float farPlaneDistance);
+    public static Matrix4x4 CreatePerspective(float width, float height, float nearPlaneDistance, float farPlaneDistance);
+    public static Matrix4x4 CreatePerspectiveOffCenter(float left, float right, float bottom, float top, float nearPlaneDistance, float farPlaneDistance);
+    public static Matrix4x4 CreateOrthographic(float width, float height, float zNearPlane, float zFarPlane);
+    public static Matrix4x4 CreateOrthographicOffCenter(float left, float right, float bottom, float top, float zNearPlane, float zFarPlane);
+    public static Matrix4x4 CreateLookAt(Vector3 cameraPosition, Vector3 cameraTarget, Vector3 cameraUpVector);
+    public static Matrix4x4 CreateWorld(Vector3 position, Vector3 forward, Vector3 up);
+    public static Matrix4x4 CreateFromQuaternion(Quaternion quaternion);
+    public static Matrix4x4 CreateFromYawPitchRoll(float yaw, float pitch, float roll);
+    public static Matrix4x4 CreateShadow(Vector3 lightDirection, Plane plane);
+    public static Matrix4x4 CreateReflection(Plane value);
+    public float GetDeterminant();
+    public static bool Invert(Matrix4x4 matrix, Matrix4x4& result);
+    public static bool Decompose(Matrix4x4 matrix, Vector3& scale, Quaternion& rotation, Vector3& translation);
+    public static Matrix4x4 Transform(Matrix4x4 value, Quaternion rotation);
+    public static Matrix4x4 Transpose(Matrix4x4 matrix);
+    public static Matrix4x4 Lerp(Matrix4x4 matrix1, Matrix4x4 matrix2, float amount);
+    public static Matrix4x4 Negate(Matrix4x4 value);
+    public static Matrix4x4 Add(Matrix4x4 value1, Matrix4x4 value2);
+    public static Matrix4x4 Subtract(Matrix4x4 value1, Matrix4x4 value2);
+    public static Matrix4x4 Multiply(Matrix4x4 value1, Matrix4x4 value2);
+    public static Matrix4x4 Multiply(Matrix4x4 value1, float value2);
+    public static Matrix4x4 op_UnaryNegation(Matrix4x4 value);
+    public static Matrix4x4 op_Addition(Matrix4x4 value1, Matrix4x4 value2);
+    public static Matrix4x4 op_Subtraction(Matrix4x4 value1, Matrix4x4 value2);
+    public static Matrix4x4 op_Multiply(Matrix4x4 value1, Matrix4x4 value2);
+    public static Matrix4x4 op_Multiply(Matrix4x4 value1, float value2);
+    public static bool op_Equality(Matrix4x4 value1, Matrix4x4 value2);
+    public static bool op_Inequality(Matrix4x4 value1, Matrix4x4 value2);
+    public sealed virtual bool Equals(Matrix4x4 other);
+    public virtual bool Equals(object obj);
+    public virtual string ToString();
+    public virtual int GetHashCode();
+}
+internal static class System.Numerics.NumericsHelpers : object {
+    private static int kcbitUint;
+    public static void GetDoubleParts(double dbl, Int32& sign, Int32& exp, UInt64& man, Boolean& fFinite);
+    public static double GetDoubleFromParts(int sign, int exp, ulong man);
+    public static void DangerousMakeTwosComplement(UInt32[] d);
+    public static ulong MakeUlong(UInt32 uHi, UInt32 uLo);
+    public static UInt32 Abs(int a);
+    public static UInt32 CombineHash(UInt32 u1, UInt32 u2);
+    public static int CombineHash(int n1, int n2);
+    public static int CbitHighZero(UInt32 u);
+    public static int CbitHighZero(ulong uu);
+}
+public class System.Numerics.Plane : ValueType {
+    public Vector3 Normal;
+    public float D;
+    public Plane(float x, float y, float z, float d);
+    public Plane(Vector3 normal, float d);
+    public Plane(Vector4 value);
+    public static Plane CreateFromVertices(Vector3 point1, Vector3 point2, Vector3 point3);
+    public static Plane Normalize(Plane value);
+    public static Plane Transform(Plane plane, Matrix4x4 matrix);
+    public static Plane Transform(Plane plane, Quaternion rotation);
+    public static float Dot(Plane plane, Vector4 value);
+    public static float DotCoordinate(Plane plane, Vector3 value);
+    public static float DotNormal(Plane plane, Vector3 value);
+    public static bool op_Equality(Plane value1, Plane value2);
+    public static bool op_Inequality(Plane value1, Plane value2);
+    public sealed virtual bool Equals(Plane other);
+    public virtual bool Equals(object obj);
+    public virtual string ToString();
+    public virtual int GetHashCode();
+}
+public class System.Numerics.Quaternion : ValueType {
+    public float X;
+    public float Y;
+    public float Z;
+    public float W;
+    public static Quaternion Identity { get; }
+    public bool IsIdentity { get; }
+    public Quaternion(float x, float y, float z, float w);
+    public Quaternion(Vector3 vectorPart, float scalarPart);
+    public static Quaternion get_Identity();
+    public bool get_IsIdentity();
+    public float Length();
+    public float LengthSquared();
+    public static Quaternion Normalize(Quaternion value);
+    public static Quaternion Conjugate(Quaternion value);
+    public static Quaternion Inverse(Quaternion value);
+    public static Quaternion CreateFromAxisAngle(Vector3 axis, float angle);
+    public static Quaternion CreateFromYawPitchRoll(float yaw, float pitch, float roll);
+    public static Quaternion CreateFromRotationMatrix(Matrix4x4 matrix);
+    public static float Dot(Quaternion quaternion1, Quaternion quaternion2);
+    public static Quaternion Slerp(Quaternion quaternion1, Quaternion quaternion2, float amount);
+    public static Quaternion Lerp(Quaternion quaternion1, Quaternion quaternion2, float amount);
+    public static Quaternion Concatenate(Quaternion value1, Quaternion value2);
+    public static Quaternion Negate(Quaternion value);
+    public static Quaternion Add(Quaternion value1, Quaternion value2);
+    public static Quaternion Subtract(Quaternion value1, Quaternion value2);
+    public static Quaternion Multiply(Quaternion value1, Quaternion value2);
+    public static Quaternion Multiply(Quaternion value1, float value2);
+    public static Quaternion Divide(Quaternion value1, Quaternion value2);
+    public static Quaternion op_UnaryNegation(Quaternion value);
+    public static Quaternion op_Addition(Quaternion value1, Quaternion value2);
+    public static Quaternion op_Subtraction(Quaternion value1, Quaternion value2);
+    public static Quaternion op_Multiply(Quaternion value1, Quaternion value2);
+    public static Quaternion op_Multiply(Quaternion value1, float value2);
+    public static Quaternion op_Division(Quaternion value1, Quaternion value2);
+    public static bool op_Equality(Quaternion value1, Quaternion value2);
+    public static bool op_Inequality(Quaternion value1, Quaternion value2);
+    public sealed virtual bool Equals(Quaternion other);
+    public virtual bool Equals(object obj);
+    public virtual string ToString();
+    public virtual int GetHashCode();
+}
+public class System.Numerics.Vector2 : ValueType {
+    public float X;
+    public float Y;
+    public static Vector2 Zero { get; }
+    public static Vector2 One { get; }
+    public static Vector2 UnitX { get; }
+    public static Vector2 UnitY { get; }
+    [IntrinsicAttribute]
+public Vector2(float value);
+    [IntrinsicAttribute]
+public Vector2(float x, float y);
+    public static Vector2 get_Zero();
+    public static Vector2 get_One();
+    public static Vector2 get_UnitX();
+    public static Vector2 get_UnitY();
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public virtual string ToString();
+    public string ToString(string format);
+    public sealed virtual string ToString(string format, IFormatProvider formatProvider);
+    public float Length();
+    public float LengthSquared();
+    public static float Distance(Vector2 value1, Vector2 value2);
+    public static float DistanceSquared(Vector2 value1, Vector2 value2);
+    public static Vector2 Normalize(Vector2 value);
+    public static Vector2 Reflect(Vector2 vector, Vector2 normal);
+    public static Vector2 Clamp(Vector2 value1, Vector2 min, Vector2 max);
+    public static Vector2 Lerp(Vector2 value1, Vector2 value2, float amount);
+    public static Vector2 Transform(Vector2 position, Matrix3x2 matrix);
+    public static Vector2 Transform(Vector2 position, Matrix4x4 matrix);
+    public static Vector2 TransformNormal(Vector2 normal, Matrix3x2 matrix);
+    public static Vector2 TransformNormal(Vector2 normal, Matrix4x4 matrix);
+    public static Vector2 Transform(Vector2 value, Quaternion rotation);
+    public static Vector2 Add(Vector2 left, Vector2 right);
+    public static Vector2 Subtract(Vector2 left, Vector2 right);
+    public static Vector2 Multiply(Vector2 left, Vector2 right);
+    public static Vector2 Multiply(Vector2 left, float right);
+    public static Vector2 Multiply(float left, Vector2 right);
+    public static Vector2 Divide(Vector2 left, Vector2 right);
+    public static Vector2 Divide(Vector2 left, float divisor);
+    public static Vector2 Negate(Vector2 value);
+    public void CopyTo(Single[] array);
+    public void CopyTo(Single[] array, int index);
+    [IntrinsicAttribute]
+public sealed virtual bool Equals(Vector2 other);
+    [IntrinsicAttribute]
+public static float Dot(Vector2 value1, Vector2 value2);
+    [IntrinsicAttribute]
+public static Vector2 Min(Vector2 value1, Vector2 value2);
+    [IntrinsicAttribute]
+public static Vector2 Max(Vector2 value1, Vector2 value2);
+    [IntrinsicAttribute]
+public static Vector2 Abs(Vector2 value);
+    [IntrinsicAttribute]
+public static Vector2 SquareRoot(Vector2 value);
+    [IntrinsicAttribute]
+public static Vector2 op_Addition(Vector2 left, Vector2 right);
+    [IntrinsicAttribute]
+public static Vector2 op_Subtraction(Vector2 left, Vector2 right);
+    [IntrinsicAttribute]
+public static Vector2 op_Multiply(Vector2 left, Vector2 right);
+    [IntrinsicAttribute]
+public static Vector2 op_Multiply(float left, Vector2 right);
+    [IntrinsicAttribute]
+public static Vector2 op_Multiply(Vector2 left, float right);
+    [IntrinsicAttribute]
+public static Vector2 op_Division(Vector2 left, Vector2 right);
+    public static Vector2 op_Division(Vector2 value1, float value2);
+    public static Vector2 op_UnaryNegation(Vector2 value);
+    public static bool op_Equality(Vector2 left, Vector2 right);
+    public static bool op_Inequality(Vector2 left, Vector2 right);
+}
+public class System.Numerics.Vector3 : ValueType {
+    public float X;
+    public float Y;
+    public float Z;
+    public static Vector3 Zero { get; }
+    public static Vector3 One { get; }
+    public static Vector3 UnitX { get; }
+    public static Vector3 UnitY { get; }
+    public static Vector3 UnitZ { get; }
+    [IntrinsicAttribute]
+public Vector3(float value);
+    public Vector3(Vector2 value, float z);
+    [IntrinsicAttribute]
+public Vector3(float x, float y, float z);
+    public static Vector3 get_Zero();
+    public static Vector3 get_One();
+    public static Vector3 get_UnitX();
+    public static Vector3 get_UnitY();
+    public static Vector3 get_UnitZ();
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public virtual string ToString();
+    public string ToString(string format);
+    public sealed virtual string ToString(string format, IFormatProvider formatProvider);
+    public float Length();
+    public float LengthSquared();
+    public static float Distance(Vector3 value1, Vector3 value2);
+    public static float DistanceSquared(Vector3 value1, Vector3 value2);
+    public static Vector3 Normalize(Vector3 value);
+    public static Vector3 Cross(Vector3 vector1, Vector3 vector2);
+    public static Vector3 Reflect(Vector3 vector, Vector3 normal);
+    public static Vector3 Clamp(Vector3 value1, Vector3 min, Vector3 max);
+    public static Vector3 Lerp(Vector3 value1, Vector3 value2, float amount);
+    public static Vector3 Transform(Vector3 position, Matrix4x4 matrix);
+    public static Vector3 TransformNormal(Vector3 normal, Matrix4x4 matrix);
+    public static Vector3 Transform(Vector3 value, Quaternion rotation);
+    public static Vector3 Add(Vector3 left, Vector3 right);
+    public static Vector3 Subtract(Vector3 left, Vector3 right);
+    public static Vector3 Multiply(Vector3 left, Vector3 right);
+    public static Vector3 Multiply(Vector3 left, float right);
+    public static Vector3 Multiply(float left, Vector3 right);
+    public static Vector3 Divide(Vector3 left, Vector3 right);
+    public static Vector3 Divide(Vector3 left, float divisor);
+    public static Vector3 Negate(Vector3 value);
+    public void CopyTo(Single[] array);
+    [IntrinsicAttribute]
+public void CopyTo(Single[] array, int index);
+    [IntrinsicAttribute]
+public sealed virtual bool Equals(Vector3 other);
+    [IntrinsicAttribute]
+public static float Dot(Vector3 vector1, Vector3 vector2);
+    [IntrinsicAttribute]
+public static Vector3 Min(Vector3 value1, Vector3 value2);
+    [IntrinsicAttribute]
+public static Vector3 Max(Vector3 value1, Vector3 value2);
+    [IntrinsicAttribute]
+public static Vector3 Abs(Vector3 value);
+    [IntrinsicAttribute]
+public static Vector3 SquareRoot(Vector3 value);
+    [IntrinsicAttribute]
+public static Vector3 op_Addition(Vector3 left, Vector3 right);
+    [IntrinsicAttribute]
+public static Vector3 op_Subtraction(Vector3 left, Vector3 right);
+    [IntrinsicAttribute]
+public static Vector3 op_Multiply(Vector3 left, Vector3 right);
+    [IntrinsicAttribute]
+public static Vector3 op_Multiply(Vector3 left, float right);
+    [IntrinsicAttribute]
+public static Vector3 op_Multiply(float left, Vector3 right);
+    [IntrinsicAttribute]
+public static Vector3 op_Division(Vector3 left, Vector3 right);
+    public static Vector3 op_Division(Vector3 value1, float value2);
+    public static Vector3 op_UnaryNegation(Vector3 value);
+    [IntrinsicAttribute]
+public static bool op_Equality(Vector3 left, Vector3 right);
+    public static bool op_Inequality(Vector3 left, Vector3 right);
+}
+public class System.Numerics.Vector4 : ValueType {
+    public float X;
+    public float Y;
+    public float Z;
+    public float W;
+    public static Vector4 Zero { get; }
+    public static Vector4 One { get; }
+    public static Vector4 UnitX { get; }
+    public static Vector4 UnitY { get; }
+    public static Vector4 UnitZ { get; }
+    public static Vector4 UnitW { get; }
+    [IntrinsicAttribute]
+public Vector4(float value);
+    [IntrinsicAttribute]
+public Vector4(float x, float y, float z, float w);
+    public Vector4(Vector2 value, float z, float w);
+    public Vector4(Vector3 value, float w);
+    public static Vector4 get_Zero();
+    public static Vector4 get_One();
+    public static Vector4 get_UnitX();
+    public static Vector4 get_UnitY();
+    public static Vector4 get_UnitZ();
+    public static Vector4 get_UnitW();
+    public virtual int GetHashCode();
+    public virtual bool Equals(object obj);
+    public virtual string ToString();
+    public string ToString(string format);
+    public sealed virtual string ToString(string format, IFormatProvider formatProvider);
+    public float Length();
+    public float LengthSquared();
+    public static float Distance(Vector4 value1, Vector4 value2);
+    public static float DistanceSquared(Vector4 value1, Vector4 value2);
+    public static Vector4 Normalize(Vector4 vector);
+    public static Vector4 Clamp(Vector4 value1, Vector4 min, Vector4 max);
+    public static Vector4 Lerp(Vector4 value1, Vector4 value2, float amount);
+    public static Vector4 Transform(Vector2 position, Matrix4x4 matrix);
+    public static Vector4 Transform(Vector3 position, Matrix4x4 matrix);
+    public static Vector4 Transform(Vector4 vector, Matrix4x4 matrix);
+    public static Vector4 Transform(Vector2 value, Quaternion rotation);
+    public static Vector4 Transform(Vector3 value, Quaternion rotation);
+    public static Vector4 Transform(Vector4 value, Quaternion rotation);
+    public static Vector4 Add(Vector4 left, Vector4 right);
+    public static Vector4 Subtract(Vector4 left, Vector4 right);
+    public static Vector4 Multiply(Vector4 left, Vector4 right);
+    public static Vector4 Multiply(Vector4 left, float right);
+    public static Vector4 Multiply(float left, Vector4 right);
+    public static Vector4 Divide(Vector4 left, Vector4 right);
+    public static Vector4 Divide(Vector4 left, float divisor);
+    public static Vector4 Negate(Vector4 value);
+    public void CopyTo(Single[] array);
+    [IntrinsicAttribute]
+public void CopyTo(Single[] array, int index);
+    [IntrinsicAttribute]
+public sealed virtual bool Equals(Vector4 other);
+    [IntrinsicAttribute]
+public static float Dot(Vector4 vector1, Vector4 vector2);
+    [IntrinsicAttribute]
+public static Vector4 Min(Vector4 value1, Vector4 value2);
+    [IntrinsicAttribute]
+public static Vector4 Max(Vector4 value1, Vector4 value2);
+    [IntrinsicAttribute]
+public static Vector4 Abs(Vector4 value);
+    [IntrinsicAttribute]
+public static Vector4 SquareRoot(Vector4 value);
+    [IntrinsicAttribute]
+public static Vector4 op_Addition(Vector4 left, Vector4 right);
+    [IntrinsicAttribute]
+public static Vector4 op_Subtraction(Vector4 left, Vector4 right);
+    [IntrinsicAttribute]
+public static Vector4 op_Multiply(Vector4 left, Vector4 right);
+    [IntrinsicAttribute]
+public static Vector4 op_Multiply(Vector4 left, float right);
+    [IntrinsicAttribute]
+public static Vector4 op_Multiply(float left, Vector4 right);
+    [IntrinsicAttribute]
+public static Vector4 op_Division(Vector4 left, Vector4 right);
+    public static Vector4 op_Division(Vector4 value1, float value2);
+    public static Vector4 op_UnaryNegation(Vector4 value);
+    [IntrinsicAttribute]
+public static bool op_Equality(Vector4 left, Vector4 right);
+    public static bool op_Inequality(Vector4 left, Vector4 right);
+}
+internal class System.Runtime.CompilerServices.FriendAccessAllowedAttribute : Attribute {
+}
+[AttributeUsageAttribute("364")]
+internal class System.Runtime.CompilerServices.IntrinsicAttribute : Attribute {
+}
+[DefaultMemberAttribute("Item")]
+[IsByRefLikeAttribute]
+[ObsoleteAttribute("Types with embedded references are not supported in this version of your compiler.", "True")]
+internal class System.Text.ValueStringBuilder : ValueType {
+    private Char[] _arrayToReturnToPool;
+    private Span`1<char> _chars;
+    private int _pos;
+    public int Length { get; public set; }
+    public int Capacity { get; }
+    public Char& Item { get; }
+    public Span`1<char> RawChars { get; }
+    public ValueStringBuilder(Span`1<char> initialBuffer);
+    public int get_Length();
+    public void set_Length(int value);
+    public int get_Capacity();
+    public void EnsureCapacity(int capacity);
+    public Char& GetPinnableReference(bool terminate);
+    public Char& get_Item(int index);
+    public virtual string ToString();
+    public Span`1<char> get_RawChars();
+    public ReadOnlySpan`1<char> AsSpan(bool terminate);
+    public ReadOnlySpan`1<char> AsSpan();
+    public ReadOnlySpan`1<char> AsSpan(int start);
+    public ReadOnlySpan`1<char> AsSpan(int start, int length);
+    public bool TryCopyTo(Span`1<char> destination, Int32& charsWritten);
+    public void Insert(int index, char value, int count);
+    public void Append(char c);
+    public void Append(string s);
+    private void AppendSlow(string s);
+    public void Append(char c, int count);
+    public void Append(Char* value, int length);
+    public void Append(ReadOnlySpan`1<char> value);
+    public Span`1<char> AppendSpan(int length);
+    private void GrowAndAppend(char c);
+    private void Grow(int requiredAdditionalCapacity);
+    public void Dispose();
+}

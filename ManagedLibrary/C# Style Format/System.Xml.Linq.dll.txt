@@ -1,0 +1,1273 @@
+internal static class SR : object {
+    public static string Argument_AddAttribute;
+    public static string Argument_AddNode;
+    public static string Argument_AddNonWhitespace;
+    public static string Argument_ConvertToString;
+    public static string Argument_InvalidExpandedName;
+    public static string Argument_InvalidPIName;
+    public static string Argument_InvalidPrefix;
+    public static string Argument_MustBeDerivedFrom;
+    public static string Argument_NamespaceDeclarationPrefixed;
+    public static string Argument_NamespaceDeclarationXml;
+    public static string Argument_NamespaceDeclarationXmlns;
+    public static string Argument_XObjectValue;
+    public static string InvalidOperation_DeserializeInstance;
+    public static string InvalidOperation_DocumentStructure;
+    public static string InvalidOperation_DuplicateAttribute;
+    public static string InvalidOperation_ExpectedEndOfFile;
+    public static string InvalidOperation_ExpectedInteractive;
+    public static string InvalidOperation_ExpectedNodeType;
+    public static string InvalidOperation_ExternalCode;
+    public static string InvalidOperation_MissingAncestor;
+    public static string InvalidOperation_MissingParent;
+    public static string InvalidOperation_MissingRoot;
+    public static string InvalidOperation_UnexpectedNodeType;
+    public static string InvalidOperation_UnresolvedEntityReference;
+    public static string InvalidOperation_WriteAttribute;
+    public static string NotSupported_WriteBase64;
+    public static string NotSupported_WriteEntityRef;
+    public static string Argument_CreateNavigator;
+    public static string InvalidOperation_BadNodeType;
+    public static string InvalidOperation_UnexpectedEvaluation;
+    public static string NotSupported_MoveToId;
+    internal static string GetString(string name, Object[] args);
+    internal static string GetString(CultureInfo culture, string name, Object[] args);
+    internal static string GetString(string name);
+    internal static string GetString(CultureInfo culture, string name);
+    internal static string Format(string resourceFormat, Object[] args);
+    internal static string Format(string resourceFormat, object p1);
+    internal static string Format(string resourceFormat, object p1, object p2);
+    internal static string Format(CultureInfo ci, string resourceFormat, object p1, object p2);
+    internal static string Format(string resourceFormat, object p1, object p2, object p3);
+    internal static string GetResourceString(string str);
+}
+[DefaultMemberAttribute("Item")]
+internal class System.Collections.Generic.ArrayBuilder`1 : ValueType {
+    private static int DefaultCapacity;
+    private static int MaxCoreClrArrayLength;
+    private T[] _array;
+    private int _count;
+    public int Capacity { get; }
+    public int Count { get; }
+    public T Item { get; public set; }
+    public ArrayBuilder`1(int capacity);
+    public int get_Capacity();
+    public int get_Count();
+    public T get_Item(int index);
+    public void set_Item(int index, T value);
+    public void Add(T item);
+    public T First();
+    public T Last();
+    public T[] ToArray();
+    public void UncheckedAdd(T item);
+    private void EnsureCapacity(int minimum);
+}
+[DebuggerDisplayAttribute("{DebuggerDisplay,nq}")]
+[IsReadOnlyAttribute]
+internal class System.Collections.Generic.CopyPosition : ValueType {
+    [CompilerGeneratedAttribute]
+private int <Row>k__BackingField;
+    [CompilerGeneratedAttribute]
+private int <Column>k__BackingField;
+    public static CopyPosition Start { get; }
+    internal int Row { get; }
+    internal int Column { get; }
+    private string DebuggerDisplay { get; }
+    internal CopyPosition(int row, int column);
+    public static CopyPosition get_Start();
+    [CompilerGeneratedAttribute]
+internal int get_Row();
+    [CompilerGeneratedAttribute]
+internal int get_Column();
+    public CopyPosition Normalize(int endColumn);
+    private string get_DebuggerDisplay();
+}
+internal static class System.Collections.Generic.EnumerableHelpers : object {
+    internal static void Copy(IEnumerable`1<T> source, T[] array, int arrayIndex, int count);
+    internal static void IterativeCopy(IEnumerable`1<T> source, T[] array, int arrayIndex, int count);
+    internal static T[] ToArray(IEnumerable`1<T> source);
+    internal static T[] ToArray(IEnumerable`1<T> source, Int32& length);
+}
+internal class System.Collections.Generic.LargeArrayBuilder`1 : ValueType {
+    private static int StartingCapacity;
+    private static int ResizeLimit;
+    private int _maxCapacity;
+    private T[] _first;
+    private ArrayBuilder`1<T[]> _buffers;
+    private T[] _current;
+    private int _index;
+    private int _count;
+    public int Count { get; }
+    public LargeArrayBuilder`1(bool initialize);
+    public LargeArrayBuilder`1(int maxCapacity);
+    public int get_Count();
+    public void Add(T item);
+    private void AddWithBufferAllocation(T item);
+    public void AddRange(IEnumerable`1<T> items);
+    private void AddWithBufferAllocation(T item, T[]& destination, Int32& index);
+    public void CopyTo(T[] array, int arrayIndex, int count);
+    public CopyPosition CopyTo(CopyPosition position, T[] array, int arrayIndex, int count);
+    public T[] GetBuffer(int index);
+    public void SlowAdd(T item);
+    public T[] ToArray();
+    public bool TryMove(T[]& array);
+    private void AllocateBuffer();
+    [CompilerGeneratedAttribute]
+internal static int <CopyTo>g__CopyToCore|17_0(T[] sourceBuffer, int sourceIndex, <>c__DisplayClass17_0& );
+}
+internal class System.Runtime.CompilerServices.FriendAccessAllowedAttribute : Attribute {
+}
+internal static class System.Text.StringBuilderCache : object {
+    private static int MaxBuilderSize;
+    private static int DefaultCapacity;
+    [ThreadStaticAttribute]
+private static StringBuilder t_cachedInstance;
+    public static StringBuilder Acquire(int capacity);
+    public static void Release(StringBuilder sb);
+    public static string GetStringAndRelease(StringBuilder sb);
+}
+internal class System.Xml.Linq.BaseUriAnnotation : object {
+    internal string baseUri;
+    public BaseUriAnnotation(string baseUri);
+}
+internal class System.Xml.Linq.ElementWriter : ValueType {
+    private XmlWriter _writer;
+    private NamespaceResolver _resolver;
+    public ElementWriter(XmlWriter writer);
+    public void WriteElement(XElement e);
+    [AsyncStateMachineAttribute("System.Xml.Linq.ElementWriter/<WriteElementAsync>d__4")]
+public Task WriteElementAsync(XElement e, CancellationToken cancellationToken);
+    private string GetPrefixOfNamespace(XNamespace ns, bool allowDefaultNamespace);
+    private void PushAncestors(XElement e);
+    private void PushElement(XElement e);
+    private void WriteEndElement();
+    [AsyncStateMachineAttribute("System.Xml.Linq.ElementWriter/<WriteEndElementAsync>d__9")]
+private Task WriteEndElementAsync(CancellationToken cancellationToken);
+    private void WriteFullEndElement();
+    [AsyncStateMachineAttribute("System.Xml.Linq.ElementWriter/<WriteFullEndElementAsync>d__11")]
+private Task WriteFullEndElementAsync(CancellationToken cancellationToken);
+    private void WriteStartElement(XElement e);
+    [AsyncStateMachineAttribute("System.Xml.Linq.ElementWriter/<WriteStartElementAsync>d__13")]
+private Task WriteStartElementAsync(XElement e, CancellationToken cancellationToken);
+}
+[ExtensionAttribute]
+public static class System.Xml.Linq.Extensions : object {
+    [ExtensionAttribute]
+public static IEnumerable`1<XAttribute> Attributes(IEnumerable`1<XElement> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XAttribute> Attributes(IEnumerable`1<XElement> source, XName name);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> Ancestors(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> Ancestors(IEnumerable`1<T> source, XName name);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> AncestorsAndSelf(IEnumerable`1<XElement> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> AncestorsAndSelf(IEnumerable`1<XElement> source, XName name);
+    [ExtensionAttribute]
+public static IEnumerable`1<XNode> Nodes(IEnumerable`1<T> source);
+    [IteratorStateMachineAttribute("System.Xml.Linq.Extensions/<NodesIterator>d__7`1")]
+private static IEnumerable`1<XNode> NodesIterator(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XNode> DescendantNodes(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> Descendants(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> Descendants(IEnumerable`1<T> source, XName name);
+    [ExtensionAttribute]
+public static IEnumerable`1<XNode> DescendantNodesAndSelf(IEnumerable`1<XElement> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> DescendantsAndSelf(IEnumerable`1<XElement> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> DescendantsAndSelf(IEnumerable`1<XElement> source, XName name);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> Elements(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> Elements(IEnumerable`1<T> source, XName name);
+    [ExtensionAttribute]
+public static IEnumerable`1<T> InDocumentOrder(IEnumerable`1<T> source);
+    [IteratorStateMachineAttribute("System.Xml.Linq.Extensions/<DocumentOrderIterator>d__17`1")]
+private static IEnumerable`1<T> DocumentOrderIterator(IEnumerable`1<T> source);
+    [ExtensionAttribute]
+public static void Remove(IEnumerable`1<XAttribute> source);
+    [ExtensionAttribute]
+public static void Remove(IEnumerable`1<T> source);
+    [IteratorStateMachineAttribute("System.Xml.Linq.Extensions/<GetAttributes>d__20")]
+private static IEnumerable`1<XAttribute> GetAttributes(IEnumerable`1<XElement> source, XName name);
+    [IteratorStateMachineAttribute("System.Xml.Linq.Extensions/<GetAncestors>d__21`1")]
+private static IEnumerable`1<XElement> GetAncestors(IEnumerable`1<T> source, XName name, bool self);
+    [IteratorStateMachineAttribute("System.Xml.Linq.Extensions/<GetDescendantNodes>d__22`1")]
+private static IEnumerable`1<XNode> GetDescendantNodes(IEnumerable`1<T> source, bool self);
+    [IteratorStateMachineAttribute("System.Xml.Linq.Extensions/<GetDescendants>d__23`1")]
+private static IEnumerable`1<XElement> GetDescendants(IEnumerable`1<T> source, XName name, bool self);
+    [IteratorStateMachineAttribute("System.Xml.Linq.Extensions/<GetElements>d__24`1")]
+private static IEnumerable`1<XElement> GetElements(IEnumerable`1<T> source, XName name);
+}
+internal class System.Xml.Linq.Inserter : ValueType {
+    private XContainer _parent;
+    private XNode _previous;
+    private string _text;
+    public Inserter(XContainer parent, XNode anchor);
+    public void Add(object content);
+    private void AddContent(object content);
+    private void AddNode(XNode n);
+    private void AddString(string s);
+    private void InsertNode(XNode n);
+}
+internal class System.Xml.Linq.LineInfoAnnotation : object {
+    internal int lineNumber;
+    internal int linePosition;
+    public LineInfoAnnotation(int lineNumber, int linePosition);
+}
+internal class System.Xml.Linq.LineInfoEndElementAnnotation : LineInfoAnnotation {
+    public LineInfoEndElementAnnotation(int lineNumber, int linePosition);
+}
+[FlagsAttribute]
+public enum System.Xml.Linq.LoadOptions : Enum {
+    public int value__;
+    public static LoadOptions None;
+    public static LoadOptions PreserveWhitespace;
+    public static LoadOptions SetBaseUri;
+    public static LoadOptions SetLineInfo;
+}
+internal class System.Xml.Linq.NamespaceCache : ValueType {
+    private XNamespace _ns;
+    private string _namespaceName;
+    public XNamespace Get(string namespaceName);
+}
+internal class System.Xml.Linq.NamespaceResolver : ValueType {
+    private int _scope;
+    private NamespaceDeclaration _declaration;
+    private NamespaceDeclaration _rover;
+    public void PushScope();
+    public void PopScope();
+    public void Add(string prefix, XNamespace ns);
+    public void AddFirst(string prefix, XNamespace ns);
+    public string GetPrefixOfNamespace(XNamespace ns, bool allowDefaultNamespace);
+}
+[FlagsAttribute]
+public enum System.Xml.Linq.ReaderOptions : Enum {
+    public int value__;
+    public static ReaderOptions None;
+    public static ReaderOptions OmitDuplicateNamespaces;
+}
+[FlagsAttribute]
+public enum System.Xml.Linq.SaveOptions : Enum {
+    public int value__;
+    public static SaveOptions None;
+    public static SaveOptions DisableFormatting;
+    public static SaveOptions OmitDuplicateNamespaces;
+}
+internal class System.Xml.Linq.StreamingElementWriter : ValueType {
+    private XmlWriter _writer;
+    private XStreamingElement _element;
+    private List`1<XAttribute> _attributes;
+    private NamespaceResolver _resolver;
+    public StreamingElementWriter(XmlWriter w);
+    private void FlushElement();
+    private string GetPrefixOfNamespace(XNamespace ns, bool allowDefaultNamespace);
+    private void PushElement();
+    private void Write(object content);
+    private void WriteAttribute(XAttribute a);
+    private void WriteNode(XNode n);
+    internal void WriteStreamingElement(XStreamingElement e);
+    private void WriteString(string s);
+}
+public class System.Xml.Linq.XAttribute : XObject {
+    internal XAttribute next;
+    internal XName name;
+    internal string value;
+    public static IEnumerable`1<XAttribute> EmptySequence { get; }
+    public bool IsNamespaceDeclaration { get; }
+    public XName Name { get; }
+    public XAttribute NextAttribute { get; }
+    public XmlNodeType NodeType { get; }
+    public XAttribute PreviousAttribute { get; }
+    public string Value { get; public set; }
+    public XAttribute(XName name, object value);
+    public XAttribute(XAttribute other);
+    public static IEnumerable`1<XAttribute> get_EmptySequence();
+    public bool get_IsNamespaceDeclaration();
+    public XName get_Name();
+    public XAttribute get_NextAttribute();
+    public virtual XmlNodeType get_NodeType();
+    public XAttribute get_PreviousAttribute();
+    public string get_Value();
+    public void set_Value(string value);
+    public void Remove();
+    public void SetValue(object value);
+    public virtual string ToString();
+    [CLSCompliantAttribute("False")]
+public static string op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static bool op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<bool> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static int op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<int> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static UInt32 op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<UInt32> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static long op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<long> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static ulong op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<ulong> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static float op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<float> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static double op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<double> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static decimal op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<decimal> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static DateTime op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<DateTime> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static DateTimeOffset op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<DateTimeOffset> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static TimeSpan op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<TimeSpan> op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Guid op_Explicit(XAttribute attribute);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<Guid> op_Explicit(XAttribute attribute);
+    internal int GetDeepHashCode();
+    internal string GetPrefixOfNamespace(XNamespace ns);
+    private static void ValidateAttribute(XName name, string value);
+}
+public class System.Xml.Linq.XCData : XText {
+    public XmlNodeType NodeType { get; }
+    public XCData(string value);
+    public XCData(XCData other);
+    internal XCData(XmlReader r);
+    public virtual XmlNodeType get_NodeType();
+    public virtual void WriteTo(XmlWriter writer);
+    public virtual Task WriteToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    internal virtual XNode CloneNode();
+}
+public class System.Xml.Linq.XComment : XNode {
+    internal string value;
+    public XmlNodeType NodeType { get; }
+    public string Value { get; public set; }
+    public XComment(string value);
+    public XComment(XComment other);
+    internal XComment(XmlReader r);
+    public virtual XmlNodeType get_NodeType();
+    public string get_Value();
+    public void set_Value(string value);
+    public virtual void WriteTo(XmlWriter writer);
+    public virtual Task WriteToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    internal virtual XNode CloneNode();
+    internal virtual bool DeepEquals(XNode node);
+    internal virtual int GetDeepHashCode();
+}
+public abstract class System.Xml.Linq.XContainer : XNode {
+    internal object content;
+    public XNode FirstNode { get; }
+    public XNode LastNode { get; }
+    internal XContainer(XContainer other);
+    public XNode get_FirstNode();
+    public XNode get_LastNode();
+    public void Add(object content);
+    public void Add(Object[] content);
+    public void AddFirst(object content);
+    public void AddFirst(Object[] content);
+    public XmlWriter CreateWriter();
+    public IEnumerable`1<XNode> DescendantNodes();
+    public IEnumerable`1<XElement> Descendants();
+    public IEnumerable`1<XElement> Descendants(XName name);
+    public XElement Element(XName name);
+    public IEnumerable`1<XElement> Elements();
+    public IEnumerable`1<XElement> Elements(XName name);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XContainer/<Nodes>d__18")]
+public IEnumerable`1<XNode> Nodes();
+    public void RemoveNodes();
+    public void ReplaceNodes(object content);
+    public void ReplaceNodes(Object[] content);
+    internal virtual void AddAttribute(XAttribute a);
+    internal virtual void AddAttributeSkipNotify(XAttribute a);
+    internal void AddContentSkipNotify(object content);
+    internal void AddNode(XNode n);
+    internal void AddNodeSkipNotify(XNode n);
+    internal void AddString(string s);
+    internal void AddStringSkipNotify(string s);
+    internal void AppendNode(XNode n);
+    internal void AppendNodeSkipNotify(XNode n);
+    internal virtual void AppendText(StringBuilder sb);
+    private string GetTextOnly();
+    private string CollectText(XNode& n);
+    internal bool ContentsEqual(XContainer e);
+    internal int ContentsHashCode();
+    internal void ConvertTextToNode();
+    [IteratorStateMachineAttribute("System.Xml.Linq.XContainer/<GetDescendantNodes>d__37")]
+internal IEnumerable`1<XNode> GetDescendantNodes(bool self);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XContainer/<GetDescendants>d__38")]
+internal IEnumerable`1<XElement> GetDescendants(XName name, bool self);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XContainer/<GetElements>d__39")]
+private IEnumerable`1<XElement> GetElements(XName name);
+    internal static string GetStringValue(object value);
+    internal void ReadContentFrom(XmlReader r);
+    internal void ReadContentFrom(XmlReader r, LoadOptions o);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XContainer/<ReadContentFromAsync>d__43")]
+internal Task ReadContentFromAsync(XmlReader r, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XContainer/<ReadContentFromAsync>d__44")]
+internal Task ReadContentFromAsync(XmlReader r, LoadOptions o, CancellationToken cancellationToken);
+    internal void RemoveNode(XNode n);
+    private void RemoveNodesSkipNotify();
+    internal virtual void ValidateNode(XNode node, XNode previous);
+    internal virtual void ValidateString(string s);
+    internal void WriteContentTo(XmlWriter writer);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XContainer/<WriteContentToAsync>d__51")]
+internal Task WriteContentToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    private static void AddContentToList(List`1<object> list, object content);
+    internal static object GetContentSnapshot(object content);
+}
+public class System.Xml.Linq.XDeclaration : object {
+    private string _version;
+    private string _encoding;
+    private string _standalone;
+    public string Encoding { get; public set; }
+    public string Standalone { get; public set; }
+    public string Version { get; public set; }
+    public XDeclaration(string version, string encoding, string standalone);
+    public XDeclaration(XDeclaration other);
+    internal XDeclaration(XmlReader r);
+    public string get_Encoding();
+    public void set_Encoding(string value);
+    public string get_Standalone();
+    public void set_Standalone(string value);
+    public string get_Version();
+    public void set_Version(string value);
+    public virtual string ToString();
+}
+public class System.Xml.Linq.XDocument : XContainer {
+    private XDeclaration _declaration;
+    public XDeclaration Declaration { get; public set; }
+    public XDocumentType DocumentType { get; }
+    public XmlNodeType NodeType { get; }
+    public XElement Root { get; }
+    public XDocument(Object[] content);
+    public XDocument(XDeclaration declaration, Object[] content);
+    public XDocument(XDocument other);
+    public XDeclaration get_Declaration();
+    public void set_Declaration(XDeclaration value);
+    public XDocumentType get_DocumentType();
+    public virtual XmlNodeType get_NodeType();
+    public XElement get_Root();
+    public static XDocument Load(string uri);
+    public static XDocument Load(string uri, LoadOptions options);
+    public static XDocument Load(Stream stream);
+    public static XDocument Load(Stream stream, LoadOptions options);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XDocument/<LoadAsync>d__18")]
+public static Task`1<XDocument> LoadAsync(Stream stream, LoadOptions options, CancellationToken cancellationToken);
+    public static XDocument Load(TextReader textReader);
+    public static XDocument Load(TextReader textReader, LoadOptions options);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XDocument/<LoadAsync>d__21")]
+public static Task`1<XDocument> LoadAsync(TextReader textReader, LoadOptions options, CancellationToken cancellationToken);
+    public static XDocument Load(XmlReader reader);
+    public static XDocument Load(XmlReader reader, LoadOptions options);
+    public static Task`1<XDocument> LoadAsync(XmlReader reader, LoadOptions options, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XDocument/<LoadAsyncInternal>d__25")]
+private static Task`1<XDocument> LoadAsyncInternal(XmlReader reader, LoadOptions options, CancellationToken cancellationToken);
+    private static XDocument InitLoad(XmlReader reader, LoadOptions options);
+    public static XDocument Parse(string text);
+    public static XDocument Parse(string text, LoadOptions options);
+    public void Save(Stream stream);
+    public void Save(Stream stream, SaveOptions options);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XDocument/<SaveAsync>d__31")]
+public Task SaveAsync(Stream stream, SaveOptions options, CancellationToken cancellationToken);
+    public void Save(TextWriter textWriter);
+    public void Save(TextWriter textWriter, SaveOptions options);
+    public void Save(XmlWriter writer);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XDocument/<SaveAsync>d__35")]
+public Task SaveAsync(TextWriter textWriter, SaveOptions options, CancellationToken cancellationToken);
+    public void Save(string fileName);
+    public Task SaveAsync(XmlWriter writer, CancellationToken cancellationToken);
+    public void Save(string fileName, SaveOptions options);
+    public virtual void WriteTo(XmlWriter writer);
+    public virtual Task WriteToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XDocument/<WriteToAsyncInternal>d__41")]
+private Task WriteToAsyncInternal(XmlWriter writer, CancellationToken cancellationToken);
+    internal virtual void AddAttribute(XAttribute a);
+    internal virtual void AddAttributeSkipNotify(XAttribute a);
+    internal virtual XNode CloneNode();
+    internal virtual bool DeepEquals(XNode node);
+    internal virtual int GetDeepHashCode();
+    private T GetFirstNode();
+    internal static bool IsWhitespace(string s);
+    internal virtual void ValidateNode(XNode node, XNode previous);
+    private void ValidateDocument(XNode previous, XmlNodeType allowBefore, XmlNodeType allowAfter);
+    internal virtual void ValidateString(string s);
+}
+public class System.Xml.Linq.XDocumentType : XNode {
+    private string _name;
+    private string _publicId;
+    private string _systemId;
+    private string _internalSubset;
+    public string InternalSubset { get; public set; }
+    public string Name { get; public set; }
+    public XmlNodeType NodeType { get; }
+    public string PublicId { get; public set; }
+    public string SystemId { get; public set; }
+    public XDocumentType(string name, string publicId, string systemId, string internalSubset);
+    public XDocumentType(XDocumentType other);
+    internal XDocumentType(XmlReader r);
+    public string get_InternalSubset();
+    public void set_InternalSubset(string value);
+    public string get_Name();
+    public void set_Name(string value);
+    public virtual XmlNodeType get_NodeType();
+    public string get_PublicId();
+    public void set_PublicId(string value);
+    public string get_SystemId();
+    public void set_SystemId(string value);
+    public virtual void WriteTo(XmlWriter writer);
+    public virtual Task WriteToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    internal virtual XNode CloneNode();
+    internal virtual bool DeepEquals(XNode node);
+    internal virtual int GetDeepHashCode();
+}
+[XmlSchemaProviderAttribute("")]
+public class System.Xml.Linq.XElement : XContainer {
+    internal XName name;
+    internal XAttribute lastAttr;
+    public static IEnumerable`1<XElement> EmptySequence { get; }
+    public XAttribute FirstAttribute { get; }
+    public bool HasAttributes { get; }
+    public bool HasElements { get; }
+    public bool IsEmpty { get; }
+    public XAttribute LastAttribute { get; }
+    public XName Name { get; public set; }
+    public XmlNodeType NodeType { get; }
+    public string Value { get; public set; }
+    public XElement(XName name);
+    public XElement(XName name, object content);
+    public XElement(XName name, Object[] content);
+    public XElement(XElement other);
+    public XElement(XStreamingElement other);
+    internal XElement(XmlReader r);
+    private XElement(AsyncConstructionSentry s);
+    internal XElement(XmlReader r, LoadOptions o);
+    public static IEnumerable`1<XElement> get_EmptySequence();
+    [AsyncStateMachineAttribute("System.Xml.Linq.XElement/<CreateAsync>d__14")]
+internal static Task`1<XElement> CreateAsync(XmlReader r, CancellationToken cancellationToken);
+    public void Save(string fileName);
+    public void Save(string fileName, SaveOptions options);
+    public XAttribute get_FirstAttribute();
+    public bool get_HasAttributes();
+    public bool get_HasElements();
+    public bool get_IsEmpty();
+    public XAttribute get_LastAttribute();
+    public XName get_Name();
+    public void set_Name(XName value);
+    public virtual XmlNodeType get_NodeType();
+    public string get_Value();
+    public void set_Value(string value);
+    public IEnumerable`1<XElement> AncestorsAndSelf();
+    public IEnumerable`1<XElement> AncestorsAndSelf(XName name);
+    public XAttribute Attribute(XName name);
+    public IEnumerable`1<XAttribute> Attributes();
+    public IEnumerable`1<XAttribute> Attributes(XName name);
+    public IEnumerable`1<XNode> DescendantNodesAndSelf();
+    public IEnumerable`1<XElement> DescendantsAndSelf();
+    public IEnumerable`1<XElement> DescendantsAndSelf(XName name);
+    public XNamespace GetDefaultNamespace();
+    public XNamespace GetNamespaceOfPrefix(string prefix);
+    public string GetPrefixOfNamespace(XNamespace ns);
+    public static XElement Load(string uri);
+    public static XElement Load(string uri, LoadOptions options);
+    public static XElement Load(Stream stream);
+    public static XElement Load(Stream stream, LoadOptions options);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XElement/<LoadAsync>d__50")]
+public static Task`1<XElement> LoadAsync(Stream stream, LoadOptions options, CancellationToken cancellationToken);
+    public static XElement Load(TextReader textReader);
+    public static XElement Load(TextReader textReader, LoadOptions options);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XElement/<LoadAsync>d__53")]
+public static Task`1<XElement> LoadAsync(TextReader textReader, LoadOptions options, CancellationToken cancellationToken);
+    public static XElement Load(XmlReader reader);
+    public static XElement Load(XmlReader reader, LoadOptions options);
+    public static Task`1<XElement> LoadAsync(XmlReader reader, LoadOptions options, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XElement/<LoadAsyncInternal>d__57")]
+private static Task`1<XElement> LoadAsyncInternal(XmlReader reader, LoadOptions options, CancellationToken cancellationToken);
+    public static XElement Parse(string text);
+    public static XElement Parse(string text, LoadOptions options);
+    public void RemoveAll();
+    public void RemoveAttributes();
+    public void ReplaceAll(object content);
+    public void ReplaceAll(Object[] content);
+    public void ReplaceAttributes(object content);
+    public void ReplaceAttributes(Object[] content);
+    public void Save(Stream stream);
+    public void Save(Stream stream, SaveOptions options);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XElement/<SaveAsync>d__68")]
+public Task SaveAsync(Stream stream, SaveOptions options, CancellationToken cancellationToken);
+    public void Save(TextWriter textWriter);
+    public void Save(TextWriter textWriter, SaveOptions options);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XElement/<SaveAsync>d__71")]
+public Task SaveAsync(TextWriter textWriter, SaveOptions options, CancellationToken cancellationToken);
+    public void Save(XmlWriter writer);
+    public Task SaveAsync(XmlWriter writer, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XElement/<SaveAsyncInternal>d__74")]
+private Task SaveAsyncInternal(XmlWriter writer, CancellationToken cancellationToken);
+    public void SetAttributeValue(XName name, object value);
+    public void SetElementValue(XName name, object value);
+    public void SetValue(object value);
+    public virtual void WriteTo(XmlWriter writer);
+    public virtual Task WriteToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    [CLSCompliantAttribute("False")]
+public static string op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static bool op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<bool> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static int op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<int> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static UInt32 op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<UInt32> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static long op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<long> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static ulong op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<ulong> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static float op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<float> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static double op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<double> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static decimal op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<decimal> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static DateTime op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<DateTime> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static DateTimeOffset op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<DateTimeOffset> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static TimeSpan op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<TimeSpan> op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Guid op_Explicit(XElement element);
+    [CLSCompliantAttribute("False")]
+public static Nullable`1<Guid> op_Explicit(XElement element);
+    private sealed virtual override XmlSchema System.Xml.Serialization.IXmlSerializable.GetSchema();
+    private sealed virtual override void System.Xml.Serialization.IXmlSerializable.ReadXml(XmlReader reader);
+    private sealed virtual override void System.Xml.Serialization.IXmlSerializable.WriteXml(XmlWriter writer);
+    internal virtual void AddAttribute(XAttribute a);
+    internal virtual void AddAttributeSkipNotify(XAttribute a);
+    internal void AppendAttribute(XAttribute a);
+    internal void AppendAttributeSkipNotify(XAttribute a);
+    private bool AttributesEqual(XElement e);
+    internal virtual XNode CloneNode();
+    internal virtual bool DeepEquals(XNode node);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XElement/<GetAttributes>d__115")]
+private IEnumerable`1<XAttribute> GetAttributes(XName name);
+    private string GetNamespaceOfPrefixInScope(string prefix, XElement outOfScope);
+    internal virtual int GetDeepHashCode();
+    private void ReadElementFrom(XmlReader r, LoadOptions o);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XElement/<ReadElementFromAsync>d__119")]
+private Task ReadElementFromAsync(XmlReader r, LoadOptions o, CancellationToken cancellationTokentoken);
+    private void ReadElementFromImpl(XmlReader r, LoadOptions o);
+    internal void RemoveAttribute(XAttribute a);
+    private void RemoveAttributesSkipNotify();
+    internal void SetEndElementLineInfo(int lineNumber, int linePosition);
+    internal virtual void ValidateNode(XNode node, XNode previous);
+}
+internal class System.Xml.Linq.XHashtable`1 : object {
+    private XHashtableState<TValue> _state;
+    private static int StartingHash;
+    public XHashtable`1(ExtractKeyDelegate<TValue> extractKey, int capacity);
+    public bool TryGetValue(string key, int index, int count, TValue& value);
+    public TValue Add(TValue value);
+}
+internal static class System.Xml.Linq.XHelper : object {
+    internal static bool IsInstanceOfType(object o, Type type);
+}
+public class System.Xml.Linq.XName : object {
+    private XNamespace _ns;
+    private string _localName;
+    private int _hashCode;
+    public string LocalName { get; }
+    public XNamespace Namespace { get; }
+    public string NamespaceName { get; }
+    internal XName(XNamespace ns, string localName);
+    public string get_LocalName();
+    public XNamespace get_Namespace();
+    public string get_NamespaceName();
+    public virtual string ToString();
+    public static XName Get(string expandedName);
+    public static XName Get(string localName, string namespaceName);
+    [CLSCompliantAttribute("False")]
+public static XName op_Implicit(string expandedName);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static bool op_Equality(XName left, XName right);
+    public static bool op_Inequality(XName left, XName right);
+    private sealed virtual override bool System.IEquatable<System.Xml.Linq.XName>.Equals(XName other);
+    private sealed virtual override void System.Runtime.Serialization.ISerializable.GetObjectData(SerializationInfo info, StreamingContext context);
+}
+public class System.Xml.Linq.XNamespace : object {
+    internal static string xmlPrefixNamespace;
+    internal static string xmlnsPrefixNamespace;
+    private static XHashtable`1<WeakReference> s_namespaces;
+    private static WeakReference s_refNone;
+    private static WeakReference s_refXml;
+    private static WeakReference s_refXmlns;
+    private string _namespaceName;
+    private int _hashCode;
+    private XHashtable`1<XName> _names;
+    private static int NamesCapacity;
+    private static int NamespacesCapacity;
+    public string NamespaceName { get; }
+    public static XNamespace None { get; }
+    public static XNamespace Xml { get; }
+    public static XNamespace Xmlns { get; }
+    internal XNamespace(string namespaceName);
+    public string get_NamespaceName();
+    public XName GetName(string localName);
+    public virtual string ToString();
+    public static XNamespace get_None();
+    public static XNamespace get_Xml();
+    public static XNamespace get_Xmlns();
+    public static XNamespace Get(string namespaceName);
+    [CLSCompliantAttribute("False")]
+public static XNamespace op_Implicit(string namespaceName);
+    public static XName op_Addition(XNamespace ns, string localName);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static bool op_Equality(XNamespace left, XNamespace right);
+    public static bool op_Inequality(XNamespace left, XNamespace right);
+    internal XName GetName(string localName, int index, int count);
+    internal static XNamespace Get(string namespaceName, int index, int count);
+    private static string ExtractLocalName(XName n);
+    private static string ExtractNamespace(WeakReference r);
+    private static XNamespace EnsureNamespace(WeakReference& refNmsp, string namespaceName);
+}
+public abstract class System.Xml.Linq.XNode : XObject {
+    private static XNodeDocumentOrderComparer s_documentOrderComparer;
+    private static XNodeEqualityComparer s_equalityComparer;
+    internal XNode next;
+    public XNode NextNode { get; }
+    public XNode PreviousNode { get; }
+    public static XNodeDocumentOrderComparer DocumentOrderComparer { get; }
+    public static XNodeEqualityComparer EqualityComparer { get; }
+    public XNode get_NextNode();
+    public XNode get_PreviousNode();
+    public static XNodeDocumentOrderComparer get_DocumentOrderComparer();
+    public static XNodeEqualityComparer get_EqualityComparer();
+    public void AddAfterSelf(object content);
+    public void AddAfterSelf(Object[] content);
+    public void AddBeforeSelf(object content);
+    public void AddBeforeSelf(Object[] content);
+    public IEnumerable`1<XElement> Ancestors();
+    public IEnumerable`1<XElement> Ancestors(XName name);
+    public static int CompareDocumentOrder(XNode n1, XNode n2);
+    public XmlReader CreateReader();
+    public XmlReader CreateReader(ReaderOptions readerOptions);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XNode/<NodesAfterSelf>d__21")]
+public IEnumerable`1<XNode> NodesAfterSelf();
+    [IteratorStateMachineAttribute("System.Xml.Linq.XNode/<NodesBeforeSelf>d__22")]
+public IEnumerable`1<XNode> NodesBeforeSelf();
+    public IEnumerable`1<XElement> ElementsAfterSelf();
+    public IEnumerable`1<XElement> ElementsAfterSelf(XName name);
+    public IEnumerable`1<XElement> ElementsBeforeSelf();
+    public IEnumerable`1<XElement> ElementsBeforeSelf(XName name);
+    public bool IsAfter(XNode node);
+    public bool IsBefore(XNode node);
+    public static XNode ReadFrom(XmlReader reader);
+    public static Task`1<XNode> ReadFromAsync(XmlReader reader, CancellationToken cancellationToken);
+    [AsyncStateMachineAttribute("System.Xml.Linq.XNode/<ReadFromAsyncInternal>d__31")]
+private static Task`1<XNode> ReadFromAsyncInternal(XmlReader reader, CancellationToken cancellationToken);
+    public void Remove();
+    public void ReplaceWith(object content);
+    public void ReplaceWith(Object[] content);
+    public virtual string ToString();
+    public string ToString(SaveOptions options);
+    public static bool DeepEquals(XNode n1, XNode n2);
+    public abstract virtual void WriteTo(XmlWriter writer);
+    public abstract virtual Task WriteToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    internal virtual void AppendText(StringBuilder sb);
+    internal abstract virtual XNode CloneNode();
+    internal abstract virtual bool DeepEquals(XNode node);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XNode/<GetAncestors>d__43")]
+internal IEnumerable`1<XElement> GetAncestors(XName name, bool self);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XNode/<GetElementsAfterSelf>d__44")]
+private IEnumerable`1<XElement> GetElementsAfterSelf(XName name);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XNode/<GetElementsBeforeSelf>d__45")]
+private IEnumerable`1<XElement> GetElementsBeforeSelf(XName name);
+    internal abstract virtual int GetDeepHashCode();
+    internal static XmlReaderSettings GetXmlReaderSettings(LoadOptions o);
+    internal static XmlWriterSettings GetXmlWriterSettings(SaveOptions o);
+    private string GetXmlString(SaveOptions o);
+}
+internal class System.Xml.Linq.XNodeBuilder : XmlWriter {
+    private List`1<object> _content;
+    private XContainer _parent;
+    private XName _attrName;
+    private string _attrValue;
+    private XContainer _root;
+    public XmlWriterSettings Settings { get; }
+    public WriteState WriteState { get; }
+    public XNodeBuilder(XContainer container);
+    public virtual XmlWriterSettings get_Settings();
+    public virtual WriteState get_WriteState();
+    protected virtual void Dispose(bool disposing);
+    public virtual void Close();
+    public virtual void Flush();
+    public virtual string LookupPrefix(string namespaceName);
+    public virtual void WriteBase64(Byte[] buffer, int index, int count);
+    public virtual void WriteCData(string text);
+    public virtual void WriteCharEntity(char ch);
+    public virtual void WriteChars(Char[] buffer, int index, int count);
+    public virtual void WriteComment(string text);
+    public virtual void WriteDocType(string name, string pubid, string sysid, string subset);
+    public virtual void WriteEndAttribute();
+    public virtual void WriteEndDocument();
+    public virtual void WriteEndElement();
+    public virtual void WriteEntityRef(string name);
+    public virtual void WriteFullEndElement();
+    public virtual void WriteProcessingInstruction(string name, string text);
+    public virtual void WriteRaw(Char[] buffer, int index, int count);
+    public virtual void WriteRaw(string data);
+    public virtual void WriteStartAttribute(string prefix, string localName, string namespaceName);
+    public virtual void WriteStartDocument();
+    public virtual void WriteStartDocument(bool standalone);
+    public virtual void WriteStartElement(string prefix, string localName, string namespaceName);
+    public virtual void WriteString(string text);
+    public virtual void WriteSurrogateCharEntity(char lowCh, char highCh);
+    public virtual void WriteValue(DateTimeOffset value);
+    public virtual void WriteWhitespace(string ws);
+    private void Add(object o);
+    private void AddNode(XNode n);
+    private void AddString(string s);
+}
+public class System.Xml.Linq.XNodeDocumentOrderComparer : object {
+    public sealed virtual int Compare(XNode x, XNode y);
+    private sealed virtual override int System.Collections.IComparer.Compare(object x, object y);
+}
+public class System.Xml.Linq.XNodeEqualityComparer : object {
+    public sealed virtual bool Equals(XNode x, XNode y);
+    public sealed virtual int GetHashCode(XNode obj);
+    private sealed virtual override bool System.Collections.IEqualityComparer.Equals(object x, object y);
+    private sealed virtual override int System.Collections.IEqualityComparer.GetHashCode(object obj);
+}
+internal class System.Xml.Linq.XNodeReader : XmlReader {
+    private static Char[] s_WhitespaceChars;
+    private object _source;
+    private object _parent;
+    private ReadState _state;
+    private XNode _root;
+    private XmlNameTable _nameTable;
+    private bool _omitDuplicateNamespaces;
+    public int AttributeCount { get; }
+    public string BaseURI { get; }
+    public int Depth { get; }
+    public bool EOF { get; }
+    public bool HasAttributes { get; }
+    public bool HasValue { get; }
+    public bool IsEmptyElement { get; }
+    public string LocalName { get; }
+    public string Name { get; }
+    public string NamespaceURI { get; }
+    public XmlNameTable NameTable { get; }
+    public XmlNodeType NodeType { get; }
+    public string Prefix { get; }
+    public ReadState ReadState { get; }
+    public XmlReaderSettings Settings { get; }
+    public string Value { get; }
+    public string XmlLang { get; }
+    public XmlSpace XmlSpace { get; }
+    private int System.Xml.IXmlLineInfo.LineNumber { get; }
+    private int System.Xml.IXmlLineInfo.LinePosition { get; }
+    private bool IsEndElement { get; private set; }
+    private bool IsInteractive { get; }
+    internal XNodeReader(XNode node, XmlNameTable nameTable, ReaderOptions options);
+    internal XNodeReader(XNode node, XmlNameTable nameTable);
+    private static XNodeReader();
+    public virtual int get_AttributeCount();
+    public virtual string get_BaseURI();
+    public virtual int get_Depth();
+    private static int GetDepth(XObject o);
+    public virtual bool get_EOF();
+    public virtual bool get_HasAttributes();
+    public virtual bool get_HasValue();
+    public virtual bool get_IsEmptyElement();
+    public virtual string get_LocalName();
+    private string GetLocalName();
+    public virtual string get_Name();
+    public virtual string get_NamespaceURI();
+    private string GetNamespaceURI();
+    public virtual XmlNameTable get_NameTable();
+    public virtual XmlNodeType get_NodeType();
+    public virtual string get_Prefix();
+    private string GetPrefix();
+    public virtual ReadState get_ReadState();
+    public virtual XmlReaderSettings get_Settings();
+    public virtual string get_Value();
+    public virtual string get_XmlLang();
+    public virtual XmlSpace get_XmlSpace();
+    protected virtual void Dispose(bool disposing);
+    public virtual void Close();
+    public virtual string GetAttribute(string name);
+    public virtual string GetAttribute(string localName, string namespaceName);
+    public virtual string GetAttribute(int index);
+    public virtual string LookupNamespace(string prefix);
+    public virtual bool MoveToAttribute(string name);
+    public virtual bool MoveToAttribute(string localName, string namespaceName);
+    public virtual void MoveToAttribute(int index);
+    public virtual bool MoveToElement();
+    public virtual bool MoveToFirstAttribute();
+    public virtual bool MoveToNextAttribute();
+    public virtual bool Read();
+    public virtual bool ReadAttributeValue();
+    public virtual bool ReadToDescendant(string localName, string namespaceName);
+    public virtual bool ReadToFollowing(string localName, string namespaceName);
+    public virtual bool ReadToNextSibling(string localName, string namespaceName);
+    public virtual void ResolveEntity();
+    public virtual void Skip();
+    private sealed virtual override bool System.Xml.IXmlLineInfo.HasLineInfo();
+    private sealed virtual override int System.Xml.IXmlLineInfo.get_LineNumber();
+    private sealed virtual override int System.Xml.IXmlLineInfo.get_LinePosition();
+    private bool get_IsEndElement();
+    private void set_IsEndElement(bool value);
+    private bool get_IsInteractive();
+    private static XmlNameTable CreateNameTable();
+    private XElement GetElementInAttributeScope();
+    private XElement GetElementInScope();
+    private static void GetNameInAttributeScope(string qualifiedName, XElement e, String& localName, String& namespaceName);
+    private bool Read(bool skipContent);
+    private bool ReadIntoDocument(XDocument d);
+    private bool ReadIntoElement(XElement e);
+    private bool ReadIntoAttribute(XAttribute a);
+    private bool ReadOverAttribute(XAttribute a, bool skipContent);
+    private bool ReadOverNode(XNode n);
+    private bool ReadOverText(bool skipContent);
+    private bool ReadToEnd();
+    private bool IsDuplicateNamespaceAttribute(XAttribute candidateAttribute);
+    private bool IsDuplicateNamespaceAttributeInner(XAttribute candidateAttribute);
+    private XAttribute GetFirstNonDuplicateNamespaceAttribute(XAttribute candidate);
+}
+public abstract class System.Xml.Linq.XObject : object {
+    internal XContainer parent;
+    internal object annotations;
+    public string BaseUri { get; }
+    public XDocument Document { get; }
+    public XmlNodeType NodeType { get; }
+    public XElement Parent { get; }
+    private int System.Xml.IXmlLineInfo.LineNumber { get; }
+    private int System.Xml.IXmlLineInfo.LinePosition { get; }
+    internal bool HasBaseUri { get; }
+    public string get_BaseUri();
+    public XDocument get_Document();
+    public abstract virtual XmlNodeType get_NodeType();
+    public XElement get_Parent();
+    public void AddAnnotation(object annotation);
+    public object Annotation(Type type);
+    private object AnnotationForSealedType(Type type);
+    public T Annotation();
+    public IEnumerable`1<object> Annotations(Type type);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XObject/<AnnotationsIterator>d__16")]
+private IEnumerable`1<object> AnnotationsIterator(Type type);
+    [IteratorStateMachineAttribute("System.Xml.Linq.XObject/<Annotations>d__17`1")]
+public IEnumerable`1<T> Annotations();
+    public void RemoveAnnotations(Type type);
+    public void RemoveAnnotations();
+    public void add_Changed(EventHandler`1<XObjectChangeEventArgs> value);
+    public void remove_Changed(EventHandler`1<XObjectChangeEventArgs> value);
+    public void add_Changing(EventHandler`1<XObjectChangeEventArgs> value);
+    public void remove_Changing(EventHandler`1<XObjectChangeEventArgs> value);
+    private sealed virtual override bool System.Xml.IXmlLineInfo.HasLineInfo();
+    private sealed virtual override int System.Xml.IXmlLineInfo.get_LineNumber();
+    private sealed virtual override int System.Xml.IXmlLineInfo.get_LinePosition();
+    internal bool get_HasBaseUri();
+    internal bool NotifyChanged(object sender, XObjectChangeEventArgs e);
+    internal bool NotifyChanging(object sender, XObjectChangeEventArgs e);
+    internal void SetBaseUri(string baseUri);
+    internal void SetLineInfo(int lineNumber, int linePosition);
+    internal bool SkipNotify();
+    internal SaveOptions GetSaveOptionsFromAnnotations();
+}
+public enum System.Xml.Linq.XObjectChange : Enum {
+    public int value__;
+    public static XObjectChange Add;
+    public static XObjectChange Remove;
+    public static XObjectChange Name;
+    public static XObjectChange Value;
+}
+internal class System.Xml.Linq.XObjectChangeAnnotation : object {
+    internal EventHandler`1<XObjectChangeEventArgs> changing;
+    internal EventHandler`1<XObjectChangeEventArgs> changed;
+}
+public class System.Xml.Linq.XObjectChangeEventArgs : EventArgs {
+    private XObjectChange _objectChange;
+    public static XObjectChangeEventArgs Add;
+    public static XObjectChangeEventArgs Remove;
+    public static XObjectChangeEventArgs Name;
+    public static XObjectChangeEventArgs Value;
+    public XObjectChange ObjectChange { get; }
+    public XObjectChangeEventArgs(XObjectChange objectChange);
+    private static XObjectChangeEventArgs();
+    public XObjectChange get_ObjectChange();
+}
+public class System.Xml.Linq.XProcessingInstruction : XNode {
+    internal string target;
+    internal string data;
+    public string Data { get; public set; }
+    public XmlNodeType NodeType { get; }
+    public string Target { get; public set; }
+    public XProcessingInstruction(string target, string data);
+    public XProcessingInstruction(XProcessingInstruction other);
+    internal XProcessingInstruction(XmlReader r);
+    public string get_Data();
+    public void set_Data(string value);
+    public virtual XmlNodeType get_NodeType();
+    public string get_Target();
+    public void set_Target(string value);
+    public virtual void WriteTo(XmlWriter writer);
+    public virtual Task WriteToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    internal virtual XNode CloneNode();
+    internal virtual bool DeepEquals(XNode node);
+    internal virtual int GetDeepHashCode();
+    private static void ValidateName(string name);
+}
+public class System.Xml.Linq.XStreamingElement : object {
+    internal XName name;
+    internal object content;
+    public XName Name { get; public set; }
+    public XStreamingElement(XName name);
+    public XStreamingElement(XName name, object content);
+    public XStreamingElement(XName name, Object[] content);
+    public XName get_Name();
+    public void set_Name(XName value);
+    public void Add(object content);
+    public void Add(Object[] content);
+    public void Save(Stream stream);
+    public void Save(Stream stream, SaveOptions options);
+    public void Save(TextWriter textWriter);
+    public void Save(TextWriter textWriter, SaveOptions options);
+    public void Save(XmlWriter writer);
+    public void Save(string fileName);
+    public void Save(string fileName, SaveOptions options);
+    public virtual string ToString();
+    public string ToString(SaveOptions options);
+    public void WriteTo(XmlWriter writer);
+    private string GetXmlString(SaveOptions o);
+}
+public class System.Xml.Linq.XText : XNode {
+    internal string text;
+    public XmlNodeType NodeType { get; }
+    public string Value { get; public set; }
+    public XText(string value);
+    public XText(XText other);
+    internal XText(XmlReader r);
+    public virtual XmlNodeType get_NodeType();
+    public string get_Value();
+    public void set_Value(string value);
+    public virtual void WriteTo(XmlWriter writer);
+    public virtual Task WriteToAsync(XmlWriter writer, CancellationToken cancellationToken);
+    internal virtual void AppendText(StringBuilder sb);
+    internal virtual XNode CloneNode();
+    internal virtual bool DeepEquals(XNode node);
+    internal virtual int GetDeepHashCode();
+}
+[ExtensionAttribute]
+public static class System.Xml.Schema.Extensions : object {
+    [ExtensionAttribute]
+public static IXmlSchemaInfo GetSchemaInfo(XElement source);
+    [ExtensionAttribute]
+public static IXmlSchemaInfo GetSchemaInfo(XAttribute source);
+    [ExtensionAttribute]
+public static void Validate(XDocument source, XmlSchemaSet schemas, ValidationEventHandler validationEventHandler);
+    [ExtensionAttribute]
+public static void Validate(XDocument source, XmlSchemaSet schemas, ValidationEventHandler validationEventHandler, bool addSchemaInfo);
+    [ExtensionAttribute]
+public static void Validate(XElement source, XmlSchemaObject partialValidationType, XmlSchemaSet schemas, ValidationEventHandler validationEventHandler);
+    [ExtensionAttribute]
+public static void Validate(XElement source, XmlSchemaObject partialValidationType, XmlSchemaSet schemas, ValidationEventHandler validationEventHandler, bool addSchemaInfo);
+    [ExtensionAttribute]
+public static void Validate(XAttribute source, XmlSchemaObject partialValidationType, XmlSchemaSet schemas, ValidationEventHandler validationEventHandler);
+    [ExtensionAttribute]
+public static void Validate(XAttribute source, XmlSchemaObject partialValidationType, XmlSchemaSet schemas, ValidationEventHandler validationEventHandler, bool addSchemaInfo);
+}
+internal class System.Xml.Schema.XmlSchemaInfoEqualityComparer : object {
+    public sealed virtual bool Equals(XmlSchemaInfo si1, XmlSchemaInfo si2);
+    public sealed virtual int GetHashCode(XmlSchemaInfo si);
+}
+internal class System.Xml.Schema.XNodeValidator : object {
+    private XmlSchemaSet schemas;
+    private ValidationEventHandler validationEventHandler;
+    private XObject source;
+    private bool addSchemaInfo;
+    private XmlNamespaceManager namespaceManager;
+    private XmlSchemaValidator validator;
+    private Dictionary`2<XmlSchemaInfo, XmlSchemaInfo> schemaInfos;
+    private ArrayList defaultAttributes;
+    private XName xsiTypeName;
+    private XName xsiNilName;
+    public XNodeValidator(XmlSchemaSet schemas, ValidationEventHandler validationEventHandler);
+    public void Validate(XObject source, XmlSchemaObject partialValidationType, bool addSchemaInfo);
+    private XmlSchemaInfo GetDefaultAttributeSchemaInfo(XmlSchemaAttribute sa);
+    private string GetDefaultValue(XmlSchemaAttribute sa);
+    private string GetDefaultValue(XmlSchemaElement se);
+    private void ReplaceSchemaInfo(XObject o, XmlSchemaInfo schemaInfo);
+    private void PushAncestorsAndSelf(XElement e);
+    private void PushElement(XElement e, String& xsiType, String& xsiNil);
+    private IXmlLineInfo SaveLineInfo(XObject source);
+    private void RestoreLineInfo(IXmlLineInfo originalLineInfo);
+    private void ValidateAttribute(XAttribute a);
+    private void ValidateAttributes(XElement e);
+    private void ValidateElement(XElement e);
+    private void ValidateNodes(XElement e);
+    private void ValidationCallback(object sender, ValidationEventArgs e);
+}
+[ExtensionAttribute]
+public static class System.Xml.XPath.Extensions : object {
+    [ExtensionAttribute]
+public static XPathNavigator CreateNavigator(XNode node);
+    [ExtensionAttribute]
+public static XPathNavigator CreateNavigator(XNode node, XmlNameTable nameTable);
+    [ExtensionAttribute]
+public static object XPathEvaluate(XNode node, string expression);
+    [ExtensionAttribute]
+public static object XPathEvaluate(XNode node, string expression, IXmlNamespaceResolver resolver);
+    [ExtensionAttribute]
+public static XElement XPathSelectElement(XNode node, string expression);
+    [ExtensionAttribute]
+public static XElement XPathSelectElement(XNode node, string expression, IXmlNamespaceResolver resolver);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> XPathSelectElements(XNode node, string expression);
+    [ExtensionAttribute]
+public static IEnumerable`1<XElement> XPathSelectElements(XNode node, string expression, IXmlNamespaceResolver resolver);
+    private static XText CalibrateText(XText n);
+}
+[ExtensionAttribute]
+internal static class System.Xml.XPath.XAttributeExtensions : object {
+    [ExtensionAttribute]
+public static string GetPrefixOfNamespace(XAttribute attribute, XNamespace ns);
+}
+[ExtensionAttribute]
+public static class System.Xml.XPath.XDocumentExtensions : object {
+    [ExtensionAttribute]
+public static IXPathNavigable ToXPathNavigable(XNode node);
+}
+internal class System.Xml.XPath.XNodeNavigator : XPathNavigator {
+    internal static string xmlPrefixNamespace;
+    internal static string xmlnsPrefixNamespace;
+    private static int DocumentContentMask;
+    private static Int32[] s_ElementContentMasks;
+    private static int TextMask;
+    private static XAttribute s_XmlNamespaceDeclaration;
+    private XObject _source;
+    private XElement _parent;
+    private XmlNameTable _nameTable;
+    public string BaseURI { get; }
+    public bool HasAttributes { get; }
+    public bool HasChildren { get; }
+    public bool IsEmptyElement { get; }
+    public string LocalName { get; }
+    public string Name { get; }
+    public string NamespaceURI { get; }
+    public XmlNameTable NameTable { get; }
+    public XPathNodeType NodeType { get; }
+    public string Prefix { get; }
+    public object UnderlyingObject { get; }
+    public string Value { get; }
+    private int System.Xml.IXmlLineInfo.LineNumber { get; }
+    private int System.Xml.IXmlLineInfo.LinePosition { get; }
+    public XNodeNavigator(XNode node, XmlNameTable nameTable);
+    public XNodeNavigator(XNodeNavigator other);
+    private static XNodeNavigator();
+    public virtual string get_BaseURI();
+    public virtual bool get_HasAttributes();
+    public virtual bool get_HasChildren();
+    public virtual bool get_IsEmptyElement();
+    public virtual string get_LocalName();
+    private string GetLocalName();
+    public virtual string get_Name();
+    public virtual string get_NamespaceURI();
+    private string GetNamespaceURI();
+    public virtual XmlNameTable get_NameTable();
+    public virtual XPathNodeType get_NodeType();
+    public virtual string get_Prefix();
+    private string GetPrefix();
+    public virtual object get_UnderlyingObject();
+    public virtual string get_Value();
+    public virtual XPathNavigator Clone();
+    public virtual bool IsSamePosition(XPathNavigator navigator);
+    public virtual bool MoveTo(XPathNavigator navigator);
+    public virtual bool MoveToAttribute(string localName, string namespaceName);
+    public virtual bool MoveToChild(string localName, string namespaceName);
+    public virtual bool MoveToChild(XPathNodeType type);
+    public virtual bool MoveToFirstAttribute();
+    public virtual bool MoveToFirstChild();
+    public virtual bool MoveToFirstNamespace(XPathNamespaceScope scope);
+    public virtual bool MoveToId(string id);
+    public virtual bool MoveToNamespace(string localName);
+    public virtual bool MoveToNext();
+    public virtual bool MoveToNext(string localName, string namespaceName);
+    public virtual bool MoveToNext(XPathNodeType type);
+    public virtual bool MoveToNextAttribute();
+    public virtual bool MoveToNextNamespace(XPathNamespaceScope scope);
+    public virtual bool MoveToParent();
+    public virtual bool MoveToPrevious();
+    public virtual XmlReader ReadSubtree();
+    private sealed virtual override bool System.Xml.IXmlLineInfo.HasLineInfo();
+    private sealed virtual override int System.Xml.IXmlLineInfo.get_LineNumber();
+    private sealed virtual override int System.Xml.IXmlLineInfo.get_LinePosition();
+    private static string CollectText(XText n);
+    private static XmlNameTable CreateNameTable();
+    private static bool IsContent(XContainer c, XNode n);
+    private static bool IsSamePosition(XNodeNavigator n1, XNodeNavigator n2);
+    private static bool IsXmlNamespaceDeclaration(XAttribute a);
+    private static int GetElementContentMask(XPathNodeType type);
+    private static XAttribute GetFirstNamespaceDeclarationGlobal(XElement e);
+    private static XAttribute GetFirstNamespaceDeclarationLocal(XElement e);
+    private static XAttribute GetNextNamespaceDeclarationGlobal(XAttribute a);
+    private static XAttribute GetNextNamespaceDeclarationLocal(XAttribute a);
+    private static XAttribute GetXmlNamespaceDeclaration();
+    private static bool HasNamespaceDeclarationInScope(XAttribute a, XElement e);
+}
+[ExtensionAttribute]
+internal static class System.Xml.XPath.XObjectExtensions : object {
+    [ExtensionAttribute]
+public static XContainer GetParent(XObject obj);
+}
+[IsReadOnlyAttribute]
+internal class System.Xml.XPath.XPathEvaluator : ValueType {
+    public object Evaluate(XNode node, string expression, IXmlNamespaceResolver resolver);
+    [IteratorStateMachineAttribute("System.Xml.XPath.XPathEvaluator/<EvaluateIterator>d__1`1")]
+private IEnumerable`1<T> EvaluateIterator(XPathNodeIterator result);
+}
+internal class Unity.ThrowStub : ObjectDisposedException {
+    public static void ThrowNotSupportedException();
+}

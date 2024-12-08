@@ -1,0 +1,321 @@
+[NativeHeaderAttribute("Modules/Subsystems/Subsystem.h")]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.IntegratedSubsystem : object {
+    internal IntPtr m_Ptr;
+    internal ISubsystemDescriptor m_SubsystemDescriptor;
+    public bool running { get; }
+    internal bool valid { get; }
+    internal void SetHandle(IntegratedSubsystem subsystem);
+    public sealed virtual void Start();
+    public sealed virtual void Stop();
+    public sealed virtual void Destroy();
+    public sealed virtual bool get_running();
+    internal bool get_valid();
+    internal bool IsRunning();
+}
+[UsedByNativeCodeAttribute("Subsystem_TSubsystemDescriptor")]
+public class UnityEngine.IntegratedSubsystem`1 : IntegratedSubsystem {
+    public TSubsystemDescriptor subsystemDescriptor { get; }
+    public TSubsystemDescriptor SubsystemDescriptor { get; }
+    public TSubsystemDescriptor get_subsystemDescriptor();
+    public TSubsystemDescriptor get_SubsystemDescriptor();
+}
+[UsedByNativeCodeAttribute("SubsystemDescriptorBase")]
+public abstract class UnityEngine.IntegratedSubsystemDescriptor : object {
+    internal IntPtr m_Ptr;
+    public string id { get; }
+    private IntPtr UnityEngine.ISubsystemDescriptorImpl.ptr { get; private set; }
+    public sealed virtual string get_id();
+    private sealed virtual override IntPtr UnityEngine.ISubsystemDescriptorImpl.get_ptr();
+    private sealed virtual override void UnityEngine.ISubsystemDescriptorImpl.set_ptr(IntPtr value);
+    private sealed virtual override ISubsystem UnityEngine.ISubsystemDescriptor.Create();
+    internal abstract virtual ISubsystem CreateImpl();
+}
+[NativeHeaderAttribute("Modules/Subsystems/SubsystemDescriptor.h")]
+[UsedByNativeCodeAttribute("SubsystemDescriptor")]
+public class UnityEngine.IntegratedSubsystemDescriptor`1 : IntegratedSubsystemDescriptor {
+    internal virtual ISubsystem CreateImpl();
+    public TSubsystem Create();
+}
+internal static class UnityEngine.Internal_SubsystemDescriptors : object {
+    [RequiredByNativeCodeAttribute]
+internal static void Internal_AddDescriptor(SubsystemDescriptor descriptor);
+}
+public interface UnityEngine.ISubsystem {
+    public bool running { get; }
+    public abstract virtual bool get_running();
+    public abstract virtual void Start();
+    public abstract virtual void Stop();
+    public abstract virtual void Destroy();
+}
+public interface UnityEngine.ISubsystemDescriptor {
+    public string id { get; }
+    public abstract virtual string get_id();
+    public abstract virtual ISubsystem Create();
+}
+internal interface UnityEngine.ISubsystemDescriptorImpl {
+    public IntPtr ptr { get; public set; }
+    public abstract virtual IntPtr get_ptr();
+    public abstract virtual void set_ptr(IntPtr value);
+}
+public abstract class UnityEngine.Subsystem : object {
+    internal ISubsystemDescriptor m_SubsystemDescriptor;
+    public bool running { get; }
+    public abstract virtual bool get_running();
+    public abstract virtual void Start();
+    public abstract virtual void Stop();
+    public sealed virtual void Destroy();
+    protected abstract virtual void OnDestroy();
+}
+public abstract class UnityEngine.Subsystem`1 : Subsystem {
+    public TSubsystemDescriptor SubsystemDescriptor { get; }
+    public TSubsystemDescriptor get_SubsystemDescriptor();
+}
+internal static class UnityEngine.SubsystemBindings : object {
+    internal static void DestroySubsystem(IntPtr nativePtr);
+}
+public abstract class UnityEngine.SubsystemDescriptor : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <id>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Type <subsystemImplementationType>k__BackingField;
+    public string id { get; public set; }
+    public Type subsystemImplementationType { get; public set; }
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_id();
+    [CompilerGeneratedAttribute]
+public void set_id(string value);
+    [CompilerGeneratedAttribute]
+public Type get_subsystemImplementationType();
+    [CompilerGeneratedAttribute]
+public void set_subsystemImplementationType(Type value);
+    private sealed virtual override ISubsystem UnityEngine.ISubsystemDescriptor.Create();
+    internal abstract virtual ISubsystem CreateImpl();
+}
+public class UnityEngine.SubsystemDescriptor`1 : SubsystemDescriptor {
+    internal virtual ISubsystem CreateImpl();
+    public TSubsystem Create();
+}
+internal static class UnityEngine.SubsystemDescriptorBindings : object {
+    public static IntPtr Create(IntPtr descriptorPtr);
+    public static string GetId(IntPtr descriptorPtr);
+}
+[NativeHeaderAttribute("Modules/Subsystems/SubsystemManager.h")]
+public static class UnityEngine.SubsystemManager : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action beforeReloadSubsystems;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action afterReloadSubsystems;
+    private static List`1<IntegratedSubsystem> s_IntegratedSubsystems;
+    private static List`1<SubsystemWithProvider> s_StandaloneSubsystems;
+    private static List`1<Subsystem> s_DeprecatedSubsystems;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action reloadSubsytemsStarted;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private static Action reloadSubsytemsCompleted;
+    private static SubsystemManager();
+    [RequiredByNativeCodeAttribute]
+private static void ReloadSubsystemsStarted();
+    [RequiredByNativeCodeAttribute]
+private static void ReloadSubsystemsCompleted();
+    [RequiredByNativeCodeAttribute]
+private static void InitializeIntegratedSubsystem(IntPtr ptr, IntegratedSubsystem subsystem);
+    [RequiredByNativeCodeAttribute]
+private static void ClearSubsystems();
+    private static void StaticConstructScriptingClassMap();
+    internal static void ReportSingleSubsystemAnalytics(string id);
+    public static void GetAllSubsystemDescriptors(List`1<ISubsystemDescriptor> descriptors);
+    public static void GetSubsystemDescriptors(List`1<T> descriptors);
+    public static void GetSubsystems(List`1<T> subsystems);
+    private static void AddSubsystemSubset(List`1<TBaseTypeInList> copyFrom, List`1<TQueryType> copyTo);
+    [CompilerGeneratedAttribute]
+public static void add_beforeReloadSubsystems(Action value);
+    [CompilerGeneratedAttribute]
+public static void remove_beforeReloadSubsystems(Action value);
+    [CompilerGeneratedAttribute]
+public static void add_afterReloadSubsystems(Action value);
+    [CompilerGeneratedAttribute]
+public static void remove_afterReloadSubsystems(Action value);
+    internal static IntegratedSubsystem GetIntegratedSubsystemByPtr(IntPtr ptr);
+    internal static void RemoveIntegratedSubsystemByPtr(IntPtr ptr);
+    internal static void AddStandaloneSubsystem(SubsystemWithProvider subsystem);
+    internal static bool RemoveStandaloneSubsystem(SubsystemWithProvider subsystem);
+    internal static SubsystemWithProvider FindStandaloneSubsystemByDescriptor(SubsystemDescriptorWithProvider descriptor);
+    public static void GetInstances(List`1<T> subsystems);
+    internal static void AddDeprecatedSubsystem(Subsystem subsystem);
+    internal static bool RemoveDeprecatedSubsystem(Subsystem subsystem);
+    internal static Subsystem FindDeprecatedSubsystemByDescriptor(SubsystemDescriptor descriptor);
+    [CompilerGeneratedAttribute]
+public static void add_reloadSubsytemsStarted(Action value);
+    [CompilerGeneratedAttribute]
+public static void remove_reloadSubsytemsStarted(Action value);
+    [CompilerGeneratedAttribute]
+public static void add_reloadSubsytemsCompleted(Action value);
+    [CompilerGeneratedAttribute]
+public static void remove_reloadSubsytemsCompleted(Action value);
+}
+[NativeTypeAttribute]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Subsystems.ExampleSubsystem : IntegratedSubsystem`1<ExampleSubsystemDescriptor> {
+    public void PrintExample();
+    public bool GetBool();
+}
+[NativeTypeAttribute]
+[UsedByNativeCodeAttribute]
+public class UnityEngine.Subsystems.ExampleSubsystemDescriptor : IntegratedSubsystemDescriptor`1<ExampleSubsystem> {
+    public bool supportsEditorMode { get; }
+    public bool disableBackbufferMSAA { get; }
+    public bool stereoscopicBackbuffer { get; }
+    public bool usePBufferEGL { get; }
+    public bool get_supportsEditorMode();
+    public bool get_disableBackbufferMSAA();
+    public bool get_stereoscopicBackbuffer();
+    public bool get_usePBufferEGL();
+}
+[ExtensionAttribute]
+public static class UnityEngine.SubsystemsImplementation.Extensions.SubsystemDescriptorExtensions : object {
+    [ExtensionAttribute]
+public static SubsystemProxy`2<TSubsystem, TProvider> CreateProxy(SubsystemDescriptorWithProvider`2<TSubsystem, TProvider> descriptor);
+}
+[ExtensionAttribute]
+public static class UnityEngine.SubsystemsImplementation.Extensions.SubsystemExtensions : object {
+    [ExtensionAttribute]
+public static TProvider GetProvider(SubsystemWithProvider`3<TSubsystem, TDescriptor, TProvider> subsystem);
+}
+[NativeHeaderAttribute("Modules/Subsystems/SubsystemManager.h")]
+public static class UnityEngine.SubsystemsImplementation.SubsystemDescriptorStore : object {
+    private static List`1<IntegratedSubsystemDescriptor> s_IntegratedDescriptors;
+    private static List`1<SubsystemDescriptorWithProvider> s_StandaloneDescriptors;
+    private static List`1<SubsystemDescriptor> s_DeprecatedDescriptors;
+    private static SubsystemDescriptorStore();
+    [RequiredByNativeCodeAttribute]
+internal static void InitializeManagedDescriptor(IntPtr ptr, IntegratedSubsystemDescriptor desc);
+    [RequiredByNativeCodeAttribute]
+internal static void ClearManagedDescriptors();
+    private static void ReportSingleSubsystemAnalytics(string id);
+    public static void RegisterDescriptor(SubsystemDescriptorWithProvider descriptor);
+    internal static void GetAllSubsystemDescriptors(List`1<ISubsystemDescriptor> descriptors);
+    private static void AddDescriptorSubset(List`1<TBaseTypeInList> copyFrom, List`1<ISubsystemDescriptor> copyTo);
+    internal static void GetSubsystemDescriptors(List`1<T> descriptors);
+    private static void AddDescriptorSubset(List`1<TBaseTypeInList> copyFrom, List`1<TQueryType> copyTo);
+    internal static void RegisterDescriptor(TDescriptor descriptor, List`1<TBaseTypeInList> storeInList);
+    internal static void RegisterDeprecatedDescriptor(SubsystemDescriptor descriptor);
+}
+public abstract class UnityEngine.SubsystemsImplementation.SubsystemDescriptorWithProvider : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <id>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Type <providerType>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Type <subsystemTypeOverride>k__BackingField;
+    public string id { get; public set; }
+    protected internal Type providerType { get; protected internal set; }
+    protected internal Type subsystemTypeOverride { get; protected internal set; }
+    [CompilerGeneratedAttribute]
+public sealed virtual string get_id();
+    [CompilerGeneratedAttribute]
+public void set_id(string value);
+    [CompilerGeneratedAttribute]
+protected internal Type get_providerType();
+    [CompilerGeneratedAttribute]
+protected internal void set_providerType(Type value);
+    [CompilerGeneratedAttribute]
+protected internal Type get_subsystemTypeOverride();
+    [CompilerGeneratedAttribute]
+protected internal void set_subsystemTypeOverride(Type value);
+    internal abstract virtual ISubsystem CreateImpl();
+    private sealed virtual override ISubsystem UnityEngine.ISubsystemDescriptor.Create();
+    internal abstract virtual void ThrowIfInvalid();
+}
+public class UnityEngine.SubsystemsImplementation.SubsystemDescriptorWithProvider`2 : SubsystemDescriptorWithProvider {
+    internal virtual ISubsystem CreateImpl();
+    public TSubsystem Create();
+    internal sealed virtual void ThrowIfInvalid();
+    internal TProvider CreateProvider();
+}
+public abstract class UnityEngine.SubsystemsImplementation.SubsystemProvider : object {
+    internal bool m_Running;
+    public bool running { get; }
+    public bool get_running();
+}
+public abstract class UnityEngine.SubsystemsImplementation.SubsystemProvider`1 : SubsystemProvider {
+    protected internal virtual bool TryInitialize();
+    public abstract virtual void Start();
+    public abstract virtual void Stop();
+    public abstract virtual void Destroy();
+}
+public class UnityEngine.SubsystemsImplementation.SubsystemProxy`2 : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private TProvider <provider>k__BackingField;
+    public TProvider provider { get; private set; }
+    public bool running { get; public set; }
+    internal SubsystemProxy`2(TProvider provider);
+    [CompilerGeneratedAttribute]
+public TProvider get_provider();
+    [CompilerGeneratedAttribute]
+private void set_provider(TProvider value);
+    public bool get_running();
+    public void set_running(bool value);
+}
+public abstract class UnityEngine.SubsystemsImplementation.SubsystemWithProvider : object {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private bool <running>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private SubsystemProvider <providerBase>k__BackingField;
+    public bool running { get; private set; }
+    internal SubsystemProvider providerBase { get; internal set; }
+    internal SubsystemDescriptorWithProvider descriptor { get; }
+    public sealed virtual void Start();
+    protected abstract virtual void OnStart();
+    public sealed virtual void Stop();
+    protected abstract virtual void OnStop();
+    public sealed virtual void Destroy();
+    protected abstract virtual void OnDestroy();
+    [CompilerGeneratedAttribute]
+public sealed virtual bool get_running();
+    [CompilerGeneratedAttribute]
+private void set_running(bool value);
+    [CompilerGeneratedAttribute]
+internal SubsystemProvider get_providerBase();
+    [CompilerGeneratedAttribute]
+internal void set_providerBase(SubsystemProvider value);
+    internal abstract virtual void Initialize(SubsystemDescriptorWithProvider descriptor, SubsystemProvider subsystemProvider);
+    internal abstract virtual SubsystemDescriptorWithProvider get_descriptor();
+}
+public abstract class UnityEngine.SubsystemsImplementation.SubsystemWithProvider`3 : SubsystemWithProvider {
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private TSubsystemDescriptor <subsystemDescriptor>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private TProvider <provider>k__BackingField;
+    public TSubsystemDescriptor subsystemDescriptor { get; private set; }
+    protected internal TProvider provider { get; private set; }
+    internal SubsystemDescriptorWithProvider descriptor { get; }
+    [CompilerGeneratedAttribute]
+public TSubsystemDescriptor get_subsystemDescriptor();
+    [CompilerGeneratedAttribute]
+private void set_subsystemDescriptor(TSubsystemDescriptor value);
+    [CompilerGeneratedAttribute]
+protected internal TProvider get_provider();
+    [CompilerGeneratedAttribute]
+private void set_provider(TProvider value);
+    protected virtual void OnCreate();
+    protected virtual void OnStart();
+    protected virtual void OnStop();
+    protected virtual void OnDestroy();
+    internal sealed virtual void Initialize(SubsystemDescriptorWithProvider descriptor, SubsystemProvider provider);
+    internal sealed virtual SubsystemDescriptorWithProvider get_descriptor();
+}

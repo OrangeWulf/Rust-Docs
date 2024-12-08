@@ -1,0 +1,1630 @@
+public class UnityEngine.Timeline.ActivationControlPlayable : PlayableBehaviour {
+    public GameObject gameObject;
+    public PostPlaybackState postPlayback;
+    private InitialState m_InitialState;
+    public static ScriptPlayable`1<ActivationControlPlayable> Create(PlayableGraph graph, GameObject gameObject, PostPlaybackState postPlaybackState);
+    public virtual void OnBehaviourPlay(Playable playable, FrameData info);
+    public virtual void OnBehaviourPause(Playable playable, FrameData info);
+    public virtual void ProcessFrame(Playable playable, FrameData info, object userData);
+    public virtual void OnGraphStart(Playable playable);
+    public virtual void OnPlayableDestroy(Playable playable);
+}
+internal class UnityEngine.Timeline.ActivationMixerPlayable : PlayableBehaviour {
+    private PostPlaybackState m_PostPlaybackState;
+    private bool m_BoundGameObjectInitialStateIsActive;
+    private GameObject m_BoundGameObject;
+    public PostPlaybackState postPlaybackState { get; public set; }
+    public static ScriptPlayable`1<ActivationMixerPlayable> Create(PlayableGraph graph, int inputCount);
+    public PostPlaybackState get_postPlaybackState();
+    public void set_postPlaybackState(PostPlaybackState value);
+    public virtual void OnPlayableDestroy(Playable playable);
+    public virtual void ProcessFrame(Playable playable, FrameData info, object playerData);
+}
+internal class UnityEngine.Timeline.ActivationPlayableAsset : PlayableAsset {
+    public ClipCaps clipCaps { get; }
+    public sealed virtual ClipCaps get_clipCaps();
+    public virtual Playable CreatePlayable(PlayableGraph graph, GameObject go);
+}
+[ExcludeFromPresetAttribute]
+[TrackBindingTypeAttribute("UnityEngine.GameObject")]
+[TrackClipTypeAttribute("UnityEngine.Timeline.ActivationPlayableAsset")]
+public class UnityEngine.Timeline.ActivationTrack : TrackAsset {
+    [SerializeField]
+private PostPlaybackState m_PostPlaybackState;
+    private ActivationMixerPlayable m_ActivationMixer;
+    public PostPlaybackState postPlaybackState { get; public set; }
+    internal virtual bool CanCompileClips();
+    public PostPlaybackState get_postPlaybackState();
+    public void set_postPlaybackState(PostPlaybackState value);
+    public virtual Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount);
+    internal void UpdateTrackMode();
+    public virtual void GatherProperties(PlayableDirector director, IPropertyCollector driver);
+    protected virtual void OnCreateClip(TimelineClip clip);
+}
+internal class UnityEngine.Timeline.AnimationOutputWeightProcessor : object {
+    private AnimationPlayableOutput m_Output;
+    private AnimationMotionXToDeltaPlayable m_MotionXPlayable;
+    private List`1<WeightInfo> m_Mixers;
+    public AnimationOutputWeightProcessor(AnimationPlayableOutput output);
+    private void FindMixers();
+    private void FindMixers(Playable parent, int port, Playable node);
+    public sealed virtual void Evaluate();
+}
+[NotKeyableAttribute]
+public class UnityEngine.Timeline.AnimationPlayableAsset : PlayableAsset {
+    [SerializeField]
+private AnimationClip m_Clip;
+    [SerializeField]
+private Vector3 m_Position;
+    [SerializeField]
+private Vector3 m_EulerAngles;
+    [SerializeField]
+private bool m_UseTrackMatchFields;
+    [SerializeField]
+private MatchTargetFields m_MatchTargetFields;
+    [SerializeField]
+private bool m_RemoveStartOffset;
+    [SerializeField]
+private bool m_ApplyFootIK;
+    [SerializeField]
+private LoopMode m_Loop;
+    [CompilerGeneratedAttribute]
+private AppliedOffsetMode <appliedOffsetMode>k__BackingField;
+    private static int k_LatestVersion;
+    [HideInInspector]
+[SerializeField]
+private int m_Version;
+    [HideInInspector]
+[ObsoleteAttribute("Use m_RotationEuler Instead", "False")]
+[SerializeField]
+private Quaternion m_Rotation;
+    public Vector3 position { get; public set; }
+    public Quaternion rotation { get; public set; }
+    public Vector3 eulerAngles { get; public set; }
+    public bool useTrackMatchFields { get; public set; }
+    public MatchTargetFields matchTargetFields { get; public set; }
+    public bool removeStartOffset { get; public set; }
+    public bool applyFootIK { get; public set; }
+    public LoopMode loop { get; public set; }
+    internal bool hasRootTransforms { get; }
+    internal AppliedOffsetMode appliedOffsetMode { get; internal set; }
+    public AnimationClip clip { get; public set; }
+    public double duration { get; }
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    public ClipCaps clipCaps { get; }
+    private static AnimationPlayableAsset();
+    public Vector3 get_position();
+    public void set_position(Vector3 value);
+    public Quaternion get_rotation();
+    public void set_rotation(Quaternion value);
+    public Vector3 get_eulerAngles();
+    public void set_eulerAngles(Vector3 value);
+    public bool get_useTrackMatchFields();
+    public void set_useTrackMatchFields(bool value);
+    public MatchTargetFields get_matchTargetFields();
+    public void set_matchTargetFields(MatchTargetFields value);
+    public bool get_removeStartOffset();
+    public void set_removeStartOffset(bool value);
+    public bool get_applyFootIK();
+    public void set_applyFootIK(bool value);
+    public LoopMode get_loop();
+    public void set_loop(LoopMode value);
+    internal bool get_hasRootTransforms();
+    [CompilerGeneratedAttribute]
+internal AppliedOffsetMode get_appliedOffsetMode();
+    [CompilerGeneratedAttribute]
+internal void set_appliedOffsetMode(AppliedOffsetMode value);
+    public AnimationClip get_clip();
+    public void set_clip(AnimationClip value);
+    public virtual double get_duration();
+    [IteratorStateMachineAttribute("UnityEngine.Timeline.AnimationPlayableAsset/<get_outputs>d__45")]
+public virtual IEnumerable`1<PlayableBinding> get_outputs();
+    public virtual Playable CreatePlayable(PlayableGraph graph, GameObject go);
+    internal static Playable CreatePlayable(PlayableGraph graph, AnimationClip clip, Vector3 positionOffset, Vector3 eulerOffset, bool removeStartOffset, AppliedOffsetMode mode, bool applyFootIK, LoopMode loop);
+    private static bool ShouldApplyOffset(AppliedOffsetMode mode, AnimationClip clip);
+    private static bool ShouldApplyScaleRemove(AppliedOffsetMode mode);
+    public sealed virtual ClipCaps get_clipCaps();
+    public void ResetOffsets();
+    public sealed virtual void GatherProperties(PlayableDirector director, IPropertyCollector driver);
+    internal static bool HasRootTransforms(AnimationClip clip);
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize();
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize();
+    private void OnUpgradeFromVersion(int oldVersion);
+}
+internal class UnityEngine.Timeline.AnimationPreviewUpdateCallback : object {
+    private AnimationPlayableOutput m_Output;
+    private PlayableGraph m_Graph;
+    private List`1<IAnimationWindowPreview> m_PreviewComponents;
+    public AnimationPreviewUpdateCallback(AnimationPlayableOutput output);
+    public sealed virtual void Evaluate();
+    private void FetchPreviewComponents();
+}
+[ExcludeFromPresetAttribute]
+[TrackBindingTypeAttribute("UnityEngine.Animator")]
+[TrackClipTypeAttribute("UnityEngine.Timeline.AnimationPlayableAsset", "False")]
+public class UnityEngine.Timeline.AnimationTrack : TrackAsset {
+    private static string k_DefaultInfiniteClipName;
+    private static string k_DefaultRecordableClipName;
+    [FormerlySerializedAsAttribute("m_OpenClipPreExtrapolation")]
+[SerializeField]
+private ClipExtrapolation m_InfiniteClipPreExtrapolation;
+    [FormerlySerializedAsAttribute("m_OpenClipPostExtrapolation")]
+[SerializeField]
+private ClipExtrapolation m_InfiniteClipPostExtrapolation;
+    [FormerlySerializedAsAttribute("m_OpenClipOffsetPosition")]
+[SerializeField]
+private Vector3 m_InfiniteClipOffsetPosition;
+    [FormerlySerializedAsAttribute("m_OpenClipOffsetEulerAngles")]
+[SerializeField]
+private Vector3 m_InfiniteClipOffsetEulerAngles;
+    [FormerlySerializedAsAttribute("m_OpenClipTimeOffset")]
+[SerializeField]
+private double m_InfiniteClipTimeOffset;
+    [FormerlySerializedAsAttribute("m_OpenClipRemoveOffset")]
+[SerializeField]
+private bool m_InfiniteClipRemoveOffset;
+    [SerializeField]
+private bool m_InfiniteClipApplyFootIK;
+    [HideInInspector]
+[SerializeField]
+private LoopMode mInfiniteClipLoop;
+    [SerializeField]
+private MatchTargetFields m_MatchTargetFields;
+    [SerializeField]
+private Vector3 m_Position;
+    [SerializeField]
+private Vector3 m_EulerAngles;
+    [SerializeField]
+private AvatarMask m_AvatarMask;
+    [SerializeField]
+private bool m_ApplyAvatarMask;
+    [SerializeField]
+private TrackOffset m_TrackOffset;
+    [HideInInspector]
+[SerializeField]
+private AnimationClip m_InfiniteClip;
+    private static Queue`1<Transform> s_CachedQueue;
+    [HideInInspector]
+[ObsoleteAttribute("Use m_InfiniteClipOffsetEulerAngles Instead", "False")]
+[SerializeField]
+private Quaternion m_OpenClipOffsetRotation;
+    [HideInInspector]
+[ObsoleteAttribute("Use m_RotationEuler Instead", "False")]
+[SerializeField]
+private Quaternion m_Rotation;
+    [HideInInspector]
+[ObsoleteAttribute("Use m_RootTransformOffsetMode", "False")]
+[SerializeField]
+private bool m_ApplyOffsets;
+    public Vector3 position { get; public set; }
+    public Quaternion rotation { get; public set; }
+    public Vector3 eulerAngles { get; public set; }
+    [ObsoleteAttribute("applyOffset is deprecated. Use trackOffset instead", "True")]
+public bool applyOffsets { get; public set; }
+    public TrackOffset trackOffset { get; public set; }
+    public MatchTargetFields matchTargetFields { get; public set; }
+    public AnimationClip infiniteClip { get; internal set; }
+    internal bool infiniteClipRemoveOffset { get; internal set; }
+    public AvatarMask avatarMask { get; public set; }
+    public bool applyAvatarMask { get; public set; }
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    public bool inClipMode { get; }
+    public Vector3 infiniteClipOffsetPosition { get; public set; }
+    public Quaternion infiniteClipOffsetRotation { get; public set; }
+    public Vector3 infiniteClipOffsetEulerAngles { get; public set; }
+    internal bool infiniteClipApplyFootIK { get; internal set; }
+    internal double infiniteClipTimeOffset { get; internal set; }
+    public ClipExtrapolation infiniteClipPreExtrapolation { get; public set; }
+    public ClipExtrapolation infiniteClipPostExtrapolation { get; public set; }
+    internal LoopMode infiniteClipLoop { get; internal set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("openClipOffsetPosition has been deprecated. Use infiniteClipOffsetPosition instead. (UnityUpgradable) -> infiniteClipOffsetPosition", "True")]
+public Vector3 openClipOffsetPosition { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("openClipOffsetRotation has been deprecated. Use infiniteClipOffsetRotation instead. (UnityUpgradable) -> infiniteClipOffsetRotation", "True")]
+public Quaternion openClipOffsetRotation { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("openClipOffsetEulerAngles has been deprecated. Use infiniteClipOffsetEulerAngles instead. (UnityUpgradable) -> infiniteClipOffsetEulerAngles", "True")]
+public Vector3 openClipOffsetEulerAngles { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("openClipPreExtrapolation has been deprecated. Use infiniteClipPreExtrapolation instead. (UnityUpgradable) -> infiniteClipPreExtrapolation", "True")]
+public ClipExtrapolation openClipPreExtrapolation { get; public set; }
+    [EditorBrowsableAttribute("1")]
+[ObsoleteAttribute("openClipPostExtrapolation has been deprecated. Use infiniteClipPostExtrapolation instead. (UnityUpgradable) -> infiniteClipPostExtrapolation", "True")]
+public ClipExtrapolation openClipPostExtrapolation { get; public set; }
+    private static AnimationTrack();
+    public Vector3 get_position();
+    public void set_position(Vector3 value);
+    public Quaternion get_rotation();
+    public void set_rotation(Quaternion value);
+    public Vector3 get_eulerAngles();
+    public void set_eulerAngles(Vector3 value);
+    public bool get_applyOffsets();
+    public void set_applyOffsets(bool value);
+    public TrackOffset get_trackOffset();
+    public void set_trackOffset(TrackOffset value);
+    public MatchTargetFields get_matchTargetFields();
+    public void set_matchTargetFields(MatchTargetFields value);
+    public AnimationClip get_infiniteClip();
+    internal void set_infiniteClip(AnimationClip value);
+    internal bool get_infiniteClipRemoveOffset();
+    internal void set_infiniteClipRemoveOffset(bool value);
+    public AvatarMask get_avatarMask();
+    public void set_avatarMask(AvatarMask value);
+    public bool get_applyAvatarMask();
+    public void set_applyAvatarMask(bool value);
+    internal virtual bool CanCompileClips();
+    [IteratorStateMachineAttribute("UnityEngine.Timeline.AnimationTrack/<get_outputs>d__49")]
+public virtual IEnumerable`1<PlayableBinding> get_outputs();
+    public bool get_inClipMode();
+    public Vector3 get_infiniteClipOffsetPosition();
+    public void set_infiniteClipOffsetPosition(Vector3 value);
+    public Quaternion get_infiniteClipOffsetRotation();
+    public void set_infiniteClipOffsetRotation(Quaternion value);
+    public Vector3 get_infiniteClipOffsetEulerAngles();
+    public void set_infiniteClipOffsetEulerAngles(Vector3 value);
+    internal bool get_infiniteClipApplyFootIK();
+    internal void set_infiniteClipApplyFootIK(bool value);
+    internal double get_infiniteClipTimeOffset();
+    internal void set_infiniteClipTimeOffset(double value);
+    public ClipExtrapolation get_infiniteClipPreExtrapolation();
+    public void set_infiniteClipPreExtrapolation(ClipExtrapolation value);
+    public ClipExtrapolation get_infiniteClipPostExtrapolation();
+    public void set_infiniteClipPostExtrapolation(ClipExtrapolation value);
+    internal LoopMode get_infiniteClipLoop();
+    internal void set_infiniteClipLoop(LoopMode value);
+    [ContextMenu("Reset Offsets")]
+private void ResetOffsets();
+    public TimelineClip CreateClip(AnimationClip clip);
+    public void CreateInfiniteClip(string infiniteClipName);
+    public TimelineClip CreateRecordableClip(string animClipName);
+    protected virtual void OnCreateClip(TimelineClip clip);
+    protected internal virtual int CalculateItemsHash();
+    internal void UpdateClipOffsets();
+    private Playable CompileTrackPlayable(PlayableGraph graph, AnimationTrack track, GameObject go, IntervalTree`1<RuntimeElement> tree, AppliedOffsetMode mode);
+    private sealed virtual override Playable UnityEngine.Timeline.ILayerable.CreateLayerMixer(PlayableGraph graph, GameObject go, int inputCount);
+    internal virtual Playable CreateMixerPlayableGraph(PlayableGraph graph, GameObject go, IntervalTree`1<RuntimeElement> tree);
+    private int GetDefaultBlendCount();
+    private void AttachDefaultBlend(PlayableGraph graph, AnimationLayerMixerPlayable mixer, bool requireOffset);
+    private Playable AttachOffsetPlayable(PlayableGraph graph, Playable playable, Vector3 pos, Quaternion rot);
+    private bool RequiresMotionXPlayable(AppliedOffsetMode mode, GameObject gameObject);
+    private static bool UsesAbsoluteMotion(AppliedOffsetMode mode);
+    private bool HasController(GameObject gameObject);
+    internal Animator GetBinding(PlayableDirector director);
+    private static AnimationLayerMixerPlayable CreateGroupMixer(PlayableGraph graph, GameObject go, int inputCount);
+    private Playable CreateInfiniteTrackPlayable(PlayableGraph graph, GameObject go, IntervalTree`1<RuntimeElement> tree, AppliedOffsetMode mode);
+    private Playable ApplyTrackOffset(PlayableGraph graph, Playable root, GameObject go, AppliedOffsetMode mode);
+    internal virtual void GetEvaluationTime(Double& outStart, Double& outDuration);
+    internal virtual void GetSequenceTime(Double& outStart, Double& outDuration);
+    private void AssignAnimationClip(TimelineClip clip, AnimationClip animClip);
+    public virtual void GatherProperties(PlayableDirector director, IPropertyCollector driver);
+    private void GetAnimationClips(List`1<AnimationClip> animClips);
+    private AppliedOffsetMode GetOffsetMode(GameObject go, bool animatesRootTransform);
+    private bool IsRootTransformDisabledByMask(GameObject gameObject, Transform genericRootNode);
+    private Transform GetGenericRootNode(GameObject gameObject);
+    internal bool AnimatesRootTransform();
+    private static Transform FindInHierarchyBreadthFirst(Transform t, string name);
+    public Vector3 get_openClipOffsetPosition();
+    public void set_openClipOffsetPosition(Vector3 value);
+    public Quaternion get_openClipOffsetRotation();
+    public void set_openClipOffsetRotation(Quaternion value);
+    public Vector3 get_openClipOffsetEulerAngles();
+    public void set_openClipOffsetEulerAngles(Vector3 value);
+    public ClipExtrapolation get_openClipPreExtrapolation();
+    public void set_openClipPreExtrapolation(ClipExtrapolation value);
+    public ClipExtrapolation get_openClipPostExtrapolation();
+    public void set_openClipPostExtrapolation(ClipExtrapolation value);
+    internal virtual void OnUpgradeFromVersion(int oldVersion);
+}
+internal enum UnityEngine.Timeline.AppliedOffsetMode : Enum {
+    public int value__;
+    public static AppliedOffsetMode NoRootTransform;
+    public static AppliedOffsetMode TransformOffset;
+    public static AppliedOffsetMode SceneOffset;
+    public static AppliedOffsetMode TransformOffsetLegacy;
+    public static AppliedOffsetMode SceneOffsetLegacy;
+    public static AppliedOffsetMode SceneOffsetEditor;
+    public static AppliedOffsetMode SceneOffsetLegacyEditor;
+}
+[NotKeyableAttribute]
+internal class UnityEngine.Timeline.AudioClipProperties : PlayableBehaviour {
+    [RangeAttribute("0", "1")]
+public float volume;
+}
+internal class UnityEngine.Timeline.AudioMixerProperties : PlayableBehaviour {
+    [RangeAttribute("0", "1")]
+public float volume;
+    [RangeAttribute("-1", "1")]
+public float stereoPan;
+    [RangeAttribute("0", "1")]
+public float spatialBlend;
+    public virtual void PrepareFrame(Playable playable, FrameData info);
+}
+public class UnityEngine.Timeline.AudioPlayableAsset : PlayableAsset {
+    [SerializeField]
+private AudioClip m_Clip;
+    [SerializeField]
+private bool m_Loop;
+    [HideInInspector]
+[SerializeField]
+private float m_bufferingTime;
+    [SerializeField]
+private AudioClipProperties m_ClipProperties;
+    internal float bufferingTime { get; internal set; }
+    public AudioClip clip { get; public set; }
+    public bool loop { get; public set; }
+    public double duration { get; }
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    public ClipCaps clipCaps { get; }
+    internal float get_bufferingTime();
+    internal void set_bufferingTime(float value);
+    public AudioClip get_clip();
+    public void set_clip(AudioClip value);
+    public bool get_loop();
+    public void set_loop(bool value);
+    public virtual double get_duration();
+    [IteratorStateMachineAttribute("UnityEngine.Timeline.AudioPlayableAsset/<get_outputs>d__16")]
+public virtual IEnumerable`1<PlayableBinding> get_outputs();
+    public virtual Playable CreatePlayable(PlayableGraph graph, GameObject go);
+    public sealed virtual ClipCaps get_clipCaps();
+}
+[ExcludeFromPresetAttribute]
+[TrackBindingTypeAttribute("UnityEngine.AudioSource")]
+[TrackClipTypeAttribute("UnityEngine.Timeline.AudioPlayableAsset", "False")]
+public class UnityEngine.Timeline.AudioTrack : TrackAsset {
+    [SerializeField]
+private AudioMixerProperties m_TrackProperties;
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    public TimelineClip CreateClip(AudioClip clip);
+    internal virtual Playable CompileClips(PlayableGraph graph, GameObject go, IList`1<TimelineClip> timelineClips, IntervalTree`1<RuntimeElement> tree);
+    [IteratorStateMachineAttribute("UnityEngine.Timeline.AudioTrack/<get_outputs>d__4")]
+public virtual IEnumerable`1<PlayableBinding> get_outputs();
+    private void OnValidate();
+}
+[ObsoleteAttribute("For best performance use PlayableAsset and PlayableBehaviour.")]
+public class UnityEngine.Timeline.BasicPlayableBehaviour : ScriptableObject {
+    public double duration { get; }
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    public virtual double get_duration();
+    public virtual IEnumerable`1<PlayableBinding> get_outputs();
+    public virtual void OnGraphStart(Playable playable);
+    public virtual void OnGraphStop(Playable playable);
+    public virtual void OnPlayableCreate(Playable playable);
+    public virtual void OnPlayableDestroy(Playable playable);
+    public virtual void OnBehaviourPlay(Playable playable, FrameData info);
+    public virtual void OnBehaviourPause(Playable playable, FrameData info);
+    public virtual void PrepareFrame(Playable playable, FrameData info);
+    public virtual void ProcessFrame(Playable playable, FrameData info, object playerData);
+    public virtual Playable CreatePlayable(PlayableGraph graph, GameObject owner);
+}
+[FlagsAttribute]
+public enum UnityEngine.Timeline.ClipCaps : Enum {
+    public int value__;
+    public static ClipCaps None;
+    public static ClipCaps Looping;
+    public static ClipCaps Extrapolation;
+    public static ClipCaps ClipIn;
+    public static ClipCaps SpeedMultiplier;
+    public static ClipCaps Blending;
+    public static ClipCaps AutoScale;
+    public static ClipCaps All;
+}
+[NotKeyableAttribute]
+public class UnityEngine.Timeline.ControlPlayableAsset : PlayableAsset {
+    private static int k_MaxRandInt;
+    private static List`1<PlayableDirector> k_EmptyDirectorsList;
+    private static List`1<ParticleSystem> k_EmptyParticlesList;
+    private static HashSet`1<ParticleSystem> s_SubEmitterCollector;
+    [SerializeField]
+public ExposedReference`1<GameObject> sourceGameObject;
+    [SerializeField]
+public GameObject prefabGameObject;
+    [SerializeField]
+public bool updateParticle;
+    [SerializeField]
+public UInt32 particleRandomSeed;
+    [SerializeField]
+public bool updateDirector;
+    [SerializeField]
+public bool updateITimeControl;
+    [SerializeField]
+public bool searchHierarchy;
+    [SerializeField]
+public bool active;
+    [SerializeField]
+public PostPlaybackState postPlayback;
+    private PlayableAsset m_ControlDirectorAsset;
+    private double m_Duration;
+    private bool m_SupportLoop;
+    private static HashSet`1<PlayableDirector> s_ProcessedDirectors;
+    private static HashSet`1<GameObject> s_CreatedPrefabs;
+    [CompilerGeneratedAttribute]
+private bool <controllingDirectors>k__BackingField;
+    [CompilerGeneratedAttribute]
+private bool <controllingParticles>k__BackingField;
+    internal bool controllingDirectors { get; private set; }
+    internal bool controllingParticles { get; private set; }
+    public double duration { get; }
+    public ClipCaps clipCaps { get; }
+    private static ControlPlayableAsset();
+    [CompilerGeneratedAttribute]
+internal bool get_controllingDirectors();
+    [CompilerGeneratedAttribute]
+private void set_controllingDirectors(bool value);
+    [CompilerGeneratedAttribute]
+internal bool get_controllingParticles();
+    [CompilerGeneratedAttribute]
+private void set_controllingParticles(bool value);
+    public void OnEnable();
+    public virtual double get_duration();
+    public sealed virtual ClipCaps get_clipCaps();
+    public virtual Playable CreatePlayable(PlayableGraph graph, GameObject go);
+    private static Playable ConnectPlayablesToMixer(PlayableGraph graph, List`1<Playable> playables);
+    private void CreateActivationPlayable(GameObject root, PlayableGraph graph, List`1<Playable> outplayables);
+    private void SearchHierarchyAndConnectParticleSystem(IEnumerable`1<ParticleSystem> particleSystems, PlayableGraph graph, List`1<Playable> outplayables);
+    private void SearchHierarchyAndConnectDirector(IEnumerable`1<PlayableDirector> directors, PlayableGraph graph, List`1<Playable> outplayables, bool disableSelfReferences);
+    private static void SearchHierarchyAndConnectControlableScripts(IEnumerable`1<MonoBehaviour> controlableScripts, PlayableGraph graph, List`1<Playable> outplayables);
+    private static void ConnectMixerAndPlayable(PlayableGraph graph, Playable mixer, Playable playable, int portIndex);
+    internal IList`1<T> GetComponent(GameObject gameObject);
+    [IteratorStateMachineAttribute("UnityEngine.Timeline.ControlPlayableAsset/<GetControlableScripts>d__39")]
+internal static IEnumerable`1<MonoBehaviour> GetControlableScripts(GameObject root);
+    internal void UpdateDurationAndLoopFlag(IList`1<PlayableDirector> directors, IList`1<ParticleSystem> particleSystems);
+    private IList`1<ParticleSystem> GetControllableParticleSystems(GameObject go);
+    private static void GetControllableParticleSystems(Transform t, ICollection`1<ParticleSystem> roots, HashSet`1<ParticleSystem> subEmitters);
+    private static void CacheSubEmitters(ParticleSystem ps, HashSet`1<ParticleSystem> subEmitters);
+    public sealed virtual void GatherProperties(PlayableDirector director, IPropertyCollector driver);
+    internal static void PreviewParticles(IPropertyCollector driver, IEnumerable`1<ParticleSystem> particles);
+    internal static void PreviewActivation(IPropertyCollector driver, IEnumerable`1<GameObject> objects);
+    internal static void PreviewTimeControl(IPropertyCollector driver, PlayableDirector director, IEnumerable`1<MonoBehaviour> scripts);
+    internal static void PreviewDirectors(IPropertyCollector driver, IEnumerable`1<PlayableDirector> directors);
+}
+[ExcludeFromPresetAttribute]
+[TrackClipTypeAttribute("UnityEngine.Timeline.ControlPlayableAsset", "False")]
+public class UnityEngine.Timeline.ControlTrack : TrackAsset {
+}
+internal class UnityEngine.Timeline.CustomSignalEventDrawer : PropertyAttribute {
+}
+[AttributeUsageAttribute("4")]
+public class UnityEngine.Timeline.CustomStyleAttribute : Attribute {
+    public string ussStyle;
+    public CustomStyleAttribute(string ussStyle);
+}
+public class UnityEngine.Timeline.DirectorControlPlayable : PlayableBehaviour {
+    public PlayableDirector director;
+    private bool m_SyncTime;
+    private double m_AssetDuration;
+    public static ScriptPlayable`1<DirectorControlPlayable> Create(PlayableGraph graph, PlayableDirector director);
+    public virtual void OnPlayableDestroy(Playable playable);
+    public virtual void PrepareFrame(Playable playable, FrameData info);
+    public virtual void OnBehaviourPlay(Playable playable, FrameData info);
+    public virtual void OnBehaviourPause(Playable playable, FrameData info);
+    public virtual void ProcessFrame(Playable playable, FrameData info, object playerData);
+    private void SyncSpeed(double speed);
+    private void SyncStart(PlayableGraph graph, double time);
+    private void SyncStop(PlayableGraph graph, double time);
+    private bool DetectDiscontinuity(Playable playable, FrameData info);
+    private bool DetectOutOfSync(Playable playable);
+    private void UpdateTime(Playable playable);
+}
+internal class UnityEngine.Timeline.DiscreteTime : ValueType {
+    private static double k_Tick;
+    public static DiscreteTime kMaxTime;
+    private long m_DiscreteTime;
+    public static double tickValue { get; }
+    public DiscreteTime(DiscreteTime time);
+    private DiscreteTime(long time);
+    public DiscreteTime(double time);
+    public DiscreteTime(float time);
+    public DiscreteTime(int time);
+    public DiscreteTime(int frame, double fps);
+    private static DiscreteTime();
+    public static double get_tickValue();
+    public DiscreteTime OneTickBefore();
+    public DiscreteTime OneTickAfter();
+    public long GetTick();
+    public static DiscreteTime FromTicks(long ticks);
+    public sealed virtual int CompareTo(object obj);
+    public bool Equals(DiscreteTime other);
+    public virtual bool Equals(object obj);
+    private static long DoubleToDiscreteTime(double time);
+    private static long FloatToDiscreteTime(float time);
+    private static long IntToDiscreteTime(int time);
+    private static double ToDouble(long time);
+    private static float ToFloat(long time);
+    public static double op_Explicit(DiscreteTime b);
+    public static float op_Explicit(DiscreteTime b);
+    public static long op_Explicit(DiscreteTime b);
+    public static DiscreteTime op_Explicit(double time);
+    public static DiscreteTime op_Explicit(float time);
+    public static DiscreteTime op_Implicit(int time);
+    public static DiscreteTime op_Explicit(long time);
+    public static bool op_Equality(DiscreteTime lhs, DiscreteTime rhs);
+    public static bool op_Inequality(DiscreteTime lhs, DiscreteTime rhs);
+    public static bool op_GreaterThan(DiscreteTime lhs, DiscreteTime rhs);
+    public static bool op_LessThan(DiscreteTime lhs, DiscreteTime rhs);
+    public static bool op_LessThanOrEqual(DiscreteTime lhs, DiscreteTime rhs);
+    public static bool op_GreaterThanOrEqual(DiscreteTime lhs, DiscreteTime rhs);
+    public static DiscreteTime op_Addition(DiscreteTime lhs, DiscreteTime rhs);
+    public static DiscreteTime op_Subtraction(DiscreteTime lhs, DiscreteTime rhs);
+    public virtual string ToString();
+    public virtual int GetHashCode();
+    public static DiscreteTime Min(DiscreteTime lhs, DiscreteTime rhs);
+    public static DiscreteTime Max(DiscreteTime lhs, DiscreteTime rhs);
+    public static double SnapToNearestTick(double time);
+    public static float SnapToNearestTick(float time);
+    public static long GetNearestTick(double time);
+}
+[ExtensionAttribute]
+internal static class UnityEngine.Timeline.Extrapolation : object {
+    internal static double kMinExtrapolationTime;
+    private static Extrapolation();
+    [ExtensionAttribute]
+internal static void CalculateExtrapolationTimes(TrackAsset asset);
+    private static TimelineClip[] SortClipsByStartTime(TimelineClip[] clips);
+}
+internal class UnityEngine.Timeline.FrameRateFieldAttribute : PropertyAttribute {
+}
+[ExcludeFromPresetAttribute]
+[SupportsChildTracksAttribute("", "2147483647")]
+[TrackClipTypeAttribute("UnityEngine.Timeline.TrackAsset")]
+public class UnityEngine.Timeline.GroupTrack : TrackAsset {
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    internal virtual bool CanCompileClips();
+    public virtual IEnumerable`1<PlayableBinding> get_outputs();
+}
+[ExtensionAttribute]
+internal static class UnityEngine.Timeline.HashUtility : object {
+    [ExtensionAttribute]
+public static int CombineHash(int h1, int h2);
+    public static int CombineHash(int h1, int h2, int h3);
+    public static int CombineHash(int h1, int h2, int h3, int h4);
+    public static int CombineHash(int h1, int h2, int h3, int h4, int h5);
+    public static int CombineHash(int h1, int h2, int h3, int h4, int h5, int h6);
+    public static int CombineHash(int h1, int h2, int h3, int h4, int h5, int h6, int h7);
+    public static int CombineHash(Int32[] hashes);
+}
+[AttributeUsageAttribute("4")]
+public class UnityEngine.Timeline.HideInMenuAttribute : Attribute {
+}
+internal interface UnityEngine.Timeline.ICurvesOwner {
+    public AnimationClip curves { get; }
+    public bool hasCurves { get; }
+    public double duration { get; }
+    public string defaultCurvesName { get; }
+    public Object asset { get; }
+    public Object assetOwner { get; }
+    public TrackAsset targetTrack { get; }
+    public abstract virtual AnimationClip get_curves();
+    public abstract virtual bool get_hasCurves();
+    public abstract virtual double get_duration();
+    public abstract virtual void CreateCurves(string curvesClipName);
+    public abstract virtual string get_defaultCurvesName();
+    public abstract virtual Object get_asset();
+    public abstract virtual Object get_assetOwner();
+    public abstract virtual TrackAsset get_targetTrack();
+}
+[AttributeUsageAttribute("4")]
+internal class UnityEngine.Timeline.IgnoreOnPlayableTrackAttribute : Attribute {
+}
+internal interface UnityEngine.Timeline.IInterval {
+    public long intervalStart { get; }
+    public long intervalEnd { get; }
+    public abstract virtual long get_intervalStart();
+    public abstract virtual long get_intervalEnd();
+}
+public interface UnityEngine.Timeline.ILayerable {
+    public abstract virtual Playable CreateLayerMixer(PlayableGraph graph, GameObject go, int inputCount);
+}
+public interface UnityEngine.Timeline.IMarker {
+    public double time { get; public set; }
+    public TrackAsset parent { get; }
+    public abstract virtual double get_time();
+    public abstract virtual void set_time(double value);
+    public abstract virtual TrackAsset get_parent();
+    public abstract virtual void Initialize(TrackAsset parent);
+}
+internal class UnityEngine.Timeline.InfiniteRuntimeClip : RuntimeElement {
+    private Playable m_Playable;
+    private static long kIntervalEnd;
+    public long intervalStart { get; }
+    public long intervalEnd { get; }
+    unknown bool enable {public set; }
+    public InfiniteRuntimeClip(Playable playable);
+    private static InfiniteRuntimeClip();
+    public virtual long get_intervalStart();
+    public virtual long get_intervalEnd();
+    public virtual void set_enable(bool value);
+    public virtual void EvaluateAt(double localTime, FrameData frameData);
+    public virtual void DisableAt(double localTime, double rootDuration, FrameData frameData);
+}
+public interface UnityEngine.Timeline.INotificationOptionProvider {
+    public NotificationFlags flags { get; }
+    public abstract virtual NotificationFlags get_flags();
+}
+internal class UnityEngine.Timeline.IntervalTree`1 : object {
+    private static int kMinNodeSize;
+    private static int kInvalidNode;
+    private static long kCenterUnknown;
+    private List`1<Entry<T>> m_Entries;
+    private List`1<IntervalTreeNode> m_Nodes;
+    [CompilerGeneratedAttribute]
+private bool <dirty>k__BackingField;
+    public bool dirty { get; internal set; }
+    [CompilerGeneratedAttribute]
+public bool get_dirty();
+    [CompilerGeneratedAttribute]
+internal void set_dirty(bool value);
+    public void Add(T item);
+    public void IntersectsWith(long value, List`1<T> results);
+    public void IntersectsWithRange(long start, long end, List`1<T> results);
+    public void UpdateIntervals();
+    private void Query(IntervalTreeNode intervalTreeNode, long value, List`1<T> results);
+    private void QueryRange(IntervalTreeNode intervalTreeNode, long start, long end, List`1<T> results);
+    private void Rebuild();
+    private int Rebuild(int start, int end);
+    public void Clear();
+}
+internal class UnityEngine.Timeline.IntervalTreeNode : ValueType {
+    public long center;
+    public int first;
+    public int last;
+    public int left;
+    public int right;
+}
+public interface UnityEngine.Timeline.IPropertyCollector {
+    public abstract virtual void PushActiveGameObject(GameObject gameObject);
+    public abstract virtual void PopActiveGameObject();
+    public abstract virtual void AddFromClip(AnimationClip clip);
+    public abstract virtual void AddFromClips(IEnumerable`1<AnimationClip> clips);
+    public abstract virtual void AddFromName(string name);
+    public abstract virtual void AddFromName(string name);
+    public abstract virtual void AddFromClip(GameObject obj, AnimationClip clip);
+    public abstract virtual void AddFromClips(GameObject obj, IEnumerable`1<AnimationClip> clips);
+    public abstract virtual void AddFromName(GameObject obj, string name);
+    public abstract virtual void AddFromName(GameObject obj, string name);
+    public abstract virtual void AddFromName(Component component, string name);
+    public abstract virtual void AddFromComponent(GameObject obj, Component component);
+    public abstract virtual void AddObjectProperties(Object obj, AnimationClip clip);
+}
+public interface UnityEngine.Timeline.IPropertyPreview {
+    public abstract virtual void GatherProperties(PlayableDirector director, IPropertyCollector driver);
+}
+public interface UnityEngine.Timeline.ITimeControl {
+    public abstract virtual void SetTime(double time);
+    public abstract virtual void OnControlTimeStart();
+    public abstract virtual void OnControlTimeStop();
+}
+public interface UnityEngine.Timeline.ITimelineClipAsset {
+    public ClipCaps clipCaps { get; }
+    public abstract virtual ClipCaps get_clipCaps();
+}
+internal interface UnityEngine.Timeline.ITimelineEvaluateCallback {
+    public abstract virtual void Evaluate();
+}
+public abstract class UnityEngine.Timeline.Marker : ScriptableObject {
+    [SerializeField]
+[TimeFieldAttribute("1")]
+[TooltipAttribute("Time for the marker")]
+private double m_Time;
+    [CompilerGeneratedAttribute]
+private TrackAsset <parent>k__BackingField;
+    public TrackAsset parent { get; private set; }
+    public double time { get; public set; }
+    [CompilerGeneratedAttribute]
+public sealed virtual TrackAsset get_parent();
+    [CompilerGeneratedAttribute]
+private void set_parent(TrackAsset value);
+    public sealed virtual double get_time();
+    public sealed virtual void set_time(double value);
+    private sealed virtual override void UnityEngine.Timeline.IMarker.Initialize(TrackAsset parentTrack);
+    public virtual void OnInitialize(TrackAsset aPent);
+}
+[DefaultMemberAttribute("Item")]
+internal class UnityEngine.Timeline.MarkerList : ValueType {
+    [HideInInspector]
+[SerializeField]
+private List`1<ScriptableObject> m_Objects;
+    [HideInInspector]
+private List`1<IMarker> m_Cache;
+    private bool m_CacheDirty;
+    private bool m_HasNotifications;
+    public List`1<IMarker> markers { get; }
+    public int Count { get; }
+    public IMarker Item { get; }
+    public MarkerList(int capacity);
+    public List`1<IMarker> get_markers();
+    public void Add(ScriptableObject item);
+    public bool Remove(IMarker item);
+    public bool Remove(ScriptableObject item, TimelineAsset timelineAsset, PlayableAsset thingToDirty);
+    public void Clear();
+    public bool Contains(ScriptableObject item);
+    public IEnumerable`1<IMarker> GetMarkers();
+    public int get_Count();
+    public IMarker get_Item(int idx);
+    public List`1<ScriptableObject> GetRawMarkerList();
+    public IMarker CreateMarker(Type type, double time, TrackAsset owner);
+    public bool HasNotifications();
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize();
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize();
+    private void BuildCache();
+}
+[ExcludeFromPresetAttribute]
+[HideInMenuAttribute]
+[TrackBindingTypeAttribute("UnityEngine.GameObject")]
+public class UnityEngine.Timeline.MarkerTrack : TrackAsset {
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    public virtual IEnumerable`1<PlayableBinding> get_outputs();
+}
+[ExtensionAttribute]
+internal static class UnityEngine.Timeline.MatchTargetFieldConstants : object {
+    public static MatchTargetFields All;
+    public static MatchTargetFields None;
+    public static MatchTargetFields Position;
+    public static MatchTargetFields Rotation;
+    private static MatchTargetFieldConstants();
+    [ExtensionAttribute]
+public static bool HasAny(MatchTargetFields me, MatchTargetFields fields);
+    [ExtensionAttribute]
+public static MatchTargetFields Toggle(MatchTargetFields me, MatchTargetFields flag);
+}
+[FlagsAttribute]
+public enum UnityEngine.Timeline.MatchTargetFields : Enum {
+    public int value__;
+    public static MatchTargetFields PositionX;
+    public static MatchTargetFields PositionY;
+    public static MatchTargetFields PositionZ;
+    public static MatchTargetFields RotationX;
+    public static MatchTargetFields RotationY;
+    public static MatchTargetFields RotationZ;
+}
+[AttributeUsageAttribute("4")]
+internal class UnityEngine.Timeline.MenuCategoryAttribute : Attribute {
+    public string category;
+    public MenuCategoryAttribute(string category);
+}
+[FlagsAttribute]
+public enum UnityEngine.Timeline.NotificationFlags : Enum {
+    public short value__;
+    public static NotificationFlags TriggerInEditMode;
+    public static NotificationFlags Retroactive;
+    public static NotificationFlags TriggerOnce;
+}
+internal static class UnityEngine.Timeline.NotificationUtilities : object {
+    public static ScriptPlayable`1<TimeNotificationBehaviour> CreateNotificationsPlayable(PlayableGraph graph, IEnumerable`1<IMarker> markers, PlayableDirector director);
+    public static ScriptPlayable`1<TimeNotificationBehaviour> CreateNotificationsPlayable(PlayableGraph graph, IEnumerable`1<IMarker> markers, TimelineAsset timelineAsset);
+    private static ScriptPlayable`1<TimeNotificationBehaviour> CreateNotificationsPlayable(PlayableGraph graph, IEnumerable`1<IMarker> markers, IPlayableAsset asset, PlayableDirector director);
+    public static bool TrackTypeSupportsNotifications(Type type);
+}
+[AttributeUsageAttribute("260")]
+public class UnityEngine.Timeline.NotKeyableAttribute : Attribute {
+}
+public class UnityEngine.Timeline.ParticleControlPlayable : PlayableBehaviour {
+    private static float kUnsetTime;
+    private float m_LastPlayableTime;
+    private float m_LastParticleTime;
+    private UInt32 m_RandomSeed;
+    [CompilerGeneratedAttribute]
+private ParticleSystem <particleSystem>k__BackingField;
+    public ParticleSystem particleSystem { get; private set; }
+    public static ScriptPlayable`1<ParticleControlPlayable> Create(PlayableGraph graph, ParticleSystem component, UInt32 randomSeed);
+    [CompilerGeneratedAttribute]
+public ParticleSystem get_particleSystem();
+    [CompilerGeneratedAttribute]
+private void set_particleSystem(ParticleSystem value);
+    public void Initialize(ParticleSystem ps, UInt32 randomSeed);
+    private static void SetRandomSeed(ParticleSystem particleSystem, UInt32 randomSeed);
+    public virtual void PrepareFrame(Playable playable, FrameData data);
+    public virtual void OnBehaviourPlay(Playable playable, FrameData info);
+    public virtual void OnBehaviourPause(Playable playable, FrameData info);
+    private void Simulate(float time, bool restart);
+}
+public class UnityEngine.Timeline.PlayableTrack : TrackAsset {
+    protected virtual void OnCreateClip(TimelineClip clip);
+}
+public class UnityEngine.Timeline.PrefabControlPlayable : PlayableBehaviour {
+    private GameObject m_Instance;
+    public GameObject prefabInstance { get; }
+    public static ScriptPlayable`1<PrefabControlPlayable> Create(PlayableGraph graph, GameObject prefabGameObject, Transform parentTransform);
+    public GameObject get_prefabInstance();
+    public GameObject Initialize(GameObject prefabGameObject, Transform parentTransform);
+    public virtual void OnPlayableDestroy(Playable playable);
+    public virtual void OnBehaviourPlay(Playable playable, FrameData info);
+    public virtual void OnBehaviourPause(Playable playable, FrameData info);
+    private static void SetHideFlagsRecursive(GameObject gameObject);
+}
+internal class UnityEngine.Timeline.RuntimeClip : RuntimeClipBase {
+    private TimelineClip m_Clip;
+    private Playable m_Playable;
+    private Playable m_ParentMixer;
+    public double start { get; }
+    public double duration { get; }
+    public TimelineClip clip { get; }
+    public Playable mixer { get; }
+    public Playable playable { get; }
+    unknown bool enable {public set; }
+    public RuntimeClip(TimelineClip clip, Playable clipPlayable, Playable parentMixer);
+    public virtual double get_start();
+    public virtual double get_duration();
+    private void Create(TimelineClip clip, Playable clipPlayable, Playable parentMixer);
+    public TimelineClip get_clip();
+    public Playable get_mixer();
+    public Playable get_playable();
+    public virtual void set_enable(bool value);
+    public void SetTime(double time);
+    public void SetDuration(double duration);
+    public virtual void EvaluateAt(double localTime, FrameData frameData);
+    public virtual void DisableAt(double localTime, double rootDuration, FrameData frameData);
+}
+internal abstract class UnityEngine.Timeline.RuntimeClipBase : RuntimeElement {
+    public double start { get; }
+    public double duration { get; }
+    public long intervalStart { get; }
+    public long intervalEnd { get; }
+    public abstract virtual double get_start();
+    public abstract virtual double get_duration();
+    public virtual long get_intervalStart();
+    public virtual long get_intervalEnd();
+}
+internal abstract class UnityEngine.Timeline.RuntimeElement : object {
+    [CompilerGeneratedAttribute]
+private int <intervalBit>k__BackingField;
+    public long intervalStart { get; }
+    public long intervalEnd { get; }
+    public int intervalBit { get; public set; }
+    unknown bool enable {public set; }
+    public abstract virtual long get_intervalStart();
+    public abstract virtual long get_intervalEnd();
+    [CompilerGeneratedAttribute]
+public int get_intervalBit();
+    [CompilerGeneratedAttribute]
+public void set_intervalBit(int value);
+    public abstract virtual void set_enable(bool value);
+    public abstract virtual void EvaluateAt(double localTime, FrameData frameData);
+    public abstract virtual void DisableAt(double localTime, double rootDuration, FrameData frameData);
+}
+internal class UnityEngine.Timeline.ScheduleRuntimeClip : RuntimeClipBase {
+    private TimelineClip m_Clip;
+    private Playable m_Playable;
+    private Playable m_ParentMixer;
+    private double m_StartDelay;
+    private double m_FinishTail;
+    private bool m_Started;
+    public double start { get; }
+    public double duration { get; }
+    public TimelineClip clip { get; }
+    public Playable mixer { get; }
+    public Playable playable { get; }
+    unknown bool enable {public set; }
+    public ScheduleRuntimeClip(TimelineClip clip, Playable clipPlayable, Playable parentMixer, double startDelay, double finishTail);
+    public virtual double get_start();
+    public virtual double get_duration();
+    public void SetTime(double time);
+    public TimelineClip get_clip();
+    public Playable get_mixer();
+    public Playable get_playable();
+    private void Create(TimelineClip clip, Playable clipPlayable, Playable parentMixer, double startDelay, double finishTail);
+    public virtual void set_enable(bool value);
+    public virtual void EvaluateAt(double localTime, FrameData frameData);
+    public virtual void DisableAt(double localTime, double rootDuration, FrameData frameData);
+}
+[AssetFileNameExtensionAttribute("signal", "Mono.Cecil.CustomAttributeArgument[]")]
+public class UnityEngine.Timeline.SignalAsset : ScriptableObject {
+    [CompilerGeneratedAttribute]
+private static Action`1<SignalAsset> OnEnableCallback;
+    [CompilerGeneratedAttribute]
+internal static void add_OnEnableCallback(Action`1<SignalAsset> value);
+    [CompilerGeneratedAttribute]
+internal static void remove_OnEnableCallback(Action`1<SignalAsset> value);
+    private void OnEnable();
+}
+[CustomStyleAttribute("SignalEmitter")]
+[ExcludeFromPresetAttribute]
+public class UnityEngine.Timeline.SignalEmitter : Marker {
+    [SerializeField]
+private bool m_Retroactive;
+    [SerializeField]
+private bool m_EmitOnce;
+    [SerializeField]
+private SignalAsset m_Asset;
+    public bool retroactive { get; public set; }
+    public bool emitOnce { get; public set; }
+    public SignalAsset asset { get; public set; }
+    private PropertyName UnityEngine.Playables.INotification.id { get; }
+    private NotificationFlags UnityEngine.Timeline.INotificationOptionProvider.flags { get; }
+    public bool get_retroactive();
+    public void set_retroactive(bool value);
+    public bool get_emitOnce();
+    public void set_emitOnce(bool value);
+    public SignalAsset get_asset();
+    public void set_asset(SignalAsset value);
+    private sealed virtual override PropertyName UnityEngine.Playables.INotification.get_id();
+    private sealed virtual override NotificationFlags UnityEngine.Timeline.INotificationOptionProvider.get_flags();
+}
+public class UnityEngine.Timeline.SignalReceiver : MonoBehaviour {
+    [SerializeField]
+private EventKeyValue m_Events;
+    public sealed virtual void OnNotify(Playable origin, INotification notification, object context);
+    public void AddReaction(SignalAsset asset, UnityEvent reaction);
+    public int AddEmptyReaction(UnityEvent reaction);
+    public void Remove(SignalAsset asset);
+    public IEnumerable`1<SignalAsset> GetRegisteredSignals();
+    public UnityEvent GetReaction(SignalAsset key);
+    public int Count();
+    public void ChangeSignalAtIndex(int idx, SignalAsset newKey);
+    public void RemoveAtIndex(int idx);
+    public void ChangeReactionAtIndex(int idx, UnityEvent reaction);
+    public UnityEvent GetReactionAtIndex(int idx);
+    public SignalAsset GetSignalAssetAtIndex(int idx);
+    private void OnEnable();
+}
+[ExcludeFromPresetAttribute]
+[TrackBindingTypeAttribute("UnityEngine.Timeline.SignalReceiver")]
+[TrackColorAttribute("0,25", "0,25", "0,25")]
+public class UnityEngine.Timeline.SignalTrack : MarkerTrack {
+}
+public enum UnityEngine.Timeline.StandardFrameRates : Enum {
+    public int value__;
+    public static StandardFrameRates Fps24;
+    public static StandardFrameRates Fps23_97;
+    public static StandardFrameRates Fps25;
+    public static StandardFrameRates Fps30;
+    public static StandardFrameRates Fps29_97;
+    public static StandardFrameRates Fps50;
+    public static StandardFrameRates Fps60;
+    public static StandardFrameRates Fps59_94;
+}
+[AttributeUsageAttribute("4")]
+internal class UnityEngine.Timeline.SupportsChildTracksAttribute : Attribute {
+    public Type childType;
+    public int levels;
+    public SupportsChildTracksAttribute(Type childType, int levels);
+}
+public class UnityEngine.Timeline.TimeControlPlayable : PlayableBehaviour {
+    private ITimeControl m_timeControl;
+    private bool m_started;
+    public static ScriptPlayable`1<TimeControlPlayable> Create(PlayableGraph graph, ITimeControl timeControl);
+    public void Initialize(ITimeControl timeControl);
+    public virtual void PrepareFrame(Playable playable, FrameData info);
+    public virtual void OnBehaviourPlay(Playable playable, FrameData info);
+    public virtual void OnBehaviourPause(Playable playable, FrameData info);
+}
+internal class UnityEngine.Timeline.TimeFieldAttribute : PropertyAttribute {
+    [CompilerGeneratedAttribute]
+private UseEditMode <useEditMode>k__BackingField;
+    public UseEditMode useEditMode { get; }
+    public TimeFieldAttribute(UseEditMode useEditMode);
+    [CompilerGeneratedAttribute]
+public UseEditMode get_useEditMode();
+}
+[ExcludeFromPresetAttribute]
+public class UnityEngine.Timeline.TimelineAsset : PlayableAsset {
+    private static int k_LatestVersion;
+    [HideInInspector]
+[SerializeField]
+private int m_Version;
+    [HideInInspector]
+[SerializeField]
+private List`1<ScriptableObject> m_Tracks;
+    [HideInInspector]
+[SerializeField]
+private double m_FixedDuration;
+    [HideInInspector]
+private TrackAsset[] m_CacheOutputTracks;
+    [HideInInspector]
+private List`1<TrackAsset> m_CacheRootTracks;
+    [HideInInspector]
+private TrackAsset[] m_CacheFlattenedTracks;
+    [HideInInspector]
+[SerializeField]
+private EditorSettings m_EditorSettings;
+    [SerializeField]
+private DurationMode m_DurationMode;
+    [HideInInspector]
+[SerializeField]
+private MarkerTrack m_MarkerTrack;
+    public EditorSettings editorSettings { get; }
+    public double duration { get; }
+    public double fixedDuration { get; public set; }
+    public DurationMode durationMode { get; public set; }
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    public ClipCaps clipCaps { get; }
+    public int outputTrackCount { get; }
+    public int rootTrackCount { get; }
+    internal TrackAsset[] flattenedTracks { get; }
+    public MarkerTrack markerTrack { get; }
+    internal List`1<ScriptableObject> trackObjects { get; }
+    private void UpgradeToLatestVersion();
+    public EditorSettings get_editorSettings();
+    public virtual double get_duration();
+    public double get_fixedDuration();
+    public void set_fixedDuration(double value);
+    public DurationMode get_durationMode();
+    public void set_durationMode(DurationMode value);
+    [IteratorStateMachineAttribute("UnityEngine.Timeline.TimelineAsset/<get_outputs>d__27")]
+public virtual IEnumerable`1<PlayableBinding> get_outputs();
+    public sealed virtual ClipCaps get_clipCaps();
+    public int get_outputTrackCount();
+    public int get_rootTrackCount();
+    private void OnValidate();
+    public TrackAsset GetRootTrack(int index);
+    public IEnumerable`1<TrackAsset> GetRootTracks();
+    public TrackAsset GetOutputTrack(int index);
+    public IEnumerable`1<TrackAsset> GetOutputTracks();
+    private static double GetValidFrameRate(double frameRate);
+    private void UpdateRootTrackCache();
+    private void UpdateOutputTrackCache();
+    internal TrackAsset[] get_flattenedTracks();
+    public MarkerTrack get_markerTrack();
+    internal List`1<ScriptableObject> get_trackObjects();
+    internal void AddTrackInternal(TrackAsset track);
+    internal void RemoveTrack(TrackAsset track);
+    public virtual Playable CreatePlayable(PlayableGraph graph, GameObject go);
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize();
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize();
+    private void __internalAwake();
+    public sealed virtual void GatherProperties(PlayableDirector director, IPropertyCollector driver);
+    public void CreateMarkerTrack();
+    internal void Invalidate();
+    internal void UpdateFixedDurationWithItemsDuration();
+    private DiscreteTime CalculateItemsDuration();
+    private static void AddSubTracksRecursive(TrackAsset track, List`1& allTracks);
+    public TrackAsset CreateTrack(Type type, TrackAsset parent, string name);
+    public T CreateTrack(TrackAsset parent, string trackName);
+    public T CreateTrack(string trackName);
+    public T CreateTrack();
+    public bool DeleteClip(TimelineClip clip);
+    public bool DeleteTrack(TrackAsset track);
+    internal void MoveLastTrackBefore(TrackAsset asset);
+    private TrackAsset AllocateTrack(TrackAsset trackAssetParent, string trackName, Type trackType);
+    private void DeleteRecordedAnimation(TrackAsset track);
+    private void DeleteRecordedAnimation(TimelineClip clip);
+}
+public class UnityEngine.Timeline.TimelineClip : object {
+    private static int k_LatestVersion;
+    [HideInInspector]
+[SerializeField]
+private int m_Version;
+    public static ClipCaps kDefaultClipCaps;
+    public static float kDefaultClipDurationInSeconds;
+    public static double kTimeScaleMin;
+    public static double kTimeScaleMax;
+    internal static string kDefaultCurvesName;
+    internal static double kMinDuration;
+    internal static double kMaxTimeValue;
+    [SerializeField]
+private double m_Start;
+    [SerializeField]
+private double m_ClipIn;
+    [SerializeField]
+private Object m_Asset;
+    [FormerlySerializedAsAttribute("m_HackDuration")]
+[SerializeField]
+private double m_Duration;
+    [SerializeField]
+private double m_TimeScale;
+    [SerializeField]
+private TrackAsset m_ParentTrack;
+    [SerializeField]
+private double m_EaseInDuration;
+    [SerializeField]
+private double m_EaseOutDuration;
+    [SerializeField]
+private double m_BlendInDuration;
+    [SerializeField]
+private double m_BlendOutDuration;
+    [SerializeField]
+private AnimationCurve m_MixInCurve;
+    [SerializeField]
+private AnimationCurve m_MixOutCurve;
+    [SerializeField]
+private BlendCurveMode m_BlendInCurveMode;
+    [SerializeField]
+private BlendCurveMode m_BlendOutCurveMode;
+    [SerializeField]
+private List`1<string> m_ExposedParameterNames;
+    [SerializeField]
+private AnimationClip m_AnimationCurves;
+    [SerializeField]
+private bool m_Recordable;
+    [SerializeField]
+private ClipExtrapolation m_PostExtrapolationMode;
+    [SerializeField]
+private ClipExtrapolation m_PreExtrapolationMode;
+    [SerializeField]
+private double m_PostExtrapolationTime;
+    [SerializeField]
+private double m_PreExtrapolationTime;
+    [SerializeField]
+private string m_DisplayName;
+    public bool hasPreExtrapolation { get; }
+    public bool hasPostExtrapolation { get; }
+    public double timeScale { get; public set; }
+    public double start { get; public set; }
+    public double duration { get; public set; }
+    public double end { get; }
+    public double clipIn { get; public set; }
+    public string displayName { get; public set; }
+    public double clipAssetDuration { get; }
+    public AnimationClip curves { get; internal set; }
+    private string UnityEngine.Timeline.ICurvesOwner.defaultCurvesName { get; }
+    public bool hasCurves { get; }
+    public Object asset { get; public set; }
+    private Object UnityEngine.Timeline.ICurvesOwner.assetOwner { get; }
+    private TrackAsset UnityEngine.Timeline.ICurvesOwner.targetTrack { get; }
+    [ObsoleteAttribute("underlyingAsset property is obsolete. Use asset property instead", "True")]
+public Object underlyingAsset { get; public set; }
+    [ObsoleteAttribute("parentTrack is deprecated and will be removed in a future release. Use GetParentTrack() and TimelineClipExtensions::MoveToTrack() or TimelineClipExtensions::TryMoveToTrack() instead.", "False")]
+public TrackAsset parentTrack { get; public set; }
+    public double easeInDuration { get; public set; }
+    public double easeOutDuration { get; public set; }
+    [ObsoleteAttribute("Use easeOutTime instead (UnityUpgradable) -> easeOutTime", "True")]
+public double eastOutTime { get; }
+    public double easeOutTime { get; }
+    public double blendInDuration { get; public set; }
+    public double blendOutDuration { get; public set; }
+    public BlendCurveMode blendInCurveMode { get; public set; }
+    public BlendCurveMode blendOutCurveMode { get; public set; }
+    public bool hasBlendIn { get; }
+    public bool hasBlendOut { get; }
+    public AnimationCurve mixInCurve { get; public set; }
+    public float mixInPercentage { get; }
+    public double mixInDuration { get; }
+    public AnimationCurve mixOutCurve { get; public set; }
+    public double mixOutTime { get; }
+    public double mixOutDuration { get; }
+    public float mixOutPercentage { get; }
+    public bool recordable { get; internal set; }
+    [ObsoleteAttribute("exposedParameter is deprecated and will be removed in a future release", "True")]
+public List`1<string> exposedParameters { get; }
+    public ClipCaps clipCaps { get; }
+    public AnimationClip animationClip { get; }
+    public ClipExtrapolation postExtrapolationMode { get; internal set; }
+    public ClipExtrapolation preExtrapolationMode { get; internal set; }
+    public double extrapolatedStart { get; }
+    public double extrapolatedDuration { get; }
+    internal TimelineClip(TrackAsset parent);
+    private static TimelineClip();
+    private void UpgradeToLatestVersion();
+    public bool get_hasPreExtrapolation();
+    public bool get_hasPostExtrapolation();
+    public double get_timeScale();
+    public void set_timeScale(double value);
+    public double get_start();
+    public void set_start(double value);
+    public sealed virtual double get_duration();
+    public void set_duration(double value);
+    public double get_end();
+    public double get_clipIn();
+    public void set_clipIn(double value);
+    public string get_displayName();
+    public void set_displayName(string value);
+    public double get_clipAssetDuration();
+    public sealed virtual AnimationClip get_curves();
+    internal void set_curves(AnimationClip value);
+    private sealed virtual override string UnityEngine.Timeline.ICurvesOwner.get_defaultCurvesName();
+    public sealed virtual bool get_hasCurves();
+    public sealed virtual Object get_asset();
+    public void set_asset(Object value);
+    private sealed virtual override Object UnityEngine.Timeline.ICurvesOwner.get_assetOwner();
+    private sealed virtual override TrackAsset UnityEngine.Timeline.ICurvesOwner.get_targetTrack();
+    public Object get_underlyingAsset();
+    public void set_underlyingAsset(Object value);
+    public TrackAsset get_parentTrack();
+    public void set_parentTrack(TrackAsset value);
+    public TrackAsset GetParentTrack();
+    internal void SetParentTrack_Internal(TrackAsset newParentTrack);
+    public double get_easeInDuration();
+    public void set_easeInDuration(double value);
+    public double get_easeOutDuration();
+    public void set_easeOutDuration(double value);
+    public double get_eastOutTime();
+    public double get_easeOutTime();
+    public double get_blendInDuration();
+    public void set_blendInDuration(double value);
+    public double get_blendOutDuration();
+    public void set_blendOutDuration(double value);
+    public BlendCurveMode get_blendInCurveMode();
+    public void set_blendInCurveMode(BlendCurveMode value);
+    public BlendCurveMode get_blendOutCurveMode();
+    public void set_blendOutCurveMode(BlendCurveMode value);
+    public bool get_hasBlendIn();
+    public bool get_hasBlendOut();
+    public AnimationCurve get_mixInCurve();
+    public void set_mixInCurve(AnimationCurve value);
+    public float get_mixInPercentage();
+    public double get_mixInDuration();
+    public AnimationCurve get_mixOutCurve();
+    public void set_mixOutCurve(AnimationCurve value);
+    public double get_mixOutTime();
+    public double get_mixOutDuration();
+    public float get_mixOutPercentage();
+    public bool get_recordable();
+    internal void set_recordable(bool value);
+    public List`1<string> get_exposedParameters();
+    public ClipCaps get_clipCaps();
+    internal int Hash();
+    public float EvaluateMixOut(double time);
+    public float EvaluateMixIn(double time);
+    private static AnimationCurve GetDefaultMixInCurve();
+    private static AnimationCurve GetDefaultMixOutCurve();
+    public double ToLocalTime(double time);
+    public double ToLocalTimeUnbound(double time);
+    internal double FromLocalTimeUnbound(double time);
+    public AnimationClip get_animationClip();
+    private static double SanitizeTimeValue(double value, double defaultValue);
+    public ClipExtrapolation get_postExtrapolationMode();
+    internal void set_postExtrapolationMode(ClipExtrapolation value);
+    public ClipExtrapolation get_preExtrapolationMode();
+    internal void set_preExtrapolationMode(ClipExtrapolation value);
+    internal void SetPostExtrapolationTime(double time);
+    internal void SetPreExtrapolationTime(double time);
+    public bool IsExtrapolatedTime(double sequenceTime);
+    public bool IsPreExtrapolatedTime(double sequenceTime);
+    public bool IsPostExtrapolatedTime(double sequenceTime);
+    public double get_extrapolatedStart();
+    public double get_extrapolatedDuration();
+    private static double GetExtrapolatedTime(double time, ClipExtrapolation mode, double duration);
+    public sealed virtual void CreateCurves(string curvesClipName);
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize();
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize();
+    public virtual string ToString();
+    public void ConformEaseValues();
+    private static double CalculateEasingRatio(double easeIn, double easeOut);
+    private void UpdateDirty(double oldValue, double newValue);
+}
+[ExtensionAttribute]
+internal static class UnityEngine.Timeline.TimelineClipCapsExtensions : object {
+    [ExtensionAttribute]
+public static bool SupportsLooping(TimelineClip clip);
+    [ExtensionAttribute]
+public static bool SupportsExtrapolation(TimelineClip clip);
+    [ExtensionAttribute]
+public static bool SupportsClipIn(TimelineClip clip);
+    [ExtensionAttribute]
+public static bool SupportsSpeedMultiplier(TimelineClip clip);
+    [ExtensionAttribute]
+public static bool SupportsBlending(TimelineClip clip);
+    [ExtensionAttribute]
+public static bool HasAll(ClipCaps caps, ClipCaps flags);
+    [ExtensionAttribute]
+public static bool HasAny(ClipCaps caps, ClipCaps flags);
+}
+[ExtensionAttribute]
+public static class UnityEngine.Timeline.TimelineClipExtensions : object {
+    private static string k_UndoSetParentTrackText;
+    private static TimelineClipExtensions();
+    [ExtensionAttribute]
+public static void MoveToTrack(TimelineClip clip, TrackAsset destinationTrack);
+    [ExtensionAttribute]
+public static bool TryMoveToTrack(TimelineClip clip, TrackAsset destinationTrack);
+    private static void MoveToTrack_Impl(TimelineClip clip, TrackAsset destinationTrack, Object asset, TrackAsset parentTrack);
+}
+internal static class UnityEngine.Timeline.TimelineCreateUtilities : object {
+    public static string GenerateUniqueActorName(List`1<ScriptableObject> tracks, string name);
+    public static void SaveAssetIntoObject(Object childAsset, Object masterAsset);
+    public static void RemoveAssetFromObject(Object childAsset, Object masterAsset);
+    public static AnimationClip CreateAnimationClipForTrack(string name, TrackAsset track, bool isLegacy);
+    public static bool ValidateParentTrack(TrackAsset parent, Type childType);
+}
+[ConditionalAttribute("UNITY_EDITOR")]
+internal class UnityEngine.Timeline.TimelineHelpURLAttribute : Attribute {
+    public TimelineHelpURLAttribute(Type type);
+}
+public class UnityEngine.Timeline.TimelinePlayable : PlayableBehaviour {
+    private IntervalTree`1<RuntimeElement> m_IntervalTree;
+    private List`1<RuntimeElement> m_ActiveClips;
+    private List`1<RuntimeElement> m_CurrentListOfActiveClips;
+    private int m_ActiveBit;
+    private List`1<ITimelineEvaluateCallback> m_EvaluateCallbacks;
+    private Dictionary`2<TrackAsset, Playable> m_PlayableCache;
+    internal static bool muteAudioScrubbing;
+    private static TimelinePlayable();
+    public static ScriptPlayable`1<TimelinePlayable> Create(PlayableGraph graph, IEnumerable`1<TrackAsset> tracks, GameObject go, bool autoRebalance, bool createOutputs);
+    public void Compile(PlayableGraph graph, Playable timelinePlayable, IEnumerable`1<TrackAsset> tracks, GameObject go, bool autoRebalance, bool createOutputs);
+    private void CompileTrackList(PlayableGraph graph, Playable timelinePlayable, IEnumerable`1<TrackAsset> tracks, GameObject go, bool createOutputs);
+    private void CreateTrackOutput(PlayableGraph graph, TrackAsset track, GameObject go, Playable playable, int port);
+    private void EvaluateWeightsForAnimationPlayableOutput(TrackAsset track, AnimationPlayableOutput animOutput);
+    private void EvaluateAnimationPreviewUpdateCallback(TrackAsset track, AnimationPlayableOutput animOutput);
+    private Playable CreateTrackPlayable(PlayableGraph graph, Playable timelinePlayable, TrackAsset track, GameObject go, bool createOutputs);
+    public virtual void PrepareFrame(Playable playable, FrameData info);
+    private void Evaluate(Playable playable, FrameData frameData);
+    private void CacheTrack(TrackAsset track, Playable playable, int port, Playable parent);
+    private static void ForAOTCompilationOnly();
+}
+internal static class UnityEngine.Timeline.TimelineUndo : object {
+    internal static bool undoEnabled { get; }
+    internal static bool get_undoEnabled();
+    public static void PushDestroyUndo(TimelineAsset timeline, Object thingToDirty, Object objectToDestroy);
+    [ConditionalAttribute("UNITY_EDITOR")]
+public static void PushUndo(Object[] thingsToDirty, string operation);
+    [ConditionalAttribute("UNITY_EDITOR")]
+public static void PushUndo(Object thingToDirty, string operation);
+    [ConditionalAttribute("UNITY_EDITOR")]
+public static void RegisterCreatedObjectUndo(Object thingCreated, string operation);
+    internal static string UndoName(string name);
+}
+public class UnityEngine.Timeline.TimeNotificationBehaviour : PlayableBehaviour {
+    private List`1<NotificationEntry> m_Notifications;
+    private double m_PreviousTime;
+    private bool m_NeedSortNotifications;
+    private Playable m_TimeSource;
+    unknown Playable timeSource {public set; }
+    public void set_timeSource(Playable value);
+    public static ScriptPlayable`1<TimeNotificationBehaviour> Create(PlayableGraph graph, double duration, DirectorWrapMode loopMode);
+    public void AddNotification(double time, INotification payload, NotificationFlags flags);
+    public virtual void OnGraphStart(Playable playable);
+    public virtual void OnBehaviourPause(Playable playable, FrameData info);
+    public virtual void PrepareFrame(Playable playable, FrameData info);
+    private void SortNotifications();
+    private static bool CanRestoreNotification(NotificationEntry e, FrameData info, double currentTime, double previousTime);
+    private void TriggerNotificationsInRange(double start, double end, FrameData info, Playable playable, bool checkState);
+    private void SyncDurationWithExternalSource(Playable playable);
+    private static void Trigger_internal(Playable playable, PlayableOutput output, NotificationEntry& e);
+    private static void Restore_internal(NotificationEntry& e);
+}
+internal static class UnityEngine.Timeline.TimeUtility : object {
+    public static double kTimeEpsilon;
+    public static double kFrameRateEpsilon;
+    public static double k_MaxTimelineDurationInSeconds;
+    public static double kFrameRateRounding;
+    private static TimeUtility();
+    private static void ValidateFrameRate(double frameRate);
+    public static int ToFrames(double time, double frameRate);
+    public static double ToExactFrames(double time, double frameRate);
+    public static double FromFrames(int frames, double frameRate);
+    public static double FromFrames(double frames, double frameRate);
+    public static bool OnFrameBoundary(double time, double frameRate);
+    public static double GetEpsilon(double time, double frameRate);
+    public static int PreviousFrame(double time, double frameRate);
+    public static int NextFrame(double time, double frameRate);
+    public static double PreviousFrameTime(double time, double frameRate);
+    public static double NextFrameTime(double time, double frameRate);
+    public static bool OnFrameBoundary(double time, double frameRate, double epsilon);
+    public static double RoundToFrame(double time, double frameRate);
+    public static string TimeAsFrames(double timeValue, double frameRate, string format);
+    public static string TimeAsTimeCode(double timeValue, double frameRate, string format);
+    public static double ParseTimeCode(string timeCode, double frameRate, double defaultValue);
+    public static double ParseTimeSeconds(string timeCode, double frameRate, double defaultValue);
+    public static double GetAnimationClipLength(AnimationClip clip);
+    private static string RemoveChar(string str, Func`2<char, bool> charToRemoveFunc);
+    public static FrameRate GetClosestFrameRate(double frameRate);
+    public static FrameRate ToFrameRate(StandardFrameRates enumValue);
+    internal static bool ToStandardFrameRate(FrameRate rate, StandardFrameRates& standard);
+}
+[IgnoreOnPlayableTrackAttribute]
+public abstract class UnityEngine.Timeline.TrackAsset : PlayableAsset {
+    private static int k_LatestVersion;
+    [HideInInspector]
+[SerializeField]
+private int m_Version;
+    [FormerlySerializedAsAttribute("m_animClip")]
+[HideInInspector]
+[ObsoleteAttribute("Please use m_InfiniteClip (on AnimationTrack) instead.", "False")]
+[SerializeField]
+internal AnimationClip m_AnimClip;
+    private static TransientBuildData s_BuildData;
+    internal static string kDefaultCurvesName;
+    [CompilerGeneratedAttribute]
+private static Action`3<TimelineClip, GameObject, Playable> OnClipPlayableCreate;
+    [CompilerGeneratedAttribute]
+private static Action`3<TrackAsset, GameObject, Playable> OnTrackAnimationPlayableCreate;
+    [HideInInspector]
+[SerializeField]
+private bool m_Locked;
+    [HideInInspector]
+[SerializeField]
+private bool m_Muted;
+    [HideInInspector]
+[SerializeField]
+private string m_CustomPlayableFullTypename;
+    [HideInInspector]
+[SerializeField]
+private AnimationClip m_Curves;
+    [HideInInspector]
+[SerializeField]
+private PlayableAsset m_Parent;
+    [HideInInspector]
+[SerializeField]
+private List`1<ScriptableObject> m_Children;
+    private int m_ItemsHash;
+    private TimelineClip[] m_ClipsCache;
+    private DiscreteTime m_Start;
+    private DiscreteTime m_End;
+    private bool m_CacheSorted;
+    private Nullable`1<bool> m_SupportsNotifications;
+    private static TrackAsset[] s_EmptyCache;
+    private IEnumerable`1<TrackAsset> m_ChildTrackCache;
+    private static Dictionary`2<Type, TrackBindingTypeAttribute> s_TrackBindingTypeAttributeCache;
+    [HideInInspector]
+[SerializeField]
+protected internal List`1<TimelineClip> m_Clips;
+    [HideInInspector]
+[SerializeField]
+private MarkerList m_Markers;
+    public double start { get; }
+    public double end { get; }
+    public double duration { get; }
+    public bool muted { get; public set; }
+    public bool mutedInHierarchy { get; }
+    public TimelineAsset timelineAsset { get; }
+    public PlayableAsset parent { get; internal set; }
+    internal TimelineClip[] clips { get; }
+    public bool isEmpty { get; }
+    public bool hasClips { get; }
+    public bool hasCurves { get; }
+    public bool isSubTrack { get; }
+    public IEnumerable`1<PlayableBinding> outputs { get; }
+    internal string customPlayableTypename { get; internal set; }
+    public AnimationClip curves { get; internal set; }
+    private string UnityEngine.Timeline.ICurvesOwner.defaultCurvesName { get; }
+    private Object UnityEngine.Timeline.ICurvesOwner.asset { get; }
+    private Object UnityEngine.Timeline.ICurvesOwner.assetOwner { get; }
+    private TrackAsset UnityEngine.Timeline.ICurvesOwner.targetTrack { get; }
+    internal List`1<ScriptableObject> subTracksObjects { get; }
+    public bool locked { get; public set; }
+    public bool lockedInHierarchy { get; }
+    public bool supportsNotifications { get; }
+    private static TrackAsset();
+    protected virtual void OnBeforeTrackSerialize();
+    protected virtual void OnAfterTrackDeserialize();
+    internal virtual void OnUpgradeFromVersion(int oldVersion);
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnBeforeSerialize();
+    private sealed virtual override void UnityEngine.ISerializationCallbackReceiver.OnAfterDeserialize();
+    private void UpgradeToLatestVersion();
+    [CompilerGeneratedAttribute]
+internal static void add_OnClipPlayableCreate(Action`3<TimelineClip, GameObject, Playable> value);
+    [CompilerGeneratedAttribute]
+internal static void remove_OnClipPlayableCreate(Action`3<TimelineClip, GameObject, Playable> value);
+    [CompilerGeneratedAttribute]
+internal static void add_OnTrackAnimationPlayableCreate(Action`3<TrackAsset, GameObject, Playable> value);
+    [CompilerGeneratedAttribute]
+internal static void remove_OnTrackAnimationPlayableCreate(Action`3<TrackAsset, GameObject, Playable> value);
+    public double get_start();
+    public double get_end();
+    public sealed virtual double get_duration();
+    public bool get_muted();
+    public void set_muted(bool value);
+    public bool get_mutedInHierarchy();
+    public TimelineAsset get_timelineAsset();
+    public PlayableAsset get_parent();
+    internal void set_parent(PlayableAsset value);
+    public IEnumerable`1<TimelineClip> GetClips();
+    internal TimelineClip[] get_clips();
+    public virtual bool get_isEmpty();
+    public bool get_hasClips();
+    public sealed virtual bool get_hasCurves();
+    public bool get_isSubTrack();
+    [IteratorStateMachineAttribute("UnityEngine.Timeline.TrackAsset/<get_outputs>d__65")]
+public virtual IEnumerable`1<PlayableBinding> get_outputs();
+    public IEnumerable`1<TrackAsset> GetChildTracks();
+    internal string get_customPlayableTypename();
+    internal void set_customPlayableTypename(string value);
+    public sealed virtual AnimationClip get_curves();
+    internal void set_curves(AnimationClip value);
+    private sealed virtual override string UnityEngine.Timeline.ICurvesOwner.get_defaultCurvesName();
+    private sealed virtual override Object UnityEngine.Timeline.ICurvesOwner.get_asset();
+    private sealed virtual override Object UnityEngine.Timeline.ICurvesOwner.get_assetOwner();
+    private sealed virtual override TrackAsset UnityEngine.Timeline.ICurvesOwner.get_targetTrack();
+    internal List`1<ScriptableObject> get_subTracksObjects();
+    public bool get_locked();
+    public void set_locked(bool value);
+    public bool get_lockedInHierarchy();
+    public bool get_supportsNotifications();
+    private void __internalAwake();
+    public sealed virtual void CreateCurves(string curvesClipName);
+    public virtual Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount);
+    public sealed virtual Playable CreatePlayable(PlayableGraph graph, GameObject go);
+    public TimelineClip CreateDefaultClip();
+    public TimelineClip CreateClip();
+    public bool DeleteClip(TimelineClip clip);
+    public IMarker CreateMarker(Type type, double time);
+    public T CreateMarker(double time);
+    public bool DeleteMarker(IMarker marker);
+    public IEnumerable`1<IMarker> GetMarkers();
+    public int GetMarkerCount();
+    public IMarker GetMarker(int idx);
+    internal TimelineClip CreateClip(Type requestedType);
+    internal TimelineClip CreateAndAddNewClipOfType(Type requestedType);
+    internal TimelineClip CreateClipOfType(Type requestedType);
+    internal TimelineClip CreateClipFromPlayableAsset(IPlayableAsset asset);
+    private TimelineClip CreateClipFromAsset(ScriptableObject playableAsset);
+    internal IEnumerable`1<ScriptableObject> GetMarkersRaw();
+    internal void ClearMarkers();
+    internal void AddMarker(ScriptableObject e);
+    internal bool DeleteMarkerRaw(ScriptableObject marker);
+    private int GetTimeRangeHash();
+    internal void AddClip(TimelineClip newClip);
+    private Playable CreateNotificationsPlayable(PlayableGraph graph, Playable mixerPlayable, GameObject go, Playable timelinePlayable);
+    internal Playable CreatePlayableGraph(PlayableGraph graph, GameObject go, IntervalTree`1<RuntimeElement> tree, Playable timelinePlayable);
+    internal virtual Playable CompileClips(PlayableGraph graph, GameObject go, IList`1<TimelineClip> timelineClips, IntervalTree`1<RuntimeElement> tree);
+    private void GatherCompilableTracks(IList`1<TrackAsset> tracks);
+    private void GatherNotifications(List`1<IMarker> markers);
+    internal virtual Playable CreateMixerPlayableGraph(PlayableGraph graph, GameObject go, IntervalTree`1<RuntimeElement> tree);
+    internal void ConfigureTrackAnimation(IntervalTree`1<RuntimeElement> tree, GameObject go, Playable blend);
+    internal void SortClips();
+    internal void ClearClipsInternal();
+    internal void ClearSubTracksInternal();
+    internal void OnClipMove();
+    internal TimelineClip CreateNewClipContainerInternal();
+    internal void AddChild(TrackAsset child);
+    internal void MoveLastTrackBefore(TrackAsset asset);
+    internal bool RemoveSubTrack(TrackAsset child);
+    internal void RemoveClip(TimelineClip clip);
+    internal virtual void GetEvaluationTime(Double& outStart, Double& outDuration);
+    internal virtual void GetSequenceTime(Double& outStart, Double& outDuration);
+    public virtual void GatherProperties(PlayableDirector director, IPropertyCollector driver);
+    internal GameObject GetGameObjectBinding(PlayableDirector director);
+    internal bool ValidateClipType(Type clipType);
+    protected virtual void OnCreateClip(TimelineClip clip);
+    private void UpdateDuration();
+    protected internal virtual int CalculateItemsHash();
+    protected virtual Playable CreatePlayable(PlayableGraph graph, GameObject gameObject, TimelineClip clip);
+    internal void Invalidate();
+    internal double GetNotificationDuration();
+    internal virtual bool CanCompileClips();
+    public virtual bool CanCreateTrackMixer();
+    internal bool IsCompilable();
+    private void UpdateChildTrackCache();
+    internal virtual int Hash();
+    private int GetClipsHash();
+    protected static int GetAnimationClipHash(AnimationClip clip);
+    private bool HasNotifications();
+    private bool CanCompileNotifications();
+    private bool CanCreateMixerRecursive();
+}
+[ExtensionAttribute]
+public static class UnityEngine.Timeline.TrackAssetExtensions : object {
+    [ExtensionAttribute]
+public static GroupTrack GetGroup(TrackAsset asset);
+    [ExtensionAttribute]
+public static void SetGroup(TrackAsset asset, GroupTrack group);
+}
+[FlagsAttribute]
+public enum UnityEngine.Timeline.TrackBindingFlags : Enum {
+    public int value__;
+    public static TrackBindingFlags None;
+    public static TrackBindingFlags AllowCreateComponent;
+    public static TrackBindingFlags All;
+}
+[AttributeUsageAttribute("4")]
+public class UnityEngine.Timeline.TrackBindingTypeAttribute : Attribute {
+    public Type type;
+    public TrackBindingFlags flags;
+    public TrackBindingTypeAttribute(Type type);
+    public TrackBindingTypeAttribute(Type type, TrackBindingFlags flags);
+}
+[AttributeUsageAttribute("4")]
+public class UnityEngine.Timeline.TrackClipTypeAttribute : Attribute {
+    public Type inspectedType;
+    public bool allowAutoCreate;
+    public TrackClipTypeAttribute(Type clipClass);
+    public TrackClipTypeAttribute(Type clipClass, bool allowAutoCreate);
+}
+[AttributeUsageAttribute("4")]
+public class UnityEngine.Timeline.TrackColorAttribute : Attribute {
+    private Color m_Color;
+    public Color color { get; }
+    public TrackColorAttribute(float r, float g, float b);
+    public Color get_color();
+}
+[AttributeUsageAttribute("4")]
+[ObsoleteAttribute("TrackMediaType has been deprecated. It is no longer required, and will be removed in a future release.", "False")]
+public class UnityEngine.Timeline.TrackMediaType : Attribute {
+    public MediaType m_MediaType;
+    public TrackMediaType(MediaType mt);
+}
+public enum UnityEngine.Timeline.TrackOffset : Enum {
+    public int value__;
+    public static TrackOffset ApplyTransformOffsets;
+    public static TrackOffset ApplySceneOffsets;
+    public static TrackOffset Auto;
+}
+internal static class UnityEngine.Timeline.WeightUtility : object {
+    public static float NormalizeMixer(Playable mixer);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

@@ -1,0 +1,28 @@
+[NativeConditionalAttribute("ENABLE_CLUSTERINPUT")]
+[NativeHeaderAttribute("Modules/ClusterInput/ClusterInput.h")]
+public class UnityEngine.ClusterInput : object {
+    public static float GetAxis(string name);
+    public static bool GetButton(string name);
+    [NativeConditionalAttribute("ENABLE_CLUSTERINPUT", "Vector3f(0.0f, 0.0f, 0.0f)")]
+public static Vector3 GetTrackerPosition(string name);
+    [NativeConditionalAttribute("ENABLE_CLUSTERINPUT", "Quartenion::identity")]
+public static Quaternion GetTrackerRotation(string name);
+    public static void SetAxis(string name, float value);
+    public static void SetButton(string name, bool value);
+    public static void SetTrackerPosition(string name, Vector3 value);
+    public static void SetTrackerRotation(string name, Quaternion value);
+    public static bool AddInput(string name, string deviceName, string serverUrl, int index, ClusterInputType type);
+    public static bool EditInput(string name, string deviceName, string serverUrl, int index, ClusterInputType type);
+    public static bool CheckConnectionToServer(string name);
+    private static void GetTrackerPosition_Injected(string name, Vector3& ret);
+    private static void GetTrackerRotation_Injected(string name, Quaternion& ret);
+    private static void SetTrackerPosition_Injected(string name, Vector3& value);
+    private static void SetTrackerRotation_Injected(string name, Quaternion& value);
+}
+public enum UnityEngine.ClusterInputType : Enum {
+    public int value__;
+    public static ClusterInputType Button;
+    public static ClusterInputType Axis;
+    public static ClusterInputType Tracker;
+    public static ClusterInputType CustomProvidedInput;
+}

@@ -1,0 +1,1212 @@
+internal static class Consts : object {
+    public static string MonoVersion;
+    public static string MonoCompany;
+    public static string MonoProduct;
+    public static string MonoCopyright;
+    public static string FxVersion;
+    public static string FxFileVersion;
+    public static string EnvironmentVersion;
+    public static string VsVersion;
+    public static string VsFileVersion;
+    private static string PublicKeyToken;
+    public static string AssemblyI18N;
+    public static string AssemblyMicrosoft_JScript;
+    public static string AssemblyMicrosoft_VisualStudio;
+    public static string AssemblyMicrosoft_VisualStudio_Web;
+    public static string AssemblyMicrosoft_VSDesigner;
+    public static string AssemblyMono_Http;
+    public static string AssemblyMono_Posix;
+    public static string AssemblyMono_Security;
+    public static string AssemblyMono_Messaging_RabbitMQ;
+    public static string AssemblyCorlib;
+    public static string AssemblySystem;
+    public static string AssemblySystem_Data;
+    public static string AssemblySystem_Design;
+    public static string AssemblySystem_DirectoryServices;
+    public static string AssemblySystem_Drawing;
+    public static string AssemblySystem_Drawing_Design;
+    public static string AssemblySystem_Messaging;
+    public static string AssemblySystem_Security;
+    public static string AssemblySystem_ServiceProcess;
+    public static string AssemblySystem_Web;
+    public static string AssemblySystem_Windows_Forms;
+    public static string AssemblySystem_2_0;
+    public static string AssemblySystemCore_3_5;
+    public static string AssemblySystem_Core;
+    public static string WindowsBase_3_0;
+    public static string AssemblyWindowsBase;
+    public static string AssemblyPresentationCore_3_5;
+    public static string AssemblyPresentationCore_4_0;
+    public static string AssemblyPresentationFramework_3_5;
+    public static string AssemblySystemServiceModel_3_0;
+}
+internal class Locale : object {
+    public static string GetText(string msg);
+    public static string GetText(string fmt, Object[] args);
+}
+public class Mono.Data.Tds.FrameworkValueGetter : MulticastDelegate {
+    public FrameworkValueGetter(object object, IntPtr method);
+    public virtual object Invoke(object rawValue, Boolean& updated);
+    public virtual IAsyncResult BeginInvoke(object rawValue, Boolean& updated, AsyncCallback callback, object object);
+    public virtual object EndInvoke(Boolean& updated, IAsyncResult result);
+}
+public abstract class Mono.Data.Tds.Protocol.Tds : object {
+    private TdsComm comm;
+    private TdsVersion tdsVersion;
+    protected internal TdsConnectionParameters connectionParms;
+    protected Byte[] NTLMSSP_ID;
+    private int packetSize;
+    private string dataSource;
+    private string database;
+    private string originalDatabase;
+    private string databaseProductName;
+    private string databaseProductVersion;
+    private int databaseMajorVersion;
+    private CultureInfo locale;
+    private int lifeTime;
+    private DateTime created;
+    private string charset;
+    private string language;
+    private bool connected;
+    private bool moreResults;
+    private Encoding encoder;
+    private bool doneProc;
+    private bool pooling;
+    private TdsDataRow currentRow;
+    private TdsDataColumnCollection columns;
+    private ArrayList tableNames;
+    private ArrayList columnNames;
+    private TdsMetaParameterCollection parameters;
+    private bool queryInProgress;
+    private int cancelsRequested;
+    private int cancelsProcessed;
+    private ArrayList outputParameters;
+    protected TdsInternalErrorCollection messages;
+    private int recordsAffected;
+    private long StreamLength;
+    private long StreamIndex;
+    private int StreamColumnIndex;
+    private bool sequentialAccess;
+    private bool isRowRead;
+    private bool isResultRead;
+    private bool LoadInProgress;
+    private Byte[] collation;
+    internal int poolStatus;
+    private TdsInternalErrorMessageEventHandler TdsErrorMessage;
+    private TdsInternalInfoMessageEventHandler TdsInfoMessage;
+    protected string Charset { get; }
+    protected CultureInfo Locale { get; }
+    public bool DoneProc { get; }
+    protected string Language { get; }
+    protected ArrayList ColumnNames { get; }
+    public TdsDataRow ColumnValues { get; }
+    internal TdsComm Comm { get; }
+    public string Database { get; }
+    public string DataSource { get; }
+    public bool IsConnected { get; public set; }
+    public bool Pooling { get; public set; }
+    public bool MoreResults { get; public set; }
+    public int PacketSize { get; }
+    public int RecordsAffected { get; public set; }
+    public string ServerVersion { get; }
+    public TdsDataColumnCollection Columns { get; }
+    public TdsVersion TdsVersion { get; }
+    public ArrayList OutputParameters { get; public set; }
+    protected TdsMetaParameterCollection Parameters { get; protected set; }
+    public bool SequentialAccess { get; public set; }
+    public Byte[] Collation { get; }
+    public TdsVersion ServerTdsVersion { get; }
+    internal bool Expired { get; }
+    public Tds(string dataSource, int port, int packetSize, int timeout, TdsVersion tdsVersion);
+    public Tds(string dataSource, int port, int packetSize, int timeout, int lifeTime, TdsVersion tdsVersion);
+    protected string get_Charset();
+    protected CultureInfo get_Locale();
+    public bool get_DoneProc();
+    protected string get_Language();
+    protected ArrayList get_ColumnNames();
+    public TdsDataRow get_ColumnValues();
+    internal TdsComm get_Comm();
+    public string get_Database();
+    public string get_DataSource();
+    public virtual bool get_IsConnected();
+    public virtual void set_IsConnected(bool value);
+    public bool get_Pooling();
+    public void set_Pooling(bool value);
+    public bool get_MoreResults();
+    public void set_MoreResults(bool value);
+    public int get_PacketSize();
+    public int get_RecordsAffected();
+    public void set_RecordsAffected(int value);
+    public string get_ServerVersion();
+    public TdsDataColumnCollection get_Columns();
+    public TdsVersion get_TdsVersion();
+    public ArrayList get_OutputParameters();
+    public void set_OutputParameters(ArrayList value);
+    protected TdsMetaParameterCollection get_Parameters();
+    protected void set_Parameters(TdsMetaParameterCollection value);
+    public bool get_SequentialAccess();
+    public void set_SequentialAccess(bool value);
+    public Byte[] get_Collation();
+    public TdsVersion get_ServerTdsVersion();
+    private void SkipRow();
+    private void SkipToColumnIndex(int colIndex);
+    public object GetSequentialColumnValue(int colIndex);
+    public long GetSequentialColumnValue(int colIndex, long fieldIndex, Byte[] buffer, int bufferIndex, int size);
+    private void BeginLoad(Nullable`1<TdsColumnType> colType);
+    private void EndLoad();
+    private long LoadData(long fieldIndex, Byte[] buffer, int bufferIndex, int size);
+    public void add_TdsErrorMessage(TdsInternalErrorMessageEventHandler value);
+    public void remove_TdsErrorMessage(TdsInternalErrorMessageEventHandler value);
+    public void add_TdsInfoMessage(TdsInternalInfoMessageEventHandler value);
+    public void remove_TdsInfoMessage(TdsInternalInfoMessageEventHandler value);
+    protected virtual void InitComm(int port, int timeout);
+    internal bool get_Expired();
+    protected internal void InitExec();
+    public void Cancel();
+    public abstract virtual bool Connect(TdsConnectionParameters connectionParameters);
+    public static TdsTimeoutException CreateTimeoutException(string dataSource, string method);
+    public virtual void Disconnect();
+    public virtual bool Reset();
+    protected virtual bool IsValidRowCount(byte status, byte op);
+    public void Execute(string sql);
+    public void ExecProc(string sql);
+    public virtual void Execute(string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    public virtual void ExecProc(string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    public virtual void ExecPrepared(string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    internal void ExecBulkCopyMetaData(int timeout, bool wantResults);
+    internal void ExecBulkCopy(int timeout, bool wantResults);
+    protected void ExecuteQuery(string sql, int timeout, bool wantResults);
+    protected virtual void ExecRPC(string rpcName, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    public bool NextResult();
+    public bool NextRow();
+    public virtual string Prepare(string sql, TdsMetaParameterCollection parameters);
+    public void SkipToEnd();
+    public virtual void Unprepare(string statementId);
+    [MonoTODOAttribute("Is cancel enough, or do we need to drop the connection?")]
+protected void CheckForData(int timeout);
+    protected TdsInternalInfoMessageEventArgs CreateTdsInfoMessageEvent(TdsInternalErrorCollection errors);
+    protected TdsInternalErrorMessageEventArgs CreateTdsErrorMessageEvent(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state);
+    private Encoding GetEncodingFromColumnCollation(int lcid, int sortId);
+    protected object GetColumnValue(Nullable`1<TdsColumnType> colType, bool outParam);
+    private object GetColumnValue(Nullable`1<TdsColumnType> colType, bool outParam, int ordinal);
+    private object GetBinaryValue();
+    private object GetVariantValue();
+    private object GetDateTimeValue(Nullable`1<TdsColumnType> type);
+    private object GetDecimalValue(byte precision, byte scale);
+    private object GetDecimalValueTds70(byte precision, byte scale);
+    private object GetDecimalValueTds50(byte precision, byte scale);
+    private object GetFloatValue(Nullable`1<TdsColumnType> columnType);
+    private object GetImageValue();
+    private object GetIntValue(Nullable`1<TdsColumnType> type);
+    private object GetMoneyValue(Nullable`1<TdsColumnType> type);
+    protected object GetStringValue(Nullable`1<TdsColumnType> colType, bool wideChars, bool outputParam, Encoding encoder);
+    protected object GetStringValue(bool wideChars, int len, Encoding enc);
+    protected int GetSubPacketLength();
+    private object GetTextValue(bool wideChars, Encoding encoder);
+    internal bool IsBlobType(TdsColumnType columnType);
+    internal bool IsLargeType(TdsColumnType columnType);
+    protected bool IsWideType(TdsColumnType columnType);
+    internal static bool IsFixedSizeColumn(TdsColumnType columnType);
+    protected void LoadRow();
+    internal static int LookupBufferSize(TdsColumnType columnType);
+    protected internal int ProcessAuthentication();
+    protected void ProcessColumnDetail();
+    protected abstract virtual void ProcessColumnInfo();
+    protected void ProcessColumnNames();
+    [MonoTODOAttribute("Make sure counting works right, especially with multiple resultsets.")]
+protected void ProcessEndToken(TdsPacketSubType type);
+    protected void ProcessEnvironmentChange();
+    protected void ProcessLoginAck();
+    protected void OnTdsErrorMessage(TdsInternalErrorMessageEventArgs e);
+    protected void OnTdsInfoMessage(TdsInternalInfoMessageEventArgs e);
+    protected void ProcessMessage(TdsPacketSubType subType);
+    protected virtual void ProcessOutputParam();
+    protected void ProcessDynamic();
+    protected virtual TdsPacketSubType ProcessSubPacket();
+    protected void ProcessTableName();
+    protected void SetCharset(Encoding encoder);
+    protected void SetCharset(string charset);
+    protected void SetLanguage(string language);
+    protected virtual void ProcessReturnStatus();
+    public static string GetPlainPassword(SecureString secPass);
+    protected IAsyncResult BeginExecuteQueryInternal(string sql, bool wantResults, AsyncCallback callback, object state);
+    protected void EndExecuteQueryInternal(IAsyncResult ar);
+    protected void OnBeginExecuteQueryCallback(IAsyncResult ar);
+    public virtual IAsyncResult BeginExecuteNonQuery(string sql, TdsMetaParameterCollection parameters, AsyncCallback callback, object state);
+    public virtual void EndExecuteNonQuery(IAsyncResult ar);
+    public virtual IAsyncResult BeginExecuteQuery(string sql, TdsMetaParameterCollection parameters, AsyncCallback callback, object state);
+    public virtual void EndExecuteQuery(IAsyncResult ar);
+    public virtual IAsyncResult BeginExecuteProcedure(string prolog, string epilog, string cmdText, bool IsNonQuery, TdsMetaParameterCollection parameters, AsyncCallback callback, object state);
+    public virtual void EndExecuteProcedure(IAsyncResult ar);
+    public void WaitFor(IAsyncResult ar);
+    public void CheckAndThrowException(IAsyncResult ar);
+}
+public class Mono.Data.Tds.Protocol.Tds42 : Tds {
+    public static TdsVersion Version;
+    public Tds42(string server, int port);
+    public Tds42(string server, int port, int packetSize, int timeout);
+    private static Tds42();
+    public virtual bool Connect(TdsConnectionParameters connectionParameters);
+    protected virtual void ProcessColumnInfo();
+}
+[MonoTODOAttribute("FIXME: Can packetsize be anything other than 512?")]
+public class Mono.Data.Tds.Protocol.Tds50 : Tds {
+    public static TdsVersion Version;
+    private int packetSize;
+    private bool isSelectQuery;
+    [CompilerGeneratedAttribute]
+private static Dictionary`2<string, int> <>f__switch$map4;
+    public Tds50(string server, int port);
+    public Tds50(string server, int port, int packetSize, int timeout);
+    private static Tds50();
+    public string BuildExec(string sql);
+    public virtual bool Connect(TdsConnectionParameters connectionParameters);
+    public virtual void ExecPrepared(string id, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    public virtual void Execute(string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    public virtual void ExecProc(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    private string BuildProcedureCall(string procedure);
+    private string BuildParameters();
+    private string FormatParameter(TdsMetaParameter parameter);
+    public virtual string Prepare(string sql, TdsMetaParameterCollection parameters);
+    protected virtual void ProcessColumnInfo();
+    private void SendParamFormat();
+    private void SendParams();
+    public virtual void Unprepare(string statementId);
+    protected virtual bool IsValidRowCount(byte status, byte op);
+}
+public class Mono.Data.Tds.Protocol.Tds70 : Tds {
+    private static decimal SMALLMONEY_MIN;
+    private static decimal SMALLMONEY_MAX;
+    [CompilerGeneratedAttribute]
+private static Dictionary`2<string, int> <>f__switch$map5;
+    [CompilerGeneratedAttribute]
+private static Dictionary`2<string, int> <>f__switch$map6;
+    protected Byte[] ClientVersion { get; }
+    protected byte Precision { get; }
+    [ObsoleteAttribute("Use the constructor that receives a lifetime parameter")]
+public Tds70(string server, int port);
+    [ObsoleteAttribute("Use the constructor that receives a lifetime parameter")]
+public Tds70(string server, int port, int packetSize, int timeout);
+    [ObsoleteAttribute("Use the constructor that receives a lifetime parameter")]
+public Tds70(string server, int port, int packetSize, int timeout, TdsVersion version);
+    public Tds70(string server, int port, int lifetime);
+    public Tds70(string server, int port, int packetSize, int timeout, int lifeTime);
+    public Tds70(string server, int port, int packetSize, int timeout, int lifeTime, TdsVersion version);
+    private static Tds70();
+    protected virtual Byte[] get_ClientVersion();
+    protected virtual byte get_Precision();
+    protected string BuildExec(string sql);
+    private string BuildParameters();
+    private string BuildPreparedParameters();
+    private string BuildPreparedQuery(string id);
+    private string BuildProcedureCall(string procedure);
+    public virtual bool Connect(TdsConnectionParameters connectionParameters);
+    private static string EncryptPassword(SecureString secPass);
+    public virtual bool Reset();
+    public virtual void ExecPrepared(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    public virtual void ExecProc(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    private void WriteRpcParameterInfo(TdsMetaParameterCollection parameters);
+    private void WritePreparedParameterInfo(TdsMetaParameterCollection parameters);
+    protected void ExecRPC(TdsRpcProcId rpcId, string sql, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    protected virtual void ExecRPC(string rpcName, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    private void WriteParameterInfo(TdsMetaParameter param);
+    public virtual void Execute(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    private string FormatParameter(TdsMetaParameter parameter);
+    public virtual string Prepare(string commandText, TdsMetaParameterCollection parameters);
+    protected virtual void ProcessColumnInfo();
+    public virtual void Unprepare(string statementId);
+    protected virtual bool IsValidRowCount(byte status, byte op);
+    protected virtual void ProcessReturnStatus();
+    private byte GetScale(TdsColumnType type, int columnSize);
+    private byte GetPrecision(TdsColumnType type, int columnSize);
+    public virtual IAsyncResult BeginExecuteNonQuery(string cmdText, TdsMetaParameterCollection parameters, AsyncCallback callback, object state);
+    public virtual void EndExecuteNonQuery(IAsyncResult ar);
+    public virtual IAsyncResult BeginExecuteQuery(string cmdText, TdsMetaParameterCollection parameters, AsyncCallback callback, object state);
+    public virtual void EndExecuteQuery(IAsyncResult ar);
+    public virtual IAsyncResult BeginExecuteProcedure(string prolog, string epilog, string cmdText, bool IsNonQuery, TdsMetaParameterCollection parameters, AsyncCallback callback, object state);
+    public virtual void EndExecuteProcedure(IAsyncResult ar);
+}
+public class Mono.Data.Tds.Protocol.Tds80 : Tds70 {
+    public static TdsVersion Version;
+    protected Byte[] ClientVersion { get; }
+    protected byte Precision { get; }
+    [ObsoleteAttribute("Use the constructor that receives a lifetime parameter")]
+public Tds80(string server, int port);
+    [ObsoleteAttribute("Use the constructor that receives a lifetime parameter")]
+public Tds80(string server, int port, int packetSize, int timeout);
+    public Tds80(string server, int port, int lifetime);
+    public Tds80(string server, int port, int packetSize, int timeout, int lifeTime);
+    private static Tds80();
+    protected virtual Byte[] get_ClientVersion();
+    protected virtual byte get_Precision();
+    public virtual bool Connect(TdsConnectionParameters connectionParameters);
+    protected virtual void ProcessColumnInfo();
+    protected virtual void ProcessOutputParam();
+    public virtual void Execute(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+    public virtual void ExecPrepared(string commandText, TdsMetaParameterCollection parameters, int timeout, bool wantResults);
+}
+internal class Mono.Data.Tds.Protocol.TdsAsyncResult : object {
+    private TdsAsyncState _tdsState;
+    private WaitHandle _waitHandle;
+    private bool _completed;
+    private bool _completedSyncly;
+    private AsyncCallback _userCallback;
+    private object _retValue;
+    private Exception _exception;
+    public object AsyncState { get; }
+    internal TdsAsyncState TdsAsyncState { get; }
+    public WaitHandle AsyncWaitHandle { get; }
+    public bool IsCompleted { get; }
+    public bool IsCompletedWithException { get; }
+    public Exception Exception { get; }
+    public bool CompletedSynchronously { get; }
+    internal object ReturnValue { get; internal set; }
+    public TdsAsyncResult(AsyncCallback userCallback, TdsAsyncState tdsState);
+    public TdsAsyncResult(AsyncCallback userCallback, object state);
+    public sealed virtual object get_AsyncState();
+    internal TdsAsyncState get_TdsAsyncState();
+    public sealed virtual WaitHandle get_AsyncWaitHandle();
+    public sealed virtual bool get_IsCompleted();
+    public bool get_IsCompletedWithException();
+    public Exception get_Exception();
+    public sealed virtual bool get_CompletedSynchronously();
+    internal object get_ReturnValue();
+    internal void set_ReturnValue(object value);
+    internal void MarkComplete();
+    internal void MarkComplete(Exception e);
+}
+internal class Mono.Data.Tds.Protocol.TdsAsyncState : object {
+    private object _userState;
+    private bool _wantResults;
+    public object UserState { get; public set; }
+    public bool WantResults { get; public set; }
+    public TdsAsyncState(object userState);
+    public object get_UserState();
+    public void set_UserState(object value);
+    public bool get_WantResults();
+    public void set_WantResults(bool value);
+}
+public class Mono.Data.Tds.Protocol.TdsBigDecimal : object {
+    private bool isNegative;
+    private byte precision;
+    private byte scale;
+    private Int32[] data;
+    public Int32[] Data { get; }
+    public byte Precision { get; }
+    public byte Scale { get; }
+    public bool IsNegative { get; }
+    public TdsBigDecimal(byte precision, byte scale, bool isNegative, Int32[] data);
+    public Int32[] get_Data();
+    public byte get_Precision();
+    public byte get_Scale();
+    public bool get_IsNegative();
+}
+public class Mono.Data.Tds.Protocol.TdsBulkCopy : object {
+    private Tds tds;
+    public TdsBulkCopy(Tds tds);
+    public bool SendColumnMetaData(string colMetaData);
+    public bool BulkCopyStart(TdsMetaParameterCollection parameters);
+    public bool BulkCopyData(object o, bool isNewRow, int size, TdsMetaParameter parameter);
+    public bool BulkCopyEnd();
+    private void WriteParameterInfo(TdsMetaParameter param);
+}
+public enum Mono.Data.Tds.Protocol.TdsColumnStatus : Enum {
+    public int value__;
+    public static TdsColumnStatus IsExpression;
+    public static TdsColumnStatus IsKey;
+    public static TdsColumnStatus Hidden;
+    public static TdsColumnStatus Rename;
+}
+public enum Mono.Data.Tds.Protocol.TdsColumnType : Enum {
+    public int value__;
+    public static TdsColumnType Binary;
+    public static TdsColumnType Bit;
+    public static TdsColumnType Char;
+    public static TdsColumnType DateTime;
+    public static TdsColumnType DateTime4;
+    public static TdsColumnType DateTime2;
+    public static TdsColumnType DateTimeOffset;
+    public static TdsColumnType DateTimeN;
+    public static TdsColumnType Decimal;
+    public static TdsColumnType Real;
+    public static TdsColumnType Float8;
+    public static TdsColumnType FloatN;
+    public static TdsColumnType Image;
+    public static TdsColumnType Int1;
+    public static TdsColumnType Int2;
+    public static TdsColumnType Int4;
+    public static TdsColumnType IntN;
+    public static TdsColumnType Void;
+    public static TdsColumnType Text;
+    public static TdsColumnType UniqueIdentifier;
+    public static TdsColumnType VarBinary;
+    public static TdsColumnType VarChar;
+    public static TdsColumnType Money;
+    public static TdsColumnType NText;
+    public static TdsColumnType NVarChar;
+    public static TdsColumnType BitN;
+    public static TdsColumnType Numeric;
+    public static TdsColumnType MoneyN;
+    public static TdsColumnType Money4;
+    public static TdsColumnType NChar;
+    public static TdsColumnType BigBinary;
+    public static TdsColumnType BigVarBinary;
+    public static TdsColumnType BigVarChar;
+    public static TdsColumnType BigNVarChar;
+    public static TdsColumnType BigChar;
+    public static TdsColumnType SmallMoney;
+    public static TdsColumnType Variant;
+    public static TdsColumnType BigInt;
+}
+internal class Mono.Data.Tds.Protocol.TdsComm : object {
+    private NetworkStream stream;
+    private int packetSize;
+    private TdsPacketType packetType;
+    private bool connReset;
+    private Encoding encoder;
+    private string dataSource;
+    private int commandTimeout;
+    private Byte[] outBuffer;
+    private int outBufferLength;
+    private int nextOutBufferIndex;
+    private bool lsb;
+    private Byte[] inBuffer;
+    private int inBufferLength;
+    private int inBufferIndex;
+    private static int headerLength;
+    private Byte[] tmpBuf;
+    private Byte[] resBuffer;
+    private int packetsSent;
+    private int packetsReceived;
+    private Socket socket;
+    private TdsVersion tdsVersion;
+    public int CommandTimeout { get; public set; }
+    internal Encoding Encoder { get; internal set; }
+    public int PacketSize { get; public set; }
+    public bool TdsByteOrder { get; public set; }
+    public bool ResetConnection { get; public set; }
+    public TdsComm(string dataSource, int port, int packetSize, int timeout, TdsVersion tdsVersion);
+    private static TdsComm();
+    public int get_CommandTimeout();
+    public void set_CommandTimeout(int value);
+    internal Encoding get_Encoder();
+    internal void set_Encoder(Encoding value);
+    public int get_PacketSize();
+    public void set_PacketSize(int value);
+    public bool get_TdsByteOrder();
+    public void set_TdsByteOrder(bool value);
+    public Byte[] Swap(Byte[] toswap);
+    public void SendIfFull();
+    public void SendIfFull(int reserve);
+    public void Append(object o);
+    public void Append(byte b);
+    public void Append(DateTime t, int bytes);
+    public void Append(Byte[] b);
+    public void Append(Byte[] b, int len, byte pad);
+    private void AppendInternal(short s);
+    public void Append(short s);
+    public void Append(ushort s);
+    private void AppendInternal(int i);
+    public void Append(int i);
+    public void Append(string s);
+    public void AppendNonUnicode(string s);
+    public Byte[] Append(string s, int len, byte pad);
+    public void Append(double value);
+    public void Append(float value);
+    public void Append(long l);
+    public void Append(decimal d, int bytes);
+    public void AppendMoney(decimal d, int size);
+    public void AppendDecimal(decimal d, int bytes, int scale);
+    public void Close();
+    public bool IsConnected();
+    public byte GetByte();
+    public Byte[] GetBytes(int len, bool exclusiveBuffer);
+    public string GetString(int len, Encoding enc);
+    public string GetString(int len);
+    public string GetString(int len, bool wide, Encoding enc);
+    public string GetString(int len, bool wide);
+    public int GetNetShort();
+    public short GetTdsShort();
+    public int GetTdsInt();
+    public long GetTdsInt64();
+    private void GetPhysicalPacket();
+    private int Read(Byte[] buffer, int offset, int count);
+    private int GetPhysicalPacketHeader();
+    private void GetPhysicalPacketData(int length);
+    private static int Ntohs(Byte[] buf, int offset);
+    public byte Peek();
+    public bool Poll(int seconds, SelectMode selectMode);
+    private bool Poll(Socket s, int seconds, SelectMode selectMode);
+    internal void ResizeOutBuf(int newSize);
+    public bool get_ResetConnection();
+    public void set_ResetConnection(bool value);
+    public void SendPacket();
+    private void SendPhysicalPacket(bool isLastSegment);
+    public void Skip(long i);
+    public void StartPacket(TdsPacketType type);
+    private void Store(int index, byte value);
+    private void Store(int index, short value);
+    public IAsyncResult BeginReadPacket(AsyncCallback callback, object stateObject);
+    public int EndReadPacket(IAsyncResult ar);
+    public void OnReadPacketCallback(IAsyncResult socketAsyncResult);
+}
+public class Mono.Data.Tds.Protocol.TdsConnectionInfo : object {
+    public string DataSource;
+    public int Port;
+    public int PacketSize;
+    public int Timeout;
+    public int LifeTime;
+    public int PoolMinSize;
+    public int PoolMaxSize;
+    [ObsoleteAttribute("Use the constructor that receives a lifetime parameter")]
+public TdsConnectionInfo(string dataSource, int port, int packetSize, int timeout, int minSize, int maxSize);
+    public TdsConnectionInfo(string dataSource, int port, int packetSize, int timeout, int minSize, int maxSize, int lifeTime);
+    public virtual string ToString();
+}
+public class Mono.Data.Tds.Protocol.TdsConnectionParameters : object {
+    public string ApplicationName;
+    public string Database;
+    public string Charset;
+    public string Hostname;
+    public string Language;
+    public string LibraryName;
+    public SecureString Password;
+    public bool PasswordSet;
+    public string ProgName;
+    public string User;
+    public bool DomainLogin;
+    public string DefaultDomain;
+    public string AttachDBFileName;
+    public void Reset();
+}
+public class Mono.Data.Tds.Protocol.TdsConnectionPool : object {
+    private TdsConnectionInfo info;
+    private bool no_pooling;
+    private TdsConnectionPoolManager manager;
+    private Queue available;
+    private ArrayList conns;
+    private int in_progress;
+    public bool Pooling { get; public set; }
+    public TdsConnectionPool(TdsConnectionPoolManager manager, TdsConnectionInfo info);
+    private void InitializePool();
+    public bool get_Pooling();
+    public void set_Pooling(bool value);
+    public Tds GetConnection();
+    public void ReleaseConnection(Tds connection);
+    public void ResetConnectionPool();
+}
+public class Mono.Data.Tds.Protocol.TdsConnectionPoolManager : object {
+    private Hashtable pools;
+    private TdsVersion version;
+    public TdsConnectionPoolManager(TdsVersion version);
+    public TdsConnectionPool GetConnectionPool(string connectionString, TdsConnectionInfo info);
+    public TdsConnectionPool GetConnectionPool(string connectionString);
+    public virtual Tds CreateConnection(TdsConnectionInfo info);
+    public IDictionary GetConnectionPool();
+}
+[DefaultMemberAttribute("Item")]
+public class Mono.Data.Tds.Protocol.TdsDataColumn : object {
+    private Hashtable properties;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<TdsColumnType> <ColumnType>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <ColumnName>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<int> <ColumnSize>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<int> <ColumnOrdinal>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsAutoIncrement>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsIdentity>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsRowVersion>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsUnique>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsHidden>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsKey>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsAliased>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsExpression>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <IsReadOnly>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<short> <NumericPrecision>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<short> <NumericScale>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <BaseServerName>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <BaseCatalogName>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <BaseColumnName>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <BaseSchemaName>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <BaseTableName>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<bool> <AllowDBNull>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<int> <LCID>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private Nullable`1<int> <SortOrder>k__BackingField;
+    [CompilerGeneratedAttribute]
+[DebuggerBrowsableAttribute("0")]
+private string <DataTypeName>k__BackingField;
+    public Nullable`1<TdsColumnType> ColumnType { get; public set; }
+    public string ColumnName { get; public set; }
+    public Nullable`1<int> ColumnSize { get; public set; }
+    public Nullable`1<int> ColumnOrdinal { get; public set; }
+    public Nullable`1<bool> IsAutoIncrement { get; public set; }
+    public Nullable`1<bool> IsIdentity { get; public set; }
+    public Nullable`1<bool> IsRowVersion { get; public set; }
+    public Nullable`1<bool> IsUnique { get; public set; }
+    public Nullable`1<bool> IsHidden { get; public set; }
+    public Nullable`1<bool> IsKey { get; public set; }
+    public Nullable`1<bool> IsAliased { get; public set; }
+    public Nullable`1<bool> IsExpression { get; public set; }
+    public Nullable`1<bool> IsReadOnly { get; public set; }
+    public Nullable`1<short> NumericPrecision { get; public set; }
+    public Nullable`1<short> NumericScale { get; public set; }
+    public string BaseServerName { get; public set; }
+    public string BaseCatalogName { get; public set; }
+    public string BaseColumnName { get; public set; }
+    public string BaseSchemaName { get; public set; }
+    public string BaseTableName { get; public set; }
+    public Nullable`1<bool> AllowDBNull { get; public set; }
+    public Nullable`1<int> LCID { get; public set; }
+    public Nullable`1<int> SortOrder { get; public set; }
+    public string DataTypeName { get; public set; }
+    public object Item { get; public set; }
+    [CompilerGeneratedAttribute]
+public Nullable`1<TdsColumnType> get_ColumnType();
+    [CompilerGeneratedAttribute]
+public void set_ColumnType(Nullable`1<TdsColumnType> value);
+    [CompilerGeneratedAttribute]
+public string get_ColumnName();
+    [CompilerGeneratedAttribute]
+public void set_ColumnName(string value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<int> get_ColumnSize();
+    [CompilerGeneratedAttribute]
+public void set_ColumnSize(Nullable`1<int> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<int> get_ColumnOrdinal();
+    [CompilerGeneratedAttribute]
+public void set_ColumnOrdinal(Nullable`1<int> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsAutoIncrement();
+    [CompilerGeneratedAttribute]
+public void set_IsAutoIncrement(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsIdentity();
+    [CompilerGeneratedAttribute]
+public void set_IsIdentity(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsRowVersion();
+    [CompilerGeneratedAttribute]
+public void set_IsRowVersion(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsUnique();
+    [CompilerGeneratedAttribute]
+public void set_IsUnique(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsHidden();
+    [CompilerGeneratedAttribute]
+public void set_IsHidden(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsKey();
+    [CompilerGeneratedAttribute]
+public void set_IsKey(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsAliased();
+    [CompilerGeneratedAttribute]
+public void set_IsAliased(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsExpression();
+    [CompilerGeneratedAttribute]
+public void set_IsExpression(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_IsReadOnly();
+    [CompilerGeneratedAttribute]
+public void set_IsReadOnly(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<short> get_NumericPrecision();
+    [CompilerGeneratedAttribute]
+public void set_NumericPrecision(Nullable`1<short> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<short> get_NumericScale();
+    [CompilerGeneratedAttribute]
+public void set_NumericScale(Nullable`1<short> value);
+    [CompilerGeneratedAttribute]
+public string get_BaseServerName();
+    [CompilerGeneratedAttribute]
+public void set_BaseServerName(string value);
+    [CompilerGeneratedAttribute]
+public string get_BaseCatalogName();
+    [CompilerGeneratedAttribute]
+public void set_BaseCatalogName(string value);
+    [CompilerGeneratedAttribute]
+public string get_BaseColumnName();
+    [CompilerGeneratedAttribute]
+public void set_BaseColumnName(string value);
+    [CompilerGeneratedAttribute]
+public string get_BaseSchemaName();
+    [CompilerGeneratedAttribute]
+public void set_BaseSchemaName(string value);
+    [CompilerGeneratedAttribute]
+public string get_BaseTableName();
+    [CompilerGeneratedAttribute]
+public void set_BaseTableName(string value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<bool> get_AllowDBNull();
+    [CompilerGeneratedAttribute]
+public void set_AllowDBNull(Nullable`1<bool> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<int> get_LCID();
+    [CompilerGeneratedAttribute]
+public void set_LCID(Nullable`1<int> value);
+    [CompilerGeneratedAttribute]
+public Nullable`1<int> get_SortOrder();
+    [CompilerGeneratedAttribute]
+public void set_SortOrder(Nullable`1<int> value);
+    [CompilerGeneratedAttribute]
+public string get_DataTypeName();
+    [CompilerGeneratedAttribute]
+public void set_DataTypeName(string value);
+    public object get_Item(string key);
+    public void set_Item(string key, object value);
+}
+[DefaultMemberAttribute("Item")]
+public class Mono.Data.Tds.Protocol.TdsDataColumnCollection : object {
+    private ArrayList list;
+    public TdsDataColumn Item { get; public set; }
+    public int Count { get; }
+    public TdsDataColumn get_Item(int index);
+    public void set_Item(int index, TdsDataColumn value);
+    public int get_Count();
+    public int Add(TdsDataColumn schema);
+    public void Add(TdsDataColumnCollection columns);
+    public sealed virtual IEnumerator GetEnumerator();
+    public void Clear();
+}
+[DefaultMemberAttribute("Item")]
+public class Mono.Data.Tds.Protocol.TdsDataRow : object {
+    private ArrayList list;
+    private int bigDecimalIndex;
+    public int BigDecimalIndex { get; public set; }
+    public int Count { get; }
+    public bool IsFixedSize { get; }
+    public bool IsReadOnly { get; }
+    public bool IsSynchronized { get; }
+    public object SyncRoot { get; }
+    public object Item { get; public set; }
+    public int get_BigDecimalIndex();
+    public void set_BigDecimalIndex(int value);
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsFixedSize();
+    public sealed virtual bool get_IsReadOnly();
+    public sealed virtual bool get_IsSynchronized();
+    public sealed virtual object get_SyncRoot();
+    public sealed virtual object get_Item(int index);
+    public sealed virtual void set_Item(int index, object value);
+    public sealed virtual int Add(object value);
+    public sealed virtual void Clear();
+    public sealed virtual bool Contains(object value);
+    public sealed virtual void CopyTo(Array array, int index);
+    public void CopyTo(int index, Array array, int arrayIndex, int count);
+    public sealed virtual IEnumerator GetEnumerator();
+    public sealed virtual int IndexOf(object value);
+    public sealed virtual void Insert(int index, object value);
+    public sealed virtual void Remove(object value);
+    public sealed virtual void RemoveAt(int index);
+}
+public enum Mono.Data.Tds.Protocol.TdsEnvPacketSubType : Enum {
+    public int value__;
+    public static TdsEnvPacketSubType Database;
+    public static TdsEnvPacketSubType CharSet;
+    public static TdsEnvPacketSubType BlockSize;
+    public static TdsEnvPacketSubType Locale;
+    public static TdsEnvPacketSubType CollationInfo;
+}
+public class Mono.Data.Tds.Protocol.TdsInternalError : object {
+    private byte theClass;
+    private int lineNumber;
+    private string message;
+    private int number;
+    private string procedure;
+    private string server;
+    private string source;
+    private byte state;
+    public byte Class { get; public set; }
+    public int LineNumber { get; public set; }
+    public string Message { get; public set; }
+    public int Number { get; public set; }
+    public string Procedure { get; public set; }
+    public string Server { get; public set; }
+    public string Source { get; public set; }
+    public byte State { get; public set; }
+    public TdsInternalError(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state);
+    public byte get_Class();
+    public void set_Class(byte value);
+    public int get_LineNumber();
+    public void set_LineNumber(int value);
+    public string get_Message();
+    public void set_Message(string value);
+    public int get_Number();
+    public void set_Number(int value);
+    public string get_Procedure();
+    public void set_Procedure(string value);
+    public string get_Server();
+    public void set_Server(string value);
+    public string get_Source();
+    public void set_Source(string value);
+    public byte get_State();
+    public void set_State(byte value);
+}
+[DefaultMemberAttribute("Item")]
+public class Mono.Data.Tds.Protocol.TdsInternalErrorCollection : object {
+    private ArrayList list;
+    public int Count { get; }
+    public TdsInternalError Item { get; public set; }
+    public int get_Count();
+    public TdsInternalError get_Item(int index);
+    public void set_Item(int index, TdsInternalError value);
+    public int Add(TdsInternalError error);
+    public void Clear();
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+}
+public class Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventArgs : TdsInternalInfoMessageEventArgs {
+    public TdsInternalErrorMessageEventArgs(TdsInternalError error);
+}
+public class Mono.Data.Tds.Protocol.TdsInternalErrorMessageEventHandler : MulticastDelegate {
+    public TdsInternalErrorMessageEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, TdsInternalErrorMessageEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, TdsInternalErrorMessageEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class Mono.Data.Tds.Protocol.TdsInternalException : SystemException {
+    private byte theClass;
+    private int lineNumber;
+    private int number;
+    private string procedure;
+    private string server;
+    private string source;
+    private byte state;
+    public byte Class { get; }
+    public int LineNumber { get; }
+    public string Message { get; }
+    public int Number { get; }
+    public string Procedure { get; }
+    public string Server { get; }
+    public string Source { get; }
+    public byte State { get; }
+    internal TdsInternalException(string message, Exception innerException);
+    internal TdsInternalException(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state);
+    public byte get_Class();
+    public int get_LineNumber();
+    public virtual string get_Message();
+    public int get_Number();
+    public string get_Procedure();
+    public string get_Server();
+    public virtual string get_Source();
+    public byte get_State();
+    [MonoTODOAttribute]
+public virtual void GetObjectData(SerializationInfo si, StreamingContext context);
+}
+public class Mono.Data.Tds.Protocol.TdsInternalInfoMessageEventArgs : EventArgs {
+    private TdsInternalErrorCollection errors;
+    public TdsInternalErrorCollection Errors { get; }
+    public byte Class { get; }
+    public int LineNumber { get; }
+    public string Message { get; }
+    public int Number { get; }
+    public string Procedure { get; }
+    public string Server { get; }
+    public string Source { get; }
+    public byte State { get; }
+    public TdsInternalInfoMessageEventArgs(TdsInternalErrorCollection errors);
+    public TdsInternalInfoMessageEventArgs(TdsInternalError error);
+    public TdsInternalErrorCollection get_Errors();
+    public byte get_Class();
+    public int get_LineNumber();
+    public string get_Message();
+    public int get_Number();
+    public string get_Procedure();
+    public string get_Server();
+    public string get_Source();
+    public byte get_State();
+    public int Add(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state);
+}
+public class Mono.Data.Tds.Protocol.TdsInternalInfoMessageEventHandler : MulticastDelegate {
+    public TdsInternalInfoMessageEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, TdsInternalInfoMessageEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, TdsInternalInfoMessageEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public enum Mono.Data.Tds.Protocol.TdsPacketSubType : Enum {
+    public int value__;
+    public static TdsPacketSubType Capability;
+    public static TdsPacketSubType Dynamic;
+    public static TdsPacketSubType Dynamic2;
+    public static TdsPacketSubType EnvironmentChange;
+    public static TdsPacketSubType Error;
+    public static TdsPacketSubType Info;
+    public static TdsPacketSubType EED;
+    public static TdsPacketSubType Param;
+    public static TdsPacketSubType Authentication;
+    public static TdsPacketSubType LoginAck;
+    public static TdsPacketSubType ReturnStatus;
+    public static TdsPacketSubType ProcId;
+    public static TdsPacketSubType Done;
+    public static TdsPacketSubType DoneProc;
+    public static TdsPacketSubType DoneInProc;
+    public static TdsPacketSubType ColumnName;
+    public static TdsPacketSubType ColumnInfo;
+    public static TdsPacketSubType ColumnDetail;
+    public static TdsPacketSubType AltName;
+    public static TdsPacketSubType AltFormat;
+    public static TdsPacketSubType TableName;
+    public static TdsPacketSubType ColumnOrder;
+    public static TdsPacketSubType Control;
+    public static TdsPacketSubType Row;
+    public static TdsPacketSubType ColumnMetadata;
+    public static TdsPacketSubType RowFormat;
+    public static TdsPacketSubType ParamFormat;
+    public static TdsPacketSubType Parameters;
+}
+public enum Mono.Data.Tds.Protocol.TdsPacketType : Enum {
+    public int value__;
+    public static TdsPacketType None;
+    public static TdsPacketType Query;
+    public static TdsPacketType Logon;
+    public static TdsPacketType Proc;
+    public static TdsPacketType Reply;
+    public static TdsPacketType Cancel;
+    public static TdsPacketType Bulk;
+    public static TdsPacketType Logon70;
+    public static TdsPacketType SspAuth;
+    public static TdsPacketType Logoff;
+    public static TdsPacketType Normal;
+    public static TdsPacketType DBRPC;
+    public static TdsPacketType RPC;
+}
+public enum Mono.Data.Tds.Protocol.TdsRpcProcId : Enum {
+    public int value__;
+    public static TdsRpcProcId Cursor;
+    public static TdsRpcProcId CursorOpen;
+    public static TdsRpcProcId CursorPrepare;
+    public static TdsRpcProcId CursorExecute;
+    public static TdsRpcProcId CursorPrepExec;
+    public static TdsRpcProcId CursorUnprepare;
+    public static TdsRpcProcId CursorFetch;
+    public static TdsRpcProcId CursorOption;
+    public static TdsRpcProcId CursorClose;
+    public static TdsRpcProcId ExecuteSql;
+    public static TdsRpcProcId Prepare;
+    public static TdsRpcProcId Execute;
+    public static TdsRpcProcId PrepExec;
+    public static TdsRpcProcId PrepExecRpc;
+    public static TdsRpcProcId Unprepare;
+}
+public class Mono.Data.Tds.Protocol.TdsTimeoutException : TdsInternalException {
+    internal TdsTimeoutException(byte theClass, int lineNumber, string message, int number, string procedure, string server, string source, byte state);
+}
+public enum Mono.Data.Tds.Protocol.TdsVersion : Enum {
+    public int value__;
+    public static TdsVersion tds42;
+    public static TdsVersion tds50;
+    public static TdsVersion tds70;
+    public static TdsVersion tds80;
+    public static TdsVersion tds81;
+    public static TdsVersion tds90;
+    public static TdsVersion tds100;
+}
+internal static class Mono.Data.Tds.TdsCharset : object {
+    private static Hashtable lcidCodes;
+    private static Hashtable sortCodes;
+    private static TdsCharset();
+    public static Encoding GetEncoding(Byte[] collation);
+    public static Encoding GetEncodingFromLCID(Byte[] collation);
+    public static Encoding GetEncodingFromLCID(int lcid);
+    public static Encoding GetEncodingFromSortOrder(Byte[] collation);
+    public static Encoding GetEncodingFromSortOrder(int sortId);
+}
+internal static class Mono.Data.Tds.TdsCollation : object {
+    public static int LCID(Byte[] collation);
+    public static int CollationFlags(Byte[] collation);
+    public static int Version(Byte[] collation);
+    public static int SortId(Byte[] collation);
+}
+public class Mono.Data.Tds.TdsMetaParameter : object {
+    public static int maxVarCharCharacters;
+    public static int maxNVarCharCharacters;
+    private TdsParameterDirection direction;
+    private byte precision;
+    private byte scale;
+    private int size;
+    private string typeName;
+    private string name;
+    private bool isSizeSet;
+    private bool isNullable;
+    private object value;
+    private bool isVariableSizeType;
+    private FrameworkValueGetter frameworkValueGetter;
+    private object rawValue;
+    private bool isUpdated;
+    [CompilerGeneratedAttribute]
+private static Dictionary`2<string, int> <>f__switch$map0;
+    [CompilerGeneratedAttribute]
+private static Dictionary`2<string, int> <>f__switch$map1;
+    [CompilerGeneratedAttribute]
+private static Dictionary`2<string, int> <>f__switch$map2;
+    [CompilerGeneratedAttribute]
+private static Dictionary`2<string, int> <>f__switch$map3;
+    public TdsParameterDirection Direction { get; public set; }
+    public string TypeName { get; public set; }
+    public string ParameterName { get; public set; }
+    public bool IsNullable { get; public set; }
+    public object Value { get; public set; }
+    public object RawValue { get; public set; }
+    public byte Precision { get; public set; }
+    public byte Scale { get; public set; }
+    public int Size { get; public set; }
+    public bool IsVariableSizeType { get; public set; }
+    public bool IsVarNVarCharMax { get; }
+    public bool IsVarCharMax { get; }
+    public bool IsAnyVarCharMax { get; }
+    public bool IsNonUnicodeText { get; }
+    public bool IsMoneyType { get; }
+    public bool IsDateTimeType { get; }
+    public bool IsTextType { get; }
+    public bool IsDecimalType { get; }
+    public TdsMetaParameter(string name, object value);
+    public TdsMetaParameter(string name, FrameworkValueGetter valueGetter);
+    public TdsMetaParameter(string name, string typeName, object value);
+    public TdsMetaParameter(string name, int size, bool isNullable, byte precision, byte scale, object value);
+    public TdsMetaParameter(string name, int size, bool isNullable, byte precision, byte scale, FrameworkValueGetter valueGetter);
+    public TdsParameterDirection get_Direction();
+    public void set_Direction(TdsParameterDirection value);
+    public string get_TypeName();
+    public void set_TypeName(string value);
+    public string get_ParameterName();
+    public void set_ParameterName(string value);
+    public bool get_IsNullable();
+    public void set_IsNullable(bool value);
+    public object get_Value();
+    public void set_Value(object value);
+    public object get_RawValue();
+    public void set_RawValue(object value);
+    public byte get_Precision();
+    public void set_Precision(byte value);
+    public byte get_Scale();
+    public void set_Scale(byte value);
+    public int get_Size();
+    public void set_Size(int value);
+    public bool get_IsVariableSizeType();
+    public void set_IsVariableSizeType(bool value);
+    public bool get_IsVarNVarCharMax();
+    public bool get_IsVarCharMax();
+    public bool get_IsAnyVarCharMax();
+    public bool get_IsNonUnicodeText();
+    public bool get_IsMoneyType();
+    public bool get_IsDateTimeType();
+    public bool get_IsTextType();
+    public bool get_IsDecimalType();
+    private object ResizeValue(object newValue);
+    internal string Prepare();
+    internal int GetActualSize();
+    private int GetSize();
+    private int GetDateTimePrecision();
+    private int GetDateTimeStringLength(TdsColumnType type);
+    private string GetDateTimeString(TdsColumnType type);
+    internal Byte[] GetBytes();
+    internal TdsColumnType GetMetaType();
+    public void CalculateIsVariableType();
+    public void Validate(int index);
+}
+[DefaultMemberAttribute("Item")]
+public class Mono.Data.Tds.TdsMetaParameterCollection : object {
+    private ArrayList list;
+    public int Count { get; }
+    public bool IsSynchronized { get; }
+    public TdsMetaParameter Item { get; }
+    public TdsMetaParameter Item { get; }
+    public object SyncRoot { get; }
+    public sealed virtual int get_Count();
+    public sealed virtual bool get_IsSynchronized();
+    public TdsMetaParameter get_Item(int index);
+    public TdsMetaParameter get_Item(string name);
+    public sealed virtual object get_SyncRoot();
+    public int Add(TdsMetaParameter value);
+    public void Clear();
+    public bool Contains(TdsMetaParameter value);
+    public sealed virtual void CopyTo(Array array, int index);
+    private sealed virtual override IEnumerator System.Collections.IEnumerable.GetEnumerator();
+    public int IndexOf(TdsMetaParameter value);
+    public int IndexOf(string name);
+    public void Insert(int index, TdsMetaParameter value);
+    public void Remove(TdsMetaParameter value);
+    public void Remove(string name);
+    public void RemoveAt(int index);
+}
+public enum Mono.Data.Tds.TdsParameterDirection : Enum {
+    public int value__;
+    public static TdsParameterDirection Input;
+    public static TdsParameterDirection Output;
+    public static TdsParameterDirection InputOutput;
+    public static TdsParameterDirection ReturnValue;
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoDocumentationNoteAttribute : MonoTODOAttribute {
+    public MonoDocumentationNoteAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoExtensionAttribute : MonoTODOAttribute {
+    public MonoExtensionAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoInternalNoteAttribute : MonoTODOAttribute {
+    public MonoInternalNoteAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoLimitationAttribute : MonoTODOAttribute {
+    public MonoLimitationAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoNotSupportedAttribute : MonoTODOAttribute {
+    public MonoNotSupportedAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoTODOAttribute : Attribute {
+    private string comment;
+    public string Comment { get; }
+    public MonoTODOAttribute(string comment);
+    public string get_Comment();
+}

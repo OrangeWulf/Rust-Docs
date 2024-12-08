@@ -1,0 +1,3032 @@
+Сборка: Ionic.Zip.Reduced.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ComHelper
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool IsZipFile(string filename)
+  bool IsZipFileWithExtract(string filename)
+  bool CheckZip(string filename)
+  bool CheckZipPassword(string filename, string password)
+  void FixZipDirectory(string filename)
+  string GetZipLibraryVersion()
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.Zip.EncryptionAlgorithm
+Наследуется от: Enum
+Поля:
+  int value__
+  EncryptionAlgorithm None
+  EncryptionAlgorithm PkzipWeak
+  EncryptionAlgorithm WinZipAes128
+  EncryptionAlgorithm WinZipAes256
+  EncryptionAlgorithm Unsupported
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.WriteDelegate
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(string entryName, Stream stream)
+  IAsyncResult BeginInvoke(string entryName, Stream stream, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Ionic.Zip.OpenDelegate
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  Stream Invoke(string entryName)
+  IAsyncResult BeginInvoke(string entryName, AsyncCallback callback, object object)
+  Stream EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Ionic.Zip.CloseDelegate
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  void Invoke(string entryName, Stream stream)
+  IAsyncResult BeginInvoke(string entryName, Stream stream, AsyncCallback callback, object object)
+  void EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Ionic.Zip.SetCompressionCallback
+Наследуется от: MulticastDelegate
+Поля:
+Свойства:
+Методы:
+  void .ctor(object object, IntPtr method)
+  CompressionLevel Invoke(string localFileName, string fileNameInArchive)
+  IAsyncResult BeginInvoke(string localFileName, string fileNameInArchive, AsyncCallback callback, object object)
+  CompressionLevel EndInvoke(IAsyncResult result)
+--------------------------------------------------
+Класс: Ionic.Zip.ZipProgressEventType
+Наследуется от: Enum
+Поля:
+  int value__
+  ZipProgressEventType Adding_Started
+  ZipProgressEventType Adding_AfterAddEntry
+  ZipProgressEventType Adding_Completed
+  ZipProgressEventType Reading_Started
+  ZipProgressEventType Reading_BeforeReadEntry
+  ZipProgressEventType Reading_AfterReadEntry
+  ZipProgressEventType Reading_Completed
+  ZipProgressEventType Reading_ArchiveBytesRead
+  ZipProgressEventType Saving_Started
+  ZipProgressEventType Saving_BeforeWriteEntry
+  ZipProgressEventType Saving_AfterWriteEntry
+  ZipProgressEventType Saving_Completed
+  ZipProgressEventType Saving_AfterSaveTempArchive
+  ZipProgressEventType Saving_BeforeRenameTempArchive
+  ZipProgressEventType Saving_AfterRenameTempArchive
+  ZipProgressEventType Saving_AfterCompileSelfExtractor
+  ZipProgressEventType Saving_EntryBytesRead
+  ZipProgressEventType Extracting_BeforeExtractEntry
+  ZipProgressEventType Extracting_AfterExtractEntry
+  ZipProgressEventType Extracting_ExtractEntryWouldOverwrite
+  ZipProgressEventType Extracting_EntryBytesWritten
+  ZipProgressEventType Extracting_BeforeExtractAll
+  ZipProgressEventType Extracting_AfterExtractAll
+  ZipProgressEventType Error_Saving
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ZipProgressEventArgs
+Наследуется от: EventArgs
+Поля:
+  int _entriesTotal
+  bool _cancel
+  ZipEntry _latestEntry
+  ZipProgressEventType _flavor
+  string _archiveName
+  long _bytesTransferred
+  long _totalBytesToTransfer
+Свойства:
+  int EntriesTotal
+  ZipEntry CurrentEntry
+  bool Cancel
+  ZipProgressEventType EventType
+  string ArchiveName
+  long BytesTransferred
+  long TotalBytesToTransfer
+Методы:
+  void .ctor()
+  void .ctor(string archiveName, ZipProgressEventType flavor)
+  int get_EntriesTotal()
+  void set_EntriesTotal(int value)
+  ZipEntry get_CurrentEntry()
+  void set_CurrentEntry(ZipEntry value)
+  bool get_Cancel()
+  void set_Cancel(bool value)
+  ZipProgressEventType get_EventType()
+  void set_EventType(ZipProgressEventType value)
+  string get_ArchiveName()
+  void set_ArchiveName(string value)
+  long get_BytesTransferred()
+  void set_BytesTransferred(long value)
+  long get_TotalBytesToTransfer()
+  void set_TotalBytesToTransfer(long value)
+--------------------------------------------------
+Класс: Ionic.Zip.ReadProgressEventArgs
+Наследуется от: ZipProgressEventArgs
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string archiveName, ZipProgressEventType flavor)
+  ReadProgressEventArgs Before(string archiveName, int entriesTotal)
+  ReadProgressEventArgs After(string archiveName, ZipEntry entry, int entriesTotal)
+  ReadProgressEventArgs Started(string archiveName)
+  ReadProgressEventArgs ByteUpdate(string archiveName, ZipEntry entry, long bytesXferred, long totalBytes)
+  ReadProgressEventArgs Completed(string archiveName)
+--------------------------------------------------
+Класс: Ionic.Zip.AddProgressEventArgs
+Наследуется от: ZipProgressEventArgs
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string archiveName, ZipProgressEventType flavor)
+  AddProgressEventArgs AfterEntry(string archiveName, ZipEntry entry, int entriesTotal)
+  AddProgressEventArgs Started(string archiveName)
+  AddProgressEventArgs Completed(string archiveName)
+--------------------------------------------------
+Класс: Ionic.Zip.SaveProgressEventArgs
+Наследуется от: ZipProgressEventArgs
+Поля:
+  int _entriesSaved
+Свойства:
+  int EntriesSaved
+Методы:
+  void .ctor(string archiveName, bool before, int entriesTotal, int entriesSaved, ZipEntry entry)
+  void .ctor()
+  void .ctor(string archiveName, ZipProgressEventType flavor)
+  SaveProgressEventArgs ByteUpdate(string archiveName, ZipEntry entry, long bytesXferred, long totalBytes)
+  SaveProgressEventArgs Started(string archiveName)
+  SaveProgressEventArgs Completed(string archiveName)
+  int get_EntriesSaved()
+--------------------------------------------------
+Класс: Ionic.Zip.ExtractProgressEventArgs
+Наследуется от: ZipProgressEventArgs
+Поля:
+  int _entriesExtracted
+  string _target
+Свойства:
+  int EntriesExtracted
+  string ExtractLocation
+Методы:
+  void .ctor(string archiveName, bool before, int entriesTotal, int entriesExtracted, ZipEntry entry, string extractLocation)
+  void .ctor(string archiveName, ZipProgressEventType flavor)
+  void .ctor()
+  ExtractProgressEventArgs BeforeExtractEntry(string archiveName, ZipEntry entry, string extractLocation)
+  ExtractProgressEventArgs ExtractExisting(string archiveName, ZipEntry entry, string extractLocation)
+  ExtractProgressEventArgs AfterExtractEntry(string archiveName, ZipEntry entry, string extractLocation)
+  ExtractProgressEventArgs ExtractAllStarted(string archiveName, string extractLocation)
+  ExtractProgressEventArgs ExtractAllCompleted(string archiveName, string extractLocation)
+  ExtractProgressEventArgs ByteUpdate(string archiveName, ZipEntry entry, long bytesWritten, long totalBytes)
+  int get_EntriesExtracted()
+  string get_ExtractLocation()
+--------------------------------------------------
+Класс: Ionic.Zip.ZipErrorEventArgs
+Наследуется от: ZipProgressEventArgs
+Поля:
+  Exception _exc
+Свойства:
+  Exception Exception
+  string FileName
+Методы:
+  void .ctor()
+  ZipErrorEventArgs Saving(string archiveName, ZipEntry entry, Exception exception)
+  Exception get_Exception()
+  string get_FileName()
+--------------------------------------------------
+Класс: Ionic.Zip.ZipException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: Ionic.Zip.BadPasswordException
+Наследуется от: ZipException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: Ionic.Zip.BadReadException
+Наследуется от: ZipException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: Ionic.Zip.BadCrcException
+Наследуется от: ZipException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: Ionic.Zip.SfxGenerationException
+Наследуется от: ZipException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: Ionic.Zip.BadStateException
+Наследуется от: ZipException
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string message)
+  void .ctor(string message, Exception innerException)
+  void .ctor(SerializationInfo info, StreamingContext context)
+--------------------------------------------------
+Класс: Ionic.Zip.ExtractExistingFileAction
+Наследуется от: Enum
+Поля:
+  int value__
+  ExtractExistingFileAction Throw
+  ExtractExistingFileAction OverwriteSilently
+  ExtractExistingFileAction DoNotOverwrite
+  ExtractExistingFileAction InvokeExtractProgressEvent
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.LogicalConjunction
+Наследуется от: Enum
+Поля:
+  int value__
+  LogicalConjunction NONE
+  LogicalConjunction AND
+  LogicalConjunction OR
+  LogicalConjunction XOR
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.WhichTime
+Наследуется от: Enum
+Поля:
+  int value__
+  WhichTime atime
+  WhichTime mtime
+  WhichTime ctime
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.ComparisonOperator
+Наследуется от: Enum
+Поля:
+  int value__
+  ComparisonOperator GreaterThan
+  ComparisonOperator GreaterThanOrEqualTo
+  ComparisonOperator LesserThan
+  ComparisonOperator LesserThanOrEqualTo
+  ComparisonOperator EqualTo
+  ComparisonOperator NotEqualTo
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.SelectionCriterion
+Наследуется от: object
+Поля:
+  bool <Verbose>k__BackingField
+Свойства:
+  bool Verbose
+Методы:
+  bool get_Verbose()
+  void set_Verbose(bool value)
+  bool Evaluate(string filename)
+  void CriterionTrace(string format, Object[] args)
+  bool Evaluate(ZipEntry entry)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.SizeCriterion
+Наследуется от: SelectionCriterion
+Поля:
+  ComparisonOperator Operator
+  long Size
+Свойства:
+Методы:
+  string ToString()
+  bool Evaluate(string filename)
+  bool _Evaluate(long Length)
+  bool Evaluate(ZipEntry entry)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.TimeCriterion
+Наследуется от: SelectionCriterion
+Поля:
+  ComparisonOperator Operator
+  WhichTime Which
+  DateTime Time
+Свойства:
+Методы:
+  string ToString()
+  bool Evaluate(string filename)
+  bool _Evaluate(DateTime x)
+  bool Evaluate(ZipEntry entry)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.NameCriterion
+Наследуется от: SelectionCriterion
+Поля:
+  Regex _re
+  string _regexString
+  ComparisonOperator Operator
+  string _MatchingFileSpec
+Свойства:
+  string MatchingFileSpec
+Методы:
+  void set_MatchingFileSpec(string value)
+  string ToString()
+  bool Evaluate(string filename)
+  bool _Evaluate(string fullpath)
+  bool Evaluate(ZipEntry entry)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.TypeCriterion
+Наследуется от: SelectionCriterion
+Поля:
+  char ObjectType
+  ComparisonOperator Operator
+Свойства:
+  string AttributeString
+Методы:
+  string get_AttributeString()
+  void set_AttributeString(string value)
+  string ToString()
+  bool Evaluate(string filename)
+  bool Evaluate(ZipEntry entry)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.AttributesCriterion
+Наследуется от: SelectionCriterion
+Поля:
+  FileAttributes _Attributes
+  ComparisonOperator Operator
+Свойства:
+  string AttributeString
+Методы:
+  string get_AttributeString()
+  void set_AttributeString(string value)
+  string ToString()
+  bool _EvaluateOne(FileAttributes fileAttrs, FileAttributes criterionAttrs)
+  bool Evaluate(string filename)
+  bool _Evaluate(FileAttributes fileAttrs)
+  bool Evaluate(ZipEntry entry)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.CompoundCriterion
+Наследуется от: SelectionCriterion
+Поля:
+  LogicalConjunction Conjunction
+  SelectionCriterion Left
+  SelectionCriterion _Right
+Свойства:
+  SelectionCriterion Right
+Методы:
+  SelectionCriterion get_Right()
+  void set_Right(SelectionCriterion value)
+  bool Evaluate(string filename)
+  string ToString()
+  bool Evaluate(ZipEntry entry)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.FileSelector
+Наследуется от: object
+Поля:
+  SelectionCriterion _Criterion
+  bool <TraverseReparsePoints>k__BackingField
+Свойства:
+  string SelectionCriteria
+  bool TraverseReparsePoints
+Методы:
+  void .ctor(string selectionCriteria)
+  void .ctor(string selectionCriteria, bool traverseDirectoryReparsePoints)
+  string get_SelectionCriteria()
+  void set_SelectionCriteria(string value)
+  bool get_TraverseReparsePoints()
+  void set_TraverseReparsePoints(bool value)
+  string NormalizeCriteriaExpression(string source)
+  SelectionCriterion _ParseCriterion(string s)
+  string ToString()
+  bool Evaluate(string filename)
+  void SelectorTrace(string format, Object[] args)
+  ICollection`1<string> SelectFiles(string directory)
+  ReadOnlyCollection`1<string> SelectFiles(string directory, bool recurseDirectories)
+  bool Evaluate(ZipEntry entry)
+  ICollection`1<ZipEntry> SelectEntries(ZipFile zip)
+  ICollection`1<ZipEntry> SelectEntries(ZipFile zip, string directoryPathInArchive)
+--------------------------------------------------
+Класс: Ionic.EnumUtil
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  string GetDescription(Enum value)
+  object Parse(Type enumType, string stringRepresentation)
+  object Parse(Type enumType, string stringRepresentation, bool ignoreCase)
+--------------------------------------------------
+Класс: Ionic.Zip.OffsetStream
+Наследуется от: Stream
+Поля:
+  long _originalPosition
+  Stream _innerStream
+Свойства:
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream s)
+  int Read(Byte[] buffer, int offset, int count)
+  void Write(Byte[] buffer, int offset, int count)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void System.IDisposable.Dispose()
+  void Close()
+--------------------------------------------------
+Класс: Ionic.Zip.SharedUtilities
+Наследуется от: object
+Поля:
+  Regex doubleDotRegex1
+  Encoding ibm437
+  Encoding utf8
+Свойства:
+Методы:
+  long GetFileLength(string fileName)
+  void Workaround_Ladybug318918(Stream s)
+  string SimplifyFwdSlashPath(string path)
+  string NormalizePathForUseInZipFile(string pathName)
+  Byte[] StringToByteArray(string value, Encoding encoding)
+  Byte[] StringToByteArray(string value)
+  string Utf8StringFromBuffer(Byte[] buf)
+  string StringFromBuffer(Byte[] buf, Encoding encoding)
+  int ReadSignature(Stream s)
+  int ReadEntrySignature(Stream s)
+  int ReadInt(Stream s)
+  int _ReadFourBytes(Stream s, string message)
+  long FindSignature(Stream stream, int SignatureToFind)
+  DateTime AdjustTime_Reverse(DateTime time)
+  DateTime PackedToDateTime(int packedDateTime)
+  int DateTimeToPacked(DateTime time)
+  void CreateAndOpenUniqueTempFile(string dir, Stream& fs, String& filename)
+  string InternalGetTempFileName()
+  int ReadWithRetry(Stream s, Byte[] buffer, int offset, int count, string FileName)
+  UInt32 _HRForException(Exception ex1)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zip.CountingStream
+Наследуется от: Stream
+Поля:
+  Stream _s
+  long _bytesWritten
+  long _bytesRead
+  long _initialOffset
+Свойства:
+  Stream WrappedStream
+  long BytesWritten
+  long BytesRead
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long ComputedPosition
+  long Position
+Методы:
+  void .ctor(Stream stream)
+  Stream get_WrappedStream()
+  long get_BytesWritten()
+  long get_BytesRead()
+  void Adjust(long delta)
+  int Read(Byte[] buffer, int offset, int count)
+  void Write(Byte[] buffer, int offset, int count)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_ComputedPosition()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+--------------------------------------------------
+Класс: Ionic.Zip.WinZipAesCrypto
+Наследуется от: object
+Поля:
+  Byte[] _Salt
+  Byte[] _providedPv
+  Byte[] _generatedPv
+  int _KeyStrengthInBits
+  Byte[] _MacInitializationVector
+  Byte[] _StoredMac
+  Byte[] _keyBytes
+  short PasswordVerificationStored
+  short PasswordVerificationGenerated
+  int Rfc2898KeygenIterations
+  string _Password
+  bool _cryptoGenerated
+  Byte[] CalculatedMac
+Свойства:
+  Byte[] GeneratedPV
+  Byte[] Salt
+  int _KeyStrengthInBytes
+  int SizeOfEncryptionMetadata
+  string Password
+  Byte[] KeyBytes
+  Byte[] MacIv
+Методы:
+  void .ctor(string password, int KeyStrengthInBits)
+  WinZipAesCrypto Generate(string password, int KeyStrengthInBits)
+  WinZipAesCrypto ReadFromStream(string password, int KeyStrengthInBits, Stream s)
+  Byte[] get_GeneratedPV()
+  Byte[] get_Salt()
+  int get__KeyStrengthInBytes()
+  int get_SizeOfEncryptionMetadata()
+  void set_Password(string value)
+  string get_Password()
+  void _GenerateCryptoBytes()
+  Byte[] get_KeyBytes()
+  Byte[] get_MacIv()
+  void ReadAndVerifyMac(Stream s)
+--------------------------------------------------
+Класс: Ionic.Zip.WinZipAesCipherStream
+Наследуется от: Stream
+Поля:
+  int BLOCK_SIZE_IN_BYTES
+  WinZipAesCrypto _params
+  Stream _s
+  CryptoMode _mode
+  int _nonce
+  bool _finalBlock
+  HMACSHA1 _mac
+  RijndaelManaged _aesCipher
+  ICryptoTransform _xform
+  Byte[] counter
+  Byte[] counterOut
+  long _length
+  long _totalBytesXferred
+  Byte[] _PendingWriteBlock
+  int _pendingCount
+  Byte[] _iobuf
+  object _outputLock
+Свойства:
+  Byte[] FinalAuthentication
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream s, WinZipAesCrypto cryptoParams, long length, CryptoMode mode)
+  void .ctor(Stream s, WinZipAesCrypto cryptoParams, CryptoMode mode)
+  void XorInPlace(Byte[] buffer, int offset, int count)
+  void WriteTransformOneBlock(Byte[] buffer, int offset)
+  void WriteTransformBlocks(Byte[] buffer, int offset, int count)
+  void WriteTransformFinalBlock()
+  int ReadTransformOneBlock(Byte[] buffer, int offset, int last)
+  void ReadTransformBlocks(Byte[] buffer, int offset, int count)
+  int Read(Byte[] buffer, int offset, int count)
+  Byte[] get_FinalAuthentication()
+  void Write(Byte[] buffer, int offset, int count)
+  void Close()
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void TraceOutput(string format, Object[] varParams)
+--------------------------------------------------
+Класс: Ionic.Zip.ZipConstants
+Наследуется от: object
+Поля:
+  UInt32 PackedToRemovableMedia
+  UInt32 Zip64EndOfCentralDirectoryRecordSignature
+  UInt32 Zip64EndOfCentralDirectoryLocatorSignature
+  UInt32 EndOfCentralDirectorySignature
+  int ZipEntrySignature
+  int ZipEntryDataDescriptorSignature
+  int SplitArchiveSignature
+  int ZipDirEntrySignature
+  int AesKeySize
+  int AesBlockSize
+  ushort AesAlgId128
+  ushort AesAlgId192
+  ushort AesAlgId256
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ZipCrypto
+Наследуется от: object
+Поля:
+  UInt32[] _Keys
+  CRC32 crc32
+Свойства:
+  byte MagicByte
+Методы:
+  void .ctor()
+  ZipCrypto ForWrite(string password)
+  ZipCrypto ForRead(string password, ZipEntry e)
+  byte get_MagicByte()
+  Byte[] DecryptMessage(Byte[] cipherText, int length)
+  Byte[] EncryptMessage(Byte[] plainText, int length)
+  void InitCipher(string passphrase)
+  void UpdateKeys(byte byteValue)
+--------------------------------------------------
+Класс: Ionic.Zip.CryptoMode
+Наследуется от: Enum
+Поля:
+  int value__
+  CryptoMode Encrypt
+  CryptoMode Decrypt
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ZipCipherStream
+Наследуется от: Stream
+Поля:
+  ZipCrypto _cipher
+  Stream _s
+  CryptoMode _mode
+Свойства:
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream s, ZipCrypto cipher, CryptoMode mode)
+  int Read(Byte[] buffer, int offset, int count)
+  void Write(Byte[] buffer, int offset, int count)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+--------------------------------------------------
+Класс: Ionic.Zip.ZipEntry
+Наследуется от: object
+Поля:
+  short _VersionMadeBy
+  short _InternalFileAttrs
+  int _ExternalFileAttrs
+  short _filenameLength
+  short _extraFieldLength
+  short _commentLength
+  ZipCrypto _zipCrypto_forExtract
+  ZipCrypto _zipCrypto_forWrite
+  WinZipAesCrypto _aesCrypto_forExtract
+  WinZipAesCrypto _aesCrypto_forWrite
+  short _WinZipAesMethod
+  DateTime _LastModified
+  DateTime _Mtime
+  DateTime _Atime
+  DateTime _Ctime
+  bool _ntfsTimesAreSet
+  bool _emitNtfsTimes
+  bool _emitUnixTimes
+  bool _TrimVolumeFromFullyQualifiedPaths
+  string _LocalFileName
+  string _FileNameInArchive
+  short _VersionNeeded
+  short _BitField
+  short _CompressionMethod
+  short _CompressionMethod_FromZipFile
+  CompressionLevel _CompressionLevel
+  string _Comment
+  bool _IsDirectory
+  Byte[] _CommentBytes
+  long _CompressedSize
+  long _CompressedFileDataSize
+  long _UncompressedSize
+  int _TimeBlob
+  bool _crcCalculated
+  int _Crc32
+  Byte[] _Extra
+  bool _metadataChanged
+  bool _restreamRequiredOnSave
+  bool _sourceIsEncrypted
+  bool _skippedDuringSave
+  UInt32 _diskNumber
+  Encoding ibm437
+  Encoding _actualEncoding
+  ZipContainer _container
+  long __FileDataPosition
+  Byte[] _EntryHeader
+  long _RelativeOffsetOfLocalHeader
+  long _future_ROLH
+  long _TotalEntrySize
+  int _LengthOfHeader
+  int _LengthOfTrailer
+  bool _InputUsesZip64
+  UInt32 _UnsupportedAlgorithmId
+  string _Password
+  ZipEntrySource _Source
+  EncryptionAlgorithm _Encryption
+  EncryptionAlgorithm _Encryption_FromZipFile
+  Byte[] _WeakEncryptionHeader
+  Stream _archiveStream
+  Stream _sourceStream
+  Nullable`1<long> _sourceStreamOriginalPosition
+  bool _sourceWasJitProvided
+  bool _ioOperationCanceled
+  bool _presumeZip64
+  Nullable`1<bool> _entryRequiresZip64
+  Nullable`1<bool> _OutputUsesZip64
+  bool _IsText
+  ZipEntryTimestamp _timestamp
+  DateTime _unixEpoch
+  DateTime _win32Epoch
+  DateTime _zeroHour
+  WriteDelegate _WriteDelegate
+  OpenDelegate _OpenDelegate
+  CloseDelegate _CloseDelegate
+  Stream _inputDecryptorStream
+  int _readExtraDepth
+  object _outputLock
+  ExtractExistingFileAction <ExtractExistingFile>k__BackingField
+  ZipErrorAction <ZipErrorAction>k__BackingField
+  SetCompressionCallback <SetCompression>k__BackingField
+  Encoding <ProvisionalAlternateEncoding>k__BackingField
+  Encoding <AlternateEncoding>k__BackingField
+  ZipOption <AlternateEncodingUsage>k__BackingField
+Свойства:
+  bool AttributesIndicateDirectory
+  string Info
+  DateTime LastModified
+  int BufferSize
+  DateTime ModifiedTime
+  DateTime AccessedTime
+  DateTime CreationTime
+  bool EmitTimesInWindowsFormatWhenSaving
+  bool EmitTimesInUnixFormatWhenSaving
+  ZipEntryTimestamp Timestamp
+  FileAttributes Attributes
+  string LocalFileName
+  string FileName
+  Stream InputStream
+  bool InputStreamWasJitProvided
+  ZipEntrySource Source
+  short VersionNeeded
+  string Comment
+  Nullable`1<bool> RequiresZip64
+  Nullable`1<bool> OutputUsedZip64
+  short BitField
+  CompressionMethod CompressionMethod
+  CompressionLevel CompressionLevel
+  long CompressedSize
+  long UncompressedSize
+  double CompressionRatio
+  int Crc
+  bool IsDirectory
+  bool UsesEncryption
+  EncryptionAlgorithm Encryption
+  string Password
+  bool IsChanged
+  ExtractExistingFileAction ExtractExistingFile
+  ZipErrorAction ZipErrorAction
+  bool IncludedInMostRecentSave
+  SetCompressionCallback SetCompression
+  bool UseUnicodeAsNecessary
+  Encoding ProvisionalAlternateEncoding
+  Encoding AlternateEncoding
+  ZipOption AlternateEncodingUsage
+  bool IsText
+  Stream ArchiveStream
+  long FileDataPosition
+  int LengthOfHeader
+  string UnsupportedAlgorithm
+  string UnsupportedCompressionMethod
+Методы:
+  bool get_AttributesIndicateDirectory()
+  void ResetDirEntry()
+  string get_Info()
+  ZipEntry ReadDirEntry(ZipFile zf, Dictionary`2<string, object> previouslySeen)
+  bool IsNotValidZipDirEntrySig(int signature)
+  void .ctor()
+  DateTime get_LastModified()
+  void set_LastModified(DateTime value)
+  int get_BufferSize()
+  DateTime get_ModifiedTime()
+  void set_ModifiedTime(DateTime value)
+  DateTime get_AccessedTime()
+  void set_AccessedTime(DateTime value)
+  DateTime get_CreationTime()
+  void set_CreationTime(DateTime value)
+  void SetEntryTimes(DateTime created, DateTime accessed, DateTime modified)
+  bool get_EmitTimesInWindowsFormatWhenSaving()
+  void set_EmitTimesInWindowsFormatWhenSaving(bool value)
+  bool get_EmitTimesInUnixFormatWhenSaving()
+  void set_EmitTimesInUnixFormatWhenSaving(bool value)
+  ZipEntryTimestamp get_Timestamp()
+  FileAttributes get_Attributes()
+  void set_Attributes(FileAttributes value)
+  string get_LocalFileName()
+  string get_FileName()
+  void set_FileName(string value)
+  Stream get_InputStream()
+  void set_InputStream(Stream value)
+  bool get_InputStreamWasJitProvided()
+  ZipEntrySource get_Source()
+  short get_VersionNeeded()
+  string get_Comment()
+  void set_Comment(string value)
+  Nullable`1<bool> get_RequiresZip64()
+  Nullable`1<bool> get_OutputUsedZip64()
+  short get_BitField()
+  CompressionMethod get_CompressionMethod()
+  void set_CompressionMethod(CompressionMethod value)
+  CompressionLevel get_CompressionLevel()
+  void set_CompressionLevel(CompressionLevel value)
+  long get_CompressedSize()
+  long get_UncompressedSize()
+  double get_CompressionRatio()
+  int get_Crc()
+  bool get_IsDirectory()
+  bool get_UsesEncryption()
+  EncryptionAlgorithm get_Encryption()
+  void set_Encryption(EncryptionAlgorithm value)
+  void set_Password(string value)
+  string get_Password()
+  bool get_IsChanged()
+  ExtractExistingFileAction get_ExtractExistingFile()
+  void set_ExtractExistingFile(ExtractExistingFileAction value)
+  ZipErrorAction get_ZipErrorAction()
+  void set_ZipErrorAction(ZipErrorAction value)
+  bool get_IncludedInMostRecentSave()
+  SetCompressionCallback get_SetCompression()
+  void set_SetCompression(SetCompressionCallback value)
+  bool get_UseUnicodeAsNecessary()
+  void set_UseUnicodeAsNecessary(bool value)
+  Encoding get_ProvisionalAlternateEncoding()
+  void set_ProvisionalAlternateEncoding(Encoding value)
+  Encoding get_AlternateEncoding()
+  void set_AlternateEncoding(Encoding value)
+  ZipOption get_AlternateEncodingUsage()
+  void set_AlternateEncodingUsage(ZipOption value)
+  string NameInArchive(string filename, string directoryPathInArchive)
+  ZipEntry CreateFromNothing(string nameInArchive)
+  ZipEntry CreateFromFile(string filename, string nameInArchive)
+  ZipEntry CreateForStream(string entryName, Stream s)
+  ZipEntry CreateForWriter(string entryName, WriteDelegate d)
+  ZipEntry CreateForJitStreamProvider(string nameInArchive, OpenDelegate opener, CloseDelegate closer)
+  ZipEntry CreateForZipOutputStream(string nameInArchive)
+  ZipEntry Create(string nameInArchive, ZipEntrySource source, object arg1, object arg2)
+  void MarkAsDirectory()
+  bool get_IsText()
+  void set_IsText(bool value)
+  string ToString()
+  Stream get_ArchiveStream()
+  void SetFdpLoh()
+  int GetKeyStrengthInBits(EncryptionAlgorithm a)
+  int GetLengthOfCryptoHeaderBytes(EncryptionAlgorithm a)
+  long get_FileDataPosition()
+  int get_LengthOfHeader()
+  void Extract()
+  void Extract(ExtractExistingFileAction extractExistingFile)
+  void Extract(Stream stream)
+  void Extract(string baseDirectory)
+  void Extract(string baseDirectory, ExtractExistingFileAction extractExistingFile)
+  void ExtractWithPassword(string password)
+  void ExtractWithPassword(string baseDirectory, string password)
+  void ExtractWithPassword(ExtractExistingFileAction extractExistingFile, string password)
+  void ExtractWithPassword(string baseDirectory, ExtractExistingFileAction extractExistingFile, string password)
+  void ExtractWithPassword(Stream stream, string password)
+  CrcCalculatorStream OpenReader()
+  CrcCalculatorStream OpenReader(string password)
+  CrcCalculatorStream InternalOpenReader(string password)
+  void OnExtractProgress(long bytesWritten, long totalBytesToWrite)
+  void OnBeforeExtract(string path)
+  void OnAfterExtract(string path)
+  void OnExtractExisting(string path)
+  void ReallyDelete(string fileName)
+  void WriteStatus(string format, Object[] args)
+  void InternalExtract(string baseDir, Stream outstream, string password)
+  void VerifyCrcAfterExtract(int actualCrc32)
+  int CheckExtractExistingFile(string baseDir, string targetFileName)
+  void _CheckRead(int nbytes)
+  int ExtractOne(Stream output)
+  Stream GetExtractDecompressor(Stream input2)
+  Stream GetExtractDecryptor(Stream input)
+  void _SetTimes(string fileOrDirectory, bool isFile)
+  string get_UnsupportedAlgorithm()
+  string get_UnsupportedCompressionMethod()
+  void ValidateEncryption()
+  void ValidateCompression()
+  void SetupCryptoForExtract(string password)
+  bool ValidateOutput(string basedir, Stream outstream, String& outFileName)
+  void ReadExtraField()
+  bool ReadHeader(ZipEntry ze, Encoding defaultEncoding)
+  int ReadWeakEncryptionHeader(Stream s, Byte[] buffer)
+  bool IsNotValidSig(int signature)
+  ZipEntry ReadEntry(ZipContainer zc, bool first)
+  void HandlePK00Prefix(Stream s)
+  void HandleUnexpectedDataDescriptor(ZipEntry entry)
+  int FindExtraFieldSegment(Byte[] extra, int offx, ushort targetHeaderId)
+  int ProcessExtraField(Stream s, short extraFieldLength)
+  int ProcessExtraFieldPkwareStrongEncryption(Byte[] Buffer, int j)
+  int ProcessExtraFieldWinZipAes(Byte[] buffer, int j, short dataSize, long posn)
+  int ProcessExtraFieldZip64(Byte[] buffer, int j, short dataSize, long posn)
+  int ProcessExtraFieldInfoZipTimes(Byte[] buffer, int j, short dataSize, long posn)
+  int ProcessExtraFieldUnixTimes(Byte[] buffer, int j, short dataSize, long posn)
+  int ProcessExtraFieldWindowsTimes(Byte[] buffer, int j, short dataSize, long posn)
+  void WriteCentralDirectoryEntry(Stream s)
+  Byte[] ConstructExtraField(bool forCentralDirectory)
+  string NormalizeFileName()
+  Byte[] GetEncodedFileNameBytes()
+  bool WantReadAgain()
+  void MaybeUnsetCompressionMethodForWriting(int cycle)
+  void WriteHeader(Stream s, int cycle)
+  int FigureCrc32()
+  void PrepSourceStream()
+  void CopyMetaData(ZipEntry source)
+  void OnWriteBlock(long bytesXferred, long totalBytesToXfer)
+  void _WriteEntryData(Stream s)
+  long SetInputAndFigureFileLength(Stream& input)
+  void FinishOutputStream(Stream s, CountingStream entryCounter, Stream encryptor, Stream compressor, CrcCalculatorStream output)
+  void PostProcessOutput(Stream s)
+  void SetZip64Flags()
+  void PrepOutputStream(Stream s, long streamLength, CountingStream& outputCounter, Stream& encryptor, Stream& compressor, CrcCalculatorStream& output)
+  Stream MaybeApplyCompression(Stream s, long streamLength)
+  Stream MaybeApplyEncryption(Stream s)
+  void OnZipErrorWhileSaving(Exception e)
+  void Write(Stream s)
+  void StoreRelativeOffset()
+  void NotifySaveComplete()
+  void WriteSecurityMetadata(Stream outstream)
+  void CopyThroughOneEntry(Stream outStream)
+  void CopyThroughWithRecompute(Stream outstream)
+  void CopyThroughWithNoChange(Stream outstream)
+  void TraceWriteLine(string format, Object[] varParams)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zip.ZipEntryTimestamp
+Наследуется от: Enum
+Поля:
+  int value__
+  ZipEntryTimestamp None
+  ZipEntryTimestamp DOS
+  ZipEntryTimestamp Windows
+  ZipEntryTimestamp Unix
+  ZipEntryTimestamp InfoZip1
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.CompressionMethod
+Наследуется от: Enum
+Поля:
+  int value__
+  CompressionMethod None
+  CompressionMethod Deflate
+  CompressionMethod BZip2
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ZipEntrySource
+Наследуется от: Enum
+Поля:
+  int value__
+  ZipEntrySource None
+  ZipEntrySource FileSystem
+  ZipEntrySource Stream
+  ZipEntrySource ZipFile
+  ZipEntrySource WriteDelegate
+  ZipEntrySource JitStream
+  ZipEntrySource ZipOutputStream
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ZipErrorAction
+Наследуется от: Enum
+Поля:
+  int value__
+  ZipErrorAction Throw
+  ZipErrorAction Skip
+  ZipErrorAction Retry
+  ZipErrorAction InvokeErrorEvent
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ZipFile
+Наследуется от: object
+Поля:
+  TextWriter _StatusMessageTextWriter
+  bool _CaseSensitiveRetrieval
+  Stream _readstream
+  Stream _writestream
+  ushort _versionMadeBy
+  ushort _versionNeededToExtract
+  UInt32 _diskNumberWithCd
+  int _maxOutputSegmentSize
+  UInt32 _numberOfSegmentsForMostRecentSave
+  ZipErrorAction _zipErrorAction
+  bool _disposed
+  Dictionary`2<string, ZipEntry> _entries
+  List`1<ZipEntry> _zipEntriesAsList
+  string _name
+  string _readName
+  string _Comment
+  string _Password
+  bool _emitNtfsTimes
+  bool _emitUnixTimes
+  CompressionStrategy _Strategy
+  CompressionMethod _compressionMethod
+  bool _fileAlreadyExists
+  string _temporaryFileName
+  bool _contentsChanged
+  bool _hasBeenSaved
+  string _TempFileFolder
+  bool _ReadStreamIsOurs
+  object LOCK
+  bool _saveOperationCanceled
+  bool _extractOperationCanceled
+  bool _addOperationCanceled
+  EncryptionAlgorithm _Encryption
+  bool _JustSaved
+  long _locEndOfCDS
+  UInt32 _OffsetOfCentralDirectory
+  long _OffsetOfCentralDirectory64
+  Nullable`1<bool> _OutputUsesZip64
+  bool _inExtractAll
+  Encoding _alternateEncoding
+  ZipOption _alternateEncodingUsage
+  Encoding _defaultEncoding
+  int _BufferSize
+  ParallelDeflateOutputStream ParallelDeflater
+  long _ParallelDeflateThreshold
+  int _maxBufferPairs
+  Zip64Option _zip64
+  bool _SavingSfx
+  int BufferSizeDefault
+  EventHandler`1<SaveProgressEventArgs> SaveProgress
+  EventHandler`1<ReadProgressEventArgs> ReadProgress
+  long _lengthOfReadStream
+  EventHandler`1<ExtractProgressEventArgs> ExtractProgress
+  EventHandler`1<AddProgressEventArgs> AddProgress
+  EventHandler`1<ZipErrorEventArgs> ZipError
+  ExtractorSettings[] SettingsList
+  bool <FullScan>k__BackingField
+  bool <SortEntriesBeforeSaving>k__BackingField
+  bool <AddDirectoryWillTraverseReparsePoints>k__BackingField
+  int <CodecBufferSize>k__BackingField
+  bool <FlattenFoldersOnExtract>k__BackingField
+  CompressionLevel <CompressionLevel>k__BackingField
+  ExtractExistingFileAction <ExtractExistingFile>k__BackingField
+  SetCompressionCallback <SetCompression>k__BackingField
+Свойства:
+  string Info
+  bool FullScan
+  bool SortEntriesBeforeSaving
+  bool AddDirectoryWillTraverseReparsePoints
+  int BufferSize
+  int CodecBufferSize
+  bool FlattenFoldersOnExtract
+  CompressionStrategy Strategy
+  string Name
+  CompressionLevel CompressionLevel
+  CompressionMethod CompressionMethod
+  string Comment
+  bool EmitTimesInWindowsFormatWhenSaving
+  bool EmitTimesInUnixFormatWhenSaving
+  bool Verbose
+  bool CaseSensitiveRetrieval
+  bool UseUnicodeAsNecessary
+  Zip64Option UseZip64WhenSaving
+  Nullable`1<bool> RequiresZip64
+  Nullable`1<bool> OutputUsedZip64
+  Nullable`1<bool> InputUsesZip64
+  Encoding ProvisionalAlternateEncoding
+  Encoding AlternateEncoding
+  ZipOption AlternateEncodingUsage
+  Encoding DefaultEncoding
+  TextWriter StatusMessageTextWriter
+  string TempFileFolder
+  string Password
+  ExtractExistingFileAction ExtractExistingFile
+  ZipErrorAction ZipErrorAction
+  EncryptionAlgorithm Encryption
+  SetCompressionCallback SetCompression
+  int MaxOutputSegmentSize
+  int NumberOfSegmentsForMostRecentSave
+  long ParallelDeflateThreshold
+  int ParallelDeflateMaxBufferPairs
+  Version LibraryVersion
+  List`1<ZipEntry> ZipEntriesAsList
+  ZipEntry Item
+  ZipEntry Item
+  ICollection`1<string> EntryFileNames
+  ICollection`1<ZipEntry> Entries
+  ICollection`1<ZipEntry> EntriesSorted
+  int Count
+  Stream ReadStream
+  Stream WriteStream
+  string ArchiveNameForEvent
+  long LengthOfReadStream
+Методы:
+  ZipEntry AddItem(string fileOrDirectoryName)
+  ZipEntry AddItem(string fileOrDirectoryName, string directoryPathInArchive)
+  ZipEntry AddFile(string fileName)
+  ZipEntry AddFile(string fileName, string directoryPathInArchive)
+  void RemoveEntries(ICollection`1<ZipEntry> entriesToRemove)
+  void RemoveEntries(ICollection`1<string> entriesToRemove)
+  void AddFiles(IEnumerable`1<string> fileNames)
+  void UpdateFiles(IEnumerable`1<string> fileNames)
+  void AddFiles(IEnumerable`1<string> fileNames, string directoryPathInArchive)
+  void AddFiles(IEnumerable`1<string> fileNames, bool preserveDirHierarchy, string directoryPathInArchive)
+  void UpdateFiles(IEnumerable`1<string> fileNames, string directoryPathInArchive)
+  ZipEntry UpdateFile(string fileName)
+  ZipEntry UpdateFile(string fileName, string directoryPathInArchive)
+  ZipEntry UpdateDirectory(string directoryName)
+  ZipEntry UpdateDirectory(string directoryName, string directoryPathInArchive)
+  void UpdateItem(string itemName)
+  void UpdateItem(string itemName, string directoryPathInArchive)
+  ZipEntry AddEntry(string entryName, string content)
+  ZipEntry AddEntry(string entryName, string content, Encoding encoding)
+  ZipEntry AddEntry(string entryName, Stream stream)
+  ZipEntry AddEntry(string entryName, WriteDelegate writer)
+  ZipEntry AddEntry(string entryName, OpenDelegate opener, CloseDelegate closer)
+  ZipEntry _InternalAddEntry(ZipEntry ze)
+  ZipEntry UpdateEntry(string entryName, string content)
+  ZipEntry UpdateEntry(string entryName, string content, Encoding encoding)
+  ZipEntry UpdateEntry(string entryName, WriteDelegate writer)
+  ZipEntry UpdateEntry(string entryName, OpenDelegate opener, CloseDelegate closer)
+  ZipEntry UpdateEntry(string entryName, Stream stream)
+  void RemoveEntryForUpdate(string entryName)
+  ZipEntry AddEntry(string entryName, Byte[] byteContent)
+  ZipEntry UpdateEntry(string entryName, Byte[] byteContent)
+  ZipEntry AddDirectory(string directoryName)
+  ZipEntry AddDirectory(string directoryName, string directoryPathInArchive)
+  ZipEntry AddDirectoryByName(string directoryNameInArchive)
+  ZipEntry AddOrUpdateDirectoryImpl(string directoryName, string rootDirectoryPathInArchive, AddOrUpdateAction action)
+  void InternalAddEntry(string name, ZipEntry entry)
+  ZipEntry AddOrUpdateDirectoryImpl(string directoryName, string rootDirectoryPathInArchive, AddOrUpdateAction action, bool recurse, int level)
+  bool CheckZip(string zipFileName)
+  bool CheckZip(string zipFileName, bool fixIfNecessary, TextWriter writer)
+  void FixZipDirectory(string zipFileName)
+  bool CheckZipPassword(string zipFileName, string password)
+  string get_Info()
+  bool get_FullScan()
+  void set_FullScan(bool value)
+  bool get_SortEntriesBeforeSaving()
+  void set_SortEntriesBeforeSaving(bool value)
+  bool get_AddDirectoryWillTraverseReparsePoints()
+  void set_AddDirectoryWillTraverseReparsePoints(bool value)
+  int get_BufferSize()
+  void set_BufferSize(int value)
+  int get_CodecBufferSize()
+  void set_CodecBufferSize(int value)
+  bool get_FlattenFoldersOnExtract()
+  void set_FlattenFoldersOnExtract(bool value)
+  CompressionStrategy get_Strategy()
+  void set_Strategy(CompressionStrategy value)
+  string get_Name()
+  void set_Name(string value)
+  CompressionLevel get_CompressionLevel()
+  void set_CompressionLevel(CompressionLevel value)
+  CompressionMethod get_CompressionMethod()
+  void set_CompressionMethod(CompressionMethod value)
+  string get_Comment()
+  void set_Comment(string value)
+  bool get_EmitTimesInWindowsFormatWhenSaving()
+  void set_EmitTimesInWindowsFormatWhenSaving(bool value)
+  bool get_EmitTimesInUnixFormatWhenSaving()
+  void set_EmitTimesInUnixFormatWhenSaving(bool value)
+  bool get_Verbose()
+  bool ContainsEntry(string name)
+  bool get_CaseSensitiveRetrieval()
+  void set_CaseSensitiveRetrieval(bool value)
+  bool get_UseUnicodeAsNecessary()
+  void set_UseUnicodeAsNecessary(bool value)
+  Zip64Option get_UseZip64WhenSaving()
+  void set_UseZip64WhenSaving(Zip64Option value)
+  Nullable`1<bool> get_RequiresZip64()
+  Nullable`1<bool> get_OutputUsedZip64()
+  Nullable`1<bool> get_InputUsesZip64()
+  Encoding get_ProvisionalAlternateEncoding()
+  void set_ProvisionalAlternateEncoding(Encoding value)
+  Encoding get_AlternateEncoding()
+  void set_AlternateEncoding(Encoding value)
+  ZipOption get_AlternateEncodingUsage()
+  void set_AlternateEncodingUsage(ZipOption value)
+  Encoding get_DefaultEncoding()
+  TextWriter get_StatusMessageTextWriter()
+  void set_StatusMessageTextWriter(TextWriter value)
+  string get_TempFileFolder()
+  void set_TempFileFolder(string value)
+  void set_Password(string value)
+  string get_Password()
+  ExtractExistingFileAction get_ExtractExistingFile()
+  void set_ExtractExistingFile(ExtractExistingFileAction value)
+  ZipErrorAction get_ZipErrorAction()
+  void set_ZipErrorAction(ZipErrorAction value)
+  EncryptionAlgorithm get_Encryption()
+  void set_Encryption(EncryptionAlgorithm value)
+  SetCompressionCallback get_SetCompression()
+  void set_SetCompression(SetCompressionCallback value)
+  int get_MaxOutputSegmentSize()
+  void set_MaxOutputSegmentSize(int value)
+  int get_NumberOfSegmentsForMostRecentSave()
+  void set_ParallelDeflateThreshold(long value)
+  long get_ParallelDeflateThreshold()
+  int get_ParallelDeflateMaxBufferPairs()
+  void set_ParallelDeflateMaxBufferPairs(int value)
+  string ToString()
+  Version get_LibraryVersion()
+  void NotifyEntryChanged()
+  Stream StreamForDiskNumber(UInt32 diskNumber)
+  void Reset(bool whileSaving)
+  void .ctor(string fileName)
+  void .ctor(string fileName, Encoding encoding)
+  void .ctor()
+  void .ctor(Encoding encoding)
+  void .ctor(string fileName, TextWriter statusMessageWriter)
+  void .ctor(string fileName, TextWriter statusMessageWriter, Encoding encoding)
+  void Initialize(string fileName)
+  void _initEntriesDictionary()
+  void _InitInstance(string zipFileName, TextWriter statusMessageWriter)
+  List`1<ZipEntry> get_ZipEntriesAsList()
+  ZipEntry get_Item(int ix)
+  ZipEntry get_Item(string fileName)
+  ICollection`1<string> get_EntryFileNames()
+  ICollection`1<ZipEntry> get_Entries()
+  ICollection`1<ZipEntry> get_EntriesSorted()
+  int get_Count()
+  void RemoveEntry(ZipEntry entry)
+  void RemoveEntry(string fileName)
+  void Dispose()
+  void Dispose(bool disposeManagedResources)
+  Stream get_ReadStream()
+  Stream get_WriteStream()
+  void set_WriteStream(Stream value)
+  string get_ArchiveNameForEvent()
+  void add_SaveProgress(EventHandler`1<SaveProgressEventArgs> value)
+  void remove_SaveProgress(EventHandler`1<SaveProgressEventArgs> value)
+  bool OnSaveBlock(ZipEntry entry, long bytesXferred, long totalBytesToXfer)
+  void OnSaveEntry(int current, ZipEntry entry, bool before)
+  void OnSaveEvent(ZipProgressEventType eventFlavor)
+  void OnSaveStarted()
+  void OnSaveCompleted()
+  void add_ReadProgress(EventHandler`1<ReadProgressEventArgs> value)
+  void remove_ReadProgress(EventHandler`1<ReadProgressEventArgs> value)
+  void OnReadStarted()
+  void OnReadCompleted()
+  void OnReadBytes(ZipEntry entry)
+  void OnReadEntry(bool before, ZipEntry entry)
+  long get_LengthOfReadStream()
+  void add_ExtractProgress(EventHandler`1<ExtractProgressEventArgs> value)
+  void remove_ExtractProgress(EventHandler`1<ExtractProgressEventArgs> value)
+  void OnExtractEntry(int current, bool before, ZipEntry currentEntry, string path)
+  bool OnExtractBlock(ZipEntry entry, long bytesWritten, long totalBytesToWrite)
+  bool OnSingleEntryExtract(ZipEntry entry, string path, bool before)
+  bool OnExtractExisting(ZipEntry entry, string path)
+  void OnExtractAllCompleted(string path)
+  void OnExtractAllStarted(string path)
+  void add_AddProgress(EventHandler`1<AddProgressEventArgs> value)
+  void remove_AddProgress(EventHandler`1<AddProgressEventArgs> value)
+  void OnAddStarted()
+  void OnAddCompleted()
+  void AfterAddEntry(ZipEntry entry)
+  void add_ZipError(EventHandler`1<ZipErrorEventArgs> value)
+  void remove_ZipError(EventHandler`1<ZipErrorEventArgs> value)
+  bool OnZipErrorSaving(ZipEntry entry, Exception exc)
+  void ExtractAll(string path)
+  void ExtractAll(string path, ExtractExistingFileAction extractExistingFile)
+  void _InternalExtractAll(string path, bool overrideExtractExistingProperty)
+  ZipFile Read(string fileName)
+  ZipFile Read(string fileName, ReadOptions options)
+  ZipFile Read(string fileName, TextWriter statusMessageWriter, Encoding encoding, EventHandler`1<ReadProgressEventArgs> readProgress)
+  ZipFile Read(Stream zipStream)
+  ZipFile Read(Stream zipStream, ReadOptions options)
+  ZipFile Read(Stream zipStream, TextWriter statusMessageWriter, Encoding encoding, EventHandler`1<ReadProgressEventArgs> readProgress)
+  void ReadIntoInstance(ZipFile zf)
+  void Zip64SeekToCentralDirectory(ZipFile zf)
+  UInt32 ReadFirstFourBytes(Stream s)
+  void ReadCentralDirectory(ZipFile zf)
+  void ReadIntoInstance_Orig(ZipFile zf)
+  void ReadCentralDirectoryFooter(ZipFile zf)
+  void ReadZipFileComment(ZipFile zf)
+  bool IsZipFile(string fileName)
+  bool IsZipFile(string fileName, bool testExtract)
+  bool IsZipFile(Stream stream, bool testExtract)
+  void DeleteFileWithRetry(string filename)
+  void Save()
+  void NotifyEntriesSaveComplete(ICollection`1<ZipEntry> c)
+  void RemoveTempFile()
+  void CleanupAfterSaveOperation()
+  void Save(string fileName)
+  void Save(Stream outputStream)
+  void SaveSelfExtractor(string exeToGenerate, SelfExtractorFlavor flavor)
+  void SaveSelfExtractor(string exeToGenerate, SelfExtractorSaveOptions options)
+  void ExtractResourceToFile(Assembly a, string resourceName, string filename)
+  void _SaveSfxStub(string exeToGenerate, SelfExtractorSaveOptions options)
+  string GenerateTempPathname(string dir, string extension)
+  void AddSelectedFiles(string selectionCriteria)
+  void AddSelectedFiles(string selectionCriteria, bool recurseDirectories)
+  void AddSelectedFiles(string selectionCriteria, string directoryOnDisk)
+  void AddSelectedFiles(string selectionCriteria, string directoryOnDisk, bool recurseDirectories)
+  void AddSelectedFiles(string selectionCriteria, string directoryOnDisk, string directoryPathInArchive)
+  void AddSelectedFiles(string selectionCriteria, string directoryOnDisk, string directoryPathInArchive, bool recurseDirectories)
+  void UpdateSelectedFiles(string selectionCriteria, string directoryOnDisk, string directoryPathInArchive, bool recurseDirectories)
+  string EnsureendInSlash(string s)
+  void _AddOrUpdateSelectedFiles(string selectionCriteria, string directoryOnDisk, string directoryPathInArchive, bool recurseDirectories, bool wantUpdate)
+  string ReplaceLeadingDirectory(string original, string pattern, string replacement)
+  ICollection`1<ZipEntry> SelectEntries(string selectionCriteria)
+  ICollection`1<ZipEntry> SelectEntries(string selectionCriteria, string directoryPathInArchive)
+  int RemoveSelectedEntries(string selectionCriteria)
+  int RemoveSelectedEntries(string selectionCriteria, string directoryPathInArchive)
+  void ExtractSelectedEntries(string selectionCriteria)
+  void ExtractSelectedEntries(string selectionCriteria, ExtractExistingFileAction extractExistingFile)
+  void ExtractSelectedEntries(string selectionCriteria, string directoryPathInArchive)
+  void ExtractSelectedEntries(string selectionCriteria, string directoryInArchive, string extractDirectory)
+  void ExtractSelectedEntries(string selectionCriteria, string directoryPathInArchive, string extractDirectory, ExtractExistingFileAction extractExistingFile)
+  IEnumerator`1<ZipEntry> GetEnumerator()
+  IEnumerator System.Collections.IEnumerable.GetEnumerator()
+  IEnumerator GetNewEnum()
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zip.Zip64Option
+Наследуется от: Enum
+Поля:
+  int value__
+  Zip64Option Default
+  Zip64Option Never
+  Zip64Option AsNecessary
+  Zip64Option Always
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ZipOption
+Наследуется от: Enum
+Поля:
+  int value__
+  ZipOption Default
+  ZipOption Never
+  ZipOption AsNecessary
+  ZipOption Always
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.AddOrUpdateAction
+Наследуется от: Enum
+Поля:
+  int value__
+  AddOrUpdateAction AddOnly
+  AddOrUpdateAction AddOrUpdate
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.ReadOptions
+Наследуется от: object
+Поля:
+  EventHandler`1<ReadProgressEventArgs> <ReadProgress>k__BackingField
+  TextWriter <StatusMessageWriter>k__BackingField
+  Encoding <Encoding>k__BackingField
+Свойства:
+  EventHandler`1<ReadProgressEventArgs> ReadProgress
+  TextWriter StatusMessageWriter
+  Encoding Encoding
+Методы:
+  EventHandler`1<ReadProgressEventArgs> get_ReadProgress()
+  void set_ReadProgress(EventHandler`1<ReadProgressEventArgs> value)
+  TextWriter get_StatusMessageWriter()
+  void set_StatusMessageWriter(TextWriter value)
+  Encoding get_Encoding()
+  void set_Encoding(Encoding value)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.Zip.ZipOutput
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  bool WriteCentralDirectoryStructure(Stream s, ICollection`1<ZipEntry> entries, UInt32 numSegments, Zip64Option zip64, string comment, ZipContainer container)
+  Encoding GetEncoding(ZipContainer container, string t)
+  Byte[] GenCentralDirectoryFooter(long StartOfCentralDirectory, long EndOfCentralDirectory, Zip64Option zip64, int entryCount, string comment, ZipContainer container)
+  Byte[] GenZip64EndOfCentralDirectory(long StartOfCentralDirectory, long EndOfCentralDirectory, int entryCount, UInt32 numSegments)
+  int CountEntries(ICollection`1<ZipEntry> _entries)
+--------------------------------------------------
+Класс: Ionic.Zip.SelfExtractorFlavor
+Наследуется от: Enum
+Поля:
+  int value__
+  SelfExtractorFlavor ConsoleApplication
+  SelfExtractorFlavor WinFormsApplication
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zip.SelfExtractorSaveOptions
+Наследуется от: object
+Поля:
+  SelfExtractorFlavor <Flavor>k__BackingField
+  string <PostExtractCommandLine>k__BackingField
+  string <DefaultExtractDirectory>k__BackingField
+  string <IconFile>k__BackingField
+  bool <Quiet>k__BackingField
+  ExtractExistingFileAction <ExtractExistingFile>k__BackingField
+  bool <RemoveUnpackedFilesAfterExecute>k__BackingField
+  Version <FileVersion>k__BackingField
+  string <ProductVersion>k__BackingField
+  string <Copyright>k__BackingField
+  string <Description>k__BackingField
+  string <ProductName>k__BackingField
+  string <SfxExeWindowTitle>k__BackingField
+  string <AdditionalCompilerSwitches>k__BackingField
+Свойства:
+  SelfExtractorFlavor Flavor
+  string PostExtractCommandLine
+  string DefaultExtractDirectory
+  string IconFile
+  bool Quiet
+  ExtractExistingFileAction ExtractExistingFile
+  bool RemoveUnpackedFilesAfterExecute
+  Version FileVersion
+  string ProductVersion
+  string Copyright
+  string Description
+  string ProductName
+  string SfxExeWindowTitle
+  string AdditionalCompilerSwitches
+Методы:
+  SelfExtractorFlavor get_Flavor()
+  void set_Flavor(SelfExtractorFlavor value)
+  string get_PostExtractCommandLine()
+  void set_PostExtractCommandLine(string value)
+  string get_DefaultExtractDirectory()
+  void set_DefaultExtractDirectory(string value)
+  string get_IconFile()
+  void set_IconFile(string value)
+  bool get_Quiet()
+  void set_Quiet(bool value)
+  ExtractExistingFileAction get_ExtractExistingFile()
+  void set_ExtractExistingFile(ExtractExistingFileAction value)
+  bool get_RemoveUnpackedFilesAfterExecute()
+  void set_RemoveUnpackedFilesAfterExecute(bool value)
+  Version get_FileVersion()
+  void set_FileVersion(Version value)
+  string get_ProductVersion()
+  void set_ProductVersion(string value)
+  string get_Copyright()
+  void set_Copyright(string value)
+  string get_Description()
+  void set_Description(string value)
+  string get_ProductName()
+  void set_ProductName(string value)
+  string get_SfxExeWindowTitle()
+  void set_SfxExeWindowTitle(string value)
+  string get_AdditionalCompilerSwitches()
+  void set_AdditionalCompilerSwitches(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.Zip.ZipInputStream
+Наследуется от: Stream
+Поля:
+  Stream _inputStream
+  Encoding _provisionalAlternateEncoding
+  ZipEntry _currentEntry
+  bool _firstEntry
+  bool _needSetup
+  ZipContainer _container
+  CrcCalculatorStream _crcStream
+  long _LeftToRead
+  string _Password
+  long _endOfEntry
+  string _name
+  bool _leaveUnderlyingStreamOpen
+  bool _closed
+  bool _findRequired
+  bool _exceptionPending
+  int <CodecBufferSize>k__BackingField
+Свойства:
+  Encoding ProvisionalAlternateEncoding
+  int CodecBufferSize
+  string Password
+  Stream ReadStream
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream stream)
+  void .ctor(string fileName)
+  void .ctor(Stream stream, bool leaveOpen)
+  void _Init(Stream stream, bool leaveOpen, string name)
+  string ToString()
+  Encoding get_ProvisionalAlternateEncoding()
+  void set_ProvisionalAlternateEncoding(Encoding value)
+  int get_CodecBufferSize()
+  void set_CodecBufferSize(int value)
+  void set_Password(string value)
+  void SetupStream()
+  Stream get_ReadStream()
+  int Read(Byte[] buffer, int offset, int count)
+  ZipEntry GetNextEntry()
+  void Dispose(bool disposing)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  void Flush()
+  void Write(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+--------------------------------------------------
+Класс: Ionic.Zip.ZipOutputStream
+Наследуется от: Stream
+Поля:
+  EncryptionAlgorithm _encryption
+  ZipEntryTimestamp _timestamp
+  string _password
+  string _comment
+  Stream _outputStream
+  ZipEntry _currentEntry
+  Zip64Option _zip64
+  Dictionary`2<string, ZipEntry> _entriesWritten
+  int _entryCount
+  ZipOption _alternateEncodingUsage
+  Encoding _alternateEncoding
+  bool _leaveUnderlyingStreamOpen
+  bool _disposed
+  bool _exceptionPending
+  bool _anyEntriesUsedZip64
+  bool _directoryNeededZip64
+  CountingStream _outputCounter
+  Stream _encryptor
+  Stream _deflater
+  CrcCalculatorStream _entryOutputStream
+  bool _needToWriteEntryHeader
+  string _name
+  bool _DontIgnoreCase
+  ParallelDeflateOutputStream ParallelDeflater
+  long _ParallelDeflateThreshold
+  int _maxBufferPairs
+  int <CodecBufferSize>k__BackingField
+  CompressionStrategy <Strategy>k__BackingField
+  CompressionLevel <CompressionLevel>k__BackingField
+  CompressionMethod <CompressionMethod>k__BackingField
+Свойства:
+  string Password
+  EncryptionAlgorithm Encryption
+  int CodecBufferSize
+  CompressionStrategy Strategy
+  ZipEntryTimestamp Timestamp
+  CompressionLevel CompressionLevel
+  CompressionMethod CompressionMethod
+  string Comment
+  Zip64Option EnableZip64
+  bool OutputUsedZip64
+  bool IgnoreCase
+  bool UseUnicodeAsNecessary
+  Encoding ProvisionalAlternateEncoding
+  Encoding AlternateEncoding
+  ZipOption AlternateEncodingUsage
+  Encoding DefaultEncoding
+  long ParallelDeflateThreshold
+  int ParallelDeflateMaxBufferPairs
+  Stream OutputStream
+  string Name
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream stream)
+  void .ctor(string fileName)
+  void .ctor(Stream stream, bool leaveOpen)
+  void _Init(Stream stream, bool leaveOpen, string name)
+  string ToString()
+  void set_Password(string value)
+  EncryptionAlgorithm get_Encryption()
+  void set_Encryption(EncryptionAlgorithm value)
+  int get_CodecBufferSize()
+  void set_CodecBufferSize(int value)
+  CompressionStrategy get_Strategy()
+  void set_Strategy(CompressionStrategy value)
+  ZipEntryTimestamp get_Timestamp()
+  void set_Timestamp(ZipEntryTimestamp value)
+  CompressionLevel get_CompressionLevel()
+  void set_CompressionLevel(CompressionLevel value)
+  CompressionMethod get_CompressionMethod()
+  void set_CompressionMethod(CompressionMethod value)
+  string get_Comment()
+  void set_Comment(string value)
+  Zip64Option get_EnableZip64()
+  void set_EnableZip64(Zip64Option value)
+  bool get_OutputUsedZip64()
+  bool get_IgnoreCase()
+  void set_IgnoreCase(bool value)
+  bool get_UseUnicodeAsNecessary()
+  void set_UseUnicodeAsNecessary(bool value)
+  Encoding get_ProvisionalAlternateEncoding()
+  void set_ProvisionalAlternateEncoding(Encoding value)
+  Encoding get_AlternateEncoding()
+  void set_AlternateEncoding(Encoding value)
+  ZipOption get_AlternateEncodingUsage()
+  void set_AlternateEncodingUsage(ZipOption value)
+  Encoding get_DefaultEncoding()
+  void set_ParallelDeflateThreshold(long value)
+  long get_ParallelDeflateThreshold()
+  int get_ParallelDeflateMaxBufferPairs()
+  void set_ParallelDeflateMaxBufferPairs(int value)
+  void InsureUniqueEntry(ZipEntry ze1)
+  Stream get_OutputStream()
+  string get_Name()
+  bool ContainsEntry(string name)
+  void Write(Byte[] buffer, int offset, int count)
+  ZipEntry PutNextEntry(string entryName)
+  void _InitiateCurrentEntry(bool finishing)
+  void _FinishCurrentEntry()
+  void Dispose(bool disposing)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  void Flush()
+  int Read(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+--------------------------------------------------
+Класс: Ionic.Zip.ZipContainer
+Наследуется от: object
+Поля:
+  ZipFile _zf
+  ZipOutputStream _zos
+  ZipInputStream _zis
+Свойства:
+  ZipFile ZipFile
+  ZipOutputStream ZipOutputStream
+  string Name
+  string Password
+  Zip64Option Zip64
+  int BufferSize
+  ParallelDeflateOutputStream ParallelDeflater
+  long ParallelDeflateThreshold
+  int ParallelDeflateMaxBufferPairs
+  int CodecBufferSize
+  CompressionStrategy Strategy
+  Zip64Option UseZip64WhenSaving
+  Encoding AlternateEncoding
+  Encoding DefaultEncoding
+  ZipOption AlternateEncodingUsage
+  Stream ReadStream
+Методы:
+  void .ctor(object o)
+  ZipFile get_ZipFile()
+  ZipOutputStream get_ZipOutputStream()
+  string get_Name()
+  string get_Password()
+  Zip64Option get_Zip64()
+  int get_BufferSize()
+  ParallelDeflateOutputStream get_ParallelDeflater()
+  void set_ParallelDeflater(ParallelDeflateOutputStream value)
+  long get_ParallelDeflateThreshold()
+  int get_ParallelDeflateMaxBufferPairs()
+  int get_CodecBufferSize()
+  CompressionStrategy get_Strategy()
+  Zip64Option get_UseZip64WhenSaving()
+  Encoding get_AlternateEncoding()
+  Encoding get_DefaultEncoding()
+  ZipOption get_AlternateEncodingUsage()
+  Stream get_ReadStream()
+--------------------------------------------------
+Класс: Ionic.Zip.ZipSegmentedStream
+Наследуется от: Stream
+Поля:
+  RwMode rwMode
+  bool _exceptionPending
+  string _baseName
+  string _baseDir
+  string _currentName
+  string _currentTempName
+  UInt32 _currentDiskNumber
+  UInt32 _maxDiskNumber
+  int _maxSegmentSize
+  Stream _innerStream
+  bool <ContiguousWrite>k__BackingField
+Свойства:
+  bool ContiguousWrite
+  UInt32 CurrentSegment
+  string CurrentName
+  string CurrentTempName
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor()
+  ZipSegmentedStream ForReading(string name, UInt32 initialDiskNumber, UInt32 maxDiskNumber)
+  ZipSegmentedStream ForWriting(string name, int maxSegmentSize)
+  Stream ForUpdate(string name, UInt32 diskNumber)
+  bool get_ContiguousWrite()
+  void set_ContiguousWrite(bool value)
+  UInt32 get_CurrentSegment()
+  void set_CurrentSegment(UInt32 value)
+  string get_CurrentName()
+  string get_CurrentTempName()
+  string _NameForSegment(UInt32 diskNumber)
+  UInt32 ComputeSegment(int length)
+  string ToString()
+  void _SetReadStream()
+  int Read(Byte[] buffer, int offset, int count)
+  void _SetWriteStream(UInt32 increment)
+  void Write(Byte[] buffer, int offset, int count)
+  long TruncateBackward(UInt32 diskNumber, long offset)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void Dispose(bool disposing)
+--------------------------------------------------
+Класс: Ionic.BZip2.BitWriter
+Наследуется от: object
+Поля:
+  UInt32 accumulator
+  int nAccumulatedBits
+  Stream output
+  int totalBytesWrittenOut
+Свойства:
+  byte RemainingBits
+  int NumRemainingBits
+  int TotalBytesWrittenOut
+Методы:
+  void .ctor(Stream s)
+  byte get_RemainingBits()
+  int get_NumRemainingBits()
+  int get_TotalBytesWrittenOut()
+  void Reset()
+  void WriteBits(int nbits, UInt32 value)
+  void WriteByte(byte b)
+  void WriteInt(UInt32 u)
+  void Flush()
+  void FinishAndPad()
+--------------------------------------------------
+Класс: Ionic.BZip2.BZip2Compressor
+Наследуется от: object
+Поля:
+  int blockSize100k
+  int currentByte
+  int runLength
+  int last
+  int outBlockFillThreshold
+  CompressionState cstate
+  CRC32 crc
+  BitWriter bw
+  int runs
+  int workDone
+  int workLimit
+  bool firstAttempt
+  bool blockRandomised
+  int origPtr
+  int nInUse
+  int nMTF
+  int SETMASK
+  int CLEARMASK
+  byte GREATER_ICOST
+  byte LESSER_ICOST
+  int SMALL_THRESH
+  int DEPTH_THRESH
+  int WORK_FACTOR
+  Int32[] increments
+  UInt32 <Crc32>k__BackingField
+  int <AvailableBytesOut>k__BackingField
+Свойства:
+  int BlockSize
+  UInt32 Crc32
+  int AvailableBytesOut
+  int UncompressedBytes
+Методы:
+  void .ctor(BitWriter writer)
+  void .ctor(BitWriter writer, int blockSize)
+  void Reset()
+  int get_BlockSize()
+  UInt32 get_Crc32()
+  void set_Crc32(UInt32 value)
+  int get_AvailableBytesOut()
+  void set_AvailableBytesOut(int value)
+  int get_UncompressedBytes()
+  int Fill(Byte[] buffer, int offset, int count)
+  int write0(byte b)
+  bool AddRunToOutputBlock(bool final)
+  void CompressAndWrite()
+  void randomiseBlock()
+  void mainSort()
+  void blockSort()
+  bool mainSimpleSort(CompressionState dataShadow, int lo, int hi, int d)
+  void vswap(Int32[] fmap, int p1, int p2, int n)
+  byte med3(byte a, byte b, byte c)
+  void mainQSort3(CompressionState dataShadow, int loSt, int hiSt, int dSt)
+  void generateMTFValues()
+  void hbAssignCodes(Int32[] code, Byte[] length, int minLen, int maxLen, int alphaSize)
+  void sendMTFValues()
+  void sendMTFValues0(int nGroups, int alphaSize)
+  void hbMakeCodeLengths(Byte[] len, Int32[] freq, CompressionState state1, int alphaSize, int maxLen)
+  int sendMTFValues1(int nGroups, int alphaSize)
+  void sendMTFValues2(int nGroups, int nSelectors)
+  void sendMTFValues3(int nGroups, int alphaSize)
+  void sendMTFValues4()
+  void sendMTFValues5(int nGroups, int nSelectors)
+  void sendMTFValues6(int nGroups, int alphaSize)
+  void sendMTFValues7(int nSelectors)
+  void moveToFrontCodeAndSend()
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.BZip2.BZip2InputStream
+Наследуется от: Stream
+Поля:
+  bool _disposed
+  bool _leaveOpen
+  long totalBytesRead
+  int last
+  int origPtr
+  int blockSize100k
+  bool blockRandomised
+  int bsBuff
+  int bsLive
+  CRC32 crc
+  int nInUse
+  Stream input
+  int currentChar
+  CState currentState
+  UInt32 storedBlockCRC
+  UInt32 storedCombinedCRC
+  UInt32 computedBlockCRC
+  UInt32 computedCombinedCRC
+  int su_count
+  int su_ch2
+  int su_chPrev
+  int su_i2
+  int su_j2
+  int su_rNToGo
+  int su_rTPos
+  int su_tPos
+  char su_z
+  DecompressionState data
+Свойства:
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream input)
+  void .ctor(Stream input, bool leaveOpen)
+  int Read(Byte[] buffer, int offset, int count)
+  void MakeMaps()
+  int ReadByte()
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void Write(Byte[] buffer, int offset, int count)
+  void Dispose(bool disposing)
+  void init()
+  void CheckMagicChar(char expected, int position)
+  void InitBlock()
+  void EndBlock()
+  void complete()
+  void Close()
+  int GetBits(int n)
+  bool bsGetBit()
+  char bsGetUByte()
+  UInt32 bsGetInt()
+  void hbCreateDecodeTables(Int32[] limit, Int32[] bbase, Int32[] perm, Char[] length, int minLen, int maxLen, int alphaSize)
+  void recvDecodingTables()
+  void createHuffmanDecodingTables(int alphaSize, int nGroups)
+  void getAndMoveToFrontDecode()
+  int getAndMoveToFrontDecode0(int groupNo)
+  void SetupBlock()
+  void SetupRandPartA()
+  void SetupNoRandPartA()
+  void SetupRandPartB()
+  void SetupRandPartC()
+  void SetupNoRandPartB()
+  void SetupNoRandPartC()
+--------------------------------------------------
+Класс: Ionic.BZip2.BZip2
+Наследуется от: object
+Поля:
+  int BlockSizeMultiple
+  int MinBlockSize
+  int MaxBlockSize
+  int MaxAlphaSize
+  int MaxCodeLength
+  char RUNA
+  char RUNB
+  int NGroups
+  int G_SIZE
+  int N_ITERS
+  int MaxSelectors
+  int NUM_OVERSHOOT_BYTES
+  int QSORT_STACK_SIZE
+Свойства:
+Методы:
+  T[][] InitRectangularArray(int d1, int d2)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.BZip2.BZip2OutputStream
+Наследуется от: Stream
+Поля:
+  int totalBytesWrittenIn
+  bool leaveOpen
+  BZip2Compressor compressor
+  UInt32 combinedCRC
+  Stream output
+  BitWriter bw
+  int blockSize100k
+  TraceBits desiredTrace
+Свойства:
+  int BlockSize
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream output)
+  void .ctor(Stream output, int blockSize)
+  void .ctor(Stream output, bool leaveOpen)
+  void .ctor(Stream output, int blockSize, bool leaveOpen)
+  void Close()
+  void Flush()
+  void EmitHeader()
+  void EmitTrailer()
+  void Finish()
+  int get_BlockSize()
+  void Write(Byte[] buffer, int offset, int count)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  int Read(Byte[] buffer, int offset, int count)
+  void TraceOutput(TraceBits bits, string format, Object[] varParams)
+--------------------------------------------------
+Класс: Ionic.BZip2.WorkItem
+Наследуется от: object
+Поля:
+  int index
+  MemoryStream ms
+  int ordinal
+  BitWriter bw
+  BZip2Compressor <Compressor>k__BackingField
+Свойства:
+  BZip2Compressor Compressor
+Методы:
+  BZip2Compressor get_Compressor()
+  void set_Compressor(BZip2Compressor value)
+  void .ctor(int ix, int blockSize)
+--------------------------------------------------
+Класс: Ionic.BZip2.ParallelBZip2OutputStream
+Наследуется от: Stream
+Поля:
+  int BufferPairsPerCore
+  int _maxWorkers
+  bool firstWriteDone
+  int lastFilled
+  int lastWritten
+  int latestCompressed
+  int currentlyFilling
+  Exception modreq(System.Runtime.CompilerServices.IsVolatile) pendingException
+  bool handlingException
+  bool emitting
+  Queue`1<int> toWrite
+  Queue`1<int> toFill
+  List`1<WorkItem> pool
+  object latestLock
+  object eLock
+  object outputLock
+  AutoResetEvent newlyCompressedBlob
+  long totalBytesWrittenIn
+  long totalBytesWrittenOut
+  bool leaveOpen
+  UInt32 combinedCRC
+  Stream output
+  BitWriter bw
+  int blockSize100k
+  TraceBits desiredTrace
+Свойства:
+  int MaxWorkers
+  int BlockSize
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+  long BytesWrittenOut
+Методы:
+  void .ctor(Stream output)
+  void .ctor(Stream output, int blockSize)
+  void .ctor(Stream output, bool leaveOpen)
+  void .ctor(Stream output, int blockSize, bool leaveOpen)
+  void InitializePoolOfWorkItems()
+  int get_MaxWorkers()
+  void set_MaxWorkers(int value)
+  void Close()
+  void FlushOutput(bool lastInput)
+  void Flush()
+  void EmitHeader()
+  void EmitTrailer()
+  int get_BlockSize()
+  void Write(Byte[] buffer, int offset, int count)
+  void EmitPendingBuffers(bool doAll, bool mustWait)
+  void CompressOne(object wi)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long get_BytesWrittenOut()
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  int Read(Byte[] buffer, int offset, int count)
+  void TraceOutput(TraceBits bits, string format, Object[] varParams)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.BZip2.Rand
+Наследуется от: object
+Поля:
+  Int32[] RNUMS
+Свойства:
+Методы:
+  int Rnums(int i)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.BlockState
+Наследуется от: Enum
+Поля:
+  int value__
+  BlockState NeedMore
+  BlockState BlockDone
+  BlockState FinishStarted
+  BlockState FinishDone
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zlib.DeflateFlavor
+Наследуется от: Enum
+Поля:
+  int value__
+  DeflateFlavor Store
+  DeflateFlavor Fast
+  DeflateFlavor Slow
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zlib.DeflateManager
+Наследуется от: object
+Поля:
+  int MEM_LEVEL_MAX
+  int MEM_LEVEL_DEFAULT
+  CompressFunc DeflateFunction
+  String[] _ErrorMessage
+  int PRESET_DICT
+  int INIT_STATE
+  int BUSY_STATE
+  int FINISH_STATE
+  int Z_DEFLATED
+  int STORED_BLOCK
+  int STATIC_TREES
+  int DYN_TREES
+  int Z_BINARY
+  int Z_ASCII
+  int Z_UNKNOWN
+  int Buf_size
+  int MIN_MATCH
+  int MAX_MATCH
+  int MIN_LOOKAHEAD
+  int HEAP_SIZE
+  int END_BLOCK
+  ZlibCodec _codec
+  int status
+  Byte[] pending
+  int nextPending
+  int pendingCount
+  sbyte data_type
+  int last_flush
+  int w_size
+  int w_bits
+  int w_mask
+  Byte[] window
+  int window_size
+  Int16[] prev
+  Int16[] head
+  int ins_h
+  int hash_size
+  int hash_bits
+  int hash_mask
+  int hash_shift
+  int block_start
+  Config config
+  int match_length
+  int prev_match
+  int match_available
+  int strstart
+  int match_start
+  int lookahead
+  int prev_length
+  CompressionLevel compressionLevel
+  CompressionStrategy compressionStrategy
+  Int16[] dyn_ltree
+  Int16[] dyn_dtree
+  Int16[] bl_tree
+  Tree treeLiterals
+  Tree treeDistances
+  Tree treeBitLengths
+  Int16[] bl_count
+  Int32[] heap
+  int heap_len
+  int heap_max
+  SByte[] depth
+  int _lengthOffset
+  int lit_bufsize
+  int last_lit
+  int _distanceOffset
+  int opt_len
+  int static_len
+  int matches
+  int last_eob_len
+  short bi_buf
+  int bi_valid
+  bool Rfc1950BytesEmitted
+  bool _WantRfc1950HeaderBytes
+Свойства:
+  bool WantRfc1950HeaderBytes
+Методы:
+  void .ctor()
+  void _InitializeLazyMatch()
+  void _InitializeTreeData()
+  void _InitializeBlocks()
+  void pqdownheap(Int16[] tree, int k)
+  bool _IsSmaller(Int16[] tree, int n, int m, SByte[] depth)
+  void scan_tree(Int16[] tree, int max_code)
+  int build_bl_tree()
+  void send_all_trees(int lcodes, int dcodes, int blcodes)
+  void send_tree(Int16[] tree, int max_code)
+  void put_bytes(Byte[] p, int start, int len)
+  void send_code(int c, Int16[] tree)
+  void send_bits(int value, int length)
+  void _tr_align()
+  bool _tr_tally(int dist, int lc)
+  void send_compressed_block(Int16[] ltree, Int16[] dtree)
+  void set_data_type()
+  void bi_flush()
+  void bi_windup()
+  void copy_block(int buf, int len, bool header)
+  void flush_block_only(bool eof)
+  BlockState DeflateNone(FlushType flush)
+  void _tr_stored_block(int buf, int stored_len, bool eof)
+  void _tr_flush_block(int buf, int stored_len, bool eof)
+  void _fillWindow()
+  BlockState DeflateFast(FlushType flush)
+  BlockState DeflateSlow(FlushType flush)
+  int longest_match(int cur_match)
+  bool get_WantRfc1950HeaderBytes()
+  void set_WantRfc1950HeaderBytes(bool value)
+  int Initialize(ZlibCodec codec, CompressionLevel level)
+  int Initialize(ZlibCodec codec, CompressionLevel level, int bits)
+  int Initialize(ZlibCodec codec, CompressionLevel level, int bits, CompressionStrategy compressionStrategy)
+  int Initialize(ZlibCodec codec, CompressionLevel level, int windowBits, int memLevel, CompressionStrategy strategy)
+  void Reset()
+  int End()
+  void SetDeflater()
+  int SetParams(CompressionLevel level, CompressionStrategy strategy)
+  int SetDictionary(Byte[] dictionary)
+  int Deflate(FlushType flush)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.DeflateStream
+Наследуется от: Stream
+Поля:
+  ZlibBaseStream _baseStream
+  Stream _innerStream
+  bool _disposed
+Свойства:
+  FlushType FlushMode
+  int BufferSize
+  CompressionStrategy Strategy
+  long TotalIn
+  long TotalOut
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream stream, CompressionMode mode)
+  void .ctor(Stream stream, CompressionMode mode, CompressionLevel level)
+  void .ctor(Stream stream, CompressionMode mode, bool leaveOpen)
+  void .ctor(Stream stream, CompressionMode mode, CompressionLevel level, bool leaveOpen)
+  FlushType get_FlushMode()
+  void set_FlushMode(FlushType value)
+  int get_BufferSize()
+  void set_BufferSize(int value)
+  CompressionStrategy get_Strategy()
+  void set_Strategy(CompressionStrategy value)
+  long get_TotalIn()
+  long get_TotalOut()
+  void Dispose(bool disposing)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  int Read(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void Write(Byte[] buffer, int offset, int count)
+  Byte[] CompressString(string s)
+  Byte[] CompressBuffer(Byte[] b)
+  string UncompressString(Byte[] compressed)
+  Byte[] UncompressBuffer(Byte[] compressed)
+--------------------------------------------------
+Класс: Ionic.Zlib.GZipStream
+Наследуется от: Stream
+Поля:
+  Nullable`1<DateTime> LastModified
+  int _headerByteCount
+  ZlibBaseStream _baseStream
+  bool _disposed
+  bool _firstReadDone
+  string _FileName
+  string _Comment
+  int _Crc32
+  DateTime _unixEpoch
+  Encoding iso8859dash1
+Свойства:
+  string Comment
+  string FileName
+  int Crc32
+  FlushType FlushMode
+  int BufferSize
+  long TotalIn
+  long TotalOut
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  string get_Comment()
+  void set_Comment(string value)
+  string get_FileName()
+  void set_FileName(string value)
+  int get_Crc32()
+  void .ctor(Stream stream, CompressionMode mode)
+  void .ctor(Stream stream, CompressionMode mode, CompressionLevel level)
+  void .ctor(Stream stream, CompressionMode mode, bool leaveOpen)
+  void .ctor(Stream stream, CompressionMode mode, CompressionLevel level, bool leaveOpen)
+  FlushType get_FlushMode()
+  void set_FlushMode(FlushType value)
+  int get_BufferSize()
+  void set_BufferSize(int value)
+  long get_TotalIn()
+  long get_TotalOut()
+  void Dispose(bool disposing)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  int Read(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void Write(Byte[] buffer, int offset, int count)
+  int EmitHeader()
+  Byte[] CompressString(string s)
+  Byte[] CompressBuffer(Byte[] b)
+  string UncompressString(Byte[] compressed)
+  Byte[] UncompressBuffer(Byte[] compressed)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.InflateBlocks
+Наследуется от: object
+Поля:
+  int MANY
+  Int32[] border
+  InflateBlockMode mode
+  int left
+  int table
+  int index
+  Int32[] blens
+  Int32[] bb
+  Int32[] tb
+  InflateCodes codes
+  int last
+  ZlibCodec _codec
+  int bitk
+  int bitb
+  Int32[] hufts
+  Byte[] window
+  int end
+  int readAt
+  int writeAt
+  object checkfn
+  UInt32 check
+  InfTree inftree
+Свойства:
+Методы:
+  void .ctor(ZlibCodec codec, object checkfn, int w)
+  UInt32 Reset()
+  int Process(int r)
+  void Free()
+  void SetDictionary(Byte[] d, int start, int n)
+  int SyncPoint()
+  int Flush(int r)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.InternalInflateConstants
+Наследуется от: object
+Поля:
+  Int32[] InflateMask
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.InflateCodes
+Наследуется от: object
+Поля:
+  int START
+  int LEN
+  int LENEXT
+  int DIST
+  int DISTEXT
+  int COPY
+  int LIT
+  int WASH
+  int END
+  int BADCODE
+  int mode
+  int len
+  Int32[] tree
+  int tree_index
+  int need
+  int lit
+  int bitsToGet
+  int dist
+  byte lbits
+  byte dbits
+  Int32[] ltree
+  int ltree_index
+  Int32[] dtree
+  int dtree_index
+Свойства:
+Методы:
+  void .ctor()
+  void Init(int bl, int bd, Int32[] tl, int tl_index, Int32[] td, int td_index)
+  int Process(InflateBlocks blocks, int r)
+  int InflateFast(int bl, int bd, Int32[] tl, int tl_index, Int32[] td, int td_index, InflateBlocks s, ZlibCodec z)
+--------------------------------------------------
+Класс: Ionic.Zlib.InflateManager
+Наследуется от: object
+Поля:
+  int PRESET_DICT
+  int Z_DEFLATED
+  InflateManagerMode mode
+  ZlibCodec _codec
+  int method
+  UInt32 computedCheck
+  UInt32 expectedCheck
+  int marker
+  bool _handleRfc1950HeaderBytes
+  int wbits
+  InflateBlocks blocks
+  Byte[] mark
+Свойства:
+  bool HandleRfc1950HeaderBytes
+Методы:
+  bool get_HandleRfc1950HeaderBytes()
+  void set_HandleRfc1950HeaderBytes(bool value)
+  void .ctor()
+  void .ctor(bool expectRfc1950HeaderBytes)
+  int Reset()
+  int End()
+  int Initialize(ZlibCodec codec, int w)
+  int Inflate(FlushType flush)
+  int SetDictionary(Byte[] dictionary)
+  int Sync()
+  int SyncPoint(ZlibCodec z)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.InfTree
+Наследуется от: object
+Поля:
+  int MANY
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_ERRNO
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_MEM_ERROR
+  int Z_BUF_ERROR
+  int Z_VERSION_ERROR
+  int fixed_bl
+  int fixed_bd
+  int BMAX
+  Int32[] fixed_tl
+  Int32[] fixed_td
+  Int32[] cplens
+  Int32[] cplext
+  Int32[] cpdist
+  Int32[] cpdext
+  Int32[] hn
+  Int32[] v
+  Int32[] c
+  Int32[] r
+  Int32[] u
+  Int32[] x
+Свойства:
+Методы:
+  int huft_build(Int32[] b, int bindex, int n, int s, Int32[] d, Int32[] e, Int32[] t, Int32[] m, Int32[] hp, Int32[] hn, Int32[] v)
+  int inflate_trees_bits(Int32[] c, Int32[] bb, Int32[] tb, Int32[] hp, ZlibCodec z)
+  int inflate_trees_dynamic(int nl, int nd, Int32[] c, Int32[] bl, Int32[] bd, Int32[] tl, Int32[] td, Int32[] hp, ZlibCodec z)
+  int inflate_trees_fixed(Int32[] bl, Int32[] bd, Int32[][] tl, Int32[][] td, ZlibCodec z)
+  void initWorkArea(int vsize)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.WorkItem
+Наследуется от: object
+Поля:
+  Byte[] buffer
+  Byte[] compressed
+  int crc
+  int index
+  int ordinal
+  int inputBytesAvailable
+  int compressedBytesAvailable
+  ZlibCodec compressor
+Свойства:
+Методы:
+  void .ctor(int size, CompressionLevel compressLevel, CompressionStrategy strategy, int ix)
+--------------------------------------------------
+Класс: Ionic.Zlib.ParallelDeflateOutputStream
+Наследуется от: Stream
+Поля:
+  int IO_BUFFER_SIZE_DEFAULT
+  int BufferPairsPerCore
+  List`1<WorkItem> _pool
+  bool _leaveOpen
+  bool emitting
+  Stream _outStream
+  int _maxBufferPairs
+  int _bufferSize
+  AutoResetEvent _newlyCompressedBlob
+  object _outputLock
+  bool _isClosed
+  bool _firstWriteDone
+  int _currentlyFilling
+  int _lastFilled
+  int _lastWritten
+  int _latestCompressed
+  int _Crc32
+  CRC32 _runningCrc
+  object _latestLock
+  Queue`1<int> _toWrite
+  Queue`1<int> _toFill
+  long _totalBytesProcessed
+  CompressionLevel _compressLevel
+  Exception modreq(System.Runtime.CompilerServices.IsVolatile) _pendingException
+  bool _handlingException
+  object _eLock
+  TraceBits _DesiredTrace
+  CompressionStrategy <Strategy>k__BackingField
+Свойства:
+  CompressionStrategy Strategy
+  int MaxBufferPairs
+  int BufferSize
+  int Crc32
+  long BytesProcessed
+  bool CanSeek
+  bool CanRead
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream stream)
+  void .ctor(Stream stream, CompressionLevel level)
+  void .ctor(Stream stream, bool leaveOpen)
+  void .ctor(Stream stream, CompressionLevel level, bool leaveOpen)
+  void .ctor(Stream stream, CompressionLevel level, CompressionStrategy strategy, bool leaveOpen)
+  CompressionStrategy get_Strategy()
+  void set_Strategy(CompressionStrategy value)
+  int get_MaxBufferPairs()
+  void set_MaxBufferPairs(int value)
+  int get_BufferSize()
+  void set_BufferSize(int value)
+  int get_Crc32()
+  long get_BytesProcessed()
+  void _InitializePoolOfWorkItems()
+  void Write(Byte[] buffer, int offset, int count)
+  void _FlushFinish()
+  void _Flush(bool lastInput)
+  void Flush()
+  void Close()
+  void Dispose()
+  void Dispose(bool disposing)
+  void Reset(Stream stream)
+  void EmitPendingBuffers(bool doAll, bool mustWait)
+  void _DeflateOne(object wi)
+  bool DeflateOneSegment(WorkItem workitem)
+  void TraceOutput(TraceBits bits, string format, Object[] varParams)
+  bool get_CanSeek()
+  bool get_CanRead()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  int Read(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.Tree
+Наследуется от: object
+Поля:
+  int Buf_size
+  int HEAP_SIZE
+  Int32[] ExtraLengthBits
+  Int32[] ExtraDistanceBits
+  Int32[] extra_blbits
+  SByte[] bl_order
+  SByte[] _dist_code
+  SByte[] LengthCode
+  Int32[] LengthBase
+  Int32[] DistanceBase
+  Int16[] dyn_tree
+  int max_code
+  StaticTree staticTree
+Свойства:
+Методы:
+  int DistanceCode(int dist)
+  void gen_bitlen(DeflateManager s)
+  void build_tree(DeflateManager s)
+  void gen_codes(Int16[] tree, int max_code, Int16[] bl_count)
+  int bi_reverse(int code, int len)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.FlushType
+Наследуется от: Enum
+Поля:
+  int value__
+  FlushType None
+  FlushType Partial
+  FlushType Sync
+  FlushType Full
+  FlushType Finish
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zlib.CompressionLevel
+Наследуется от: Enum
+Поля:
+  int value__
+  CompressionLevel None
+  CompressionLevel Level0
+  CompressionLevel BestSpeed
+  CompressionLevel Level1
+  CompressionLevel Level2
+  CompressionLevel Level3
+  CompressionLevel Level4
+  CompressionLevel Level5
+  CompressionLevel Default
+  CompressionLevel Level6
+  CompressionLevel Level7
+  CompressionLevel Level8
+  CompressionLevel BestCompression
+  CompressionLevel Level9
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zlib.CompressionStrategy
+Наследуется от: Enum
+Поля:
+  int value__
+  CompressionStrategy Default
+  CompressionStrategy Filtered
+  CompressionStrategy HuffmanOnly
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zlib.CompressionMode
+Наследуется от: Enum
+Поля:
+  int value__
+  CompressionMode Compress
+  CompressionMode Decompress
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zlib.ZlibException
+Наследуется от: Exception
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+  void .ctor(string s)
+--------------------------------------------------
+Класс: Ionic.Zlib.SharedUtils
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  int URShift(int number, int bits)
+  int ReadInput(TextReader sourceTextReader, Byte[] target, int start, int count)
+  Byte[] ToByteArray(string sourceString)
+  Char[] ToCharArray(Byte[] byteArray)
+  void .ctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.InternalConstants
+Наследуется от: object
+Поля:
+  int MAX_BITS
+  int BL_CODES
+  int D_CODES
+  int LITERALS
+  int LENGTH_CODES
+  int L_CODES
+  int MAX_BL_BITS
+  int REP_3_6
+  int REPZ_3_10
+  int REPZ_11_138
+Свойства:
+Методы:
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.StaticTree
+Наследуется от: object
+Поля:
+  Int16[] lengthAndLiteralsTreeCodes
+  Int16[] distTreeCodes
+  StaticTree Literals
+  StaticTree Distances
+  StaticTree BitLengths
+  Int16[] treeCodes
+  Int32[] extraBits
+  int extraBase
+  int elems
+  int maxLength
+Свойства:
+Методы:
+  void .ctor(Int16[] treeCodes, Int32[] extraBits, int extraBase, int elems, int maxLength)
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.Adler
+Наследуется от: object
+Поля:
+  UInt32 BASE
+  int NMAX
+Свойства:
+Методы:
+  UInt32 Adler32(UInt32 adler, Byte[] buf, int index, int len)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Ionic.Zlib.ZlibStreamFlavor
+Наследуется от: Enum
+Поля:
+  int value__
+  ZlibStreamFlavor ZLIB
+  ZlibStreamFlavor DEFLATE
+  ZlibStreamFlavor GZIP
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zlib.ZlibBaseStream
+Наследуется от: Stream
+Поля:
+  ZlibCodec _z
+  StreamMode _streamMode
+  FlushType _flushMode
+  ZlibStreamFlavor _flavor
+  CompressionMode _compressionMode
+  CompressionLevel _level
+  bool _leaveOpen
+  Byte[] _workingBuffer
+  int _bufferSize
+  Byte[] _buf1
+  Stream _stream
+  CompressionStrategy Strategy
+  CRC32 crc
+  string _GzipFileName
+  string _GzipComment
+  DateTime _GzipMtime
+  int _gzipHeaderByteCount
+  bool nomoreinput
+Свойства:
+  int Crc32
+  bool _wantCompress
+  ZlibCodec z
+  Byte[] workingBuffer
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  int get_Crc32()
+  void .ctor(Stream stream, CompressionMode compressionMode, CompressionLevel level, ZlibStreamFlavor flavor, bool leaveOpen)
+  bool get__wantCompress()
+  ZlibCodec get_z()
+  Byte[] get_workingBuffer()
+  void Write(Byte[] buffer, int offset, int count)
+  void finish()
+  void end()
+  void Close()
+  void Flush()
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  string ReadZeroTerminatedString()
+  int _ReadAndValidateGzipHeader()
+  int Read(Byte[] buffer, int offset, int count)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  void CompressString(string s, Stream compressor)
+  void CompressBuffer(Byte[] b, Stream compressor)
+  string UncompressString(Byte[] compressed, Stream decompressor)
+  Byte[] UncompressBuffer(Byte[] compressed, Stream decompressor)
+--------------------------------------------------
+Класс: Ionic.Zlib.ZlibCodec
+Наследуется от: object
+Поля:
+  Byte[] InputBuffer
+  int NextIn
+  int AvailableBytesIn
+  long TotalBytesIn
+  Byte[] OutputBuffer
+  int NextOut
+  int AvailableBytesOut
+  long TotalBytesOut
+  string Message
+  DeflateManager dstate
+  InflateManager istate
+  UInt32 _Adler32
+  CompressionLevel CompressLevel
+  int WindowBits
+  CompressionStrategy Strategy
+Свойства:
+  int Adler32
+Методы:
+  int get_Adler32()
+  void .ctor()
+  void .ctor(CompressionMode mode)
+  int InitializeInflate()
+  int InitializeInflate(bool expectRfc1950Header)
+  int InitializeInflate(int windowBits)
+  int InitializeInflate(int windowBits, bool expectRfc1950Header)
+  int Inflate(FlushType flush)
+  int EndInflate()
+  int SyncInflate()
+  int InitializeDeflate()
+  int InitializeDeflate(CompressionLevel level)
+  int InitializeDeflate(CompressionLevel level, bool wantRfc1950Header)
+  int InitializeDeflate(CompressionLevel level, int bits)
+  int InitializeDeflate(CompressionLevel level, int bits, bool wantRfc1950Header)
+  int _InternalInitializeDeflate(bool wantRfc1950Header)
+  int Deflate(FlushType flush)
+  int EndDeflate()
+  void ResetDeflate()
+  int SetDeflateParams(CompressionLevel level, CompressionStrategy strategy)
+  int SetDictionary(Byte[] dictionary)
+  void flush_pending()
+  int read_buf(Byte[] buf, int start, int size)
+--------------------------------------------------
+Класс: Ionic.Zlib.ZlibConstants
+Наследуется от: object
+Поля:
+  int WindowBitsMax
+  int WindowBitsDefault
+  int Z_OK
+  int Z_STREAM_END
+  int Z_NEED_DICT
+  int Z_STREAM_ERROR
+  int Z_DATA_ERROR
+  int Z_BUF_ERROR
+  int WorkingBufferSizeDefault
+  int WorkingBufferSizeMin
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Ionic.Zlib.ZlibStream
+Наследуется от: Stream
+Поля:
+  ZlibBaseStream _baseStream
+  bool _disposed
+Свойства:
+  FlushType FlushMode
+  int BufferSize
+  long TotalIn
+  long TotalOut
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream stream, CompressionMode mode)
+  void .ctor(Stream stream, CompressionMode mode, CompressionLevel level)
+  void .ctor(Stream stream, CompressionMode mode, bool leaveOpen)
+  void .ctor(Stream stream, CompressionMode mode, CompressionLevel level, bool leaveOpen)
+  FlushType get_FlushMode()
+  void set_FlushMode(FlushType value)
+  int get_BufferSize()
+  void set_BufferSize(int value)
+  long get_TotalIn()
+  long get_TotalOut()
+  void Dispose(bool disposing)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  int Read(Byte[] buffer, int offset, int count)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void Write(Byte[] buffer, int offset, int count)
+  Byte[] CompressString(string s)
+  Byte[] CompressBuffer(Byte[] b)
+  string UncompressString(Byte[] compressed)
+  Byte[] UncompressBuffer(Byte[] compressed)
+--------------------------------------------------
+Класс: Ionic.Crc.CRC32
+Наследуется от: object
+Поля:
+  int BUFFER_SIZE
+  UInt32 dwPolynomial
+  long _TotalBytesRead
+  bool reverseBits
+  UInt32[] crc32Table
+  UInt32 _register
+Свойства:
+  long TotalBytesRead
+  int Crc32Result
+Методы:
+  long get_TotalBytesRead()
+  int get_Crc32Result()
+  int GetCrc32(Stream input)
+  int GetCrc32AndCopy(Stream input, Stream output)
+  int ComputeCrc32(int W, byte B)
+  int _InternalComputeCrc32(UInt32 W, byte B)
+  void SlurpBlock(Byte[] block, int offset, int count)
+  void UpdateCRC(byte b)
+  void UpdateCRC(byte b, int n)
+  UInt32 ReverseBits(UInt32 data)
+  byte ReverseBits(byte data)
+  void GenerateLookupTable()
+  UInt32 gf2_matrix_times(UInt32[] matrix, UInt32 vec)
+  void gf2_matrix_square(UInt32[] square, UInt32[] mat)
+  void Combine(int crc, int length)
+  void .ctor()
+  void .ctor(bool reverseBits)
+  void .ctor(int polynomial, bool reverseBits)
+  void Reset()
+--------------------------------------------------
+Класс: Ionic.Crc.CrcCalculatorStream
+Наследуется от: Stream
+Поля:
+  long UnsetLengthLimit
+  Stream _innerStream
+  CRC32 _Crc32
+  long _lengthLimit
+  bool _leaveOpen
+Свойства:
+  long TotalBytesSlurped
+  int Crc
+  bool LeaveOpen
+  bool CanRead
+  bool CanSeek
+  bool CanWrite
+  long Length
+  long Position
+Методы:
+  void .ctor(Stream stream)
+  void .ctor(Stream stream, bool leaveOpen)
+  void .ctor(Stream stream, long length)
+  void .ctor(Stream stream, long length, bool leaveOpen)
+  void .ctor(Stream stream, long length, bool leaveOpen, CRC32 crc32)
+  void .ctor(bool leaveOpen, long length, Stream stream, CRC32 crc32)
+  long get_TotalBytesSlurped()
+  int get_Crc()
+  bool get_LeaveOpen()
+  void set_LeaveOpen(bool value)
+  int Read(Byte[] buffer, int offset, int count)
+  void Write(Byte[] buffer, int offset, int count)
+  bool get_CanRead()
+  bool get_CanSeek()
+  bool get_CanWrite()
+  void Flush()
+  long get_Length()
+  long get_Position()
+  void set_Position(long value)
+  long Seek(long offset, SeekOrigin origin)
+  void SetLength(long value)
+  void System.IDisposable.Dispose()
+  void Close()
+  void .cctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>{510A9A0A-2EB8-4C1C-AA23-D4ACD845FEA7}
+Наследуется от: object
+Поля:
+  Dictionary`2<string, int> $$method0x6000091-1
+  __StaticArrayInitTypeSize=12 $$method0x60000f4-1
+  __StaticArrayInitTypeSize=56 $$method0x60004fe-1
+  int $$method0x600038e-1
+  int $$method0x60003aa-1
+  __StaticArrayInitTypeSize=2048 $$method0x6000501-1
+  __StaticArrayInitTypeSize=76 $$method0x6000504-1
+  __StaticArrayInitTypeSize=68 $$method0x6000505-1
+  __StaticArrayInitTypeSize=6144 $$method0x6000507-1
+  __StaticArrayInitTypeSize=384 $$method0x6000507-2
+  __StaticArrayInitTypeSize=124 $$method0x6000507-3
+  __StaticArrayInitTypeSize=124 $$method0x6000507-4
+  __StaticArrayInitTypeSize=120 $$method0x6000507-5
+  __StaticArrayInitTypeSize=120 $$method0x6000507-6
+  __StaticArrayInitTypeSize=116 $$method0x6000509-1
+  __StaticArrayInitTypeSize=120 $$method0x6000509-2
+  __StaticArrayInitTypeSize=76 $$method0x6000509-3
+  __StaticArrayInitTypeSize=19 $$method0x6000509-4
+  __StaticArrayInitTypeSize=512 $$method0x6000509-5
+  __StaticArrayInitTypeSize=256 $$method0x6000509-6
+  __StaticArrayInitTypeSize=116 $$method0x6000509-7
+  __StaticArrayInitTypeSize=120 $$method0x6000509-8
+  __StaticArrayInitTypeSize=1152 $$method0x6000475-1
+  __StaticArrayInitTypeSize=120 $$method0x6000475-2
+Свойства:
+Методы:
+--------------------------------------------------

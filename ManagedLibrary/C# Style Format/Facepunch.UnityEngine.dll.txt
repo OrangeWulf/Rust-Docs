@@ -1,0 +1,1413 @@
+public class DentedPixel.LeanDummy : object {
+}
+[ExtensionAttribute]
+public static class Facepunch.Extend.CameraEx : object {
+    [ExtensionAttribute]
+public static void FocusOnRenderer(Camera cam, GameObject obj, Vector3 lookDirection, Vector3 Up, int layerMask);
+    [ExtensionAttribute]
+public static void SaveScreenshot(Camera cam, string name, int width, int height, bool transparent, int SuperSampleSize, Nullable`1<Color> background);
+}
+[ExtensionAttribute]
+public static class Facepunch.Extend.RenderTextureEx : object {
+    private static Material _alphaBlending;
+    public static Material AlphaBlending { get; }
+    public static Material get_AlphaBlending();
+    [ExtensionAttribute]
+public static void Blit(RenderTexture t, Texture tex);
+    [ExtensionAttribute]
+public static void BlitWithAlphaBlending(RenderTexture t, Texture tex);
+    [ExtensionAttribute]
+public static void ToTexture(RenderTexture t, Texture texture);
+}
+public class Facepunch.Extend.TextureSampler : object {
+    private Color[] _data;
+    private int _height;
+    private int _width;
+    public TextureSampler(Texture2D source);
+    public Color GetPixelBilinear(float u, float v);
+    public Color GetPixel(float x, float y);
+    private float Mod(float x, float y);
+    private float WrapBetween(float value, float min, float max);
+}
+[ExtensionAttribute]
+public static class Facepunch.Extend.TransformEx : object {
+    [ExtensionAttribute]
+public static Transform FindChildRecursive(Transform transform, string name);
+    [ExtensionAttribute]
+public static T GetOrAddComponent(Transform transform);
+    [ExtensionAttribute]
+public static void DestroyAllChildren(Transform transform, bool immediate);
+    [ExtensionAttribute]
+public static float AngleToPos(Transform transform, Vector3 targetPos);
+    [ExtensionAttribute]
+public static int GetDepth(Transform transform);
+}
+[ExtensionAttribute]
+public static class Facepunch.Utility.Mesh : object {
+    [ExtensionAttribute]
+public static void Export(Mesh mesh, string filename);
+}
+public static class Facepunch.Utility.Os : object {
+    public static void OpenFolder(string folder);
+}
+[ExtensionAttribute]
+public static class Facepunch.Utility.Texture : object {
+    [ExtensionAttribute]
+public static void CompressNormals(Texture2D tex);
+    [ExtensionAttribute]
+public static void DecompressNormals(Texture2D tex);
+    [ExtensionAttribute]
+public static bool SaveAsPng(Texture texture, string fileName);
+    public static Texture2D CreateReadableCopy(Texture2D texture, int width, int height);
+    public static Texture2D LimitSize(Texture2D tex, int w, int h);
+    public static Texture2D LimitSize(Texture2D tex, object maxTextureSize1, object maxTextureSize2);
+}
+public abstract class FacepunchBehaviour : MonoBehaviour {
+    public void Invoke(Action action, float time);
+    public void Invoke(Action action, float time, float random);
+    public void InvokeRepeating(Action action, float time, float repeat);
+    public void InvokeRandomized(Action action, float time, float repeat, float random);
+    public void CancelInvoke(Action action);
+    public bool IsInvoking(Action action);
+    public void InvokeRepeatingFixedTime(Action action);
+    public void InvokeRandomizedFixedTime(Action action, float time, float repeat, float random);
+    public void CancelInvokeFixedTime(Action action);
+    public bool IsInvokingFixedTime(Action action);
+}
+public class InvokeAction : ValueType {
+    public InvokeTrackingKey Key;
+    public InvokeTrackingData TrackingData;
+    public Behaviour sender;
+    public Action action;
+    public float initial;
+    public float repeat;
+    public float random;
+    public InvokeAction(Behaviour sender, Action action, InvokeTrackingData tracking, float initial, float repeat, float random);
+    public sealed virtual bool Equals(InvokeAction other);
+    public virtual bool Equals(object obj);
+    public virtual int GetHashCode();
+    public static bool op_Equality(InvokeAction x, InvokeAction y);
+    public static bool op_Inequality(InvokeAction x, InvokeAction y);
+}
+public class InvokeHandler : InvokeHandlerBase`1<InvokeHandler> {
+    protected virtual float GetTime();
+    public static void FindInvokes(Behaviour sender, List`1<InvokeAction> list);
+    public static int Count();
+    public static bool IsInvoking(Behaviour sender, Action action);
+    public static void Invoke(Behaviour sender, Action action, float time);
+    public static void InvokeRepeating(Behaviour sender, Action action, float time, float repeat);
+    public static void InvokeRandomized(Behaviour sender, Action action, float time, float repeat, float random);
+    public static void CancelInvoke(Behaviour sender, Action action);
+    private static void CreateInstance();
+}
+public abstract class InvokeHandlerBase`1 : SingletonComponent`1<T> {
+    protected ListDictionary`2<InvokeAction, float> curList;
+    protected ListHashSet`1<InvokeAction> addList;
+    protected ListHashSet`1<InvokeAction> delList;
+    public InvokeProfiler profiler;
+    protected int nullIndex;
+    protected static int nullChecks;
+    private Stopwatch doTickTimer;
+    private Stopwatch invokeTimer;
+    protected void LateUpdate();
+    protected abstract virtual float GetTime();
+    protected void DoTick();
+    protected void RemoveExpired();
+    protected void QueueAdd(InvokeAction invoke);
+    protected void QueueRemove(InvokeAction invoke);
+    protected bool Contains(InvokeAction invoke);
+    protected void ApplyAdds();
+    protected void ApplyRemoves();
+}
+public class InvokeHandlerFixedTime : InvokeHandlerBase`1<InvokeHandlerFixedTime> {
+    protected virtual float GetTime();
+    public static void FindInvokes(Behaviour sender, List`1<InvokeAction> list);
+    public static int Count();
+    public static bool IsInvoking(Behaviour sender, Action action);
+    public static void Invoke(Behaviour sender, Action action, float time);
+    public static void InvokeRepeating(Behaviour sender, Action action, float time, float repeat);
+    public static void InvokeRandomized(Behaviour sender, Action action, float time, float repeat, float random);
+    public static void CancelInvoke(Behaviour sender, Action action);
+    private static void CreateInstance();
+}
+public class InvokeProfiler : object {
+    public static InvokeProfiler update;
+    public static InvokeProfiler fixedUpdate;
+    [CompilerGeneratedAttribute]
+private string <Name>k__BackingField;
+    public int mode;
+    public TimeSpan elapsedTime;
+    public int executedCount;
+    public int tickCount;
+    public int addCount;
+    public int deletedCount;
+    public List`1<InvokeTrackingData> trackingDataList;
+    private Dictionary`2<InvokeTrackingKey, InvokeTrackingData> trackingDataLookup;
+    public string Name { get; private set; }
+    public InvokeProfiler(string name);
+    private static InvokeProfiler();
+    [CompilerGeneratedAttribute]
+public string get_Name();
+    [CompilerGeneratedAttribute]
+private void set_Name(string value);
+    public void Reset();
+    public InvokeTrackingData GetTrackingData(InvokeTrackingKey key);
+}
+public class InvokeTrackingData : object {
+    public InvokeTrackingKey Key;
+    public string TypeName;
+    public int InvokeCount;
+    public int Calls;
+    public TimeSpan ExecutionTime;
+    public InvokeTrackingData(InvokeTrackingKey key);
+    public void Reset();
+}
+public class InvokeTrackingKey : ValueType {
+    public static InvokeTrackingKey Unknown;
+    public Type Type;
+    public string MethodName;
+    public InvokeTrackingKey(Action action);
+    public InvokeTrackingKey(Type type, string methodName);
+    private static InvokeTrackingKey();
+    public virtual int GetHashCode();
+    public sealed virtual bool Equals(InvokeTrackingKey other);
+    public virtual bool Equals(object obj);
+}
+[AttributeUsageAttribute("1036")]
+public class JsonModelAttribute : Attribute {
+}
+public class LeanTest : object {
+    public static int expected;
+    private static int tests;
+    private static int passes;
+    public static float timeout;
+    public static bool timeoutStarted;
+    public static bool testsFinished;
+    private static LeanTest();
+    public static void debug(string name, bool didPass, string failExplaination);
+    public static void expect(bool didPass, string definition, string failExplaination);
+    public static string padRight(int len);
+    public static float printOutLength(string str);
+    public static string formatBC(string str, string color);
+    public static string formatB(string str);
+    public static string formatC(string str, string color);
+    public static void overview();
+}
+public class LeanTester : MonoBehaviour {
+    public float timeout;
+    public void Start();
+    [IteratorStateMachineAttribute("LeanTester/<timeoutCheck>d__2")]
+private IEnumerator timeoutCheck();
+}
+public class LeanTween : MonoBehaviour {
+    public static bool throwErrors;
+    public static float tau;
+    public static float PI_DIV2;
+    private static LTSeq[] sequences;
+    private static LTDescr[] tweens;
+    private static Int32[] tweensFinished;
+    private static Int32[] tweensFinishedIds;
+    private static LTDescr tween;
+    private static int tweenMaxSearch;
+    private static int maxTweens;
+    private static int maxSequences;
+    private static int frameRendered;
+    private static GameObject _tweenEmpty;
+    public static float dtEstimated;
+    public static float dtManual;
+    public static float dtActual;
+    private static UInt32 global_counter;
+    private static int i;
+    private static int j;
+    private static int finishedCnt;
+    public static AnimationCurve punch;
+    public static AnimationCurve shake;
+    private static int maxTweenReached;
+    public static int startSearch;
+    public static LTDescr d;
+    private static Action`1[] eventListeners;
+    private static GameObject[] goListeners;
+    private static int eventsMaxSearch;
+    public static int EVENTS_MAX;
+    public static int LISTENERS_MAX;
+    private static int INIT_LISTENERS_MAX;
+    public static int maxSearch { get; }
+    public static int maxSimulataneousTweens { get; }
+    public static int tweensRunning { get; }
+    public static GameObject tweenEmpty { get; }
+    private static LeanTween();
+    public static void init();
+    public static int get_maxSearch();
+    public static int get_maxSimulataneousTweens();
+    public static int get_tweensRunning();
+    public static void init(int maxSimultaneousTweens);
+    public static void init(int maxSimultaneousTweens, int maxSimultaneousSequences);
+    public static void reset();
+    public void Update();
+    private static void onLevelWasLoaded54(Scene scene, LoadSceneMode mode);
+    private static void internalOnLevelWasLoaded(int lvl);
+    public static void update();
+    public static void removeTween(int i, int uniqueId);
+    public static void removeTween(int i);
+    public static Vector3[] add(Vector3[] a, Vector3 b);
+    public static float closestRot(float from, float to);
+    public static void cancelAll();
+    public static void cancelAll(bool callComplete);
+    public static void cancel(GameObject gameObject);
+    public static void cancel(GameObject gameObject, bool callOnComplete);
+    public static void cancel(RectTransform rect);
+    public static void cancel(GameObject gameObject, int uniqueId, bool callOnComplete);
+    public static void cancel(LTRect ltRect, int uniqueId);
+    public static void cancel(int uniqueId);
+    public static void cancel(int uniqueId, bool callOnComplete);
+    public static LTDescr descr(int uniqueId);
+    public static LTDescr description(int uniqueId);
+    public static LTDescr[] descriptions(GameObject gameObject);
+    [ObsoleteAttribute("Use 'pause( id )' instead")]
+public static void pause(GameObject gameObject, int uniqueId);
+    public static void pause(int uniqueId);
+    public static void pause(GameObject gameObject);
+    public static void pauseAll();
+    public static void resumeAll();
+    [ObsoleteAttribute("Use 'resume( id )' instead")]
+public static void resume(GameObject gameObject, int uniqueId);
+    public static void resume(int uniqueId);
+    public static void resume(GameObject gameObject);
+    public static bool isTweening(GameObject gameObject);
+    public static bool isTweening(RectTransform rect);
+    public static bool isTweening(int uniqueId);
+    public static bool isTweening(LTRect ltRect);
+    public static void drawBezierPath(Vector3 a, Vector3 b, Vector3 c, Vector3 d, float arrowSize, Transform arrowTransform);
+    public static object logError(string error);
+    public static LTDescr options(LTDescr seed);
+    public static LTDescr options();
+    public static GameObject get_tweenEmpty();
+    private static LTDescr pushNewTween(GameObject gameObject, Vector3 to, float time, LTDescr tween);
+    public static LTDescr play(RectTransform rectTransform, Sprite[] sprites);
+    public static LTDescr alpha(GameObject gameObject, float to, float time);
+    public static LTSeq sequence(bool initSequence);
+    public static LTDescr alpha(LTRect ltRect, float to, float time);
+    public static LTDescr textAlpha(RectTransform rectTransform, float to, float time);
+    public static LTDescr alphaText(RectTransform rectTransform, float to, float time);
+    public static LTDescr alphaCanvas(CanvasGroup canvasGroup, float to, float time);
+    public static LTDescr alphaVertex(GameObject gameObject, float to, float time);
+    public static LTDescr color(GameObject gameObject, Color to, float time);
+    public static LTDescr textColor(RectTransform rectTransform, Color to, float time);
+    public static LTDescr colorText(RectTransform rectTransform, Color to, float time);
+    public static LTDescr delayedCall(float delayTime, Action callback);
+    public static LTDescr delayedCall(float delayTime, Action`1<object> callback);
+    public static LTDescr delayedCall(GameObject gameObject, float delayTime, Action callback);
+    public static LTDescr delayedCall(GameObject gameObject, float delayTime, Action`1<object> callback);
+    public static LTDescr destroyAfter(LTRect rect, float delayTime);
+    public static LTDescr move(GameObject gameObject, Vector3 to, float time);
+    public static LTDescr move(GameObject gameObject, Vector2 to, float time);
+    public static LTDescr move(GameObject gameObject, Vector3[] to, float time);
+    public static LTDescr move(GameObject gameObject, LTBezierPath to, float time);
+    public static LTDescr move(GameObject gameObject, LTSpline to, float time);
+    public static LTDescr moveSpline(GameObject gameObject, Vector3[] to, float time);
+    public static LTDescr moveSpline(GameObject gameObject, LTSpline to, float time);
+    public static LTDescr moveSplineLocal(GameObject gameObject, Vector3[] to, float time);
+    public static LTDescr move(LTRect ltRect, Vector2 to, float time);
+    public static LTDescr moveMargin(LTRect ltRect, Vector2 to, float time);
+    public static LTDescr moveX(GameObject gameObject, float to, float time);
+    public static LTDescr moveY(GameObject gameObject, float to, float time);
+    public static LTDescr moveZ(GameObject gameObject, float to, float time);
+    public static LTDescr moveLocal(GameObject gameObject, Vector3 to, float time);
+    public static LTDescr moveLocal(GameObject gameObject, Vector3[] to, float time);
+    public static LTDescr moveLocalX(GameObject gameObject, float to, float time);
+    public static LTDescr moveLocalY(GameObject gameObject, float to, float time);
+    public static LTDescr moveLocalZ(GameObject gameObject, float to, float time);
+    public static LTDescr moveLocal(GameObject gameObject, LTBezierPath to, float time);
+    public static LTDescr moveLocal(GameObject gameObject, LTSpline to, float time);
+    public static LTDescr move(GameObject gameObject, Transform to, float time);
+    public static LTDescr rotate(GameObject gameObject, Vector3 to, float time);
+    public static LTDescr rotate(LTRect ltRect, float to, float time);
+    public static LTDescr rotateLocal(GameObject gameObject, Vector3 to, float time);
+    public static LTDescr rotateX(GameObject gameObject, float to, float time);
+    public static LTDescr rotateY(GameObject gameObject, float to, float time);
+    public static LTDescr rotateZ(GameObject gameObject, float to, float time);
+    public static LTDescr rotateAround(GameObject gameObject, Vector3 axis, float add, float time);
+    public static LTDescr rotateAroundLocal(GameObject gameObject, Vector3 axis, float add, float time);
+    public static LTDescr scale(GameObject gameObject, Vector3 to, float time);
+    public static LTDescr scale(LTRect ltRect, Vector2 to, float time);
+    public static LTDescr scaleX(GameObject gameObject, float to, float time);
+    public static LTDescr scaleY(GameObject gameObject, float to, float time);
+    public static LTDescr scaleZ(GameObject gameObject, float to, float time);
+    public static LTDescr value(GameObject gameObject, float from, float to, float time);
+    public static LTDescr value(float from, float to, float time);
+    public static LTDescr value(GameObject gameObject, Vector2 from, Vector2 to, float time);
+    public static LTDescr value(GameObject gameObject, Vector3 from, Vector3 to, float time);
+    public static LTDescr value(GameObject gameObject, Color from, Color to, float time);
+    public static LTDescr value(GameObject gameObject, Action`1<float> callOnUpdate, float from, float to, float time);
+    public static LTDescr value(GameObject gameObject, Action`2<float, float> callOnUpdateRatio, float from, float to, float time);
+    public static LTDescr value(GameObject gameObject, Action`1<Color> callOnUpdate, Color from, Color to, float time);
+    public static LTDescr value(GameObject gameObject, Action`2<Color, object> callOnUpdate, Color from, Color to, float time);
+    public static LTDescr value(GameObject gameObject, Action`1<Vector2> callOnUpdate, Vector2 from, Vector2 to, float time);
+    public static LTDescr value(GameObject gameObject, Action`1<Vector3> callOnUpdate, Vector3 from, Vector3 to, float time);
+    public static LTDescr value(GameObject gameObject, Action`2<float, object> callOnUpdate, float from, float to, float time);
+    public static LTDescr delayedSound(AudioClip audio, Vector3 pos, float volume);
+    public static LTDescr delayedSound(GameObject gameObject, AudioClip audio, Vector3 pos, float volume);
+    public static LTDescr move(RectTransform rectTrans, Vector3 to, float time);
+    public static LTDescr moveX(RectTransform rectTrans, float to, float time);
+    public static LTDescr moveY(RectTransform rectTrans, float to, float time);
+    public static LTDescr moveZ(RectTransform rectTrans, float to, float time);
+    public static LTDescr rotate(RectTransform rectTrans, float to, float time);
+    public static LTDescr rotate(RectTransform rectTrans, Vector3 to, float time);
+    public static LTDescr rotateAround(RectTransform rectTrans, Vector3 axis, float to, float time);
+    public static LTDescr rotateAroundLocal(RectTransform rectTrans, Vector3 axis, float to, float time);
+    public static LTDescr scale(RectTransform rectTrans, Vector3 to, float time);
+    public static LTDescr size(RectTransform rectTrans, Vector2 to, float time);
+    public static LTDescr alpha(RectTransform rectTrans, float to, float time);
+    public static LTDescr color(RectTransform rectTrans, Color to, float time);
+    public static float tweenOnCurve(LTDescr tweenDescr, float ratioPassed);
+    public static Vector3 tweenOnCurveVector(LTDescr tweenDescr, float ratioPassed);
+    public static float easeOutQuadOpt(float start, float diff, float ratioPassed);
+    public static float easeInQuadOpt(float start, float diff, float ratioPassed);
+    public static float easeInOutQuadOpt(float start, float diff, float ratioPassed);
+    public static Vector3 easeInOutQuadOpt(Vector3 start, Vector3 diff, float ratioPassed);
+    public static float linear(float start, float end, float val);
+    public static float clerp(float start, float end, float val);
+    public static float spring(float start, float end, float val);
+    public static float easeInQuad(float start, float end, float val);
+    public static float easeOutQuad(float start, float end, float val);
+    public static float easeInOutQuad(float start, float end, float val);
+    public static float easeInOutQuadOpt2(float start, float diffBy2, float val, float val2);
+    public static float easeInCubic(float start, float end, float val);
+    public static float easeOutCubic(float start, float end, float val);
+    public static float easeInOutCubic(float start, float end, float val);
+    public static float easeInQuart(float start, float end, float val);
+    public static float easeOutQuart(float start, float end, float val);
+    public static float easeInOutQuart(float start, float end, float val);
+    public static float easeInQuint(float start, float end, float val);
+    public static float easeOutQuint(float start, float end, float val);
+    public static float easeInOutQuint(float start, float end, float val);
+    public static float easeInSine(float start, float end, float val);
+    public static float easeOutSine(float start, float end, float val);
+    public static float easeInOutSine(float start, float end, float val);
+    public static float easeInExpo(float start, float end, float val);
+    public static float easeOutExpo(float start, float end, float val);
+    public static float easeInOutExpo(float start, float end, float val);
+    public static float easeInCirc(float start, float end, float val);
+    public static float easeOutCirc(float start, float end, float val);
+    public static float easeInOutCirc(float start, float end, float val);
+    public static float easeInBounce(float start, float end, float val);
+    public static float easeOutBounce(float start, float end, float val);
+    public static float easeInOutBounce(float start, float end, float val);
+    public static float easeInBack(float start, float end, float val, float overshoot);
+    public static float easeOutBack(float start, float end, float val, float overshoot);
+    public static float easeInOutBack(float start, float end, float val, float overshoot);
+    public static float easeInElastic(float start, float end, float val, float overshoot, float period);
+    public static float easeOutElastic(float start, float end, float val, float overshoot, float period);
+    public static float easeInOutElastic(float start, float end, float val, float overshoot, float period);
+    public static void addListener(int eventId, Action`1<LTEvent> callback);
+    public static void addListener(GameObject caller, int eventId, Action`1<LTEvent> callback);
+    public static bool removeListener(int eventId, Action`1<LTEvent> callback);
+    public static bool removeListener(int eventId);
+    public static bool removeListener(GameObject caller, int eventId, Action`1<LTEvent> callback);
+    public static void dispatchEvent(int eventId);
+    public static void dispatchEvent(int eventId, object data);
+}
+public enum LeanTweenType : Enum {
+    public int value__;
+    public static LeanTweenType notUsed;
+    public static LeanTweenType linear;
+    public static LeanTweenType easeOutQuad;
+    public static LeanTweenType easeInQuad;
+    public static LeanTweenType easeInOutQuad;
+    public static LeanTweenType easeInCubic;
+    public static LeanTweenType easeOutCubic;
+    public static LeanTweenType easeInOutCubic;
+    public static LeanTweenType easeInQuart;
+    public static LeanTweenType easeOutQuart;
+    public static LeanTweenType easeInOutQuart;
+    public static LeanTweenType easeInQuint;
+    public static LeanTweenType easeOutQuint;
+    public static LeanTweenType easeInOutQuint;
+    public static LeanTweenType easeInSine;
+    public static LeanTweenType easeOutSine;
+    public static LeanTweenType easeInOutSine;
+    public static LeanTweenType easeInExpo;
+    public static LeanTweenType easeOutExpo;
+    public static LeanTweenType easeInOutExpo;
+    public static LeanTweenType easeInCirc;
+    public static LeanTweenType easeOutCirc;
+    public static LeanTweenType easeInOutCirc;
+    public static LeanTweenType easeInBounce;
+    public static LeanTweenType easeOutBounce;
+    public static LeanTweenType easeInOutBounce;
+    public static LeanTweenType easeInBack;
+    public static LeanTweenType easeOutBack;
+    public static LeanTweenType easeInOutBack;
+    public static LeanTweenType easeInElastic;
+    public static LeanTweenType easeOutElastic;
+    public static LeanTweenType easeInOutElastic;
+    public static LeanTweenType easeSpring;
+    public static LeanTweenType easeShake;
+    public static LeanTweenType punch;
+    public static LeanTweenType once;
+    public static LeanTweenType clamp;
+    public static LeanTweenType pingPong;
+    public static LeanTweenType animationCurve;
+}
+public abstract class ListComponent : FacepunchBehaviour {
+    public abstract virtual void Setup();
+    public abstract virtual void Clear();
+    protected virtual void OnEnable();
+    protected virtual void OnDisable();
+}
+public abstract class ListComponent`1 : ListComponent {
+    public static ListHashSet`1<T> InstanceList;
+    private static ListComponent`1();
+    public virtual void Setup();
+    public virtual void Clear();
+    public static void RunOnAll(Action`1<T> toRun);
+}
+public class LTBezier : object {
+    public float length;
+    private Vector3 a;
+    private Vector3 aa;
+    private Vector3 bb;
+    private Vector3 cc;
+    private float len;
+    private Single[] arcLengths;
+    public LTBezier(Vector3 a, Vector3 b, Vector3 c, Vector3 d, float precision);
+    private float map(float u);
+    private Vector3 bezierPoint(float t);
+    public Vector3 point(float t);
+}
+public class LTBezierPath : object {
+    public Vector3[] pts;
+    public float length;
+    public bool orientToPath;
+    public bool orientToPath2d;
+    private LTBezier[] beziers;
+    private Single[] lengthRatio;
+    private int currentBezier;
+    private int previousBezier;
+    public float distance { get; }
+    public LTBezierPath(Vector3[] pts_);
+    public void setPoints(Vector3[] pts_);
+    public float get_distance();
+    public Vector3 point(float ratio);
+    public void place2d(Transform transform, float ratio);
+    public void placeLocal2d(Transform transform, float ratio);
+    public void place(Transform transform, float ratio);
+    public void place(Transform transform, float ratio, Vector3 worldUp);
+    public void placeLocal(Transform transform, float ratio);
+    public void placeLocal(Transform transform, float ratio, Vector3 worldUp);
+    public void gizmoDraw(float t);
+}
+public class LTDescr : object {
+    public bool toggle;
+    public bool useEstimatedTime;
+    public bool useFrames;
+    public bool useManualTime;
+    public bool usesNormalDt;
+    public bool hasInitiliazed;
+    public bool hasExtraOnCompletes;
+    public bool hasPhysics;
+    public bool onCompleteOnRepeat;
+    public bool onCompleteOnStart;
+    public bool useRecursion;
+    public float ratioPassed;
+    public float passed;
+    public float delay;
+    public float time;
+    public float speed;
+    public float lastVal;
+    private UInt32 _id;
+    public int loopCount;
+    public UInt32 counter;
+    public float direction;
+    public float directionLast;
+    public float overshoot;
+    public float period;
+    public float scale;
+    public bool destroyOnComplete;
+    public Transform trans;
+    public LTRect ltRect;
+    internal Vector3 fromInternal;
+    internal Vector3 toInternal;
+    internal Vector3 diff;
+    internal Vector3 diffDiv2;
+    public TweenAction type;
+    private LeanTweenType easeType;
+    public LeanTweenType loopType;
+    public bool hasUpdateCallback;
+    public EaseTypeDelegate easeMethod;
+    [CompilerGeneratedAttribute]
+private ActionMethodDelegate <easeInternal>k__BackingField;
+    [CompilerGeneratedAttribute]
+private ActionMethodDelegate <initInternal>k__BackingField;
+    public SpriteRenderer spriteRen;
+    public RectTransform rectTransform;
+    public Text uiText;
+    public Image uiImage;
+    public RawImage rawImage;
+    public Sprite[] sprites;
+    public LTDescrOptional _optional;
+    public static float val;
+    public static float dt;
+    public static Vector3 newVect;
+    public Vector3 from { get; public set; }
+    public Vector3 to { get; public set; }
+    public ActionMethodDelegate easeInternal { get; public set; }
+    public ActionMethodDelegate initInternal { get; public set; }
+    public int uniqueId { get; }
+    public int id { get; }
+    public LTDescrOptional optional { get; public set; }
+    public Vector3 get_from();
+    public void set_from(Vector3 value);
+    public Vector3 get_to();
+    public void set_to(Vector3 value);
+    [CompilerGeneratedAttribute]
+public ActionMethodDelegate get_easeInternal();
+    [CompilerGeneratedAttribute]
+public void set_easeInternal(ActionMethodDelegate value);
+    [CompilerGeneratedAttribute]
+public ActionMethodDelegate get_initInternal();
+    [CompilerGeneratedAttribute]
+public void set_initInternal(ActionMethodDelegate value);
+    public virtual string ToString();
+    [ObsoleteAttribute("Use 'LeanTween.cancel( id )' instead")]
+public LTDescr cancel(GameObject gameObject);
+    public int get_uniqueId();
+    public int get_id();
+    public LTDescrOptional get_optional();
+    public void set_optional(LTDescrOptional value);
+    public void reset();
+    public LTDescr setMoveX();
+    public LTDescr setMoveY();
+    public LTDescr setMoveZ();
+    public LTDescr setMoveLocalX();
+    public LTDescr setMoveLocalY();
+    public LTDescr setMoveLocalZ();
+    private void initFromInternal();
+    public LTDescr setMoveCurved();
+    public LTDescr setMoveCurvedLocal();
+    public LTDescr setMoveSpline();
+    public LTDescr setMoveSplineLocal();
+    public LTDescr setScaleX();
+    public LTDescr setScaleY();
+    public LTDescr setScaleZ();
+    public LTDescr setRotateX();
+    public LTDescr setRotateY();
+    public LTDescr setRotateZ();
+    public LTDescr setRotateAround();
+    public LTDescr setRotateAroundLocal();
+    public LTDescr setAlpha();
+    public LTDescr setTextAlpha();
+    public LTDescr setAlphaVertex();
+    public LTDescr setColor();
+    public LTDescr setCallbackColor();
+    public LTDescr setTextColor();
+    public LTDescr setCanvasAlpha();
+    public LTDescr setCanvasGroupAlpha();
+    public LTDescr setCanvasColor();
+    public LTDescr setCanvasMoveX();
+    public LTDescr setCanvasMoveY();
+    public LTDescr setCanvasMoveZ();
+    private void initCanvasRotateAround();
+    public LTDescr setCanvasRotateAround();
+    public LTDescr setCanvasRotateAroundLocal();
+    public LTDescr setCanvasPlaySprite();
+    public LTDescr setCanvasMove();
+    public LTDescr setCanvasScale();
+    public LTDescr setCanvasSizeDelta();
+    private void callback();
+    public LTDescr setCallback();
+    public LTDescr setValue3();
+    public LTDescr setMove();
+    public LTDescr setMoveLocal();
+    public LTDescr setMoveToTransform();
+    public LTDescr setRotate();
+    public LTDescr setRotateLocal();
+    public LTDescr setScale();
+    public LTDescr setGUIMove();
+    public LTDescr setGUIMoveMargin();
+    public LTDescr setGUIScale();
+    public LTDescr setGUIAlpha();
+    public LTDescr setGUIRotate();
+    public LTDescr setDelayedSound();
+    private void init();
+    private void initSpeed();
+    public LTDescr updateNow();
+    public bool updateInternal();
+    public void callOnCompletes();
+    public LTDescr setFromColor(Color col);
+    private static void alphaRecursive(Transform transform, float val, bool useRecursion);
+    private static void colorRecursive(Transform transform, Color toColor, bool useRecursion);
+    private static void alphaRecursive(RectTransform rectTransform, float val, int recursiveLevel);
+    private static void alphaRecursiveSprite(Transform transform, float val);
+    private static void colorRecursiveSprite(Transform transform, Color toColor);
+    private static void colorRecursive(RectTransform rectTransform, Color toColor);
+    private static void textAlphaChildrenRecursive(Transform trans, float val, bool useRecursion);
+    private static void textAlphaRecursive(Transform trans, float val, bool useRecursion);
+    private static void textColorRecursive(Transform trans, Color toColor);
+    private static Color tweenColor(LTDescr tween, float val);
+    public LTDescr pause();
+    public LTDescr resume();
+    public LTDescr setAxis(Vector3 axis);
+    public LTDescr setDelay(float delay);
+    public LTDescr setEase(LeanTweenType easeType);
+    public LTDescr setEaseLinear();
+    public LTDescr setEaseSpring();
+    public LTDescr setEaseInQuad();
+    public LTDescr setEaseOutQuad();
+    public LTDescr setEaseInOutQuad();
+    public LTDescr setEaseInCubic();
+    public LTDescr setEaseOutCubic();
+    public LTDescr setEaseInOutCubic();
+    public LTDescr setEaseInQuart();
+    public LTDescr setEaseOutQuart();
+    public LTDescr setEaseInOutQuart();
+    public LTDescr setEaseInQuint();
+    public LTDescr setEaseOutQuint();
+    public LTDescr setEaseInOutQuint();
+    public LTDescr setEaseInSine();
+    public LTDescr setEaseOutSine();
+    public LTDescr setEaseInOutSine();
+    public LTDescr setEaseInExpo();
+    public LTDescr setEaseOutExpo();
+    public LTDescr setEaseInOutExpo();
+    public LTDescr setEaseInCirc();
+    public LTDescr setEaseOutCirc();
+    public LTDescr setEaseInOutCirc();
+    public LTDescr setEaseInBounce();
+    public LTDescr setEaseOutBounce();
+    public LTDescr setEaseInOutBounce();
+    public LTDescr setEaseInBack();
+    public LTDescr setEaseOutBack();
+    public LTDescr setEaseInOutBack();
+    public LTDescr setEaseInElastic();
+    public LTDescr setEaseOutElastic();
+    public LTDescr setEaseInOutElastic();
+    public LTDescr setEasePunch();
+    public LTDescr setEaseShake();
+    private Vector3 tweenOnCurve();
+    private Vector3 easeInOutQuad();
+    private Vector3 easeInQuad();
+    private Vector3 easeOutQuad();
+    private Vector3 easeLinear();
+    private Vector3 easeSpring();
+    private Vector3 easeInCubic();
+    private Vector3 easeOutCubic();
+    private Vector3 easeInOutCubic();
+    private Vector3 easeInQuart();
+    private Vector3 easeOutQuart();
+    private Vector3 easeInOutQuart();
+    private Vector3 easeInQuint();
+    private Vector3 easeOutQuint();
+    private Vector3 easeInOutQuint();
+    private Vector3 easeInSine();
+    private Vector3 easeOutSine();
+    private Vector3 easeInOutSine();
+    private Vector3 easeInExpo();
+    private Vector3 easeOutExpo();
+    private Vector3 easeInOutExpo();
+    private Vector3 easeInCirc();
+    private Vector3 easeOutCirc();
+    private Vector3 easeInOutCirc();
+    private Vector3 easeInBounce();
+    private Vector3 easeOutBounce();
+    private Vector3 easeInOutBounce();
+    private Vector3 easeInBack();
+    private Vector3 easeOutBack();
+    private Vector3 easeInOutBack();
+    private Vector3 easeInElastic();
+    private Vector3 easeOutElastic();
+    private Vector3 easeInOutElastic();
+    public LTDescr setOvershoot(float overshoot);
+    public LTDescr setPeriod(float period);
+    public LTDescr setScale(float scale);
+    public LTDescr setEase(AnimationCurve easeCurve);
+    public LTDescr setTo(Vector3 to);
+    public LTDescr setTo(Transform to);
+    public LTDescr setFrom(Vector3 from);
+    public LTDescr setFrom(float from);
+    public LTDescr setDiff(Vector3 diff);
+    public LTDescr setHasInitialized(bool has);
+    public LTDescr setId(UInt32 id, UInt32 global_counter);
+    public LTDescr setPassed(float passed);
+    public LTDescr setTime(float time);
+    public LTDescr setSpeed(float speed);
+    public LTDescr setRepeat(int repeat);
+    public LTDescr setLoopType(LeanTweenType loopType);
+    public LTDescr setUseEstimatedTime(bool useEstimatedTime);
+    public LTDescr setIgnoreTimeScale(bool useUnScaledTime);
+    public LTDescr setUseFrames(bool useFrames);
+    public LTDescr setUseManualTime(bool useManualTime);
+    public LTDescr setLoopCount(int loopCount);
+    public LTDescr setLoopOnce();
+    public LTDescr setLoopClamp();
+    public LTDescr setLoopClamp(int loops);
+    public LTDescr setLoopPingPong();
+    public LTDescr setLoopPingPong(int loops);
+    public LTDescr setOnComplete(Action onComplete);
+    public LTDescr setOnComplete(Action`1<object> onComplete);
+    public LTDescr setOnComplete(Action`1<object> onComplete, object onCompleteParam);
+    public LTDescr setOnCompleteParam(object onCompleteParam);
+    public LTDescr setOnUpdate(Action`1<float> onUpdate);
+    public LTDescr setOnUpdateRatio(Action`2<float, float> onUpdate);
+    public LTDescr setOnUpdateObject(Action`2<float, object> onUpdate);
+    public LTDescr setOnUpdateVector2(Action`1<Vector2> onUpdate);
+    public LTDescr setOnUpdateVector3(Action`1<Vector3> onUpdate);
+    public LTDescr setOnUpdateColor(Action`1<Color> onUpdate);
+    public LTDescr setOnUpdateColor(Action`2<Color, object> onUpdate);
+    public LTDescr setOnUpdate(Action`1<Color> onUpdate);
+    public LTDescr setOnUpdate(Action`2<Color, object> onUpdate);
+    public LTDescr setOnUpdate(Action`2<float, object> onUpdate, object onUpdateParam);
+    public LTDescr setOnUpdate(Action`2<Vector3, object> onUpdate, object onUpdateParam);
+    public LTDescr setOnUpdate(Action`1<Vector2> onUpdate, object onUpdateParam);
+    public LTDescr setOnUpdate(Action`1<Vector3> onUpdate, object onUpdateParam);
+    public LTDescr setOnUpdateParam(object onUpdateParam);
+    public LTDescr setOrientToPath(bool doesOrient);
+    public LTDescr setOrientToPath2d(bool doesOrient2d);
+    public LTDescr setRect(LTRect rect);
+    public LTDescr setRect(Rect rect);
+    public LTDescr setPath(LTBezierPath path);
+    public LTDescr setPoint(Vector3 point);
+    public LTDescr setDestroyOnComplete(bool doesDestroy);
+    public LTDescr setAudio(object audio);
+    public LTDescr setOnCompleteOnRepeat(bool isOn);
+    public LTDescr setOnCompleteOnStart(bool isOn);
+    public LTDescr setRect(RectTransform rect);
+    public LTDescr setSprites(Sprite[] sprites);
+    public LTDescr setFrameRate(float frameRate);
+    public LTDescr setOnStart(Action onStart);
+    public LTDescr setDirection(float direction);
+    public LTDescr setRecursive(bool useRecursion);
+    [CompilerGeneratedAttribute]
+private void <setMoveX>b__71_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveX>b__71_1();
+    [CompilerGeneratedAttribute]
+private void <setMoveY>b__72_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveY>b__72_1();
+    [CompilerGeneratedAttribute]
+private void <setMoveZ>b__73_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveZ>b__73_1();
+    [CompilerGeneratedAttribute]
+private void <setMoveLocalX>b__74_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveLocalX>b__74_1();
+    [CompilerGeneratedAttribute]
+private void <setMoveLocalY>b__75_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveLocalY>b__75_1();
+    [CompilerGeneratedAttribute]
+private void <setMoveLocalZ>b__76_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveLocalZ>b__76_1();
+    [CompilerGeneratedAttribute]
+private void <setMoveCurved>b__78_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveCurvedLocal>b__79_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveSpline>b__80_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveSplineLocal>b__81_0();
+    [CompilerGeneratedAttribute]
+private void <setScaleX>b__82_0();
+    [CompilerGeneratedAttribute]
+private void <setScaleX>b__82_1();
+    [CompilerGeneratedAttribute]
+private void <setScaleY>b__83_0();
+    [CompilerGeneratedAttribute]
+private void <setScaleY>b__83_1();
+    [CompilerGeneratedAttribute]
+private void <setScaleZ>b__84_0();
+    [CompilerGeneratedAttribute]
+private void <setScaleZ>b__84_1();
+    [CompilerGeneratedAttribute]
+private void <setRotateX>b__85_0();
+    [CompilerGeneratedAttribute]
+private void <setRotateX>b__85_1();
+    [CompilerGeneratedAttribute]
+private void <setRotateY>b__86_0();
+    [CompilerGeneratedAttribute]
+private void <setRotateY>b__86_1();
+    [CompilerGeneratedAttribute]
+private void <setRotateZ>b__87_0();
+    [CompilerGeneratedAttribute]
+private void <setRotateZ>b__87_1();
+    [CompilerGeneratedAttribute]
+private void <setRotateAround>b__88_0();
+    [CompilerGeneratedAttribute]
+private void <setRotateAround>b__88_1();
+    [CompilerGeneratedAttribute]
+private void <setRotateAroundLocal>b__89_0();
+    [CompilerGeneratedAttribute]
+private void <setRotateAroundLocal>b__89_1();
+    [CompilerGeneratedAttribute]
+private void <setAlpha>b__90_0();
+    [CompilerGeneratedAttribute]
+private void <setAlpha>b__90_2();
+    [CompilerGeneratedAttribute]
+private void <setAlpha>b__90_1();
+    [CompilerGeneratedAttribute]
+private void <setTextAlpha>b__91_0();
+    [CompilerGeneratedAttribute]
+private void <setTextAlpha>b__91_1();
+    [CompilerGeneratedAttribute]
+private void <setAlphaVertex>b__92_0();
+    [CompilerGeneratedAttribute]
+private void <setAlphaVertex>b__92_1();
+    [CompilerGeneratedAttribute]
+private void <setColor>b__93_0();
+    [CompilerGeneratedAttribute]
+private void <setColor>b__93_1();
+    [CompilerGeneratedAttribute]
+private void <setCallbackColor>b__94_0();
+    [CompilerGeneratedAttribute]
+private void <setCallbackColor>b__94_1();
+    [CompilerGeneratedAttribute]
+private void <setTextColor>b__95_0();
+    [CompilerGeneratedAttribute]
+private void <setTextColor>b__95_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasAlpha>b__96_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasAlpha>b__96_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasGroupAlpha>b__97_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasGroupAlpha>b__97_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasColor>b__98_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasColor>b__98_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasMoveX>b__99_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasMoveX>b__99_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasMoveY>b__100_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasMoveY>b__100_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasMoveZ>b__101_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasMoveZ>b__101_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasRotateAround>b__103_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasRotateAroundLocal>b__104_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasPlaySprite>b__105_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasPlaySprite>b__105_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasMove>b__106_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasMove>b__106_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasScale>b__107_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasScale>b__107_1();
+    [CompilerGeneratedAttribute]
+private void <setCanvasSizeDelta>b__108_0();
+    [CompilerGeneratedAttribute]
+private void <setCanvasSizeDelta>b__108_1();
+    [CompilerGeneratedAttribute]
+private void <setMove>b__112_0();
+    [CompilerGeneratedAttribute]
+private void <setMove>b__112_1();
+    [CompilerGeneratedAttribute]
+private void <setMoveLocal>b__113_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveLocal>b__113_1();
+    [CompilerGeneratedAttribute]
+private void <setMoveToTransform>b__114_0();
+    [CompilerGeneratedAttribute]
+private void <setMoveToTransform>b__114_1();
+    [CompilerGeneratedAttribute]
+private void <setRotate>b__115_0();
+    [CompilerGeneratedAttribute]
+private void <setRotate>b__115_1();
+    [CompilerGeneratedAttribute]
+private void <setRotateLocal>b__116_0();
+    [CompilerGeneratedAttribute]
+private void <setRotateLocal>b__116_1();
+    [CompilerGeneratedAttribute]
+private void <setScale>b__117_0();
+    [CompilerGeneratedAttribute]
+private void <setScale>b__117_1();
+    [CompilerGeneratedAttribute]
+private void <setGUIMove>b__118_0();
+    [CompilerGeneratedAttribute]
+private void <setGUIMove>b__118_1();
+    [CompilerGeneratedAttribute]
+private void <setGUIMoveMargin>b__119_0();
+    [CompilerGeneratedAttribute]
+private void <setGUIMoveMargin>b__119_1();
+    [CompilerGeneratedAttribute]
+private void <setGUIScale>b__120_0();
+    [CompilerGeneratedAttribute]
+private void <setGUIScale>b__120_1();
+    [CompilerGeneratedAttribute]
+private void <setGUIAlpha>b__121_0();
+    [CompilerGeneratedAttribute]
+private void <setGUIAlpha>b__121_1();
+    [CompilerGeneratedAttribute]
+private void <setGUIRotate>b__122_0();
+    [CompilerGeneratedAttribute]
+private void <setGUIRotate>b__122_1();
+    [CompilerGeneratedAttribute]
+private void <setDelayedSound>b__123_0();
+}
+public class LTDescrOptional : object {
+    [CompilerGeneratedAttribute]
+private Transform <toTrans>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Vector3 <point>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Vector3 <axis>k__BackingField;
+    [CompilerGeneratedAttribute]
+private float <lastVal>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Quaternion <origRotation>k__BackingField;
+    [CompilerGeneratedAttribute]
+private LTBezierPath <path>k__BackingField;
+    [CompilerGeneratedAttribute]
+private LTSpline <spline>k__BackingField;
+    public AnimationCurve animationCurve;
+    public int initFrameCount;
+    [CompilerGeneratedAttribute]
+private LTRect <ltRect>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<float> <onUpdateFloat>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`2<float, float> <onUpdateFloatRatio>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`2<float, object> <onUpdateFloatObject>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<Vector2> <onUpdateVector2>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<Vector3> <onUpdateVector3>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`2<Vector3, object> <onUpdateVector3Object>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<Color> <onUpdateColor>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`2<Color, object> <onUpdateColorObject>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action <onComplete>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action`1<object> <onCompleteObject>k__BackingField;
+    [CompilerGeneratedAttribute]
+private object <onCompleteParam>k__BackingField;
+    [CompilerGeneratedAttribute]
+private object <onUpdateParam>k__BackingField;
+    [CompilerGeneratedAttribute]
+private Action <onStart>k__BackingField;
+    public Transform toTrans { get; public set; }
+    public Vector3 point { get; public set; }
+    public Vector3 axis { get; public set; }
+    public float lastVal { get; public set; }
+    public Quaternion origRotation { get; public set; }
+    public LTBezierPath path { get; public set; }
+    public LTSpline spline { get; public set; }
+    public LTRect ltRect { get; public set; }
+    public Action`1<float> onUpdateFloat { get; public set; }
+    public Action`2<float, float> onUpdateFloatRatio { get; public set; }
+    public Action`2<float, object> onUpdateFloatObject { get; public set; }
+    public Action`1<Vector2> onUpdateVector2 { get; public set; }
+    public Action`1<Vector3> onUpdateVector3 { get; public set; }
+    public Action`2<Vector3, object> onUpdateVector3Object { get; public set; }
+    public Action`1<Color> onUpdateColor { get; public set; }
+    public Action`2<Color, object> onUpdateColorObject { get; public set; }
+    public Action onComplete { get; public set; }
+    public Action`1<object> onCompleteObject { get; public set; }
+    public object onCompleteParam { get; public set; }
+    public object onUpdateParam { get; public set; }
+    public Action onStart { get; public set; }
+    [CompilerGeneratedAttribute]
+public Transform get_toTrans();
+    [CompilerGeneratedAttribute]
+public void set_toTrans(Transform value);
+    [CompilerGeneratedAttribute]
+public Vector3 get_point();
+    [CompilerGeneratedAttribute]
+public void set_point(Vector3 value);
+    [CompilerGeneratedAttribute]
+public Vector3 get_axis();
+    [CompilerGeneratedAttribute]
+public void set_axis(Vector3 value);
+    [CompilerGeneratedAttribute]
+public float get_lastVal();
+    [CompilerGeneratedAttribute]
+public void set_lastVal(float value);
+    [CompilerGeneratedAttribute]
+public Quaternion get_origRotation();
+    [CompilerGeneratedAttribute]
+public void set_origRotation(Quaternion value);
+    [CompilerGeneratedAttribute]
+public LTBezierPath get_path();
+    [CompilerGeneratedAttribute]
+public void set_path(LTBezierPath value);
+    [CompilerGeneratedAttribute]
+public LTSpline get_spline();
+    [CompilerGeneratedAttribute]
+public void set_spline(LTSpline value);
+    [CompilerGeneratedAttribute]
+public LTRect get_ltRect();
+    [CompilerGeneratedAttribute]
+public void set_ltRect(LTRect value);
+    [CompilerGeneratedAttribute]
+public Action`1<float> get_onUpdateFloat();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateFloat(Action`1<float> value);
+    [CompilerGeneratedAttribute]
+public Action`2<float, float> get_onUpdateFloatRatio();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateFloatRatio(Action`2<float, float> value);
+    [CompilerGeneratedAttribute]
+public Action`2<float, object> get_onUpdateFloatObject();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateFloatObject(Action`2<float, object> value);
+    [CompilerGeneratedAttribute]
+public Action`1<Vector2> get_onUpdateVector2();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateVector2(Action`1<Vector2> value);
+    [CompilerGeneratedAttribute]
+public Action`1<Vector3> get_onUpdateVector3();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateVector3(Action`1<Vector3> value);
+    [CompilerGeneratedAttribute]
+public Action`2<Vector3, object> get_onUpdateVector3Object();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateVector3Object(Action`2<Vector3, object> value);
+    [CompilerGeneratedAttribute]
+public Action`1<Color> get_onUpdateColor();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateColor(Action`1<Color> value);
+    [CompilerGeneratedAttribute]
+public Action`2<Color, object> get_onUpdateColorObject();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateColorObject(Action`2<Color, object> value);
+    [CompilerGeneratedAttribute]
+public Action get_onComplete();
+    [CompilerGeneratedAttribute]
+public void set_onComplete(Action value);
+    [CompilerGeneratedAttribute]
+public Action`1<object> get_onCompleteObject();
+    [CompilerGeneratedAttribute]
+public void set_onCompleteObject(Action`1<object> value);
+    [CompilerGeneratedAttribute]
+public object get_onCompleteParam();
+    [CompilerGeneratedAttribute]
+public void set_onCompleteParam(object value);
+    [CompilerGeneratedAttribute]
+public object get_onUpdateParam();
+    [CompilerGeneratedAttribute]
+public void set_onUpdateParam(object value);
+    [CompilerGeneratedAttribute]
+public Action get_onStart();
+    [CompilerGeneratedAttribute]
+public void set_onStart(Action value);
+    public void reset();
+    public void callOnUpdate(float val, float ratioPassed);
+}
+public class LTEvent : object {
+    public int id;
+    public object data;
+    public LTEvent(int id, object data);
+}
+public class LTGUI : object {
+    public static int RECT_LEVELS;
+    public static int RECTS_PER_LEVEL;
+    public static int BUTTONS_MAX;
+    private static LTRect[] levels;
+    private static Int32[] levelDepths;
+    private static Rect[] buttons;
+    private static Int32[] buttonLevels;
+    private static Int32[] buttonLastFrame;
+    private static LTRect r;
+    private static Color color;
+    private static bool isGUIEnabled;
+    private static int global_counter;
+    private static LTGUI();
+    public static void init();
+    public static void initRectCheck();
+    public static void reset();
+    public static void update(int updateLevel);
+    public static bool checkOnScreen(Rect rect);
+    public static void destroy(int id);
+    public static void destroyAll(int depth);
+    public static LTRect label(Rect rect, string label, int depth);
+    public static LTRect label(LTRect rect, string label, int depth);
+    public static LTRect texture(Rect rect, Texture texture, int depth);
+    public static LTRect texture(LTRect rect, Texture texture, int depth);
+    public static LTRect element(LTRect rect, int depth);
+    public static bool hasNoOverlap(Rect rect, int depth);
+    public static bool pressedWithinRect(Rect rect);
+    public static bool checkWithinRect(Vector2 vec2, Rect rect);
+    public static Vector2 firstTouch();
+}
+public class LTRect : object {
+    public Rect _rect;
+    public float alpha;
+    public float rotation;
+    public Vector2 pivot;
+    public Vector2 margin;
+    public Rect relativeRect;
+    public bool rotateEnabled;
+    [HideInInspector]
+public bool rotateFinished;
+    public bool alphaEnabled;
+    public string labelStr;
+    public Element_Type type;
+    public GUIStyle style;
+    public bool useColor;
+    public Color color;
+    public bool fontScaleToFit;
+    public bool useSimpleScale;
+    public bool sizeByHeight;
+    public Texture texture;
+    private int _id;
+    [HideInInspector]
+public int counter;
+    public static bool colorTouched;
+    public bool hasInitiliazed { get; }
+    public int id { get; }
+    public float x { get; public set; }
+    public float y { get; public set; }
+    public float width { get; public set; }
+    public float height { get; public set; }
+    public Rect rect { get; public set; }
+    public LTRect(Rect rect);
+    public LTRect(float x, float y, float width, float height);
+    public LTRect(float x, float y, float width, float height, float alpha);
+    public LTRect(float x, float y, float width, float height, float alpha, float rotation);
+    public bool get_hasInitiliazed();
+    public int get_id();
+    public void setId(int id, int counter);
+    public void reset();
+    public void resetForRotation();
+    public float get_x();
+    public void set_x(float value);
+    public float get_y();
+    public void set_y(float value);
+    public float get_width();
+    public void set_width(float value);
+    public float get_height();
+    public void set_height(float value);
+    public Rect get_rect();
+    public void set_rect(Rect value);
+    public LTRect setStyle(GUIStyle style);
+    public LTRect setFontScaleToFit(bool fontScaleToFit);
+    public LTRect setColor(Color color);
+    public LTRect setAlpha(float alpha);
+    public LTRect setLabel(string str);
+    public LTRect setUseSimpleScale(bool useSimpleScale, Rect relativeRect);
+    public LTRect setUseSimpleScale(bool useSimpleScale);
+    public LTRect setSizeByHeight(bool sizeByHeight);
+    public virtual string ToString();
+}
+public class LTSeq : object {
+    public LTSeq previous;
+    public LTSeq current;
+    public LTDescr tween;
+    public float totalDelay;
+    public float timeScale;
+    private int debugIter;
+    public UInt32 counter;
+    public bool toggle;
+    private UInt32 _id;
+    public int id { get; }
+    public int get_id();
+    public void reset();
+    public void init(UInt32 id, UInt32 global_counter);
+    private LTSeq addOn();
+    private float addPreviousDelays();
+    public LTSeq append(float delay);
+    public LTSeq append(Action callback);
+    public LTSeq append(Action`1<object> callback, object obj);
+    public LTSeq append(GameObject gameObject, Action callback);
+    public LTSeq append(GameObject gameObject, Action`1<object> callback, object obj);
+    public LTSeq append(LTDescr tween);
+    public LTSeq insert(LTDescr tween);
+    public LTSeq setScale(float timeScale);
+    private void setScaleRecursive(LTSeq seq, float timeScale, int count);
+    public LTSeq reverse();
+}
+public class LTSpline : object {
+    public static int DISTANCE_COUNT;
+    public static int SUBLINE_COUNT;
+    public float distance;
+    public bool constantSpeed;
+    public Vector3[] pts;
+    public Vector3[] ptsAdj;
+    public int ptsAdjLength;
+    public bool orientToPath;
+    public bool orientToPath2d;
+    private int numSections;
+    private int currPt;
+    public LTSpline(Vector3[] pts);
+    public LTSpline(Vector3[] pts, bool constantSpeed);
+    private static LTSpline();
+    private void init(Vector3[] pts, bool constantSpeed);
+    public Vector3 map(float u);
+    public Vector3 interp(float t);
+    public float ratioAtPoint(Vector3 pt);
+    public Vector3 point(float ratio);
+    public void place2d(Transform transform, float ratio);
+    public void placeLocal2d(Transform transform, float ratio);
+    public void place(Transform transform, float ratio);
+    public void place(Transform transform, float ratio, Vector3 worldUp);
+    public void placeLocal(Transform transform, float ratio);
+    public void placeLocal(Transform transform, float ratio, Vector3 worldUp);
+    public void gizmoDraw(float t);
+    public void drawGizmo(Color color);
+    public static void drawGizmo(Transform[] arr, Color color);
+    public static void drawLine(Transform[] arr, float width, Color color);
+    public void drawLinesGLLines(Material outlineMaterial, Color color, float width);
+    public Vector3[] generateVectors();
+}
+public class LTUtility : object {
+    public static Vector3[] reverse(Vector3[] arr);
+}
+public class PriorityListComponent`1 : ListComponent`1<T> {
+    public static T Instance { get; }
+    public static T get_Instance();
+}
+public abstract class SingletonComponent : FacepunchBehaviour {
+    public abstract virtual void SingletonSetup();
+    public abstract virtual void SingletonClear();
+    protected virtual void Awake();
+    protected virtual void OnDestroy();
+    public static void InitializeSingletons(GameObject go);
+}
+public abstract class SingletonComponent`1 : SingletonComponent {
+    public static T Instance;
+    public virtual void SingletonSetup();
+    public virtual void SingletonClear();
+}
+public class TimeWarning : object {
+    public object Placeholder;
+    public static TimeWarning New(string name, int maxmilliseconds);
+    public sealed virtual void Dispose();
+    [ConditionalAttribute("ENABLE_PROFILER")]
+public static void BeginSample(string name);
+    [ConditionalAttribute("ENABLE_PROFILER")]
+public static void EndSample();
+}
+public enum TweenAction : Enum {
+    public int value__;
+    public static TweenAction MOVE_X;
+    public static TweenAction MOVE_Y;
+    public static TweenAction MOVE_Z;
+    public static TweenAction MOVE_LOCAL_X;
+    public static TweenAction MOVE_LOCAL_Y;
+    public static TweenAction MOVE_LOCAL_Z;
+    public static TweenAction MOVE_CURVED;
+    public static TweenAction MOVE_CURVED_LOCAL;
+    public static TweenAction MOVE_SPLINE;
+    public static TweenAction MOVE_SPLINE_LOCAL;
+    public static TweenAction SCALE_X;
+    public static TweenAction SCALE_Y;
+    public static TweenAction SCALE_Z;
+    public static TweenAction ROTATE_X;
+    public static TweenAction ROTATE_Y;
+    public static TweenAction ROTATE_Z;
+    public static TweenAction ROTATE_AROUND;
+    public static TweenAction ROTATE_AROUND_LOCAL;
+    public static TweenAction CANVAS_ROTATEAROUND;
+    public static TweenAction CANVAS_ROTATEAROUND_LOCAL;
+    public static TweenAction CANVAS_PLAYSPRITE;
+    public static TweenAction ALPHA;
+    public static TweenAction TEXT_ALPHA;
+    public static TweenAction CANVAS_ALPHA;
+    public static TweenAction CANVASGROUP_ALPHA;
+    public static TweenAction ALPHA_VERTEX;
+    public static TweenAction COLOR;
+    public static TweenAction CALLBACK_COLOR;
+    public static TweenAction TEXT_COLOR;
+    public static TweenAction CANVAS_COLOR;
+    public static TweenAction CANVAS_MOVE_X;
+    public static TweenAction CANVAS_MOVE_Y;
+    public static TweenAction CANVAS_MOVE_Z;
+    public static TweenAction CALLBACK;
+    public static TweenAction MOVE;
+    public static TweenAction MOVE_LOCAL;
+    public static TweenAction MOVE_TO_TRANSFORM;
+    public static TweenAction ROTATE;
+    public static TweenAction ROTATE_LOCAL;
+    public static TweenAction SCALE;
+    public static TweenAction VALUE3;
+    public static TweenAction GUI_MOVE;
+    public static TweenAction GUI_MOVE_MARGIN;
+    public static TweenAction GUI_SCALE;
+    public static TweenAction GUI_ALPHA;
+    public static TweenAction GUI_ROTATE;
+    public static TweenAction DELAYED_SOUND;
+    public static TweenAction CANVAS_MOVE;
+    public static TweenAction CANVAS_SCALE;
+    public static TweenAction CANVAS_SIZEDELTA;
+}
+public static class TweenMode : object {
+    public static AnimationCurve Punch;
+    private static TweenMode();
+}
+[ExtensionAttribute]
+public static class UnityEngine.ColorEx : object {
+    [ExtensionAttribute]
+public static string ToHex(Color32 color);
+    public static Color Parse(string str);
+    [ExtensionAttribute]
+public static Color WithAlpha(Color color, float a);
+    [ExtensionAttribute]
+public static int ToInt32(Color32 color);
+    public static Color32 FromInt32(int value);
+}
+public static class UnityEngine.DebugEx : object {
+    private static float startTime;
+    public static void Log(object message, StackTraceLogType stacktrace);
+    public static void Log(object message, Object context, StackTraceLogType stacktrace);
+    public static void LogWarning(object message, StackTraceLogType stacktrace);
+    public static void LogWarning(object message, Object context, StackTraceLogType stacktrace);
+    public static void DrawWireCube(Vector3 centre, Vector3 size, Color colour, float duration);
+    public static void DrawWireCube(Vector3 centre, Vector3 size, Quaternion rotation, Color colour, float duration);
+    public static void DrawWireCube(Vector3[] points, Color colour, float duration);
+    public static void StartTiming();
+    public static void StopTiming();
+}
+public static class UnityEngine.Parallel : object {
+    public static int MaxThreads;
+    public static void ForEach(IList`1<T> data, Action`1<T> action);
+    public static void ForEach(IList`1<T> data, int threads, Action`1<T> action);
+    public static void For(int fromInclusive, int toExclusive, Action`1<int> action);
+    public static void For(int fromInclusive, int toExclusive, int threads, Action`1<int> action);
+    public static void Call(Action`2<int, int> action);
+    public static void Call(int threads, Action`2<int, int> action);
+    [IteratorStateMachineAttribute("UnityEngine.Parallel/<Coroutine>d__7")]
+public static IEnumerator Coroutine(Action action);
+}
+[ExtensionAttribute]
+public static class UnityEngine.StringExtensions : object {
+    [ExtensionAttribute]
+public static string BBCodeToUnity(string x);
+    [ExtensionAttribute]
+public static Vector3 ToVector3(string str);
+    [ExtensionAttribute]
+public static Color ToColor(string str);
+}
+[ExtensionAttribute]
+public static class UnityEngine.TextureEx : object {
+    private static Color32[] buffer;
+    private static TextureEx();
+    [ExtensionAttribute]
+public static void Clear(Texture2D tex, Color32 color);
+    [ExtensionAttribute]
+public static int GetSizeInBytes(Texture texture);
+    public static int GetBitsPerPixel(TextureFormat format);
+}
+[CompilerGeneratedAttribute]
+[EditorBrowsableAttribute("1")]
+[GeneratedCodeAttribute("Unity.MonoScriptGenerator.MonoScriptInfoGenerator", "")]
+internal class UnitySourceGeneratedAssemblyMonoScriptTypes_v1 : object {
+    private static MonoScriptData Get();
+}

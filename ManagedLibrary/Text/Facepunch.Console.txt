@@ -1,0 +1,105 @@
+Сборка: Facepunch.Console.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: ConsoleSystem
+Наследуется от: object
+Поля:
+  bool HasChanges
+  Func`1<bool> ClientCanRunAdminCommands
+  Func`2<string, bool> OnSendToServer
+  Action`2<string, string> OnReplicatedVarChanged
+  string LastError
+  Arg CurrentArgs
+  List`1<string> ignoredCommands
+Свойства:
+Методы:
+  void UpdateValuesFromCommandLine()
+  bool SendToServer(string command)
+  void add_OnReplicatedVarChanged(Action`2<string, string> value)
+  void remove_OnReplicatedVarChanged(Action`2<string, string> value)
+  void RunFile(Option options, string strFile)
+  string Run(Option options, string strCommand, Object[] args)
+  bool Internal(Arg arg)
+  string BuildCommand(string strCommand, Object[] args)
+  string SaveToConfigString(bool bServer)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: ConsoleVar
+Наследуется от: Attribute
+Поля:
+  string Name
+  bool ClientAdmin
+  bool ServerAdmin
+  bool ServerUser
+  bool Saved
+  string Help
+  bool ClientInfo
+  bool Replicated
+  bool Clientside
+  bool Serverside
+  bool EditorOnly
+  bool AllowRunFromServer
+  string Default
+  String[] PreprocessorConditions
+  bool ShowInAdminUI
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: ServerVar
+Наследуется от: ConsoleVar
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: ServerUserVar
+Наследуется от: ConsoleVar
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: ServerAllVar
+Наследуется от: ConsoleVar
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: ClientVar
+Наследуется от: ConsoleVar
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: ReplicatedVar
+Наследуется от: ConsoleVar
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: HelpAttribute
+Наследуется от: Attribute
+Поля:
+  string Help
+Свойства:
+Методы:
+  void .ctor(string h)
+--------------------------------------------------
+Класс: Commands
+Наследуется от: ConsoleSystem
+Поля:
+Свойства:
+Методы:
+  void Find(Arg arg)
+  void Echo(string fullString)
+  void .ctor()
+--------------------------------------------------

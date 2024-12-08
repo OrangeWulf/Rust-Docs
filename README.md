@@ -9,3 +9,8 @@
 
 * [**Extended**](Extended) - Extended information of game, mostly for devlopers
 * [**Resources**](Resources) - Files for applications such as update checkers
+* [**ManagedLibrary**](ManagedLibrary) - This is a complete API interface that has a growth and an oxide, suitable for training neural networks
+
+
+
+

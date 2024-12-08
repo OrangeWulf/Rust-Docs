@@ -1,0 +1,2710 @@
+[AttributeUsageAttribute("1")]
+public class System.Data.SQLite.AssemblySourceIdAttribute : Attribute {
+    private string sourceId;
+    public string SourceId { get; }
+    public AssemblySourceIdAttribute(string value);
+    public string get_SourceId();
+}
+[AttributeUsageAttribute("1")]
+public class System.Data.SQLite.AssemblySourceTimeStampAttribute : Attribute {
+    private string sourceTimeStamp;
+    public string SourceTimeStamp { get; }
+    public AssemblySourceTimeStampAttribute(string value);
+    public string get_SourceTimeStamp();
+}
+public class System.Data.SQLite.AuthorizerEventArgs : EventArgs {
+    public IntPtr UserData;
+    public SQLiteAuthorizerActionCode ActionCode;
+    public string Argument1;
+    public string Argument2;
+    public string Database;
+    public string Context;
+    public SQLiteAuthorizerReturnCode ReturnCode;
+    internal AuthorizerEventArgs(IntPtr pUserData, SQLiteAuthorizerActionCode actionCode, string argument1, string argument2, string database, string context, SQLiteAuthorizerReturnCode returnCode);
+}
+public enum System.Data.SQLite.CollationEncodingEnum : Enum {
+    public int value__;
+    public static CollationEncodingEnum UTF8;
+    public static CollationEncodingEnum UTF16LE;
+    public static CollationEncodingEnum UTF16BE;
+}
+public class System.Data.SQLite.CollationSequence : ValueType {
+    public string Name;
+    public CollationTypeEnum Type;
+    public CollationEncodingEnum Encoding;
+    internal SQLiteFunction _func;
+    public int Compare(string s1, string s2);
+    public int Compare(Char[] c1, Char[] c2);
+}
+public enum System.Data.SQLite.CollationTypeEnum : Enum {
+    public int value__;
+    public static CollationTypeEnum Binary;
+    public static CollationTypeEnum NoCase;
+    public static CollationTypeEnum Reverse;
+    public static CollationTypeEnum Custom;
+}
+public class System.Data.SQLite.CommitEventArgs : EventArgs {
+    public bool AbortTransaction;
+}
+public class System.Data.SQLite.ConnectionEventArgs : EventArgs {
+    public SQLiteConnectionEventType EventType;
+    public StateChangeEventArgs EventArgs;
+    public IDbTransaction Transaction;
+    public IDbCommand Command;
+    public IDataReader DataReader;
+    public CriticalHandle CriticalHandle;
+    public string Text;
+    public object Data;
+    internal ConnectionEventArgs(SQLiteConnectionEventType eventType, StateChangeEventArgs eventArgs, IDbTransaction transaction, IDbCommand command, IDataReader dataReader, CriticalHandle criticalHandle, string text, object data);
+}
+public enum System.Data.SQLite.FunctionType : Enum {
+    public int value__;
+    public static FunctionType Scalar;
+    public static FunctionType Aggregate;
+    public static FunctionType Collation;
+}
+public class System.Data.SQLite.Generic.SQLiteModuleEnumerable`1 : SQLiteModuleEnumerable {
+    private IEnumerable`1<T> enumerable;
+    private bool disposed;
+    public SQLiteModuleEnumerable`1(string name, IEnumerable`1<T> enumerable);
+    public virtual SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor);
+    public virtual SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+}
+public class System.Data.SQLite.Generic.SQLiteVirtualTableCursorEnumerator`1 : SQLiteVirtualTableCursorEnumerator {
+    private IEnumerator`1<T> enumerator;
+    private bool disposed;
+    private T System.Collections.Generic.IEnumerator<T>.Current { get; }
+    public SQLiteVirtualTableCursorEnumerator`1(SQLiteVirtualTable table, IEnumerator`1<T> enumerator);
+    private sealed virtual override T System.Collections.Generic.IEnumerator<T>.get_Current();
+    public virtual void Close();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+}
+public interface System.Data.SQLite.ISQLiteConnectionPool {
+    public abstract virtual void GetCounts(string fileName, Dictionary`2& counts, Int32& openCount, Int32& closeCount, Int32& totalCount);
+    public abstract virtual void ClearPool(string fileName);
+    public abstract virtual void ClearAllPools();
+    public abstract virtual void Add(string fileName, object handle, int version);
+    public abstract virtual object Remove(string fileName, int maxPoolSize, Int32& version);
+}
+public interface System.Data.SQLite.ISQLiteManagedModule {
+    public bool Declared { get; }
+    public string Name { get; }
+    public abstract virtual bool get_Declared();
+    public abstract virtual string get_Name();
+    public abstract virtual SQLiteErrorCode Create(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error);
+    public abstract virtual SQLiteErrorCode Connect(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error);
+    public abstract virtual SQLiteErrorCode BestIndex(SQLiteVirtualTable table, SQLiteIndex index);
+    public abstract virtual SQLiteErrorCode Disconnect(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Destroy(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor);
+    public abstract virtual SQLiteErrorCode Close(SQLiteVirtualTableCursor cursor);
+    public abstract virtual SQLiteErrorCode Filter(SQLiteVirtualTableCursor cursor, int indexNumber, string indexString, SQLiteValue[] values);
+    public abstract virtual SQLiteErrorCode Next(SQLiteVirtualTableCursor cursor);
+    public abstract virtual bool Eof(SQLiteVirtualTableCursor cursor);
+    public abstract virtual SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index);
+    public abstract virtual SQLiteErrorCode RowId(SQLiteVirtualTableCursor cursor, Int64& rowId);
+    public abstract virtual SQLiteErrorCode Update(SQLiteVirtualTable table, SQLiteValue[] values, Int64& rowId);
+    public abstract virtual SQLiteErrorCode Begin(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Sync(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Commit(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Rollback(SQLiteVirtualTable table);
+    public abstract virtual bool FindFunction(SQLiteVirtualTable table, int argumentCount, string name, SQLiteFunction& function, IntPtr& pClientData);
+    public abstract virtual SQLiteErrorCode Rename(SQLiteVirtualTable table, string newName);
+    public abstract virtual SQLiteErrorCode Savepoint(SQLiteVirtualTable table, int savepoint);
+    public abstract virtual SQLiteErrorCode Release(SQLiteVirtualTable table, int savepoint);
+    public abstract virtual SQLiteErrorCode RollbackTo(SQLiteVirtualTable table, int savepoint);
+}
+public interface System.Data.SQLite.ISQLiteNativeHandle {
+    public IntPtr NativeHandle { get; }
+    public abstract virtual IntPtr get_NativeHandle();
+}
+public interface System.Data.SQLite.ISQLiteNativeModule {
+    public abstract virtual SQLiteErrorCode xCreate(IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError);
+    public abstract virtual SQLiteErrorCode xConnect(IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError);
+    public abstract virtual SQLiteErrorCode xBestIndex(IntPtr pVtab, IntPtr pIndex);
+    public abstract virtual SQLiteErrorCode xDisconnect(IntPtr pVtab);
+    public abstract virtual SQLiteErrorCode xDestroy(IntPtr pVtab);
+    public abstract virtual SQLiteErrorCode xOpen(IntPtr pVtab, IntPtr& pCursor);
+    public abstract virtual SQLiteErrorCode xClose(IntPtr pCursor);
+    public abstract virtual SQLiteErrorCode xFilter(IntPtr pCursor, int idxNum, IntPtr idxStr, int argc, IntPtr argv);
+    public abstract virtual SQLiteErrorCode xNext(IntPtr pCursor);
+    public abstract virtual int xEof(IntPtr pCursor);
+    public abstract virtual SQLiteErrorCode xColumn(IntPtr pCursor, IntPtr pContext, int index);
+    public abstract virtual SQLiteErrorCode xRowId(IntPtr pCursor, Int64& rowId);
+    public abstract virtual SQLiteErrorCode xUpdate(IntPtr pVtab, int argc, IntPtr argv, Int64& rowId);
+    public abstract virtual SQLiteErrorCode xBegin(IntPtr pVtab);
+    public abstract virtual SQLiteErrorCode xSync(IntPtr pVtab);
+    public abstract virtual SQLiteErrorCode xCommit(IntPtr pVtab);
+    public abstract virtual SQLiteErrorCode xRollback(IntPtr pVtab);
+    public abstract virtual int xFindFunction(IntPtr pVtab, int nArg, IntPtr zName, SQLiteCallback& callback, IntPtr& pClientData);
+    public abstract virtual SQLiteErrorCode xRename(IntPtr pVtab, IntPtr zNew);
+    public abstract virtual SQLiteErrorCode xSavepoint(IntPtr pVtab, int iSavepoint);
+    public abstract virtual SQLiteErrorCode xRelease(IntPtr pVtab, int iSavepoint);
+    public abstract virtual SQLiteErrorCode xRollbackTo(IntPtr pVtab, int iSavepoint);
+}
+public interface System.Data.SQLite.ISQLiteSchemaExtensions {
+    public abstract virtual void BuildTempSchema(SQLiteConnection connection);
+}
+public class System.Data.SQLite.LogEventArgs : EventArgs {
+    public object ErrorCode;
+    public string Message;
+    public object Data;
+    internal LogEventArgs(IntPtr pUserData, object errorCode, string message, object data);
+}
+internal class System.Data.SQLite.SQLite3 : SQLiteBase {
+    internal static string PublicKey;
+    internal static string DesignerVersion;
+    private static object syncRoot;
+    protected internal SQLiteConnectionHandle _sql;
+    protected string _fileName;
+    protected bool _usePool;
+    protected int _poolVersion;
+    private bool _buildingSchema;
+    protected List`1<SQLiteFunction> _functions;
+    protected Dictionary`2<string, SQLiteModule> _modules;
+    private bool disposed;
+    private static Nullable`1<bool> have_errstr;
+    private static Nullable`1<bool> have_stmt_readonly;
+    private static Nullable`1<bool> forceLogPrepare;
+    internal string Version { get; }
+    internal int VersionNumber { get; }
+    internal static string DefineConstants { get; }
+    internal static string SQLiteVersion { get; }
+    internal static int SQLiteVersionNumber { get; }
+    internal static string SQLiteSourceId { get; }
+    internal static string SQLiteCompileOptions { get; }
+    internal static string InteropVersion { get; }
+    internal static string InteropSourceId { get; }
+    internal static string InteropCompileOptions { get; }
+    internal bool AutoCommit { get; }
+    internal long LastInsertRowId { get; }
+    internal int Changes { get; }
+    internal long MemoryUsed { get; }
+    internal static long StaticMemoryUsed { get; }
+    internal long MemoryHighwater { get; }
+    internal static long StaticMemoryHighwater { get; }
+    internal bool OwnHandle { get; }
+    internal SQLite3(SQLiteDateFormats fmt, DateTimeKind kind, string fmtString, IntPtr db, string fileName, bool ownHandle);
+    private static SQLite3();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    private void DisposeModules();
+    internal virtual void Close(bool canThrow);
+    internal virtual void Cancel();
+    internal virtual void BindFunction(SQLiteFunctionAttribute functionAttribute, SQLiteFunction function, SQLiteConnectionFlags flags);
+    internal virtual string get_Version();
+    internal virtual int get_VersionNumber();
+    internal static string get_DefineConstants();
+    internal static string get_SQLiteVersion();
+    internal static int get_SQLiteVersionNumber();
+    internal static string get_SQLiteSourceId();
+    internal static string get_SQLiteCompileOptions();
+    internal static string get_InteropVersion();
+    internal static string get_InteropSourceId();
+    internal static string get_InteropCompileOptions();
+    internal virtual bool get_AutoCommit();
+    internal virtual long get_LastInsertRowId();
+    internal virtual int get_Changes();
+    internal virtual long get_MemoryUsed();
+    internal static long get_StaticMemoryUsed();
+    internal virtual long get_MemoryHighwater();
+    internal static long get_StaticMemoryHighwater();
+    internal virtual bool get_OwnHandle();
+    internal virtual SQLiteErrorCode SetMemoryStatus(bool value);
+    internal static SQLiteErrorCode StaticSetMemoryStatus(bool value);
+    internal virtual SQLiteErrorCode ReleaseMemory();
+    internal static SQLiteErrorCode StaticReleaseMemory(int nBytes, bool reset, bool compact, Int32& nFree, Boolean& resetOk, UInt32& nLargest);
+    internal virtual SQLiteErrorCode Shutdown();
+    internal static SQLiteErrorCode StaticShutdown(bool directories);
+    internal virtual bool IsOpen();
+    internal virtual void Open(string strFilename, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, int maxPoolSize, bool usePool);
+    internal virtual void ClearPool();
+    internal virtual int CountPool();
+    internal virtual void SetTimeout(int nTimeoutMS);
+    internal virtual bool Step(SQLiteStatement stmt);
+    internal static string GetErrorString(SQLiteErrorCode rc);
+    internal virtual bool IsReadOnly(SQLiteStatement stmt);
+    internal virtual SQLiteErrorCode Reset(SQLiteStatement stmt);
+    internal virtual string GetLastError();
+    internal virtual string GetLastError(string defValue);
+    private static bool ForceLogPrepare();
+    internal virtual SQLiteStatement Prepare(SQLiteConnection cnn, string strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain);
+    protected static void LogBind(SQLiteStatementHandle handle, int index);
+    protected static void LogBind(SQLiteStatementHandle handle, int index, ValueType value);
+    private static string FormatDateTime(DateTime value);
+    protected static void LogBind(SQLiteStatementHandle handle, int index, DateTime value);
+    protected static void LogBind(SQLiteStatementHandle handle, int index, string value);
+    private static string ToHexadecimalString(Byte[] array);
+    protected static void LogBind(SQLiteStatementHandle handle, int index, Byte[] value);
+    internal virtual void Bind_Double(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, double value);
+    internal virtual void Bind_Int32(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, int value);
+    internal virtual void Bind_UInt32(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, UInt32 value);
+    internal virtual void Bind_Int64(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, long value);
+    internal virtual void Bind_UInt64(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, ulong value);
+    internal virtual void Bind_Text(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, string value);
+    internal virtual void Bind_DateTime(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, DateTime dt);
+    internal virtual void Bind_Blob(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, Byte[] blobData);
+    internal virtual void Bind_Null(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index);
+    internal virtual int Bind_ParamCount(SQLiteStatement stmt, SQLiteConnectionFlags flags);
+    internal virtual string Bind_ParamName(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index);
+    internal virtual int Bind_ParamIndex(SQLiteStatement stmt, SQLiteConnectionFlags flags, string paramName);
+    internal virtual int ColumnCount(SQLiteStatement stmt);
+    internal virtual string ColumnName(SQLiteStatement stmt, int index);
+    internal virtual TypeAffinity ColumnAffinity(SQLiteStatement stmt, int index);
+    internal virtual string ColumnType(SQLiteStatement stmt, int index, TypeAffinity& nAffinity);
+    internal virtual int ColumnIndex(SQLiteStatement stmt, string columnName);
+    internal virtual string ColumnOriginalName(SQLiteStatement stmt, int index);
+    internal virtual string ColumnDatabaseName(SQLiteStatement stmt, int index);
+    internal virtual string ColumnTableName(SQLiteStatement stmt, int index);
+    internal virtual void ColumnMetaData(string dataBase, string table, string column, String& dataType, String& collateSequence, Boolean& notNull, Boolean& primaryKey, Boolean& autoIncrement);
+    internal virtual double GetDouble(SQLiteStatement stmt, int index);
+    internal virtual sbyte GetSByte(SQLiteStatement stmt, int index);
+    internal virtual byte GetByte(SQLiteStatement stmt, int index);
+    internal virtual short GetInt16(SQLiteStatement stmt, int index);
+    internal virtual ushort GetUInt16(SQLiteStatement stmt, int index);
+    internal virtual int GetInt32(SQLiteStatement stmt, int index);
+    internal virtual UInt32 GetUInt32(SQLiteStatement stmt, int index);
+    internal virtual long GetInt64(SQLiteStatement stmt, int index);
+    internal virtual ulong GetUInt64(SQLiteStatement stmt, int index);
+    internal virtual string GetText(SQLiteStatement stmt, int index);
+    internal virtual DateTime GetDateTime(SQLiteStatement stmt, int index);
+    internal virtual long GetBytes(SQLiteStatement stmt, int index, int nDataOffset, Byte[] bDest, int nStart, int nLength);
+    internal virtual long GetChars(SQLiteStatement stmt, int index, int nDataOffset, Char[] bDest, int nStart, int nLength);
+    internal virtual bool IsNull(SQLiteStatement stmt, int index);
+    internal virtual int AggregateCount(IntPtr context);
+    internal virtual void CreateFunction(string strFunction, int nArgs, bool needCollSeq, SQLiteCallback func, SQLiteCallback funcstep, SQLiteFinalCallback funcfinal);
+    internal virtual void CreateCollation(string strCollation, SQLiteCollation func, SQLiteCollation func16);
+    internal virtual int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, string s1, string s2);
+    internal virtual int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, Char[] c1, Char[] c2);
+    internal virtual CollationSequence GetCollationSequence(SQLiteFunction func, IntPtr context);
+    internal virtual long GetParamValueBytes(IntPtr p, int nDataOffset, Byte[] bDest, int nStart, int nLength);
+    internal virtual double GetParamValueDouble(IntPtr ptr);
+    internal virtual int GetParamValueInt32(IntPtr ptr);
+    internal virtual long GetParamValueInt64(IntPtr ptr);
+    internal virtual string GetParamValueText(IntPtr ptr);
+    internal virtual TypeAffinity GetParamValueType(IntPtr ptr);
+    internal virtual void ReturnBlob(IntPtr context, Byte[] value);
+    internal virtual void ReturnDouble(IntPtr context, double value);
+    internal virtual void ReturnError(IntPtr context, string value);
+    internal virtual void ReturnInt32(IntPtr context, int value);
+    internal virtual void ReturnInt64(IntPtr context, long value);
+    internal virtual void ReturnNull(IntPtr context);
+    internal virtual void ReturnText(IntPtr context, string value);
+    internal virtual void CreateModule(SQLiteModule module, SQLiteConnectionFlags flags);
+    internal virtual void DisposeModule(SQLiteModule module, SQLiteConnectionFlags flags);
+    internal virtual IntPtr AggregateContext(IntPtr context);
+    internal virtual SQLiteErrorCode DeclareVirtualTable(SQLiteModule module, string strSql, String& error);
+    internal virtual SQLiteErrorCode DeclareVirtualFunction(SQLiteModule module, int argumentCount, string name, String& error);
+    internal virtual void SetLoadExtension(bool bOnOff);
+    internal virtual void LoadExtension(string fileName, string procName);
+    internal virtual void SetExtendedResultCodes(bool bOnOff);
+    internal virtual SQLiteErrorCode ResultCode();
+    internal virtual SQLiteErrorCode ExtendedResultCode();
+    internal virtual void LogMessage(SQLiteErrorCode iErrCode, string zMessage);
+    internal static void StaticLogMessage(SQLiteErrorCode iErrCode, string zMessage);
+    internal virtual void SetPassword(Byte[] passwordBytes);
+    internal virtual void ChangePassword(Byte[] newPasswordBytes);
+    internal virtual void SetAuthorizerHook(SQLiteAuthorizerCallback func);
+    internal virtual void SetUpdateHook(SQLiteUpdateCallback func);
+    internal virtual void SetCommitHook(SQLiteCommitCallback func);
+    internal virtual void SetTraceCallback(SQLiteTraceCallback func);
+    internal virtual void SetRollbackHook(SQLiteRollbackCallback func);
+    internal virtual SQLiteErrorCode SetLogCallback(SQLiteLogCallback func);
+    internal virtual SQLiteBackup InitializeBackup(SQLiteConnection destCnn, string destName, string sourceName);
+    internal virtual bool StepBackup(SQLiteBackup backup, int nPage, Boolean& retry);
+    internal virtual int RemainingBackup(SQLiteBackup backup);
+    internal virtual int PageCountBackup(SQLiteBackup backup);
+    internal virtual void FinishBackup(SQLiteBackup backup);
+    internal virtual bool IsInitialized();
+    internal static bool StaticIsInitialized();
+    internal virtual object GetValue(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, SQLiteType typ);
+    internal virtual int GetCursorForTable(SQLiteStatement stmt, int db, int rootPage);
+    internal virtual long GetRowIdForCursor(SQLiteStatement stmt, int cursor);
+    internal virtual void GetIndexColumnExtendedInfo(string database, string index, string column, Int32& sortMode, Int32& onError, String& collationSequence);
+    internal virtual SQLiteErrorCode FileControl(string zDbName, int op, IntPtr pArg);
+}
+internal class System.Data.SQLite.SQLite3_UTF16 : SQLite3 {
+    private bool disposed;
+    internal SQLite3_UTF16(SQLiteDateFormats fmt, DateTimeKind kind, string fmtString, IntPtr db, string fileName, bool ownHandle);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    public virtual string ToString(IntPtr b, int nbytelen);
+    public static string UTF16ToString(IntPtr b, int nbytelen);
+    internal virtual void Open(string strFilename, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, int maxPoolSize, bool usePool);
+    internal virtual void Bind_DateTime(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, DateTime dt);
+    internal virtual void Bind_Text(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, string value);
+    internal virtual DateTime GetDateTime(SQLiteStatement stmt, int index);
+    internal virtual string ColumnName(SQLiteStatement stmt, int index);
+    internal virtual string GetText(SQLiteStatement stmt, int index);
+    internal virtual string ColumnOriginalName(SQLiteStatement stmt, int index);
+    internal virtual string ColumnDatabaseName(SQLiteStatement stmt, int index);
+    internal virtual string ColumnTableName(SQLiteStatement stmt, int index);
+    internal virtual string GetParamValueText(IntPtr ptr);
+    internal virtual void ReturnError(IntPtr context, string value);
+    internal virtual void ReturnText(IntPtr context, string value);
+}
+public enum System.Data.SQLite.SQLiteAuthorizerActionCode : Enum {
+    public int value__;
+    public static SQLiteAuthorizerActionCode None;
+    public static SQLiteAuthorizerActionCode Copy;
+    public static SQLiteAuthorizerActionCode CreateIndex;
+    public static SQLiteAuthorizerActionCode CreateTable;
+    public static SQLiteAuthorizerActionCode CreateTempIndex;
+    public static SQLiteAuthorizerActionCode CreateTempTable;
+    public static SQLiteAuthorizerActionCode CreateTempTrigger;
+    public static SQLiteAuthorizerActionCode CreateTempView;
+    public static SQLiteAuthorizerActionCode CreateTrigger;
+    public static SQLiteAuthorizerActionCode CreateView;
+    public static SQLiteAuthorizerActionCode Delete;
+    public static SQLiteAuthorizerActionCode DropIndex;
+    public static SQLiteAuthorizerActionCode DropTable;
+    public static SQLiteAuthorizerActionCode DropTempIndex;
+    public static SQLiteAuthorizerActionCode DropTempTable;
+    public static SQLiteAuthorizerActionCode DropTempTrigger;
+    public static SQLiteAuthorizerActionCode DropTempView;
+    public static SQLiteAuthorizerActionCode DropTrigger;
+    public static SQLiteAuthorizerActionCode DropView;
+    public static SQLiteAuthorizerActionCode Insert;
+    public static SQLiteAuthorizerActionCode Pragma;
+    public static SQLiteAuthorizerActionCode Read;
+    public static SQLiteAuthorizerActionCode Select;
+    public static SQLiteAuthorizerActionCode Transaction;
+    public static SQLiteAuthorizerActionCode Update;
+    public static SQLiteAuthorizerActionCode Attach;
+    public static SQLiteAuthorizerActionCode Detach;
+    public static SQLiteAuthorizerActionCode AlterTable;
+    public static SQLiteAuthorizerActionCode Reindex;
+    public static SQLiteAuthorizerActionCode Analyze;
+    public static SQLiteAuthorizerActionCode CreateVtable;
+    public static SQLiteAuthorizerActionCode DropVtable;
+    public static SQLiteAuthorizerActionCode Function;
+    public static SQLiteAuthorizerActionCode Savepoint;
+    public static SQLiteAuthorizerActionCode Recursive;
+}
+[UnmanagedFunctionPointerAttribute("2")]
+internal class System.Data.SQLite.SQLiteAuthorizerCallback : MulticastDelegate {
+    public SQLiteAuthorizerCallback(object object, IntPtr method);
+    public virtual SQLiteAuthorizerReturnCode Invoke(IntPtr pUserData, SQLiteAuthorizerActionCode actionCode, IntPtr pArgument1, IntPtr pArgument2, IntPtr pDatabase, IntPtr pAuthContext);
+    public virtual IAsyncResult BeginInvoke(IntPtr pUserData, SQLiteAuthorizerActionCode actionCode, IntPtr pArgument1, IntPtr pArgument2, IntPtr pDatabase, IntPtr pAuthContext, AsyncCallback callback, object object);
+    public virtual SQLiteAuthorizerReturnCode EndInvoke(IAsyncResult result);
+}
+public class System.Data.SQLite.SQLiteAuthorizerEventHandler : MulticastDelegate {
+    public SQLiteAuthorizerEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, AuthorizerEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, AuthorizerEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public enum System.Data.SQLite.SQLiteAuthorizerReturnCode : Enum {
+    public int value__;
+    public static SQLiteAuthorizerReturnCode Ok;
+    public static SQLiteAuthorizerReturnCode Deny;
+    public static SQLiteAuthorizerReturnCode Ignore;
+}
+internal class System.Data.SQLite.SQLiteBackup : object {
+    internal SQLiteBase _sql;
+    internal SQLiteBackupHandle _sqlite_backup;
+    internal IntPtr _destDb;
+    internal Byte[] _zDestName;
+    internal IntPtr _sourceDb;
+    internal Byte[] _zSourceName;
+    internal SQLiteErrorCode _stepResult;
+    private bool disposed;
+    internal SQLiteBackup(SQLiteBase sqlbase, SQLiteBackupHandle backup, IntPtr destDb, Byte[] zDestName, IntPtr sourceDb, Byte[] zSourceName);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    private void Dispose(bool disposing);
+    protected virtual void Finalize();
+}
+public class System.Data.SQLite.SQLiteBackupCallback : MulticastDelegate {
+    public SQLiteBackupCallback(object object, IntPtr method);
+    public virtual bool Invoke(SQLiteConnection source, string sourceName, SQLiteConnection destination, string destinationName, int pages, int remainingPages, int totalPages, bool retry);
+    public virtual IAsyncResult BeginInvoke(SQLiteConnection source, string sourceName, SQLiteConnection destination, string destinationName, int pages, int remainingPages, int totalPages, bool retry, AsyncCallback callback, object object);
+    public virtual bool EndInvoke(IAsyncResult result);
+}
+internal class System.Data.SQLite.SQLiteBackupHandle : CriticalHandle {
+    private SQLiteConnectionHandle cnn;
+    public bool IsInvalid { get; }
+    internal SQLiteBackupHandle(SQLiteConnectionHandle cnn, IntPtr backup);
+    public static IntPtr op_Implicit(SQLiteBackupHandle backup);
+    protected virtual bool ReleaseHandle();
+    public virtual bool get_IsInvalid();
+}
+internal abstract class System.Data.SQLite.SQLiteBase : SQLiteConvert {
+    internal static int COR_E_EXCEPTION;
+    private bool disposed;
+    private static String[] _errorMessages;
+    internal string Version { get; }
+    internal int VersionNumber { get; }
+    internal long LastInsertRowId { get; }
+    internal int Changes { get; }
+    internal long MemoryUsed { get; }
+    internal long MemoryHighwater { get; }
+    internal bool OwnHandle { get; }
+    internal bool AutoCommit { get; }
+    internal SQLiteBase(SQLiteDateFormats fmt, DateTimeKind kind, string fmtString);
+    private static SQLiteBase();
+    internal abstract virtual string get_Version();
+    internal abstract virtual int get_VersionNumber();
+    internal abstract virtual long get_LastInsertRowId();
+    internal abstract virtual int get_Changes();
+    internal abstract virtual long get_MemoryUsed();
+    internal abstract virtual long get_MemoryHighwater();
+    internal abstract virtual bool get_OwnHandle();
+    internal abstract virtual SQLiteErrorCode SetMemoryStatus(bool value);
+    internal abstract virtual SQLiteErrorCode ReleaseMemory();
+    internal abstract virtual SQLiteErrorCode Shutdown();
+    internal abstract virtual bool IsOpen();
+    internal abstract virtual void Open(string strFilename, SQLiteConnectionFlags connectionFlags, SQLiteOpenFlagsEnum openFlags, int maxPoolSize, bool usePool);
+    internal abstract virtual void Close(bool canThrow);
+    internal abstract virtual void SetTimeout(int nTimeoutMS);
+    internal abstract virtual string GetLastError();
+    internal abstract virtual string GetLastError(string defValue);
+    internal abstract virtual void ClearPool();
+    internal abstract virtual int CountPool();
+    internal abstract virtual SQLiteStatement Prepare(SQLiteConnection cnn, string strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain);
+    internal abstract virtual bool Step(SQLiteStatement stmt);
+    internal abstract virtual bool IsReadOnly(SQLiteStatement stmt);
+    internal abstract virtual SQLiteErrorCode Reset(SQLiteStatement stmt);
+    internal abstract virtual void Cancel();
+    internal abstract virtual void BindFunction(SQLiteFunctionAttribute functionAttribute, SQLiteFunction function, SQLiteConnectionFlags flags);
+    internal abstract virtual void Bind_Double(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, double value);
+    internal abstract virtual void Bind_Int32(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, int value);
+    internal abstract virtual void Bind_UInt32(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, UInt32 value);
+    internal abstract virtual void Bind_Int64(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, long value);
+    internal abstract virtual void Bind_UInt64(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, ulong value);
+    internal abstract virtual void Bind_Text(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, string value);
+    internal abstract virtual void Bind_Blob(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, Byte[] blobData);
+    internal abstract virtual void Bind_DateTime(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, DateTime dt);
+    internal abstract virtual void Bind_Null(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index);
+    internal abstract virtual int Bind_ParamCount(SQLiteStatement stmt, SQLiteConnectionFlags flags);
+    internal abstract virtual string Bind_ParamName(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index);
+    internal abstract virtual int Bind_ParamIndex(SQLiteStatement stmt, SQLiteConnectionFlags flags, string paramName);
+    internal abstract virtual int ColumnCount(SQLiteStatement stmt);
+    internal abstract virtual string ColumnName(SQLiteStatement stmt, int index);
+    internal abstract virtual TypeAffinity ColumnAffinity(SQLiteStatement stmt, int index);
+    internal abstract virtual string ColumnType(SQLiteStatement stmt, int index, TypeAffinity& nAffinity);
+    internal abstract virtual int ColumnIndex(SQLiteStatement stmt, string columnName);
+    internal abstract virtual string ColumnOriginalName(SQLiteStatement stmt, int index);
+    internal abstract virtual string ColumnDatabaseName(SQLiteStatement stmt, int index);
+    internal abstract virtual string ColumnTableName(SQLiteStatement stmt, int index);
+    internal abstract virtual void ColumnMetaData(string dataBase, string table, string column, String& dataType, String& collateSequence, Boolean& notNull, Boolean& primaryKey, Boolean& autoIncrement);
+    internal abstract virtual void GetIndexColumnExtendedInfo(string database, string index, string column, Int32& sortMode, Int32& onError, String& collationSequence);
+    internal abstract virtual double GetDouble(SQLiteStatement stmt, int index);
+    internal abstract virtual sbyte GetSByte(SQLiteStatement stmt, int index);
+    internal abstract virtual byte GetByte(SQLiteStatement stmt, int index);
+    internal abstract virtual short GetInt16(SQLiteStatement stmt, int index);
+    internal abstract virtual ushort GetUInt16(SQLiteStatement stmt, int index);
+    internal abstract virtual int GetInt32(SQLiteStatement stmt, int index);
+    internal abstract virtual UInt32 GetUInt32(SQLiteStatement stmt, int index);
+    internal abstract virtual long GetInt64(SQLiteStatement stmt, int index);
+    internal abstract virtual ulong GetUInt64(SQLiteStatement stmt, int index);
+    internal abstract virtual string GetText(SQLiteStatement stmt, int index);
+    internal abstract virtual long GetBytes(SQLiteStatement stmt, int index, int nDataoffset, Byte[] bDest, int nStart, int nLength);
+    internal abstract virtual long GetChars(SQLiteStatement stmt, int index, int nDataoffset, Char[] bDest, int nStart, int nLength);
+    internal abstract virtual DateTime GetDateTime(SQLiteStatement stmt, int index);
+    internal abstract virtual bool IsNull(SQLiteStatement stmt, int index);
+    internal abstract virtual void CreateCollation(string strCollation, SQLiteCollation func, SQLiteCollation func16);
+    internal abstract virtual void CreateFunction(string strFunction, int nArgs, bool needCollSeq, SQLiteCallback func, SQLiteCallback funcstep, SQLiteFinalCallback funcfinal);
+    internal abstract virtual CollationSequence GetCollationSequence(SQLiteFunction func, IntPtr context);
+    internal abstract virtual int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, string s1, string s2);
+    internal abstract virtual int ContextCollateCompare(CollationEncodingEnum enc, IntPtr context, Char[] c1, Char[] c2);
+    internal abstract virtual int AggregateCount(IntPtr context);
+    internal abstract virtual IntPtr AggregateContext(IntPtr context);
+    internal abstract virtual long GetParamValueBytes(IntPtr ptr, int nDataOffset, Byte[] bDest, int nStart, int nLength);
+    internal abstract virtual double GetParamValueDouble(IntPtr ptr);
+    internal abstract virtual int GetParamValueInt32(IntPtr ptr);
+    internal abstract virtual long GetParamValueInt64(IntPtr ptr);
+    internal abstract virtual string GetParamValueText(IntPtr ptr);
+    internal abstract virtual TypeAffinity GetParamValueType(IntPtr ptr);
+    internal abstract virtual void ReturnBlob(IntPtr context, Byte[] value);
+    internal abstract virtual void ReturnDouble(IntPtr context, double value);
+    internal abstract virtual void ReturnError(IntPtr context, string value);
+    internal abstract virtual void ReturnInt32(IntPtr context, int value);
+    internal abstract virtual void ReturnInt64(IntPtr context, long value);
+    internal abstract virtual void ReturnNull(IntPtr context);
+    internal abstract virtual void ReturnText(IntPtr context, string value);
+    internal abstract virtual void CreateModule(SQLiteModule module, SQLiteConnectionFlags flags);
+    internal abstract virtual void DisposeModule(SQLiteModule module, SQLiteConnectionFlags flags);
+    internal abstract virtual SQLiteErrorCode DeclareVirtualTable(SQLiteModule module, string strSql, String& error);
+    internal abstract virtual SQLiteErrorCode DeclareVirtualFunction(SQLiteModule module, int argumentCount, string name, String& error);
+    internal abstract virtual void SetLoadExtension(bool bOnOff);
+    internal abstract virtual void LoadExtension(string fileName, string procName);
+    internal abstract virtual void SetExtendedResultCodes(bool bOnOff);
+    internal abstract virtual SQLiteErrorCode ResultCode();
+    internal abstract virtual SQLiteErrorCode ExtendedResultCode();
+    internal abstract virtual void LogMessage(SQLiteErrorCode iErrCode, string zMessage);
+    internal abstract virtual void SetPassword(Byte[] passwordBytes);
+    internal abstract virtual void ChangePassword(Byte[] newPasswordBytes);
+    internal abstract virtual void SetAuthorizerHook(SQLiteAuthorizerCallback func);
+    internal abstract virtual void SetUpdateHook(SQLiteUpdateCallback func);
+    internal abstract virtual void SetCommitHook(SQLiteCommitCallback func);
+    internal abstract virtual void SetTraceCallback(SQLiteTraceCallback func);
+    internal abstract virtual void SetRollbackHook(SQLiteRollbackCallback func);
+    internal abstract virtual SQLiteErrorCode SetLogCallback(SQLiteLogCallback func);
+    internal abstract virtual bool IsInitialized();
+    internal abstract virtual int GetCursorForTable(SQLiteStatement stmt, int database, int rootPage);
+    internal abstract virtual long GetRowIdForCursor(SQLiteStatement stmt, int cursor);
+    internal abstract virtual object GetValue(SQLiteStatement stmt, SQLiteConnectionFlags flags, int index, SQLiteType typ);
+    internal abstract virtual bool get_AutoCommit();
+    internal abstract virtual SQLiteErrorCode FileControl(string zDbName, int op, IntPtr pArg);
+    internal abstract virtual SQLiteBackup InitializeBackup(SQLiteConnection destCnn, string destName, string sourceName);
+    internal abstract virtual bool StepBackup(SQLiteBackup backup, int nPage, Boolean& retry);
+    internal abstract virtual int RemainingBackup(SQLiteBackup backup);
+    internal abstract virtual int PageCountBackup(SQLiteBackup backup);
+    internal abstract virtual void FinishBackup(SQLiteBackup backup);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    protected virtual void Finalize();
+    protected static string FallbackGetErrorString(SQLiteErrorCode rc);
+    internal static string GetLastError(SQLiteConnectionHandle hdl, IntPtr db);
+    internal static void FinishBackup(SQLiteConnectionHandle hdl, IntPtr backup);
+    internal static void FinalizeStatement(SQLiteConnectionHandle hdl, IntPtr stmt);
+    internal static void CloseConnection(SQLiteConnectionHandle hdl, IntPtr db);
+    internal static void CloseConnectionV2(SQLiteConnectionHandle hdl, IntPtr db);
+    internal static bool ResetConnection(SQLiteConnectionHandle hdl, IntPtr db, bool canThrow);
+    internal static bool IsAutocommit(SQLiteConnectionHandle hdl, IntPtr db);
+}
+internal static class System.Data.SQLite.SQLiteBytes : object {
+    public static Byte[] FromIntPtr(IntPtr pValue, int length);
+    public static IntPtr ToIntPtr(Byte[] value);
+}
+[UnmanagedFunctionPointerAttribute("2")]
+public class System.Data.SQLite.SQLiteCallback : MulticastDelegate {
+    public SQLiteCallback(object object, IntPtr method);
+    public virtual void Invoke(IntPtr context, int argc, IntPtr argv);
+    public virtual IAsyncResult BeginInvoke(IntPtr context, int argc, IntPtr argv, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+[UnmanagedFunctionPointerAttribute("2")]
+internal class System.Data.SQLite.SQLiteCollation : MulticastDelegate {
+    public SQLiteCollation(object object, IntPtr method);
+    public virtual int Invoke(IntPtr puser, int len1, IntPtr pv1, int len2, IntPtr pv2);
+    public virtual IAsyncResult BeginInvoke(IntPtr puser, int len1, IntPtr pv1, int len2, IntPtr pv2, AsyncCallback callback, object object);
+    public virtual int EndInvoke(IAsyncResult result);
+}
+[DesignerAttribute("SQLite.Designer.SQLiteCommandDesigner, SQLite.Designer, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139")]
+[ToolboxItemAttribute("True")]
+public class System.Data.SQLite.SQLiteCommand : DbCommand {
+    private static string DefaultConnectionString;
+    private string _commandText;
+    private SQLiteConnection _cnn;
+    private int _version;
+    private WeakReference _activeReader;
+    internal int _commandTimeout;
+    private bool _designTimeVisible;
+    private UpdateRowSource _updateRowSource;
+    private SQLiteParameterCollection _parameterCollection;
+    internal List`1<SQLiteStatement> _statementList;
+    internal string _remainingText;
+    private SQLiteTransaction _transaction;
+    private bool disposed;
+    [DefaultValueAttribute("")]
+[EditorAttribute("Microsoft.VSDesigner.Data.SQL.Design.SqlCommandTextEditor, Microsoft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+[RefreshPropertiesAttribute("1")]
+public string CommandText { get; public set; }
+    [DefaultValueAttribute("30")]
+public int CommandTimeout { get; public set; }
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+[RefreshPropertiesAttribute("1")]
+public CommandType CommandType { get; public set; }
+    [DefaultValueAttribute("")]
+[EditorAttribute("Microsoft.VSDesigner.Data.Design.DbConnectionEditor, Microsoft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public SQLiteConnection Connection { get; public set; }
+    protected DbConnection DbConnection { get; protected set; }
+    [DesignerSerializationVisibilityAttribute("2")]
+public SQLiteParameterCollection Parameters { get; }
+    protected DbParameterCollection DbParameterCollection { get; }
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public SQLiteTransaction Transaction { get; public set; }
+    protected DbTransaction DbTransaction { get; protected set; }
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+public UpdateRowSource UpdatedRowSource { get; public set; }
+    [BrowsableAttribute("False")]
+[DefaultValueAttribute("True")]
+[DesignOnlyAttribute("True")]
+[EditorBrowsableAttribute("1")]
+public bool DesignTimeVisible { get; public set; }
+    public SQLiteCommand(string commandText);
+    public SQLiteCommand(string commandText, SQLiteConnection connection);
+    public SQLiteCommand(SQLiteConnection connection);
+    private SQLiteCommand(SQLiteCommand source);
+    public SQLiteCommand(string commandText, SQLiteConnection connection, SQLiteTransaction transaction);
+    private static SQLiteCommand();
+    [ConditionalAttribute("CHECK_STATE")]
+internal static void Check(SQLiteCommand command);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    internal static SQLiteConnectionFlags GetFlags(SQLiteCommand command);
+    private void DisposeStatements();
+    internal void ClearCommands();
+    internal SQLiteStatement BuildNextCommand();
+    internal SQLiteStatement GetStatement(int index);
+    public virtual void Cancel();
+    public virtual string get_CommandText();
+    public virtual void set_CommandText(string value);
+    public virtual int get_CommandTimeout();
+    public virtual void set_CommandTimeout(int value);
+    public virtual CommandType get_CommandType();
+    public virtual void set_CommandType(CommandType value);
+    protected virtual DbParameter CreateDbParameter();
+    public SQLiteParameter CreateParameter();
+    public SQLiteConnection get_Connection();
+    public void set_Connection(SQLiteConnection value);
+    protected virtual DbConnection get_DbConnection();
+    protected virtual void set_DbConnection(DbConnection value);
+    public SQLiteParameterCollection get_Parameters();
+    protected virtual DbParameterCollection get_DbParameterCollection();
+    public SQLiteTransaction get_Transaction();
+    public void set_Transaction(SQLiteTransaction value);
+    protected virtual DbTransaction get_DbTransaction();
+    protected virtual void set_DbTransaction(DbTransaction value);
+    private void InitializeForReader();
+    protected virtual DbDataReader ExecuteDbDataReader(CommandBehavior behavior);
+    public static object Execute(string commandText, SQLiteExecuteType executeType, string connectionString, Object[] args);
+    public static object Execute(string commandText, SQLiteExecuteType executeType, CommandBehavior commandBehavior, string connectionString, Object[] args);
+    public SQLiteDataReader ExecuteReader(CommandBehavior behavior);
+    public SQLiteDataReader ExecuteReader();
+    internal void ClearDataReader();
+    public virtual int ExecuteNonQuery();
+    public int ExecuteNonQuery(CommandBehavior behavior);
+    public virtual object ExecuteScalar();
+    public object ExecuteScalar(CommandBehavior behavior);
+    public virtual void Prepare();
+    public virtual UpdateRowSource get_UpdatedRowSource();
+    public virtual void set_UpdatedRowSource(UpdateRowSource value);
+    public virtual bool get_DesignTimeVisible();
+    public virtual void set_DesignTimeVisible(bool value);
+    public sealed virtual object Clone();
+}
+public class System.Data.SQLite.SQLiteCommandBuilder : DbCommandBuilder {
+    private bool disposed;
+    public SQLiteDataAdapter DataAdapter { get; public set; }
+    [BrowsableAttribute("False")]
+public CatalogLocation CatalogLocation { get; public set; }
+    [BrowsableAttribute("False")]
+public string CatalogSeparator { get; public set; }
+    [BrowsableAttribute("False")]
+[DefaultValueAttribute("[")]
+public string QuotePrefix { get; public set; }
+    [BrowsableAttribute("False")]
+public string QuoteSuffix { get; public set; }
+    [BrowsableAttribute("False")]
+public string SchemaSeparator { get; public set; }
+    public SQLiteCommandBuilder(SQLiteDataAdapter adp);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    protected virtual void ApplyParameterInfo(DbParameter parameter, DataRow row, StatementType statementType, bool whereClause);
+    protected virtual string GetParameterName(string parameterName);
+    protected virtual string GetParameterName(int parameterOrdinal);
+    protected virtual string GetParameterPlaceholder(int parameterOrdinal);
+    protected virtual void SetRowUpdatingHandler(DbDataAdapter adapter);
+    private void RowUpdatingEventHandler(object sender, RowUpdatingEventArgs e);
+    public SQLiteDataAdapter get_DataAdapter();
+    public void set_DataAdapter(SQLiteDataAdapter value);
+    public SQLiteCommand GetDeleteCommand();
+    public SQLiteCommand GetDeleteCommand(bool useColumnsForParameterNames);
+    public SQLiteCommand GetUpdateCommand();
+    public SQLiteCommand GetUpdateCommand(bool useColumnsForParameterNames);
+    public SQLiteCommand GetInsertCommand();
+    public SQLiteCommand GetInsertCommand(bool useColumnsForParameterNames);
+    public virtual CatalogLocation get_CatalogLocation();
+    public virtual void set_CatalogLocation(CatalogLocation value);
+    public virtual string get_CatalogSeparator();
+    public virtual void set_CatalogSeparator(string value);
+    public virtual string get_QuotePrefix();
+    public virtual void set_QuotePrefix(string value);
+    public virtual string get_QuoteSuffix();
+    public virtual void set_QuoteSuffix(string value);
+    public virtual string QuoteIdentifier(string unquotedIdentifier);
+    public virtual string UnquoteIdentifier(string quotedIdentifier);
+    public virtual string get_SchemaSeparator();
+    public virtual void set_SchemaSeparator(string value);
+    protected virtual DataTable GetSchemaTable(DbCommand sourceCommand);
+    private bool HasSchemaPrimaryKey(DataTable schema);
+    private void ResetIsUniqueSchemaColumn(DataTable schema);
+}
+[UnmanagedFunctionPointerAttribute("2")]
+internal class System.Data.SQLite.SQLiteCommitCallback : MulticastDelegate {
+    public SQLiteCommitCallback(object object, IntPtr method);
+    public virtual int Invoke(IntPtr puser);
+    public virtual IAsyncResult BeginInvoke(IntPtr puser, AsyncCallback callback, object object);
+    public virtual int EndInvoke(IAsyncResult result);
+}
+public class System.Data.SQLite.SQLiteCommitHandler : MulticastDelegate {
+    public SQLiteCommitHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, CommitEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, CommitEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+internal enum System.Data.SQLite.SQLiteConfigOpsEnum : Enum {
+    public int value__;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_NONE;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_SINGLETHREAD;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_MULTITHREAD;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_SERIALIZED;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_MALLOC;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_GETMALLOC;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_SCRATCH;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_PAGECACHE;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_HEAP;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_MEMSTATUS;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_MUTEX;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_GETMUTEX;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_LOOKASIDE;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_PCACHE;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_GETPCACHE;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_LOG;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_URI;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_PCACHE2;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_GETPCACHE2;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_COVERING_INDEX_SCAN;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_SQLLOG;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_MMAP_SIZE;
+    public static SQLiteConfigOpsEnum SQLITE_CONFIG_WIN32_HEAPSIZE;
+}
+public class System.Data.SQLite.SQLiteConnection : DbConnection {
+    internal static DbType BadDbType;
+    internal static string DefaultBaseSchemaName;
+    private static string MemoryFileName;
+    internal static IsolationLevel DeferredIsolationLevel;
+    internal static IsolationLevel ImmediateIsolationLevel;
+    private static SQLiteConnectionFlags FallbackDefaultFlags;
+    private static SQLiteSynchronousEnum DefaultSynchronous;
+    private static SQLiteJournalModeEnum DefaultJournalMode;
+    private static IsolationLevel DefaultIsolationLevel;
+    internal static SQLiteDateFormats DefaultDateTimeFormat;
+    internal static DateTimeKind DefaultDateTimeKind;
+    internal static string DefaultDateTimeFormatString;
+    private static string DefaultDataSource;
+    private static string DefaultUri;
+    private static string DefaultFullUri;
+    private static string DefaultHexPassword;
+    private static string DefaultPassword;
+    private static int DefaultVersion;
+    private static int DefaultPageSize;
+    private static int DefaultMaxPageCount;
+    private static int DefaultCacheSize;
+    private static int DefaultMaxPoolSize;
+    private static int DefaultConnectionTimeout;
+    private static bool DefaultNoSharedFlags;
+    private static bool DefaultFailIfMissing;
+    private static bool DefaultReadOnly;
+    internal static bool DefaultBinaryGUID;
+    private static bool DefaultUseUTF16Encoding;
+    private static bool DefaultToFullPath;
+    private static bool DefaultPooling;
+    private static bool DefaultLegacyFormat;
+    private static bool DefaultForeignKeys;
+    private static bool DefaultEnlist;
+    private static bool DefaultSetDefaults;
+    internal static int DefaultPrepareRetries;
+    private static int SQLITE_FCNTL_CHUNK_SIZE;
+    private static int SQLITE_FCNTL_WIN32_AV_RETRY;
+    private static string _dataDirectory;
+    private static string _masterdb;
+    private static string _tempmasterdb;
+    private static Assembly _assembly;
+    private static object _syncRoot;
+    private static SQLiteConnectionEventHandler _handlers;
+    private static SQLiteConnectionFlags _sharedFlags;
+    private static int _versionNumber;
+    private ConnectionState _connectionState;
+    private string _connectionString;
+    internal int _transactionLevel;
+    internal bool _noDispose;
+    private bool _disposing;
+    private IsolationLevel _defaultIsolation;
+    internal SQLiteEnlistment _enlistment;
+    internal SQLiteDbTypeMap _typeNames;
+    internal SQLiteBase _sql;
+    private string _dataSource;
+    private Byte[] _password;
+    internal string _baseSchemaName;
+    private SQLiteConnectionFlags _flags;
+    private Dictionary`2<string, object> _cachedSettings;
+    private Nullable`1<DbType> _defaultDbType;
+    private string _defaultTypeName;
+    private int _defaultTimeout;
+    internal int _prepareRetries;
+    private bool _parseViaFramework;
+    internal bool _binaryGuid;
+    internal int _version;
+    private SQLiteAuthorizerEventHandler _authorizerHandler;
+    private SQLiteUpdateEventHandler _updateHandler;
+    private SQLiteCommitHandler _commitHandler;
+    private SQLiteTraceEventHandler _traceHandler;
+    private EventHandler _rollbackHandler;
+    private SQLiteAuthorizerCallback _authorizerCallback;
+    private SQLiteUpdateCallback _updateCallback;
+    private SQLiteCommitCallback _commitCallback;
+    private SQLiteTraceCallback _traceCallback;
+    private SQLiteRollbackCallback _rollbackCallback;
+    private StateChangeEventHandler StateChange;
+    private bool disposed;
+    public static ISQLiteConnectionPool ConnectionPool { get; public set; }
+    public int PoolCount { get; }
+    [DefaultValueAttribute("")]
+[EditorAttribute("SQLite.Designer.SQLiteConnectionStringEditor, SQLite.Designer, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+[RefreshPropertiesAttribute("1")]
+public string ConnectionString { get; public set; }
+    [DesignerSerializationVisibilityAttribute("0")]
+public string DataSource { get; }
+    [DesignerSerializationVisibilityAttribute("0")]
+public string Database { get; }
+    public int DefaultTimeout { get; public set; }
+    public int PrepareRetries { get; public set; }
+    public bool ParseViaFramework { get; public set; }
+    public SQLiteConnectionFlags Flags { get; public set; }
+    public Nullable`1<DbType> DefaultDbType { get; public set; }
+    public string DefaultTypeName { get; public set; }
+    public bool OwnHandle { get; }
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public string ServerVersion { get; }
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public long LastInsertRowId { get; }
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public int Changes { get; }
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public bool AutoCommit { get; }
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public long MemoryUsed { get; }
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public long MemoryHighwater { get; }
+    public static string DefineConstants { get; }
+    public static string SQLiteVersion { get; }
+    public static string SQLiteSourceId { get; }
+    public static string SQLiteCompileOptions { get; }
+    public static string InteropVersion { get; }
+    public static string InteropSourceId { get; }
+    public static string InteropCompileOptions { get; }
+    public static string ProviderVersion { get; }
+    public static string ProviderSourceId { get; }
+    public static SQLiteConnectionFlags DefaultFlags { get; }
+    public static SQLiteConnectionFlags SharedFlags { get; public set; }
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public ConnectionState State { get; }
+    protected DbProviderFactory DbProviderFactory { get; }
+    public SQLiteConnection(string connectionString);
+    internal SQLiteConnection(IntPtr db, string fileName, bool ownHandle);
+    public SQLiteConnection(string connectionString, bool parseViaFramework);
+    public SQLiteConnection(SQLiteConnection connection);
+    private static SQLiteConnection();
+    private static void add__handlers(SQLiteConnectionEventHandler value);
+    private static void remove__handlers(SQLiteConnectionEventHandler value);
+    private void add__authorizerHandler(SQLiteAuthorizerEventHandler value);
+    private void remove__authorizerHandler(SQLiteAuthorizerEventHandler value);
+    private void add__updateHandler(SQLiteUpdateEventHandler value);
+    private void remove__updateHandler(SQLiteUpdateEventHandler value);
+    private void add__commitHandler(SQLiteCommitHandler value);
+    private void remove__commitHandler(SQLiteCommitHandler value);
+    private void add__traceHandler(SQLiteTraceEventHandler value);
+    private void remove__traceHandler(SQLiteTraceEventHandler value);
+    private void add__rollbackHandler(EventHandler value);
+    private void remove__rollbackHandler(EventHandler value);
+    public virtual void add_StateChange(StateChangeEventHandler value);
+    public virtual void remove_StateChange(StateChangeEventHandler value);
+    internal static void OnChanged(SQLiteConnection connection, ConnectionEventArgs e);
+    public static void add_Changed(SQLiteConnectionEventHandler value);
+    public static void remove_Changed(SQLiteConnectionEventHandler value);
+    public static ISQLiteConnectionPool get_ConnectionPool();
+    public static void set_ConnectionPool(ISQLiteConnectionPool value);
+    public static object CreateHandle(IntPtr nativeHandle);
+    public void BackupDatabase(SQLiteConnection destination, string destinationName, string sourceName, int pages, SQLiteBackupCallback callback, int retryMilliseconds);
+    public int ClearCachedSettings();
+    internal bool TryGetCachedSetting(string name, string default, Object& value);
+    internal void SetCachedSetting(string name, object value);
+    public int ClearTypeMappings();
+    public Dictionary`2<string, object> GetTypeMappings();
+    public int AddTypeMapping(string typeName, DbType dataType, bool primary);
+    public void BindFunction(SQLiteFunctionAttribute functionAttribute, SQLiteFunction function);
+    [ConditionalAttribute("CHECK_STATE")]
+internal static void Check(SQLiteConnection connection);
+    internal static SortedList`2<string, string> ParseConnectionString(string connectionString, bool parseViaFramework, bool allowNameOnly);
+    private void SetupSQLiteBase(SortedList`2<string, string> opts);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    public sealed virtual object Clone();
+    public static void CreateFile(string databaseFileName);
+    internal void OnStateChange(ConnectionState newState, StateChangeEventArgs& eventArgs);
+    private static IsolationLevel GetFallbackDefaultIsolationLevel();
+    internal IsolationLevel GetDefaultIsolationLevel();
+    [ObsoleteAttribute("Use one of the standard BeginTransaction methods, this one will be removed soon")]
+public SQLiteTransaction BeginTransaction(IsolationLevel isolationLevel, bool deferredLock);
+    [ObsoleteAttribute("Use one of the standard BeginTransaction methods, this one will be removed soon")]
+public SQLiteTransaction BeginTransaction(bool deferredLock);
+    public SQLiteTransaction BeginTransaction(IsolationLevel isolationLevel);
+    public SQLiteTransaction BeginTransaction();
+    protected virtual DbTransaction BeginDbTransaction(IsolationLevel isolationLevel);
+    public virtual void ChangeDatabase(string databaseName);
+    public virtual void Close();
+    public int get_PoolCount();
+    public static void ClearPool(SQLiteConnection connection);
+    public static void ClearAllPools();
+    public virtual string get_ConnectionString();
+    public virtual void set_ConnectionString(string value);
+    public SQLiteCommand CreateCommand();
+    protected virtual DbCommand CreateDbCommand();
+    public virtual string get_DataSource();
+    public virtual string get_Database();
+    internal static string MapUriPath(string path);
+    private static SortedList`2<string, string> ParseConnectionString(string connectionString, bool allowNameOnly);
+    private static SortedList`2<string, string> ParseConnectionStringViaFramework(string connectionString, bool strict);
+    public virtual void EnlistTransaction(Transaction transaction);
+    internal static string FindKey(SortedList`2<string, string> items, string key, string defValue);
+    internal static object TryParseEnum(Type type, string value, bool ignoreCase);
+    private static bool TryParseByte(string value, NumberStyles style, Byte& result);
+    public void EnableExtensions(bool enable);
+    public void LoadExtension(string fileName);
+    public void LoadExtension(string fileName, string procName);
+    public void CreateModule(SQLiteModule module);
+    internal static Byte[] FromHexString(string text);
+    internal static string ToHexString(Byte[] array);
+    private static Byte[] FromHexString(string text, String& error);
+    private bool GetDefaultPooling();
+    private IsolationLevel GetEffectiveIsolationLevel(IsolationLevel isolationLevel);
+    public virtual void Open();
+    public SQLiteConnection OpenAndReturn();
+    public int get_DefaultTimeout();
+    public void set_DefaultTimeout(int value);
+    public int get_PrepareRetries();
+    public void set_PrepareRetries(int value);
+    public bool get_ParseViaFramework();
+    public void set_ParseViaFramework(bool value);
+    public SQLiteConnectionFlags get_Flags();
+    public void set_Flags(SQLiteConnectionFlags value);
+    public Nullable`1<DbType> get_DefaultDbType();
+    public void set_DefaultDbType(Nullable`1<DbType> value);
+    public string get_DefaultTypeName();
+    public void set_DefaultTypeName(string value);
+    public bool get_OwnHandle();
+    public virtual string get_ServerVersion();
+    public long get_LastInsertRowId();
+    public void Cancel();
+    public int get_Changes();
+    public bool get_AutoCommit();
+    public long get_MemoryUsed();
+    public long get_MemoryHighwater();
+    public static void GetMemoryStatistics(IDictionary`2& statistics);
+    public void ReleaseMemory();
+    public static SQLiteErrorCode ReleaseMemory(int nBytes, bool reset, bool compact, Int32& nFree, Boolean& resetOk, UInt32& nLargest);
+    public static SQLiteErrorCode SetMemoryStatus(bool value);
+    public static string get_DefineConstants();
+    public static string get_SQLiteVersion();
+    public static string get_SQLiteSourceId();
+    public static string get_SQLiteCompileOptions();
+    public static string get_InteropVersion();
+    public static string get_InteropSourceId();
+    public static string get_InteropCompileOptions();
+    public static string get_ProviderVersion();
+    public static string get_ProviderSourceId();
+    public static SQLiteConnectionFlags get_DefaultFlags();
+    public static SQLiteConnectionFlags get_SharedFlags();
+    public static void set_SharedFlags(SQLiteConnectionFlags value);
+    public virtual ConnectionState get_State();
+    public SQLiteErrorCode Shutdown();
+    public static void Shutdown(bool directories, bool noThrow);
+    public void SetExtendedResultCodes(bool bOnOff);
+    public SQLiteErrorCode ResultCode();
+    public SQLiteErrorCode ExtendedResultCode();
+    public void LogMessage(SQLiteErrorCode iErrCode, string zMessage);
+    public void LogMessage(int iErrCode, string zMessage);
+    public void ChangePassword(string newPassword);
+    public void ChangePassword(Byte[] newPassword);
+    public void SetPassword(string databasePassword);
+    public void SetPassword(Byte[] databasePassword);
+    public SQLiteErrorCode SetAvRetry(Int32& count, Int32& interval);
+    public SQLiteErrorCode SetChunkSize(int size);
+    private static string UnwrapString(string value);
+    private string ExpandFileName(string sourceFile, bool toFullPath);
+    public virtual DataTable GetSchema();
+    public virtual DataTable GetSchema(string collectionName);
+    public virtual DataTable GetSchema(string collectionName, String[] restrictionValues);
+    private static DataTable Schema_ReservedWords();
+    private static DataTable Schema_MetaDataCollections();
+    private DataTable Schema_DataSourceInformation();
+    private DataTable Schema_Columns(string strCatalog, string strTable, string strColumn);
+    private DataTable Schema_Indexes(string strCatalog, string strTable, string strIndex);
+    private DataTable Schema_Triggers(string catalog, string table, string triggerName);
+    private DataTable Schema_Tables(string strCatalog, string strTable, string strType);
+    private DataTable Schema_Views(string strCatalog, string strView);
+    private DataTable Schema_Catalogs(string strCatalog);
+    private DataTable Schema_DataTypes();
+    private DataTable Schema_IndexColumns(string strCatalog, string strTable, string strIndex, string strColumn);
+    private DataTable Schema_ViewColumns(string strCatalog, string strView, string strColumn);
+    private DataTable Schema_ForeignKeys(string strCatalog, string strTable, string strKeyName);
+    public void add_Authorize(SQLiteAuthorizerEventHandler value);
+    public void remove_Authorize(SQLiteAuthorizerEventHandler value);
+    public void add_Update(SQLiteUpdateEventHandler value);
+    public void remove_Update(SQLiteUpdateEventHandler value);
+    private SQLiteAuthorizerReturnCode AuthorizerCallback(IntPtr pUserData, SQLiteAuthorizerActionCode actionCode, IntPtr pArgument1, IntPtr pArgument2, IntPtr pDatabase, IntPtr pAuthContext);
+    private void UpdateCallback(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid);
+    public void add_Commit(SQLiteCommitHandler value);
+    public void remove_Commit(SQLiteCommitHandler value);
+    public void add_Trace(SQLiteTraceEventHandler value);
+    public void remove_Trace(SQLiteTraceEventHandler value);
+    private void TraceCallback(IntPtr puser, IntPtr statement);
+    public void add_RollBack(EventHandler value);
+    public void remove_RollBack(EventHandler value);
+    private int CommitCallback(IntPtr parg);
+    private void RollbackCallback(IntPtr parg);
+    protected virtual DbProviderFactory get_DbProviderFactory();
+}
+public class System.Data.SQLite.SQLiteConnectionEventHandler : MulticastDelegate {
+    public SQLiteConnectionEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, ConnectionEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, ConnectionEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public enum System.Data.SQLite.SQLiteConnectionEventType : Enum {
+    public int value__;
+    public static SQLiteConnectionEventType Invalid;
+    public static SQLiteConnectionEventType Unknown;
+    public static SQLiteConnectionEventType Opening;
+    public static SQLiteConnectionEventType ConnectionString;
+    public static SQLiteConnectionEventType Opened;
+    public static SQLiteConnectionEventType ChangeDatabase;
+    public static SQLiteConnectionEventType NewTransaction;
+    public static SQLiteConnectionEventType EnlistTransaction;
+    public static SQLiteConnectionEventType NewCommand;
+    public static SQLiteConnectionEventType NewDataReader;
+    public static SQLiteConnectionEventType NewCriticalHandle;
+    public static SQLiteConnectionEventType Closing;
+    public static SQLiteConnectionEventType Closed;
+    public static SQLiteConnectionEventType DisposingCommand;
+    public static SQLiteConnectionEventType DisposingDataReader;
+    public static SQLiteConnectionEventType ClosingDataReader;
+}
+[FlagsAttribute]
+public enum System.Data.SQLite.SQLiteConnectionFlags : Enum {
+    public int value__;
+    public static SQLiteConnectionFlags None;
+    public static SQLiteConnectionFlags LogPrepare;
+    public static SQLiteConnectionFlags LogPreBind;
+    public static SQLiteConnectionFlags LogBind;
+    public static SQLiteConnectionFlags LogCallbackException;
+    public static SQLiteConnectionFlags LogBackup;
+    public static SQLiteConnectionFlags NoExtensionFunctions;
+    public static SQLiteConnectionFlags BindUInt32AsInt64;
+    public static SQLiteConnectionFlags BindAllAsText;
+    public static SQLiteConnectionFlags GetAllAsText;
+    public static SQLiteConnectionFlags NoLoadExtension;
+    public static SQLiteConnectionFlags NoCreateModule;
+    public static SQLiteConnectionFlags NoBindFunctions;
+    public static SQLiteConnectionFlags NoLogModule;
+    public static SQLiteConnectionFlags LogModuleError;
+    public static SQLiteConnectionFlags LogModuleException;
+    public static SQLiteConnectionFlags TraceWarning;
+    public static SQLiteConnectionFlags ConvertInvariantText;
+    public static SQLiteConnectionFlags BindInvariantText;
+    public static SQLiteConnectionFlags NoConnectionPool;
+    public static SQLiteConnectionFlags UseConnectionPool;
+    public static SQLiteConnectionFlags UseConnectionTypes;
+    public static SQLiteConnectionFlags NoGlobalTypes;
+    public static SQLiteConnectionFlags StickyHasRows;
+    public static SQLiteConnectionFlags StrictEnlistment;
+    public static SQLiteConnectionFlags MapIsolationLevels;
+    public static SQLiteConnectionFlags DetectTextAffinity;
+    public static SQLiteConnectionFlags DetectStringType;
+    public static SQLiteConnectionFlags NoConvertSettings;
+    public static SQLiteConnectionFlags BindDateTimeWithKind;
+    public static SQLiteConnectionFlags BindAndGetAllAsText;
+    public static SQLiteConnectionFlags ConvertAndBindInvariantText;
+    public static SQLiteConnectionFlags BindAndGetAllAsInvariantText;
+    public static SQLiteConnectionFlags ConvertAndBindAndGetAllAsInvariantText;
+    public static SQLiteConnectionFlags LogAll;
+    public static SQLiteConnectionFlags Default;
+    public static SQLiteConnectionFlags DefaultAndLogAll;
+}
+internal class System.Data.SQLite.SQLiteConnectionHandle : CriticalHandle {
+    internal static CloseConnectionCallback closeConnection;
+    private bool ownHandle;
+    public bool OwnHandle { get; }
+    public bool IsInvalid { get; }
+    internal SQLiteConnectionHandle(IntPtr db, bool ownHandle);
+    private SQLiteConnectionHandle(bool ownHandle);
+    private static SQLiteConnectionHandle();
+    public static IntPtr op_Implicit(SQLiteConnectionHandle db);
+    protected virtual bool ReleaseHandle();
+    public bool get_OwnHandle();
+    public virtual bool get_IsInvalid();
+}
+internal static class System.Data.SQLite.SQLiteConnectionPool : object {
+    private static object _syncRoot;
+    private static ISQLiteConnectionPool _connectionPool;
+    private static SortedList`2<string, PoolQueue> _queueList;
+    private static int _poolVersion;
+    private static int _poolOpened;
+    private static int _poolClosed;
+    private static SQLiteConnectionPool();
+    internal static void GetCounts(string fileName, Dictionary`2& counts, Int32& openCount, Int32& closeCount, Int32& totalCount);
+    internal static void ClearPool(string fileName);
+    internal static void ClearAllPools();
+    internal static void Add(string fileName, SQLiteConnectionHandle handle, int version);
+    internal static SQLiteConnectionHandle Remove(string fileName, int maxPoolSize, Int32& version);
+    internal static ISQLiteConnectionPool GetConnectionPool();
+    internal static void SetConnectionPool(ISQLiteConnectionPool connectionPool);
+    private static void ResizePool(PoolQueue queue, bool add);
+}
+[DefaultMemberAttribute("Item")]
+[DefaultPropertyAttribute("DataSource")]
+public class System.Data.SQLite.SQLiteConnectionStringBuilder : DbConnectionStringBuilder {
+    private Hashtable _properties;
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("3")]
+public int Version { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+[DisplayNameAttribute("Synchronous")]
+public SynchronizationModes SyncMode { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("False")]
+[DisplayNameAttribute("Use UTF-16 Encoding")]
+public bool UseUTF16Encoding { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("False")]
+public bool Pooling { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("True")]
+[DisplayNameAttribute("Binary GUID")]
+public bool BinaryGUID { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("")]
+[DisplayNameAttribute("Data Source")]
+public string DataSource { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("")]
+[DisplayNameAttribute("URI")]
+public string Uri { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("")]
+[DisplayNameAttribute("Full URI")]
+public string FullUri { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("30")]
+[DisplayNameAttribute("Default Timeout")]
+public int DefaultTimeout { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("3")]
+[DisplayNameAttribute("Prepare Retries")]
+public int PrepareRetries { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("True")]
+public bool Enlist { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("False")]
+[DisplayNameAttribute("Fail If Missing")]
+public bool FailIfMissing { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("False")]
+[DisplayNameAttribute("Legacy Format")]
+public bool LegacyFormat { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("False")]
+[DisplayNameAttribute("Read Only")]
+public bool ReadOnly { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("")]
+[PasswordPropertyTextAttribute("True")]
+public string Password { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("")]
+[DisplayNameAttribute("Hexadecimal Password")]
+[PasswordPropertyTextAttribute("True")]
+public Byte[] HexPassword { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("1024")]
+[DisplayNameAttribute("Page Size")]
+public int PageSize { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("0")]
+[DisplayNameAttribute("Maximum Page Count")]
+public int MaxPageCount { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("2000")]
+[DisplayNameAttribute("Cache Size")]
+public int CacheSize { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+[DisplayNameAttribute("DateTime Format")]
+public SQLiteDateFormats DateTimeFormat { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+[DisplayNameAttribute("DateTime Kind")]
+public DateTimeKind DateTimeKind { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("")]
+[DisplayNameAttribute("DateTime Format String")]
+public string DateTimeFormatString { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("sqlite_default_schema")]
+[DisplayNameAttribute("Base Schema Name")]
+public string BaseSchemaName { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+[DisplayNameAttribute("Journal Mode")]
+public SQLiteJournalModeEnum JournalMode { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+[DisplayNameAttribute("Default Isolation Level")]
+public IsolationLevel DefaultIsolationLevel { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+[DisplayNameAttribute("Default Database Type")]
+public DbType DefaultDbType { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("")]
+[DisplayNameAttribute("Default Type Name")]
+public string DefaultTypeName { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("False")]
+[DisplayNameAttribute("Foreign Keys")]
+public bool ForeignKeys { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+public SQLiteConnectionFlags Flags { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("True")]
+[DisplayNameAttribute("Set Defaults")]
+public bool SetDefaults { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("True")]
+[DisplayNameAttribute("To Full Path")]
+public bool ToFullPath { get; public set; }
+    [BrowsableAttribute("True")]
+[DefaultValueAttribute("False")]
+[DisplayNameAttribute("No Shared Flags")]
+public bool NoSharedFlags { get; public set; }
+    public SQLiteConnectionStringBuilder(string connectionString);
+    private void Initialize(string cnnString);
+    public int get_Version();
+    public void set_Version(int value);
+    public SynchronizationModes get_SyncMode();
+    public void set_SyncMode(SynchronizationModes value);
+    public bool get_UseUTF16Encoding();
+    public void set_UseUTF16Encoding(bool value);
+    public bool get_Pooling();
+    public void set_Pooling(bool value);
+    public bool get_BinaryGUID();
+    public void set_BinaryGUID(bool value);
+    public string get_DataSource();
+    public void set_DataSource(string value);
+    public string get_Uri();
+    public void set_Uri(string value);
+    public string get_FullUri();
+    public void set_FullUri(string value);
+    public int get_DefaultTimeout();
+    public void set_DefaultTimeout(int value);
+    public int get_PrepareRetries();
+    public void set_PrepareRetries(int value);
+    public bool get_Enlist();
+    public void set_Enlist(bool value);
+    public bool get_FailIfMissing();
+    public void set_FailIfMissing(bool value);
+    public bool get_LegacyFormat();
+    public void set_LegacyFormat(bool value);
+    public bool get_ReadOnly();
+    public void set_ReadOnly(bool value);
+    public string get_Password();
+    public void set_Password(string value);
+    public Byte[] get_HexPassword();
+    public void set_HexPassword(Byte[] value);
+    public int get_PageSize();
+    public void set_PageSize(int value);
+    public int get_MaxPageCount();
+    public void set_MaxPageCount(int value);
+    public int get_CacheSize();
+    public void set_CacheSize(int value);
+    public SQLiteDateFormats get_DateTimeFormat();
+    public void set_DateTimeFormat(SQLiteDateFormats value);
+    public DateTimeKind get_DateTimeKind();
+    public void set_DateTimeKind(DateTimeKind value);
+    public string get_DateTimeFormatString();
+    public void set_DateTimeFormatString(string value);
+    public string get_BaseSchemaName();
+    public void set_BaseSchemaName(string value);
+    public SQLiteJournalModeEnum get_JournalMode();
+    public void set_JournalMode(SQLiteJournalModeEnum value);
+    public IsolationLevel get_DefaultIsolationLevel();
+    public void set_DefaultIsolationLevel(IsolationLevel value);
+    public DbType get_DefaultDbType();
+    public void set_DefaultDbType(DbType value);
+    public string get_DefaultTypeName();
+    public void set_DefaultTypeName(string value);
+    public bool get_ForeignKeys();
+    public void set_ForeignKeys(bool value);
+    public SQLiteConnectionFlags get_Flags();
+    public void set_Flags(SQLiteConnectionFlags value);
+    public bool get_SetDefaults();
+    public void set_SetDefaults(bool value);
+    public bool get_ToFullPath();
+    public void set_ToFullPath(bool value);
+    public bool get_NoSharedFlags();
+    public void set_NoSharedFlags(bool value);
+    public virtual bool TryGetValue(string keyword, Object& value);
+    private void FallbackGetProperties(Hashtable propertyList);
+}
+public class System.Data.SQLite.SQLiteContext : object {
+    private IntPtr pContext;
+    public IntPtr NativeHandle { get; }
+    internal SQLiteContext(IntPtr pContext);
+    public sealed virtual IntPtr get_NativeHandle();
+    public void SetNull();
+    public void SetDouble(double value);
+    public void SetInt(int value);
+    public void SetInt64(long value);
+    public void SetString(string value);
+    public void SetError(string value);
+    public void SetErrorCode(SQLiteErrorCode value);
+    public void SetErrorTooBig();
+    public void SetErrorNoMemory();
+    public void SetBlob(Byte[] value);
+    public void SetZeroBlob(int value);
+    public void SetValue(SQLiteValue value);
+}
+public abstract class System.Data.SQLite.SQLiteConvert : object {
+    private static DbType FallbackDefaultDbType;
+    private static string FullFormat;
+    private static string FallbackDefaultTypeName;
+    protected static DateTime UnixEpoch;
+    private static double OleAutomationEpochAsJulianDay;
+    private static long MinimumJd;
+    private static long MaximumJd;
+    private static String[] _datetimeFormats;
+    private static string _datetimeFormatUtc;
+    private static string _datetimeFormatLocal;
+    private static Encoding _utf8;
+    internal SQLiteDateFormats _datetimeFormat;
+    internal DateTimeKind _datetimeKind;
+    internal string _datetimeFormatString;
+    private static Type[] _affinitytotype;
+    private static DbType[] _typetodbtype;
+    private static Int32[] _dbtypetocolumnsize;
+    private static Object[] _dbtypetonumericprecision;
+    private static Object[] _dbtypetonumericscale;
+    private static Type[] _dbtypeToType;
+    private static TypeAffinity[] _typecodeAffinities;
+    private static object _syncRoot;
+    private static SQLiteDbTypeMap _typeNames;
+    internal SQLiteConvert(SQLiteDateFormats fmt, DateTimeKind kind, string fmtString);
+    private static SQLiteConvert();
+    public static Byte[] ToUTF8(string sourceText);
+    public Byte[] ToUTF8(DateTime dateTimeValue);
+    public virtual string ToString(IntPtr nativestring, int nativestringlen);
+    public static string UTF8ToString(IntPtr nativestring, int nativestringlen);
+    private static bool isValidJd(long jd);
+    private static long DoubleToJd(double julianDay);
+    private static double JdToDouble(long jd);
+    private static DateTime computeYMD(long jd, Nullable`1<DateTime> badValue);
+    private static DateTime computeHMS(long jd, Nullable`1<DateTime> badValue);
+    private static long computeJD(DateTime dateTime);
+    public DateTime ToDateTime(string dateText);
+    public static DateTime ToDateTime(string dateText, SQLiteDateFormats format, DateTimeKind kind, string formatString);
+    public DateTime ToDateTime(double julianDay);
+    public static DateTime ToDateTime(double julianDay, DateTimeKind kind);
+    internal static DateTime ToDateTime(int seconds, DateTimeKind kind);
+    internal static DateTime ToDateTime(long ticks, DateTimeKind kind);
+    public static double ToJulianDay(DateTime value);
+    public static long ToUnixEpoch(DateTime value);
+    private static string GetDateTimeKindFormat(DateTimeKind kind, string formatString);
+    public string ToString(DateTime dateValue);
+    public static string ToString(DateTime dateValue, SQLiteDateFormats format, DateTimeKind kind, string formatString);
+    internal DateTime ToDateTime(IntPtr ptr, int len);
+    public static String[] Split(string source, char separator);
+    internal static String[] NewSplit(string value, char separator, bool keepQuote, String& error);
+    public static string ToStringWithProvider(object obj, IFormatProvider provider);
+    internal static bool ToBoolean(object obj, IFormatProvider provider, bool viaFramework);
+    public static bool ToBoolean(object source);
+    public static bool ToBoolean(string source);
+    internal static Type SQLiteTypeToType(SQLiteType t);
+    internal static DbType TypeToDbType(Type typ);
+    internal static int DbTypeToColumnSize(DbType typ);
+    internal static object DbTypeToNumericPrecision(DbType typ);
+    internal static object DbTypeToNumericScale(DbType typ);
+    private static string GetDefaultTypeName(SQLiteConnection connection);
+    private static void DefaultTypeNameWarning(DbType dbType, SQLiteConnectionFlags flags, string typeName);
+    private static void DefaultDbTypeWarning(string typeName, SQLiteConnectionFlags flags, Nullable`1<DbType> dbType);
+    internal static string DbTypeToTypeName(SQLiteConnection connection, DbType dbType, SQLiteConnectionFlags flags);
+    internal static Type DbTypeToType(DbType typ);
+    internal static TypeAffinity TypeToAffinity(Type typ);
+    private static SQLiteDbTypeMap GetSQLiteDbTypeMap();
+    internal static bool IsStringDbType(DbType type);
+    private static string SettingValueToString(object value);
+    private static DbType GetDefaultDbType(SQLiteConnection connection);
+    internal static bool LooksLikeNull(string text);
+    internal static bool LooksLikeInt64(string text);
+    internal static bool LooksLikeDouble(string text);
+    internal static bool LooksLikeDateTime(SQLiteConvert convert, string text);
+    internal static DbType TypeNameToDbType(SQLiteConnection connection, string typeName, SQLiteConnectionFlags flags);
+}
+[DefaultEventAttribute("RowUpdated")]
+[DesignerAttribute("Microsoft.VSDesigner.Data.VS.SqlDataAdapterDesigner, Microsoft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+[ToolboxItemAttribute("SQLite.Designer.SQLiteDataAdapterToolboxItem, SQLite.Designer, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139")]
+public class System.Data.SQLite.SQLiteDataAdapter : DbDataAdapter {
+    private bool disposeSelect;
+    private static object _updatingEventPH;
+    private static object _updatedEventPH;
+    private bool disposed;
+    [DefaultValueAttribute("")]
+[EditorAttribute("Microsoft.VSDesigner.Data.Design.DBCommandEditor, Microsoft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public SQLiteCommand SelectCommand { get; public set; }
+    [DefaultValueAttribute("")]
+[EditorAttribute("Microsoft.VSDesigner.Data.Design.DBCommandEditor, Microsoft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public SQLiteCommand InsertCommand { get; public set; }
+    [DefaultValueAttribute("")]
+[EditorAttribute("Microsoft.VSDesigner.Data.Design.DBCommandEditor, Microsoft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public SQLiteCommand UpdateCommand { get; public set; }
+    [DefaultValueAttribute("")]
+[EditorAttribute("Microsoft.VSDesigner.Data.Design.DBCommandEditor, Microsoft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public SQLiteCommand DeleteCommand { get; public set; }
+    public SQLiteDataAdapter(SQLiteCommand cmd);
+    public SQLiteDataAdapter(string commandText, SQLiteConnection connection);
+    public SQLiteDataAdapter(string commandText, string connectionString);
+    public SQLiteDataAdapter(string commandText, string connectionString, bool parseViaFramework);
+    private static SQLiteDataAdapter();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    public void add_RowUpdating(EventHandler`1<RowUpdatingEventArgs> value);
+    public void remove_RowUpdating(EventHandler`1<RowUpdatingEventArgs> value);
+    internal static Delegate FindBuilder(MulticastDelegate mcd);
+    public void add_RowUpdated(EventHandler`1<RowUpdatedEventArgs> value);
+    public void remove_RowUpdated(EventHandler`1<RowUpdatedEventArgs> value);
+    protected virtual void OnRowUpdating(RowUpdatingEventArgs value);
+    protected virtual void OnRowUpdated(RowUpdatedEventArgs value);
+    public SQLiteCommand get_SelectCommand();
+    public void set_SelectCommand(SQLiteCommand value);
+    public SQLiteCommand get_InsertCommand();
+    public void set_InsertCommand(SQLiteCommand value);
+    public SQLiteCommand get_UpdateCommand();
+    public void set_UpdateCommand(SQLiteCommand value);
+    public SQLiteCommand get_DeleteCommand();
+    public void set_DeleteCommand(SQLiteCommand value);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Data.SQLite.SQLiteDataReader : DbDataReader {
+    private SQLiteCommand _command;
+    private SQLiteConnectionFlags _flags;
+    private int _activeStatementIndex;
+    private SQLiteStatement _activeStatement;
+    private int _readingState;
+    private int _rowsAffected;
+    private int _fieldCount;
+    private int _stepCount;
+    private Dictionary`2<string, int> _fieldIndexes;
+    private SQLiteType[] _fieldTypeArray;
+    private CommandBehavior _commandBehavior;
+    internal bool _disposeCommand;
+    internal bool _throwOnDisposed;
+    private SQLiteKeyReader _keyInfo;
+    internal int _version;
+    private string _baseSchemaName;
+    private bool disposed;
+    public int Depth { get; }
+    public int FieldCount { get; }
+    public int StepCount { get; }
+    private int PrivateVisibleFieldCount { get; }
+    public int VisibleFieldCount { get; }
+    public bool HasRows { get; }
+    public bool IsClosed { get; }
+    public int RecordsAffected { get; }
+    public object Item { get; }
+    public object Item { get; }
+    internal SQLiteDataReader(SQLiteCommand cmd, CommandBehavior behave);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    internal void Cancel();
+    public virtual void Close();
+    private void CheckClosed();
+    private void CheckValidRow();
+    public virtual IEnumerator GetEnumerator();
+    public virtual int get_Depth();
+    public virtual int get_FieldCount();
+    public void RefreshFlags();
+    public int get_StepCount();
+    private int get_PrivateVisibleFieldCount();
+    public virtual int get_VisibleFieldCount();
+    private void VerifyForGet();
+    private TypeAffinity VerifyType(int i, DbType typ);
+    public virtual bool GetBoolean(int i);
+    public virtual byte GetByte(int i);
+    public virtual long GetBytes(int i, long fieldOffset, Byte[] buffer, int bufferoffset, int length);
+    public virtual char GetChar(int i);
+    public virtual long GetChars(int i, long fieldoffset, Char[] buffer, int bufferoffset, int length);
+    public virtual string GetDataTypeName(int i);
+    public virtual DateTime GetDateTime(int i);
+    public virtual decimal GetDecimal(int i);
+    public virtual double GetDouble(int i);
+    public virtual Type GetFieldType(int i);
+    public virtual float GetFloat(int i);
+    public virtual Guid GetGuid(int i);
+    public virtual short GetInt16(int i);
+    public virtual int GetInt32(int i);
+    public virtual long GetInt64(int i);
+    public virtual string GetName(int i);
+    public virtual int GetOrdinal(string name);
+    public virtual DataTable GetSchemaTable();
+    private static void GetStatementColumnParents(SQLiteBase sql, SQLiteStatement stmt, int fieldCount, Dictionary`2& parentToColumns, Dictionary`2& columnToParent);
+    private static int CountParents(Dictionary`2<ColumnParent, List`1<int>> parentToColumns);
+    internal DataTable GetSchemaTable(bool wantUniqueInfo, bool wantDefaultValue);
+    public virtual string GetString(int i);
+    public virtual object GetValue(int i);
+    public virtual int GetValues(Object[] values);
+    public NameValueCollection GetValues();
+    public virtual bool get_HasRows();
+    public virtual bool get_IsClosed();
+    public virtual bool IsDBNull(int i);
+    public virtual bool NextResult();
+    private static SQLiteConnection GetConnection(SQLiteDataReader dataReader);
+    private SQLiteType GetSQLiteType(SQLiteType oldType, string text);
+    private SQLiteType GetSQLiteType(SQLiteConnectionFlags flags, int i);
+    public virtual bool Read();
+    public virtual int get_RecordsAffected();
+    public virtual object get_Item(string name);
+    public virtual object get_Item(int i);
+    private void LoadKeyInfo();
+}
+public enum System.Data.SQLite.SQLiteDateFormats : Enum {
+    public int value__;
+    public static SQLiteDateFormats Ticks;
+    public static SQLiteDateFormats ISO8601;
+    public static SQLiteDateFormats JulianDay;
+    public static SQLiteDateFormats UnixEpoch;
+    public static SQLiteDateFormats InvariantCulture;
+    public static SQLiteDateFormats CurrentCulture;
+    public static SQLiteDateFormats Default;
+}
+internal class System.Data.SQLite.SQLiteDbTypeMap : Dictionary`2<string, SQLiteDbTypeMapping> {
+    private Dictionary`2<DbType, SQLiteDbTypeMapping> reverse;
+    public SQLiteDbTypeMap(IEnumerable`1<SQLiteDbTypeMapping> collection);
+    public int Clear();
+    public void Add(IEnumerable`1<SQLiteDbTypeMapping> collection);
+    public void Add(SQLiteDbTypeMapping item);
+    public bool ContainsKey(DbType key);
+    public bool TryGetValue(DbType key, SQLiteDbTypeMapping& value);
+    public bool Remove(DbType key);
+}
+internal class System.Data.SQLite.SQLiteDbTypeMapping : object {
+    internal string typeName;
+    internal DbType dataType;
+    internal bool primary;
+    internal SQLiteDbTypeMapping(string newTypeName, DbType newDataType, bool newPrimary);
+}
+internal static class System.Data.SQLite.SQLiteDefineConstants : object {
+    public static IList`1<string> OptionList;
+    private static SQLiteDefineConstants();
+}
+internal class System.Data.SQLite.SQLiteEnlistment : object {
+    internal SQLiteTransaction _transaction;
+    internal Transaction _scope;
+    internal bool _disposeConnection;
+    private bool disposed;
+    internal SQLiteEnlistment(SQLiteConnection cnn, Transaction scope, IsolationLevel defaultIsolationLevel, bool throwOnUnavailable, bool throwOnUnsupported);
+    private IsolationLevel GetSystemDataIsolationLevel(SQLiteConnection connection, Transaction transaction, IsolationLevel defaultIsolationLevel, bool throwOnUnavailable, bool throwOnUnsupported);
+    private void Cleanup(SQLiteConnection cnn);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    private void Dispose(bool disposing);
+    protected virtual void Finalize();
+    public sealed virtual void Commit(Enlistment enlistment);
+    public sealed virtual void InDoubt(Enlistment enlistment);
+    public sealed virtual void Prepare(PreparingEnlistment preparingEnlistment);
+    public sealed virtual void Rollback(Enlistment enlistment);
+}
+public enum System.Data.SQLite.SQLiteErrorCode : Enum {
+    public int value__;
+    public static SQLiteErrorCode Unknown;
+    public static SQLiteErrorCode Ok;
+    public static SQLiteErrorCode Error;
+    public static SQLiteErrorCode Internal;
+    public static SQLiteErrorCode Perm;
+    public static SQLiteErrorCode Abort;
+    public static SQLiteErrorCode Busy;
+    public static SQLiteErrorCode Locked;
+    public static SQLiteErrorCode NoMem;
+    public static SQLiteErrorCode ReadOnly;
+    public static SQLiteErrorCode Interrupt;
+    public static SQLiteErrorCode IoErr;
+    public static SQLiteErrorCode Corrupt;
+    public static SQLiteErrorCode NotFound;
+    public static SQLiteErrorCode Full;
+    public static SQLiteErrorCode CantOpen;
+    public static SQLiteErrorCode Protocol;
+    public static SQLiteErrorCode Empty;
+    public static SQLiteErrorCode Schema;
+    public static SQLiteErrorCode TooBig;
+    public static SQLiteErrorCode Constraint;
+    public static SQLiteErrorCode Mismatch;
+    public static SQLiteErrorCode Misuse;
+    public static SQLiteErrorCode NoLfs;
+    public static SQLiteErrorCode Auth;
+    public static SQLiteErrorCode Format;
+    public static SQLiteErrorCode Range;
+    public static SQLiteErrorCode NotADb;
+    public static SQLiteErrorCode Notice;
+    public static SQLiteErrorCode Warning;
+    public static SQLiteErrorCode Row;
+    public static SQLiteErrorCode Done;
+    public static SQLiteErrorCode NonExtendedMask;
+}
+public class System.Data.SQLite.SQLiteException : DbException {
+    private SQLiteErrorCode _errorCode;
+    public SQLiteErrorCode ResultCode { get; }
+    public int ErrorCode { get; }
+    private SQLiteException(SerializationInfo info, StreamingContext context);
+    public SQLiteException(SQLiteErrorCode errorCode, string message);
+    public SQLiteException(string message);
+    public SQLiteException(string message, Exception innerException);
+    public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+    public SQLiteErrorCode get_ResultCode();
+    public virtual int get_ErrorCode();
+    private static string GetErrorString(SQLiteErrorCode errorCode);
+    private static string GetStockErrorMessage(SQLiteErrorCode errorCode, string message);
+}
+public enum System.Data.SQLite.SQLiteExecuteType : Enum {
+    public int value__;
+    public static SQLiteExecuteType None;
+    public static SQLiteExecuteType NonQuery;
+    public static SQLiteExecuteType Scalar;
+    public static SQLiteExecuteType Reader;
+    public static SQLiteExecuteType Default;
+}
+public class System.Data.SQLite.SQLiteFactory : DbProviderFactory {
+    private bool disposed;
+    public static SQLiteFactory Instance;
+    private static string DefaultTypeName;
+    private static BindingFlags DefaultBindingFlags;
+    private static Type _dbProviderServicesType;
+    private static object _sqliteServices;
+    private static SQLiteFactory();
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    private void Dispose(bool disposing);
+    protected virtual void Finalize();
+    public void add_Log(SQLiteLogEventHandler value);
+    public void remove_Log(SQLiteLogEventHandler value);
+    public virtual DbCommand CreateCommand();
+    public virtual DbCommandBuilder CreateCommandBuilder();
+    public virtual DbConnection CreateConnection();
+    public virtual DbConnectionStringBuilder CreateConnectionStringBuilder();
+    public virtual DbDataAdapter CreateDataAdapter();
+    public virtual DbParameter CreateParameter();
+    private sealed virtual override object System.IServiceProvider.GetService(Type serviceType);
+    private object GetSQLiteProviderServicesInstance();
+}
+[UnmanagedFunctionPointerAttribute("2")]
+internal class System.Data.SQLite.SQLiteFinalCallback : MulticastDelegate {
+    public SQLiteFinalCallback(object object, IntPtr method);
+    public virtual void Invoke(IntPtr context);
+    public virtual IAsyncResult BeginInvoke(IntPtr context, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public abstract class System.Data.SQLite.SQLiteFunction : object {
+    internal SQLiteBase _base;
+    private Dictionary`2<IntPtr, AggregateData> _contextDataList;
+    private SQLiteConnectionFlags _flags;
+    private SQLiteCallback _InvokeFunc;
+    private SQLiteCallback _StepFunc;
+    private SQLiteFinalCallback _FinalFunc;
+    private SQLiteCollation _CompareFunc;
+    private SQLiteCollation _CompareFunc16;
+    internal IntPtr _context;
+    private static List`1<SQLiteFunctionAttribute> _registeredFunctions;
+    private bool disposed;
+    public SQLiteConvert SQLiteConvert { get; }
+    protected SQLiteFunction(SQLiteDateFormats format, DateTimeKind kind, string formatString, bool utf16);
+    private static SQLiteFunction();
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    protected virtual void Finalize();
+    public SQLiteConvert get_SQLiteConvert();
+    public virtual object Invoke(Object[] args);
+    public virtual void Step(Object[] args, int stepNumber, Object& contextData);
+    public virtual object Final(object contextData);
+    public virtual int Compare(string param1, string param2);
+    internal Object[] ConvertParams(int nArgs, IntPtr argsptr);
+    private void SetReturnValue(IntPtr context, object returnValue);
+    internal void ScalarCallback(IntPtr context, int nArgs, IntPtr argsptr);
+    internal int CompareCallback(IntPtr ptr, int len1, IntPtr ptr1, int len2, IntPtr ptr2);
+    internal int CompareCallback16(IntPtr ptr, int len1, IntPtr ptr1, int len2, IntPtr ptr2);
+    internal void StepCallback(IntPtr context, int nArgs, IntPtr argsptr);
+    internal void FinalCallback(IntPtr context);
+    public static void RegisterFunction(Type typ);
+    internal static IEnumerable`1<SQLiteFunction> BindFunctions(SQLiteBase sqlbase, SQLiteConnectionFlags flags);
+    internal static void BindFunction(SQLiteBase sqliteBase, SQLiteFunctionAttribute functionAttribute, SQLiteFunction function, SQLiteConnectionFlags flags);
+}
+[AttributeUsageAttribute("4")]
+public class System.Data.SQLite.SQLiteFunctionAttribute : Attribute {
+    private string _name;
+    private int _argumentCount;
+    private FunctionType _functionType;
+    private Type _instanceType;
+    public string Name { get; public set; }
+    public int Arguments { get; public set; }
+    public FunctionType FuncType { get; public set; }
+    internal Type InstanceType { get; internal set; }
+    public SQLiteFunctionAttribute(string name, int argumentCount, FunctionType functionType);
+    public string get_Name();
+    public void set_Name(string value);
+    public int get_Arguments();
+    public void set_Arguments(int value);
+    public FunctionType get_FuncType();
+    public void set_FuncType(FunctionType value);
+    internal Type get_InstanceType();
+    internal void set_InstanceType(Type value);
+}
+public class System.Data.SQLite.SQLiteFunctionEx : SQLiteFunction {
+    private bool disposed;
+    protected CollationSequence GetCollationSequence();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+}
+public class System.Data.SQLite.SQLiteIndex : object {
+    private SQLiteIndexInputs inputs;
+    private SQLiteIndexOutputs outputs;
+    public SQLiteIndexInputs Inputs { get; }
+    public SQLiteIndexOutputs Outputs { get; }
+    internal SQLiteIndex(int nConstraint, int nOrderBy);
+    internal static void FromIntPtr(IntPtr pIndex, SQLiteIndex& index);
+    internal static void ToIntPtr(SQLiteIndex index, IntPtr pIndex);
+    public SQLiteIndexInputs get_Inputs();
+    public SQLiteIndexOutputs get_Outputs();
+}
+public class System.Data.SQLite.SQLiteIndexConstraint : object {
+    public int iColumn;
+    public SQLiteIndexConstraintOp op;
+    public byte usable;
+    public int iTermOffset;
+    internal SQLiteIndexConstraint(sqlite3_index_constraint constraint);
+    private SQLiteIndexConstraint(int iColumn, SQLiteIndexConstraintOp op, byte usable, int iTermOffset);
+}
+public enum System.Data.SQLite.SQLiteIndexConstraintOp : Enum {
+    public byte value__;
+    public static SQLiteIndexConstraintOp EqualTo;
+    public static SQLiteIndexConstraintOp GreaterThan;
+    public static SQLiteIndexConstraintOp LessThanOrEqualTo;
+    public static SQLiteIndexConstraintOp LessThan;
+    public static SQLiteIndexConstraintOp GreaterThanOrEqualTo;
+    public static SQLiteIndexConstraintOp Match;
+}
+public class System.Data.SQLite.SQLiteIndexConstraintUsage : object {
+    public int argvIndex;
+    public byte omit;
+    internal SQLiteIndexConstraintUsage(sqlite3_index_constraint_usage constraintUsage);
+    private SQLiteIndexConstraintUsage(int argvIndex, byte omit);
+}
+public class System.Data.SQLite.SQLiteIndexInputs : object {
+    private SQLiteIndexConstraint[] constraints;
+    private SQLiteIndexOrderBy[] orderBys;
+    public SQLiteIndexConstraint[] Constraints { get; }
+    public SQLiteIndexOrderBy[] OrderBys { get; }
+    internal SQLiteIndexInputs(int nConstraint, int nOrderBy);
+    public SQLiteIndexConstraint[] get_Constraints();
+    public SQLiteIndexOrderBy[] get_OrderBys();
+}
+public class System.Data.SQLite.SQLiteIndexOrderBy : object {
+    public int iColumn;
+    public byte desc;
+    internal SQLiteIndexOrderBy(sqlite3_index_orderby orderBy);
+    private SQLiteIndexOrderBy(int iColumn, byte desc);
+}
+public class System.Data.SQLite.SQLiteIndexOutputs : object {
+    private SQLiteIndexConstraintUsage[] constraintUsages;
+    private int indexNumber;
+    private string indexString;
+    private int needToFreeIndexString;
+    private int orderByConsumed;
+    private Nullable`1<double> estimatedCost;
+    private Nullable`1<long> estimatedRows;
+    public SQLiteIndexConstraintUsage[] ConstraintUsages { get; }
+    public int IndexNumber { get; public set; }
+    public string IndexString { get; public set; }
+    public int NeedToFreeIndexString { get; public set; }
+    public int OrderByConsumed { get; public set; }
+    public Nullable`1<double> EstimatedCost { get; public set; }
+    public Nullable`1<long> EstimatedRows { get; public set; }
+    internal SQLiteIndexOutputs(int nConstraint);
+    public bool CanUseEstimatedRows();
+    public SQLiteIndexConstraintUsage[] get_ConstraintUsages();
+    public int get_IndexNumber();
+    public void set_IndexNumber(int value);
+    public string get_IndexString();
+    public void set_IndexString(string value);
+    public int get_NeedToFreeIndexString();
+    public void set_NeedToFreeIndexString(int value);
+    public int get_OrderByConsumed();
+    public void set_OrderByConsumed(int value);
+    public Nullable`1<double> get_EstimatedCost();
+    public void set_EstimatedCost(Nullable`1<double> value);
+    public Nullable`1<long> get_EstimatedRows();
+    public void set_EstimatedRows(Nullable`1<long> value);
+}
+public enum System.Data.SQLite.SQLiteJournalModeEnum : Enum {
+    public int value__;
+    public static SQLiteJournalModeEnum Default;
+    public static SQLiteJournalModeEnum Delete;
+    public static SQLiteJournalModeEnum Persist;
+    public static SQLiteJournalModeEnum Off;
+    public static SQLiteJournalModeEnum Truncate;
+    public static SQLiteJournalModeEnum Memory;
+    public static SQLiteJournalModeEnum Wal;
+}
+internal class System.Data.SQLite.SQLiteKeyReader : object {
+    private KeyInfo[] _keyInfo;
+    private SQLiteStatement _stmt;
+    private bool _isValid;
+    private bool disposed;
+    internal int Count { get; }
+    internal SQLiteKeyReader(SQLiteConnection cnn, SQLiteDataReader reader, SQLiteStatement stmt);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    private void Dispose(bool disposing);
+    protected virtual void Finalize();
+    internal int get_Count();
+    internal void Sync(int i);
+    internal void Sync();
+    internal void Reset();
+    internal string GetDataTypeName(int i);
+    internal Type GetFieldType(int i);
+    internal string GetName(int i);
+    internal int GetOrdinal(string name);
+    internal bool GetBoolean(int i);
+    internal byte GetByte(int i);
+    internal long GetBytes(int i, long fieldOffset, Byte[] buffer, int bufferoffset, int length);
+    internal char GetChar(int i);
+    internal long GetChars(int i, long fieldOffset, Char[] buffer, int bufferoffset, int length);
+    internal DateTime GetDateTime(int i);
+    internal decimal GetDecimal(int i);
+    internal double GetDouble(int i);
+    internal float GetFloat(int i);
+    internal Guid GetGuid(int i);
+    internal short GetInt16(int i);
+    internal int GetInt32(int i);
+    internal long GetInt64(int i);
+    internal string GetString(int i);
+    internal object GetValue(int i);
+    internal bool IsDBNull(int i);
+    internal void AppendSchemaTable(DataTable tbl);
+}
+public static class System.Data.SQLite.SQLiteLog : object {
+    private static object syncRoot;
+    private static EventHandler _domainUnload;
+    private static SQLiteLogEventHandler _handlers;
+    private static SQLiteLogEventHandler _defaultHandler;
+    private static SQLiteLogCallback _callback;
+    private static SQLiteBase _sql;
+    private static bool _enabled;
+    public static bool Enabled { get; public set; }
+    private static SQLiteLog();
+    private static void add__handlers(SQLiteLogEventHandler value);
+    private static void remove__handlers(SQLiteLogEventHandler value);
+    public static void Initialize();
+    private static void DomainUnload(object sender, EventArgs e);
+    public static void add_Log(SQLiteLogEventHandler value);
+    public static void remove_Log(SQLiteLogEventHandler value);
+    public static bool get_Enabled();
+    public static void set_Enabled(bool value);
+    public static void LogMessage(string message);
+    public static void LogMessage(SQLiteErrorCode errorCode, string message);
+    public static void LogMessage(int errorCode, string message);
+    private static void LogMessage(object errorCode, string message);
+    private static void InitializeDefaultHandler();
+    public static void AddDefaultHandler();
+    public static void RemoveDefaultHandler();
+    private static void LogCallback(IntPtr pUserData, int errorCode, IntPtr pMessage);
+    private static void LogEventHandler(object sender, LogEventArgs e);
+}
+[UnmanagedFunctionPointerAttribute("2")]
+internal class System.Data.SQLite.SQLiteLogCallback : MulticastDelegate {
+    public SQLiteLogCallback(object object, IntPtr method);
+    public virtual void Invoke(IntPtr pUserData, int errorCode, IntPtr pMessage);
+    public virtual IAsyncResult BeginInvoke(IntPtr pUserData, int errorCode, IntPtr pMessage, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class System.Data.SQLite.SQLiteLogEventHandler : MulticastDelegate {
+    public SQLiteLogEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, LogEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, LogEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+internal static class System.Data.SQLite.SQLiteMarshal : object {
+    public static IntPtr IntPtrForOffset(IntPtr pointer, int offset);
+    public static int RoundUp(int size, int alignment);
+    public static int NextOffsetOf(int offset, int size, int alignment);
+    public static int ReadInt32(IntPtr pointer, int offset);
+    public static double ReadDouble(IntPtr pointer, int offset);
+    public static IntPtr ReadIntPtr(IntPtr pointer, int offset);
+    public static void WriteInt32(IntPtr pointer, int offset, int value);
+    public static void WriteInt64(IntPtr pointer, int offset, long value);
+    public static void WriteDouble(IntPtr pointer, int offset, double value);
+    public static void WriteIntPtr(IntPtr pointer, int offset, IntPtr value);
+    public static int GetHashCode(object value, bool identity);
+}
+internal static class System.Data.SQLite.SQLiteMemory : object {
+    public static IntPtr Allocate(int size);
+    public static int Size(IntPtr pMemory);
+    public static void Free(IntPtr pMemory);
+}
+public static class System.Data.SQLite.SQLiteMetaDataCollectionNames : object {
+    public static string Catalogs;
+    public static string Columns;
+    public static string Indexes;
+    public static string IndexColumns;
+    public static string Tables;
+    public static string Views;
+    public static string ViewColumns;
+    public static string ForeignKeys;
+    public static string Triggers;
+    private static SQLiteMetaDataCollectionNames();
+}
+public abstract class System.Data.SQLite.SQLiteModule : object {
+    private static int DefaultModuleVersion;
+    private sqlite3_module nativeModule;
+    private xDestroyModule destroyModule;
+    private IntPtr disposableModule;
+    private Dictionary`2<IntPtr, SQLiteVirtualTable> tables;
+    private Dictionary`2<IntPtr, SQLiteVirtualTableCursor> cursors;
+    private Dictionary`2<string, SQLiteFunction> functions;
+    private bool logErrors;
+    private bool logExceptions;
+    private bool declared;
+    private string name;
+    private bool disposed;
+    protected bool LogErrorsNoThrow { get; protected set; }
+    protected bool LogExceptionsNoThrow { get; protected set; }
+    public bool LogErrors { get; public set; }
+    public bool LogExceptions { get; public set; }
+    public bool Declared { get; internal set; }
+    public string Name { get; }
+    public SQLiteModule(string name);
+    private static SQLiteModule();
+    internal bool CreateDisposableModule(IntPtr pDb);
+    private void xDestroyModule(IntPtr pClientData);
+    private sqlite3_module AllocateNativeModule();
+    private sqlite3_module AllocateNativeModule(ISQLiteNativeModule module);
+    private sqlite3_module CopyNativeModule(sqlite3_module module);
+    private SQLiteErrorCode CreateOrConnect(bool create, IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError);
+    private SQLiteErrorCode DestroyOrDisconnect(bool destroy, IntPtr pVtab);
+    private static bool SetTableError(SQLiteModule module, IntPtr pVtab, bool logErrors, bool logExceptions, string error);
+    private static bool SetTableError(SQLiteModule module, SQLiteVirtualTable table, bool logErrors, bool logExceptions, string error);
+    private static bool SetCursorError(SQLiteModule module, IntPtr pCursor, bool logErrors, bool logExceptions, string error);
+    private static bool SetCursorError(SQLiteModule module, SQLiteVirtualTableCursor cursor, bool logErrors, bool logExceptions, string error);
+    protected virtual ISQLiteNativeModule GetNativeModuleImpl();
+    protected virtual ISQLiteNativeModule CreateNativeModuleImpl();
+    protected virtual IntPtr AllocateTable();
+    protected virtual void ZeroTable(IntPtr pVtab);
+    protected virtual void FreeTable(IntPtr pVtab);
+    protected virtual IntPtr AllocateCursor();
+    protected virtual void FreeCursor(IntPtr pCursor);
+    private static IntPtr TableFromCursor(SQLiteModule module, IntPtr pCursor);
+    protected virtual IntPtr TableFromCursor(IntPtr pCursor);
+    protected virtual SQLiteVirtualTable TableFromIntPtr(IntPtr pVtab);
+    protected virtual IntPtr TableToIntPtr(SQLiteVirtualTable table);
+    protected virtual SQLiteVirtualTableCursor CursorFromIntPtr(IntPtr pVtab, IntPtr pCursor);
+    protected virtual IntPtr CursorToIntPtr(SQLiteVirtualTableCursor cursor);
+    protected virtual string GetFunctionKey(int argumentCount, string name, SQLiteFunction function);
+    protected virtual SQLiteErrorCode DeclareTable(SQLiteConnection connection, string sql, String& error);
+    protected virtual SQLiteErrorCode DeclareFunction(SQLiteConnection connection, int argumentCount, string name, String& error);
+    protected virtual bool get_LogErrorsNoThrow();
+    protected virtual void set_LogErrorsNoThrow(bool value);
+    protected virtual bool get_LogExceptionsNoThrow();
+    protected virtual void set_LogExceptionsNoThrow(bool value);
+    protected virtual bool SetTableError(IntPtr pVtab, string error);
+    protected virtual bool SetTableError(SQLiteVirtualTable table, string error);
+    protected virtual bool SetCursorError(SQLiteVirtualTableCursor cursor, string error);
+    protected virtual bool SetEstimatedCost(SQLiteIndex index, Nullable`1<double> estimatedCost);
+    protected virtual bool SetEstimatedCost(SQLiteIndex index);
+    protected virtual bool SetEstimatedRows(SQLiteIndex index, Nullable`1<long> estimatedRows);
+    protected virtual bool SetEstimatedRows(SQLiteIndex index);
+    public virtual bool get_LogErrors();
+    public virtual void set_LogErrors(bool value);
+    public virtual bool get_LogExceptions();
+    public virtual void set_LogExceptions(bool value);
+    private SQLiteErrorCode xCreate(IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError);
+    private SQLiteErrorCode xConnect(IntPtr pDb, IntPtr pAux, int argc, IntPtr argv, IntPtr& pVtab, IntPtr& pError);
+    private SQLiteErrorCode xBestIndex(IntPtr pVtab, IntPtr pIndex);
+    private SQLiteErrorCode xDisconnect(IntPtr pVtab);
+    private SQLiteErrorCode xDestroy(IntPtr pVtab);
+    private SQLiteErrorCode xOpen(IntPtr pVtab, IntPtr& pCursor);
+    private SQLiteErrorCode xClose(IntPtr pCursor);
+    private SQLiteErrorCode xFilter(IntPtr pCursor, int idxNum, IntPtr idxStr, int argc, IntPtr argv);
+    private SQLiteErrorCode xNext(IntPtr pCursor);
+    private int xEof(IntPtr pCursor);
+    private SQLiteErrorCode xColumn(IntPtr pCursor, IntPtr pContext, int index);
+    private SQLiteErrorCode xRowId(IntPtr pCursor, Int64& rowId);
+    private SQLiteErrorCode xUpdate(IntPtr pVtab, int argc, IntPtr argv, Int64& rowId);
+    private SQLiteErrorCode xBegin(IntPtr pVtab);
+    private SQLiteErrorCode xSync(IntPtr pVtab);
+    private SQLiteErrorCode xCommit(IntPtr pVtab);
+    private SQLiteErrorCode xRollback(IntPtr pVtab);
+    private int xFindFunction(IntPtr pVtab, int nArg, IntPtr zName, SQLiteCallback& callback, IntPtr& pClientData);
+    private SQLiteErrorCode xRename(IntPtr pVtab, IntPtr zNew);
+    private SQLiteErrorCode xSavepoint(IntPtr pVtab, int iSavepoint);
+    private SQLiteErrorCode xRelease(IntPtr pVtab, int iSavepoint);
+    private SQLiteErrorCode xRollbackTo(IntPtr pVtab, int iSavepoint);
+    public virtual bool get_Declared();
+    internal virtual void set_Declared(bool value);
+    public virtual string get_Name();
+    public abstract virtual SQLiteErrorCode Create(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error);
+    public abstract virtual SQLiteErrorCode Connect(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error);
+    public abstract virtual SQLiteErrorCode BestIndex(SQLiteVirtualTable table, SQLiteIndex index);
+    public abstract virtual SQLiteErrorCode Disconnect(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Destroy(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor);
+    public abstract virtual SQLiteErrorCode Close(SQLiteVirtualTableCursor cursor);
+    public abstract virtual SQLiteErrorCode Filter(SQLiteVirtualTableCursor cursor, int indexNumber, string indexString, SQLiteValue[] values);
+    public abstract virtual SQLiteErrorCode Next(SQLiteVirtualTableCursor cursor);
+    public abstract virtual bool Eof(SQLiteVirtualTableCursor cursor);
+    public abstract virtual SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index);
+    public abstract virtual SQLiteErrorCode RowId(SQLiteVirtualTableCursor cursor, Int64& rowId);
+    public abstract virtual SQLiteErrorCode Update(SQLiteVirtualTable table, SQLiteValue[] values, Int64& rowId);
+    public abstract virtual SQLiteErrorCode Begin(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Sync(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Commit(SQLiteVirtualTable table);
+    public abstract virtual SQLiteErrorCode Rollback(SQLiteVirtualTable table);
+    public abstract virtual bool FindFunction(SQLiteVirtualTable table, int argumentCount, string name, SQLiteFunction& function, IntPtr& pClientData);
+    public abstract virtual SQLiteErrorCode Rename(SQLiteVirtualTable table, string newName);
+    public abstract virtual SQLiteErrorCode Savepoint(SQLiteVirtualTable table, int savepoint);
+    public abstract virtual SQLiteErrorCode Release(SQLiteVirtualTable table, int savepoint);
+    public abstract virtual SQLiteErrorCode RollbackTo(SQLiteVirtualTable table, int savepoint);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    protected virtual void Finalize();
+}
+public class System.Data.SQLite.SQLiteModuleCommon : SQLiteModuleNoop {
+    private static string declareSql;
+    private bool objectIdentity;
+    private bool disposed;
+    public SQLiteModuleCommon(string name);
+    public SQLiteModuleCommon(string name, bool objectIdentity);
+    private static SQLiteModuleCommon();
+    protected virtual string GetSqlForDeclareTable();
+    protected virtual SQLiteErrorCode CursorTypeMismatchError(SQLiteVirtualTableCursor cursor, Type type);
+    protected virtual string GetStringFromObject(SQLiteVirtualTableCursor cursor, object value);
+    protected virtual long MakeRowId(int rowIndex, int hashCode);
+    protected virtual long GetRowIdFromObject(SQLiteVirtualTableCursor cursor, object value);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+}
+public class System.Data.SQLite.SQLiteModuleEnumerable : SQLiteModuleCommon {
+    private IEnumerable enumerable;
+    private bool objectIdentity;
+    private bool disposed;
+    public SQLiteModuleEnumerable(string name, IEnumerable enumerable);
+    public SQLiteModuleEnumerable(string name, IEnumerable enumerable, bool objectIdentity);
+    protected virtual SQLiteErrorCode CursorEndOfEnumeratorError(SQLiteVirtualTableCursor cursor);
+    public virtual SQLiteErrorCode Create(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error);
+    public virtual SQLiteErrorCode Connect(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error);
+    public virtual SQLiteErrorCode BestIndex(SQLiteVirtualTable table, SQLiteIndex index);
+    public virtual SQLiteErrorCode Disconnect(SQLiteVirtualTable table);
+    public virtual SQLiteErrorCode Destroy(SQLiteVirtualTable table);
+    public virtual SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor);
+    public virtual SQLiteErrorCode Close(SQLiteVirtualTableCursor cursor);
+    public virtual SQLiteErrorCode Filter(SQLiteVirtualTableCursor cursor, int indexNumber, string indexString, SQLiteValue[] values);
+    public virtual SQLiteErrorCode Next(SQLiteVirtualTableCursor cursor);
+    public virtual bool Eof(SQLiteVirtualTableCursor cursor);
+    public virtual SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index);
+    public virtual SQLiteErrorCode RowId(SQLiteVirtualTableCursor cursor, Int64& rowId);
+    public virtual SQLiteErrorCode Update(SQLiteVirtualTable table, SQLiteValue[] values, Int64& rowId);
+    public virtual SQLiteErrorCode Rename(SQLiteVirtualTable table, string newName);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+}
+public class System.Data.SQLite.SQLiteModuleNoop : SQLiteModule {
+    private Dictionary`2<string, SQLiteErrorCode> resultCodes;
+    private bool disposed;
+    public SQLiteModuleNoop(string name);
+    protected virtual SQLiteErrorCode GetDefaultResultCode();
+    protected virtual bool ResultCodeToEofResult(SQLiteErrorCode resultCode);
+    protected virtual bool ResultCodeToFindFunctionResult(SQLiteErrorCode resultCode);
+    protected virtual SQLiteErrorCode GetMethodResultCode(string methodName);
+    protected virtual bool SetMethodResultCode(string methodName, SQLiteErrorCode resultCode);
+    public virtual SQLiteErrorCode Create(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error);
+    public virtual SQLiteErrorCode Connect(SQLiteConnection connection, IntPtr pClientData, String[] arguments, SQLiteVirtualTable& table, String& error);
+    public virtual SQLiteErrorCode BestIndex(SQLiteVirtualTable table, SQLiteIndex index);
+    public virtual SQLiteErrorCode Disconnect(SQLiteVirtualTable table);
+    public virtual SQLiteErrorCode Destroy(SQLiteVirtualTable table);
+    public virtual SQLiteErrorCode Open(SQLiteVirtualTable table, SQLiteVirtualTableCursor& cursor);
+    public virtual SQLiteErrorCode Close(SQLiteVirtualTableCursor cursor);
+    public virtual SQLiteErrorCode Filter(SQLiteVirtualTableCursor cursor, int indexNumber, string indexString, SQLiteValue[] values);
+    public virtual SQLiteErrorCode Next(SQLiteVirtualTableCursor cursor);
+    public virtual bool Eof(SQLiteVirtualTableCursor cursor);
+    public virtual SQLiteErrorCode Column(SQLiteVirtualTableCursor cursor, SQLiteContext context, int index);
+    public virtual SQLiteErrorCode RowId(SQLiteVirtualTableCursor cursor, Int64& rowId);
+    public virtual SQLiteErrorCode Update(SQLiteVirtualTable table, SQLiteValue[] values, Int64& rowId);
+    public virtual SQLiteErrorCode Begin(SQLiteVirtualTable table);
+    public virtual SQLiteErrorCode Sync(SQLiteVirtualTable table);
+    public virtual SQLiteErrorCode Commit(SQLiteVirtualTable table);
+    public virtual SQLiteErrorCode Rollback(SQLiteVirtualTable table);
+    public virtual bool FindFunction(SQLiteVirtualTable table, int argumentCount, string name, SQLiteFunction& function, IntPtr& pClientData);
+    public virtual SQLiteErrorCode Rename(SQLiteVirtualTable table, string newName);
+    public virtual SQLiteErrorCode Savepoint(SQLiteVirtualTable table, int savepoint);
+    public virtual SQLiteErrorCode Release(SQLiteVirtualTable table, int savepoint);
+    public virtual SQLiteErrorCode RollbackTo(SQLiteVirtualTable table, int savepoint);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+}
+[FlagsAttribute]
+internal enum System.Data.SQLite.SQLiteOpenFlagsEnum : Enum {
+    public int value__;
+    public static SQLiteOpenFlagsEnum None;
+    public static SQLiteOpenFlagsEnum ReadOnly;
+    public static SQLiteOpenFlagsEnum ReadWrite;
+    public static SQLiteOpenFlagsEnum Create;
+    public static SQLiteOpenFlagsEnum Uri;
+    public static SQLiteOpenFlagsEnum SharedCache;
+    public static SQLiteOpenFlagsEnum Default;
+}
+public class System.Data.SQLite.SQLiteParameter : DbParameter {
+    private static DbType UnknownDbType;
+    private IDbCommand _command;
+    internal DbType _dbType;
+    private DataRowVersion _rowVersion;
+    private object _objValue;
+    private string _sourceColumn;
+    private string _parameterName;
+    private int _dataSize;
+    private bool _nullable;
+    private bool _nullMapping;
+    public IDbCommand Command { get; public set; }
+    public bool IsNullable { get; public set; }
+    [DbProviderSpecificTypePropertyAttribute("True")]
+[RefreshPropertiesAttribute("1")]
+public DbType DbType { get; public set; }
+    public ParameterDirection Direction { get; public set; }
+    public string ParameterName { get; public set; }
+    [DefaultValueAttribute("0")]
+public int Size { get; public set; }
+    public string SourceColumn { get; public set; }
+    public bool SourceColumnNullMapping { get; public set; }
+    public DataRowVersion SourceVersion { get; public set; }
+    [RefreshPropertiesAttribute("1")]
+[TypeConverterAttribute("System.ComponentModel.StringConverter")]
+public object Value { get; public set; }
+    internal SQLiteParameter(IDbCommand command);
+    public SQLiteParameter(string parameterName);
+    public SQLiteParameter(string parameterName, object value);
+    public SQLiteParameter(string parameterName, DbType dbType);
+    public SQLiteParameter(string parameterName, DbType dbType, string sourceColumn);
+    public SQLiteParameter(string parameterName, DbType dbType, string sourceColumn, DataRowVersion rowVersion);
+    public SQLiteParameter(DbType dbType);
+    public SQLiteParameter(DbType dbType, object value);
+    public SQLiteParameter(DbType dbType, string sourceColumn);
+    public SQLiteParameter(DbType dbType, string sourceColumn, DataRowVersion rowVersion);
+    public SQLiteParameter(string parameterName, DbType parameterType, int parameterSize);
+    public SQLiteParameter(string parameterName, DbType parameterType, int parameterSize, string sourceColumn);
+    public SQLiteParameter(string parameterName, DbType parameterType, int parameterSize, string sourceColumn, DataRowVersion rowVersion);
+    private SQLiteParameter(SQLiteParameter source);
+    [EditorBrowsableAttribute("2")]
+public SQLiteParameter(string parameterName, DbType parameterType, int parameterSize, ParameterDirection direction, bool isNullable, byte precision, byte scale, string sourceColumn, DataRowVersion rowVersion, object value);
+    [EditorBrowsableAttribute("2")]
+public SQLiteParameter(string parameterName, DbType parameterType, int parameterSize, ParameterDirection direction, byte precision, byte scale, string sourceColumn, DataRowVersion rowVersion, bool sourceColumnNullMapping, object value);
+    public SQLiteParameter(DbType parameterType, int parameterSize);
+    public SQLiteParameter(DbType parameterType, int parameterSize, string sourceColumn);
+    public SQLiteParameter(DbType parameterType, int parameterSize, string sourceColumn, DataRowVersion rowVersion);
+    public IDbCommand get_Command();
+    public void set_Command(IDbCommand value);
+    public virtual bool get_IsNullable();
+    public virtual void set_IsNullable(bool value);
+    public virtual DbType get_DbType();
+    public virtual void set_DbType(DbType value);
+    public virtual ParameterDirection get_Direction();
+    public virtual void set_Direction(ParameterDirection value);
+    public virtual string get_ParameterName();
+    public virtual void set_ParameterName(string value);
+    public virtual void ResetDbType();
+    public virtual int get_Size();
+    public virtual void set_Size(int value);
+    public virtual string get_SourceColumn();
+    public virtual void set_SourceColumn(string value);
+    public virtual bool get_SourceColumnNullMapping();
+    public virtual void set_SourceColumnNullMapping(bool value);
+    public virtual DataRowVersion get_SourceVersion();
+    public virtual void set_SourceVersion(DataRowVersion value);
+    public virtual object get_Value();
+    public virtual void set_Value(object value);
+    public sealed virtual object Clone();
+}
+[DefaultMemberAttribute("Item")]
+[EditorAttribute("Microsoft.VSDesigner.Data.Design.DBParametersEditor, Microsoft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+[ListBindableAttribute("False")]
+public class System.Data.SQLite.SQLiteParameterCollection : DbParameterCollection {
+    private SQLiteCommand _command;
+    private List`1<SQLiteParameter> _parameterList;
+    private bool _unboundFlag;
+    public bool IsSynchronized { get; }
+    public bool IsFixedSize { get; }
+    public bool IsReadOnly { get; }
+    public object SyncRoot { get; }
+    public int Count { get; }
+    public SQLiteParameter Item { get; public set; }
+    public SQLiteParameter Item { get; public set; }
+    internal SQLiteParameterCollection(SQLiteCommand cmd);
+    public virtual bool get_IsSynchronized();
+    public virtual bool get_IsFixedSize();
+    public virtual bool get_IsReadOnly();
+    public virtual object get_SyncRoot();
+    public virtual IEnumerator GetEnumerator();
+    public SQLiteParameter Add(string parameterName, DbType parameterType, int parameterSize, string sourceColumn);
+    public SQLiteParameter Add(string parameterName, DbType parameterType, int parameterSize);
+    public SQLiteParameter Add(string parameterName, DbType parameterType);
+    public int Add(SQLiteParameter parameter);
+    [EditorBrowsableAttribute("1")]
+public virtual int Add(object value);
+    public SQLiteParameter AddWithValue(string parameterName, object value);
+    public void AddRange(SQLiteParameter[] values);
+    public virtual void AddRange(Array values);
+    public virtual void Clear();
+    public virtual bool Contains(string parameterName);
+    public virtual bool Contains(object value);
+    public virtual void CopyTo(Array array, int index);
+    public virtual int get_Count();
+    public SQLiteParameter get_Item(string parameterName);
+    public void set_Item(string parameterName, SQLiteParameter value);
+    public SQLiteParameter get_Item(int index);
+    public void set_Item(int index, SQLiteParameter value);
+    protected virtual DbParameter GetParameter(string parameterName);
+    protected virtual DbParameter GetParameter(int index);
+    public virtual int IndexOf(string parameterName);
+    public virtual int IndexOf(object value);
+    public virtual void Insert(int index, object value);
+    public virtual void Remove(object value);
+    public virtual void RemoveAt(string parameterName);
+    public virtual void RemoveAt(int index);
+    protected virtual void SetParameter(string parameterName, DbParameter value);
+    protected virtual void SetParameter(int index, DbParameter value);
+    internal void Unbind();
+    internal void MapParameters(SQLiteStatement activeStatement);
+}
+[UnmanagedFunctionPointerAttribute("2")]
+internal class System.Data.SQLite.SQLiteRollbackCallback : MulticastDelegate {
+    public SQLiteRollbackCallback(object object, IntPtr method);
+    public virtual void Invoke(IntPtr puser);
+    public virtual IAsyncResult BeginInvoke(IntPtr puser, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+internal class System.Data.SQLite.SQLiteStatement : object {
+    internal SQLiteBase _sql;
+    internal string _sqlStatement;
+    internal SQLiteStatementHandle _sqlite_stmt;
+    internal int _unnamedParameters;
+    internal String[] _paramNames;
+    internal SQLiteParameter[] _paramValues;
+    internal SQLiteCommand _command;
+    private SQLiteConnectionFlags _flags;
+    private String[] _types;
+    private bool disposed;
+    internal String[] TypeDefinitions { get; }
+    internal SQLiteStatement(SQLiteBase sqlbase, SQLiteConnectionFlags flags, SQLiteStatementHandle stmt, string strCommand, SQLiteStatement previous);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    private void Dispose(bool disposing);
+    protected virtual void Finalize();
+    internal bool TryGetChanges(Int32& changes, Boolean& readOnly);
+    internal bool MapParameter(string s, SQLiteParameter p);
+    internal void BindParameters();
+    private void BindParameter(int index, SQLiteParameter param);
+    internal String[] get_TypeDefinitions();
+    internal void SetTypes(string typedefs);
+}
+internal class System.Data.SQLite.SQLiteStatementHandle : CriticalHandle {
+    private SQLiteConnectionHandle cnn;
+    public bool IsInvalid { get; }
+    internal SQLiteStatementHandle(SQLiteConnectionHandle cnn, IntPtr stmt);
+    public static IntPtr op_Implicit(SQLiteStatementHandle stmt);
+    protected virtual bool ReleaseHandle();
+    public virtual bool get_IsInvalid();
+}
+internal static class System.Data.SQLite.SQLiteString : object {
+    private static int ThirtyBits;
+    private static Encoding Utf8Encoding;
+    private static SQLiteString();
+    public static Byte[] GetUtf8BytesFromString(string value);
+    public static string GetStringFromUtf8Bytes(Byte[] bytes);
+    public static int ProbeForUtf8ByteLength(IntPtr pValue, int limit);
+    public static string StringFromUtf8IntPtr(IntPtr pValue);
+    public static string StringFromUtf8IntPtr(IntPtr pValue, int length);
+    public static IntPtr Utf8IntPtrFromString(string value);
+    public static String[] StringArrayFromUtf8SizeAndIntPtr(int argc, IntPtr argv);
+    public static IntPtr[] Utf8IntPtrArrayFromStringArray(String[] values);
+}
+internal enum System.Data.SQLite.SQLiteSynchronousEnum : Enum {
+    public int value__;
+    public static SQLiteSynchronousEnum Default;
+    public static SQLiteSynchronousEnum Off;
+    public static SQLiteSynchronousEnum Normal;
+    public static SQLiteSynchronousEnum Full;
+}
+[UnmanagedFunctionPointerAttribute("2")]
+internal class System.Data.SQLite.SQLiteTraceCallback : MulticastDelegate {
+    public SQLiteTraceCallback(object object, IntPtr method);
+    public virtual void Invoke(IntPtr puser, IntPtr statement);
+    public virtual IAsyncResult BeginInvoke(IntPtr puser, IntPtr statement, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class System.Data.SQLite.SQLiteTraceEventHandler : MulticastDelegate {
+    public SQLiteTraceEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, TraceEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, TraceEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class System.Data.SQLite.SQLiteTransaction : DbTransaction {
+    internal SQLiteConnection _cnn;
+    internal int _version;
+    private IsolationLevel _level;
+    private bool disposed;
+    public SQLiteConnection Connection { get; }
+    protected DbConnection DbConnection { get; }
+    public IsolationLevel IsolationLevel { get; }
+    internal SQLiteTransaction(SQLiteConnection connection, bool deferredLock);
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    public virtual void Commit();
+    public SQLiteConnection get_Connection();
+    protected virtual DbConnection get_DbConnection();
+    public virtual IsolationLevel get_IsolationLevel();
+    public virtual void Rollback();
+    internal void IssueRollback(bool throwError);
+    internal bool IsValid(bool throwError);
+}
+internal class System.Data.SQLite.SQLiteType : object {
+    internal DbType Type;
+    internal TypeAffinity Affinity;
+    public SQLiteType(TypeAffinity affinity, DbType type);
+}
+[UnmanagedFunctionPointerAttribute("2")]
+internal class System.Data.SQLite.SQLiteUpdateCallback : MulticastDelegate {
+    public SQLiteUpdateCallback(object object, IntPtr method);
+    public virtual void Invoke(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid);
+    public virtual IAsyncResult BeginInvoke(IntPtr puser, int type, IntPtr database, IntPtr table, long rowid, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class System.Data.SQLite.SQLiteUpdateEventHandler : MulticastDelegate {
+    public SQLiteUpdateEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, UpdateEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, UpdateEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class System.Data.SQLite.SQLiteValue : object {
+    private IntPtr pValue;
+    private bool persisted;
+    private object value;
+    public IntPtr NativeHandle { get; }
+    public bool Persisted { get; }
+    public object Value { get; }
+    private SQLiteValue(IntPtr pValue);
+    private void PreventNativeAccess();
+    internal static SQLiteValue[] ArrayFromSizeAndIntPtr(int argc, IntPtr argv);
+    public sealed virtual IntPtr get_NativeHandle();
+    public bool get_Persisted();
+    public object get_Value();
+    public TypeAffinity GetTypeAffinity();
+    public int GetBytes();
+    public int GetInt();
+    public long GetInt64();
+    public double GetDouble();
+    public string GetString();
+    public Byte[] GetBlob();
+    public bool Persist();
+}
+public class System.Data.SQLite.SQLiteVirtualTable : object {
+    private static int ModuleNameIndex;
+    private static int DatabaseNameIndex;
+    private static int TableNameIndex;
+    private String[] arguments;
+    private SQLiteIndex index;
+    private IntPtr nativeHandle;
+    private bool disposed;
+    public String[] Arguments { get; }
+    public string ModuleName { get; }
+    public string DatabaseName { get; }
+    public string TableName { get; }
+    public SQLiteIndex Index { get; }
+    public IntPtr NativeHandle { get; internal set; }
+    public SQLiteVirtualTable(String[] arguments);
+    public virtual String[] get_Arguments();
+    public virtual string get_ModuleName();
+    public virtual string get_DatabaseName();
+    public virtual string get_TableName();
+    public virtual SQLiteIndex get_Index();
+    public virtual bool BestIndex(SQLiteIndex index);
+    public virtual bool Rename(string name);
+    public virtual IntPtr get_NativeHandle();
+    internal virtual void set_NativeHandle(IntPtr value);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    protected virtual void Finalize();
+}
+public class System.Data.SQLite.SQLiteVirtualTableCursor : object {
+    protected static int InvalidRowIndex;
+    private int rowIndex;
+    private SQLiteVirtualTable table;
+    private int indexNumber;
+    private string indexString;
+    private SQLiteValue[] values;
+    private IntPtr nativeHandle;
+    private bool disposed;
+    public SQLiteVirtualTable Table { get; }
+    public int IndexNumber { get; }
+    public string IndexString { get; }
+    public SQLiteValue[] Values { get; }
+    public IntPtr NativeHandle { get; internal set; }
+    public SQLiteVirtualTableCursor(SQLiteVirtualTable table);
+    private static SQLiteVirtualTableCursor();
+    public virtual SQLiteVirtualTable get_Table();
+    public virtual int get_IndexNumber();
+    public virtual string get_IndexString();
+    public virtual SQLiteValue[] get_Values();
+    protected virtual int TryPersistValues(SQLiteValue[] values);
+    public virtual void Filter(int indexNumber, string indexString, SQLiteValue[] values);
+    public virtual int GetRowIndex();
+    public virtual void NextRowIndex();
+    public virtual IntPtr get_NativeHandle();
+    internal virtual void set_NativeHandle(IntPtr value);
+    public sealed virtual void Dispose();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+    protected virtual void Finalize();
+}
+public class System.Data.SQLite.SQLiteVirtualTableCursorEnumerator : SQLiteVirtualTableCursor {
+    private IEnumerator enumerator;
+    private bool endOfEnumerator;
+    private bool disposed;
+    public object Current { get; }
+    public bool EndOfEnumerator { get; }
+    public bool IsOpen { get; }
+    public SQLiteVirtualTableCursorEnumerator(SQLiteVirtualTable table, IEnumerator enumerator);
+    public virtual bool MoveNext();
+    public virtual object get_Current();
+    public virtual void Reset();
+    public virtual bool get_EndOfEnumerator();
+    public virtual bool get_IsOpen();
+    public virtual void Close();
+    public virtual void CheckClosed();
+    private void CheckDisposed();
+    protected virtual void Dispose(bool disposing);
+}
+[CompilerGeneratedAttribute]
+[DebuggerNonUserCodeAttribute]
+[GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+internal class System.Data.SQLite.SR : object {
+    private static ResourceManager resourceMan;
+    private static CultureInfo resourceCulture;
+    [EditorBrowsableAttribute("2")]
+internal static ResourceManager ResourceManager { get; }
+    [EditorBrowsableAttribute("2")]
+internal static CultureInfo Culture { get; internal set; }
+    internal static string DataTypes { get; }
+    internal static string Keywords { get; }
+    internal static string MetaDataCollections { get; }
+    internal static ResourceManager get_ResourceManager();
+    internal static CultureInfo get_Culture();
+    internal static void set_Culture(CultureInfo value);
+    internal static string get_DataTypes();
+    internal static string get_Keywords();
+    internal static string get_MetaDataCollections();
+}
+public enum System.Data.SQLite.SynchronizationModes : Enum {
+    public int value__;
+    public static SynchronizationModes Normal;
+    public static SynchronizationModes Full;
+    public static SynchronizationModes Off;
+}
+public class System.Data.SQLite.TraceEventArgs : EventArgs {
+    public string Statement;
+    internal TraceEventArgs(string statement);
+}
+public enum System.Data.SQLite.TypeAffinity : Enum {
+    public int value__;
+    public static TypeAffinity Uninitialized;
+    public static TypeAffinity Int64;
+    public static TypeAffinity Double;
+    public static TypeAffinity Text;
+    public static TypeAffinity Blob;
+    public static TypeAffinity Null;
+    public static TypeAffinity DateTime;
+    public static TypeAffinity None;
+}
+internal class System.Data.SQLite.TypeNameStringComparer : object {
+    public sealed virtual bool Equals(string left, string right);
+    public sealed virtual int GetHashCode(string value);
+}
+[SuppressUnmanagedCodeSecurityAttribute]
+internal static class System.Data.SQLite.UnsafeNativeMethods : object {
+    internal static string SQLITE_DLL;
+    private static string DllFileExtension;
+    private static string ConfigFileExtension;
+    private static string XmlConfigFileName;
+    private static object staticSyncRoot;
+    private static Dictionary`2<string, string> processorArchitecturePlatforms;
+    private static string PROCESSOR_ARCHITECTURE;
+    private static string _SQLiteNativeModuleFileName;
+    private static IntPtr _SQLiteNativeModuleHandle;
+    private static UnsafeNativeMethods();
+    internal static void Initialize();
+    private static string GetXmlConfigFileName();
+    internal static string GetSettingValue(string name, string default);
+    private static string ListToString(IList`1<string> list);
+    private static int CheckForArchitecturesAndPlatforms(string directory, List`1& matches);
+    private static bool CheckAssemblyCodeBase(Assembly assembly, String& fileName);
+    private static string GetAssemblyDirectory();
+    private static IntPtr LoadLibrary(string fileName);
+    private static bool SearchForDirectory(String& baseDirectory, String& processorArchitecture);
+    private static string GetBaseDirectory();
+    private static string FixUpDllFileName(string fileName);
+    private static string GetProcessorArchitecture();
+    private static string GetPlatformName(string processorArchitecture);
+    private static bool PreLoadSQLiteDll(string baseDirectory, string processorArchitecture, String& nativeModuleFileName, IntPtr& nativeModuleHandle);
+    internal static SQLiteErrorCode sqlite3_close(IntPtr db);
+    internal static SQLiteErrorCode sqlite3_close_v2(IntPtr db);
+    internal static SQLiteErrorCode sqlite3_create_function(IntPtr db, Byte[] strName, int nArgs, int nType, IntPtr pvUser, SQLiteCallback func, SQLiteCallback fstep, SQLiteFinalCallback ffinal);
+    internal static SQLiteErrorCode sqlite3_finalize(IntPtr stmt);
+    internal static SQLiteErrorCode sqlite3_backup_finish(IntPtr backup);
+    internal static SQLiteErrorCode sqlite3_reset(IntPtr stmt);
+    internal static IntPtr sqlite3_bind_parameter_name(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_database_name(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_database_name16(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_decltype(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_decltype16(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_name(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_name16(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_origin_name(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_origin_name16(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_table_name(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_table_name16(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_text(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_text16(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_errmsg(IntPtr db);
+    internal static SQLiteErrorCode sqlite3_prepare(IntPtr db, IntPtr pSql, int nBytes, IntPtr& stmt, IntPtr& ptrRemain);
+    internal static SQLiteErrorCode sqlite3_prepare_v2(IntPtr db, IntPtr pSql, int nBytes, IntPtr& stmt, IntPtr& ptrRemain);
+    internal static SQLiteErrorCode sqlite3_table_column_metadata(IntPtr db, Byte[] dbName, Byte[] tblName, Byte[] colName, IntPtr& ptrDataType, IntPtr& ptrCollSeq, Int32& notNull, Int32& primaryKey, Int32& autoInc);
+    internal static IntPtr sqlite3_value_text(IntPtr p);
+    internal static IntPtr sqlite3_value_text16(IntPtr p);
+    internal static IntPtr sqlite3_libversion();
+    internal static int sqlite3_libversion_number();
+    internal static IntPtr sqlite3_sourceid();
+    internal static int sqlite3_compileoption_used(IntPtr zOptName);
+    internal static IntPtr sqlite3_compileoption_get(int N);
+    internal static SQLiteErrorCode sqlite3_enable_shared_cache(int enable);
+    internal static SQLiteErrorCode sqlite3_enable_load_extension(IntPtr db, int enable);
+    internal static SQLiteErrorCode sqlite3_load_extension(IntPtr db, Byte[] fileName, Byte[] procName, IntPtr& pError);
+    internal static SQLiteErrorCode sqlite3_overload_function(IntPtr db, IntPtr zName, int nArgs);
+    internal static SQLiteErrorCode sqlite3_win32_set_directory(UInt32 type, string value);
+    internal static SQLiteErrorCode sqlite3_win32_reset_heap();
+    internal static SQLiteErrorCode sqlite3_win32_compact_heap(UInt32& largest);
+    internal static IntPtr sqlite3_malloc(int n);
+    internal static IntPtr sqlite3_realloc(IntPtr p, int n);
+    internal static void sqlite3_free(IntPtr p);
+    internal static SQLiteErrorCode sqlite3_open_v2(Byte[] utf8Filename, IntPtr& db, SQLiteOpenFlagsEnum flags, IntPtr vfs);
+    internal static SQLiteErrorCode sqlite3_open16(string fileName, IntPtr& db);
+    internal static void sqlite3_interrupt(IntPtr db);
+    internal static long sqlite3_last_insert_rowid(IntPtr db);
+    internal static int sqlite3_changes(IntPtr db);
+    internal static long sqlite3_memory_used();
+    internal static long sqlite3_memory_highwater(int resetFlag);
+    internal static SQLiteErrorCode sqlite3_shutdown();
+    internal static SQLiteErrorCode sqlite3_busy_timeout(IntPtr db, int ms);
+    internal static SQLiteErrorCode sqlite3_bind_blob(IntPtr stmt, int index, Byte[] value, int nSize, IntPtr nTransient);
+    internal static SQLiteErrorCode sqlite3_bind_double(IntPtr stmt, int index, double value);
+    internal static SQLiteErrorCode sqlite3_bind_int(IntPtr stmt, int index, int value);
+    internal static SQLiteErrorCode sqlite3_bind_uint(IntPtr stmt, int index, UInt32 value);
+    internal static SQLiteErrorCode sqlite3_bind_int64(IntPtr stmt, int index, long value);
+    internal static SQLiteErrorCode sqlite3_bind_uint64(IntPtr stmt, int index, ulong value);
+    internal static SQLiteErrorCode sqlite3_bind_null(IntPtr stmt, int index);
+    internal static SQLiteErrorCode sqlite3_bind_text(IntPtr stmt, int index, Byte[] value, int nlen, IntPtr pvReserved);
+    internal static int sqlite3_bind_parameter_count(IntPtr stmt);
+    internal static int sqlite3_bind_parameter_index(IntPtr stmt, Byte[] strName);
+    internal static int sqlite3_column_count(IntPtr stmt);
+    internal static SQLiteErrorCode sqlite3_step(IntPtr stmt);
+    internal static int sqlite3_stmt_readonly(IntPtr stmt);
+    internal static double sqlite3_column_double(IntPtr stmt, int index);
+    internal static int sqlite3_column_int(IntPtr stmt, int index);
+    internal static long sqlite3_column_int64(IntPtr stmt, int index);
+    internal static IntPtr sqlite3_column_blob(IntPtr stmt, int index);
+    internal static int sqlite3_column_bytes(IntPtr stmt, int index);
+    internal static int sqlite3_column_bytes16(IntPtr stmt, int index);
+    internal static TypeAffinity sqlite3_column_type(IntPtr stmt, int index);
+    internal static SQLiteErrorCode sqlite3_create_collation(IntPtr db, Byte[] strName, int nType, IntPtr pvUser, SQLiteCollation func);
+    internal static int sqlite3_aggregate_count(IntPtr context);
+    internal static IntPtr sqlite3_value_blob(IntPtr p);
+    internal static int sqlite3_value_bytes(IntPtr p);
+    internal static int sqlite3_value_bytes16(IntPtr p);
+    internal static double sqlite3_value_double(IntPtr p);
+    internal static int sqlite3_value_int(IntPtr p);
+    internal static long sqlite3_value_int64(IntPtr p);
+    internal static TypeAffinity sqlite3_value_type(IntPtr p);
+    internal static void sqlite3_result_blob(IntPtr context, Byte[] value, int nSize, IntPtr pvReserved);
+    internal static void sqlite3_result_double(IntPtr context, double value);
+    internal static void sqlite3_result_error(IntPtr context, Byte[] strErr, int nLen);
+    internal static void sqlite3_result_error_code(IntPtr context, SQLiteErrorCode value);
+    internal static void sqlite3_result_error_toobig(IntPtr context);
+    internal static void sqlite3_result_error_nomem(IntPtr context);
+    internal static void sqlite3_result_value(IntPtr context, IntPtr value);
+    internal static void sqlite3_result_zeroblob(IntPtr context, int nLen);
+    internal static void sqlite3_result_int(IntPtr context, int value);
+    internal static void sqlite3_result_int64(IntPtr context, long value);
+    internal static void sqlite3_result_null(IntPtr context);
+    internal static void sqlite3_result_text(IntPtr context, Byte[] value, int nLen, IntPtr pvReserved);
+    internal static IntPtr sqlite3_aggregate_context(IntPtr context, int nBytes);
+    internal static SQLiteErrorCode sqlite3_bind_text16(IntPtr stmt, int index, string value, int nlen, IntPtr pvReserved);
+    internal static void sqlite3_result_error16(IntPtr context, string strName, int nLen);
+    internal static void sqlite3_result_text16(IntPtr context, string strName, int nLen, IntPtr pvReserved);
+    internal static SQLiteErrorCode sqlite3_key(IntPtr db, Byte[] key, int keylen);
+    internal static SQLiteErrorCode sqlite3_rekey(IntPtr db, Byte[] key, int keylen);
+    internal static IntPtr sqlite3_set_authorizer(IntPtr db, SQLiteAuthorizerCallback func, IntPtr pvUser);
+    internal static IntPtr sqlite3_update_hook(IntPtr db, SQLiteUpdateCallback func, IntPtr pvUser);
+    internal static IntPtr sqlite3_commit_hook(IntPtr db, SQLiteCommitCallback func, IntPtr pvUser);
+    internal static IntPtr sqlite3_trace(IntPtr db, SQLiteTraceCallback func, IntPtr pvUser);
+    internal static SQLiteErrorCode sqlite3_config_none(SQLiteConfigOpsEnum op);
+    internal static SQLiteErrorCode sqlite3_config_int(SQLiteConfigOpsEnum op, int value);
+    internal static SQLiteErrorCode sqlite3_config_log(SQLiteConfigOpsEnum op, SQLiteLogCallback func, IntPtr pvUser);
+    internal static IntPtr sqlite3_rollback_hook(IntPtr db, SQLiteRollbackCallback func, IntPtr pvUser);
+    internal static IntPtr sqlite3_db_handle(IntPtr stmt);
+    internal static SQLiteErrorCode sqlite3_db_release_memory(IntPtr db);
+    internal static IntPtr sqlite3_db_filename(IntPtr db, IntPtr dbName);
+    internal static IntPtr sqlite3_next_stmt(IntPtr db, IntPtr stmt);
+    internal static SQLiteErrorCode sqlite3_exec(IntPtr db, Byte[] strSql, IntPtr pvCallback, IntPtr pvParam, IntPtr& errMsg);
+    internal static int sqlite3_release_memory(int nBytes);
+    internal static int sqlite3_get_autocommit(IntPtr db);
+    internal static SQLiteErrorCode sqlite3_extended_result_codes(IntPtr db, int onoff);
+    internal static SQLiteErrorCode sqlite3_errcode(IntPtr db);
+    internal static SQLiteErrorCode sqlite3_extended_errcode(IntPtr db);
+    internal static IntPtr sqlite3_errstr(SQLiteErrorCode rc);
+    internal static void sqlite3_log(SQLiteErrorCode iErrCode, Byte[] zFormat);
+    internal static SQLiteErrorCode sqlite3_file_control(IntPtr db, Byte[] zDbName, int op, IntPtr pArg);
+    internal static IntPtr sqlite3_backup_init(IntPtr destDb, Byte[] zDestName, IntPtr sourceDb, Byte[] zSourceName);
+    internal static SQLiteErrorCode sqlite3_backup_step(IntPtr backup, int nPage);
+    internal static int sqlite3_backup_remaining(IntPtr backup);
+    internal static int sqlite3_backup_pagecount(IntPtr backup);
+    internal static SQLiteErrorCode sqlite3_declare_vtab(IntPtr db, IntPtr zSQL);
+    internal static IntPtr sqlite3_mprintf(IntPtr format);
+    internal static IntPtr sqlite3_create_disposable_module(IntPtr db, IntPtr name, sqlite3_module& module, IntPtr pClientData, xDestroyModule xDestroy);
+    internal static void sqlite3_dispose_module(IntPtr pModule);
+}
+public class System.Data.SQLite.UpdateEventArgs : EventArgs {
+    public string Database;
+    public string Table;
+    public UpdateEventType Event;
+    public long RowId;
+    internal UpdateEventArgs(string database, string table, UpdateEventType eventType, long rowid);
+}
+public enum System.Data.SQLite.UpdateEventType : Enum {
+    public int value__;
+    public static UpdateEventType Delete;
+    public static UpdateEventType Insert;
+    public static UpdateEventType Update;
+}

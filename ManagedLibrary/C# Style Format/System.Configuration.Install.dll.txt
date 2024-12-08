@@ -1,0 +1,311 @@
+internal static class Consts : object {
+    public static string MonoVersion;
+    public static string MonoCompany;
+    public static string MonoProduct;
+    public static string MonoCopyright;
+    public static string FxVersion;
+    public static string VsVersion;
+    public static string FxFileVersion;
+    public static string VsFileVersion;
+    public static string AssemblyI18N;
+    public static string AssemblyMicrosoft_VisualStudio;
+    public static string AssemblyMicrosoft_VisualStudio_Web;
+    public static string AssemblyMicrosoft_VSDesigner;
+    public static string AssemblyMono_Http;
+    public static string AssemblyMono_Posix;
+    public static string AssemblyMono_Security;
+    public static string AssemblyMono_Messaging_RabbitMQ;
+    public static string AssemblyCorlib;
+    public static string AssemblySystem;
+    public static string AssemblySystem_Data;
+    public static string AssemblySystem_Design;
+    public static string AssemblySystem_DirectoryServices;
+    public static string AssemblySystem_Drawing;
+    public static string AssemblySystem_Drawing_Design;
+    public static string AssemblySystem_Messaging;
+    public static string AssemblySystem_Security;
+    public static string AssemblySystem_ServiceProcess;
+    public static string AssemblySystem_Web;
+    public static string AssemblySystem_Windows_Forms;
+    public static string AssemblySystem_Core;
+}
+internal class Locale : object {
+    public static string GetText(string msg);
+    public static string GetText(string fmt, Object[] args);
+}
+public class System.Configuration.Install.AssemblyInstaller : Installer {
+    private Assembly _assembly;
+    private String[] _commandLine;
+    private bool _useNewContext;
+    public Assembly Assembly { get; public set; }
+    public String[] CommandLine { get; public set; }
+    public string HelpText { get; }
+    public string Path { get; public set; }
+    public bool UseNewContext { get; public set; }
+    public AssemblyInstaller(Assembly assembly, String[] commandLine);
+    public AssemblyInstaller(string fileName, String[] commandLine);
+    [MonoTODOAttribute]
+public static void CheckIfInstallable(string assemblyName);
+    public virtual void Commit(IDictionary savedState);
+    public virtual void Install(IDictionary savedState);
+    public virtual void Rollback(IDictionary savedState);
+    public virtual void Uninstall(IDictionary savedState);
+    public Assembly get_Assembly();
+    public void set_Assembly(Assembly value);
+    public String[] get_CommandLine();
+    public void set_CommandLine(String[] value);
+    public virtual string get_HelpText();
+    public string get_Path();
+    public void set_Path(string value);
+    public bool get_UseNewContext();
+    public void set_UseNewContext(bool value);
+}
+public abstract class System.Configuration.Install.ComponentInstaller : Installer {
+    public abstract virtual void CopyFromComponent(IComponent component);
+    [MonoTODOAttribute("Mono always returns false")]
+public virtual bool IsEquivalentInstaller(ComponentInstaller otherInstaller);
+}
+[GuidAttribute("1E233FE7-C16D-4512-8C3B-2E9988F08D38")]
+[InterfaceTypeAttribute("1")]
+public interface System.Configuration.Install.IManagedInstaller {
+    public abstract virtual int ManagedInstall(string commandLine, int hInstall);
+}
+public class System.Configuration.Install.InstallContext : object {
+    private StringDictionary parameters;
+    private string log_file;
+    private bool log;
+    public StringDictionary Parameters { get; }
+    public InstallContext(string logFilePath, String[] commandLine);
+    public StringDictionary get_Parameters();
+    public bool IsParameterTrue(string paramName);
+    public void LogMessage(string message);
+    protected static StringDictionary ParseCommandLine(String[] args);
+}
+[DefaultEventAttribute("AfterInstall")]
+public class System.Configuration.Install.Installer : Component {
+    private InstallContext context;
+    private string helptext;
+    private InstallerCollection installers;
+    internal Installer parent;
+    private InstallEventHandler AfterInstall;
+    private InstallEventHandler AfterRollback;
+    private InstallEventHandler AfterUninstall;
+    private InstallEventHandler BeforeInstall;
+    private InstallEventHandler BeforeRollback;
+    private InstallEventHandler BeforeUninstall;
+    private InstallEventHandler Committed;
+    private InstallEventHandler Committing;
+    [BrowsableAttribute("False")]
+[DesignerSerializationVisibilityAttribute("0")]
+public InstallContext Context { get; public set; }
+    public string HelpText { get; }
+    public InstallerCollection Installers { get; }
+    public Installer Parent { get; public set; }
+    public void add_AfterInstall(InstallEventHandler value);
+    public void remove_AfterInstall(InstallEventHandler value);
+    public void add_AfterRollback(InstallEventHandler value);
+    public void remove_AfterRollback(InstallEventHandler value);
+    public void add_AfterUninstall(InstallEventHandler value);
+    public void remove_AfterUninstall(InstallEventHandler value);
+    public void add_BeforeInstall(InstallEventHandler value);
+    public void remove_BeforeInstall(InstallEventHandler value);
+    public void add_BeforeRollback(InstallEventHandler value);
+    public void remove_BeforeRollback(InstallEventHandler value);
+    public void add_BeforeUninstall(InstallEventHandler value);
+    public void remove_BeforeUninstall(InstallEventHandler value);
+    public void add_Committed(InstallEventHandler value);
+    public void remove_Committed(InstallEventHandler value);
+    public void add_Committing(InstallEventHandler value);
+    public void remove_Committing(InstallEventHandler value);
+    public InstallContext get_Context();
+    public void set_Context(InstallContext value);
+    public virtual string get_HelpText();
+    public InstallerCollection get_Installers();
+    public Installer get_Parent();
+    public void set_Parent(Installer value);
+    public virtual void Commit(IDictionary savedState);
+    public virtual void Install(IDictionary stateSaver);
+    protected virtual void OnAfterInstall(IDictionary savedState);
+    protected virtual void OnAfterRollback(IDictionary savedState);
+    protected virtual void OnAfterUninstall(IDictionary savedState);
+    protected virtual void OnBeforeInstall(IDictionary savedState);
+    protected virtual void OnBeforeRollback(IDictionary savedState);
+    protected virtual void OnBeforeUninstall(IDictionary savedState);
+    protected virtual void OnCommitted(IDictionary savedState);
+    protected virtual void OnCommitting(IDictionary savedState);
+    public virtual void Rollback(IDictionary savedState);
+    public virtual void Uninstall(IDictionary savedState);
+}
+[DefaultMemberAttribute("Item")]
+public class System.Configuration.Install.InstallerCollection : CollectionBase {
+    private Installer owner;
+    public Installer Item { get; public set; }
+    internal InstallerCollection(Installer owner);
+    public Installer get_Item(int index);
+    public void set_Item(int index, Installer value);
+    public int Add(Installer value);
+    public void AddRange(Installer[] value);
+    public void AddRange(InstallerCollection value);
+    public bool Contains(Installer value);
+    public void CopyTo(Installer[] array, int index);
+    public int IndexOf(Installer value);
+    public void Insert(int index, Installer value);
+    protected virtual void OnInsert(int index, object value);
+    protected virtual void OnRemove(int index, object value);
+    protected virtual void OnSet(int index, object oldValue, object newValue);
+    public void Remove(Installer value);
+}
+public class System.Configuration.Install.InstallEventArgs : EventArgs {
+    private IDictionary savedstate;
+    public IDictionary SavedState { get; }
+    public InstallEventArgs(IDictionary savedState);
+    public IDictionary get_SavedState();
+}
+public class System.Configuration.Install.InstallEventHandler : MulticastDelegate {
+    public InstallEventHandler(object object, IntPtr method);
+    public virtual void Invoke(object sender, InstallEventArgs e);
+    public virtual IAsyncResult BeginInvoke(object sender, InstallEventArgs e, AsyncCallback callback, object object);
+    public virtual void EndInvoke(IAsyncResult result);
+}
+public class System.Configuration.Install.InstallException : SystemException {
+    private Exception innerException;
+    public InstallException(string message);
+    protected InstallException(SerializationInfo info, StreamingContext context);
+    public InstallException(string message, Exception innerException);
+}
+[ComVisibleAttribute("True")]
+[GuidAttribute("42EB0342-0393-448f-84AA-D4BEB0283595")]
+public class System.Configuration.Install.ManagedInstallerClass : object {
+    [MonoTODOAttribute]
+private sealed virtual override int System.Configuration.Install.IManagedInstaller.ManagedInstall(string argString, int hInstall);
+    [MonoTODOAttribute]
+public static void InstallHelper(String[] args);
+}
+public class System.Configuration.Install.TransactedInstaller : Installer {
+    public virtual void Install(IDictionary savedState);
+    public virtual void Uninstall(IDictionary savedState);
+}
+public enum System.Configuration.Install.UninstallAction : Enum {
+    public int value__;
+    public static UninstallAction NoAction;
+    public static UninstallAction Remove;
+}
+public class System.Diagnostics.EventLogInstaller : ComponentInstaller {
+    private string _log;
+    private string _source;
+    private UninstallAction _uninstallAction;
+    private string _categoryResourceFile;
+    private string _messageResourceFile;
+    private string _parameterResourceFile;
+    [ComVisibleAttribute("False")]
+[MonoTODOAttribute]
+public int CategoryCount { get; public set; }
+    [ComVisibleAttribute("False")]
+[EditorAttribute("System.Windows.Forms.Design.FileNameEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+[MonoTODOAttribute]
+[TypeConverterAttribute("System.Diagnostics.Design.StringValueConverter, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public string CategoryResourceFile { get; public set; }
+    [ComVisibleAttribute("False")]
+[EditorAttribute("System.Windows.Forms.Design.FileNameEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+[MonoTODOAttribute]
+[TypeConverterAttribute("System.Diagnostics.Design.StringValueConverter, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public string MessageResourceFile { get; public set; }
+    [ComVisibleAttribute("False")]
+[EditorAttribute("System.Windows.Forms.Design.FileNameEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+[MonoTODOAttribute]
+[TypeConverterAttribute("System.Diagnostics.Design.StringValueConverter, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public string ParameterResourceFile { get; public set; }
+    [TypeConverterAttribute("System.Diagnostics.Design.StringValueConverter, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public string Log { get; public set; }
+    [TypeConverterAttribute("System.Diagnostics.Design.StringValueConverter, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public string Source { get; public set; }
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+public UninstallAction UninstallAction { get; public set; }
+    public int get_CategoryCount();
+    public void set_CategoryCount(int value);
+    public string get_CategoryResourceFile();
+    public void set_CategoryResourceFile(string value);
+    public string get_MessageResourceFile();
+    public void set_MessageResourceFile(string value);
+    public string get_ParameterResourceFile();
+    public void set_ParameterResourceFile(string value);
+    [MonoTODOAttribute]
+public virtual void CopyFromComponent(IComponent component);
+    [MonoTODOAttribute]
+public virtual void Install(IDictionary stateSaver);
+    [MonoTODOAttribute]
+public virtual bool IsEquivalentInstaller(ComponentInstaller otherInstaller);
+    [MonoTODOAttribute]
+public virtual void Rollback(IDictionary savedState);
+    [MonoTODOAttribute]
+public virtual void Uninstall(IDictionary savedState);
+    public string get_Log();
+    public void set_Log(string value);
+    public string get_Source();
+    public void set_Source(string value);
+    public UninstallAction get_UninstallAction();
+    public void set_UninstallAction(UninstallAction value);
+}
+public class System.Diagnostics.PerformanceCounterInstaller : ComponentInstaller {
+    private string _categoryHelp;
+    private string _categoryName;
+    private CounterCreationDataCollection _counters;
+    private UninstallAction _uninstallAction;
+    private PerformanceCounterCategoryType _categoryType;
+    [DefaultValueAttribute("")]
+public string CategoryHelp { get; public set; }
+    [DefaultValueAttribute("")]
+[TypeConverterAttribute("System.Diagnostics.Design.StringValueConverter, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+public string CategoryName { get; public set; }
+    [DesignerSerializationVisibilityAttribute("2")]
+public CounterCreationDataCollection Counters { get; }
+    [DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+public UninstallAction UninstallAction { get; public set; }
+    [ComVisibleAttribute("False")]
+[DefaultValueAttribute("Mono.Cecil.CustomAttributeArgument")]
+public PerformanceCounterCategoryType CategoryType { get; public set; }
+    [MonoTODOAttribute]
+public virtual void CopyFromComponent(IComponent component);
+    [MonoTODOAttribute]
+public virtual void Install(IDictionary stateSaver);
+    [MonoTODOAttribute]
+public virtual void Rollback(IDictionary savedState);
+    [MonoTODOAttribute]
+public virtual void Uninstall(IDictionary savedState);
+    public string get_CategoryHelp();
+    public void set_CategoryHelp(string value);
+    public string get_CategoryName();
+    public void set_CategoryName(string value);
+    public CounterCreationDataCollection get_Counters();
+    public UninstallAction get_UninstallAction();
+    public void set_UninstallAction(UninstallAction value);
+    public PerformanceCounterCategoryType get_CategoryType();
+    public void set_CategoryType(PerformanceCounterCategoryType value);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoDocumentationNoteAttribute : MonoTODOAttribute {
+    public MonoDocumentationNoteAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoExtensionAttribute : MonoTODOAttribute {
+    public MonoExtensionAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoInternalNoteAttribute : MonoTODOAttribute {
+    public MonoInternalNoteAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoLimitationAttribute : MonoTODOAttribute {
+    public MonoLimitationAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoNotSupportedAttribute : MonoTODOAttribute {
+    public MonoNotSupportedAttribute(string comment);
+}
+[AttributeUsageAttribute("32767")]
+internal class System.MonoTODOAttribute : Attribute {
+    private string comment;
+    public string Comment { get; }
+    public MonoTODOAttribute(string comment);
+    public string get_Comment();
+}

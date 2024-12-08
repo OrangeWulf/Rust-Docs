@@ -1,0 +1,194 @@
+Сборка: Coffee.SoftMaskForUGUI.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Coffee.UISoftMask.GraphicConnectorExtension
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void SetVerticesDirtyEx(Graphic graphic)
+  void SetMaterialDirtyEx(Graphic graphic)
+  T GetComponentInParentEx(Component component, bool includeInactive)
+--------------------------------------------------
+Класс: Coffee.UISoftMask.GraphicConnector
+Наследуется от: object
+Поля:
+  List`1<GraphicConnector> s_Connectors
+  Dictionary`2<Type, GraphicConnector> s_ConnectorMap
+  GraphicConnector s_EmptyConnector
+Свойства:
+  int priority
+Методы:
+  void Init()
+  void AddConnector(GraphicConnector connector)
+  GraphicConnector FindConnector(Graphic graphic)
+  int get_priority()
+  bool IsValid(Graphic graphic)
+  void SetVerticesDirty(Graphic graphic)
+  void SetMaterialDirty(Graphic graphic)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Coffee.UISoftMask.MaterialEntry
+Наследуется от: object
+Поля:
+  Material material
+  int referenceCount
+Свойства:
+Методы:
+  void Release()
+  void .ctor()
+--------------------------------------------------
+Класс: Coffee.UISoftMask.MaterialCache
+Наследуется от: object
+Поля:
+  Dictionary`2<Hash128, MaterialEntry> s_MaterialMap
+Свойства:
+Методы:
+  Material Register(Material material, Hash128 hash, Action`1<Material> onModify)
+  void Unregister(Hash128 hash)
+  void .cctor()
+--------------------------------------------------
+Класс: Coffee.UISoftMask.SoftMask
+Наследуется от: Mask
+Поля:
+  List`1[] s_TmpSoftMasks
+  Color[] s_ClearColors
+  bool s_UVStartsAtTop
+  bool s_IsMetal
+  Shader s_SoftMaskShader
+  Texture2D s_ReadTexture
+  List`1<SoftMask> s_ActiveSoftMasks
+  List`1<SoftMask> s_TempRelatables
+  Dictionary`2<int, Matrix4x4> s_PreviousViewProjectionMatrices
+  Dictionary`2<int, Matrix4x4> s_NowViewProjectionMatrices
+  int s_StencilCompId
+  int s_ColorMaskId
+  int s_MainTexId
+  int s_SoftnessId
+  int s_Alpha
+  int s_PreviousWidth
+  int s_PreviousHeight
+  MaterialPropertyBlock _mpb
+  CommandBuffer _cb
+  Material _material
+  RenderTexture _softMaskBuffer
+  int _stencilDepth
+  Mesh _mesh
+  SoftMask _parent
+  List`1<SoftMask> _children
+  bool _hasChanged
+  bool _hasStencilStateChanged
+  DownSamplingRate m_DownSamplingRate
+  float m_Softness
+  float m_Alpha
+  bool m_IgnoreParent
+  bool m_PartOfParent
+  bool m_IgnoreSelfGraphic
+  bool m_IgnoreSelfStencil
+Свойства:
+  DownSamplingRate downSamplingRate
+  float softness
+  float alpha
+  bool ignoreParent
+  bool partOfParent
+  RenderTexture softMaskBuffer
+  bool hasChanged
+  SoftMask parent
+  bool ignoreSelfGraphic
+  bool ignoreSelfStencil
+  Material material
+  Mesh mesh
+Методы:
+  DownSamplingRate get_downSamplingRate()
+  void set_downSamplingRate(DownSamplingRate value)
+  float get_softness()
+  void set_softness(float value)
+  float get_alpha()
+  void set_alpha(float value)
+  bool get_ignoreParent()
+  void set_ignoreParent(bool value)
+  bool get_partOfParent()
+  void set_partOfParent(bool value)
+  RenderTexture get_softMaskBuffer()
+  bool get_hasChanged()
+  void set_hasChanged(bool value)
+  SoftMask get_parent()
+  bool get_ignoreSelfGraphic()
+  void set_ignoreSelfGraphic(bool value)
+  bool get_ignoreSelfStencil()
+  void set_ignoreSelfStencil(bool value)
+  Material get_material()
+  Mesh get_mesh()
+  Material GetModifiedMaterial(Material baseMaterial)
+  void UnityEngine.UI.IMeshModifier.ModifyMesh(Mesh mesh)
+  void UnityEngine.UI.IMeshModifier.ModifyMesh(VertexHelper verts)
+  bool IsRaycastLocationValid(Vector2 sp, Camera eventCamera, Graphic g, Int32[] interactions)
+  bool IsRaycastLocationValid(Vector2 sp, Camera eventCamera)
+  void OnEnable()
+  void OnDisable()
+  void OnTransformParentChanged()
+  void OnRectTransformDimensionsChange()
+  void UpdateMaskTextures()
+  void UpdateMaskTexture()
+  void GetDownSamplingSize(DownSamplingRate rate, Int32& w, Int32& h)
+  void ReleaseRt(RenderTexture& tmpRT)
+  void ReleaseObject(Object obj)
+  void SetParent(SoftMask newParent)
+  float GetPixelValue(int x, int y, Int32[] interactions)
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Coffee.UISoftMask.SoftMaskable
+Наследуется от: MonoBehaviour
+Поля:
+  int kVisibleInside
+  int kVisibleOutside
+  Hash128 k_InvalidHash
+  int s_SoftMaskTexId
+  int s_StencilCompId
+  int s_MaskInteractionId
+  int s_GameVPId
+  int s_GameTVPId
+  List`1<SoftMaskable> s_ActiveSoftMaskables
+  Int32[] s_Interactions
+  bool m_Inverse
+  int m_MaskInteraction
+  bool m_UseStencil
+  bool m_RaycastFilter
+  Graphic _graphic
+  SoftMask _softMask
+  Hash128 _effectMaterialHash
+  Material <modifiedMaterial>k__BackingField
+Свойства:
+  bool inverse
+  bool raycastFilter
+  bool useStencil
+  Graphic graphic
+  SoftMask softMask
+  Material modifiedMaterial
+Методы:
+  bool get_inverse()
+  void set_inverse(bool value)
+  bool get_raycastFilter()
+  void set_raycastFilter(bool value)
+  bool get_useStencil()
+  void set_useStencil(bool value)
+  Graphic get_graphic()
+  SoftMask get_softMask()
+  Material get_modifiedMaterial()
+  void set_modifiedMaterial(Material value)
+  Material UnityEngine.UI.IMaterialModifier.GetModifiedMaterial(Material baseMaterial)
+  bool UnityEngine.ICanvasRaycastFilter.IsRaycastLocationValid(Vector2 sp, Camera eventCamera)
+  void SetMaskInteraction(SpriteMaskInteraction intr)
+  void SetMaskInteraction(SpriteMaskInteraction layer0, SpriteMaskInteraction layer1, SpriteMaskInteraction layer2, SpriteMaskInteraction layer3)
+  void OnEnable()
+  void OnDisable()
+  void .ctor()
+  void .cctor()
+  void <UnityEngine.UI.IMaterialModifier.GetModifiedMaterial>b__34_0(Material mat)
+--------------------------------------------------

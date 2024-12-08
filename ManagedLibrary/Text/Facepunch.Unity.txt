@@ -1,0 +1,946 @@
+Сборка: Facepunch.Unity.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: SceneField
+Наследуется от: object
+Поля:
+  Object sceneAsset
+  string sceneName
+Свойства:
+  string SceneName
+Методы:
+  string get_SceneName()
+  string op_Implicit(SceneField sceneField)
+  void .ctor()
+--------------------------------------------------
+Класс: TimeSince
+Наследуется от: ValueType
+Поля:
+  float time
+Свойства:
+Методы:
+  float op_Implicit(TimeSince ts)
+  TimeSince op_Implicit(float ts)
+  string ToString()
+--------------------------------------------------
+Класс: TimeUntil
+Наследуется от: ValueType
+Поля:
+  float time
+Свойства:
+Методы:
+  float op_Implicit(TimeUntil ts)
+  TimeUntil op_Implicit(float ts)
+  string ToString()
+--------------------------------------------------
+Класс: TimeUntilWithDuration
+Наследуется от: ValueType
+Поля:
+  float time
+  float Duration
+Свойства:
+Методы:
+  float op_Implicit(TimeUntilWithDuration ts)
+  TimeUntilWithDuration op_Implicit(float ts)
+  string ToString()
+--------------------------------------------------
+Класс: RealTimeSince
+Наследуется от: ValueType
+Поля:
+  float time
+Свойства:
+Методы:
+  float op_Implicit(RealTimeSince ts)
+  RealTimeSince op_Implicit(float ts)
+  string ToString()
+--------------------------------------------------
+Класс: RealTimeUntil
+Наследуется от: ValueType
+Поля:
+  float time
+Свойства:
+Методы:
+  float op_Implicit(RealTimeUntil ts)
+  RealTimeUntil op_Implicit(float ts)
+  string ToString()
+--------------------------------------------------
+Класс: UnityEngine.WaitForSecondsRealtimeEx
+Наследуется от: CustomYieldInstruction
+Поля:
+  bool _isInPool
+  float _waitUntilTime
+  float <WaitTime>k__BackingField
+Свойства:
+  float WaitTime
+  bool keepWaiting
+Методы:
+  float get_WaitTime()
+  void set_WaitTime(float value)
+  bool get_keepWaiting()
+  void EnterPool()
+  void LeavePool()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.BuildInfo
+Наследуется от: object
+Поля:
+  int <Date>k__BackingField
+  ScmInfo <Scm>k__BackingField
+  BuildDesc <Build>k__BackingField
+  bool <Valid>k__BackingField
+  BuildInfo _current
+Свойства:
+  int Date
+  DateTime BuildDate
+  ScmInfo Scm
+  BuildDesc Build
+  bool Valid
+  BuildInfo Current
+Методы:
+  int get_Date()
+  void set_Date(int value)
+  DateTime get_BuildDate()
+  ScmInfo get_Scm()
+  void set_Scm(ScmInfo value)
+  BuildDesc get_Build()
+  void set_Build(BuildDesc value)
+  bool get_Valid()
+  void set_Valid(bool value)
+  BuildInfo get_Current()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Application
+Наследуется от: object
+Поля:
+  MonoBehaviour _controller
+  Manifest Manifest
+  BaseIntegration <Integration>k__BackingField
+Свойства:
+  MonoBehaviour Controller
+  BaseIntegration Integration
+Методы:
+  MonoBehaviour get_Controller()
+  void Initialize(BaseIntegration integration)
+  BaseIntegration get_Integration()
+  void set_Integration(BaseIntegration value)
+--------------------------------------------------
+Класс: Facepunch.BaseIntegration
+Наследуется от: object
+Поля:
+Свойства:
+  string PublicKey
+  string Bucket
+  string UserId
+  string UserName
+  string ServerAddress
+  string ServerName
+  string LevelName
+  int MinutesPlayed
+  Auth Auth
+  bool RestrictEditorFunctionality
+  bool LocalApi
+  string ApiUrl
+  bool DebugOutput
+Методы:
+  string get_PublicKey()
+  string get_Bucket()
+  void OnManifestFile(Manifest manifest)
+  string get_UserId()
+  string get_UserName()
+  string get_ServerAddress()
+  string get_ServerName()
+  string get_LevelName()
+  int get_MinutesPlayed()
+  Auth get_Auth()
+  bool get_RestrictEditorFunctionality()
+  bool get_LocalApi()
+  string get_ApiUrl()
+  bool get_DebugOutput()
+  bool ShouldReportException(string message, string stackTrace, LogType type)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.BenchmarkData
+Наследуется от: object
+Поля:
+  BenchmarkData Current
+  Dictionary`2<string, float> Results
+  string ComputerName
+  string BuildDate
+  string BranchName
+  string Changeset
+  string BuildId
+  bool Auto
+  int Version
+  AppInfo AppInfo
+  SystemInformation SystemInfo
+  int frames
+  int hitches
+  int freezes
+  float lastTime
+  double frameTimes
+Свойства:
+  float AvgMilliseconds
+  float avgFrameRate
+Методы:
+  BenchmarkData New()
+  void WriteTimersToResults()
+  Task`1<string> Upload()
+  string WriteJSON()
+  float get_AvgMilliseconds()
+  float get_avgFrameRate()
+  void ResetCounters()
+  void Frame()
+  void CompleteDemoBenchmark(string benchmarkLabel)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.BenchmarkTimer
+Наследуется от: object
+Поля:
+  bool Enabled
+  Dictionary`2<string, Stopwatch> All
+  Stopwatch stopwatch
+Свойства:
+Методы:
+  BenchmarkTimer New(string name)
+  void .ctor(string name)
+  void Dispose()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Database
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Insert(string parent, object contents, Action`1<bool> onFinished)
+  void Insert(string parent, object contents, Action`2<bool, string> onFinished)
+  void Remove(string parent, string id, Action`1<bool> onFinished)
+  Result`1<T> Query(string parent, int limit, Action`1<Result`1<T>> onFinished)
+  void Count(string parent, Action`1<int> onResult)
+--------------------------------------------------
+Класс: Facepunch.Report
+Наследуется от: object
+Поля:
+  string <release>k__BackingField
+  string <message>k__BackingField
+  string <platform>k__BackingField
+  string <event_id>k__BackingField
+  Dictionary`2<string, string> <tags>k__BackingField
+  StackTrace <stacktrace>k__BackingField
+  User <user>k__BackingField
+Свойства:
+  string release
+  string message
+  string platform
+  string event_id
+  Dictionary`2<string, string> tags
+  StackTrace stacktrace
+  User user
+Методы:
+  string get_release()
+  void set_release(string value)
+  string get_message()
+  void set_message(string value)
+  string get_platform()
+  void set_platform(string value)
+  string get_event_id()
+  void set_event_id(string value)
+  Dictionary`2<string, string> get_tags()
+  void set_tags(Dictionary`2<string, string> value)
+  StackTrace get_stacktrace()
+  void set_stacktrace(StackTrace value)
+  User get_user()
+  void set_user(User value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.ExceptionReporter
+Наследуется от: MonoBehaviour
+Поля:
+  bool <Disabled>k__BackingField
+  Stopwatch LastReportTime
+  int _reportsSentCounter
+  string <PublicKey>k__BackingField
+  string <SecretKey>k__BackingField
+  string <Host>k__BackingField
+  string <ProjectId>k__BackingField
+Свойства:
+  bool Disabled
+  string PublicKey
+  string SecretKey
+  string Host
+  string ProjectId
+  Dictionary`2<string, string> Headers
+Методы:
+  bool get_Disabled()
+  void set_Disabled(bool value)
+  void InstallHooks()
+  void OnLogMessage(string message, string stackTrace, LogType type)
+  string get_PublicKey()
+  void set_PublicKey(string value)
+  string get_SecretKey()
+  void set_SecretKey(string value)
+  string get_Host()
+  void set_Host(string value)
+  string get_ProjectId()
+  void set_ProjectId(string value)
+  void InitializeFromUrl(string url)
+  void SendReport(string exception, string stacktrace, LogType logType)
+  Dictionary`2<string, string> get_Headers()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Feedback
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Task`1<string> Report(Feedback feedback)
+  Task`1<string> ServerReport(string endpoint, ulong fromPlayer, string key, Feedback feedback)
+--------------------------------------------------
+Класс: Facepunch.Leaderboard
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Insert(string board, float score, bool OnlyIfLower, bool OnlyIfHigher, string extra, Action`1<string> result)
+  void GetRank(string board, string userid, bool desc, String[] friends, Action`1<Rank> result)
+  void GetPage(string board, string country, string city, int skip, int take, bool desc, String[] friends, Action`1<Entry[]> result)
+--------------------------------------------------
+Класс: Facepunch.Manifest
+Наследуется от: object
+Поля:
+  DateTime <LastDownloaded>k__BackingField
+  string <Contents>k__BackingField
+Свойства:
+  DateTime LastDownloaded
+  string Contents
+Методы:
+  DateTime get_LastDownloaded()
+  void set_LastDownloaded(DateTime value)
+  string get_Contents()
+  void set_Contents(string value)
+  void Download()
+  IEnumerator UpdateManifest()
+  void LoadManifest(string text)
+  void OnManifestLoaded(Manifest manifest)
+--------------------------------------------------
+Класс: Facepunch.Hero
+Наследуется от: object
+Поля:
+  string <Ident>k__BackingField
+  string <MediaUrl>k__BackingField
+  string <TitleText>k__BackingField
+  string <ActionText>k__BackingField
+  string <TargetUrl>k__BackingField
+  string <Conditions>k__BackingField
+  double <Chance>k__BackingField
+Свойства:
+  string Ident
+  string MediaUrl
+  string TitleText
+  string ActionText
+  string TargetUrl
+  string Conditions
+  double Chance
+Методы:
+  string get_Ident()
+  void set_Ident(string value)
+  string get_MediaUrl()
+  void set_MediaUrl(string value)
+  string get_TitleText()
+  void set_TitleText(string value)
+  string get_ActionText()
+  void set_ActionText(string value)
+  string get_TargetUrl()
+  void set_TargetUrl(string value)
+  string get_Conditions()
+  void set_Conditions(string value)
+  double get_Chance()
+  void set_Chance(double value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.AccountNotice
+Наследуется от: object
+Поля:
+  int <NoticeId>k__BackingField
+  DateTime <Created>k__BackingField
+  string <Json>k__BackingField
+  string <Seen>k__BackingField
+Свойства:
+  int NoticeId
+  DateTime Created
+  string Json
+  string Seen
+Методы:
+  int get_NoticeId()
+  void set_NoticeId(int value)
+  DateTime get_Created()
+  void set_Created(DateTime value)
+  string get_Json()
+  void set_Json(string value)
+  string get_Seen()
+  void set_Seen(string value)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.NoticeData
+Наследуется от: ValueType
+Поля:
+  string Type
+  string SteamId
+  string DisplayName
+  int Reports
+  DateTime ReportDate
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.SystemInformation
+Наследуется от: ValueType
+Поля:
+  Hardware hardware
+  Environment environment
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Performance
+Наследуется от: object
+Поля:
+  Func`1<int> GetMemoryUsage
+  Func`1<int> GetGarbageCollections
+  Stopwatch Stopwatch
+  int frames
+  int <FrameCountLastSecond>k__BackingField
+  int <MemoryUsage>k__BackingField
+  int <GarbageCollections>k__BackingField
+  float <SecondsSinceLastConnection>k__BackingField
+  int TargetFrameRate
+  Int32[] frameBuckets
+  Single[] frameBucketFractions
+Свойства:
+  FrameRateCategory FrameRateCategory
+  int FrameCountLastSecond
+  double AvgFrameTimeLastSecond
+  int MemoryUsage
+  int GarbageCollections
+  float SecondsSinceLastConnection
+  Int32[] CategorizedFrameCount
+Методы:
+  FrameRateCategory get_FrameRateCategory()
+  int get_FrameCountLastSecond()
+  void set_FrameCountLastSecond(int value)
+  double get_AvgFrameTimeLastSecond()
+  int get_MemoryUsage()
+  void set_MemoryUsage(int value)
+  int get_GarbageCollections()
+  void set_GarbageCollections(int value)
+  float get_SecondsSinceLastConnection()
+  void set_SecondsSinceLastConnection(float value)
+  Int32[] get_CategorizedFrameCount()
+  void Frame()
+  void OneSecond(double timelapse)
+  FrameRateCategory CategorizeFrameRate(int i)
+  void UpdateFrameBuckets()
+  int GetFrameCount(FrameRateCategory category)
+  float GetFrameFraction(FrameRateCategory category)
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.FrameRateCategory
+Наследуется от: Enum
+Поля:
+  int value__
+  FrameRateCategory Unplayable
+  FrameRateCategory VeryBad
+  FrameRateCategory Bad
+  FrameRateCategory Average
+  FrameRateCategory Good
+  FrameRateCategory VeryGood
+  FrameRateCategory Count
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.PerformanceUI
+Наследуется от: MonoBehaviour
+Поля:
+  LayoutElement[] rainbow
+  Text info
+  Text fps
+  Text ms
+  Text mb
+  Text gc
+  Canvas Canvas
+  float updateTime
+Свойства:
+Методы:
+  void Awake()
+  void Update()
+  void UpdateRainbow()
+  void SpawnPrefab()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.InspectorFlagsAttribute
+Наследуется от: PropertyAttribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.WeightedStringList
+Наследуется от: object
+Поля:
+  List`1<Container> Objects
+  float _total
+Свойства:
+  float Total
+Методы:
+  float get_Total()
+  string Get(float f)
+  string GetRandom()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.ApplicationControllerMonobehaviour
+Наследуется от: MonoBehaviour
+Поля:
+Свойства:
+Методы:
+  void OnApplicationQuit()
+  void Update()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.DestroyInSeconds
+Наследуется от: MonoBehaviour
+Поля:
+  float TimeToDie
+  float TimeToDieVariance
+Свойства:
+Методы:
+  void Start()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.ListComponent`1
+Наследуется от: ListComponent
+Поля:
+  ListHashSet`1<T> instanceList
+Свойства:
+  ListHashSet`1<T> InstanceList
+Методы:
+  ListHashSet`1<T> get_InstanceList()
+  void Setup()
+  void Clear()
+  void .ctor()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.ListComponent
+Наследуется от: MonoBehaviour
+Поля:
+Свойства:
+Методы:
+  void Setup()
+  void Clear()
+  void OnEnable()
+  void OnDisable()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.BinaryReaderExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Vector3 ReadVector3(BinaryReader o)
+--------------------------------------------------
+Класс: Facepunch.BinaryWriterExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Write(BinaryWriter o, Vector3 vec)
+--------------------------------------------------
+Класс: Facepunch.ComponentExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  T Duplicate(T obj)
+  T[] Duplicate(T obj, int amount, bool includeOriginalInArray)
+  void SetActive(T obj, bool active)
+  Vector2 WorldToRectTransform(T obj, Vector2 worldPos)
+  Rect GetWorldRect(T obj)
+  bool GetComponent(T obj, U& value)
+  bool GetComponentInParent(T obj, U& value)
+  bool GetComponentInChildren(T obj, U& value)
+--------------------------------------------------
+Класс: Facepunch.GameObjectExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void SetIgnoreCollisions(GameObject self, GameObject other, bool ignore)
+--------------------------------------------------
+Класс: Facepunch.Vector3Extensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Vector3 XZ(Vector3 o, float y)
+  Vector3 RemoveAxis(Vector3 o, Vector3 axis)
+--------------------------------------------------
+Класс: Facepunch.DebugDraw
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Point(Vector3 position, Color color, float scale, float duration, bool depthTest)
+  void Point(Vector3 position, float scale, float duration, bool depthTest)
+  void Bounds(Bounds bounds, Color color, float duration, bool depthTest)
+  void Normal(Vector3 point, Vector3 normal, float size, Color color, float duration, bool depthtest)
+  void Bounds(Bounds bounds, float duration, bool depthTest)
+  void LocalCube(Transform transform, Vector3 size, Color color, Vector3 center, float duration, bool depthTest)
+  void LocalCube(Transform transform, Vector3 size, Vector3 center, float duration, bool depthTest)
+  void LocalCube(Matrix4x4 space, Vector3 size, Color color, Vector3 center, float duration, bool depthTest)
+  void LocalCube(Matrix4x4 space, Vector3 size, Vector3 center, float duration, bool depthTest)
+  void Circle(Vector3 position, Vector3 up, Color color, float radius, float duration, bool depthTest)
+  void Circle(Vector3 position, Color color, float radius, float duration, bool depthTest)
+  void Circle(Vector3 position, Vector3 up, float radius, float duration, bool depthTest)
+  void Circle(Vector3 position, float radius, float duration, bool depthTest)
+  void Sphere(Vector3 position, Color color, float radius, float duration, bool depthTest)
+  void Sphere(Vector3 position, float radius, float duration, bool depthTest)
+  void Cylinder(Vector3 start, Vector3 end, Color color, float radius, float duration, bool depthTest)
+  void Cylinder(Vector3 start, Vector3 end, float radius, float duration, bool depthTest)
+  void Cone(Vector3 position, Vector3 direction, Color color, float angle, float duration, bool depthTest)
+  void Cone(Vector3 position, Vector3 direction, float angle, float duration, bool depthTest)
+  void Cone(Vector3 position, Color color, float angle, float duration, bool depthTest)
+  void Cone(Vector3 position, float angle, float duration, bool depthTest)
+  void Line(Vector3 position, Vector3 endposition, Color color, float duration, bool depthTest)
+  void Arrow(Vector3 position, Vector3 direction, Color color, float duration, bool depthTest)
+  void Arrow(Vector3 position, Vector3 direction, float duration, bool depthTest)
+  void Capsule(Vector3 start, Vector3 end, Color color, float radius, float duration, bool depthTest)
+  void Capsule(Vector3 start, Vector3 end, float radius, float duration, bool depthTest)
+--------------------------------------------------
+Класс: Facepunch.Mono
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void FixHttpsValidation()
+--------------------------------------------------
+Класс: Facepunch.Threading
+Наследуется от: object
+Поля:
+  int mainThread
+  List`1<Action> actions
+Свойства:
+  bool IsMainThread
+Методы:
+  bool get_IsMainThread()
+  void QueueOnMainThread(Action action)
+  void RunQueuedFunctionsOnMainThread()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.WebUtil
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Get(string url, Action`1<string> result)
+  IEnumerator DownloadStringCoroutine(UnityWebRequest www, Action`1<string> result)
+  Task`1<string> DownloadFileTemp(string url, bool keepextension)
+  void DownloadString(UnityWebRequest www, Action`1<string> result)
+  void Post(string url, Dictionary`2<string, string> data, bool wait, Action`1<string> result)
+  Task`1<string> PostAsync(string url, Dictionary`2<string, string> data)
+  void PostData(string url, object dataObject, Action`1<string> result, bool wait)
+  Task`1<string> PostDataAsync(string url, object dataObject)
+  IEnumerator PostValuesCoroutine(WWW www, Action`1<string> result)
+  string Escape(string type)
+--------------------------------------------------
+Класс: Facepunch.Math.Epoch
+Наследуется от: object
+Поля:
+  DateTime epoch
+Свойства:
+  int Current
+Методы:
+  int get_Current()
+  DateTime ToDateTime(long unixTime)
+  int FromDateTime(DateTime time)
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Utility.CommandLine
+Наследуется от: object
+Поля:
+  bool initialized
+  string commandline
+  Dictionary`2<string, string> switches
+Свойства:
+  string Full
+Методы:
+  string get_Full()
+  void Force(string val)
+  void Initalize()
+  bool HasSwitch(string strName)
+  string GetSwitch(string strName, string strDefault)
+  int GetSwitchInt(string strName, int iDefault)
+  Dictionary`2<string, string> GetSwitches()
+  void .cctor()
+--------------------------------------------------
+Класс: Facepunch.Extend.RayExtensions
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Vector3 ClosestPoint(Ray ray, Vector3 position)
+  float ClosestDistance(Ray ray, Vector3 position)
+--------------------------------------------------
+Класс: Facepunch.Models.AppInfo
+Наследуется от: ValueType
+Поля:
+  string <Image>k__BackingField
+Свойства:
+  int Version
+  BuildInfo Build
+  string Name
+  string Os
+  string Cpu
+  int CpuCount
+  int Mem
+  string Gpu
+  int GpuMem
+  string Arch
+  string UserId
+  string UserName
+  string ServerAddress
+  string ServerName
+  string LevelName
+  string LevelPos
+  string LevelRot
+  int MinutesPlayed
+  string Image
+Методы:
+  int get_Version()
+  BuildInfo get_Build()
+  string get_Name()
+  string get_Os()
+  string get_Cpu()
+  int get_CpuCount()
+  int get_Mem()
+  string get_Gpu()
+  int get_GpuMem()
+  string get_Arch()
+  string get_UserId()
+  string get_UserName()
+  string get_ServerAddress()
+  string get_ServerName()
+  string get_LevelName()
+  string get_LevelPos()
+  string get_LevelRot()
+  int get_MinutesPlayed()
+  string get_Image()
+  void set_Image(string value)
+--------------------------------------------------
+Класс: Facepunch.Models.Auth
+Наследуется от: object
+Поля:
+  string Type
+  string Id
+  string Ticket
+  string Name
+Свойства:
+Методы:
+  Auth Steam(string ticket, ulong steamId, string username)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.FeaturesInfo
+Наследуется от: object
+Поля:
+  bool ClientAnalytics
+  bool ServerAnalytics
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Feedback
+Наследуется от: ValueType
+Поля:
+  string Subject
+  string Message
+  ReportType Type
+  string TargetReportType
+  string TargetId
+  string TargetName
+  string TargetEntity
+  List`1<ulong> UsersInRange
+  AppInfo AppInfo
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Models.ReportType
+Наследуется от: Enum
+Поля:
+  int value__
+  ReportType General
+  ReportType Bug
+  ReportType Cheat
+  ReportType Abuse
+  ReportType Idea
+  ReportType OffensiveContent
+  ReportType FIRST
+  ReportType LAST
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Facepunch.Models.Manifest
+Наследуется от: object
+Поля:
+  NewsInfo News
+  ServersInfo Servers
+  FeaturesInfo Features
+  string ExceptionReportingUrl
+  string BenchmarkUrl
+  string AnalyticUrl
+  string DatabaseUrl
+  string LeaderboardUrl
+  string ReportUrl
+  string AccountUrl
+  Hero[] Heroes
+  Administrator[] Administrators
+  JObject Metadata
+Свойства:
+Методы:
+  Manifest FromJson(string text)
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.PlayerInfo
+Наследуется от: ValueType
+Поля:
+  string <Name>k__BackingField
+  string <Id>k__BackingField
+Свойства:
+  string Name
+  string Id
+Методы:
+  string get_Name()
+  void set_Name(string value)
+  string get_Id()
+  void set_Id(string value)
+--------------------------------------------------
+Класс: Facepunch.Models.Leaderboard.Add
+Наследуется от: object
+Поля:
+  string Parent
+  float Score
+  string Extra
+  bool ReplaceIfHigher
+  bool ReplaceIfLower
+  Auth Auth
+Свойства:
+  int Version
+Методы:
+  int get_Version()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Leaderboard.Rank
+Наследуется от: object
+Поля:
+  float Score
+  int GlobalCount
+  int GlobalRank
+  string Country
+  int CountryCount
+  int CountryRank
+  string City
+  int CityCount
+  int CityRank
+  int FriendRank
+  DateTime Created
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Leaderboard.Entry
+Наследуется от: object
+Поля:
+  int Rank
+  float Score
+  string UserId
+  string Name
+  string Country
+  string City
+  DateTime Created
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Database.Base
+Наследуется от: object
+Поля:
+  string Parent
+  Auth Auth
+Свойства:
+  int Version
+Методы:
+  int get_Version()
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Database.Add
+Наследуется от: Base
+Поля:
+  string Content
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Database.Remove
+Наследуется от: Base
+Поля:
+  string Id
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Database.BaseResponse
+Наследуется от: object
+Поля:
+  string Status
+  string Reason
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Database.AddResponse
+Наследуется от: BaseResponse
+Поля:
+  string Id
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Database.QueryResponse
+Наследуется от: object
+Поля:
+  string Content
+  string Id
+  DateTime Created
+  DateTime Updated
+  string AuthorId
+  string AuthType
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: Facepunch.Models.Database.Result`1
+Наследуется от: object
+Поля:
+  bool Running
+  bool Success
+  Entry[] Entries
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: <PrivateImplementationDetails>
+Наследуется от: object
+Поля:
+  __StaticArrayInitTypeSize=6 EE57BF7E90D0A0C83165DB267CA75DA7854DE4317BA08280EB00681729CC6E6E
+Свойства:
+Методы:
+--------------------------------------------------

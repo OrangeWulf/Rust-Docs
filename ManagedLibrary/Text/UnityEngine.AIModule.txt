@@ -1,0 +1,862 @@
+Сборка: UnityEngine.AIModule.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Microsoft.CodeAnalysis.EmbeddedAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: System.Runtime.CompilerServices.IsReadOnlyAttribute
+Наследуется от: Attribute
+Поля:
+Свойства:
+Методы:
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshPathStatus
+Наследуется от: Enum
+Поля:
+  int value__
+  NavMeshPathStatus PathComplete
+  NavMeshPathStatus PathPartial
+  NavMeshPathStatus PathInvalid
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshPath
+Наследуется от: object
+Поля:
+  IntPtr m_Ptr
+  Vector3[] m_Corners
+Свойства:
+  Vector3[] corners
+  NavMeshPathStatus status
+Методы:
+  void .ctor()
+  void Finalize()
+  IntPtr InitializeNavMeshPath()
+  void DestroyNavMeshPath(IntPtr ptr)
+  int GetCornersNonAlloc(Vector3[] results)
+  Vector3[] CalculateCornersInternal()
+  void ClearCornersInternal()
+  void ClearCorners()
+  void CalculateCorners()
+  Vector3[] get_corners()
+  NavMeshPathStatus get_status()
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshBuilder
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void CollectSources(Bounds includedWorldBounds, int includedLayerMask, NavMeshCollectGeometry geometry, int defaultArea, List`1<NavMeshBuildMarkup> markups, List`1<NavMeshBuildSource> results)
+  void CollectSources(Transform root, int includedLayerMask, NavMeshCollectGeometry geometry, int defaultArea, List`1<NavMeshBuildMarkup> markups, List`1<NavMeshBuildSource> results)
+  NavMeshBuildSource[] CollectSourcesInternal(int includedLayerMask, Bounds includedWorldBounds, Transform root, bool useBounds, NavMeshCollectGeometry geometry, int defaultArea, NavMeshBuildMarkup[] markups)
+  NavMeshData BuildNavMeshData(NavMeshBuildSettings buildSettings, List`1<NavMeshBuildSource> sources, Bounds localBounds, Vector3 position, Quaternion rotation)
+  bool UpdateNavMeshData(NavMeshData data, NavMeshBuildSettings buildSettings, List`1<NavMeshBuildSource> sources, Bounds localBounds)
+  bool UpdateNavMeshDataListInternal(NavMeshData data, NavMeshBuildSettings buildSettings, object sources, Bounds localBounds)
+  AsyncOperation UpdateNavMeshDataAsync(NavMeshData data, NavMeshBuildSettings buildSettings, List`1<NavMeshBuildSource> sources, Bounds localBounds)
+  void Cancel(NavMeshData data)
+  AsyncOperation UpdateNavMeshDataAsyncListInternal(NavMeshData data, NavMeshBuildSettings buildSettings, object sources, Bounds localBounds)
+  NavMeshBuildSource[] CollectSourcesInternal_Injected(int includedLayerMask, Bounds& includedWorldBounds, Transform root, bool useBounds, NavMeshCollectGeometry geometry, int defaultArea, NavMeshBuildMarkup[] markups)
+  bool UpdateNavMeshDataListInternal_Injected(NavMeshData data, NavMeshBuildSettings& buildSettings, object sources, Bounds& localBounds)
+  AsyncOperation UpdateNavMeshDataAsyncListInternal_Injected(NavMeshData data, NavMeshBuildSettings& buildSettings, object sources, Bounds& localBounds)
+--------------------------------------------------
+Класс: UnityEngine.AI.ObstacleAvoidanceType
+Наследуется от: Enum
+Поля:
+  int value__
+  ObstacleAvoidanceType NoObstacleAvoidance
+  ObstacleAvoidanceType LowQualityObstacleAvoidance
+  ObstacleAvoidanceType MedQualityObstacleAvoidance
+  ObstacleAvoidanceType GoodQualityObstacleAvoidance
+  ObstacleAvoidanceType HighQualityObstacleAvoidance
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshAgent
+Наследуется от: Behaviour
+Поля:
+Свойства:
+  Vector3 destination
+  float stoppingDistance
+  Vector3 velocity
+  Vector3 nextPosition
+  Vector3 steeringTarget
+  Vector3 desiredVelocity
+  float remainingDistance
+  float baseOffset
+  bool isOnOffMeshLink
+  OffMeshLinkData currentOffMeshLinkData
+  OffMeshLinkData nextOffMeshLinkData
+  bool autoTraverseOffMeshLink
+  bool autoBraking
+  bool autoRepath
+  bool hasPath
+  bool pathPending
+  bool isPathStale
+  NavMeshPathStatus pathStatus
+  Vector3 pathEndPosition
+  bool isStopped
+  NavMeshPath path
+  Object navMeshOwner
+  int agentTypeID
+  int walkableMask
+  int areaMask
+  float speed
+  float angularSpeed
+  float acceleration
+  bool updatePosition
+  bool updateRotation
+  bool updateUpAxis
+  float radius
+  float height
+  ObstacleAvoidanceType obstacleAvoidanceType
+  int avoidancePriority
+  bool isOnNavMesh
+Методы:
+  bool SetDestination(Vector3 target)
+  Vector3 get_destination()
+  void set_destination(Vector3 value)
+  float get_stoppingDistance()
+  void set_stoppingDistance(float value)
+  Vector3 get_velocity()
+  void set_velocity(Vector3 value)
+  Vector3 get_nextPosition()
+  void set_nextPosition(Vector3 value)
+  Vector3 get_steeringTarget()
+  Vector3 get_desiredVelocity()
+  float get_remainingDistance()
+  float get_baseOffset()
+  void set_baseOffset(float value)
+  bool get_isOnOffMeshLink()
+  void ActivateCurrentOffMeshLink(bool activated)
+  OffMeshLinkData get_currentOffMeshLinkData()
+  OffMeshLinkData GetCurrentOffMeshLinkDataInternal()
+  OffMeshLinkData get_nextOffMeshLinkData()
+  OffMeshLinkData GetNextOffMeshLinkDataInternal()
+  void CompleteOffMeshLink()
+  bool get_autoTraverseOffMeshLink()
+  void set_autoTraverseOffMeshLink(bool value)
+  bool get_autoBraking()
+  void set_autoBraking(bool value)
+  bool get_autoRepath()
+  void set_autoRepath(bool value)
+  bool get_hasPath()
+  bool get_pathPending()
+  bool get_isPathStale()
+  NavMeshPathStatus get_pathStatus()
+  Vector3 get_pathEndPosition()
+  bool Warp(Vector3 newPosition)
+  void Move(Vector3 offset)
+  void Stop()
+  void Stop(bool stopUpdates)
+  void Resume()
+  bool get_isStopped()
+  void set_isStopped(bool value)
+  void ResetPath()
+  bool SetPath(NavMeshPath path)
+  NavMeshPath get_path()
+  void set_path(NavMeshPath value)
+  void CopyPathTo(NavMeshPath path)
+  bool FindClosestEdge(NavMeshHit& hit)
+  bool Raycast(Vector3 targetPosition, NavMeshHit& hit)
+  bool CalculatePath(Vector3 targetPosition, NavMeshPath path)
+  bool CalculatePathInternal(Vector3 targetPosition, NavMeshPath path)
+  bool SamplePathPosition(int areaMask, float maxDistance, NavMeshHit& hit)
+  void SetLayerCost(int layer, float cost)
+  float GetLayerCost(int layer)
+  void SetAreaCost(int areaIndex, float areaCost)
+  float GetAreaCost(int areaIndex)
+  Object get_navMeshOwner()
+  int get_agentTypeID()
+  void set_agentTypeID(int value)
+  Object GetOwnerInternal()
+  int get_walkableMask()
+  void set_walkableMask(int value)
+  int get_areaMask()
+  void set_areaMask(int value)
+  float get_speed()
+  void set_speed(float value)
+  float get_angularSpeed()
+  void set_angularSpeed(float value)
+  float get_acceleration()
+  void set_acceleration(float value)
+  bool get_updatePosition()
+  void set_updatePosition(bool value)
+  bool get_updateRotation()
+  void set_updateRotation(bool value)
+  bool get_updateUpAxis()
+  void set_updateUpAxis(bool value)
+  float get_radius()
+  void set_radius(float value)
+  float get_height()
+  void set_height(float value)
+  ObstacleAvoidanceType get_obstacleAvoidanceType()
+  void set_obstacleAvoidanceType(ObstacleAvoidanceType value)
+  int get_avoidancePriority()
+  void set_avoidancePriority(int value)
+  bool get_isOnNavMesh()
+  void .ctor()
+  bool SetDestination_Injected(Vector3& target)
+  void get_destination_Injected(Vector3& ret)
+  void set_destination_Injected(Vector3& value)
+  void get_velocity_Injected(Vector3& ret)
+  void set_velocity_Injected(Vector3& value)
+  void get_nextPosition_Injected(Vector3& ret)
+  void set_nextPosition_Injected(Vector3& value)
+  void get_steeringTarget_Injected(Vector3& ret)
+  void get_desiredVelocity_Injected(Vector3& ret)
+  void GetCurrentOffMeshLinkDataInternal_Injected(OffMeshLinkData& ret)
+  void GetNextOffMeshLinkDataInternal_Injected(OffMeshLinkData& ret)
+  void get_pathEndPosition_Injected(Vector3& ret)
+  bool Warp_Injected(Vector3& newPosition)
+  void Move_Injected(Vector3& offset)
+  bool Raycast_Injected(Vector3& targetPosition, NavMeshHit& hit)
+  bool CalculatePathInternal_Injected(Vector3& targetPosition, NavMeshPath path)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshObstacleShape
+Наследуется от: Enum
+Поля:
+  int value__
+  NavMeshObstacleShape Capsule
+  NavMeshObstacleShape Box
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshObstacle
+Наследуется от: Behaviour
+Поля:
+Свойства:
+  float height
+  float radius
+  Vector3 velocity
+  bool carving
+  bool carveOnlyStationary
+  float carvingMoveThreshold
+  float carvingTimeToStationary
+  NavMeshObstacleShape shape
+  Vector3 center
+  Vector3 size
+Методы:
+  float get_height()
+  void set_height(float value)
+  float get_radius()
+  void set_radius(float value)
+  Vector3 get_velocity()
+  void set_velocity(Vector3 value)
+  bool get_carving()
+  void set_carving(bool value)
+  bool get_carveOnlyStationary()
+  void set_carveOnlyStationary(bool value)
+  float get_carvingMoveThreshold()
+  void set_carvingMoveThreshold(float value)
+  float get_carvingTimeToStationary()
+  void set_carvingTimeToStationary(float value)
+  NavMeshObstacleShape get_shape()
+  void set_shape(NavMeshObstacleShape value)
+  Vector3 get_center()
+  void set_center(Vector3 value)
+  Vector3 get_size()
+  void set_size(Vector3 value)
+  void FitExtents()
+  void .ctor()
+  void get_velocity_Injected(Vector3& ret)
+  void set_velocity_Injected(Vector3& value)
+  void get_center_Injected(Vector3& ret)
+  void set_center_Injected(Vector3& value)
+  void get_size_Injected(Vector3& ret)
+  void set_size_Injected(Vector3& value)
+--------------------------------------------------
+Класс: UnityEngine.AI.OffMeshLinkType
+Наследуется от: Enum
+Поля:
+  int value__
+  OffMeshLinkType LinkTypeManual
+  OffMeshLinkType LinkTypeDropDown
+  OffMeshLinkType LinkTypeJumpAcross
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AI.OffMeshLinkData
+Наследуется от: ValueType
+Поля:
+  int m_Valid
+  int m_Activated
+  int m_InstanceID
+  OffMeshLinkType m_LinkType
+  Vector3 m_StartPos
+  Vector3 m_EndPos
+Свойства:
+  bool valid
+  bool activated
+  OffMeshLinkType linkType
+  Vector3 startPos
+  Vector3 endPos
+  OffMeshLink offMeshLink
+Методы:
+  bool get_valid()
+  bool get_activated()
+  OffMeshLinkType get_linkType()
+  Vector3 get_startPos()
+  Vector3 get_endPos()
+  OffMeshLink get_offMeshLink()
+  OffMeshLink GetOffMeshLinkInternal(int instanceID)
+--------------------------------------------------
+Класс: UnityEngine.AI.OffMeshLink
+Наследуется от: Behaviour
+Поля:
+Свойства:
+  bool activated
+  bool occupied
+  float costOverride
+  bool biDirectional
+  int navMeshLayer
+  int area
+  bool autoUpdatePositions
+  Transform startTransform
+  Transform endTransform
+Методы:
+  bool get_activated()
+  void set_activated(bool value)
+  bool get_occupied()
+  float get_costOverride()
+  void set_costOverride(float value)
+  bool get_biDirectional()
+  void set_biDirectional(bool value)
+  void UpdatePositions()
+  int get_navMeshLayer()
+  void set_navMeshLayer(int value)
+  int get_area()
+  void set_area(int value)
+  bool get_autoUpdatePositions()
+  void set_autoUpdatePositions(bool value)
+  Transform get_startTransform()
+  void set_startTransform(Transform value)
+  Transform get_endTransform()
+  void set_endTransform(Transform value)
+  void .ctor()
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshHit
+Наследуется от: ValueType
+Поля:
+  Vector3 m_Position
+  Vector3 m_Normal
+  float m_Distance
+  int m_Mask
+  int m_Hit
+Свойства:
+  Vector3 position
+  Vector3 normal
+  float distance
+  int mask
+  bool hit
+Методы:
+  Vector3 get_position()
+  void set_position(Vector3 value)
+  Vector3 get_normal()
+  void set_normal(Vector3 value)
+  float get_distance()
+  void set_distance(float value)
+  int get_mask()
+  void set_mask(int value)
+  bool get_hit()
+  void set_hit(bool value)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshTriangulation
+Наследуется от: ValueType
+Поля:
+  Vector3[] vertices
+  Int32[] indices
+  Int32[] areas
+Свойства:
+  Int32[] layers
+Методы:
+  Int32[] get_layers()
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshData
+Наследуется от: Object
+Поля:
+Свойства:
+  Bounds sourceBounds
+  Vector3 position
+  Quaternion rotation
+Методы:
+  void .ctor()
+  void .ctor(int agentTypeID)
+  void Internal_Create(NavMeshData mono, int agentTypeID)
+  Bounds get_sourceBounds()
+  Vector3 get_position()
+  void set_position(Vector3 value)
+  Quaternion get_rotation()
+  void set_rotation(Quaternion value)
+  void get_sourceBounds_Injected(Bounds& ret)
+  void get_position_Injected(Vector3& ret)
+  void set_position_Injected(Vector3& value)
+  void get_rotation_Injected(Quaternion& ret)
+  void set_rotation_Injected(Quaternion& value)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshDataInstance
+Наследуется от: ValueType
+Поля:
+  int <id>k__BackingField
+Свойства:
+  bool valid
+  int id
+  Object owner
+Методы:
+  bool get_valid()
+  int get_id()
+  void set_id(int value)
+  void Remove()
+  Object get_owner()
+  void set_owner(Object value)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshLinkData
+Наследуется от: ValueType
+Поля:
+  Vector3 m_StartPosition
+  Vector3 m_EndPosition
+  float m_CostModifier
+  int m_Bidirectional
+  float m_Width
+  int m_Area
+  int m_AgentTypeID
+Свойства:
+  Vector3 startPosition
+  Vector3 endPosition
+  float costModifier
+  bool bidirectional
+  float width
+  int area
+  int agentTypeID
+Методы:
+  Vector3 get_startPosition()
+  void set_startPosition(Vector3 value)
+  Vector3 get_endPosition()
+  void set_endPosition(Vector3 value)
+  float get_costModifier()
+  void set_costModifier(float value)
+  bool get_bidirectional()
+  void set_bidirectional(bool value)
+  float get_width()
+  void set_width(float value)
+  int get_area()
+  void set_area(int value)
+  int get_agentTypeID()
+  void set_agentTypeID(int value)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshLinkInstance
+Наследуется от: ValueType
+Поля:
+  int <id>k__BackingField
+Свойства:
+  bool valid
+  int id
+  Object owner
+Методы:
+  bool get_valid()
+  int get_id()
+  void set_id(int value)
+  void Remove()
+  Object get_owner()
+  void set_owner(Object value)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshQueryFilter
+Наследуется от: ValueType
+Поля:
+  int k_AreaCostElementCount
+  Single[] <costs>k__BackingField
+  int <areaMask>k__BackingField
+  int <agentTypeID>k__BackingField
+Свойства:
+  Single[] costs
+  int areaMask
+  int agentTypeID
+Методы:
+  Single[] get_costs()
+  void set_costs(Single[] value)
+  int get_areaMask()
+  void set_areaMask(int value)
+  int get_agentTypeID()
+  void set_agentTypeID(int value)
+  float GetAreaCost(int areaIndex)
+  void SetAreaCost(int areaIndex, float cost)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMesh
+Наследуется от: object
+Поля:
+  int AllAreas
+  OnNavMeshPreUpdate onPreUpdate
+Свойства:
+  float avoidancePredictionTime
+  int pathfindingIterationsPerFrame
+Методы:
+  void Internal_CallOnNavMeshPreUpdate()
+  bool Raycast(Vector3 sourcePosition, Vector3 targetPosition, NavMeshHit& hit, int areaMask)
+  bool CalculatePath(Vector3 sourcePosition, Vector3 targetPosition, int areaMask, NavMeshPath path)
+  bool CalculatePathInternal(Vector3 sourcePosition, Vector3 targetPosition, int areaMask, NavMeshPath path)
+  bool FindClosestEdge(Vector3 sourcePosition, NavMeshHit& hit, int areaMask)
+  bool SamplePosition(Vector3 sourcePosition, NavMeshHit& hit, float maxDistance, int areaMask)
+  void SetLayerCost(int layer, float cost)
+  float GetLayerCost(int layer)
+  int GetNavMeshLayerFromName(string layerName)
+  void SetAreaCost(int areaIndex, float cost)
+  float GetAreaCost(int areaIndex)
+  int GetAreaFromName(string areaName)
+  NavMeshTriangulation CalculateTriangulation()
+  void Triangulate(Vector3[]& vertices, Int32[]& indices)
+  void AddOffMeshLinks()
+  void RestoreNavMesh()
+  float get_avoidancePredictionTime()
+  void set_avoidancePredictionTime(float value)
+  int get_pathfindingIterationsPerFrame()
+  void set_pathfindingIterationsPerFrame(int value)
+  NavMeshDataInstance AddNavMeshData(NavMeshData navMeshData)
+  NavMeshDataInstance AddNavMeshData(NavMeshData navMeshData, Vector3 position, Quaternion rotation)
+  void RemoveNavMeshData(NavMeshDataInstance handle)
+  bool IsValidNavMeshDataHandle(int handle)
+  bool IsValidLinkHandle(int handle)
+  Object InternalGetOwner(int dataID)
+  bool InternalSetOwner(int dataID, int ownerID)
+  Object InternalGetLinkOwner(int linkID)
+  bool InternalSetLinkOwner(int linkID, int ownerID)
+  int AddNavMeshDataInternal(NavMeshData navMeshData)
+  int AddNavMeshDataTransformedInternal(NavMeshData navMeshData, Vector3 position, Quaternion rotation)
+  void RemoveNavMeshDataInternal(int handle)
+  NavMeshLinkInstance AddLink(NavMeshLinkData link)
+  NavMeshLinkInstance AddLink(NavMeshLinkData link, Vector3 position, Quaternion rotation)
+  void RemoveLink(NavMeshLinkInstance handle)
+  int AddLinkInternal(NavMeshLinkData link, Vector3 position, Quaternion rotation)
+  void RemoveLinkInternal(int handle)
+  bool SamplePosition(Vector3 sourcePosition, NavMeshHit& hit, float maxDistance, NavMeshQueryFilter filter)
+  bool SamplePositionFilter(Vector3 sourcePosition, NavMeshHit& hit, float maxDistance, int type, int mask)
+  bool FindClosestEdge(Vector3 sourcePosition, NavMeshHit& hit, NavMeshQueryFilter filter)
+  bool FindClosestEdgeFilter(Vector3 sourcePosition, NavMeshHit& hit, int type, int mask)
+  bool Raycast(Vector3 sourcePosition, Vector3 targetPosition, NavMeshHit& hit, NavMeshQueryFilter filter)
+  bool RaycastFilter(Vector3 sourcePosition, Vector3 targetPosition, NavMeshHit& hit, int type, int mask)
+  bool CalculatePath(Vector3 sourcePosition, Vector3 targetPosition, NavMeshQueryFilter filter, NavMeshPath path)
+  bool CalculatePathFilterInternal(Vector3 sourcePosition, Vector3 targetPosition, NavMeshPath path, int type, int mask, Single[] costs)
+  NavMeshBuildSettings CreateSettings()
+  void RemoveSettings(int agentTypeID)
+  NavMeshBuildSettings GetSettingsByID(int agentTypeID)
+  int GetSettingsCount()
+  NavMeshBuildSettings GetSettingsByIndex(int index)
+  string GetSettingsNameFromID(int agentTypeID)
+  void RemoveAllNavMeshData()
+  bool Raycast_Injected(Vector3& sourcePosition, Vector3& targetPosition, NavMeshHit& hit, int areaMask)
+  bool CalculatePathInternal_Injected(Vector3& sourcePosition, Vector3& targetPosition, int areaMask, NavMeshPath path)
+  bool FindClosestEdge_Injected(Vector3& sourcePosition, NavMeshHit& hit, int areaMask)
+  bool SamplePosition_Injected(Vector3& sourcePosition, NavMeshHit& hit, float maxDistance, int areaMask)
+  void CalculateTriangulation_Injected(NavMeshTriangulation& ret)
+  int AddNavMeshDataTransformedInternal_Injected(NavMeshData navMeshData, Vector3& position, Quaternion& rotation)
+  int AddLinkInternal_Injected(NavMeshLinkData& link, Vector3& position, Quaternion& rotation)
+  bool SamplePositionFilter_Injected(Vector3& sourcePosition, NavMeshHit& hit, float maxDistance, int type, int mask)
+  bool FindClosestEdgeFilter_Injected(Vector3& sourcePosition, NavMeshHit& hit, int type, int mask)
+  bool RaycastFilter_Injected(Vector3& sourcePosition, Vector3& targetPosition, NavMeshHit& hit, int type, int mask)
+  bool CalculatePathFilterInternal_Injected(Vector3& sourcePosition, Vector3& targetPosition, NavMeshPath path, int type, int mask, Single[] costs)
+  void CreateSettings_Injected(NavMeshBuildSettings& ret)
+  void GetSettingsByID_Injected(int agentTypeID, NavMeshBuildSettings& ret)
+  void GetSettingsByIndex_Injected(int index, NavMeshBuildSettings& ret)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshBuildDebugFlags
+Наследуется от: Enum
+Поля:
+  int value__
+  NavMeshBuildDebugFlags None
+  NavMeshBuildDebugFlags InputGeometry
+  NavMeshBuildDebugFlags Voxels
+  NavMeshBuildDebugFlags Regions
+  NavMeshBuildDebugFlags RawContours
+  NavMeshBuildDebugFlags SimplifiedContours
+  NavMeshBuildDebugFlags PolygonMeshes
+  NavMeshBuildDebugFlags PolygonMeshesDetail
+  NavMeshBuildDebugFlags All
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshBuildSourceShape
+Наследуется от: Enum
+Поля:
+  int value__
+  NavMeshBuildSourceShape Mesh
+  NavMeshBuildSourceShape Terrain
+  NavMeshBuildSourceShape Box
+  NavMeshBuildSourceShape Sphere
+  NavMeshBuildSourceShape Capsule
+  NavMeshBuildSourceShape ModifierBox
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshCollectGeometry
+Наследуется от: Enum
+Поля:
+  int value__
+  NavMeshCollectGeometry RenderMeshes
+  NavMeshCollectGeometry PhysicsColliders
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshBuildSource
+Наследуется от: ValueType
+Поля:
+  Matrix4x4 m_Transform
+  Vector3 m_Size
+  NavMeshBuildSourceShape m_Shape
+  int m_Area
+  int m_InstanceID
+  int m_ComponentID
+Свойства:
+  Matrix4x4 transform
+  Vector3 size
+  NavMeshBuildSourceShape shape
+  int area
+  Object sourceObject
+  Component component
+Методы:
+  Matrix4x4 get_transform()
+  void set_transform(Matrix4x4 value)
+  Vector3 get_size()
+  void set_size(Vector3 value)
+  NavMeshBuildSourceShape get_shape()
+  void set_shape(NavMeshBuildSourceShape value)
+  int get_area()
+  void set_area(int value)
+  Object get_sourceObject()
+  void set_sourceObject(Object value)
+  Component get_component()
+  void set_component(Component value)
+  Component InternalGetComponent(int instanceID)
+  Object InternalGetObject(int instanceID)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshBuildMarkup
+Наследуется от: ValueType
+Поля:
+  int m_OverrideArea
+  int m_Area
+  int m_IgnoreFromBuild
+  int m_InstanceID
+Свойства:
+  bool overrideArea
+  int area
+  bool ignoreFromBuild
+  Transform root
+Методы:
+  bool get_overrideArea()
+  void set_overrideArea(bool value)
+  int get_area()
+  void set_area(int value)
+  bool get_ignoreFromBuild()
+  void set_ignoreFromBuild(bool value)
+  Transform get_root()
+  void set_root(Transform value)
+  Transform InternalGetRootGO(int instanceID)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshBuildSettings
+Наследуется от: ValueType
+Поля:
+  int m_AgentTypeID
+  float m_AgentRadius
+  float m_AgentHeight
+  float m_AgentSlope
+  float m_AgentClimb
+  float m_LedgeDropHeight
+  float m_MaxJumpAcrossDistance
+  float m_MinRegionArea
+  int m_OverrideVoxelSize
+  float m_VoxelSize
+  int m_OverrideTileSize
+  int m_TileSize
+  int m_AccuratePlacement
+  UInt32 m_MaxJobWorkers
+  int m_PreserveTilesOutsideBounds
+  NavMeshBuildDebugSettings m_Debug
+Свойства:
+  int agentTypeID
+  float agentRadius
+  float agentHeight
+  float agentSlope
+  float agentClimb
+  float minRegionArea
+  bool overrideVoxelSize
+  float voxelSize
+  bool overrideTileSize
+  int tileSize
+  UInt32 maxJobWorkers
+  bool preserveTilesOutsideBounds
+  NavMeshBuildDebugSettings debug
+Методы:
+  int get_agentTypeID()
+  void set_agentTypeID(int value)
+  float get_agentRadius()
+  void set_agentRadius(float value)
+  float get_agentHeight()
+  void set_agentHeight(float value)
+  float get_agentSlope()
+  void set_agentSlope(float value)
+  float get_agentClimb()
+  void set_agentClimb(float value)
+  float get_minRegionArea()
+  void set_minRegionArea(float value)
+  bool get_overrideVoxelSize()
+  void set_overrideVoxelSize(bool value)
+  float get_voxelSize()
+  void set_voxelSize(float value)
+  bool get_overrideTileSize()
+  void set_overrideTileSize(bool value)
+  int get_tileSize()
+  void set_tileSize(int value)
+  UInt32 get_maxJobWorkers()
+  void set_maxJobWorkers(UInt32 value)
+  bool get_preserveTilesOutsideBounds()
+  void set_preserveTilesOutsideBounds(bool value)
+  NavMeshBuildDebugSettings get_debug()
+  void set_debug(NavMeshBuildDebugSettings value)
+  String[] ValidationReport(Bounds buildBounds)
+  String[] InternalValidationReport(NavMeshBuildSettings buildSettings, Bounds buildBounds)
+  String[] InternalValidationReport_Injected(NavMeshBuildSettings& buildSettings, Bounds& buildBounds)
+--------------------------------------------------
+Класс: UnityEngine.AI.NavMeshBuildDebugSettings
+Наследуется от: ValueType
+Поля:
+  byte m_Flags
+Свойства:
+  NavMeshBuildDebugFlags flags
+Методы:
+  NavMeshBuildDebugFlags get_flags()
+  void set_flags(NavMeshBuildDebugFlags value)
+--------------------------------------------------
+Класс: UnityEngine.Experimental.AI.PolygonId
+Наследуется от: ValueType
+Поля:
+  ulong polyRef
+Свойства:
+Методы:
+  bool IsNull()
+  bool op_Equality(PolygonId x, PolygonId y)
+  bool op_Inequality(PolygonId x, PolygonId y)
+  int GetHashCode()
+  bool Equals(PolygonId rhs)
+  bool Equals(object obj)
+--------------------------------------------------
+Класс: UnityEngine.Experimental.AI.NavMeshLocation
+Наследуется от: ValueType
+Поля:
+  PolygonId <polygon>k__BackingField
+  Vector3 <position>k__BackingField
+Свойства:
+  PolygonId polygon
+  Vector3 position
+Методы:
+  PolygonId get_polygon()
+  Vector3 get_position()
+  void .ctor(Vector3 position, PolygonId polygon)
+--------------------------------------------------
+Класс: UnityEngine.Experimental.AI.PathQueryStatus
+Наследуется от: Enum
+Поля:
+  int value__
+  PathQueryStatus Failure
+  PathQueryStatus Success
+  PathQueryStatus InProgress
+  PathQueryStatus StatusDetailMask
+  PathQueryStatus WrongMagic
+  PathQueryStatus WrongVersion
+  PathQueryStatus OutOfMemory
+  PathQueryStatus InvalidParam
+  PathQueryStatus BufferTooSmall
+  PathQueryStatus OutOfNodes
+  PathQueryStatus PartialResult
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Experimental.AI.NavMeshPolyTypes
+Наследуется от: Enum
+Поля:
+  int value__
+  NavMeshPolyTypes Ground
+  NavMeshPolyTypes OffMeshConnection
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: UnityEngine.Experimental.AI.NavMeshWorld
+Наследуется от: ValueType
+Поля:
+  IntPtr world
+Свойства:
+Методы:
+  bool IsValid()
+  NavMeshWorld GetDefaultWorld()
+  void AddDependencyInternal(IntPtr navmesh, JobHandle handle)
+  void AddDependency(JobHandle job)
+  void GetDefaultWorld_Injected(NavMeshWorld& ret)
+  void AddDependencyInternal_Injected(IntPtr navmesh, JobHandle& handle)
+--------------------------------------------------
+Класс: UnityEngine.Experimental.AI.NavMeshQuery
+Наследуется от: ValueType
+Поля:
+  IntPtr m_NavMeshQuery
+Свойства:
+Методы:
+  void .ctor(NavMeshWorld world, Allocator allocator, int pathNodePoolSize)
+  void Dispose()
+  IntPtr Create(NavMeshWorld world, int nodePoolSize)
+  void Destroy(IntPtr navMeshQuery)
+  PathQueryStatus BeginFindPath(NavMeshLocation start, NavMeshLocation end, int areaMask, NativeArray`1<float> costs)
+  PathQueryStatus UpdateFindPath(int iterations, Int32& iterationsPerformed)
+  PathQueryStatus EndFindPath(Int32& pathSize)
+  int GetPathResult(NativeSlice`1<PolygonId> path)
+  PathQueryStatus BeginFindPath(IntPtr navMeshQuery, NavMeshLocation start, NavMeshLocation end, int areaMask, Void* costs)
+  PathQueryStatus UpdateFindPath(IntPtr navMeshQuery, int iterations, Int32& iterationsPerformed)
+  PathQueryStatus EndFindPath(IntPtr navMeshQuery, Int32& pathSize)
+  int GetPathResult(IntPtr navMeshQuery, Void* path, int maxPath)
+  bool IsValidPolygon(IntPtr navMeshQuery, PolygonId polygon)
+  bool IsValid(PolygonId polygon)
+  bool IsValid(NavMeshLocation location)
+  int GetAgentTypeIdForPolygon(IntPtr navMeshQuery, PolygonId polygon)
+  int GetAgentTypeIdForPolygon(PolygonId polygon)
+  bool IsPositionInPolygon(IntPtr navMeshQuery, Vector3 position, PolygonId polygon)
+  PathQueryStatus GetClosestPointOnPoly(IntPtr navMeshQuery, PolygonId polygon, Vector3 position, Vector3& nearest)
+  NavMeshLocation CreateLocation(Vector3 position, PolygonId polygon)
+  NavMeshLocation MapLocation(IntPtr navMeshQuery, Vector3 position, Vector3 extents, int agentTypeID, int areaMask)
+  NavMeshLocation MapLocation(Vector3 position, Vector3 extents, int agentTypeID, int areaMask)
+  void MoveLocations(IntPtr navMeshQuery, Void* locations, Void* targets, Void* areaMasks, int count)
+  void MoveLocations(NativeSlice`1<NavMeshLocation> locations, NativeSlice`1<Vector3> targets, NativeSlice`1<int> areaMasks)
+  void MoveLocationsInSameAreas(IntPtr navMeshQuery, Void* locations, Void* targets, int count, int areaMask)
+  void MoveLocationsInSameAreas(NativeSlice`1<NavMeshLocation> locations, NativeSlice`1<Vector3> targets, int areaMask)
+  NavMeshLocation MoveLocation(IntPtr navMeshQuery, NavMeshLocation location, Vector3 target, int areaMask)
+  NavMeshLocation MoveLocation(NavMeshLocation location, Vector3 target, int areaMask)
+  bool GetPortalPoints(IntPtr navMeshQuery, PolygonId polygon, PolygonId neighbourPolygon, Vector3& left, Vector3& right)
+  bool GetPortalPoints(PolygonId polygon, PolygonId neighbourPolygon, Vector3& left, Vector3& right)
+  Matrix4x4 PolygonLocalToWorldMatrix(IntPtr navMeshQuery, PolygonId polygon)
+  Matrix4x4 PolygonLocalToWorldMatrix(PolygonId polygon)
+  Matrix4x4 PolygonWorldToLocalMatrix(IntPtr navMeshQuery, PolygonId polygon)
+  Matrix4x4 PolygonWorldToLocalMatrix(PolygonId polygon)
+  NavMeshPolyTypes GetPolygonType(IntPtr navMeshQuery, PolygonId polygon)
+  NavMeshPolyTypes GetPolygonType(PolygonId polygon)
+  PathQueryStatus Raycast(IntPtr navMeshQuery, NavMeshLocation start, Vector3 targetPosition, int areaMask, Void* costs, NavMeshHit& hit, Void* path, Int32& pathCount, int maxPath)
+  PathQueryStatus Raycast(NavMeshHit& hit, NavMeshLocation start, Vector3 targetPosition, int areaMask, NativeArray`1<float> costs)
+  PathQueryStatus Raycast(NavMeshHit& hit, NativeSlice`1<PolygonId> path, Int32& pathCount, NavMeshLocation start, Vector3 targetPosition, int areaMask, NativeArray`1<float> costs)
+  PathQueryStatus GetEdgesAndNeighbors(IntPtr navMeshQuery, PolygonId node, int maxVerts, int maxNei, Void* verts, Void* neighbors, Void* edgeIndices, Int32& vertCount, Int32& neighborsCount)
+  PathQueryStatus GetEdgesAndNeighbors(PolygonId node, NativeSlice`1<Vector3> edgeVertices, NativeSlice`1<PolygonId> neighbors, NativeSlice`1<byte> edgeIndices, Int32& verticesCount, Int32& neighborsCount)
+  IntPtr Create_Injected(NavMeshWorld& world, int nodePoolSize)
+  PathQueryStatus BeginFindPath_Injected(IntPtr navMeshQuery, NavMeshLocation& start, NavMeshLocation& end, int areaMask, Void* costs)
+  bool IsValidPolygon_Injected(IntPtr navMeshQuery, PolygonId& polygon)
+  int GetAgentTypeIdForPolygon_Injected(IntPtr navMeshQuery, PolygonId& polygon)
+  bool IsPositionInPolygon_Injected(IntPtr navMeshQuery, Vector3& position, PolygonId& polygon)
+  PathQueryStatus GetClosestPointOnPoly_Injected(IntPtr navMeshQuery, PolygonId& polygon, Vector3& position, Vector3& nearest)
+  void MapLocation_Injected(IntPtr navMeshQuery, Vector3& position, Vector3& extents, int agentTypeID, int areaMask, NavMeshLocation& ret)
+  void MoveLocation_Injected(IntPtr navMeshQuery, NavMeshLocation& location, Vector3& target, int areaMask, NavMeshLocation& ret)
+  bool GetPortalPoints_Injected(IntPtr navMeshQuery, PolygonId& polygon, PolygonId& neighbourPolygon, Vector3& left, Vector3& right)
+  void PolygonLocalToWorldMatrix_Injected(IntPtr navMeshQuery, PolygonId& polygon, Matrix4x4& ret)
+  void PolygonWorldToLocalMatrix_Injected(IntPtr navMeshQuery, PolygonId& polygon, Matrix4x4& ret)
+  NavMeshPolyTypes GetPolygonType_Injected(IntPtr navMeshQuery, PolygonId& polygon)
+  PathQueryStatus Raycast_Injected(IntPtr navMeshQuery, NavMeshLocation& start, Vector3& targetPosition, int areaMask, Void* costs, NavMeshHit& hit, Void* path, Int32& pathCount, int maxPath)
+  PathQueryStatus GetEdgesAndNeighbors_Injected(IntPtr navMeshQuery, PolygonId& node, int maxVerts, int maxNei, Void* verts, Void* neighbors, Void* edgeIndices, Int32& vertCount, Int32& neighborsCount)
+--------------------------------------------------

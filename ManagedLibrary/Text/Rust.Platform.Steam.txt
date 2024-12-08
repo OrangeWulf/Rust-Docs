@@ -1,0 +1,251 @@
+Сборка: Rust.Platform.Steam.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamAchievement
+Наследуется от: object
+Поля:
+  Achievement _achievement
+Свойства:
+  string Key
+  bool IsUnlocked
+Методы:
+  string get_Key()
+  bool get_IsUnlocked()
+  void .ctor(Achievement achievement)
+  void Unlock()
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamAuthTicket
+Наследуется от: object
+Поля:
+  AuthTicket _ticket
+  string <Token>k__BackingField
+  Byte[] <Data>k__BackingField
+Свойства:
+  string Token
+  Byte[] Data
+Методы:
+  string get_Token()
+  Byte[] get_Data()
+  void .ctor(AuthTicket ticket)
+  void Dispose()
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamDownloadableContent
+Наследуется от: object
+Поля:
+  int <AppId>k__BackingField
+Свойства:
+  int AppId
+  bool IsInstalled
+Методы:
+  int get_AppId()
+  bool get_IsInstalled()
+  void .ctor(int appId)
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamInventory
+Наследуется от: object
+Поля:
+  InventoryResult <Value>k__BackingField
+  IReadOnlyList`1<IPlayerItem> <Items>k__BackingField
+Свойства:
+  InventoryResult Value
+  IReadOnlyList`1<IPlayerItem> Items
+Методы:
+  InventoryResult get_Value()
+  IReadOnlyList`1<IPlayerItem> get_Items()
+  void .ctor(InventoryResult inventory)
+  void Dispose()
+  bool BelongsTo(ulong userId)
+  Byte[] Serialize()
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamItem
+Наследуется от: object
+Поля:
+  InventoryItem Value
+Свойства:
+  int DefinitionId
+  int Quantity
+  DateTimeOffset Acquired
+  ulong WorkshopId
+  string ItemShortName
+Методы:
+  void .ctor(InventoryItem item)
+  int get_DefinitionId()
+  int get_Quantity()
+  DateTimeOffset get_Acquired()
+  ulong get_WorkshopId()
+  string get_ItemShortName()
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamItemDefinition
+Наследуется от: object
+Поля:
+  InventoryDef <Value>k__BackingField
+Свойства:
+  InventoryDef Value
+  int DefinitionId
+  string Name
+  string Description
+  string Type
+  string IconUrl
+  int LocalPrice
+  string LocalPriceFormatted
+  string PriceCategory
+  bool IsGenerator
+  bool IsMarketable
+  string StoreTags
+  string ItemShortName
+  ulong WorkshopId
+  ulong WorkshopDownload
+Методы:
+  InventoryDef get_Value()
+  void .ctor(InventoryDef value)
+  int get_DefinitionId()
+  string get_Name()
+  string get_Description()
+  string get_Type()
+  string get_IconUrl()
+  int get_LocalPrice()
+  string get_LocalPriceFormatted()
+  string get_PriceCategory()
+  bool get_IsGenerator()
+  bool get_IsMarketable()
+  string get_StoreTags()
+  string get_ItemShortName()
+  ulong get_WorkshopId()
+  ulong get_WorkshopDownload()
+  IEnumerable`1<PlayerItemRecipe> GetRecipesContainingThis()
+  PlayerItemRecipe SteamToPlatformRecipe(InventoryRecipe recipe)
+  bool Equals(IPlayerItemDefinition other)
+  bool Equals(object obj)
+  int GetHashCode()
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamPlatform
+Наследуется от: object
+Поля:
+  IPlatformHooks _hooks
+  bool _initialized
+  IReadOnlyList`1<IPlayerItemDefinition> <ItemDefinitions>k__BackingField
+Свойства:
+  bool IsValid
+  IReadOnlyList`1<IPlayerItemDefinition> ItemDefinitions
+Методы:
+  bool get_IsValid()
+  bool Initialize(IPlatformHooks hooks)
+  void Shutdown()
+  void Update()
+  AuthResponse RemapAuthResponse(AuthResponse response)
+  void DebugPrintSteamCallback(CallbackType type, string content, bool isServer)
+  bool PlayerOwnsDownloadableContent(ulong userId, int appId)
+  IReadOnlyList`1<IPlayerItemDefinition> get_ItemDefinitions()
+  void set_ItemDefinitions(IReadOnlyList`1<IPlayerItemDefinition> value)
+  void RefreshItemDefinitions()
+  IPlayerItemDefinition GetItemDefinition(int definitionId)
+  void OnDefinitionsUpdated()
+  Task`1<IPlayerInventory> DeserializeInventory(Byte[] data)
+  void StartSteamServer()
+  void OnSteamServersDisconnected(Result result)
+  void OnSteamConnected()
+  void OnSteamConnectionFailure(Result result, bool stilltrying)
+  bool BeginPlayerSession(ulong userId, Byte[] authToken)
+  void UpdatePlayerSession(ulong userId, string userName)
+  void EndPlayerSession(ulong userId)
+  ServerInfo ToPlatformServer(ServerInfo info)
+  ServerInfo ToSteamServer(ServerInfo server)
+  Task`1<bool> LoadPlayerStats(ulong userId)
+  Task`1<bool> SavePlayerStats(ulong userId)
+  long GetPlayerStatInt(ulong userId, string key, long defaultValue)
+  bool SetPlayerStatInt(ulong userId, string key, long value)
+  void .ctor()
+  void <StartSteamServer>b__18_0(SteamId steamId, SteamId ownerSteamId, AuthResponse response)
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamPlayer
+Наследуется от: object
+Поля:
+  Friend <Value>k__BackingField
+Свойства:
+  Friend Value
+  ulong UserId
+  string UserName
+  bool IsOnline
+  bool IsMe
+  bool IsFriend
+  bool IsPlayingThisGame
+  string ServerEndpoint
+Методы:
+  Friend get_Value()
+  ulong get_UserId()
+  string get_UserName()
+  bool get_IsOnline()
+  bool get_IsMe()
+  bool get_IsFriend()
+  bool get_IsPlayingThisGame()
+  string get_ServerEndpoint()
+  void .ctor(Friend value)
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamServerQuery
+Наследуется от: object
+Поля:
+  ServerQuerySet <QuerySet>k__BackingField
+  Base <Query>k__BackingField
+  IReadOnlyList`1<ServerInfo> <Servers>k__BackingField
+  Action`1<ServerInfo> OnServerFound
+Свойства:
+  ServerQuerySet QuerySet
+  Base Query
+  IReadOnlyList`1<ServerInfo> Servers
+Методы:
+  ServerQuerySet get_QuerySet()
+  Base get_Query()
+  void set_Query(Base value)
+  IReadOnlyList`1<ServerInfo> get_Servers()
+  void add_OnServerFound(Action`1<ServerInfo> value)
+  void remove_OnServerFound(Action`1<ServerInfo> value)
+  void .ctor(ServerQuerySet set, Base query)
+  void Dispose()
+  void AddFilter(string key, string value)
+  Task RunQueryAsync(double timeoutInSeconds)
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamUtil
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Rust.Platform.Steam.SteamWorkshopContent
+Наследуется от: object
+Поля:
+  Item <Value>k__BackingField
+Свойства:
+  Item Value
+  ulong WorkshopId
+  string Title
+  string Description
+  IEnumerable`1<string> Tags
+  string Url
+  string PreviewImageUrl
+  ulong OwnerId
+  IPlayerInfo Owner
+  bool IsInstalled
+  bool IsDownloadPending
+  bool IsDownloading
+  string Directory
+Методы:
+  Item get_Value()
+  ulong get_WorkshopId()
+  string get_Title()
+  string get_Description()
+  IEnumerable`1<string> get_Tags()
+  string get_Url()
+  string get_PreviewImageUrl()
+  ulong get_OwnerId()
+  IPlayerInfo get_Owner()
+  bool get_IsInstalled()
+  bool get_IsDownloadPending()
+  bool get_IsDownloading()
+  string get_Directory()
+  void .ctor(Item item)
+  bool Download()
+--------------------------------------------------

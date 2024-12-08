@@ -1,0 +1,142 @@
+Сборка: Mono.Cecil.Rocks.dll
+==================================================
+Класс: <Module>
+Поля:
+Свойства:
+Методы:
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.DocCommentId
+Наследуется от: object
+Поля:
+  StringBuilder id
+Свойства:
+Методы:
+  void .ctor()
+  void WriteField(FieldDefinition field)
+  void WriteEvent(EventDefinition event)
+  void WriteType(TypeDefinition type)
+  void WriteMethod(MethodDefinition method)
+  bool IsConversionOperator(MethodDefinition self)
+  void WriteReturnType(MethodDefinition method)
+  void WriteProperty(PropertyDefinition property)
+  void WriteParameters(IList`1<ParameterDefinition> parameters)
+  void WriteTypeSignature(TypeReference type)
+  void WriteGenericInstanceTypeSignature(GenericInstanceType type)
+  void WriteList(IList`1<T> list, Action`1<T> action)
+  void WriteModiferTypeSignature(IModifierType type, char id)
+  void WriteFunctionPointerTypeSignature(FunctionPointerType type)
+  void WriteArrayTypeSignature(ArrayType type)
+  void WriteDefinition(char id, IMemberDefinition member)
+  void WriteTypeFullName(TypeReference type, bool stripGenericArity)
+  void WriteItemName(string name)
+  string ToString()
+  string GetDocCommentId(IMemberDefinition member)
+  void <WriteParameters>b__9_0(ParameterDefinition p)
+  void <WriteArrayTypeSignature>b__15_0(ArrayDimension dimension)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.Functional
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  Func`2<A, R> Y(Func`2<Func`2<A, R>, Func`2<A, R>> f)
+  IEnumerable`1<TSource> Prepend(IEnumerable`1<TSource> source, TSource element)
+  IEnumerable`1<TSource> PrependIterator(IEnumerable`1<TSource> source, TSource element)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.IILVisitor
+Поля:
+Свойства:
+Методы:
+  void OnInlineNone(OpCode opcode)
+  void OnInlineSByte(OpCode opcode, sbyte value)
+  void OnInlineByte(OpCode opcode, byte value)
+  void OnInlineInt32(OpCode opcode, int value)
+  void OnInlineInt64(OpCode opcode, long value)
+  void OnInlineSingle(OpCode opcode, float value)
+  void OnInlineDouble(OpCode opcode, double value)
+  void OnInlineString(OpCode opcode, string value)
+  void OnInlineBranch(OpCode opcode, int offset)
+  void OnInlineSwitch(OpCode opcode, Int32[] offsets)
+  void OnInlineVariable(OpCode opcode, VariableDefinition variable)
+  void OnInlineArgument(OpCode opcode, ParameterDefinition parameter)
+  void OnInlineSignature(OpCode opcode, CallSite callSite)
+  void OnInlineType(OpCode opcode, TypeReference type)
+  void OnInlineField(OpCode opcode, FieldReference field)
+  void OnInlineMethod(OpCode opcode, MethodReference method)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.ILParser
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void Parse(MethodDefinition method, IILVisitor visitor)
+  void ParseMethod(MethodDefinition method, IILVisitor visitor)
+  ParseContext CreateContext(MethodDefinition method, IILVisitor visitor)
+  void ParseFatMethod(ParseContext context)
+  void ParseCode(int code_size, ParseContext context)
+  VariableDefinition GetVariable(ParseContext context, int index)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.MethodBodyRocks
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  void SimplifyMacros(MethodBody self)
+  void ExpandMacro(Instruction instruction, OpCode opcode, object operand)
+  void MakeMacro(Instruction instruction, OpCode opcode)
+  void Optimize(MethodBody self)
+  void OptimizeLongs(MethodBody self)
+  void OptimizeMacros(MethodBody self)
+  void OptimizeBranches(MethodBody body)
+  bool OptimizeBranch(Instruction instruction)
+  void ComputeOffsets(MethodBody body)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.MethodDefinitionRocks
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  MethodDefinition GetBaseMethod(MethodDefinition self)
+  MethodDefinition GetOriginalBaseMethod(MethodDefinition self)
+  TypeDefinition ResolveBaseType(TypeDefinition type)
+  MethodDefinition GetMatchingMethod(TypeDefinition type, MethodDefinition method)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.ModuleDefinitionRocks
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IEnumerable`1<TypeDefinition> GetAllTypes(ModuleDefinition self)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.ParameterReferenceRocks
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  int GetSequence(ParameterReference self)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.TypeDefinitionRocks
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  IEnumerable`1<MethodDefinition> GetConstructors(TypeDefinition self)
+  MethodDefinition GetStaticConstructor(TypeDefinition self)
+  IEnumerable`1<MethodDefinition> GetMethods(TypeDefinition self)
+  TypeReference GetEnumUnderlyingType(TypeDefinition self)
+--------------------------------------------------
+Класс: Mono.Cecil.Rocks.TypeReferenceRocks
+Наследуется от: object
+Поля:
+Свойства:
+Методы:
+  ArrayType MakeArrayType(TypeReference self)
+  ArrayType MakeArrayType(TypeReference self, int rank)
+  PointerType MakePointerType(TypeReference self)
+  ByReferenceType MakeByReferenceType(TypeReference self)
+  OptionalModifierType MakeOptionalModifierType(TypeReference self, TypeReference modifierType)
+  RequiredModifierType MakeRequiredModifierType(TypeReference self, TypeReference modifierType)
+  GenericInstanceType MakeGenericInstanceType(TypeReference self, TypeReference[] arguments)
+  PinnedType MakePinnedType(TypeReference self)
+  SentinelType MakeSentinelType(TypeReference self)
+--------------------------------------------------
